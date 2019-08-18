@@ -1,2 +1,3 @@
-# cheqDemo
-demo app
+# Cheq Beta
+
+iOS Beta app
