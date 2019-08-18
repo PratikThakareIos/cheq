@@ -44,6 +44,7 @@
 		96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069422FE70B100173743 /* CPieViewFormatter.swift */; };
 		96B0069822FE72A700173743 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069722FE72A700173743 /* CommonEnums.swift */; };
 		96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069922FE7CF700173743 /* CChartModel.swift */; };
+		96BC6547230989EE00780D36 /* libCheqAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BC6546230989EE00780D36 /* libCheqAPI.a */; };
 		FC81CFB907500B248A428194 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */; };
 		FDD51F361893A58BCD3C876E /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		96B0069422FE70B100173743 /* CPieViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPieViewFormatter.swift; sourceTree = "<group>"; };
 		96B0069722FE72A700173743 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
 		96B0069922FE7CF700173743 /* CChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CChartModel.swift; sourceTree = "<group>"; };
+		96BC6546230989EE00780D36 /* libCheqAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCheqAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C798FA601387B795C7DCC2CB /* Pods-CheqDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.release.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BC6547230989EE00780D36 /* libCheqAPI.a in Frameworks */,
 				FDD51F361893A58BCD3C876E /* Pods_CheqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +153,7 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96BC6546230989EE00780D36 /* libCheqAPI.a */,
 				AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */,
 				D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */,
 			);
@@ -833,7 +837,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYEZ379B3G;
-				INFOPLIST_FILE = CheqDemoTests/Info.plist;
+				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -855,7 +859,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYEZ379B3G;
-				INFOPLIST_FILE = CheqDemoTests/Info.plist;
+				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

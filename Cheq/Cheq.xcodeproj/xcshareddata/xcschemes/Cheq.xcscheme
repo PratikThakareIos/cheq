@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Cheq.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "96BC653B2309884D00780D36"
+               BuildableName = "libCheqAPI.a"
+               BlueprintName = "CheqAPI"
+               ReferencedContainer = "container:CheqAPI/CheqAPI.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
