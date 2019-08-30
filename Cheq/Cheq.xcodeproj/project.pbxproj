@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06EFB46747EE069377A6B178 /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */; };
+		9619238223155FC5005A4F09 /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619238123155FC5005A4F09 /* XCTestConfig.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -44,9 +46,50 @@
 		96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069422FE70B100173743 /* CPieViewFormatter.swift */; };
 		96B0069822FE72A700173743 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069722FE72A700173743 /* CommonEnums.swift */; };
 		96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069922FE7CF700173743 /* CChartModel.swift */; };
-		96BC6547230989EE00780D36 /* libCheqAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BC6546230989EE00780D36 /* libCheqAPI.a */; };
+		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
+		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
+		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
+		96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD33230E897400AE6CBB /* AuthUser.swift */; };
+		96FADD38230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */; };
+		96FADE70230EC64B00AE6CBB /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE4C230EC64900AE6CBB /* APIHelper.swift */; };
+		96FADE71230EC64B00AE6CBB /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE4D230EC64900AE6CBB /* AlamofireImplementations.swift */; };
+		96FADE72230EC64B00AE6CBB /* GeoLocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE4F230EC64900AE6CBB /* GeoLocationAPI.swift */; };
+		96FADE73230EC64B00AE6CBB /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE50230EC64900AE6CBB /* FinancesAPI.swift */; };
+		96FADE74230EC64B00AE6CBB /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE51230EC64900AE6CBB /* UsersAPI.swift */; };
+		96FADE75230EC64B00AE6CBB /* TimeSheetsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE52230EC64900AE6CBB /* TimeSheetsAPI.swift */; };
+		96FADE76230EC64B00AE6CBB /* HealthCheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE53230EC64900AE6CBB /* HealthCheckAPI.swift */; };
+		96FADE77230EC64B00AE6CBB /* LocationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE54230EC64900AE6CBB /* LocationsAPI.swift */; };
+		96FADE78230EC64B00AE6CBB /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE55230EC64900AE6CBB /* FirebaseAPI.swift */; };
+		96FADE79230EC64B00AE6CBB /* LogosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE56230EC64900AE6CBB /* LogosAPI.swift */; };
+		96FADE7A230EC64B00AE6CBB /* SpendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE57230EC64900AE6CBB /* SpendingAPI.swift */; };
+		96FADE7B230EC64B00AE6CBB /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE58230EC64900AE6CBB /* CodableHelper.swift */; };
+		96FADE7C230EC64B00AE6CBB /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE59230EC64900AE6CBB /* JSONEncodableEncoding.swift */; };
+		96FADE7D230EC64B00AE6CBB /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE5A230EC64900AE6CBB /* APIs.swift */; };
+		96FADE7E230EC64B00AE6CBB /* PutUserKycRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE5C230EC64900AE6CBB /* PutUserKycRequest.swift */; };
+		96FADE7F230EC64B00AE6CBB /* PutUserEmployerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE5D230EC64900AE6CBB /* PutUserEmployerRequest.swift */; };
+		96FADE80230EC64B00AE6CBB /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE5E230EC64900AE6CBB /* PostFinancialTransactionRequest.swift */; };
+		96FADE81230EC64B00AE6CBB /* PostGeoLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE5F230EC64900AE6CBB /* PostGeoLocationRequest.swift */; };
+		96FADE82230EC64B00AE6CBB /* PutUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE60230EC64900AE6CBB /* PutUserRequest.swift */; };
+		96FADE83230EC64B00AE6CBB /* GetTodaySpendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE61230EC64900AE6CBB /* GetTodaySpendingResponse.swift */; };
+		96FADE84230EC64B00AE6CBB /* PostFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE62230EC64900AE6CBB /* PostFinancialAccountRequest.swift */; };
+		96FADE85230EC64B00AE6CBB /* GetSpendingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE63230EC64900AE6CBB /* GetSpendingResponse.swift */; };
+		96FADE86230EC64B00AE6CBB /* CategoryStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE64230EC64900AE6CBB /* CategoryStat.swift */; };
+		96FADE87230EC64B00AE6CBB /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE65230EC64900AE6CBB /* GetUserResponse.swift */; };
+		96FADE88230EC64B00AE6CBB /* GetAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE66230EC64900AE6CBB /* GetAddressResponse.swift */; };
+		96FADE89230EC64B00AE6CBB /* GetEmployerPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE67230EC64900AE6CBB /* GetEmployerPlaceResponse.swift */; };
+		96FADE8A230EC64B00AE6CBB /* IFormFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE68230EC64900AE6CBB /* IFormFile.swift */; };
+		96FADE8B230EC64B00AE6CBB /* PostWithdrawRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE69230EC64900AE6CBB /* PostWithdrawRequest.swift */; };
+		96FADE8C230EC64B00AE6CBB /* PostFinancialInstitutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6A230EC64900AE6CBB /* PostFinancialInstitutionRequest.swift */; };
+		96FADE8D230EC64B00AE6CBB /* PostPushNotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6B230EC64900AE6CBB /* PostPushNotificationRequest.swift */; };
+		96FADE8E230EC64B00AE6CBB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6C230EC64900AE6CBB /* Extensions.swift */; };
+		96FADE8F230EC64B00AE6CBB /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6D230EC64900AE6CBB /* JSONEncodingHelper.swift */; };
+		96FADE90230EC64B00AE6CBB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6E230EC64900AE6CBB /* Models.swift */; };
+		96FADE91230EC64B00AE6CBB /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE6F230EC64900AE6CBB /* Configuration.swift */; };
+		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
+		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
+		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
+		96FADEA2230EDD9000AE6CBB /* AuthUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADEA1230EDD9000AE6CBB /* AuthUserUtil.swift */; };
 		FC81CFB907500B248A428194 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */; };
-		FDD51F361893A58BCD3C876E /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +109,7 @@
 		44FC537C7FA5F20A118E5EE3 /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6BC1742E601FD3D7F376A4B3 /* Pods-CheqDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79BDF7ED3FA15B62DEDE5A0E /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9619238123155FC5005A4F09 /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
 		9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModelUtil.swift; sourceTree = "<group>"; };
@@ -107,7 +151,49 @@
 		96B0069422FE70B100173743 /* CPieViewFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPieViewFormatter.swift; sourceTree = "<group>"; };
 		96B0069722FE72A700173743 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
 		96B0069922FE7CF700173743 /* CChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CChartModel.swift; sourceTree = "<group>"; };
-		96BC6546230989EE00780D36 /* libCheqAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCheqAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
+		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
+		96FADD33230E897400AE6CBB /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
+		96FADE4C230EC64900AE6CBB /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		96FADE4D230EC64900AE6CBB /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
+		96FADE4F230EC64900AE6CBB /* GeoLocationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocationAPI.swift; sourceTree = "<group>"; };
+		96FADE50230EC64900AE6CBB /* FinancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancesAPI.swift; sourceTree = "<group>"; };
+		96FADE51230EC64900AE6CBB /* UsersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersAPI.swift; sourceTree = "<group>"; };
+		96FADE52230EC64900AE6CBB /* TimeSheetsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetsAPI.swift; sourceTree = "<group>"; };
+		96FADE53230EC64900AE6CBB /* HealthCheckAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCheckAPI.swift; sourceTree = "<group>"; };
+		96FADE54230EC64900AE6CBB /* LocationsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsAPI.swift; sourceTree = "<group>"; };
+		96FADE55230EC64900AE6CBB /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		96FADE56230EC64900AE6CBB /* LogosAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogosAPI.swift; sourceTree = "<group>"; };
+		96FADE57230EC64900AE6CBB /* SpendingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingAPI.swift; sourceTree = "<group>"; };
+		96FADE58230EC64900AE6CBB /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		96FADE59230EC64900AE6CBB /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
+		96FADE5A230EC64900AE6CBB /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		96FADE5C230EC64900AE6CBB /* PutUserKycRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserKycRequest.swift; sourceTree = "<group>"; };
+		96FADE5D230EC64900AE6CBB /* PutUserEmployerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserEmployerRequest.swift; sourceTree = "<group>"; };
+		96FADE5E230EC64900AE6CBB /* PostFinancialTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialTransactionRequest.swift; sourceTree = "<group>"; };
+		96FADE5F230EC64900AE6CBB /* PostGeoLocationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGeoLocationRequest.swift; sourceTree = "<group>"; };
+		96FADE60230EC64900AE6CBB /* PutUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserRequest.swift; sourceTree = "<group>"; };
+		96FADE61230EC64900AE6CBB /* GetTodaySpendingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTodaySpendingResponse.swift; sourceTree = "<group>"; };
+		96FADE62230EC64900AE6CBB /* PostFinancialAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialAccountRequest.swift; sourceTree = "<group>"; };
+		96FADE63230EC64900AE6CBB /* GetSpendingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingResponse.swift; sourceTree = "<group>"; };
+		96FADE64230EC64900AE6CBB /* CategoryStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStat.swift; sourceTree = "<group>"; };
+		96FADE65230EC64900AE6CBB /* GetUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
+		96FADE66230EC64900AE6CBB /* GetAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddressResponse.swift; sourceTree = "<group>"; };
+		96FADE67230EC64900AE6CBB /* GetEmployerPlaceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEmployerPlaceResponse.swift; sourceTree = "<group>"; };
+		96FADE68230EC64900AE6CBB /* IFormFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFormFile.swift; sourceTree = "<group>"; };
+		96FADE69230EC64900AE6CBB /* PostWithdrawRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWithdrawRequest.swift; sourceTree = "<group>"; };
+		96FADE6A230EC64900AE6CBB /* PostFinancialInstitutionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialInstitutionRequest.swift; sourceTree = "<group>"; };
+		96FADE6B230EC64900AE6CBB /* PostPushNotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPushNotificationRequest.swift; sourceTree = "<group>"; };
+		96FADE6C230EC64900AE6CBB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		96FADE6D230EC64900AE6CBB /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
+		96FADE6E230EC64900AE6CBB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		96FADE6F230EC64900AE6CBB /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
+		96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
+		96FADEA1230EDD9000AE6CBB /* AuthUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthUserUtil.swift; sourceTree = "<group>"; };
 		AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C798FA601387B795C7DCC2CB /* Pods-CheqDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.release.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,8 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96BC6547230989EE00780D36 /* libCheqAPI.a in Frameworks */,
-				FDD51F361893A58BCD3C876E /* Pods_CheqTests.framework in Frameworks */,
+				06EFB46747EE069377A6B178 /* Pods_CheqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,11 +238,18 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96BC6546230989EE00780D36 /* libCheqAPI.a */,
 				AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */,
 				D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9619238023155FA8005A4F09 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9619238123155FC5005A4F09 /* XCTestConfig.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		9629A58C22FC302000828FCF /* CollectionViewCell */ = {
@@ -206,6 +298,7 @@
 		9629A59F22FCC73C00828FCF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				96FADEA1230EDD9000AE6CBB /* AuthUserUtil.swift */,
 				9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */,
 				9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */,
 				96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */,
@@ -245,6 +338,7 @@
 		9676521222FAFD01001E43E0 /* Cheq */ = {
 			isa = PBXGroup;
 			children = (
+				96FADE98230ED16500AE6CBB /* Storage */,
 				9676525722FB080F001E43E0 /* Service */,
 				9676524322FB061B001E43E0 /* Common */,
 				9676523722FB0136001E43E0 /* Features */,
@@ -253,6 +347,7 @@
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
 				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
 				9676522122FAFD03001E43E0 /* Info.plist */,
+				96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */,
 				9676525F22FB0946001E43E0 /* TabViewController.swift */,
 			);
 			path = Cheq;
@@ -261,6 +356,9 @@
 		9676522922FAFD04001E43E0 /* CheqTests */ = {
 			isa = PBXGroup;
 			children = (
+				9619238023155FA8005A4F09 /* Common */,
+				96FADE9D230ED9FF00AE6CBB /* IntegrationTests */,
+				96FADE9E230ED9FF00AE6CBB /* UnitTests */,
 				9676522A22FAFD04001E43E0 /* CheqTests.swift */,
 				9676522C22FAFD04001E43E0 /* Info.plist */,
 			);
@@ -351,6 +449,9 @@
 		9676525722FB080F001E43E0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				96FADE95230EC96700AE6CBB /* Enums */,
+				96FADE4A230EC64900AE6CBB /* CheqAPI */,
+				96FADD29230E82C900AE6CBB /* AuthManager */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -409,6 +510,138 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		96FADD29230E82C900AE6CBB /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD32230E895F00AE6CBB /* Model */,
+				96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */,
+				96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */,
+				96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		96FADD32230E895F00AE6CBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD33230E897400AE6CBB /* AuthUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96FADD35230E8E1600AE6CBB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD36230E8E1C00AE6CBB /* AuthManager */,
+			);
+			name = Service;
+			path = ../Service;
+			sourceTree = "<group>";
+		};
+		96FADD36230E8E1C00AE6CBB /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		96FADE4A230EC64900AE6CBB /* CheqAPI */ = {
+			isa = PBXGroup;
+			children = (
+				96FADE4B230EC64900AE6CBB /* v1 */,
+			);
+			path = CheqAPI;
+			sourceTree = "<group>";
+		};
+		96FADE4B230EC64900AE6CBB /* v1 */ = {
+			isa = PBXGroup;
+			children = (
+				96FADE4C230EC64900AE6CBB /* APIHelper.swift */,
+				96FADE4D230EC64900AE6CBB /* AlamofireImplementations.swift */,
+				96FADE4E230EC64900AE6CBB /* APIs */,
+				96FADE58230EC64900AE6CBB /* CodableHelper.swift */,
+				96FADE59230EC64900AE6CBB /* JSONEncodableEncoding.swift */,
+				96FADE5A230EC64900AE6CBB /* APIs.swift */,
+				96FADE5B230EC64900AE6CBB /* Models */,
+				96FADE6C230EC64900AE6CBB /* Extensions.swift */,
+				96FADE6D230EC64900AE6CBB /* JSONEncodingHelper.swift */,
+				96FADE6E230EC64900AE6CBB /* Models.swift */,
+				96FADE6F230EC64900AE6CBB /* Configuration.swift */,
+			);
+			path = v1;
+			sourceTree = "<group>";
+		};
+		96FADE4E230EC64900AE6CBB /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				96FADE4F230EC64900AE6CBB /* GeoLocationAPI.swift */,
+				96FADE50230EC64900AE6CBB /* FinancesAPI.swift */,
+				96FADE51230EC64900AE6CBB /* UsersAPI.swift */,
+				96FADE52230EC64900AE6CBB /* TimeSheetsAPI.swift */,
+				96FADE53230EC64900AE6CBB /* HealthCheckAPI.swift */,
+				96FADE54230EC64900AE6CBB /* LocationsAPI.swift */,
+				96FADE55230EC64900AE6CBB /* FirebaseAPI.swift */,
+				96FADE56230EC64900AE6CBB /* LogosAPI.swift */,
+				96FADE57230EC64900AE6CBB /* SpendingAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		96FADE5B230EC64900AE6CBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96FADE5C230EC64900AE6CBB /* PutUserKycRequest.swift */,
+				96FADE5D230EC64900AE6CBB /* PutUserEmployerRequest.swift */,
+				96FADE5E230EC64900AE6CBB /* PostFinancialTransactionRequest.swift */,
+				96FADE5F230EC64900AE6CBB /* PostGeoLocationRequest.swift */,
+				96FADE60230EC64900AE6CBB /* PutUserRequest.swift */,
+				96FADE61230EC64900AE6CBB /* GetTodaySpendingResponse.swift */,
+				96FADE62230EC64900AE6CBB /* PostFinancialAccountRequest.swift */,
+				96FADE63230EC64900AE6CBB /* GetSpendingResponse.swift */,
+				96FADE64230EC64900AE6CBB /* CategoryStat.swift */,
+				96FADE65230EC64900AE6CBB /* GetUserResponse.swift */,
+				96FADE66230EC64900AE6CBB /* GetAddressResponse.swift */,
+				96FADE67230EC64900AE6CBB /* GetEmployerPlaceResponse.swift */,
+				96FADE68230EC64900AE6CBB /* IFormFile.swift */,
+				96FADE69230EC64900AE6CBB /* PostWithdrawRequest.swift */,
+				96FADE6A230EC64900AE6CBB /* PostFinancialInstitutionRequest.swift */,
+				96FADE6B230EC64900AE6CBB /* PostPushNotificationRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96FADE95230EC96700AE6CBB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD30230E856500AE6CBB /* ServiceEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		96FADE98230ED16500AE6CBB /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				96FADE99230ED19300AE6CBB /* CKeychain.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		96FADE9D230ED9FF00AE6CBB /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				96FADD35230E8E1600AE6CBB /* Service */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		96FADE9E230ED9FF00AE6CBB /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +654,7 @@
 				9676520D22FAFD01001E43E0 /* Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				3142DB9627DFB2FC9A0DDA79 /* [CP] Embed Pods Frameworks */,
+				C44C4F20274F7AF044C0FB30 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -495,6 +729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
+				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */,
 			);
@@ -566,6 +801,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C44C4F20274F7AF044C0FB30 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E2861FED995F3DF7850125EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,38 +848,79 @@
 			buildActionMask = 2147483647;
 			files = (
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
+				96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */,
+				96FADE91230EC64B00AE6CBB /* Configuration.swift in Sources */,
+				96FADE76230EC64B00AE6CBB /* HealthCheckAPI.swift in Sources */,
 				963D62F222FB225B006344C9 /* GridCollectionViewCoordinator.swift in Sources */,
 				9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				96FADE8A230EC64B00AE6CBB /* IFormFile.swift in Sources */,
+				96FADE71230EC64B00AE6CBB /* AlamofireImplementations.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
 				9676525622FB07E5001E43E0 /* AnalyticsViewModel.swift in Sources */,
+				96FADE74230EC64B00AE6CBB /* UsersAPI.swift in Sources */,
+				96FADE89230EC64B00AE6CBB /* GetEmployerPlaceResponse.swift in Sources */,
+				96FADE8F230EC64B00AE6CBB /* JSONEncodingHelper.swift in Sources */,
+				96FADEA2230EDD9000AE6CBB /* AuthUserUtil.swift in Sources */,
+				96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */,
+				96FADE82230EC64B00AE6CBB /* PutUserRequest.swift in Sources */,
+				96FADE75230EC64B00AE6CBB /* TimeSheetsAPI.swift in Sources */,
+				96FADE85230EC64B00AE6CBB /* GetSpendingResponse.swift in Sources */,
+				96FADE83230EC64B00AE6CBB /* GetTodaySpendingResponse.swift in Sources */,
 				9676526022FB0946001E43E0 /* TabViewController.swift in Sources */,
+				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
 				9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */,
+				96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */,
+				96FADE7C230EC64B00AE6CBB /* JSONEncodableEncoding.swift in Sources */,
+				96FADE87230EC64B00AE6CBB /* GetUserResponse.swift in Sources */,
 				96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */,
+				96FADE8B230EC64B00AE6CBB /* PostWithdrawRequest.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
+				96FADE8E230EC64B00AE6CBB /* Extensions.swift in Sources */,
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
+				96FADE72230EC64B00AE6CBB /* GeoLocationAPI.swift in Sources */,
 				9676524022FB05D1001E43E0 /* AnalyticsViewController.swift in Sources */,
+				96FADE84230EC64B00AE6CBB /* PostFinancialAccountRequest.swift in Sources */,
 				96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */,
 				96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */,
+				96FADE7F230EC64B00AE6CBB /* PutUserEmployerRequest.swift in Sources */,
+				96FADE8C230EC64B00AE6CBB /* PostFinancialInstitutionRequest.swift in Sources */,
+				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
+				96FADE7E230EC64B00AE6CBB /* PutUserKycRequest.swift in Sources */,
+				96FADE7B230EC64B00AE6CBB /* CodableHelper.swift in Sources */,
+				96FADE70230EC64B00AE6CBB /* APIHelper.swift in Sources */,
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
+				96FADE77230EC64B00AE6CBB /* LocationsAPI.swift in Sources */,
+				96FADE78230EC64B00AE6CBB /* FirebaseAPI.swift in Sources */,
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
+				96FADE86230EC64B00AE6CBB /* CategoryStat.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
+				96FADE79230EC64B00AE6CBB /* LogosAPI.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
+				96FADE88230EC64B00AE6CBB /* GetAddressResponse.swift in Sources */,
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
+				96FADE80230EC64B00AE6CBB /* PostFinancialTransactionRequest.swift in Sources */,
+				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */,
+				96FADE73230EC64B00AE6CBB /* FinancesAPI.swift in Sources */,
 				9676525422FB07C0001E43E0 /* ProfileViewModel.swift in Sources */,
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
+				96FADE7A230EC64B00AE6CBB /* SpendingAPI.swift in Sources */,
+				96FADE81230EC64B00AE6CBB /* PostGeoLocationRequest.swift in Sources */,
+				96FADE7D230EC64B00AE6CBB /* APIs.swift in Sources */,
+				96FADE8D230EC64B00AE6CBB /* PostPushNotificationRequest.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
+				96FADE90230EC64B00AE6CBB /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +928,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FADD38230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift in Sources */,
 				9676522B22FAFD04001E43E0 /* CheqTests.swift in Sources */,
+				9619238223155FC5005A4F09 /* XCTestConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,7 +1099,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -824,7 +1119,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

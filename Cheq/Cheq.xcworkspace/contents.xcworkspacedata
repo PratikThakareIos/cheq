@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CheqAPI/CheqAPI.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Cheq.xcodeproj">
    </FileRef>
    <FileRef

@@ -7,15 +7,14 @@
 //
 
 import XCTest
-import CheqAPI
 @testable import Cheq
 
 class CheqAPITests: XCTestCase {
 
     func testExample() {
-        let api = CheqAPI()
-        let result = api.helloWorld()
-        XCTAssertNotNil(result)
-        XCTAssertTrue(result == "Hello World")
+//        let api = CheqAPI()
+//        let result = api.helloWorld()
+//        XCTAssertNotNil(result)
+//        XCTAssertTrue(result == "Hello World")
     }
 }

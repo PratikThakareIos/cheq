@@ -6,8 +6,7 @@
 //  Copyright © 2019 WiseTree Solutions Pty Ltd. All rights reserved.
 //
 
-import UIKit
-
+import Foundation
 
 enum Month: String, CaseIterable {
 
