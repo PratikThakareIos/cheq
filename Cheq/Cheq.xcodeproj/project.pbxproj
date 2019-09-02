@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06EFB46747EE069377A6B178 /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */; };
+		4F05DBB2231CE16400C3B9BF /* BDPointSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */; };
+		4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */; };
+		4F05DBBA231CF11C00C3B9BF /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F573AED231CCA57004616F5 /* MobileSDK.framework */; };
+		4F05DBBC231CF18200C3B9BF /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F573AED231CCA57004616F5 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F573AC1231CC92A004616F5 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A93231CC929004616F5 /* APIHelper.swift */; };
 		4F573AC2231CC92A004616F5 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A94231CC929004616F5 /* AlamofireImplementations.swift */; };
 		4F573AC3231CC92A004616F5 /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A96231CC929004616F5 /* FinancesAPI.swift */; };
@@ -52,6 +56,7 @@
 		4F573AEA231CC92A004616F5 /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573ABE231CC929004616F5 /* JSONEncodingHelper.swift */; };
 		4F573AEB231CC92A004616F5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573ABF231CC929004616F5 /* Models.swift */; };
 		4F573AEC231CC92A004616F5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AC0231CC929004616F5 /* Configuration.swift */; };
+		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		9619238223155FC5005A4F09 /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619238123155FC5005A4F09 /* XCTestConfig.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
@@ -112,11 +117,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4F05DBBB231CF16300C3B9BF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F05DBBC231CF18200C3B9BF /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		11FB99AC72AC38082BD17704 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
 		1D327715238C51EC9C521133 /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BA3B53AA468A9ADEB00FF2E /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44FC537C7FA5F20A118E5EE3 /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BDPointSDK.framework; sourceTree = "<group>"; };
+		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F573A93231CC929004616F5 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		4F573A94231CC929004616F5 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		4F573A96231CC929004616F5 /* FinancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancesAPI.swift; sourceTree = "<group>"; };
@@ -161,6 +182,8 @@
 		4F573ABE231CC929004616F5 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
 		4F573ABF231CC929004616F5 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F573AC0231CC929004616F5 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F573AED231CCA57004616F5 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		6BC1742E601FD3D7F376A4B3 /* Pods-CheqDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79BDF7ED3FA15B62DEDE5A0E /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		9619238123155FC5005A4F09 /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
@@ -226,6 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC81CFB907500B248A428194 /* Pods_Cheq.framework in Frameworks */,
+				4F05DBB2231CE16400C3B9BF /* BDPointSDK.framework in Frameworks */,
+				4F05DBBA231CF11C00C3B9BF /* MobileSDK.framework in Frameworks */,
+				4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,9 +281,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4F05DBB7231CE25600C3B9BF /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
 		4F573A90231CC4C4004616F5 /* MoneySoft */ = {
 			isa = PBXGroup;
 			children = (
+				4F05DBB7231CE25600C3B9BF /* Dummy */,
+				4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */,
 			);
 			path = MoneySoft;
 			sourceTree = "<group>";
@@ -340,6 +375,9 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
+				4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */,
+				4F573AED231CCA57004616F5 /* MobileSDK.framework */,
 				AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */,
 				D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */,
 			);
@@ -692,7 +730,9 @@
 				9676520D22FAFD01001E43E0 /* Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				3142DB9627DFB2FC9A0DDA79 /* [CP] Embed Pods Frameworks */,
+				4F05DBBB231CF16300C3B9BF /* Embed Frameworks */,
 				C44C4F20274F7AF044C0FB30 /* [CP] Copy Pods Resources */,
+				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -735,6 +775,7 @@
 				TargetAttributes = {
 					9676520F22FAFD01001E43E0 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 					};
 					9676522522FAFD04001E43E0 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -816,6 +857,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Migrate Moneysoft Framework bundle";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
 		};
 		B593042B4D90B52AE5059D16 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -966,6 +1025,7 @@
 				4F573ADD231CC92A004616F5 /* GetSpendingResponse.swift in Sources */,
 				4F573ACD231CC92A004616F5 /* APIs.swift in Sources */,
 				4F573AE5231CC92A004616F5 /* IFormFile.swift in Sources */,
+				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F573AC9231CC92A004616F5 /* SpendingAPI.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
@@ -1065,13 +1125,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = "";
 			};
 			name = Debug;
 		};
@@ -1123,11 +1182,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1136,17 +1194,28 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F15C3555221475B0CB7C202B /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYEZ379B3G;
+				DEVELOPMENT_TEAM = 8QRN52F553;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Cheq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1156,14 +1225,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 11FB99AC72AC38082BD17704 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KYEZ379B3G;
+				DEVELOPMENT_TEAM = 8QRN52F553;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Cheq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
