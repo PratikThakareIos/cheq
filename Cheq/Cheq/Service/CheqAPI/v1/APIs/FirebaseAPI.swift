@@ -15,6 +15,41 @@ open class FirebaseAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
+    open class func clearAllFirebaseUsers(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        clearAllFirebaseUsersWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - DELETE /v1/Firebase/users
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func clearAllFirebaseUsersWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Firebase/users"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
     open class func getTestingToken(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
         getTestingTokenWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {

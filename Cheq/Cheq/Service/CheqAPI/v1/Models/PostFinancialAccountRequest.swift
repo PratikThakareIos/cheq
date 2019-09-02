@@ -20,20 +20,13 @@ public struct PostFinancialAccountRequest: Codable {
     public var nickname: String?
     public var number: String?
     public var balance: Double?
-    public var isBalanceOnly: Bool?
-    public var created: Date?
     public var disabled: Bool?
-    public var isInBudget: Bool?
-    public var isManualAccount: Bool?
-    public var nextRefreshUtc: Date?
-    public var lastSuccessfulUpdateUtc: Date?
-    public var lastUpdateAttemptUtc: Date?
-    public var providerLastSuccessfulUpdate: Date?
     public var type: String?
     public var assetCategory: String?
     public var assetType: String?
+    public var source: String?
 
-    public init(financialAccountId: Int?, providerAccountId: String?, financialInstitutionId: Int?, providerInstitutionId: Int?, providerContainerId: String?, name: String?, nickname: String?, number: String?, balance: Double?, isBalanceOnly: Bool?, created: Date?, disabled: Bool?, isInBudget: Bool?, isManualAccount: Bool?, nextRefreshUtc: Date?, lastSuccessfulUpdateUtc: Date?, lastUpdateAttemptUtc: Date?, providerLastSuccessfulUpdate: Date?, type: String?, assetCategory: String?, assetType: String?) {
+    public init(financialAccountId: Int?, providerAccountId: String?, financialInstitutionId: Int?, providerInstitutionId: Int?, providerContainerId: String?, name: String?, nickname: String?, number: String?, balance: Double?, disabled: Bool?, type: String?, assetCategory: String?, assetType: String?, source: String?) {
         self.financialAccountId = financialAccountId
         self.providerAccountId = providerAccountId
         self.financialInstitutionId = financialInstitutionId
@@ -43,18 +36,11 @@ public struct PostFinancialAccountRequest: Codable {
         self.nickname = nickname
         self.number = number
         self.balance = balance
-        self.isBalanceOnly = isBalanceOnly
-        self.created = created
         self.disabled = disabled
-        self.isInBudget = isInBudget
-        self.isManualAccount = isManualAccount
-        self.nextRefreshUtc = nextRefreshUtc
-        self.lastSuccessfulUpdateUtc = lastSuccessfulUpdateUtc
-        self.lastUpdateAttemptUtc = lastUpdateAttemptUtc
-        self.providerLastSuccessfulUpdate = providerLastSuccessfulUpdate
         self.type = type
         self.assetCategory = assetCategory
         self.assetType = assetType
+        self.source = source
     }
 
 

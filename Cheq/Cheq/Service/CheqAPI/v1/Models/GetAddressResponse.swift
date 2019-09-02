@@ -12,13 +12,11 @@ import Foundation
 public struct GetAddressResponse: Codable {
 
     public var address: String?
-    public var googlePlaceId: String?
     public var latitude: Double?
     public var longitude: Double?
 
-    public init(address: String?, googlePlaceId: String?, latitude: Double?, longitude: Double?) {
+    public init(address: String?, latitude: Double?, longitude: Double?) {
         self.address = address
-        self.googlePlaceId = googlePlaceId
         self.latitude = latitude
         self.longitude = longitude
     }

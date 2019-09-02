@@ -54,47 +54,6 @@ open class FinancesAPI {
 
     /**
 
-     - parameter institutionId: (path)  
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func deleteInstitution(institutionId: Int, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        deleteInstitutionWithRequestBuilder(institutionId: institutionId).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - DELETE /v1/Finances/institutions/{institutionId}
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter institutionId: (path)  
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func deleteInstitutionWithRequestBuilder(institutionId: Int) -> RequestBuilder<Void> {
-        var path = "/v1/Finances/institutions/{institutionId}"
-        let institutionIdPreEscape = "\(institutionId)"
-        let institutionIdPostEscape = institutionIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{institutionId}", with: institutionIdPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
      - parameter transactionId: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -132,6 +91,76 @@ open class FinancesAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getAccount(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getAccountWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/accounts
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func getAccountWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Finances/accounts"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getInstitutionLogos(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        getInstitutionLogosWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/institutions/logos
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func getInstitutionLogosWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Finances/institutions/logos"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -250,6 +279,44 @@ open class FinancesAPI {
 
     /**
 
+     - parameter accounts: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putAccount(accounts: [PutFinancialAccountRequest]? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putAccountWithRequestBuilder(accounts: accounts).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Finances/accounts
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter accounts: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func putAccountWithRequestBuilder(accounts: [PutFinancialAccountRequest]? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Finances/accounts"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accounts)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
      - parameter bsb: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -287,49 +354,6 @@ open class FinancesAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter accountId: (path)  
-     - parameter request: (body)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func withdraw(accountId: Int, request: PostWithdrawRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        withdrawWithRequestBuilder(accountId: accountId, request: request).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Finances/accounts/{accountId}/withdraw
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter accountId: (path)  
-     - parameter request: (body)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func withdrawWithRequestBuilder(accountId: Int, request: PostWithdrawRequest? = nil) -> RequestBuilder<Void> {
-        var path = "/v1/Finances/accounts/{accountId}/withdraw"
-        let accountIdPreEscape = "\(accountId)"
-        let accountIdPostEscape = accountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{accountId}", with: accountIdPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
-
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
 }

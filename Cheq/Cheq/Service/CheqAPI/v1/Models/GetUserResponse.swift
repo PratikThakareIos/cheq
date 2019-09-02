@@ -11,24 +11,18 @@ import Foundation
 
 public struct GetUserResponse: Codable {
 
-    public var email: String?
-    public var firstName: String?
-    public var middleName: String?
-    public var lastName: String?
-    public var residentialAddress: String?
+    public var userDetail: GetUserDetailResponse?
+    public var employer: GetUserEmployerResponse?
+    public var moneySoftCredential: GetUserMoneySoftResponse?
+    public var bluedotCredential: GetUserBluedotResponse?
     public var hasBeenOnBoarded: Bool?
-    public var msUsername: String?
-    public var msPassword: String?
 
-    public init(email: String?, firstName: String?, middleName: String?, lastName: String?, residentialAddress: String?, hasBeenOnBoarded: Bool?, msUsername: String?, msPassword: String?) {
-        self.email = email
-        self.firstName = firstName
-        self.middleName = middleName
-        self.lastName = lastName
-        self.residentialAddress = residentialAddress
+    public init(userDetail: GetUserDetailResponse?, employer: GetUserEmployerResponse?, moneySoftCredential: GetUserMoneySoftResponse?, bluedotCredential: GetUserBluedotResponse?, hasBeenOnBoarded: Bool?) {
+        self.userDetail = userDetail
+        self.employer = employer
+        self.moneySoftCredential = moneySoftCredential
+        self.bluedotCredential = bluedotCredential
         self.hasBeenOnBoarded = hasBeenOnBoarded
-        self.msUsername = msUsername
-        self.msPassword = msPassword
     }
 
 

@@ -23,16 +23,14 @@ public struct PutUserEmployerRequest: Codable {
     public var employmentType: EmploymentType?
     public var address: String?
     public var noFixedAddress: Bool?
-    public var googlePlaceId: String?
     public var latitude: Double?
     public var longitude: Double?
 
-    public init(employerName: String, employmentType: EmploymentType?, address: String?, noFixedAddress: Bool?, googlePlaceId: String?, latitude: Double?, longitude: Double?) {
+    public init(employerName: String, employmentType: EmploymentType?, address: String?, noFixedAddress: Bool?, latitude: Double?, longitude: Double?) {
         self.employerName = employerName
         self.employmentType = employmentType
         self.address = address
         self.noFixedAddress = noFixedAddress
-        self.googlePlaceId = googlePlaceId
         self.latitude = latitude
         self.longitude = longitude
     }

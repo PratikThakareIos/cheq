@@ -30,12 +30,10 @@ open class LocationsAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
   "address" : "address",
-  "googlePlaceId" : "googlePlaceId",
   "latitude" : 0.8008281904610115,
   "longitude" : 6.027456183070403
 }, {
   "address" : "address",
-  "googlePlaceId" : "googlePlaceId",
   "latitude" : 0.8008281904610115,
   "longitude" : 6.027456183070403
 } ]}]

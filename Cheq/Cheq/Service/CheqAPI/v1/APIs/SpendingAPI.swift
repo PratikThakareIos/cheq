@@ -15,7 +15,7 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentMonthSpending(completion: @escaping ((_ data: [GetSpendingResponse]?,_ error: Error?) -> Void)) {
+    open class func getCurrentMonthSpending(completion: @escaping ((_ data: GetMonthSpendingsResponse?,_ error: Error?) -> Void)) {
         getCurrentMonthSpendingWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -27,32 +27,70 @@ open class SpendingAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "merchant" : "merchant",
-  "sum" : 1.4658129805029452,
-  "transactedAt" : "transactedAt",
-  "merchantLogoUrl" : "merchantLogoUrl",
-  "category" : "category",
-  "info" : "info"
-}, {
-  "merchant" : "merchant",
-  "sum" : 1.4658129805029452,
-  "transactedAt" : "transactedAt",
-  "merchantLogoUrl" : "merchantLogoUrl",
-  "category" : "category",
-  "info" : "info"
-} ]}]
+     - examples: [{contentType=application/json, example={
+  "totalIncome" : 1.4658129805029452,
+  "totalSpend" : 6.027456183070403,
+  "accountName" : "accountName",
+  "accountType" : "accountType",
+  "categoryStats" : [ {
+    "sum" : 2.3021358869347655,
+    "category" : "category",
+    "numberOfTransactions" : 5
+  }, {
+    "sum" : 2.3021358869347655,
+    "category" : "category",
+    "numberOfTransactions" : 5
+  } ],
+  "accountNumber" : "accountNumber",
+  "accountBalance" : 0.8008281904610115,
+  "dailySpending" : [ {
+    "date" : "date",
+    "spending" : [ {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    }, {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    } ]
+  }, {
+    "date" : "date",
+    "spending" : [ {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    }, {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    } ]
+  } ],
+  "assetType" : "assetType"
+}}]
 
-     - returns: RequestBuilder<[GetSpendingResponse]> 
+     - returns: RequestBuilder<GetMonthSpendingsResponse> 
      */
-    open class func getCurrentMonthSpendingWithRequestBuilder() -> RequestBuilder<[GetSpendingResponse]> {
+    open class func getCurrentMonthSpendingWithRequestBuilder() -> RequestBuilder<GetMonthSpendingsResponse> {
         let path = "/v1/Spending/month"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<[GetSpendingResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetMonthSpendingsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -61,7 +99,7 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentWeekSpending(completion: @escaping ((_ data: [GetSpendingResponse]?,_ error: Error?) -> Void)) {
+    open class func getCurrentWeekSpending(completion: @escaping ((_ data: GetWeekSpendingsResponse?,_ error: Error?) -> Void)) {
         getCurrentWeekSpendingWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -73,32 +111,70 @@ open class SpendingAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "merchant" : "merchant",
-  "sum" : 1.4658129805029452,
-  "transactedAt" : "transactedAt",
-  "merchantLogoUrl" : "merchantLogoUrl",
-  "category" : "category",
-  "info" : "info"
-}, {
-  "merchant" : "merchant",
-  "sum" : 1.4658129805029452,
-  "transactedAt" : "transactedAt",
-  "merchantLogoUrl" : "merchantLogoUrl",
-  "category" : "category",
-  "info" : "info"
-} ]}]
+     - examples: [{contentType=application/json, example={
+  "totalIncome" : 1.4658129805029452,
+  "totalSpend" : 6.027456183070403,
+  "accountName" : "accountName",
+  "accountType" : "accountType",
+  "categoryStats" : [ {
+    "sum" : 2.3021358869347655,
+    "category" : "category",
+    "numberOfTransactions" : 5
+  }, {
+    "sum" : 2.3021358869347655,
+    "category" : "category",
+    "numberOfTransactions" : 5
+  } ],
+  "accountNumber" : "accountNumber",
+  "accountBalance" : 0.8008281904610115,
+  "dailySpending" : [ {
+    "date" : "date",
+    "spending" : [ {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    }, {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    } ]
+  }, {
+    "date" : "date",
+    "spending" : [ {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    }, {
+      "merchant" : "merchant",
+      "sum" : 5.962133916683182,
+      "transactedAt" : "transactedAt",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category",
+      "info" : "info"
+    } ]
+  } ],
+  "assetType" : "assetType"
+}}]
 
-     - returns: RequestBuilder<[GetSpendingResponse]> 
+     - returns: RequestBuilder<GetWeekSpendingsResponse> 
      */
-    open class func getCurrentWeekSpendingWithRequestBuilder() -> RequestBuilder<[GetSpendingResponse]> {
+    open class func getCurrentWeekSpendingWithRequestBuilder() -> RequestBuilder<GetWeekSpendingsResponse> {
         let path = "/v1/Spending/week"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<[GetSpendingResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetWeekSpendingsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -120,32 +196,37 @@ open class SpendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "totalIncome" : 6.027456183070403,
-  "totalSpend" : 0.8008281904610115,
+  "totalIncome" : 1.4658129805029452,
+  "totalSpend" : 6.027456183070403,
   "spending" : [ {
     "merchant" : "merchant",
-    "sum" : 1.4658129805029452,
+    "sum" : 5.962133916683182,
     "transactedAt" : "transactedAt",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category",
     "info" : "info"
   }, {
     "merchant" : "merchant",
-    "sum" : 1.4658129805029452,
+    "sum" : 5.962133916683182,
     "transactedAt" : "transactedAt",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category",
     "info" : "info"
   } ],
+  "accountName" : "accountName",
+  "accountType" : "accountType",
   "categoryStats" : [ {
-    "sum" : 5.637376656633329,
+    "sum" : 2.3021358869347655,
     "category" : "category",
     "numberOfTransactions" : 5
   }, {
-    "sum" : 5.637376656633329,
+    "sum" : 2.3021358869347655,
     "category" : "category",
     "numberOfTransactions" : 5
-  } ]
+  } ],
+  "accountNumber" : "accountNumber",
+  "accountBalance" : 0.8008281904610115,
+  "assetType" : "assetType"
 }}]
 
      - returns: RequestBuilder<GetTodaySpendingResponse> 
