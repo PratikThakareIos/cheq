@@ -60,6 +60,8 @@
 		4F573AEC231CC92A004616F5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AC0231CC929004616F5 /* Configuration.swift */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
+		4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
+		4FB479EA231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E9231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -187,6 +189,8 @@
 		4F573AED231CCA57004616F5 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUtil.swift; sourceTree = "<group>"; };
+		4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		4FB479E9231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftLoginViewController.swift; sourceTree = "<group>"; };
 		6BC1742E601FD3D7F376A4B3 /* Pods-CheqDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79BDF7ED3FA15B62DEDE5A0E /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
@@ -421,6 +425,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		4FB479E8231DF8B4005FA0C1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4FB479E9231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,12 +535,13 @@
 				9676524322FB061B001E43E0 /* Common */,
 				9676523722FB0136001E43E0 /* Features */,
 				9676521322FAFD01001E43E0 /* AppDelegate.swift */,
-				9676521922FAFD01001E43E0 /* Main.storyboard */,
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
-				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
 				9676522122FAFD03001E43E0 /* Info.plist */,
 				96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */,
 				9676525F22FB0946001E43E0 /* TabViewController.swift */,
+				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
+				9676521922FAFD01001E43E0 /* Main.storyboard */,
+				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
 			);
 			path = Cheq;
 			sourceTree = "<group>";
@@ -554,6 +567,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4FB479E8231DF8B4005FA0C1 /* Onboarding */,
 				9676523A22FB0171001E43E0 /* Analytics */,
 				9676523922FB0166001E43E0 /* Finance */,
 				9676523822FB015D001E43E0 /* Profile */,
@@ -897,6 +911,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
+				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */,
@@ -1078,6 +1093,7 @@
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				4F573AE7231CC92A004616F5 /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F573AC4231CC92A004616F5 /* UsersAPI.swift in Sources */,
+				4FB479EA231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift in Sources */,
 				4F573AC7231CC92A004616F5 /* LocationsAPI.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,

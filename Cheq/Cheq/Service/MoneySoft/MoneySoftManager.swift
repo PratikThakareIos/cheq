@@ -20,6 +20,37 @@ class MoneySoftManager {
         MoneysoftApi.configure(config)
     }
     
+    func login(_ credentials: [LoginCredentialType: String])-> Promise<AuthenticationModel> {
+        return Promise<AuthenticationModel>() { resolver in
+            
+            var loginModel: LoginModel
+            if let otp = credentials[.msOtp] {
+                loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "", verification: otp)
+            } else {
+                loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "")
+            }
+            do {
+            let msApi = MoneysoftApi()
+                try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
+                    guard let model = authModel else { resolver.reject(MoneySoftManagerError.unableToLoginWithCredential);
+                        return
+                    }
+                    
+                    resolver.fulfill(model)
+                }, errorHandler: { errorModel in
+                
+                    if let err: ApiErrorModel = errorModel {
+                        print(err.description)
+                        print(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
+            }
+        }
+    }
+    
     func putUserDetails(_ loggedInUser: AuthUser, putUserReq: PutUserRequest)->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let token = loggedInUser.authToken() ?? ""

@@ -13,6 +13,7 @@ enum CKeychainError: Error {
 }
 
 enum MoneySoftManagerError: Error {
+    case unableToLoginWithCredential
     case unableToRetrieveMoneySoftCredential
     case unknown
 }
@@ -45,8 +46,10 @@ enum SocialLoginType: String {
 enum LoginCredentialType: String {
     case email = "email"
     case password = "password"
-    case otp = "otp"
     case token = "token"
+    case msUsername = "msUsername"
+    case msPassword = "msPassword"
+    case msOtp = "msOtp"
 }
 
 enum PersonalDetailsType: String {
