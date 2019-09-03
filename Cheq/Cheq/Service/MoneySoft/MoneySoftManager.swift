@@ -70,7 +70,7 @@ class MoneySoftManager {
                 }, errorHandler: { errorModel in
                     // throw error for verification code
                     if let err: ApiErrorModel = errorModel, err.code == ErrorCode.REQUIRES_LOGIN_VERIFICATION.rawValue {
-                        resolver.reject(MoneySoftManagerError.requireVerificationCode)
+                        resolver.reject(MoneySoftManagerError.require2FAVerificationCode); return
                     }
                     resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
                 }))
@@ -81,8 +81,64 @@ class MoneySoftManager {
     }
 }
 
-// MARK: Get Institutions
+// MARK: Operation related to Linking Banks
 extension MoneySoftManager {
+    
+    func linkableAccounts(_ institutionId: String, credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
+        return Promise<[FinancialAccountLinkModel]>() { resolver in
+            do {
+                try msApi.financial().getLinkableAccounts(institutionId: institutionId, credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                    guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
+                    }
+                    resolver.fulfill(accounts)
+                }, errorHandler: { errModel in
+                    if let err = errModel, err.code == ErrorCode.REQUIRES_MFA.rawValue {
+                        let mfaPrompt = err.messages[ErrorKey.MFA_PROMPT.rawValue] ?? ""
+                        let mfaErr = MoneySoftManagerError.requireMFA(reason: mfaPrompt)
+                        resolver.reject(mfaErr); return
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+                }))
+            } catch { 
+                resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+            }
+        }
+    }
+    
+    func linkAccounts(_ linkAccounts: [FinancialAccountLinkModel])-> Promise<[FinancialAccountModel]> {
+        return Promise<[FinancialAccountModel]>() { resolver in
+            do {
+                try msApi.financial().linkAccounts(accounts: linkAccounts, listener: ApiListListener<FinancialAccountModel>(successHandler: { linkedAccounts in
+                    guard let linkedAccts = linkedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToLinkAccounts); return  }
+                    resolver.fulfill(linkedAccts)
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        print(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToLoginWithBankCredentials)
+            }
+        }
+    }
+    
+    func getBankSignInForm(_ financialInstitutionModel: FinancialInstitutionModel)-> Promise<InstitutionCredentialsFormModel> {
+        return Promise<InstitutionCredentialsFormModel>() { resolver in
+            do {
+                try msApi.financial().getSignInForm(institution: financialInstitutionModel, listener: ApiListener<InstitutionCredentialsFormModel>(successHandler: { formModel in
+                    guard let form = formModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm); return }
+                    resolver.fulfill(form)
+                }, errorHandler: { errorModel in
+                    if let err = errorModel { print(err.code) }
+                    resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm)
+            }
+        }
+    }
+    
     func getInstitutions()-> Promise<[FinancialInstitutionModel]> {
         return Promise<[FinancialInstitutionModel]>() { resolver in
             do {

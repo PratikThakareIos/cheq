@@ -13,11 +13,16 @@ enum CKeychainError: Error {
 }
 
 enum MoneySoftManagerError: Error {
-    case requireVerificationCode 
+    case require2FAVerificationCode
+    case requireMFA(reason: String)
     case unableToLoginWithCredential
     case unableToRetrieveMoneySoftCredential
     case unableToRetrieveUserProfile
-    case unableToRetrieveFinancialInstitutions 
+    case unableToRetrieveFinancialInstitutions
+    case unableToRetrieveFinancialInstitutionSignInForm
+    case unableToRetreiveLinkableAccounts
+    case unableToLinkAccounts 
+    case unableToLoginWithBankCredentials
     case unknown
 }
 
