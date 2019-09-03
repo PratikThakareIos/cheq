@@ -16,7 +16,8 @@ enum MoneySoftManagerError: Error {
     case requireVerificationCode 
     case unableToLoginWithCredential
     case unableToRetrieveMoneySoftCredential
-    case unableToRetrieveUserProfile 
+    case unableToRetrieveUserProfile
+    case unableToRetrieveFinancialInstitutions 
     case unknown
 }
 

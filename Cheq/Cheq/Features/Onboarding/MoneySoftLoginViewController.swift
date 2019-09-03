@@ -24,8 +24,10 @@ class MoneySoftLoginViewController: UIViewController {
         MoneySoftManager.shared.login(login)
         .then { msAuthModel-> Promise<UserProfileModel> in
             MoneySoftManager.shared.getProfile()
-        }.done { profile in
-            print(profile)
+        }.then { profile in
+            MoneySoftManager.shared.getInstitutions()
+        }.done { institutions in
+            print("hello")
         }.catch { err in
             print(err)
         }

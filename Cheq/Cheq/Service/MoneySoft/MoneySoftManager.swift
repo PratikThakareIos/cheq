@@ -40,6 +40,17 @@ class MoneySoftManager {
         }
     }
     
+    func logout()->Promise<Void> {
+        return Promise<Void>() { resolver in
+            do {
+                try msApi.user().signOut()
+                resolver.fulfill(())
+            } catch {
+                resolver.reject(MoneySoftManagerError.unknown)
+            }
+        }
+    }
+    
     func login(_ credentials: [LoginCredentialType: String])-> Promise<AuthenticationModel> {
         return Promise<AuthenticationModel>() { resolver in
             
@@ -66,6 +77,30 @@ class MoneySoftManager {
             } catch {
                 resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
             }  
+        }
+    }
+}
+
+// MARK: Get Institutions
+extension MoneySoftManager {
+    func getInstitutions()-> Promise<[FinancialInstitutionModel]> {
+        return Promise<[FinancialInstitutionModel]>() { resolver in
+            do {
+                try msApi.financial().getInstitutions(listener: ApiListListener<FinancialInstitutionModel>(successHandler: { institutions in
+                    if let financialInstitutions = institutions as? [FinancialInstitutionModel] {
+                        resolver.fulfill(financialInstitutions)
+                    } else {
+                        resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+                    }
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        print(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+            }
         }
     }
 }
