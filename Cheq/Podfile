@@ -24,6 +24,9 @@ target 'Cheq' do
   pod 'CocoaLumberjack/Swift','<=3.4.2'
   pod 'REValidation'
   pod 'Obfuscator'
+  pod 'SQLCipher'
+  pod 'sqlite3'
+  pod 'OpenSSL-Universal'
 
   # Firebase pods
   pod 'Firebase/Core'

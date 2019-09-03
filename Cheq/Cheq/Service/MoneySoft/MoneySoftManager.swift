@@ -20,10 +20,28 @@ class MoneySoftManager {
         MoneysoftApi.configure(config)
     }
     
-    class func getProfile()-> Promise<Void> {
-        return Promise<Void>() { resolver in
-            
+    func putUserDetails(_ loggedInUser: AuthUser, putUserReq: PutUserRequest)->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            let token = loggedInUser.authToken() ?? ""
+            UsersAPI.putUserWithRequestBuilder(request: putUserReq).addHeader(name: "Authorization", value: String("Bearer \(token)")).execute { _, error in
+                if let err = error { resolver.reject(err); return }
+                resolver.fulfill(true)
+            }
         }
     }
-
+    
+    func getUserDetails(_ loggedInUser: AuthUser)-> Promise<MoneySoftUser> {
+        return Promise<MoneySoftUser>() { resolver in
+            
+            let token = loggedInUser.authToken() ?? ""
+            UsersAPI.getUserWithRequestBuilder().addHeader(name: "Authorization", value: String("Bearer \(token)")).execute() { (response, error) in
+                
+                guard let msUser: GetUserResponse = response?.body else { resolver.reject(error ?? MoneySoftManagerError.unableToRetrieveMoneySoftCredential); return}
+                let username = msUser.moneySoftCredential?.msUsername ?? ""
+                let password = msUser.moneySoftCredential?.msPassword ?? ""
+                let moneySoftUser = MoneySoftUser(username: username, passwd: password, otp: "")
+                resolver.fulfill(moneySoftUser)
+            }
+        }
+    }
 }

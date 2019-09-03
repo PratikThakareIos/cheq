@@ -12,6 +12,11 @@ enum CKeychainError: Error {
     case unableToStore
 }
 
+enum MoneySoftManagerError: Error {
+    case unableToRetrieveMoneySoftCredential
+    case unknown
+}
+
 enum AuthManagerError: Error {
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
@@ -40,5 +45,24 @@ enum SocialLoginType: String {
 enum LoginCredentialType: String {
     case email = "email"
     case password = "password"
+    case otp = "otp"
     case token = "token"
 }
+
+enum PersonalDetailsType: String {
+    case firstname = "firstname"
+    case lastname = "lastname"
+    case mobile = "mobile"
+    case residentialAddress = "residentialAddress"
+}
+
+enum EmployerType: String {
+    case employerName = "employerName"
+    case employmentType = "employmentType"
+    case workAddress = "workAddress"
+    case noFixedAddress = "noFixedAddress"
+    case latitude = "latitude"
+    case longitude = "longitude"
+}
+
+

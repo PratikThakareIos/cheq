@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		06EFB46747EE069377A6B178 /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */; };
-		4F05DBB2231CE16400C3B9BF /* BDPointSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */; };
 		4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */; };
 		4F05DBBA231CF11C00C3B9BF /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F573AED231CCA57004616F5 /* MobileSDK.framework */; };
 		4F05DBBC231CF18200C3B9BF /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F573AED231CCA57004616F5 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
+		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
+		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
 		4F573AC1231CC92A004616F5 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A93231CC929004616F5 /* APIHelper.swift */; };
 		4F573AC2231CC92A004616F5 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A94231CC929004616F5 /* AlamofireImplementations.swift */; };
 		4F573AC3231CC92A004616F5 /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A96231CC929004616F5 /* FinancesAPI.swift */; };
@@ -57,7 +59,7 @@
 		4F573AEB231CC92A004616F5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573ABF231CC929004616F5 /* Models.swift */; };
 		4F573AEC231CC92A004616F5 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AC0231CC929004616F5 /* Configuration.swift */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
-		9619238223155FC5005A4F09 /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9619238123155FC5005A4F09 /* XCTestConfig.swift */; };
+		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -72,7 +74,6 @@
 		9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* Main.storyboard */; };
 		9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9676521C22FAFD03001E43E0 /* Assets.xcassets */; };
 		9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
-		9676522B22FAFD04001E43E0 /* CheqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676522A22FAFD04001E43E0 /* CheqTests.swift */; };
 		9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676523D22FB05C1001E43E0 /* ProfileViewController.swift */; };
 		9676524022FB05D1001E43E0 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676523F22FB05D1001E43E0 /* AnalyticsViewController.swift */; };
 		9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524122FB060E001E43E0 /* FinanceViewController.swift */; };
@@ -99,7 +100,6 @@
 		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
 		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
 		96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD33230E897400AE6CBB /* AuthUser.swift */; };
-		96FADD38230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */; };
 		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
 		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
@@ -136,8 +136,10 @@
 		1D327715238C51EC9C521133 /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BA3B53AA468A9ADEB00FF2E /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44FC537C7FA5F20A118E5EE3 /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
-		4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BDPointSDK.framework; sourceTree = "<group>"; };
 		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
+		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
+		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
+		4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4F573A93231CC929004616F5 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		4F573A94231CC929004616F5 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		4F573A96231CC929004616F5 /* FinancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancesAPI.swift; sourceTree = "<group>"; };
@@ -184,9 +186,9 @@
 		4F573AC0231CC929004616F5 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F573AED231CCA57004616F5 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
+		4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUtil.swift; sourceTree = "<group>"; };
 		6BC1742E601FD3D7F376A4B3 /* Pods-CheqDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemoTests/Pods-CheqDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		79BDF7ED3FA15B62DEDE5A0E /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		9619238123155FC5005A4F09 /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
 		9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModelUtil.swift; sourceTree = "<group>"; };
@@ -204,7 +206,6 @@
 		9676521F22FAFD03001E43E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9676522122FAFD03001E43E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9676522622FAFD04001E43E0 /* CheqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9676522A22FAFD04001E43E0 /* CheqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqTests.swift; sourceTree = "<group>"; };
 		9676522C22FAFD04001E43E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9676523D22FB05C1001E43E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9676523F22FB05D1001E43E0 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +233,6 @@
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
 		96FADD33230E897400AE6CBB /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
-		96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
@@ -249,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC81CFB907500B248A428194 /* Pods_Cheq.framework in Frameworks */,
-				4F05DBB2231CE16400C3B9BF /* BDPointSDK.framework in Frameworks */,
 				4F05DBBA231CF11C00C3B9BF /* MobileSDK.framework in Frameworks */,
 				4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */,
 			);
@@ -281,17 +280,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4F05DBB7231CE25600C3B9BF /* Dummy */ = {
+		4F05DBBD231DD5AC00C3B9BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F05E7F1231DD9AE00C3B9BF /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F05E7F2231DD9AE00C3B9BF /* Service */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		4F05E7F2231DD9AE00C3B9BF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4F05E7F7231DD9CA00C3B9BF /* MoneySoftManager */,
+				4F05E7F3231DD9AE00C3B9BF /* AuthManager */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4F05E7F3231DD9AE00C3B9BF /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
+		4F05E7F6231DD9B800C3B9BF /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Dummy;
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		4F05E7F7231DD9CA00C3B9BF /* MoneySoftManager */ = {
+			isa = PBXGroup;
+			children = (
+				4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */,
+			);
+			path = MoneySoftManager;
 			sourceTree = "<group>";
 		};
 		4F573A90231CC4C4004616F5 /* MoneySoft */ = {
 			isa = PBXGroup;
 			children = (
-				4F05DBB7231CE25600C3B9BF /* Dummy */,
+				4FB479E5231DF27A005FA0C1 /* Util */,
+				4F05DBBD231DD5AC00C3B9BF /* Model */,
 				4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */,
 			);
 			path = MoneySoft;
@@ -372,24 +413,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4FB479E5231DF27A005FA0C1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
-				4F05DBB1231CE16400C3B9BF /* BDPointSDK.framework */,
 				4F573AED231CCA57004616F5 /* MobileSDK.framework */,
 				AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */,
 				D6B034A1CE341753CB1228CD /* Pods_CheqTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9619238023155FA8005A4F09 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9619238123155FC5005A4F09 /* XCTestConfig.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		9629A58C22FC302000828FCF /* CollectionViewCell */ = {
@@ -496,10 +536,8 @@
 		9676522922FAFD04001E43E0 /* CheqTests */ = {
 			isa = PBXGroup;
 			children = (
-				9619238023155FA8005A4F09 /* Common */,
-				96FADE9D230ED9FF00AE6CBB /* IntegrationTests */,
-				96FADE9E230ED9FF00AE6CBB /* UnitTests */,
-				9676522A22FAFD04001E43E0 /* CheqTests.swift */,
+				4F05E7F6231DD9B800C3B9BF /* UnitTests */,
+				4F05E7F1231DD9AE00C3B9BF /* IntegrationTests */,
 				9676522C22FAFD04001E43E0 /* Info.plist */,
 			);
 			path = CheqTests;
@@ -670,23 +708,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		96FADD35230E8E1600AE6CBB /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				96FADD36230E8E1C00AE6CBB /* AuthManager */,
-			);
-			name = Service;
-			path = ../Service;
-			sourceTree = "<group>";
-		};
-		96FADD36230E8E1C00AE6CBB /* AuthManager */ = {
-			isa = PBXGroup;
-			children = (
-				96FADD37230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift */,
-			);
-			path = AuthManager;
-			sourceTree = "<group>";
-		};
 		96FADE95230EC96700AE6CBB /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,21 +722,6 @@
 				96FADE99230ED19300AE6CBB /* CKeychain.swift */,
 			);
 			path = Storage;
-			sourceTree = "<group>";
-		};
-		96FADE9D230ED9FF00AE6CBB /* IntegrationTests */ = {
-			isa = PBXGroup;
-			children = (
-				96FADD35230E8E1600AE6CBB /* Service */,
-			);
-			path = IntegrationTests;
-			sourceTree = "<group>";
-		};
-		96FADE9E230ED9FF00AE6CBB /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -790,6 +796,89 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				ur,
+				he,
+				"es-SV",
+				"zh-Hant-TW",
+				ar,
+				el,
+				"zh-Hans",
+				ja,
+				fa,
+				mr,
+				"es-GT",
+				"en-CA",
+				uk,
+				"es-PY",
+				gu,
+				kn,
+				nb,
+				"es-US",
+				"en-GB",
+				es,
+				"es-VE",
+				"es-CL",
+				sl,
+				da,
+				"es-419",
+				it,
+				bg,
+				sk,
+				"sr-Latn",
+				"nn-NO",
+				"es-PA",
+				"en-SG",
+				sr,
+				ms,
+				"es-CR",
+				ta,
+				sv,
+				cs,
+				"es-AR",
+				"es-PE",
+				ko,
+				"en-IE",
+				fil,
+				"zh-Hant",
+				"es-CO",
+				gsw,
+				"en-ZA",
+				hu,
+				"es-PR",
+				"de-AT",
+				"en-AU",
+				tr,
+				pl,
+				"pt-BR",
+				vi,
+				lv,
+				"es-MX",
+				lt,
+				ru,
+				"es-DO",
+				"fr-CH",
+				"es-NI",
+				fr,
+				fi,
+				id,
+				nl,
+				th,
+				pt,
+				"de-CH",
+				bn,
+				"es-EC",
+				"pt-PT",
+				"es-BO",
+				ro,
+				ln,
+				"es-UY",
+				"es-HN",
+				hr,
+				hi,
+				ca,
+				zh,
+				"en-IN",
 			);
 			mainGroup = 9676520722FAFD01001E43E0;
 			productRefGroup = 9676521122FAFD01001E43E0 /* Products */;
@@ -991,6 +1080,7 @@
 				4F573AC4231CC92A004616F5 /* UsersAPI.swift in Sources */,
 				4F573AC7231CC92A004616F5 /* LocationsAPI.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
+				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
 				9676524022FB05D1001E43E0 /* AnalyticsViewController.swift in Sources */,
 				4F573AE3231CC92A004616F5 /* PutUserGeolocationInstallDetails.swift in Sources */,
@@ -1013,6 +1103,7 @@
 				4F573AE6231CC92A004616F5 /* DailySpendings.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
 				4F573ADC231CC92A004616F5 /* PostFinancialAccountRequest.swift in Sources */,
+				4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */,
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
@@ -1036,9 +1127,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96FADD38230E8E3A00AE6CBB /* FirebaseAuthManagerIntegrationTests.swift in Sources */,
-				9676522B22FAFD04001E43E0 /* CheqTests.swift in Sources */,
-				9619238223155FC5005A4F09 /* XCTestConfig.swift in Sources */,
+				4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */,
+				4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,6 +1349,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYEZ379B3G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
+				);
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1281,6 +1377,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYEZ379B3G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
+					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
+				);
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
