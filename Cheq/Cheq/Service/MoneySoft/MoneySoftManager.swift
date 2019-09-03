@@ -30,7 +30,7 @@ class MoneySoftManager {
                     resolver.fulfill(profile)
                 }, errorHandler: { errorModel in
                     if let err = errorModel {
-                        print(err.code)
+                        LoggingUtil.shared.cPrint(err.code)
                     }
                     resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile)
                 }))
@@ -81,6 +81,28 @@ class MoneySoftManager {
     }
 }
 
+// MARK: Transactions
+extension MoneySoftManager {
+    func listTransactions(_ accounts: [FinancialAccountModel])-> Promise<[FinancialTransactionModel]> {
+        return Promise<[FinancialTransactionModel]>() { resolver in
+            do {
+                try msApi.financial().refreshTransactions(financialAccounts: accounts, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactionModels in
+                    guard let transactions = transactionModels as? [FinancialTransactionModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return }
+                    resolver.fulfill(transactions)
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        LoggingUtil.shared.cPrint(err.code)
+                        LoggingUtil.shared.cPrint(err.messages)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+            }
+        }
+    }
+}
+
 // MARK: Operation related to Linking Banks
 extension MoneySoftManager {
     
@@ -113,7 +135,7 @@ extension MoneySoftManager {
                     resolver.fulfill(linkedAccts)
                 }, errorHandler: { errorModel in
                     if let err = errorModel {
-                        print(err.code)
+                        LoggingUtil.shared.cPrint(err.code)
                     }
                     resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
                 }))
@@ -130,7 +152,7 @@ extension MoneySoftManager {
                     guard let form = formModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm); return }
                     resolver.fulfill(form)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel { print(err.code) }
+                    if let err = errorModel { LoggingUtil.shared.cPrint(err.code) }
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm)
                 }))
             } catch {
@@ -150,7 +172,7 @@ extension MoneySoftManager {
                     }
                 }, errorHandler: { errorModel in
                     if let err = errorModel {
-                        print(err.code)
+                        LoggingUtil.shared.cPrint(err.code)
                     }
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
                 }))

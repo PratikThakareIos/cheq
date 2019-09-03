@@ -23,7 +23,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
         }.then { authUser->Promise<MoneySoftUser> in
             moneySoftManager.getUserDetails(authUser)
         }.then { msUser in
-            print("hello")
+            LoggingUtil.shared.cPrint("hello")
         }
         wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
     }

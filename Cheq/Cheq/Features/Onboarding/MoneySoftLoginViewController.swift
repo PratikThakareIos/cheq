@@ -46,9 +46,9 @@ class MoneySoftLoginViewController: UIViewController {
             }
             return MoneySoftManager.shared.linkableAccounts(institutionId, credentials: form)
         }.done { linkableAccounts in
-            print("hello")
+            LoggingUtil.shared.cPrint("hello")
         }.catch { err in
-            print(err)
+            LoggingUtil.shared.cPrint(err)
         }
     }
 }
