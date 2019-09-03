@@ -12,12 +12,32 @@ import PromiseKit
 
 class MoneySoftManager {
     static let shared = MoneySoftManager()
+    let msApi: MoneysoftApi
     let API_BASE_URL = "https://api.beta.moneysoft.com.au"
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     private init() {
         let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView())
         MoneysoftApi.configure(config)
+        self.msApi = MoneysoftApi()
+    }
+    
+    func getProfile()-> Promise<UserProfileModel> {
+        return Promise<UserProfileModel>() { resolver in
+            do {
+                try msApi.user().profile(listener: ApiListener<UserProfileModel>(successHandler: { profileModel in
+                    guard let profile = profileModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile); return }
+                    resolver.fulfill(profile)
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        print(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile)
+            }
+        }
     }
     
     func login(_ credentials: [LoginCredentialType: String])-> Promise<AuthenticationModel> {
@@ -30,7 +50,6 @@ class MoneySoftManager {
                 loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "")
             }
             do {
-            let msApi = MoneysoftApi()
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
                     guard let model = authModel else { resolver.reject(MoneySoftManagerError.unableToLoginWithCredential);
                         return
@@ -38,19 +57,21 @@ class MoneySoftManager {
                     
                     resolver.fulfill(model)
                 }, errorHandler: { errorModel in
-                
-                    if let err: ApiErrorModel = errorModel {
-                        print(err.description)
-                        print(err.code)
+                    // throw error for verification code
+                    if let err: ApiErrorModel = errorModel, err.code == ErrorCode.REQUIRES_LOGIN_VERIFICATION.rawValue {
+                        resolver.reject(MoneySoftManagerError.requireVerificationCode)
                     }
                     resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
                 }))
             } catch {
                 resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
-            }
+            }  
         }
     }
-    
+}
+
+// MARK: User Details Management /
+extension MoneySoftManager {
     func putUserDetails(_ loggedInUser: AuthUser, putUserReq: PutUserRequest)->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let token = loggedInUser.authToken() ?? ""

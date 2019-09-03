@@ -13,8 +13,10 @@ enum CKeychainError: Error {
 }
 
 enum MoneySoftManagerError: Error {
+    case requireVerificationCode 
     case unableToLoginWithCredential
     case unableToRetrieveMoneySoftCredential
+    case unableToRetrieveUserProfile 
     case unknown
 }
 

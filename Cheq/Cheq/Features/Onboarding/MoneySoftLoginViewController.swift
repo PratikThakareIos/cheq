@@ -7,24 +7,27 @@
 //
 
 import UIKit
+import MobileSDK
+import PromiseKit
 
 class MoneySoftLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        runTest()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func runTest() {
+        var login: [LoginCredentialType: String] = [:]
+        login[.msUsername] = "cheq_01@usecheq.com"
+        login[.msPassword] = "cheq01!"
+        MoneySoftManager.shared.login(login)
+        .then { msAuthModel-> Promise<UserProfileModel> in
+            MoneySoftManager.shared.getProfile()
+        }.done { profile in
+            print(profile)
+        }.catch { err in
+            print(err)
+        }
     }
-    */
-
 }
