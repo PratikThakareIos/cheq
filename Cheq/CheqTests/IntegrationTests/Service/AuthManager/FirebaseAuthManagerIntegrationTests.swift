@@ -60,7 +60,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
             XCTAssertTrue(true)
             XCTAssertNotNil(authUser.authToken)
         }.catch { err in
-            LoggingUtil.shared.cPrint(err)
+            LoggingUtil.shared.print(err)
             XCTFail()
         }.finally {
             expectation.fulfill()
@@ -71,7 +71,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     func testRemoveUserAccount2() {
         let expectation = XCTestExpectation(description: "email registration, login then remove user account")
         let email = authUserUtil.randomEmail()
-        LoggingUtil.shared.cPrint(email)
+        LoggingUtil.shared.print(email)
         let password = authUserUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
@@ -86,7 +86,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
         }.done{
             XCTAssertTrue(true)
         }.catch{ err in
-            LoggingUtil.shared.cPrint(err)
+            LoggingUtil.shared.print(err)
             XCTFail()
         }.finally {
             expectation.fulfill()
@@ -108,7 +108,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
         }.done{
             XCTAssertTrue(true)
         }.catch { err in
-            LoggingUtil.shared.cPrint(err)
+            LoggingUtil.shared.print(err)
             XCTFail()
         }.finally {
             expectation.fulfill()
@@ -130,7 +130,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
         }.done{
             XCTAssertTrue(true)
         }.catch { err in
-            LoggingUtil.shared.cPrint(err)
+            LoggingUtil.shared.print(err)
             XCTFail()
         }.finally {
             expectation.fulfill()
@@ -153,7 +153,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
                 XCTAssertTrue(true)
             }.catch {err in
                 XCTAssertNotNil(err)
-                LoggingUtil.shared.cPrint(err)
+                LoggingUtil.shared.print(err)
                 XCTFail()
             }.finally {
                 expectation.fulfill()
@@ -172,7 +172,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
             XCTAssertThrowsError("testRegisterWithExistingEmail shoudn't work")
         }.catch { err in
             XCTAssertNotNil(err)
-            LoggingUtil.shared.cPrint(err.localizedDescription)
+            LoggingUtil.shared.print(err.localizedDescription)
         }.finally {
             expectation.fulfill()
         }
@@ -191,10 +191,10 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
                 let authToken = authUser.authToken() ?? ""
                 XCTAssertNotNil(authToken)
                 XCTAssertTrue(authToken.count > 0)
-                LoggingUtil.shared.cPrint("authToken \(authToken)")
+                LoggingUtil.shared.print("authToken \(authToken)")
                 expectation.fulfill()
             }.catch { err in
-                LoggingUtil.shared.cPrint(err.localizedDescription)
+                LoggingUtil.shared.print(err.localizedDescription)
                 XCTAssertThrowsError("testRegisterWithNewEmail should work")
                 expectation.fulfill()
             }

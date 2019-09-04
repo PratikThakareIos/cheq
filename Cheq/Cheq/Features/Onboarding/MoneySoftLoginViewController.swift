@@ -12,13 +12,14 @@ import PromiseKit
 
 class MoneySoftLoginViewController: UIViewController {
 
+    var signInForm: InstitutionCredentialsFormModel?
+    var selectedBank: FinancialInstitutionModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        runTest()
     }
     
     func runTest() {
-        var institutionId = ""
         var login: [LoginCredentialType: String] = [:]
         login[.msUsername] = "cheq_01@usecheq.com"
         login[.msPassword] = "cheq01!"
@@ -30,23 +31,44 @@ class MoneySoftLoginViewController: UIViewController {
         }.then { institutions->Promise<InstitutionCredentialsFormModel> in
             let banks: [FinancialInstitutionModel] = institutions
             let selected = banks.first(where: { $0.name == "Demobank"})
-            institutionId = String(selected?.financialInstitutionId ?? 0)
+            self.selectedBank = selected
             return MoneySoftManager.shared.getBankSignInForm(selected!)
-        }.then { credentialsFormModel->Promise<[FinancialAccountLinkModel]> in
+        }.done { credentialsFormModel in
             let form: InstitutionCredentialsFormModel = credentialsFormModel
-            for promptModel: InstitutionCredentialPromptModel in form.prompts {
-                switch(promptModel.type) {
-                case .TEXT:
-                    promptModel.savedValue = "user01"
-                case .PASSWORD:
-                    promptModel.savedValue = "user01"
-                case .CHECKBOX:
-                    break
-                }
+            LoggingUtil.shared.cPrint(form)
+            self.signInForm = form
+            DispatchQueue.main.async {
+                self.linkableAccounts()
             }
-            return MoneySoftManager.shared.linkableAccounts(institutionId, credentials: form)
-        }.done { linkableAccounts in
-            LoggingUtil.shared.cPrint("hello")
+        }.catch { err in
+            LoggingUtil.shared.cPrint(err)
+        }
+    }
+    
+    func fillForm(_ form: inout InstitutionCredentialsFormModel) {
+        for promptModel: InstitutionCredentialPromptModel in form.prompts {
+            switch(promptModel.type) {
+            case .TEXT:
+                promptModel.savedValue = "user01"
+            case .PASSWORD:
+                promptModel.savedValue = "user01"
+            case .CHECKBOX:
+                promptModel.savedValue = "true"
+                break
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        runTest()
+    }
+    
+    func linkableAccounts() {
+        guard var form = self.signInForm else { return }
+        self.fillForm(&form)
+        MoneySoftManager.shared.linkableAccounts(String(selectedBank?.financialInstitutionId ?? 0), credentials: form).done { linkableAccounts in
+            LoggingUtil.shared.cPrint(linkableAccounts)
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
         }

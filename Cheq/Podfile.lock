@@ -1,5 +1,6 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
+  - Analytics (3.7.0)
   - Charts (3.3.0):
     - Charts/Core (= 3.3.0)
   - Charts/Core (3.3.0)
@@ -24,6 +25,9 @@ PODS:
     - FirebaseAnalytics (= 6.1.1)
   - Firebase/CoreOnly (6.7.0):
     - FirebaseCore (= 6.2.1)
+  - Firebase/InAppMessagingDisplay (6.7.0):
+    - Firebase/CoreOnly
+    - FirebaseInAppMessagingDisplay (~> 0.15.4)
   - Firebase/Messaging (6.7.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.1.3)
@@ -55,6 +59,13 @@ PODS:
     - GoogleUtilities/Environment (~> 6.2)
     - GoogleUtilities/Logger (~> 6.2)
   - FirebaseCoreDiagnosticsInterop (1.0.0)
+  - FirebaseInAppMessaging (0.15.3):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.0)
+  - FirebaseInAppMessagingDisplay (0.15.4):
+    - FirebaseCore (~> 6.2)
+    - FirebaseInAppMessaging (>= 0.15.0)
   - FirebaseInstanceID (4.2.3):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
@@ -133,7 +144,7 @@ PODS:
   - PromisesObjC (1.2.8)
   - Protobuf (3.9.0)
   - REValidation (0.1.4)
-  - SnapshotTest (2.1.0)
+  - SnapshotTest (3.0.0)
   - SQLCipher (4.2.0):
     - SQLCipher/standard (= 4.2.0)
   - SQLCipher/common (4.2.0)
@@ -147,10 +158,12 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Analytics (~> 3.0)
   - Charts (~> 3.3)
   - CocoaLumberjack/Swift (<= 3.4.2)
   - Firebase/Analytics
   - Firebase/Core
+  - Firebase/InAppMessagingDisplay
   - Firebase/Messaging
   - FirebaseUI/Auth
   - FirebaseUI/Facebook
@@ -173,6 +186,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Analytics
     - Charts
     - CocoaLumberjack
     - FBSDKCoreKit
@@ -185,6 +199,8 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseInAppMessaging
+    - FirebaseInAppMessagingDisplay
     - FirebaseInstanceID
     - FirebaseMessaging
     - FirebaseUI
@@ -212,7 +228,8 @@ SPEC REPOS:
     - SwiftSpinner
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Analytics: 77fd5fb102a4a5eedafa2c2b0245ceb7b7c15e45
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   FBSDKCoreKit: 7ade9cfea30eef2f6cf105a1aa904f89ea68fb7d
@@ -225,6 +242,8 @@ SPEC CHECKSUMS:
   FirebaseCore: 32b48f41c84a56fbde73b35ed01a830b3b6dc048
   FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
+  FirebaseInAppMessaging: 5db5fa181ed4215e02ded09f7e4bbcc2ce624a47
+  FirebaseInAppMessagingDisplay: 66267552890939d394a961ee4cac5cdfd41f17bb
   FirebaseInstanceID: 8b42755db950682e7de0d167bc6fb26a57b244af
   FirebaseMessaging: 930e4cce01f8f1e634cfdd1881db471fb61be883
   FirebaseUI: d92c980c1c7e553df3c5e7b0725baeb13f80f6d2
@@ -245,12 +264,12 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
-  SnapshotTest: bb4b46e8e41cdf4fd2e049240bb2c2440a0be113
+  SnapshotTest: 8d5c6a5778d5a7ae6e9cec9eae087696ebbd3ab1
   SQLCipher: 0187a2180ac288ea686b670b7141da62cd013b16
   sqlite3: 1b61edbb8cc8ee5f9150fc846bf32df6876577cd
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
 
-PODFILE CHECKSUM: 14b186d48aa907c69466f14585be803aaceebda3
+PODFILE CHECKSUM: 61d66fec5fa45287cab4f2d0c599ec849c563110
 
 COCOAPODS: 1.7.4

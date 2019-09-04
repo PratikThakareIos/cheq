@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseMessaging
 import PromiseKit
+import UserNotifications
 
 class FirebaseAuthManager: AuthManagerProtocol {
 
@@ -230,5 +232,34 @@ extension FirebaseAuthManager {
                 resolver.fulfill(())
             }
         }
+    }
+}
+
+extension FirebaseAuthManager {
+
+    func setupForRemoteNotifications(_ application: UIApplication, delegate: Any) {
+        // Firebase Message delegate 
+        if let messageDelegate = delegate as? MessagingDelegate {
+            Messaging.messaging().delegate = messageDelegate
+        }
+        
+        
+        // setup for UserNotifications
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            if let userNotificationCenterDelegate = delegate as? UNUserNotificationCenterDelegate {
+                UNUserNotificationCenter.current().delegate = userNotificationCenterDelegate
+            }
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
     }
 }

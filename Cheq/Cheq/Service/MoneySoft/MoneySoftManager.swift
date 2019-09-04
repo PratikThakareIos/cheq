@@ -110,6 +110,7 @@ extension MoneySoftManager {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
             do {
                 try msApi.financial().getLinkableAccounts(institutionId: institutionId, credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                    
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
                     resolver.fulfill(accounts)

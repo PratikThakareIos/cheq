@@ -13,5 +13,5 @@ class AuthConfig {
     private init() {}
 
     var activeManager = FirebaseAuthManager.shared
-    var activeUser: AuthUser? 
+    var activeUser: AuthUser?
 }

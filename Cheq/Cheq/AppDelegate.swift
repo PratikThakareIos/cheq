@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import Analytics
+import UserNotifications
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    var bgCompleteHandler: ((UIBackgroundFetchResult) -> Void)?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // configure and setup segment
+        let segConfig = SEGAnalyticsConfiguration(writeKey: "DAmGqZ4pL19uFxe97hESgpzPj6UyOlF8")
+        segConfig.trackApplicationLifecycleEvents = true
+        segConfig.recordScreenViews = true
+        SEGAnalytics.setup(with: segConfig)
+        
+        // setup
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
         return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        LoggingUtil.shared.cPrint("device token")
+        LoggingUtil.shared.cPrint(token)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -40,7 +58,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
+// MARK: Remote applicatioin handling
+extension AppDelegate {
 
+    func application(_ application: UIApplication,
+                              didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                              fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let contentId = userInfo["content-id"] ?? ""
+        LoggingUtil.shared.cPrint(contentId)
+        
+        switch application.applicationState {
+        case .active: break
+        case .inactive, .background:
+            LoggingUtil.shared.cPrint("bg task")
+            MoneySoftManager.shared.getInstitutions().done { _ in
+                completionHandler(.newData)
+            }.catch { err in
+                completionHandler(.noData)
+            }
+        }
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
+            if success {
+                LoggingUtil.shared.cPrint("apn registration token: \(fcmToken)")
+                
+                // broadcast notification for token refresh app-wide
+                let dataDict:[String: String] = ["token": fcmToken]
+                NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+            }
+        }.catch {_ in }
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        LoggingUtil.shared.cPrint(remoteMessage.messageID)
+    }
 }
 

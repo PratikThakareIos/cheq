@@ -27,6 +27,10 @@ protocol AuthManagerProtocol {
     func setUser(_ user: AuthUser)-> Promise<AuthUser>
 
     var timeout: Double { get }
+    
+    func messagingRegistrationToken()-> String
+    func storeMessagingRegistrationToken(_ token: String)-> Promise<Bool>
+    func setupForRemoteNotifications(_ application: UIApplication, delegate: Any)
 }
 
 //MARK: Local user management methods default implementation
@@ -36,6 +40,17 @@ extension AuthManagerProtocol {
     var timeout: Double {
         get {
             return 15.0
+        }
+    }
+    
+    func messagingRegistrationToken()-> String {
+        return CKeychain.getValueByKey("msgRegToken") ?? ""
+    }
+    
+    func storeMessagingRegistrationToken(_ token: String)-> Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            let success = CKeychain.setValue("msgRegToken", value: token)
+            resolver.fulfill(success)
         }
     }
 }
