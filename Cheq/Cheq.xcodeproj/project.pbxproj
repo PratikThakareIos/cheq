@@ -20,6 +20,8 @@
 		4F091082231F28D900AA7F7D /* CheqToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F091076231F28D900AA7F7D /* CheqToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
 		4F09109A231F7E9A00AA7F7D /* Data_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F091099231F7E9A00AA7F7D /* Data_Extension.swift */; };
+		4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109B231F981E00AA7F7D /* NotificationUtil.swift */; };
+		4F09109E231F9A0200AA7F7D /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109D231F9A0200AA7F7D /* AppData.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F573AC1231CC92A004616F5 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A93231CC929004616F5 /* APIHelper.swift */; };
 		4F573AC2231CC92A004616F5 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A94231CC929004616F5 /* AlamofireImplementations.swift */; };
@@ -175,6 +177,8 @@
 		4F091091231F6C0200AA7F7D /* Cheq.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cheq.entitlements; sourceTree = "<group>"; };
 		4F091096231F6E7300AA7F7D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		4F091099231F7E9A00AA7F7D /* Data_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Extension.swift; sourceTree = "<group>"; };
+		4F09109B231F981E00AA7F7D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
+		4F09109D231F9A0200AA7F7D /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F573A93231CC929004616F5 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		4F573A94231CC929004616F5 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 				96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */,
 				966A19E722FEDACC00A6E444 /* DispatchUtil.swift */,
 				4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */,
+				4F09109B231F981E00AA7F7D /* NotificationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -596,7 +601,6 @@
 		9676521222FAFD01001E43E0 /* Cheq */ = {
 			isa = PBXGroup;
 			children = (
-				4F091091231F6C0200AA7F7D /* Cheq.entitlements */,
 				96FADE98230ED16500AE6CBB /* Storage */,
 				9676525722FB080F001E43E0 /* Service */,
 				9676524322FB061B001E43E0 /* Common */,
@@ -605,6 +609,7 @@
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
 				9676522122FAFD03001E43E0 /* Info.plist */,
 				96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */,
+				4F091091231F6C0200AA7F7D /* Cheq.entitlements */,
 				9676525F22FB0946001E43E0 /* TabViewController.swift */,
 				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
 				9676521922FAFD01001E43E0 /* Main.storyboard */,
@@ -741,6 +746,7 @@
 			isa = PBXGroup;
 			children = (
 				96B0068922FE69AA00173743 /* AppConfig.swift */,
+				4F09109D231F9A0200AA7F7D /* AppData.swift */,
 			);
 			path = AppConfig;
 			sourceTree = "<group>";
@@ -1189,6 +1195,7 @@
 				4F573AC8231CC92A004616F5 /* FirebaseAPI.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
+				4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F573AD7231CC92A004616F5 /* GetUserDetailResponse.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
@@ -1222,6 +1229,7 @@
 				4F573AE7231CC92A004616F5 /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F573AC4231CC92A004616F5 /* UsersAPI.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift in Sources */,
+				4F09109E231F9A0200AA7F7D /* AppData.swift in Sources */,
 				4F573AC7231CC92A004616F5 /* LocationsAPI.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,

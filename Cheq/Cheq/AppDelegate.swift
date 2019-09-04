@@ -15,16 +15,10 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-    var bgCompleteHandler: ((UIBackgroundFetchResult) -> Void)?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // configure and setup segment
-        let segConfig = SEGAnalyticsConfiguration(writeKey: "DAmGqZ4pL19uFxe97hESgpzPj6UyOlF8")
-        segConfig.trackApplicationLifecycleEvents = true
-        segConfig.recordScreenViews = true
-        SEGAnalytics.setup(with: segConfig)
+        self.setupSegment()
         
         // setup
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
@@ -33,47 +27,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        LoggingUtil.shared.cPrint("device token")
+        LoggingUtil.shared.cPrint("apns device token")
         LoggingUtil.shared.cPrint(token)
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        // assign apns device token to Firebase Messaging sdk 
+        Messaging.messaging().apnsToken = deviceToken
     }
 }
 
 // MARK: Remote applicatioin handling
 extension AppDelegate {
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        LoggingUtil.shared.cPrint(userInfo)
+    }
 
     func application(_ application: UIApplication,
                               didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                               fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        let contentId = userInfo["content-id"] ?? ""
-        LoggingUtil.shared.cPrint(contentId)
+        LoggingUtil.shared.cPrint(userInfo)
         
         switch application.applicationState {
         case .active: break
         case .inactive, .background:
-            LoggingUtil.shared.cPrint("bg task")
+            LoggingUtil.shared.cPrint("message received")
             MoneySoftManager.shared.getInstitutions().done { _ in
                 completionHandler(.newData)
             }.catch { err in
@@ -83,21 +61,55 @@ extension AppDelegate {
     }
 }
 
+// MARK: Segment
+extension AppDelegate {
+    func setupSegment() {
+        // configure and setup segment
+        let segConfig = SEGAnalyticsConfiguration(writeKey: "DAmGqZ4pL19uFxe97hESgpzPj6UyOlF8")
+        segConfig.trackApplicationLifecycleEvents = true
+        segConfig.recordScreenViews = true
+        SEGAnalytics.setup(with: segConfig)
+    }
+}
+
+// MARK: Firebase Messaging
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
-                LoggingUtil.shared.cPrint("apn registration token: \(fcmToken)")
-                
-                // broadcast notification for token refresh app-wide
-                let dataDict:[String: String] = ["token": fcmToken]
-                NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+                LoggingUtil.shared.cPrint("fcm token: \(fcmToken)")
+                NotificationUtil.shared.notify("FCMToken", key: "token", value: fcmToken)
             }
         }.catch {_ in }
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         LoggingUtil.shared.cPrint(remoteMessage.messageID)
+    }
+}
+
+// MARK: unused
+extension AppDelegate {
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 }
 
