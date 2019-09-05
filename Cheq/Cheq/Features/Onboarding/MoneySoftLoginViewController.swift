@@ -65,8 +65,8 @@ class MoneySoftLoginViewController: UIViewController {
 //    }
     
     func getLinkableAccounts() {
-        var form = self.signInForm ?? MoneySoftUtil.shared.stgeorgeBankFormModel()
-        MoneySoftUtil.shared.fillFormUsingStGeorgeAccount(&form)
+        var form = self.signInForm ?? MoneySoftUtil.shared.demoBankFormModel()
+        MoneySoftUtil.shared.fillFormWithTestAccount(&form)
         MoneySoftManager.shared.getLinkableAccounts(String(form.financialInstitutionId), credentials: form) { result in
             switch(result) {
             case .success(let accounts):
