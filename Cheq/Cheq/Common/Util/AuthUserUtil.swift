@@ -8,12 +8,17 @@
 
 import UIKit
 
-struct AuthUserUtil {
+class AuthUserUtil {
 
+    static let shared = AuthUserUtil()
+    private init() {}
+    let addressSuffix = ["Magaret Street, Sydney 2000", "York Street, Sydney 2000"]
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+    let numbers = "0123456789"
     let suffix = ["gmail.com", "hotmail.com", "facebook.com", "cheq.com.au"]
 
-    fileprivate func randomString(_ length: Int)-> String {
+    
+    func randomString(_ length: Int)-> String {
         var result = ""
         for _ in 0..<length {
             result.append(letters.randomElement() ?? "a")
@@ -21,6 +26,20 @@ struct AuthUserUtil {
         return result
     }
 
+    func randomPhone(_ length: Int)-> String {
+        var result = ""
+        for _ in 0..<length {
+            result.append(numbers.randomElement() ?? "a")
+        }
+        return result
+    }
+    
+    func randomAddress()-> String {
+        let addrSuffix = addressSuffix.randomElement() ?? addressSuffix[0]
+        let streetNum = randomPhone(3)
+        return String("\(streetNum) \(addrSuffix)")
+    }
+    
     func randomEmail()-> String {
         let randomPrefix = randomString(20)
         let randomSuffix = suffix.randomElement() ?? "gmail.com"

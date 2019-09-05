@@ -12,6 +12,24 @@ enum CKeychainError: Error {
     case unableToStore
 }
 
+enum MoneySoftManagerError: Error {
+    case require2FAVerificationCode
+    case requireMFA(reason: String)
+    case unableToLoginWithCredential
+    case unableToRetrieveMoneySoftCredential
+    case unableToRetrieveUserProfile
+    case unableToRetrieveFinancialInstitutions
+    case unableToRetrieveFinancialInstitutionSignInForm
+    case unableToRetreiveLinkableAccounts
+    case unableToLinkAccounts
+    case unableToRefreshTransactions 
+    case unableToLoginWithBankCredentials
+    case unableToUpdateDisabledAccountCredentials
+    case unableToForceUnlinkAllAccounts
+    case unableToUnlinkAccounts
+    case unknown
+}
+
 enum AuthManagerError: Error {
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
@@ -41,4 +59,26 @@ enum LoginCredentialType: String {
     case email = "email"
     case password = "password"
     case token = "token"
+    case msSecurityNo = "msSecurityNo"
+    case msUsername = "msUsername"
+    case msPassword = "msPassword"
+    case msOtp = "msOtp"
 }
+
+enum PersonalDetailsType: String {
+    case firstname = "firstname"
+    case lastname = "lastname"
+    case mobile = "mobile"
+    case residentialAddress = "residentialAddress"
+}
+
+enum EmployerType: String {
+    case employerName = "employerName"
+    case employmentType = "employmentType"
+    case workAddress = "workAddress"
+    case noFixedAddress = "noFixedAddress"
+    case latitude = "latitude"
+    case longitude = "longitude"
+}
+
+

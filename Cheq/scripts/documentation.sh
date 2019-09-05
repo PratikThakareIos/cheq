@@ -1,0 +1,1 @@
+cd .. && jazzy --min-acl internal -x -workspace,Cheq.xcworkspace,-scheme,Cheq

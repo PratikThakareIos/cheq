@@ -16,10 +16,25 @@ target 'Cheq' do
   pod 'PopOverMenu'
   pod 'Alamofire'
   pod 'PromiseKit'
+  
+  # Pod dependency from MoneySoft
+  pod 'Mantle'
+  pod 'PromisesObjC'
+  pod 'FMDB'
+  pod 'CocoaLumberjack/Swift','<=3.4.2'
+  pod 'REValidation'
+  pod 'Obfuscator'
+  pod 'SQLCipher'
+  pod 'sqlite3'
+  pod 'OpenSSL-Universal'
+  
+  # Segment pod 
+  pod 'Analytics', '~> 3.0'
 
   # Firebase pods
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Firebase/InAppMessagingDisplay'
   pod 'Firebase/Analytics'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
