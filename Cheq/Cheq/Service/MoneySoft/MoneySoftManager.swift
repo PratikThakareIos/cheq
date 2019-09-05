@@ -185,8 +185,67 @@ extension MoneySoftManager {
     }
 }
 
-// MARK: disable accounts, unlinking accounts
-extension MoneySoftManager
+// MARK: disabled account update credentials, unlinking linked accounts
+extension MoneySoftManager {
+    func updateCredentials(_ credentialFormModel: InstitutionCredentialsFormModel)-> Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            do {
+                try msApi.financial().updateCredentials(credentials: credentialFormModel, listener: ApiListener<ApiResponseModel>(successHandler: { responseModel in
+                    guard let response = responseModel else { resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials); return }
+                    if response.success {
+                        resolver.fulfill(true)
+                    } else {
+                        resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
+                    }
+                }, errorHandler: { errorModel in
+                    resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
+            }
+        }
+    }
+    
+    func forceUnlinkAllAccounts()-> Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            do {
+                try msApi.financial().forceUnlinkAllAccounts(listener: ApiListener<ApiResponseModel>(successHandler: { responseModel in
+                    guard let response = responseModel else { resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts); return }
+                    if response.success {
+                        resolver.fulfill(true)
+                    } else {
+                        resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
+                    }
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        LoggingUtil.shared.cPrint(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
+            }
+        }
+    }
+    
+    func unlinkAccounts(_ accounts: [FinancialAccountModel])-> Promise<[FinancialAccountModel]> {
+        return Promise<[FinancialAccountModel]>() { resolver in
+            do {
+                try msApi.financial().unlinkAccounts(financialAccounts: accounts, listener: ApiListListener<FinancialAccountModel>(successHandler: { removedAccounts in
+                    guard let removedAccts = removedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToLinkAccounts); return }
+                    resolver.fulfill(removedAccts)
+                }, errorHandler: { errorModel in
+                    if let err = errorModel {
+                        LoggingUtil.shared.cPrint(err.code)
+                    }
+                    resolver.reject(MoneySoftManagerError.unableToUnlinkAccounts)
+                }))
+            } catch {
+               resolver.reject(MoneySoftManagerError.unableToUnlinkAccounts)
+            }
+        }
+    }
+}
 
 // MARK: User Details Management /
 extension MoneySoftManager {

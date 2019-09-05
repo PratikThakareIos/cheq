@@ -24,6 +24,9 @@ enum MoneySoftManagerError: Error {
     case unableToLinkAccounts
     case unableToRefreshTransactions 
     case unableToLoginWithBankCredentials
+    case unableToUpdateDisabledAccountCredentials
+    case unableToForceUnlinkAllAccounts
+    case unableToUnlinkAccounts
     case unknown
 }
 
