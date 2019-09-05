@@ -56,31 +56,6 @@ class MoneySoftUtil {
         return form
     }
     
-    func fillFormUsingStGeorgeAccount(_ form: inout InstitutionCredentialsFormModel) {
-        for promptModel in form.prompts {
-            switch(promptModel.type) {
-            case .TEXT:
-                if promptModel.label == "Card/Access Number" {
-                    promptModel.savedValue = "4239530051245679"
-                }
-                if promptModel.label == "Issue Number" {
-                    promptModel.savedValue = "01"
-                }
-            case .PASSWORD:
-                if promptModel.label == "Internet Password" {
-                    promptModel.savedValue = "1stliang"
-                }
-                if promptModel.label == "Security Number" {
-                    promptModel.savedValue = "129846"
-                }
-              
-            case .CHECKBOX:
-                promptModel.savedValue = "true"
-                break
-            }
-        }
-    }
-    
     func fillFormWithTestAccount(_ form: inout InstitutionCredentialsFormModel) {
         for promptModel in form.prompts {
             switch(promptModel.type) {
