@@ -360,6 +360,7 @@ SWIFT_CLASS("_TtC9MobileSDK25FinancialAccountLinkModel")
 
 
 
+@class NSDictionary;
 
 SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
 @interface FinancialAccountModel : SerialisableObject
@@ -382,6 +383,16 @@ SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
 @property (nonatomic) enum AssetCategory assetCategory;
 @property (nonatomic) enum AssetType assetType;
 - (nonnull instancetype)initWithFinancialAccountId:(NSInteger)financialAccountId providerAccountId:(NSString * _Nullable)providerAccountId financialInstitutionId:(NSInteger)financialInstitutionId providerInstitutionId:(NSString * _Nullable)providerInstitutionId name:(NSString * _Nonnull)name nickname:(NSString * _Nullable)nickname number:(NSString * _Nonnull)number balance:(double)balance type:(enum AccountType)type created:(NSDate * _Nonnull)created lastRefresh:(NSDate * _Nullable)lastRefresh providerContainerId:(NSString * _Nullable)providerContainerId OBJC_DESIGNATED_INITIALIZER;
+/// Initialises a <code>FinancialAccountModel</code> through deserialisation.
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     account : A <code>NSDictionary</code> which contains the serialised object.
+///   </li>
+/// </ul>
+- (nonnull instancetype)initWithAccount:(NSDictionary * _Nonnull)account;
 - (BOOL)isProperty SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
@@ -394,6 +405,7 @@ SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
 @class FinancialServiceModel;
 @class MFAVerificationModel;
 @class FinancialTransactionModel;
+@class FinancialTransactionViewModel;
 @class LoginModel;
 
 /// The Moneysoft “Financial” API
@@ -583,12 +595,32 @@ SWIFT_PROTOCOL("_TtP9MobileSDK20FinancialApiProtocol_")
 /// \param listener An <code>ApiListListener</code> for a <code>FinancialAccountModel</code> representing the handler for when the request is complete.
 ///
 - (void)makeAccountsBalanceOnlyWithAccounts:(NSArray<FinancialAccountModel *> * _Nonnull)accounts balanceOnly:(BOOL)balanceOnly listener:(ApiListener<ApiResponseModel *> * _Nonnull)listener;
+- (void)getTransactionsWithAccountId:(NSInteger)accountId listener:(ApiListListener<FinancialTransactionViewModel *> * _Nonnull)listener;
 /// Performs a background refresh of all accounts and transactions
 /// \param loginDetails A <code>LoginModel</code> representing the user which needs to be logged in to.
 ///
 /// \param listener An <code>ApiListener</code> for an <code>ApiResponseModel</code> representing the handler for when the request is complete.
 ///
 - (void)silentRefreshWithLoginDetails:(LoginModel * _Nonnull)loginDetails institutionId:(NSString * _Nonnull)institutionId accountId:(NSInteger)accountId listener:(ApiListener<ApiResponseModel *> * _Nonnull)listener;
+/// Performs a background refresh of the financial account’s transactions
+/// <ul>
+///   <li>
+///     Parameters:
+///   </li>
+///   <li>
+///     loginDetails: A <code>LoginModel</code> representing the user which needs to be logged in to.
+///   </li>
+///   <li>
+///     account: A <code>FinancialAccountModel</code> which its transactions are going to be refreshed.
+///   </li>
+///   <li>
+///     refreshRequestId: A <code>String</code> provided in the notification payload representing the refresh request identifier.
+///   </li>
+///   <li>
+///     listener: An <code>ApiListener</code> for an <code>ApiResponseModel</code> representing the handler for when the request is complete.
+///   </li>
+/// </ul>
+- (void)silentRefreshWithLoginDetails:(LoginModel * _Nonnull)loginDetails account:(FinancialAccountModel * _Nonnull)account refreshRequestId:(NSString * _Nonnull)refreshRequestId listener:(ApiListener<ApiResponseModel *> * _Nonnull)listener;
 /// Stops the current financial operation(s)
 - (void)stop;
 /// Checks to see if there is a financial action already occuring.
@@ -661,7 +693,6 @@ SWIFT_CLASS("_TtC9MobileSDK21FinancialServiceModel")
 
 
 
-@class FinancialTransactionViewModel;
 
 SWIFT_CLASS("_TtC9MobileSDK29FinancialTransactionListModel")
 @interface FinancialTransactionListModel : NSObject
@@ -781,6 +812,7 @@ typedef SWIFT_ENUM(NSInteger, LoginGrant, closed) {
   LoginGrantUNKNOWN = 0,
   LoginGrantPASSWORD = 1,
   LoginGrantVERIFICATION_CODE = 2,
+  LoginGrantBACKGROUND_REFRESH = 3,
 };
 
 

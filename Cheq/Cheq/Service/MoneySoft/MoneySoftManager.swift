@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import MobileSDK
 import PromiseKit
 
@@ -17,7 +18,7 @@ class MoneySoftManager {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     private init() {
-        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView())
+        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), aggregationTimeout: 600)
         MoneysoftApi.configure(config)
         self.msApi = MoneysoftApi()
     }
@@ -105,6 +106,27 @@ extension MoneySoftManager {
 
 // MARK: Operation related to Linking Banks
 extension MoneySoftManager {
+    
+    // this is a callback closure wrapper of getting linkableAccounts using moneySoft SDK 
+    func getLinkableAccounts(_ institutionId: String, credentials: InstitutionCredentialsFormModel, completion: @escaping (Result<[FinancialAccountLinkModel]>)->Void) {
+            do {
+                try msApi.financial().getLinkableAccounts(institutionId: institutionId, credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                    
+                    guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts)); return
+                    }
+                    completion(.success(accounts))
+                }, errorHandler: { errModel in
+                    if let err = errModel, err.code == ErrorCode.REQUIRES_MFA.rawValue {
+                        let mfaPrompt = err.messages[ErrorKey.MFA_PROMPT.rawValue] ?? ""
+                        let mfaErr = MoneySoftManagerError.requireMFA(reason: mfaPrompt)
+                        completion(.failure(mfaErr)); return
+                    }
+                    completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts))
+                }))
+            } catch {
+                completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts))
+            }
+    }
     
     func linkableAccounts(_ institutionId: String, credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in

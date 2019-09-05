@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.setupSegment()
+        self.setupAppConfig()
         
         // setup
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
@@ -26,12 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        LoggingUtil.shared.cPrint("apns device token")
-        LoggingUtil.shared.cPrint(token)
-        
-        // assign apns device token to Firebase Messaging sdk 
+        // assign apns device token to Firebase Messaging sdk
         Messaging.messaging().apnsToken = deviceToken
+        
+        // extract deviceToken into String and notify observers
+        let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
+        
     }
 }
 
@@ -63,12 +65,19 @@ extension AppDelegate {
 
 // MARK: Segment
 extension AppDelegate {
+    
+    // configure and setup segment
     func setupSegment() {
-        // configure and setup segment
+        
         let segConfig = SEGAnalyticsConfiguration(writeKey: "DAmGqZ4pL19uFxe97hESgpzPj6UyOlF8")
         segConfig.trackApplicationLifecycleEvents = true
         segConfig.recordScreenViews = true
         SEGAnalytics.setup(with: segConfig)
+    }
+    
+    // trigger the first initiation of AppConfig singleton
+    func setupAppConfig() {
+        let _ = AppConfig.shared
     }
 }
 
@@ -77,8 +86,7 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
-                LoggingUtil.shared.cPrint("fcm token: \(fcmToken)")
-                NotificationUtil.shared.notify("FCMToken", key: "token", value: fcmToken)
+                NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
             }
         }.catch {_ in }
     }

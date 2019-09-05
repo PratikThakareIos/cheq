@@ -20,9 +20,7 @@ class MoneySoftLoginViewController: UIViewController {
     }
     
     func runTest() {
-        var login: [LoginCredentialType: String] = [:]
-        login[.msUsername] = "cheq_01@usecheq.com"
-        login[.msPassword] = "cheq01!"
+        let login: [LoginCredentialType: String] = MoneySoftUtil.shared.loginAccount()
         MoneySoftManager.shared.login(login)
         .then { msAuthModel-> Promise<UserProfileModel> in
             MoneySoftManager.shared.getProfile()
@@ -30,7 +28,8 @@ class MoneySoftLoginViewController: UIViewController {
             MoneySoftManager.shared.getInstitutions()
         }.then { institutions->Promise<InstitutionCredentialsFormModel> in
             let banks: [FinancialInstitutionModel] = institutions
-            let selected = banks.first(where: { $0.name == "Demobank"})
+            banks.forEach { LoggingUtil.shared.cPrint($0.name as! String) }
+            let selected = banks.first(where: { $0.name == "St.George Bank"})
             self.selectedBank = selected
             return MoneySoftManager.shared.getBankSignInForm(selected!)
         }.done { credentialsFormModel in
@@ -38,39 +37,43 @@ class MoneySoftLoginViewController: UIViewController {
             LoggingUtil.shared.cPrint(form)
             self.signInForm = form
             DispatchQueue.main.async {
-                self.linkableAccounts()
+                self.getLinkableAccounts()
             }
+            
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
         }
     }
     
-    func fillForm(_ form: inout InstitutionCredentialsFormModel) {
-        for promptModel: InstitutionCredentialPromptModel in form.prompts {
-            switch(promptModel.type) {
-            case .TEXT:
-                promptModel.savedValue = "user01"
-            case .PASSWORD:
-                promptModel.savedValue = "user01"
-            case .CHECKBOX:
-                promptModel.savedValue = "true"
-                break
-            }
-        }
-    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        runTest()
+        runTest()
     }
     
-    func linkableAccounts() {
-        guard var form = self.signInForm else { return }
-        self.fillForm(&form)
-        MoneySoftManager.shared.linkableAccounts(String(selectedBank?.financialInstitutionId ?? 0), credentials: form).done { linkableAccounts in
-            LoggingUtil.shared.cPrint(linkableAccounts)
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err)
+//    func linkableAccounts() {
+//        var form = MoneySoftUtil.shared.demoBankFormModel()
+//        MoneySoftUtil.shared.fillFormWithTestAccount(&form)
+//        DispatchQueue.main.async {
+//            MoneySoftManager.shared.linkableAccounts(String(form.financialInstitutionId), credentials: form).done { linkableAccounts in
+//                LoggingUtil.shared.cPrint(linkableAccounts)
+//            }.catch { err in
+//                LoggingUtil.shared.cPrint(err)
+//            }
+//        }
+//    }
+    
+    func getLinkableAccounts() {
+        var form = self.signInForm ?? MoneySoftUtil.shared.stgeorgeBankFormModel()
+        MoneySoftUtil.shared.fillFormUsingStGeorgeAccount(&form)
+        MoneySoftManager.shared.getLinkableAccounts(String(form.financialInstitutionId), credentials: form) { result in
+            switch(result) {
+            case .success(let accounts):
+                LoggingUtil.shared.cPrint(accounts)
+            case .failure(let err):
+                LoggingUtil.shared.cPrint(err.localizedDescription)
+            }
         }
     }
 }

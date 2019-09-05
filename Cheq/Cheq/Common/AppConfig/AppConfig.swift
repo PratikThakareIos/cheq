@@ -8,12 +8,25 @@
 
 import UIKit
 import SwiftSpinner
+import UserNotifications
 
-let sharedAppConfig = AppConfig()
+let sharedAppConfig = AppConfig.shared
 
 // manages the app global variables
 class AppConfig {
+    static let shared = AppConfig()
+    private init () {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateApnsDeviceToken(_:)), name: NSNotification.Name(NotificationEvent.apnsDeviceToken.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFCMDeviceToken(_:)), name: NSNotification.Name(NotificationEvent.fcmToken.rawValue), object: nil)
+    }
     
+    deinit {
+        // remove all notification observable
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    var apnsDeviceToken: String = ""
+    var fcmToken: String = ""
     var themeTitles = [PrimaryTheme().themeTitle, DarkTheme().themeTitle, CBATheme().themeTitle]
     var themes:[AppThemeProtocol] = [PrimaryTheme(), DarkTheme(), CBATheme()]
     var activeTheme: AppThemeProtocol = PrimaryTheme()
@@ -34,5 +47,17 @@ class AppConfig {
 
     func hideSpinner() {
         SwiftSpinner.hide()
+    }
+    
+    @objc func updateFCMDeviceToken(_ notification: Notification) {
+        self.fcmToken = notification.userInfo?[NotificationUserInfoKey.token.rawValue] as? String ?? ""
+        LoggingUtil.shared.cPrint("fcm token")
+        LoggingUtil.shared.cPrint(self.fcmToken)
+    }
+    
+    @objc func updateApnsDeviceToken(_ notification: Notification) {
+        self.apnsDeviceToken = notification.userInfo?[NotificationUserInfoKey.token.rawValue] as? String ?? ""
+        LoggingUtil.shared.cPrint("apns token")
+        LoggingUtil.shared.cPrint(self.apnsDeviceToken)
     }
 }

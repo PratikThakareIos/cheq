@@ -56,6 +56,7 @@ enum LoginCredentialType: String {
     case email = "email"
     case password = "password"
     case token = "token"
+    case msSecurityNo = "msSecurityNo"
     case msUsername = "msUsername"
     case msPassword = "msPassword"
     case msOtp = "msOtp"
