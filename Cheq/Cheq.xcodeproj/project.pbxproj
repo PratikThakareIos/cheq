@@ -122,10 +122,11 @@
 		4F0911102320B67C00AA7F7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* Main.storyboard */; };
 		4F0911162320B67C00AA7F7D /* CheqToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F091076231F28D900AA7F7D /* CheqToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F0911212320B91000AA7F7D /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0911202320B91000AA7F7D /* XCTestConfig.swift */; };
-		4F0911222320BB7200AA7F7D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0910A22320B5DC00AA7F7D /* MobileSDK.framework */; };
-		4F0911232320BBCE00AA7F7D /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0910A22320B5DC00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F0911262320BF7900AA7F7D /* MobileSDK-device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0911252320BF7900AA7F7D /* MobileSDK-device.framework */; };
-		4F0911272320C04900AA7F7D /* MobileSDK-device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0911252320BF7900AA7F7D /* MobileSDK-device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F0911322320EA8800AA7F7D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */; };
+		4F0911332320EA9500AA7F7D /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F0911342320EAAE00AA7F7D /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F0911352320EACC00AA7F7D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; };
+		4F0911362320EB6E00AA7F7D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F573AC1231CC92A004616F5 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A93231CC929004616F5 /* APIHelper.swift */; };
 		4F573AC2231CC92A004616F5 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A94231CC929004616F5 /* AlamofireImplementations.swift */; };
@@ -249,11 +250,11 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		4F05DBBB231CF16300C3B9BF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F0911232320BBCE00AA7F7D /* MobileSDK.framework in Embed Frameworks */,
+				4F0911332320EA9500AA7F7D /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,11 +272,11 @@
 		};
 		4F0911122320B67C00AA7F7D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F0911272320C04900AA7F7D /* MobileSDK-device.framework in Embed Frameworks */,
+				4F0911342320EAAE00AA7F7D /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,11 +313,11 @@
 		4F091099231F7E9A00AA7F7D /* Data_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data_Extension.swift; sourceTree = "<group>"; };
 		4F09109B231F981E00AA7F7D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
 		4F09109F23208A2800AA7F7D /* NotificationEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnums.swift; sourceTree = "<group>"; };
-		4F0910A22320B5DC00AA7F7D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F09111A2320B67C00AA7F7D /* CheqDevice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDevice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F09111B2320B67C00AA7F7D /* Cheq copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Cheq copy-Info.plist"; path = "/Users/xuwei/Documents/dev/cheq.ios/Cheq/Cheq copy-Info.plist"; sourceTree = "<absolute>"; };
 		4F0911202320B91000AA7F7D /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
-		4F0911252320BF7900AA7F7D /* MobileSDK-device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "MobileSDK-device.framework"; sourceTree = "<group>"; };
+		4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F573A93231CC929004616F5 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		4F573A94231CC929004616F5 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
@@ -435,8 +436,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0911352320EACC00AA7F7D /* MobileSDK.framework in Frameworks */,
 				4F0911072320B67C00AA7F7D /* UserNotifications.framework in Frameworks */,
-				4F0911262320BF7900AA7F7D /* MobileSDK-device.framework in Frameworks */,
 				4F0911092320B67C00AA7F7D /* Pods_Cheq.framework in Frameworks */,
 				4F09110A2320B67C00AA7F7D /* PersonalDataVault.framework in Frameworks */,
 			);
@@ -446,7 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0911222320BB7200AA7F7D /* MobileSDK.framework in Frameworks */,
+				4F0911322320EA8800AA7F7D /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
 				FC81CFB907500B248A428194 /* Pods_Cheq.framework in Frameworks */,
 				4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */,
@@ -457,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F0911362320EB6E00AA7F7D /* MobileSDK.framework in Frameworks */,
 				06EFB46747EE069377A6B178 /* Pods_CheqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +545,31 @@
 				4F091099231F7E9A00AA7F7D /* Data_Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4F09112B2320EA6C00AA7F7D /* mobileSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4F09112C2320EA6C00AA7F7D /* simulator */,
+				4F09112E2320EA6C00AA7F7D /* device */,
+			);
+			path = mobileSDK;
+			sourceTree = "<group>";
+		};
+		4F09112C2320EA6C00AA7F7D /* simulator */ = {
+			isa = PBXGroup;
+			children = (
+				4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */,
+			);
+			path = simulator;
+			sourceTree = "<group>";
+		};
+		4F09112E2320EA6C00AA7F7D /* device */ = {
+			isa = PBXGroup;
+			children = (
+				4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */,
+			);
+			path = device;
 			sourceTree = "<group>";
 		};
 		4F573A90231CC4C4004616F5 /* MoneySoft */ = {
@@ -649,8 +676,6 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F0911252320BF7900AA7F7D /* MobileSDK-device.framework */,
-				4F0910A22320B5DC00AA7F7D /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				AC6BF8067E23216EDA4AEA1A /* Pods_Cheq.framework */,
@@ -728,6 +753,7 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
+				4F09112B2320EA6C00AA7F7D /* mobileSDK */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				4F091079231F28D900AA7F7D /* CheqToday */,
@@ -1762,6 +1788,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = "Cheq copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1794,6 +1821,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = "Cheq copy-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1943,6 +1971,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mobileSDK/simulator",
+					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = Cheq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1975,6 +2005,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mobileSDK/simulator",
+					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = Cheq/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2005,6 +2037,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
 					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
+					"$(PROJECT_DIR)/mobileSDK/simulator",
 				);
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2033,6 +2066,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
 					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
+					"$(PROJECT_DIR)/mobileSDK/simulator",
 				);
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
