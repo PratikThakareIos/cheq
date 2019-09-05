@@ -18,6 +18,37 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let authUserUtil = AuthUserUtil.shared
     let firebaseAuth = FirebaseAuthManager.shared
     
+    func testGetLinkableAccounts() {
+        let expectation = XCTestExpectation(description: "test money soft sdk integrations")
+        let login: [LoginCredentialType: String] = MoneySoftUtil.shared.loginAccount()
+        MoneySoftManager.shared.login(login)
+        .then { msAuthModel-> Promise<UserProfileModel> in
+            MoneySoftManager.shared.getProfile()
+        }.then { profile->Promise<[FinancialInstitutionModel]> in
+            MoneySoftManager.shared.getInstitutions()
+        }.then { institutions->Promise<InstitutionCredentialsFormModel> in
+            let banks: [FinancialInstitutionModel] = institutions
+            banks.forEach {
+                let name = $0.name ?? ""
+                LoggingUtil.shared.cPrint(name)
+            }
+            let selected = banks.first(where: { $0.name == "Demobank"})
+            return MoneySoftManager.shared.getBankSignInForm(selected!)
+        }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
+            var form = signInForm
+            MoneySoftUtil.shared.fillFormWithTestAccount(&form)
+            return MoneySoftManager.shared.linkableAccounts(String(MoneySoftUtil.shared.demoBankFormModel().financialInstitutionId), credentials: form)
+        }.done { accounts in
+            XCTAssertTrue(accounts.count > 0)
+        }.catch {err in
+            LoggingUtil.shared.cPrint(err)
+            XCTFail()
+        }.finally {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
+    
     func testMoneySoftCredentials() {
         let expectation = XCTestExpectation(description: "test money soft sdk integrations")
         let login: [LoginCredentialType: String] = MoneySoftUtil.shared.loginAccount()
@@ -39,8 +70,8 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
             LoggingUtil.shared.cPrint(form)
             XCTAssertTrue(true)
         }.catch { err in
-            XCTFail()
             LoggingUtil.shared.cPrint(err)
+            XCTFail()
         }.finally {
             expectation.fulfill()
         }
