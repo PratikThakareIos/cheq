@@ -101,4 +101,20 @@ class MoneySoftUtil {
         login[.msPassword] = "cheq01!"
         return login
     }
+    
+    func logErrorModel(_ apiErrorModel: ApiErrorModel?) {
+        guard let err = apiErrorModel else { return }
+        LoggingUtil.shared.cPrint("error code: \(err)")
+        let provider = EnumerationManager.labelForErrorKey(.PROVIDER)
+        let mfaFieldKey = EnumerationManager.labelForErrorKey(.MFA_FIELD_TYPE)
+        let mfaPromptKey = EnumerationManager.labelForErrorKey(.MFA_PROMPT)
+        let messageKey = EnumerationManager.labelForErrorKey(.MESSAGE)
+        let keys = [provider, mfaFieldKey, mfaPromptKey, messageKey]
+        keys.forEach {
+            if let message = err.messages[$0] {
+                LoggingUtil.shared.cPrint("\($0):\(message)")
+            }
+        }
+        
+    }
 }

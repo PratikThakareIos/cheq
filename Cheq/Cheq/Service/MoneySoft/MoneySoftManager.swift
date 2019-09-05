@@ -30,9 +30,7 @@ class MoneySoftManager {
                     guard let profile = profileModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile); return }
                     resolver.fulfill(profile)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile)
                 }))
             } catch {
@@ -91,10 +89,7 @@ extension MoneySoftManager {
                     guard let transactions = transactionModels as? [FinancialTransactionModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return }
                     resolver.fulfill(transactions)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                        LoggingUtil.shared.cPrint(err.messages)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
                 }))
             } catch {
@@ -136,9 +131,7 @@ extension MoneySoftManager {
                     guard let linkedAccts = linkedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToLinkAccounts); return  }
                     resolver.fulfill(linkedAccts)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
                 }))
             } catch {
@@ -154,7 +147,7 @@ extension MoneySoftManager {
                     guard let form = formModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm); return }
                     resolver.fulfill(form)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel { LoggingUtil.shared.cPrint(err.code) }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm)
                 }))
             } catch {
@@ -173,9 +166,7 @@ extension MoneySoftManager {
                         resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
                     }
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
                 }))
             } catch {
@@ -217,9 +208,7 @@ extension MoneySoftManager {
                         resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
                     }
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
                 }))
             } catch {
@@ -235,9 +224,7 @@ extension MoneySoftManager {
                     guard let removedAccts = removedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToLinkAccounts); return }
                     resolver.fulfill(removedAccts)
                 }, errorHandler: { errorModel in
-                    if let err = errorModel {
-                        LoggingUtil.shared.cPrint(err.code)
-                    }
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToUnlinkAccounts)
                 }))
             } catch {

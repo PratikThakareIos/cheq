@@ -35,9 +35,9 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
             let selected = banks.first(where: { $0.name == "Demobank"})
             return MoneySoftManager.shared.getBankSignInForm(selected!)
         }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
-            var form = signInForm
+            var form = MoneySoftUtil.shared.demoBankFormModel()
             MoneySoftUtil.shared.fillFormWithTestAccount(&form)
-            return MoneySoftManager.shared.linkableAccounts(String(MoneySoftUtil.shared.demoBankFormModel().financialInstitutionId), credentials: form)
+            return MoneySoftManager.shared.linkableAccounts(String(MoneySoftUtil.shared.demoBankFormModel().providerInstitutionId), credentials: form)
         }.done { accounts in
             XCTAssertTrue(accounts.count > 0)
         }.catch {err in
