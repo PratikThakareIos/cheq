@@ -17,6 +17,9 @@ target 'Cheq' do
   pod 'Alamofire'
   pod 'PromiseKit'
   
+  # Pod for BlueDot SDK
+  pod 'BluedotPointSDK'
+  
   # Pod dependency from MoneySoft
   pod 'Mantle'
   pod 'PromisesObjC'
@@ -27,9 +30,6 @@ target 'Cheq' do
   pod 'SQLCipher'
   pod 'sqlite3'
   pod 'OpenSSL-Universal'
-  
-  # Segment pod 
-  pod 'Analytics', '~> 3.0'
 
   # Firebase pods
   pod 'Firebase/Core'
