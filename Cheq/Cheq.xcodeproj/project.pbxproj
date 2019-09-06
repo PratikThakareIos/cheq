@@ -17,8 +17,6 @@
 		4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109B231F981E00AA7F7D /* NotificationUtil.swift */; };
 		4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109F23208A2800AA7F7D /* NotificationEnums.swift */; };
 		4F0911212320B91000AA7F7D /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0911202320B91000AA7F7D /* XCTestConfig.swift */; };
-		4F0911322320EA8800AA7F7D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */; };
-		4F0911332320EA9500AA7F7D /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09123923221FB500AA7F7D /* BluedotManager.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F573AC1231CC92A004616F5 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573A93231CC929004616F5 /* APIHelper.swift */; };
@@ -168,8 +166,10 @@
 		4F57B9F62322275B00B95C06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9676521C22FAFD03001E43E0 /* Assets.xcassets */; };
 		4F57B9F72322275B00B95C06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* Main.storyboard */; };
 		4F57BA032322277B00B95C06 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F57BA042322278F00B95C06 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; };
 		4F57BAF72322291400B95C06 /* CheqDevice-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F57BAF62322291400B95C06 /* CheqDevice-Info.plist */; };
+		4F57BAF8232229D400B95C06 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; };
+		4F57BAFA23222A8D00B95C06 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F57BAF923222A8D00B95C06 /* MobileSDK.framework */; };
+		4F57BAFB23222B1500B95C06 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F57BAF923222A8D00B95C06 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
 		4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
 		4FB479EA231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E9231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift */; };
@@ -237,7 +237,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F0911332320EA9500AA7F7D /* MobileSDK.framework in Embed Frameworks */,
+				4F57BAFB23222B1500B95C06 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +287,6 @@
 		4F09109B231F981E00AA7F7D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
 		4F09109F23208A2800AA7F7D /* NotificationEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnums.swift; sourceTree = "<group>"; };
 		4F0911202320B91000AA7F7D /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
-		4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4F09123923221FB500AA7F7D /* BluedotManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluedotManager.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
@@ -338,6 +337,7 @@
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BA012322275B00B95C06 /* CheqDevice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDevice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F57BAF62322291400B95C06 /* CheqDevice-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CheqDevice-Info.plist"; sourceTree = "<group>"; };
+		4F57BAF923222A8D00B95C06 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
 		4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUtil.swift; sourceTree = "<group>"; };
 		4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		4FB479E9231DF8F0005FA0C1 /* MoneySoftLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftLoginViewController.swift; sourceTree = "<group>"; };
@@ -402,7 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F57BA042322278F00B95C06 /* MobileSDK.framework in Frameworks */,
+				4F57BAF8232229D400B95C06 /* MobileSDK.framework in Frameworks */,
 				4F57B9EF2322275B00B95C06 /* UserNotifications.framework in Frameworks */,
 				4F57B9F02322275B00B95C06 /* PersonalDataVault.framework in Frameworks */,
 				4F57B9F12322275B00B95C06 /* Pods_Cheq.framework in Frameworks */,
@@ -413,8 +413,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0911322320EA8800AA7F7D /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
+				4F57BAFA23222A8D00B95C06 /* MobileSDK.framework in Frameworks */,
 				4F05DBB9231CE34E00C3B9BF /* PersonalDataVault.framework in Frameworks */,
 				C73E7199960BAA0EAB9EBAD9 /* Pods_Cheq.framework in Frameworks */,
 			);
@@ -510,7 +510,7 @@
 		4F09112C2320EA6C00AA7F7D /* simulator */ = {
 			isa = PBXGroup;
 			children = (
-				4F09112D2320EA6C00AA7F7D /* MobileSDK.framework */,
+				4F57BAF923222A8D00B95C06 /* MobileSDK.framework */,
 			);
 			path = simulator;
 			sourceTree = "<group>";
@@ -1641,7 +1641,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = "Cheq/CheqDevice-Info.plist";
@@ -1675,7 +1674,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK/device",
 				);
 				INFOPLIST_FILE = "Cheq/CheqDevice-Info.plist";
