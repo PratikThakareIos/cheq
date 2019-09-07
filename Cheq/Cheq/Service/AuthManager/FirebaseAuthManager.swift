@@ -237,17 +237,17 @@ extension FirebaseAuthManager {
 
 extension FirebaseAuthManager {
     
-    func registrationToken()-> Promise<String> {
-        return Promise<String>() { resolver in
-            InstanceID.instanceID().instanceID { (result, error) in
-                if let error = error {
-                    resolver.reject(error)
-                } else if let result = result {
-                    resolver.fulfill(result.token)
-                }
-            }
-        }
-    }
+//    func registrationToken()-> Promise<String> {
+//        return Promise<String>() { resolver in
+//            InstanceID.instanceID().instanceID { (result, error) in
+//                if let error = error {
+//                    resolver.reject(error)
+//                } else if let result = result {
+//                    resolver.fulfill(result.token)
+//                }
+//            }
+//        }
+//    }
 
     func setupForRemoteNotifications(_ application: UIApplication, delegate: Any) {
         // Firebase Message delegate 

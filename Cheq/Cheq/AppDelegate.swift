@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Analytics
 import UserNotifications
 import FirebaseMessaging
 
@@ -18,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        self.setupSegment()
-        self.setupAppConfig()
+        self.setupServices()
         
         // setup
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
@@ -66,18 +64,10 @@ extension AppDelegate {
 // MARK: Segment
 extension AppDelegate {
     
-    // configure and setup segment
-    func setupSegment() {
-        
-        let segConfig = SEGAnalyticsConfiguration(writeKey: "DAmGqZ4pL19uFxe97hESgpzPj6UyOlF8")
-        segConfig.trackApplicationLifecycleEvents = true
-        segConfig.recordScreenViews = true
-        SEGAnalytics.setup(with: segConfig)
-    }
-    
     // trigger the first initiation of AppConfig singleton
-    func setupAppConfig() {
+    func setupServices() {
         let _ = AppConfig.shared
+        let _ = BluedotManager.shared
     }
 }
 
