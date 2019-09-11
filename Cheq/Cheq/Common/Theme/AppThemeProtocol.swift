@@ -22,6 +22,7 @@ protocol AppThemeProtocol {
     //MARK: colors
     var barStyle: UIBarStyle { get }
     var textColor: UIColor { get }
+    var altTextColor: UIColor { get }
     var linksColor: UIColor { get }
     var primaryColor: UIColor { get }
     var backgroundColor: UIColor { get }
@@ -30,6 +31,7 @@ protocol AppThemeProtocol {
     var alternativeColor2: UIColor { get }
     var alternativeColor3: UIColor { get }
     var alternativeColor4: UIColor { get }
+    var facebookColor: UIColor { get }
     var nonActiveAlpha: CGFloat { get }
 
     //MARK: gradients
@@ -50,29 +52,46 @@ protocol AppThemeProtocol {
     var carouselCellHeightToScreenRatio: CGFloat { get }
     var popoverMenuLabelHeight: CGFloat { get }
     var popoverMenuToScreenWidthRatio: CGFloat { get }
+    var defaultButtonHeight: CGFloat { get }
+    var defaultCornerRadius: CGFloat { get }
+    var defaultTextFieldHeight: CGFloat { get }
 
+    func cardStyling(_ view: UIView)
     func cardStyling(_ view: UIView, bgColors: [UIColor])
-    func cardStyling(_ view: UIView, bgColor: UIColor)
+    func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
     func collectionViewPadding(_ collectionView: UICollectionView, cellLength: CGFloat, collectionType: CollectionViewType)
 }
 
 // MARK: Styling logics 
 extension AppThemeProtocol {
 
+    var defaultCornerRadius: CGFloat { get { return 20.0 } }
+    var defaultButtonHeight: CGFloat { get { return 56.0 }}
+    var defaultTextFieldHeight: CGFloat { get { return 56.0 }}
+
     var popoverMenuLabelHeight: CGFloat { get { return 40.0 } }
     var popoverMenuToScreenWidthRatio: CGFloat { get { return 0.5 } }
 
-    func cardStyling(_ view: UIView, bgColor: UIColor) {
+    func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool) {
         view.backgroundColor = bgColor
         view.layer.masksToBounds = false
-        view.layer.cornerRadius = 20.0
-        view.layer.shadowPath =
-            UIBezierPath(roundedRect: view.layer.bounds,
-                         cornerRadius: view.layer.cornerRadius).cgPath
-        view.layer.shadowColor = textColor.cgColor
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowRadius = view.layer.cornerRadius / 2.0
+        view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        if applyShadow {
+            view.layer.shadowPath =
+                UIBezierPath(roundedRect: view.layer.bounds,
+                             cornerRadius: view.layer.cornerRadius).cgPath
+            view.layer.shadowColor = textColor.cgColor
+            view.layer.shadowOpacity = 0.2
+            view.layer.shadowOffset = CGSize(width: 5, height: 5)
+            view.layer.shadowRadius = view.layer.cornerRadius / 2.0
+        }
+    }
+
+    func cardStyling(_ view: UIView) {
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     func cardStyling(_ view: UIView, bgColors: [UIColor]) {
@@ -84,7 +103,7 @@ extension AppThemeProtocol {
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
         gradientLayer.opacity = 0.8;
-        gradientLayer.cornerRadius = 20.0
+        gradientLayer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
         gradientLayer.shadowPath =
             UIBezierPath(roundedRect: gradientLayer.bounds,
                          cornerRadius: gradientLayer.cornerRadius).cgPath
@@ -137,4 +156,12 @@ extension AppThemeProtocol {
     var gridCellToScreenRatio: CGFloat { get { return 0.35 } }
     var carouselCellWidthToScreenRatio: CGFloat { get { return 0.6 } }
     var carouselCellHeightToScreenRatio: CGFloat { get { return 0.25 } }
+    
+    var facebookColor: UIColor {
+        get { return UIColor(hex: "3B5998")}
+    }
+    
+    var altTextColor: UIColor {
+        get { return .white }
+    }
 }

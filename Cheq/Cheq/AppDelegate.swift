@@ -9,6 +9,8 @@
 import UIKit
 import UserNotifications
 import FirebaseMessaging
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -16,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        Fabric.with([Crashlytics.self])
         self.setupServices()
         
         // setup
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+                
         return true
     }
     

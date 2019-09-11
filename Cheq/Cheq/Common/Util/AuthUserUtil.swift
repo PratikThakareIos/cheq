@@ -53,4 +53,9 @@ class AuthUserUtil {
     func weakPassword()-> String {
         return "12345678"
     }
+
+    // TODO 
+    func validEmail()-> Bool {
+        return true
+    }
 }

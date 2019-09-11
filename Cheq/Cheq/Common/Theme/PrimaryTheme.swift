@@ -47,24 +47,29 @@ extension PrimaryTheme {
         }
     }
 
+    // purple
     var primaryColor: UIColor {
-        get { return UIColor(hex: "0D80FF") }
+        get { return UIColor(hex: "491556") }
     }
 
+    // purple
     var alternativeColor1: UIColor {
-        get { return UIColor(hex: "0CAEE8") }
+        get { return UIColor(hex: "491556") }
     }
 
+    // orange
     var alternativeColor2: UIColor {
-        get { return UIColor(hex: "01FFFD") }
+        get { return UIColor(hex: "FF8F40") }
     }
 
+    // light blue
     var alternativeColor3: UIColor {
-        get { return UIColor(hex: "5FE8B1") }
+        get { return UIColor(hex: "6BE4ff") }
     }
 
+    // dark pink
     var alternativeColor4: UIColor {
-        get { return UIColor(hex: "55FAFF") }
+        get { return UIColor(hex: "DC4277") }
     }
 
     var alternativeOrangeColor: UIColor {
@@ -75,20 +80,24 @@ extension PrimaryTheme {
         get { return UIColor(hex: "FFFD68")}
     }
 
+    // grayish white
     var backgroundColor: UIColor {
-        get { return UIColor(hex: "FFFFFF") }
+        get { return UIColor(hex: "f4f3f5") }
     }
 
+    // grayish white 
     var textBackgroundColor: UIColor {
-        get { return UIColor(hex: "FFFFFF")}
+        get { return UIColor(hex: "f4f3f5")}
     }
 
+    // text color (black)
     var textColor: UIColor {
-        get { return .black }
+        get { return UIColor(hex: "101010") }
     }
 
+    // text links
     var linksColor: UIColor {
-        get { return alternativeColor3 }
+        get { return UIColor(hex: "039de1") }
     }
     
     var barStyle: UIBarStyle { get { return .default } }

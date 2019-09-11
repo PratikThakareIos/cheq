@@ -16,6 +16,8 @@ target 'Cheq' do
   pod 'PopOverMenu'
   pod 'Alamofire'
   pod 'PromiseKit'
+  pod 'Validator', '~> 3.2'
+  pod 'PopupDialog', '~> 1.0.0'
   
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK'
@@ -30,6 +32,10 @@ target 'Cheq' do
   pod 'SQLCipher'
   pod 'sqlite3'
   pod 'OpenSSL-Universal'
+  
+  #Fabrics + Crashlytics
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # Firebase pods
   pod 'Firebase/Core'

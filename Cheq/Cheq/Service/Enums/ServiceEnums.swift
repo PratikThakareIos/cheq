@@ -31,11 +31,13 @@ enum MoneySoftManagerError: Error {
 }
 
 enum AuthManagerError: Error {
+    case invalidRegistrationFields
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
     case unableToRetrieveAuthToken
     case unableToRetrieveCredential
     case unableToSignIn
+    case unableInvalidEmail
     case unableToStoreAuthToken
     case unableToCleanAuthToken
     case unableToRetrieveCurrentUser

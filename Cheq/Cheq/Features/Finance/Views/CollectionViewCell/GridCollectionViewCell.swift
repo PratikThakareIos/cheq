@@ -40,7 +40,7 @@ class GridCollectionViewCell: UICollectionViewCell {
         if !(self.contentView.layer.sublayers?.first is CAGradientLayer) {
             CATransaction.begin()
             CATransaction.setDisableActions(true)
-            sharedAppConfig.activeTheme.cardStyling(self.contentView, bgColor: sharedAppConfig.activeTheme.textBackgroundColor)
+            sharedAppConfig.activeTheme.cardStyling(self.contentView, bgColor: sharedAppConfig.activeTheme.textBackgroundColor, applyShadow: true)
             CATransaction.commit()
         }
     }

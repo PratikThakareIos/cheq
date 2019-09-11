@@ -192,13 +192,45 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
                 XCTAssertNotNil(authToken)
                 XCTAssertTrue(authToken.count > 0)
                 LoggingUtil.shared.cPrint("authToken \(authToken)")
-                expectation.fulfill()
-            }.catch { err in
-                LoggingUtil.shared.cPrint(err.localizedDescription)
-                XCTAssertThrowsError("testRegisterWithNewEmail should work")
-                expectation.fulfill()
-            }
+        }.catch { err in
+            LoggingUtil.shared.cPrint(err.localizedDescription)
+            XCTAssertThrowsError("testRegisterWithNewEmail should work")
+        }.finally {
+            expectation.fulfill()
+        }
 
+        // timeout of 20 seconds.
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
+    
+    func testRegisterTestAccount() {
+        let expectation = XCTestExpectation(description: "registration for test account")
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: "xuwei@cheq.com.au", .password: "cheqPass808"]).done { authUser in
+            XCTAssertNotNil(authUser)
+            XCTAssertNotNil(authUser.email)
+            XCTAssertNotNil(authUser.userId)
+        }.catch {err in
+            LoggingUtil.shared.cPrint(err)
+            XCTFail()
+        }.finally {
+            expectation.fulfill()
+        }
+        // timeout of 20 seconds.
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
+    
+    func testDeleteTestAccount() {
+        let expectation = XCTestExpectation(description: "delete test account")
+        firebaseAuth.login([.email: "xuwei@cheq.com.au", .password: "cheqPass808"]).then { authUser in
+            self.firebaseAuth.removeUserAcct(authUser)
+        }.done {
+            XCTAssertTrue(true)
+        }.catch { err in
+            XCTFail()
+        }.finally {
+            expectation.fulfill()
+        }
+        
         // timeout of 20 seconds.
         wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
     }

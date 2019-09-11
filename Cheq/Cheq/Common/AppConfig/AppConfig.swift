@@ -44,9 +44,13 @@ class AppConfig {
         SwiftSpinner.setAnimationDelay(activeTheme.quickAnimationDuration)
         SwiftSpinner.show("Loading", animated: true)
     }
-
+    
     func hideSpinner() {
         SwiftSpinner.hide()
+    }
+
+    func hideSpinner(completion: @escaping ()->Void) {
+        SwiftSpinner.hide(completion)
     }
     
     @objc func updateFCMDeviceToken(_ notification: Notification) {

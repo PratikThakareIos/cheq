@@ -7,6 +7,10 @@ PODS:
   - CocoaLumberjack/Default (3.4.2)
   - CocoaLumberjack/Swift (3.4.2):
     - CocoaLumberjack/Default
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - DynamicBlurView (3.0.1)
+  - Fabric (1.10.2)
   - FBSDKCoreKit (5.5.0):
     - FBSDKCoreKit/Basics (= 5.5.0)
     - FBSDKCoreKit/Core (= 5.5.0)
@@ -15,20 +19,20 @@ PODS:
     - FBSDKCoreKit/Basics
   - FBSDKLoginKit (5.5.0):
     - FBSDKCoreKit (~> 5.0)
-  - Firebase/Analytics (6.8.0):
+  - Firebase/Analytics (6.8.1):
     - Firebase/Core
-  - Firebase/Auth (6.8.0):
+  - Firebase/Auth (6.8.1):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.2.3)
-  - Firebase/Core (6.8.0):
+  - Firebase/Core (6.8.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.1.1)
-  - Firebase/CoreOnly (6.8.0):
-    - FirebaseCore (= 6.2.2)
-  - Firebase/InAppMessagingDisplay (6.8.0):
+  - Firebase/CoreOnly (6.8.1):
+    - FirebaseCore (= 6.2.3)
+  - Firebase/InAppMessagingDisplay (6.8.1):
     - Firebase/CoreOnly
     - FirebaseInAppMessagingDisplay (~> 0.15.4)
-  - Firebase/Messaging (6.8.0):
+  - Firebase/Messaging (6.8.1):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.1.4)
   - FirebaseAnalytics (6.1.1):
@@ -48,7 +52,7 @@ PODS:
     - GoogleUtilities/Environment (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (6.2.2):
+  - FirebaseCore (6.2.3):
     - FirebaseCoreDiagnostics (~> 1.0)
     - FirebaseCoreDiagnosticsInterop (~> 1.0)
     - GoogleUtilities/Environment (~> 6.2)
@@ -67,7 +71,7 @@ PODS:
   - FirebaseInAppMessagingDisplay (0.15.4):
     - FirebaseCore (~> 6.2)
     - FirebaseInAppMessaging (>= 0.15.0)
-  - FirebaseInstanceID (4.2.4):
+  - FirebaseInstanceID (4.2.5):
     - FirebaseCore (~> 6.0)
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
@@ -133,6 +137,8 @@ PODS:
     - OpenSSL-Universal/Static (= 1.0.2.18)
   - OpenSSL-Universal/Static (1.0.2.18)
   - PopOverMenu (2.5.2)
+  - PopupDialog (1.0.0):
+    - DynamicBlurView (~> 3.0.1)
   - PromiseKit (6.11.0):
     - PromiseKit/CorePromise (= 6.11.0)
     - PromiseKit/Foundation (= 6.11.0)
@@ -156,12 +162,15 @@ PODS:
   - sqlite3/common (3.29.0)
   - SwiftKeychainWrapper (3.4.0)
   - SwiftSpinner (2.1.0)
+  - Validator (3.2.1)
 
 DEPENDENCIES:
   - Alamofire
   - BluedotPointSDK
   - Charts (~> 3.3)
   - CocoaLumberjack/Swift (<= 3.4.2)
+  - Crashlytics
+  - Fabric
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/InAppMessagingDisplay
@@ -175,6 +184,7 @@ DEPENDENCIES:
   - Obfuscator
   - OpenSSL-Universal
   - PopOverMenu
+  - PopupDialog (~> 1.0.0)
   - PromiseKit
   - PromisesObjC
   - REValidation
@@ -183,6 +193,7 @@ DEPENDENCIES:
   - sqlite3
   - SwiftKeychainWrapper
   - SwiftSpinner
+  - Validator (~> 3.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -190,6 +201,9 @@ SPEC REPOS:
     - BluedotPointSDK
     - Charts
     - CocoaLumberjack
+    - Crashlytics
+    - DynamicBlurView
+    - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -218,6 +232,7 @@ SPEC REPOS:
     - Obfuscator
     - OpenSSL-Universal
     - PopOverMenu
+    - PopupDialog
     - PromiseKit
     - PromisesObjC
     - Protobuf
@@ -227,25 +242,29 @@ SPEC REPOS:
     - sqlite3
     - SwiftKeychainWrapper
     - SwiftSpinner
+    - Validator
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   BluedotPointSDK: a87e0f059237df0d6b1952025ffd01e7c34c4f7e
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: 7ade9cfea30eef2f6cf105a1aa904f89ea68fb7d
   FBSDKLoginKit: bb28062f24e79590c44ba03297ca9bea4b6436d2
-  Firebase: c35912a5c160193dc423f260dac3f167a1a795ab
+  Firebase: 9cbe4e5b5eaafa05dc932be58b7c8c3820d71e88
   FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseAuth: e7f86c2dfc57281cd01f7da5e4b40e01e4510a4a
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 12422a2a2b79ed161b06ccad1edfe650de7a4b34
+  FirebaseCore: e9d9bd1dae61c1e82bc1e0e617a9d832392086a0
   FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
   FirebaseInAppMessaging: 54bcfe1cf2a48a8f5cdcac487a585c0e9b440d9a
   FirebaseInAppMessagingDisplay: 66267552890939d394a961ee4cac5cdfd41f17bb
-  FirebaseInstanceID: 88932a31aba5a56cfd3a7541706436c71f7f4598
+  FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
   FirebaseMessaging: 9483ac438b7b223c09dad8712310e9ee7d562c99
   FirebaseUI: d92c980c1c7e553df3c5e7b0725baeb13f80f6d2
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -261,6 +280,7 @@ SPEC CHECKSUMS:
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
   OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
   PopOverMenu: 7a1f36a5425c80f54630b42ef3a32aaf88508dc1
+  PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2
   PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
@@ -270,7 +290,8 @@ SPEC CHECKSUMS:
   sqlite3: 1b61edbb8cc8ee5f9150fc846bf32df6876577cd
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   SwiftSpinner: 0f15c006307f8d8bbac075638927ec1361b565d7
+  Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 9d03b73968c25bf31a3148a1ca75c37f95c9e451
+PODFILE CHECKSUM: 29d13d1b0e282e25e182e20952e433411a443340
 
 COCOAPODS: 1.7.4

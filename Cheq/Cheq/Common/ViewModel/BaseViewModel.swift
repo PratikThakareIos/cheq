@@ -9,6 +9,5 @@
 import UIKit
 
 protocol BaseViewModel {
-
     func load(_ complete: @escaping ()->Void)
 }
