@@ -10,6 +10,7 @@ import XCTest
 import PromiseKit
 import Firebase
 import MobileSDK
+import DateToolsSwift
 @testable import Cheq 
 
 class MoneySoftManagerIntegrationTests: XCTestCase {
@@ -19,6 +20,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let firebaseAuth = FirebaseAuthManager.shared
     
     func testMoneySoftSDK() {
+        var storedAccounts: [FinancialAccountModel] = []
         let expectation = XCTestExpectation(description: "test money soft sdk integrations")
         let login: [LoginCredentialType: String] = MoneySoftUtil.shared.loginAccount()
         MoneySoftManager.shared.login(login)
@@ -48,20 +50,29 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
             let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
             return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
         }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
+            storedAccounts = refreshedAccounts
             let transactionFilter = TransactionFilter()
             transactionFilter.count = 1000
             transactionFilter.offset = 0
             return MoneySoftManager.shared.getTransactions(transactionFilter)
             }.then { transactions -> Promise<[FinancialTransactionModel]> in
             let transactionFilter = TransactionFilter()
-            transactionFilter.fromDate = Date()
+            transactionFilter.fromDate = 30.days.earlier
             transactionFilter.toDate = Date()
             transactionFilter.count = 1000
             transactionFilter.offset = 0
             return MoneySoftManager.shared.getTransactions(transactionFilter)
-        }.done { transactions in
-            LoggingUtil.shared.cPrint(transactions.count)
-            XCTAssertTrue(transactions.count > 0)
+        }.then { transactions->Promise<[FinancialAccountModel]> in
+            let acct = storedAccounts.first ?? FinancialAccountModel(name: "", number: "", balance: 0, type: .BANK)
+            return MoneySoftManager.shared.unlinkAccounts([acct])
+        }.then { unlinkedAccounts -> Promise<Bool> in
+            XCTAssertTrue(unlinkedAccounts.count == 1)
+            return MoneySoftManager.shared.forceUnlinkAllAccounts()
+        }.then {  success->Promise<[FinancialAccountModel]> in
+           return MoneySoftManager.shared.getAccounts()
+        }.done { fetchedAccounts in
+             let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
+            XCTAssertTrue(enabledAccounts.count == 0)
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
             XCTFail()

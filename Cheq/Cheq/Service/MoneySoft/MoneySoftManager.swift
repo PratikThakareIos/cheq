@@ -82,6 +82,28 @@ class MoneySoftManager {
 
 // MARK: Transactions
 extension MoneySoftManager {
+
+    func getTransactions(_ transactionFilter: TransactionFilter)-> Promise<[FinancialTransactionModel]> {
+        return Promise<[FinancialTransactionModel]>() { resolver in
+            do {
+                try msApi.transactions().getTransactions(filter: transactionFilter, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactions in
+                    guard let fetchedTransactions = transactions as? [FinancialTransactionModel] else {
+                        resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return
+                    }
+                    resolver.fulfill(fetchedTransactions)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+            }
+        }
+    }
+}
+
+// MARK: Operation related to Linking Banks
+extension MoneySoftManager {
     
     func getAccounts()->Promise<[FinancialAccountModel]> {
         return Promise<[FinancialAccountModel]>() { resolver in
@@ -115,27 +137,6 @@ extension MoneySoftManager {
         }
     }
     
-    func getTransactions(_ transactionFilter: TransactionFilter)-> Promise<[FinancialTransactionModel]> {
-        return Promise<[FinancialTransactionModel]>() { resolver in
-            do {
-                try msApi.transactions().getTransactions(filter: transactionFilter, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactions in
-                    guard let fetchedTransactions = transactions as? [FinancialTransactionModel] else {
-                        resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return
-                    }
-                    resolver.fulfill(fetchedTransactions)
-                }, errorHandler: { errorModel in
-                    MoneySoftUtil.shared.logErrorModel(errorModel)
-                    resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
-                }))
-            } catch {
-                resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
-            }
-        }
-    }
-}
-
-// MARK: Operation related to Linking Banks
-extension MoneySoftManager {
 
     func linkableAccounts(_ credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
@@ -213,17 +214,24 @@ extension MoneySoftManager {
 
 // MARK: disabled account update credentials, unlinking linked accounts
 extension MoneySoftManager {
-    func updateCredentials(_ credentialFormModel: InstitutionCredentialsFormModel)-> Promise<Bool> {
+    
+    /*
+    update account credentials should be pass for accounts that are disabled
+    disable state came from getAccounts
+    getAccounts gets all the accounts that are linked to the user's entered email/username
+    those that are disabled are not available on the device
+    each sign in form represents credential for a subset of accounts if we have a list of accounts on various device
+    example - I have iphone loggedin using Westpac. So I have 10 accounts. then on iPad, I logged in using and I have 10 same accounts. But these are disabled because MoneySoftSDK don't recognize the initial installing device.
+    So now, I will need to Update Account Credentials to supply the valid logins to enable to these 10 accounts on iPad.
+    Could think of this as a re-authenticate call.
+     */
+    func updateAccountCredentials(_ account: FinancialAccountModel, credentialFormModel: InstitutionCredentialsFormModel) -> Promise<Bool> {
         return Promise<Bool>() { resolver in
             do {
-                try msApi.financial().updateCredentials(credentials: credentialFormModel, listener: ApiListener<ApiResponseModel>(successHandler: { responseModel in
-                    guard let response = responseModel else { resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials); return }
-                    if response.success {
-                        resolver.fulfill(true)
-                    } else {
-                        resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
-                    }
-                }, errorHandler: { errorModel in
+                try msApi.financial().updateAccountCredentials(account: account, credentials: credentialFormModel, listener: ApiListener<FinancialAccountModel>(successHandler: { account in
+                    resolver.fulfill(true)
+                }, errorHandler: { errorModel  in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
                 }))
             } catch {

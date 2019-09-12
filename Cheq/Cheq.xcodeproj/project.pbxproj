@@ -196,7 +196,6 @@
 		4FD7C1382328754000AC7A67 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1362328754000AC7A67 /* WebViewModel.swift */; };
 		4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
 		4FD7C13B232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
-		4FD7C1E42329CE5300AC7A67 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */; };
 		4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */; };
 		4FD7C1E72329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */; };
 		4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
@@ -403,7 +402,6 @@
 		4FD7C1332328752C00AC7A67 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4FD7C1362328754000AC7A67 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardEnums.swift; sourceTree = "<group>"; };
-		4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPasswordToggleButton.swift; sourceTree = "<group>"; };
 		4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBEnums.swift; sourceTree = "<group>"; };
 		4FD7C1EB2329E14400AC7A67 /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
@@ -476,7 +474,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FD7C1E42329CE5300AC7A67 /* Pods_Cheq.framework in Frameworks */,
 				4F57BAF8232229D400B95C06 /* MobileSDK.framework in Frameworks */,
 				4F57B9EF2322275B00B95C06 /* UserNotifications.framework in Frameworks */,
 				4F57B9F02322275B00B95C06 /* PersonalDataVault.framework in Frameworks */,
@@ -812,7 +809,6 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
