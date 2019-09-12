@@ -37,7 +37,37 @@ class AppConfig {
         self.currentActiveThemeIndex = index
         activeTheme = themes[currentActiveThemeIndex]
     }
+}
 
+// MARK: Linking to Setting Screen
+extension AppConfig {
+    func toAppSetting() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+}
+
+// MARK: First Install Check
+extension AppConfig {
+    func installId()-> String {
+        let id = Bundle.main.bundleIdentifier ?? "cheq"
+        let installId = String("\(id)-install")
+        return installId
+    }
+    
+    func isFirstInstall()-> Bool {
+        let installIdExist = UserDefaults.standard.bool(forKey: installId())
+        let firstInstall = !installIdExist
+        return firstInstall
+    }
+    
+    func markFirstInstall() {
+        UserDefaults.standard.set(true, forKey: installId())
+        UserDefaults.standard.synchronize()
+    }
+}
+
+// MARK: Spinner
+extension AppConfig {
     func showSpinner() {
         SwiftSpinner.setTitleFont(activeTheme.headerFont)
         SwiftSpinner.setTitleColor(activeTheme.alternativeColor1)
@@ -48,11 +78,15 @@ class AppConfig {
     func hideSpinner() {
         SwiftSpinner.hide()
     }
-
+    
     func hideSpinner(completion: @escaping ()->Void) {
         SwiftSpinner.hide(completion)
     }
-    
+}
+
+
+// MARK: Push Notification Tokens
+extension AppConfig {
     @objc func updateFCMDeviceToken(_ notification: Notification) {
         self.fcmToken = notification.userInfo?[NotificationUserInfoKey.token.rawValue] as? String ?? ""
         LoggingUtil.shared.cPrint("fcm token")
@@ -65,3 +99,4 @@ class AppConfig {
         LoggingUtil.shared.cPrint(self.apnsDeviceToken)
     }
 }
+

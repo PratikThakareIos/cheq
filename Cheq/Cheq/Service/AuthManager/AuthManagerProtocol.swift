@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import FBSDKLoginKit
 
 protocol AuthManagerProtocol {
 
@@ -31,6 +32,7 @@ protocol AuthManagerProtocol {
     func messagingRegistrationToken()-> String
     func storeMessagingRegistrationToken(_ token: String)-> Promise<Bool>
     func setupForRemoteNotifications(_ application: UIApplication, delegate: Any)
+    func currentFacebookToken()-> String?
 }
 
 //MARK: Local user management methods default implementation
@@ -52,6 +54,14 @@ extension AuthManagerProtocol {
             let success = CKeychain.setValue("msgRegToken", value: token)
             resolver.fulfill(success)
         }
+    }
+    
+    func currentFacebookToken()-> String? {
+        var token: String?
+        if AccessToken.isCurrentAccessTokenActive {
+            token = AccessToken.current?.tokenString
+        }
+        return token
     }
 }
 

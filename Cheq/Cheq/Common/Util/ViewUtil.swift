@@ -24,7 +24,7 @@ class ViewUtil {
         button.clipsToBounds = true
     }
 
-    func roundRectButton(_ button: inout CButton) {
+    func roundRectButton(_ button: inout UIButton) {
         button.layer.masksToBounds = false
         button.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
         button.clipsToBounds = true

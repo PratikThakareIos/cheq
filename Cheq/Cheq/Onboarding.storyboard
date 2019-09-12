@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hPx-5O-Fn3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2IP-cq-6fu">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Splash View Controller-->
         <scene sceneID="mvA-x4-hBH">
             <objects>
-                <viewController storyboardIdentifier="MoneySoftLoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2IP-cq-6fu" customClass="SplashViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2IP-cq-6fu" customClass="SplashViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ues-Go-vaC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,13 +269,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ2-wd-ne0" customClass="CPasswordToggleButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="360" y="286.5" width="34" height="30"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" image="showPassword"/>
+                                        <connections>
+                                            <action selector="togglePasswordField:" destination="x8l-us-DxU" eventType="touchUpInside" id="4OY-y8-uAt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="alD-Y9-rJ1" firstAttribute="centerX" secondItem="cPQ-FO-X8U" secondAttribute="centerX" id="0KH-xf-iEk"/>
+                                    <constraint firstItem="PZ2-wd-ne0" firstAttribute="top" secondItem="V2N-3Z-KZC" secondAttribute="top" id="64Y-3H-IYi"/>
+                                    <constraint firstItem="PZ2-wd-ne0" firstAttribute="bottom" secondItem="V2N-3Z-KZC" secondAttribute="bottom" id="6Oj-iF-WTf"/>
                                     <constraint firstItem="alD-Y9-rJ1" firstAttribute="top" secondItem="cPQ-FO-X8U" secondAttribute="top" constant="20" id="Lpg-mR-USn"/>
                                     <constraint firstAttribute="trailing" secondItem="alD-Y9-rJ1" secondAttribute="trailing" constant="20" id="hNJ-4O-tkX"/>
+                                    <constraint firstItem="PZ2-wd-ne0" firstAttribute="trailing" secondItem="V2N-3Z-KZC" secondAttribute="trailing" id="hpV-rg-xOG"/>
                                     <constraint firstAttribute="bottom" secondItem="alD-Y9-rJ1" secondAttribute="bottom" constant="20" id="ma8-LX-l9x"/>
                                     <constraint firstItem="alD-Y9-rJ1" firstAttribute="leading" secondItem="cPQ-FO-X8U" secondAttribute="leading" constant="20" id="ocy-Pn-yIk"/>
+                                    <constraint firstItem="PZ2-wd-ne0" firstAttribute="height" secondItem="V2N-3Z-KZC" secondAttribute="height" id="yS8-Jq-PAp"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -298,13 +310,41 @@
                         <outlet property="loginWithFacebookButton" destination="G1x-XO-qnQ" id="PAI-Vl-yvE"/>
                         <outlet property="orText" destination="al3-0Y-LN4" id="Psv-pC-NyY"/>
                         <outlet property="passwordTextField" destination="V2N-3Z-KZC" id="1zh-gr-InO"/>
+                        <outlet property="passwordToggleButton" destination="PZ2-wd-ne0" id="jsA-C7-Aey"/>
                         <outlet property="registerButton" destination="dMQ-CZ-9ny" id="PoI-JX-BGw"/>
+                        <outlet property="scrollView" destination="cPQ-FO-X8U" id="Swm-eM-yLM"/>
                         <outlet property="titleText" destination="uke-vw-MrW" id="vxr-Wi-DKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMu-s3-NcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2897.1014492753625" y="-60.267857142857139"/>
+        </scene>
+        <!--Email Verification View Controller-->
+        <scene sceneID="Rz2-NC-l6e">
+            <objects>
+                <viewController id="Snq-uQ-PGm" customClass="EmailVerificationViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sc6-hW-5KT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-Vm-YGt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oce-7r-O0Q" firstAttribute="trailing" secondItem="rXm-Vm-YGt" secondAttribute="trailing" id="ESQ-4o-IBY"/>
+                            <constraint firstItem="oce-7r-O0Q" firstAttribute="bottom" secondItem="rXm-Vm-YGt" secondAttribute="bottom" id="UHZ-xC-z8V"/>
+                            <constraint firstItem="rXm-Vm-YGt" firstAttribute="top" secondItem="oce-7r-O0Q" secondAttribute="top" id="fHN-Sa-58X"/>
+                            <constraint firstItem="rXm-Vm-YGt" firstAttribute="leading" secondItem="oce-7r-O0Q" secondAttribute="leading" id="iGp-W2-5fG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oce-7r-O0Q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwc-yt-Bbe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3667" y="-60"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="vcP-NB-ihF">
@@ -320,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMp-y5-lIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3779.7101449275365" y="-60.267857142857139"/>
+            <point key="canvasLocation" x="58" y="638"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BQe-jP-n8e">
@@ -339,40 +379,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRZ-F3-WUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="-60.267857142857139"/>
-        </scene>
-        <!--Web View Controller-->
-        <scene sceneID="S5P-Gf-ohs">
-            <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HW7-fI-SLO" customClass="WebViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="evF-QH-EVC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7n-ql-PRY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="hea-Je-0Nu" firstAttribute="bottom" secondItem="N7n-ql-PRY" secondAttribute="bottom" id="C3n-mr-v57"/>
-                            <constraint firstItem="N7n-ql-PRY" firstAttribute="leading" secondItem="hea-Je-0Nu" secondAttribute="leading" id="DXS-ia-fgm"/>
-                            <constraint firstItem="N7n-ql-PRY" firstAttribute="top" secondItem="hea-Je-0Nu" secondAttribute="top" id="qdg-h7-v2b"/>
-                            <constraint firstItem="hea-Je-0Nu" firstAttribute="trailing" secondItem="N7n-ql-PRY" secondAttribute="trailing" id="sqn-w1-FEn"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hea-Je-0Nu"/>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="N7n-ql-PRY" id="w5D-D0-Fzx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dSe-ml-gZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4602.898550724638" y="-60.267857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rbF-L0-fbo">
@@ -394,6 +400,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="email" width="74" height="77"/>
         <image name="emoji01" width="80" height="80"/>
+        <image name="showPassword" width="24" height="24"/>
     </resources>
 </document>

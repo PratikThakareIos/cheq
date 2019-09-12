@@ -18,7 +18,7 @@ class MoneySoftManager {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     private init() {
-        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), aggregationTimeout: 600)
+        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: true, isBeta: true)
         MoneysoftApi.configure(config)
         self.msApi = MoneysoftApi()
     }

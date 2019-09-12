@@ -6,15 +6,25 @@
 //  Copyright © 2019 Cheq. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum StoryboardName: String {
     case onboarding = "Onboarding"
     case main = "Main"
+    case common = "Common"
 }
 
-enum StoryboardId: String {
+enum OnboardingStoryboardId: String {
+    case splash = "SplashViewController"
     case registration = "RegistrationViewController"
     case login = "LoginViewController"
+}
+
+enum MainStoryboardId: String {
+    case finance = "FinanceViewController"
+}
+
+enum CommonStoryboardId: String {
+    case passcode = "PasscodeViewController"
     case web = "WebViewController"
 }

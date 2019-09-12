@@ -13,18 +13,8 @@ protocol UIViewControllerProtocol {
     func baseScrollView()-> UIScrollView?
 }
 
-extension UIViewController: UIViewControllerProtocol  {
-
-    @objc func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.baseScrollView() != nil, scrollView === self.baseScrollView(), scrollView.contentOffset.x > 0 {
-            scrollView.contentOffset.x = 0
-        }
-    }
-    
-    @objc func baseScrollView()-> UIScrollView? {
-        return nil
-    }
-
+// MARK: PopupDialog wrapper
+extension UIViewController {
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
         let message = msg
@@ -41,6 +31,15 @@ extension UIViewController: UIViewControllerProtocol  {
             if let cb = completion { cb() }
         })
         cPopup.present(self)
+    }
+}
+
+// MARK: Keyboard handling
+extension UIViewController {
+    @objc func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.baseScrollView() != nil, scrollView === self.baseScrollView(), scrollView.contentOffset.x > 0 {
+            scrollView.contentOffset.x = 0
+        }
     }
     
     func setupKeyboardHandling() {
@@ -92,5 +91,30 @@ extension UIViewController: UIViewControllerProtocol  {
             contentInset.bottom = keyboardSize.height
             scrollView.contentInset = contentInset
         }
+    }
+}
+
+// MARK: BaseScrollView 
+extension UIViewController: UIViewControllerProtocol  {
+
+    @objc func baseScrollView()-> UIScrollView? {
+        return nil
+    }
+}
+
+// MARK: Navigation Helper
+extension UIViewController {
+    @objc func pushToViewController(_ storyboardName: String, storyboardId: String) {
+        guard let nav =  self.navigationController else { return }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        nav.pushViewController(vc, animated: true)
+    }
+    
+    @objc func presentViewController(_ storyboardName: String, storyboardId: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true)
     }
 }

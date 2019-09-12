@@ -11,3 +11,7 @@ import UIKit
 protocol BaseViewModel {
     func load(_ complete: @escaping ()->Void)
 }
+
+extension BaseViewModel {
+    func load(_ complete: @escaping () -> Void) { complete() }
+}
