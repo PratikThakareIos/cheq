@@ -18,6 +18,7 @@ target 'Cheq' do
   pod 'PromiseKit'
   pod 'Validator', '~> 3.2'
   pod 'PopupDialog', '~> 1.0.0'
+  pod 'DateToolsSwift'
   
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK'

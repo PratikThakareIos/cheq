@@ -196,6 +196,7 @@
 		4FD7C1382328754000AC7A67 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1362328754000AC7A67 /* WebViewModel.swift */; };
 		4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
 		4FD7C13B232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
+		4FD7C1E42329CE5300AC7A67 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -390,6 +391,7 @@
 		4FD7C1332328752C00AC7A67 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4FD7C1362328754000AC7A67 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardEnums.swift; sourceTree = "<group>"; };
+		4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD7C1E42329CE5300AC7A67 /* Pods_Cheq.framework in Frameworks */,
 				4F57BAF8232229D400B95C06 /* MobileSDK.framework in Frameworks */,
 				4F57B9EF2322275B00B95C06 /* UserNotifications.framework in Frameworks */,
 				4F57B9F02322275B00B95C06 /* PersonalDataVault.framework in Frameworks */,
@@ -757,6 +760,7 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,

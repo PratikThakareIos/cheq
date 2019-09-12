@@ -18,7 +18,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let authUserUtil = AuthUserUtil.shared
     let firebaseAuth = FirebaseAuthManager.shared
     
-    func testGetLinkableAccounts() {
+    func testMoneySoftSDK() {
         let expectation = XCTestExpectation(description: "test money soft sdk integrations")
         let login: [LoginCredentialType: String] = MoneySoftUtil.shared.loginAccount()
         MoneySoftManager.shared.login(login)
@@ -35,12 +35,34 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
             let selected = banks.first(where: { $0.name == "Demobank"})
             return MoneySoftManager.shared.getBankSignInForm(selected!)
         }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
-            var form = MoneySoftUtil.shared.demoBankFormModel()
+            var form = signInForm
             MoneySoftUtil.shared.fillFormWithTestAccount(&form)
-            return MoneySoftManager.shared.linkableAccounts(String(MoneySoftUtil.shared.demoBankFormModel().providerInstitutionId), credentials: form)
-        }.done { accounts in
-            XCTAssertTrue(accounts.count > 0)
-        }.catch {err in
+            return MoneySoftManager.shared.linkableAccounts(form)
+        }.then { linkableAccounts in
+            return MoneySoftManager.shared.linkAccounts(linkableAccounts)
+        }.then { linkedAccounts in
+            return MoneySoftManager.shared.getAccounts() 
+            }.then { fetchedAccounts  -> Promise<[FinancialAccountModel]> in
+            let refreshOptions = RefreshAccountOptions()
+            refreshOptions.includeTransactions = true
+            let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
+            return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
+        }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
+            let transactionFilter = TransactionFilter()
+            transactionFilter.count = 1000
+            transactionFilter.offset = 0
+            return MoneySoftManager.shared.getTransactions(transactionFilter)
+            }.then { transactions -> Promise<[FinancialTransactionModel]> in
+            let transactionFilter = TransactionFilter()
+            transactionFilter.fromDate = Date()
+            transactionFilter.toDate = Date()
+            transactionFilter.count = 1000
+            transactionFilter.offset = 0
+            return MoneySoftManager.shared.getTransactions(transactionFilter)
+        }.done { transactions in
+            LoggingUtil.shared.cPrint(transactions.count)
+            XCTAssertTrue(transactions.count > 0)
+        }.catch { err in
             LoggingUtil.shared.cPrint(err)
             XCTFail()
         }.finally {

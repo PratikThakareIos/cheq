@@ -22,7 +22,9 @@ enum MoneySoftManagerError: Error {
     case unableToRetrieveFinancialInstitutionSignInForm
     case unableToRetreiveLinkableAccounts
     case unableToLinkAccounts
-    case unableToRefreshTransactions 
+    case unableToRefreshTransactions
+    case unableToGetAccounts 
+    case unableToRefreshAccounts
     case unableToLoginWithBankCredentials
     case unableToUpdateDisabledAccountCredentials
     case unableToForceUnlinkAllAccounts

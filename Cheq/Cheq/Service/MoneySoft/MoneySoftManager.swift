@@ -18,7 +18,8 @@ class MoneySoftManager {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     private init() {
-        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), aggregationTimeout: 600)
+        
+        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: 600)
         MoneysoftApi.configure(config)
         self.msApi = MoneysoftApi()
     }
@@ -82,12 +83,47 @@ class MoneySoftManager {
 
 // MARK: Transactions
 extension MoneySoftManager {
-    func listTransactions(_ accounts: [FinancialAccountModel])-> Promise<[FinancialTransactionModel]> {
+    
+    func getAccounts()->Promise<[FinancialAccountModel]> {
+        return Promise<[FinancialAccountModel]>() { resolver in
+            do {
+                try msApi.financial().getAccounts(listener: ApiListListener<FinancialAccountModel>(successHandler: { accounts in
+                    guard let fetchedAccounts = accounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToGetAccounts); return }
+                    resolver.fulfill(fetchedAccounts)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.unableToGetAccounts)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToGetAccounts)
+            }
+        }
+    }
+    
+    func refreshAccounts(_ accounts: [FinancialAccountModel], refreshOptions: RefreshAccountOptions)-> Promise<[FinancialAccountModel]> {
+        return Promise<[FinancialAccountModel]>() { resolver in
+            do {
+                try msApi.financial().refreshAccounts(financialAccounts: accounts, options: refreshOptions, listener: ApiListListener<FinancialAccountModel>(successHandler: { refreshedAccounts in
+                    guard let updatedAccounts = refreshedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshAccounts); return }
+                    resolver.fulfill(updatedAccounts)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+            }
+        }
+    }
+    
+    func getTransactions(_ transactionFilter: TransactionFilter)-> Promise<[FinancialTransactionModel]> {
         return Promise<[FinancialTransactionModel]>() { resolver in
             do {
-                try msApi.financial().refreshTransactions(financialAccounts: accounts, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactionModels in
-                    guard let transactions = transactionModels as? [FinancialTransactionModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return }
-                    resolver.fulfill(transactions)
+                try msApi.transactions().getTransactions(filter: transactionFilter, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactions in
+                    guard let fetchedTransactions = transactions as? [FinancialTransactionModel] else {
+                        resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return
+                    }
+                    resolver.fulfill(fetchedTransactions)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
@@ -102,10 +138,10 @@ extension MoneySoftManager {
 // MARK: Operation related to Linking Banks
 extension MoneySoftManager {
 
-    func linkableAccounts(_ institutionId: String, credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
+    func linkableAccounts(_ credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
             do {
-                try msApi.financial().getLinkableAccounts(institutionId: institutionId, credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                try msApi.financial().getLinkableAccounts(credentials: credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
                     
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
@@ -266,9 +302,9 @@ extension MoneySoftManager {
 // MARK: callback implmentations
 extension MoneySoftManager {
     // this is a callback closure wrapper of getting linkableAccounts using moneySoft SDK
-    func getLinkableAccounts(_ institutionId: String, credentials: InstitutionCredentialsFormModel, completion: @escaping (Result<[FinancialAccountLinkModel]>)->Void) {
+    func getLinkableAccounts(_ credentials: InstitutionCredentialsFormModel, completion: @escaping (Result<[FinancialAccountLinkModel]>)->Void) {
         do {
-            try msApi.financial().getLinkableAccounts(institutionId: institutionId, credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+            try msApi.financial().getLinkableAccounts(credentials:credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
                 
                 guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts)); return
                 }
