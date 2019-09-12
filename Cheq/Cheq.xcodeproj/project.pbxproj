@@ -197,6 +197,18 @@
 		4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
 		4FD7C13B232878FC00AC7A67 /* StoryboardEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */; };
 		4FD7C1E42329CE5300AC7A67 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */; };
+		4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */; };
+		4FD7C1E72329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */; };
+		4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
+		4FD7C1EA2329E0D600AC7A67 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
+		4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C1EB2329E14400AC7A67 /* Common.storyboard */; };
+		4FD7C1ED2329E14400AC7A67 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C1EB2329E14400AC7A67 /* Common.storyboard */; };
+		4FD7C1F52329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F02329E16300AC7A67 /* EmailVerificationViewController.swift */; };
+		4FD7C1F62329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F02329E16300AC7A67 /* EmailVerificationViewController.swift */; };
+		4FD7C1F72329E16300AC7A67 /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */; };
+		4FD7C1F82329E16300AC7A67 /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */; };
+		4FD7C1F92329E16300AC7A67 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */; };
+		4FD7C1FA2329E16300AC7A67 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -392,6 +404,12 @@
 		4FD7C1362328754000AC7A67 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardEnums.swift; sourceTree = "<group>"; };
 		4FD7C1E32329CE5300AC7A67 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPasswordToggleButton.swift; sourceTree = "<group>"; };
+		4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBEnums.swift; sourceTree = "<group>"; };
+		4FD7C1EB2329E14400AC7A67 /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		4FD7C1F02329E16300AC7A67 /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
+		4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
+		4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
@@ -719,6 +737,7 @@
 		4F57BB0D2326011C00B95C06 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */,
 				4F57BB0E2326013100B95C06 /* CButton.swift */,
 			);
 			path = Button;
@@ -753,6 +772,39 @@
 			isa = PBXGroup;
 			children = (
 				4FD7C1362328754000AC7A67 /* WebViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FD7C1EE2329E16300AC7A67 /* EmailVerification */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C1EF2329E16300AC7A67 /* ViewModel */,
+				4FD7C1F02329E16300AC7A67 /* EmailVerificationViewController.swift */,
+			);
+			path = EmailVerification;
+			sourceTree = "<group>";
+		};
+		4FD7C1EF2329E16300AC7A67 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FD7C1F12329E16300AC7A67 /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C1F22329E16300AC7A67 /* ViewModel */,
+				4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */,
+			);
+			path = Passcode;
+			sourceTree = "<group>";
+		};
+		4FD7C1F22329E16300AC7A67 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -875,6 +927,7 @@
 				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
 				9676521922FAFD01001E43E0 /* Main.storyboard */,
 				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
+				4FD7C1EB2329E14400AC7A67 /* Common.storyboard */,
 			);
 			path = Cheq;
 			sourceTree = "<group>";
@@ -901,6 +954,8 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C1EE2329E16300AC7A67 /* EmailVerification */,
+				4FD7C1F12329E16300AC7A67 /* Passcode */,
 				4FD7C131232874FF00AC7A67 /* InAppWebViewController */,
 				9681EC762323EE4C00E9F6D1 /* Login */,
 				4F57BB042325FC3E00B95C06 /* Registration */,
@@ -1085,6 +1140,7 @@
 		96B0069622FE728200173743 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */,
 				96B0069722FE72A700173743 /* CommonEnums.swift */,
 				4F09109F23208A2800AA7F7D /* NotificationEnums.swift */,
 				4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */,
@@ -1356,6 +1412,7 @@
 				4F57B9F32322275B00B95C06 /* LaunchScreen.storyboard in Resources */,
 				4F57B9F42322275B00B95C06 /* Onboarding.storyboard in Resources */,
 				4F57B9F52322275B00B95C06 /* GoogleService-Info.plist in Resources */,
+				4FD7C1ED2329E14400AC7A67 /* Common.storyboard in Resources */,
 				4F57B9F62322275B00B95C06 /* Assets.xcassets in Resources */,
 				4F57B9F72322275B00B95C06 /* Main.storyboard in Resources */,
 				4F57BAF72322291400B95C06 /* CheqDevice-Info.plist in Resources */,
@@ -1369,6 +1426,7 @@
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
+				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */,
 			);
@@ -1572,6 +1630,7 @@
 				4F57B9972322275B00B95C06 /* CPieChartView.swift in Sources */,
 				4F57B9982322275B00B95C06 /* GetUserResponse.swift in Sources */,
 				4F57B9992322275B00B95C06 /* CChartViewProtocol.swift in Sources */,
+				4FD7C1FA2329E16300AC7A67 /* PasscodeViewController.swift in Sources */,
 				4F57B99A2322275B00B95C06 /* FirebaseAPI.swift in Sources */,
 				4F57B99B2322275B00B95C06 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F57B99C2322275B00B95C06 /* CBarViewFormatter.swift in Sources */,
@@ -1582,6 +1641,7 @@
 				4F57B99F2322275B00B95C06 /* GetUserDetailResponse.swift in Sources */,
 				4F57BB1423260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
 				4F57B9A02322275B00B95C06 /* BluedotManager.swift in Sources */,
+				4FD7C1EA2329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1352328752C00AC7A67 /* WebViewController.swift in Sources */,
 				4F57B9A12322275B00B95C06 /* CollectionViewProtocol.swift in Sources */,
 				4F57B9A22322275B00B95C06 /* FinanceViewController.swift in Sources */,
@@ -1589,6 +1649,7 @@
 				9681EC7D2323EE8D00E9F6D1 /* LoginViewModel.swift in Sources */,
 				4F57B9A42322275B00B95C06 /* GetAddressResponse.swift in Sources */,
 				96A9F6D32327D1E800A05E25 /* NSAttributedString.swift in Sources */,
+				4FD7C1F82329E16300AC7A67 /* PasscodeViewModel.swift in Sources */,
 				4F57B9A52322275B00B95C06 /* PutUserEmployerRequest.swift in Sources */,
 				4F57B9A62322275B00B95C06 /* CChartModel.swift in Sources */,
 				9681EC792323EE6B00E9F6D1 /* LoginViewController.swift in Sources */,
@@ -1634,6 +1695,8 @@
 				4F57B9CC2322275B00B95C06 /* JSONEncodingHelper.swift in Sources */,
 				4F57B9CD2322275B00B95C06 /* CPieViewFormatter.swift in Sources */,
 				4F57B9CE2322275B00B95C06 /* PostPushNotificationRequest.swift in Sources */,
+				4FD7C1E72329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */,
+				4FD7C1F62329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
 				4FD7C1382328754000AC7A67 /* WebViewModel.swift in Sources */,
 				4F57B9CF2322275B00B95C06 /* AuthUser.swift in Sources */,
 				96A9F6D02327725A00A05E25 /* CLabel.swift in Sources */,
@@ -1690,6 +1753,7 @@
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
 				4F573ADF231CC92A004616F5 /* GetUserResponse.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
+				4FD7C1F92329E16300AC7A67 /* PasscodeViewController.swift in Sources */,
 				4F573AC8231CC92A004616F5 /* FirebaseAPI.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
@@ -1700,6 +1764,7 @@
 				4F573AD7231CC92A004616F5 /* GetUserDetailResponse.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
 				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
+				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
@@ -1707,6 +1772,7 @@
 				9681EC7C2323EE8D00E9F6D1 /* LoginViewModel.swift in Sources */,
 				4F573AE0231CC92A004616F5 /* GetAddressResponse.swift in Sources */,
 				96A9F6D22327D1E800A05E25 /* NSAttributedString.swift in Sources */,
+				4FD7C1F72329E16300AC7A67 /* PasscodeViewModel.swift in Sources */,
 				4F573AD0231CC92A004616F5 /* PutUserEmployerRequest.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
 				9681EC782323EE6B00E9F6D1 /* LoginViewController.swift in Sources */,
@@ -1752,6 +1818,8 @@
 				4F573AEA231CC92A004616F5 /* JSONEncodingHelper.swift in Sources */,
 				96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */,
 				4F573AE8231CC92A004616F5 /* PostPushNotificationRequest.swift in Sources */,
+				4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */,
+				4FD7C1F52329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
