@@ -25,9 +25,11 @@ class CTextField: UITextField {
         self.font = AppConfig.shared.activeTheme.mediumFont
         AppConfig.shared.activeTheme.cardStyling(self)
 
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 4, height: self.frame.size.height))
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.size.height))
         self.leftView = paddingView
         self.leftViewMode = .always
+        self.rightView = paddingView
+        self.rightViewMode = .always
     }
 
     override open var intrinsicContentSize: CGSize {

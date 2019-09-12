@@ -11,6 +11,7 @@ import UserNotifications
 import FirebaseMessaging
 import Fabric
 import Crashlytics
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -18,13 +19,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self])
+        
+        // setup FB SDK
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // setup singleton and SDKs
         self.setupServices()
         
-        // setup
+        // setup remote notifications
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
-                
+        
+        // determine the initial view controller
+        setupInitialViewController()
         return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return ApplicationDelegate.shared.application(application, open: url, options: options)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -35,6 +46,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
         
+    }
+
+    func setupInitialViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        // choose initial controller
+        if !AppConfig.shared.isFirstInstall() {
+            let regVc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue)
+            let nav = UINavigationController(rootViewController: regVc)
+            window?.rootViewController = nav
+        } else {
+            let splashVc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splash.rawValue)
+            let nav = UINavigationController(rootViewController: splashVc)
+            window?.rootViewController = nav
+        }
+        window?.makeKeyAndVisible()
     }
 }
 
@@ -69,6 +95,7 @@ extension AppDelegate {
     
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
+        Fabric.with([Crashlytics.self])
         let _ = AppConfig.shared
         let _ = BluedotManager.shared
     }
@@ -106,7 +133,6 @@ extension AppDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

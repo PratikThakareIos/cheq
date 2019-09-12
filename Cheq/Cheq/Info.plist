@@ -39,8 +39,17 @@
 			</dict>
 		</array>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb2855589534666837</string>
+            </array>
+        </dict>
+    </array>
 	<key>FacebookAppID</key>
-	<string>451621405392450</string>
+	<string>2855589534666837</string>
 	<key>FacebookDisplayName</key>
 	<string>Cheq</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>

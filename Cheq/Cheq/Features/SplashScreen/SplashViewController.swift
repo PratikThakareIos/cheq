@@ -50,6 +50,7 @@ class SplashViewController: UIViewController {
 // MARK: IBActions
 extension SplashViewController {
     @IBAction func registration(_ sender: Any) {
+        
         var current = pageControl.currentPage
         guard current == viewModel.benefitList.count - 1 else {
             current = current + 1
@@ -57,8 +58,9 @@ extension SplashViewController {
             pageControl.currentPage = current
             return
         }
+        AppConfig.shared.markFirstInstall()
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let regViewController = storyboard.instantiateViewController(withIdentifier: StoryboardId.registration.rawValue) as! RegistrationViewController
+        let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationViewController
         let nav = UINavigationController(rootViewController: regViewController)
         self.present(nav, animated: true)
 

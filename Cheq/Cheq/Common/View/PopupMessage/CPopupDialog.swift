@@ -54,6 +54,9 @@ class CPopupDialog {
         buttonAppearance.titleColor     = AppConfig.shared.activeTheme.primaryColor
         buttonAppearance.buttonColor    = .clear
         buttonAppearance.separatorColor = AppConfig.shared.activeTheme.primaryColor
+        
+        let containerAppearance = PopupDialogContainerView.appearance()
+        containerAppearance.cornerRadius = Float(AppConfig.shared.activeTheme.defaultCornerRadius)
     }
     
     func present(_ viewController: UIViewController) {

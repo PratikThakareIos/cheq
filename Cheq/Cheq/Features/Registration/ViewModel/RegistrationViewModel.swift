@@ -16,6 +16,9 @@ enum links: String {
 }
 
 class RegistrationViewModel: BaseViewModel {
+    
+    let fbAppId = "2855589534666837"
+    let fbAppSecret = "87b757a52a9b7db61fce607278c4aa2e"
 
     func conditionsAttributedText()-> NSAttributedString {
         let text = NSMutableAttributedString(string: "By creating an account, you accept Cheq's Terms of Use and Private Policy")
@@ -31,6 +34,10 @@ class RegistrationViewModel: BaseViewModel {
     }
 
     func load(_ complete: @escaping () -> Void) {
+    }
+    
+    func registerWithFBAccessToken(_ token: String)-> Promise<AuthUser> {
+        return AuthConfig.shared.activeManager.registerWithFB(token)
     }
     
     func register(_ email: String, password: String, confirmPassword: String)-> Promise<AuthUser> {

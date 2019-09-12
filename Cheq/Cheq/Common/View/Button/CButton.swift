@@ -19,7 +19,7 @@ class CButton: UIButton {
         super.init(coder: aDecoder)
         setupConfig()
     }
-
+    
     override open var intrinsicContentSize: CGSize {
         get {
             return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultButtonHeight)
@@ -30,7 +30,7 @@ class CButton: UIButton {
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
         self.titleLabel?.font = AppConfig.shared.activeTheme.mediumFont
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
-        var button = self
+        var button = self as UIButton
         ViewUtil.shared.roundRectButton(&button)
     }
 }
