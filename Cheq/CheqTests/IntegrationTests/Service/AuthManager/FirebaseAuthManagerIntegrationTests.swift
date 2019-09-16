@@ -16,25 +16,25 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     let authUserUtil = AuthUserUtil.shared
     let firebaseAuth = FirebaseAuthManager.shared
 
-//    func testRestPasswordLink() {
-//        let expectation = XCTestExpectation(description: "registration with email, login, then request for password reset link")
-//        let email = "xuwei_liang@hotmail.com"
-//        let password = authUserUtil.randomPassword()
-//        let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
-//        firebaseAuth.register(.socialLoginEmail, credentials: credentials)
-//        .then { authUser in
-//            self.firebaseAuth.login(credentials)
-//        }.then { authUser->Promise<Void> in
-//            self.firebaseAuth.sendResetPassword(credentials)
-//        }.done {
-//            XCTAssertTrue(true)
-//        }.catch { err in
-//            XCTFail()
-//        }.finally {
-//            expectation.fulfill()
-//        }
-//        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
-//    }
+    func testRestPasswordLink() {
+        let expectation = XCTestExpectation(description: "registration with email, login, then request for password reset link")
+        let email = "xuwei_liang@hotmail.com"
+        let password = authUserUtil.randomPassword()
+        let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
+        firebaseAuth.register(.socialLoginEmail, credentials: credentials)
+        .then { authUser in
+            self.firebaseAuth.login(credentials)
+        }.then { authUser->Promise<Void> in
+            self.firebaseAuth.sendResetPassword(credentials)
+        }.done {
+            XCTAssertTrue(true)
+        }.catch { err in
+            XCTFail()
+        }.finally {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
 
     // Register, Login, Update Password, Logout, Delete Account
     func testUpdatePassword() {
@@ -167,7 +167,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register with existing email
     func testRegisterWithExistingEmail() {
         let expectation = XCTestExpectation(description: "registration with email")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: "xuwei@cheq.com.au", .password: authUserUtil.randomPassword()])
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: authUserUtil.testEmail() , .password: authUserUtil.randomPassword()])
         .done { authUser in
             XCTAssertThrowsError("testRegisterWithExistingEmail shoudn't work")
         }.catch { err in
@@ -205,7 +205,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     
     func testRegisterTestAccount() {
         let expectation = XCTestExpectation(description: "registration for test account")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: AuthUserUtil.shared.randomEmail(), .password: AuthUserUtil.shared.randomPassword()]).done { authUser in
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: authUserUtil.testEmail(), .password: AuthUserUtil.shared.testPass()]).done { authUser in
             XCTAssertNotNil(authUser)
             XCTAssertNotNil(authUser.email)
             XCTAssertNotNil(authUser.userId)
@@ -219,19 +219,19 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
         wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
     }
     
-//    func testDeleteTestAccount() {
-//        let expectation = XCTestExpectation(description: "delete test account")
-//        firebaseAuth.login([.email: "xuwei@cheq.com.au", .password: "cheqPass808"]).then { authUser in
-//            self.firebaseAuth.removeUserAcct(authUser)
-//        }.done {
-//            XCTAssertTrue(true)
-//        }.catch { err in
-//            XCTFail()
-//        }.finally {
-//            expectation.fulfill()
-//        }
-//
-//        // timeout of 20 seconds.
-//        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
-//    }
+    func testDeleteTestAccount() {
+        let expectation = XCTestExpectation(description: "delete test account")
+        firebaseAuth.login([.email: AuthUserUtil.shared.testEmail(), .password: AuthUserUtil.shared.testPass()]).then { authUser in
+            self.firebaseAuth.removeUserAcct(authUser)
+        }.done {
+            XCTAssertTrue(true)
+        }.catch { err in
+            XCTFail()
+        }.finally {
+            expectation.fulfill()
+        }
+
+        // timeout of 20 seconds.
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
 }

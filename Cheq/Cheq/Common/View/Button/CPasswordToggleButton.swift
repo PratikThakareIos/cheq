@@ -33,7 +33,7 @@ class CPasswordToggleButton: UIButton {
     func setupConfig() {
         self.backgroundColor = .clear
         var button = self as UIButton
-        ViewUtil.shared.roundRectButton(&button)
+        AppConfig.shared.activeTheme.roundRectButton(&button)
         self.addTarget(self, action: #selector(didClick), for: .touchUpInside)
     }
     

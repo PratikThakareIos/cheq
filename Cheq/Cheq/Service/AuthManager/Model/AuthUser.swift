@@ -15,6 +15,7 @@ struct AuthUser {
     let userId:String
     let username:String
     let avatarUrl:String
+    var msCredential: [LoginCredentialType: String]
     var ref:Any?
 
     // unique key

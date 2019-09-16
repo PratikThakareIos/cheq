@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 import FirebaseMessaging
 import Fabric
 import Crashlytics
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // init firebase SDK
+         FirebaseApp.configure()
+        
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -30,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
         
         // determine the initial view controller
-        setupInitialViewController()
+//        setupInitialViewController()
+        setupInitDevController()
         return true
     }
     
@@ -45,7 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
-        
+    }
+    
+    func setupSplashViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splash.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupInitDevController() {
+         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.kyc.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 
     func setupInitialViewController() {
@@ -97,6 +117,7 @@ extension AppDelegate {
     func setupServices() {
         Fabric.with([Crashlytics.self])
         let _ = AppConfig.shared
+        let _ = AuthConfig.shared
         let _ = BluedotManager.shared
     }
 }

@@ -13,21 +13,30 @@ public struct GetUpcomingBillResponse: Codable {
 
     public var _description: String?
     public var merchant: String?
+    public var merchantLogoUrl: String?
     public var amount: Double?
     public var dueDate: String?
+    public var daysToDueDate: Int?
+    public var recurringFrequency: String?
 
-    public init(_description: String?, merchant: String?, amount: Double?, dueDate: String?) {
+    public init(_description: String?, merchant: String?, merchantLogoUrl: String?, amount: Double?, dueDate: String?, daysToDueDate: Int?, recurringFrequency: String?) {
         self._description = _description
         self.merchant = merchant
+        self.merchantLogoUrl = merchantLogoUrl
         self.amount = amount
         self.dueDate = dueDate
+        self.daysToDueDate = daysToDueDate
+        self.recurringFrequency = recurringFrequency
     }
 
     public enum CodingKeys: String, CodingKey { 
         case _description = "description"
         case merchant
+        case merchantLogoUrl
         case amount
         case dueDate
+        case daysToDueDate
+        case recurringFrequency
     }
 
 

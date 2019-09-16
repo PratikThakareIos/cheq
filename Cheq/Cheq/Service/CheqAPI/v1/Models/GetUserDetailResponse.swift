@@ -15,12 +15,14 @@ public struct GetUserDetailResponse: Codable {
     public var lastName: String?
     public var mobile: String?
     public var residentialAddress: String?
+    public var hasVerifiedKyc: Bool?
 
-    public init(firstName: String?, lastName: String?, mobile: String?, residentialAddress: String?) {
+    public init(firstName: String?, lastName: String?, mobile: String?, residentialAddress: String?, hasVerifiedKyc: Bool?) {
         self.firstName = firstName
         self.lastName = lastName
         self.mobile = mobile
         self.residentialAddress = residentialAddress
+        self.hasVerifiedKyc = hasVerifiedKyc
     }
 
 

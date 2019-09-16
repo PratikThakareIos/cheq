@@ -8,8 +8,17 @@
 
 import Foundation
 
+enum HttpHeaderKeyword: String {
+    case authorization = "Authorization"
+    case bearer = "Bearer "
+}
+
 enum CKeychainError: Error {
     case unableToStore
+}
+
+enum CheqAPIManagerError: Error {
+    case unableToParseResponse
 }
 
 enum MoneySoftManagerError: Error {

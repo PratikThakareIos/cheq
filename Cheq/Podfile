@@ -46,6 +46,9 @@ target 'Cheq' do
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
   
+  # Onfido pod
+  pod 'Onfido'
+  
   target 'CheqTests' do
     inherit! :search_paths
     # Pods for testing

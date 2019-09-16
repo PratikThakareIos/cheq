@@ -56,10 +56,11 @@ protocol AppThemeProtocol {
     var defaultCornerRadius: CGFloat { get }
     var defaultTextFieldHeight: CGFloat { get }
 
-    func cardStyling(_ view: UIView)
+    func cardStyling(_ view: UIView, addBorder: Bool) 
     func cardStyling(_ view: UIView, bgColors: [UIColor])
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
     func collectionViewPadding(_ collectionView: UICollectionView, cellLength: CGFloat, collectionType: CollectionViewType)
+    func roundRectButton(_ button: inout UIButton)
 }
 
 // MARK: Styling logics 
@@ -72,6 +73,12 @@ extension AppThemeProtocol {
     var popoverMenuLabelHeight: CGFloat { get { return 40.0 } }
     var popoverMenuToScreenWidthRatio: CGFloat { get { return 0.5 } }
 
+    func roundRectButton(_ button: inout UIButton) {
+        button.layer.masksToBounds = false
+        button.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        button.clipsToBounds = true
+    }
+    
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool) {
         view.backgroundColor = bgColor
         view.layer.masksToBounds = false
@@ -87,11 +94,13 @@ extension AppThemeProtocol {
         }
     }
 
-    func cardStyling(_ view: UIView) {
+    func cardStyling(_ view: UIView, addBorder: Bool) {
         view.layer.masksToBounds = true
         view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
-        view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor.lightGray.cgColor
+        if addBorder {
+            view.layer.borderWidth = 1.0
+            view.layer.borderColor = UIColor.lightGray.cgColor
+        }
     }
 
     func cardStyling(_ view: UIView, bgColors: [UIColor]) {

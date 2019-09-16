@@ -31,6 +31,6 @@ class CButton: UIButton {
         self.titleLabel?.font = AppConfig.shared.activeTheme.mediumFont
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         var button = self as UIButton
-        ViewUtil.shared.roundRectButton(&button)
+        AppConfig.shared.activeTheme.roundRectButton(&button)
     }
 }

@@ -22,11 +22,10 @@ public struct PostFinancialAccountRequest: Codable {
     public var balance: Double?
     public var disabled: Bool?
     public var type: String?
-    public var assetCategory: String?
     public var assetType: String?
     public var source: String?
 
-    public init(financialAccountId: Int?, providerAccountId: String?, financialInstitutionId: Int?, providerInstitutionId: Int?, providerContainerId: String?, name: String?, nickname: String?, number: String?, balance: Double?, disabled: Bool?, type: String?, assetCategory: String?, assetType: String?, source: String?) {
+    public init(financialAccountId: Int?, providerAccountId: String?, financialInstitutionId: Int?, providerInstitutionId: Int?, providerContainerId: String?, name: String?, nickname: String?, number: String?, balance: Double?, disabled: Bool?, type: String?, assetType: String?, source: String?) {
         self.financialAccountId = financialAccountId
         self.providerAccountId = providerAccountId
         self.financialInstitutionId = financialInstitutionId
@@ -38,7 +37,6 @@ public struct PostFinancialAccountRequest: Codable {
         self.balance = balance
         self.disabled = disabled
         self.type = type
-        self.assetCategory = assetCategory
         self.assetType = assetType
         self.source = source
     }

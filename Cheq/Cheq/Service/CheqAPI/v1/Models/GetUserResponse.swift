@@ -15,14 +15,12 @@ public struct GetUserResponse: Codable {
     public var employer: GetUserEmployerResponse?
     public var moneySoftCredential: GetUserMoneySoftResponse?
     public var bluedotCredential: GetUserBluedotResponse?
-    public var hasBeenOnBoarded: Bool?
 
-    public init(userDetail: GetUserDetailResponse?, employer: GetUserEmployerResponse?, moneySoftCredential: GetUserMoneySoftResponse?, bluedotCredential: GetUserBluedotResponse?, hasBeenOnBoarded: Bool?) {
+    public init(userDetail: GetUserDetailResponse?, employer: GetUserEmployerResponse?, moneySoftCredential: GetUserMoneySoftResponse?, bluedotCredential: GetUserBluedotResponse?) {
         self.userDetail = userDetail
         self.employer = employer
         self.moneySoftCredential = moneySoftCredential
         self.bluedotCredential = bluedotCredential
-        self.hasBeenOnBoarded = hasBeenOnBoarded
     }
 
 

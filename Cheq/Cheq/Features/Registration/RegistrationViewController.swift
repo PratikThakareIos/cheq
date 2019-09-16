@@ -21,7 +21,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailTextField: CTextField!
     @IBOutlet weak var passwordTextField: CTextField!
     @IBOutlet weak var registerButton: CButton!
-    @IBOutlet weak var loginWithFacebookButton: CButton!
+    @IBOutlet weak var loginWithFacebookButton: CFacebookButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var passwordToggleButton: CPasswordToggleButton!
     
@@ -43,7 +43,6 @@ class RegistrationViewController: UIViewController {
 
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.loginWithFacebookButton.backgroundColor = AppConfig.shared.activeTheme.facebookColor
         self.orText.font = AppConfig.shared.activeTheme.mediumFont
         self.titleText.font = AppConfig.shared.activeTheme.headerFont
         self.loginLinkText.font = AppConfig.shared.activeTheme.mediumFont

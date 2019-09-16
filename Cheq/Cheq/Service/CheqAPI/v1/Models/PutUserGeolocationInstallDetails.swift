@@ -11,9 +11,9 @@ import Foundation
 
 public struct PutUserGeolocationInstallDetails: Codable {
 
-    public var installReference: String?
+    public var installReference: String
 
-    public init(installReference: String?) {
+    public init(installReference: String) {
         self.installReference = installReference
     }
 

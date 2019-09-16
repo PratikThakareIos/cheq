@@ -10,7 +10,7 @@ import UIKit
 import BDPointSDK
 
 class BluedotManager: NSObject {
-    let apiKey = "8314b687-4707-42f9-b9fd-bee640ad60db"
+    let apiKey = "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
     static let shared = BluedotManager()
     private override init() {

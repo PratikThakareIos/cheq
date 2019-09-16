@@ -14,10 +14,10 @@ class MoneySoftUtil {
     static let shared = MoneySoftUtil()
     private init() {}
     
-    func randomPutUserReq()-> PutUserRequest {
-        let putUserReq = PutUserRequest(detail: randomPutUserDetailReq(), employer: randomPutUserEmployerRequest(), pushNotification: nil, kyc: randomPutUserKycRequest())
-        return putUserReq
-    }
+//    func randomPutUserReq()-> PutUserRequest {
+//        let putUserReq = PutUserRequest(detail: randomPutUserDetailReq(), employer: randomPutUserEmployerRequest(), pushNotification: nil, kyc: randomPutUserKycRequest())
+//        return putUserReq
+//    }
     
     func randomPutUserEmployerRequest()-> PutUserEmployerRequest {
         let authUserUtil = AuthUserUtil.shared
@@ -25,13 +25,13 @@ class MoneySoftUtil {
         return employer
     }
     
-    func randomPutUserDetailReq()-> PutUserDetailRequest {
-        let authUserUtil = AuthUserUtil.shared
-        let mb = authUserUtil.randomPhone(10)
-        let randomAddress =  authUserUtil.randomAddress()
-        let detail = PutUserDetailRequest(firstName: authUserUtil.randomString(8), lastName: authUserUtil.randomString(8), mobile: mb, residentialAddress: randomAddress)
-        return detail
-    }
+//    func randomPutUserDetailReq()-> PutUserDetailRequest {
+//        let authUserUtil = AuthUserUtil.shared
+//        let mb = authUserUtil.randomPhone(10)
+//        let randomAddress =  authUserUtil.randomAddress()
+//        let detail = PutUserDetailRequest(firstName: authUserUtil.randomString(8), lastName: authUserUtil.randomString(8), mobile: mb, residentialAddress: randomAddress)
+//        return detail
+//    }
     
     func randomPostPushNotificationReq()-> PostPushNotificationRequest {
         let authUserUtil = AuthUserUtil.shared
@@ -40,11 +40,11 @@ class MoneySoftUtil {
         return pushNotificationReq
     }
     
-    func randomPutUserKycRequest()-> PutUserKycRequest {
-        let authUserUtil = AuthUserUtil.shared
-        let putUserKycReq = PutUserKycRequest(dateOfBirth: "10/10/1980", driverLicenceState: "NSW", driverLicenceNumber: authUserUtil.randomPhone(10), passportNumber: authUserUtil.randomPhone(10), passportCountry: "Australia")
-        return putUserKycReq
-    }
+//    func randomPutUserKycRequest()-> PutUserKycRequest {
+//        let authUserUtil = AuthUserUtil.shared
+//        let putUserKycReq = PutUserKycRequest(dateOfBirth: "10/10/1980", driverLicenceState: "NSW", driverLicenceNumber: authUserUtil.randomPhone(10), passportNumber: authUserUtil.randomPhone(10), passportCountry: "Australia")
+//        return putUserKycReq
+//    }
     
     func demoBankFormModel()-> InstitutionCredentialsFormModel {
         let form = InstitutionCredentialsFormModel(financialServiceId: 733, financialInstitutionId: 253, providerInstitutionId: "1201")

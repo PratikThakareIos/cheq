@@ -72,17 +72,21 @@ open class RecurringBillsAPI {
   "amount" : 6.027456183070403,
   "recurringFrequency" : "recurringFrequency",
   "endDate" : "endDate",
+  "isAddedByUser" : true,
   "description" : "description",
   "merchant" : "merchant",
   "id" : 0,
+  "merchantLogoUrl" : "merchantLogoUrl",
   "startDate" : "startDate"
 }, {
   "amount" : 6.027456183070403,
   "recurringFrequency" : "recurringFrequency",
   "endDate" : "endDate",
+  "isAddedByUser" : true,
   "description" : "description",
   "merchant" : "merchant",
   "id" : 0,
+  "merchantLogoUrl" : "merchantLogoUrl",
   "startDate" : "startDate"
 } ]}]
 
@@ -96,54 +100,6 @@ open class RecurringBillsAPI {
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<[GetRecurringBillResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter toDate: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getUpcomingBills(toDate: String? = nil, completion: @escaping ((_ data: [GetUpcomingBillResponse]?,_ error: Error?) -> Void)) {
-        getUpcomingBillsWithRequestBuilder(toDate: toDate).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-
-    /**
-     - GET /v1/RecurringBills/upcoming
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "amount" : 0.8008281904610115,
-  "dueDate" : "dueDate",
-  "description" : "description",
-  "merchant" : "merchant"
-}, {
-  "amount" : 0.8008281904610115,
-  "dueDate" : "dueDate",
-  "description" : "description",
-  "merchant" : "merchant"
-} ]}]
-     
-     - parameter toDate: (query)  (optional)
-
-     - returns: RequestBuilder<[GetUpcomingBillResponse]> 
-     */
-    open class func getUpcomingBillsWithRequestBuilder(toDate: String? = nil) -> RequestBuilder<[GetUpcomingBillResponse]> {
-        let path = "/v1/RecurringBills/upcoming"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "toDate": toDate
-        ])
-
-        let requestBuilder: RequestBuilder<[GetUpcomingBillResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

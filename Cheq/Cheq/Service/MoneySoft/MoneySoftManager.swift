@@ -279,21 +279,21 @@ extension MoneySoftManager {
 
 // MARK: User Details Management /
 extension MoneySoftManager {
-    func putUserDetails(_ loggedInUser: AuthUser, putUserReq: PutUserRequest)->Promise<Bool> {
-        return Promise<Bool>() { resolver in
-            let token = loggedInUser.authToken() ?? ""
-            UsersAPI.putUserWithRequestBuilder(request: putUserReq).addHeader(name: "Authorization", value: String("Bearer \(token)")).execute { _, error in
-                if let err = error { resolver.reject(err); return }
-                resolver.fulfill(true)
-            }
-        }
-    }
+//    func putUserDetails(_ loggedInUser: AuthUser, putUserReq: PutUserRequest)->Promise<Bool> {
+//        return Promise<Bool>() { resolver in
+//            let token = loggedInUser.authToken() ?? ""
+//            UsersAPI.putUserWithRequestBuilder(request: putUserReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: String("\(HttpHeaderKeyword.bearer.rawValue) \(token)")).execute { _, error in
+//                if let err = error { resolver.reject(err); return }
+//                resolver.fulfill(true)
+//            }
+//        }
+//    }
     
     func getUserDetails(_ loggedInUser: AuthUser)-> Promise<MoneySoftUser> {
         return Promise<MoneySoftUser>() { resolver in
             
             let token = loggedInUser.authToken() ?? ""
-            UsersAPI.getUserWithRequestBuilder().addHeader(name: "Authorization", value: String("Bearer \(token)")).execute() { (response, error) in
+            UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: String("\(HttpHeaderKeyword.bearer.rawValue) \(token)")).execute() { (response, error) in
                 
                 guard let msUser: GetUserResponse = response?.body else { resolver.reject(error ?? MoneySoftManagerError.unableToRetrieveMoneySoftCredential); return}
                 let username = msUser.moneySoftCredential?.msUsername ?? ""

@@ -10,6 +10,8 @@ import Foundation
 
 let fbPermissions:[String] = [FBKey.email.rawValue, FBKey.userBirthday.rawValue, FBKey.publicProfile.rawValue]
 
+let fbIconImage = "fbIcon"
+
 enum FBKey: String {
     case firstname = "first_name"
     case lastname = "last_name"

@@ -30,20 +30,24 @@ struct PrimaryTheme: AppThemeProtocol {
 
 //MARK: colors
 extension PrimaryTheme {
+    // orange
     var gradientSet1: [UIColor] {
     get {
-            return [alternativeColor1, alternativeColor2]
+            return [UIColor(red:1, green:0.63, blue:0.36, alpha:1), UIColor(red:0.99, green:0.47, blue:0.1, alpha:1)]
         }
     }
 
+    // dark pink 
     var gradientSet2: [UIColor] {
         get {
-            return [alternativeOrangeColor, alternativeYellowColor]
+            return [UIColor(red:0.91, green:0.32, blue:0.55, alpha:1), UIColor(red:0.8, green:0.16, blue:0.33, alpha:1)]
         }
     }
+    
+    // cyan
     var gradientSet3: [UIColor] {
         get {
-            return [alternativeColor3, alternativeColor4]
+            return [UIColor(red:0.64, green:0.95, blue:1, alpha:1), UIColor(red:0.42, green:0.89, blue:1, alpha:1)]
         }
     }
 

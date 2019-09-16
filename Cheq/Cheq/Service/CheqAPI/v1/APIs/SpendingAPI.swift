@@ -15,82 +15,81 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentMonthSpending(completion: @escaping ((_ data: GetMonthSpendingsResponse?,_ error: Error?) -> Void)) {
-        getCurrentMonthSpendingWithRequestBuilder().execute { (response, error) -> Void in
+    open class func getSpendingAllTransctions(completion: @escaping ((_ data: GetSpendingSpecificCategoryResponse?,_ error: Error?) -> Void)) {
+        getSpendingAllTransctionsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
 
     /**
-     - GET /v1/Spending/month
+     - GET /v1/Spending/transactions
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "totalIncome" : 1.4658129805029452,
-  "totalSpend" : 6.027456183070403,
-  "accountName" : "accountName",
-  "accountType" : "accountType",
-  "categoryStats" : [ {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
-  }, {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
-  } ],
-  "accountNumber" : "accountNumber",
-  "accountBalance" : 0.8008281904610115,
-  "dailySpending" : [ {
-    "date" : "date",
-    "spending" : [ {
+  "dailyTransactions" : [ {
+    "date" : "2000-01-23T04:56:07.000+00:00",
+    "transactions" : [ {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
       "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
       "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
+      "category" : "category"
     }, {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
       "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
       "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
+      "category" : "category"
     } ]
   }, {
-    "date" : "date",
-    "spending" : [ {
+    "date" : "2000-01-23T04:56:07.000+00:00",
+    "transactions" : [ {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
       "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
       "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
+      "category" : "category"
     }, {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
       "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
       "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
+      "category" : "category"
     } ]
   } ],
-  "assetType" : "assetType"
+  "monthAmountStats" : [ {
+    "amount" : 0.8008281904610115,
+    "month" : "month"
+  }, {
+    "amount" : 0.8008281904610115,
+    "month" : "month"
+  } ]
 }}]
 
-     - returns: RequestBuilder<GetMonthSpendingsResponse> 
+     - returns: RequestBuilder<GetSpendingSpecificCategoryResponse> 
      */
-    open class func getCurrentMonthSpendingWithRequestBuilder() -> RequestBuilder<GetMonthSpendingsResponse> {
-        let path = "/v1/Spending/month"
+    open class func getSpendingAllTransctionsWithRequestBuilder() -> RequestBuilder<GetSpendingSpecificCategoryResponse> {
+        let path = "/v1/Spending/transactions"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetMonthSpendingsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetSpendingSpecificCategoryResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -99,82 +98,51 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getCurrentWeekSpending(completion: @escaping ((_ data: GetWeekSpendingsResponse?,_ error: Error?) -> Void)) {
-        getCurrentWeekSpendingWithRequestBuilder().execute { (response, error) -> Void in
+    open class func getSpendingCategoryStats(completion: @escaping ((_ data: GetSpendingCategoryResponse?,_ error: Error?) -> Void)) {
+        getSpendingCategoryStatsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
 
     /**
-     - GET /v1/Spending/week
+     - GET /v1/Spending/categories
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "totalIncome" : 1.4658129805029452,
-  "totalSpend" : 6.027456183070403,
-  "accountName" : "accountName",
-  "accountType" : "accountType",
-  "categoryStats" : [ {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
+  "categoryAmountStats" : [ {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
   }, {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
   } ],
-  "accountNumber" : "accountNumber",
-  "accountBalance" : 0.8008281904610115,
-  "dailySpending" : [ {
-    "date" : "date",
-    "spending" : [ {
-      "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
-    }, {
-      "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
-    } ]
+  "monthAmountStats" : [ {
+    "amount" : 0.8008281904610115,
+    "month" : "month"
   }, {
-    "date" : "date",
-    "spending" : [ {
-      "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
-    }, {
-      "merchant" : "merchant",
-      "sum" : 5.962133916683182,
-      "transactedAt" : "transactedAt",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category",
-      "info" : "info"
-    } ]
-  } ],
-  "assetType" : "assetType"
+    "amount" : 0.8008281904610115,
+    "month" : "month"
+  } ]
 }}]
 
-     - returns: RequestBuilder<GetWeekSpendingsResponse> 
+     - returns: RequestBuilder<GetSpendingCategoryResponse> 
      */
-    open class func getCurrentWeekSpendingWithRequestBuilder() -> RequestBuilder<GetWeekSpendingsResponse> {
-        let path = "/v1/Spending/week"
+    open class func getSpendingCategoryStatsWithRequestBuilder() -> RequestBuilder<GetSpendingCategoryResponse> {
+        let path = "/v1/Spending/categories"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetWeekSpendingsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetSpendingCategoryResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -183,62 +151,463 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getTodaySpending(completion: @escaping ((_ data: GetTodaySpendingResponse?,_ error: Error?) -> Void)) {
-        getTodaySpendingWithRequestBuilder().execute { (response, error) -> Void in
+    open class func getSpendingOverview(completion: @escaping ((_ data: GetSpendingOverviewResponse?,_ error: Error?) -> Void)) {
+        getSpendingOverviewWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
 
 
     /**
-     - GET /v1/Spending/today
+     - GET /v1/Spending/overview
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "totalIncome" : 1.4658129805029452,
-  "totalSpend" : 6.027456183070403,
-  "spending" : [ {
+  "recentTransactions" : [ {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
     "merchant" : "merchant",
-    "sum" : 5.962133916683182,
-    "transactedAt" : "transactedAt",
     "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category",
-    "info" : "info"
+    "category" : "category"
   }, {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
     "merchant" : "merchant",
-    "sum" : 5.962133916683182,
-    "transactedAt" : "transactedAt",
     "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category",
-    "info" : "info"
+    "category" : "category"
   } ],
-  "accountName" : "accountName",
-  "accountType" : "accountType",
-  "categoryStats" : [ {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
+  "upcomingBills" : [ {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
-    "sum" : 2.3021358869347655,
-    "category" : "category",
-    "numberOfTransactions" : 5
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ],
-  "accountNumber" : "accountNumber",
-  "accountBalance" : 0.8008281904610115,
-  "assetType" : "assetType"
+  "topCategoriesAmount" : [ {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  }, {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  } ]
 }}]
 
-     - returns: RequestBuilder<GetTodaySpendingResponse> 
+     - returns: RequestBuilder<GetSpendingOverviewResponse> 
      */
-    open class func getTodaySpendingWithRequestBuilder() -> RequestBuilder<GetTodaySpendingResponse> {
-        let path = "/v1/Spending/today"
+    open class func getSpendingOverviewWithRequestBuilder() -> RequestBuilder<GetSpendingOverviewResponse> {
+        let path = "/v1/Spending/overview"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetTodaySpendingResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetSpendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSpendingOverviewCategories(completion: @escaping ((_ data: GetSpendingOverviewResponse?,_ error: Error?) -> Void)) {
+        getSpendingOverviewCategoriesWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/overview/categories
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "recentTransactions" : [ {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  }, {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  } ],
+  "upcomingBills" : [ {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  }, {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  } ],
+  "topCategoriesAmount" : [ {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  }, {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  } ]
+}}]
+
+     - returns: RequestBuilder<GetSpendingOverviewResponse> 
+     */
+    open class func getSpendingOverviewCategoriesWithRequestBuilder() -> RequestBuilder<GetSpendingOverviewResponse> {
+        let path = "/v1/Spending/overview/categories"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetSpendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSpendingOverviewTransactions(completion: @escaping ((_ data: GetSpendingOverviewResponse?,_ error: Error?) -> Void)) {
+        getSpendingOverviewTransactionsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/overview/transactions
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "recentTransactions" : [ {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  }, {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  } ],
+  "upcomingBills" : [ {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  }, {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  } ],
+  "topCategoriesAmount" : [ {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  }, {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  } ]
+}}]
+
+     - returns: RequestBuilder<GetSpendingOverviewResponse> 
+     */
+    open class func getSpendingOverviewTransactionsWithRequestBuilder() -> RequestBuilder<GetSpendingOverviewResponse> {
+        let path = "/v1/Spending/overview/transactions"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetSpendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSpendingOverviewUpcomingBills(completion: @escaping ((_ data: GetSpendingOverviewResponse?,_ error: Error?) -> Void)) {
+        getSpendingOverviewUpcomingBillsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/overview/upcomingbills
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "recentTransactions" : [ {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  }, {
+    "date" : "date",
+    "amount" : 2.3021358869347655,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "category" : "category"
+  } ],
+  "upcomingBills" : [ {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  }, {
+    "amount" : 0.8008281904610115,
+    "recurringFrequency" : "recurringFrequency",
+    "dueDate" : "dueDate",
+    "description" : "description",
+    "merchant" : "merchant",
+    "daysToDueDate" : 6,
+    "merchantLogoUrl" : "merchantLogoUrl"
+  } ],
+  "topCategoriesAmount" : [ {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  }, {
+    "totalAmount" : 5.637376656633329,
+    "categoryAmount" : 5.962133916683182,
+    "iconUrl" : "iconUrl",
+    "title" : "title",
+    "categoryId" : 1
+  } ]
+}}]
+
+     - returns: RequestBuilder<GetSpendingOverviewResponse> 
+     */
+    open class func getSpendingOverviewUpcomingBillsWithRequestBuilder() -> RequestBuilder<GetSpendingOverviewResponse> {
+        let path = "/v1/Spending/overview/upcomingbills"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetSpendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter _id: (path)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSpendingSpecificCategoryStats(_id: Int, completion: @escaping ((_ data: GetSpendingSpecificCategoryResponse?,_ error: Error?) -> Void)) {
+        getSpendingSpecificCategoryStatsWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/categories/{id}
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "dailyTransactions" : [ {
+    "date" : "2000-01-23T04:56:07.000+00:00",
+    "transactions" : [ {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
+      "merchant" : "merchant",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category"
+    }, {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
+      "merchant" : "merchant",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category"
+    } ]
+  }, {
+    "date" : "2000-01-23T04:56:07.000+00:00",
+    "transactions" : [ {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
+      "merchant" : "merchant",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category"
+    }, {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialAccountName" : "financialAccountName",
+      "description" : "description",
+      "merchant" : "merchant",
+      "merchantLogoUrl" : "merchantLogoUrl",
+      "category" : "category"
+    } ]
+  } ],
+  "monthAmountStats" : [ {
+    "amount" : 0.8008281904610115,
+    "month" : "month"
+  }, {
+    "amount" : 0.8008281904610115,
+    "month" : "month"
+  } ]
+}}]
+     
+     - parameter _id: (path)  
+
+     - returns: RequestBuilder<GetSpendingSpecificCategoryResponse> 
+     */
+    open class func getSpendingSpecificCategoryStatsWithRequestBuilder(_id: Int) -> RequestBuilder<GetSpendingSpecificCategoryResponse> {
+        var path = "/v1/Spending/categories/{id}"
+        let _idPreEscape = "\(_id)"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetSpendingSpecificCategoryResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getUpcomingBills(completion: @escaping ((_ data: [GetUpcomingBillResponse]?,_ error: Error?) -> Void)) {
+        getUpcomingBillsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/upcoming
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example=[ {
+  "amount" : 0.8008281904610115,
+  "recurringFrequency" : "recurringFrequency",
+  "dueDate" : "dueDate",
+  "description" : "description",
+  "merchant" : "merchant",
+  "daysToDueDate" : 6,
+  "merchantLogoUrl" : "merchantLogoUrl"
+}, {
+  "amount" : 0.8008281904610115,
+  "recurringFrequency" : "recurringFrequency",
+  "dueDate" : "dueDate",
+  "description" : "description",
+  "merchant" : "merchant",
+  "daysToDueDate" : 6,
+  "merchantLogoUrl" : "merchantLogoUrl"
+} ]}]
+
+     - returns: RequestBuilder<[GetUpcomingBillResponse]> 
+     */
+    open class func getUpcomingBillsWithRequestBuilder() -> RequestBuilder<[GetUpcomingBillResponse]> {
+        let path = "/v1/Spending/upcoming"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<[GetUpcomingBillResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

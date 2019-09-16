@@ -20,12 +20,10 @@ public struct PostFinancialTransactionRequest: Codable {
     public var isVerified: Bool?
     public var merchant: String?
     public var _description: String?
-    public var notes: String?
-    public var possibleTransfer: Bool?
     public var type: String?
     public var source: String?
 
-    public init(transactionId: Int?, accountId: Int?, categoryId: Int?, amount: Double?, date: Date?, isDeleted: Bool?, isVerified: Bool?, merchant: String?, _description: String?, notes: String?, possibleTransfer: Bool?, type: String?, source: String?) {
+    public init(transactionId: Int?, accountId: Int?, categoryId: Int?, amount: Double?, date: Date?, isDeleted: Bool?, isVerified: Bool?, merchant: String?, _description: String?, type: String?, source: String?) {
         self.transactionId = transactionId
         self.accountId = accountId
         self.categoryId = categoryId
@@ -35,8 +33,6 @@ public struct PostFinancialTransactionRequest: Codable {
         self.isVerified = isVerified
         self.merchant = merchant
         self._description = _description
-        self.notes = notes
-        self.possibleTransfer = possibleTransfer
         self.type = type
         self.source = source
     }
@@ -51,8 +47,6 @@ public struct PostFinancialTransactionRequest: Codable {
         case isVerified
         case merchant
         case _description = "description"
-        case notes
-        case possibleTransfer
         case type
         case source
     }

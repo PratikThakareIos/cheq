@@ -13,12 +13,14 @@ public struct PutUserDetailRequest: Codable {
 
     public var firstName: String
     public var lastName: String
+    public var dateOfBirth: Date?
     public var mobile: String
-    public var residentialAddress: String
+    public var residentialAddress: String?
 
-    public init(firstName: String, lastName: String, mobile: String, residentialAddress: String) {
+    public init(firstName: String, lastName: String, dateOfBirth: Date?, mobile: String, residentialAddress: String?) {
         self.firstName = firstName
         self.lastName = lastName
+        self.dateOfBirth = dateOfBirth
         self.mobile = mobile
         self.residentialAddress = residentialAddress
     }

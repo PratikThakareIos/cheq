@@ -23,10 +23,17 @@ class ViewUtil {
         button.layer.cornerRadius = button.frame.height / 2
         button.clipsToBounds = true
     }
-
-    func roundRectButton(_ button: inout UIButton) {
-        button.layer.masksToBounds = false
-        button.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
-        button.clipsToBounds = true
+    
+    func applyViewGradient(_ view:UIView, startingColor: UIColor, endColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.frame
+        gradient.colors = [
+            startingColor.cgColor,
+            endColor.cgColor
+        ]
+        gradient.locations = [0, 1]
+        gradient.startPoint = CGPoint(x: 1, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0)
     }
 }

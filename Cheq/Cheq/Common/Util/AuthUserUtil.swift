@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import DateToolsSwift
 
 class AuthUserUtil {
 
     static let shared = AuthUserUtil()
     private init() {}
-    let addressSuffix = ["Magaret Street, Sydney 2000", "York Street, Sydney 2000"]
+    let addressSuffix = ["Magaret Street, Sydney NSW 2000", "York Street, Sydney NSW 2000"]
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
     let numbers = "0123456789"
     let suffix = ["gmail.com", "hotmail.com", "facebook.com", "cheq.com.au"]
@@ -57,5 +58,33 @@ class AuthUserUtil {
     // TODO 
     func validEmail()-> Bool {
         return true
+    }
+    
+    func testEmail()-> String {
+        return "xuwei@cheq.com.au"
+    }
+    
+    func testPass()-> String {
+        return "cheqPass808"
+    }
+    
+    func testAddress()-> String {
+        return String(describing: "60 \(addressSuffix[0])")
+    }
+    
+    func testMobile()-> String {
+        return "0405090733"
+    }
+    
+    func testFirstname()-> String {
+        return "Bob"
+    }
+    
+    func testLastname()-> String {
+        return "Builder"
+    }
+    
+    func testBirthday()-> Date {
+        return 25.years.earlier ?? Date()
     }
 }

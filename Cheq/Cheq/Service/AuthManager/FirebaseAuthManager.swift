@@ -210,7 +210,7 @@ extension FirebaseAuthManager {
 // MARK: util
 extension FirebaseAuthManager {
     class func buildAuthUser(_ type: SocialLoginType, user: User)-> AuthUser {
-        let authUser = AuthUser(type: type, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", ref: user)
+        let authUser = AuthUser(type: type, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", msCredential: [:], ref: user)
         return authUser
     }
 }

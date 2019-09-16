@@ -16,13 +16,17 @@ public struct PutFinancialAccountRequest: Codable {
     public var nickname: String?
     public var balance: Double?
     public var disabled: Bool?
+    public var source: String?
+    public var transactions: [PostFinancialTransactionRequest]?
 
-    public init(financialAccountId: Int?, name: String?, nickname: String?, balance: Double?, disabled: Bool?) {
+    public init(financialAccountId: Int?, name: String?, nickname: String?, balance: Double?, disabled: Bool?, source: String?, transactions: [PostFinancialTransactionRequest]?) {
         self.financialAccountId = financialAccountId
         self.name = name
         self.nickname = nickname
         self.balance = balance
         self.disabled = disabled
+        self.source = source
+        self.transactions = transactions
     }
 
 
