@@ -29,6 +29,11 @@ enum CheqAPIManagerError: Error {
     case invalidInput
 }
 
+enum CheqAPIManagerError_Spending: Error {
+    case unableToRetrieveOverview
+    case unableToRetrieveTransactions 
+}
+
 enum MoneySoftManagerError: Error {
     case require2FAVerificationCode
     case requireMFA(reason: String)

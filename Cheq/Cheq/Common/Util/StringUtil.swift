@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class StringUtil {
     static let shared = StringUtil()
@@ -15,5 +16,9 @@ class StringUtil {
     func decodeBase64(_ base64Encoded: String)-> String {
         guard let decodedData = Data(base64Encoded: base64Encoded) else { return "" }
         return String(data: decodedData, encoding: .utf8) ?? ""
+    }
+
+    func isNumericOnly(_ string: String)-> Bool {
+        return !string.isEmpty && string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
 }

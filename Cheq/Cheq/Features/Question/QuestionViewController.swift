@@ -11,6 +11,7 @@ import DateToolsSwift
 import PromiseKit
 import UDatePicker
 import UserNotifications
+import CoreLocation
 
 class QuestionViewController: UIViewController {
 
@@ -108,7 +109,6 @@ class QuestionViewController: UIViewController {
     }
 
     @IBAction func next(_ sender: Any) {
-        validateInput()
         switch self.viewModel.type {
         case .legalName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -194,7 +194,7 @@ extension QuestionViewController {
     }
     
     func validateInput() {
-        
+
         if self.viewModel.numOfTextFields() == 2, hasEmptyFields([self.textField1, self.textField2])  {
             showError(ValidationError.allFieldsMustBeFilled) { return }
         }
@@ -310,6 +310,9 @@ extension QuestionViewController{
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedEmployer = itemPosition
+            let employer: GetEmployerPlaceResponse = AppData.shared.employerList[AppData.shared.selectedEmployer]
+            VDotManager.shared.markedLocation = CLLocation(latitude: employer.latitude ?? 0.0
+                , longitude: employer.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
         }
         searchTextField.userStoppedTypingHandler = {
@@ -327,9 +330,18 @@ extension QuestionViewController{
     func setupEmployerAddressLookup() {
         self.hideNormalTextFields()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.itemSelectionHandler = { item, itemPosition in
+            AppData.shared.selectedEmployerAddress = itemPosition
+            let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
+            VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
+                , longitude: employerAddress.longitude ?? 0.0)
+            self.searchTextField.text = item[itemPosition].title
+        }
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
+                    // keep the address list 
+                    AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                     }.catch {err in
                         LoggingUtil.shared.cPrint(err)

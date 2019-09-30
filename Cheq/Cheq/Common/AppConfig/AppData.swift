@@ -88,8 +88,10 @@ class AppData {
     var employmentType: EmploymentType = .fulltime
     var onDemandType: OnDemandType = .other
     var employerList = [GetEmployerPlaceResponse]()
+    var employerAddressList = [GetEmployerPlaceResponse]()
     var residentialAddressList = [GetAddressResponse]()
     var selectedEmployer: Int = 0
+    var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
 
     func saveOnfidoSDKToken(_ sdkToken: String) {

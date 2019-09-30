@@ -13,27 +13,8 @@ import DateToolsSwift
 class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {
-        // DEBUG code - TO BE REMOVE
-//        var credentials = [LoginCredentialType: String]()
-//        credentials[.email] = DataHelperUtil.shared.randomEmail()
-//        credentials[.password] = DataHelperUtil.shared.randomPassword()
-//        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser in
-//            AuthConfig.shared.activeManager.login(credentials)
-//        }.then { authUser in
-//            CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
-//        }.then { authUser in
-//            CheqAPIManager.shared.putUserEmployer(DataHelperUtil.shared.putEmployerDetailsReq())
-//        }.done { authUser in
-//            LoggingUtil.shared.cPrint("")
-//        }.catch { err in
-//            AuthConfig.shared.activeManager.login(credentials).done { authUser in
-//                LoggingUtil.shared.cPrint("")
-//            }.catch { err in
-//                LoggingUtil.shared.cPrint("")
-//            }
-//        }
     }
-    
+
     func postAccounts(_ accounts: [PostFinancialAccountRequest])->Promise<Bool> {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
