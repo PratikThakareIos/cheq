@@ -12,7 +12,7 @@
         <!--Spending Overview View Controller-->
         <scene sceneID="w50-yV-Cfv">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="e0R-EQ-FXh" customClass="SpendingOverviewViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SpendingOverviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e0R-EQ-FXh" customClass="SpendingOverviewViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPh-5E-koU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

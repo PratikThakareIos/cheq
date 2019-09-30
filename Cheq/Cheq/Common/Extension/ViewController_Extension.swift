@@ -63,6 +63,11 @@ extension UIViewController {
     }
     
     func setupKeyboardHandling() {
+
+        // Event for programmatically dismissing the keyboard anywhere
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard(notification:)), name: NSNotification.Name(NotificationEvent.dismissKeyboard.rawValue), object: nil)
+
+        // Events from native keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -111,6 +116,10 @@ extension UIViewController {
             contentInset.bottom = keyboardSize.height
             scrollView.contentInset = contentInset
         }
+    }
+
+    @objc func dismissKeyboard(notification: NSNotification) {
+        self.view.endEditing(true)
     }
 }
 

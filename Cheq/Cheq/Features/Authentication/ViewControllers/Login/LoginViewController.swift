@@ -44,7 +44,7 @@ class LoginViewController: RegistrationViewController {
     
     func navigateToDashboard() {
         // go to dashboard board
-        AppNav.shared.presentViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.finance.rawValue, viewController: self)
+        AppNav.shared.presentViewController(StoryboardName.spending.rawValue, storyboardId: SpendingStoryboardId.overview.rawValue, viewController: self)
     }
     
     @IBAction func login(_ sender: Any) {

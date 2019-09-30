@@ -33,8 +33,8 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     let distanceFilter = 1.0
 
     // seconds
-    let logInterval = 10
-    let flushInterval = 60
+    let logInterval = 30000
+    let flushInterval = 90000
     // center reference for geo fencing
     var markedLocation = CLLocation(latitude: -33.8653556
 , longitude: 151.205377)

@@ -12,6 +12,7 @@ enum StoryboardName: String {
     case onboarding = "Onboarding"
     case main = "Main"
     case common = "Common"
+    case spending = "Spending" 
 }
 
 enum OnboardingStoryboardId: String {
@@ -22,6 +23,10 @@ enum OnboardingStoryboardId: String {
     case intro = "IntroductionViewController"
     case multipleChoice = "MultipleChoiceViewController"
     case dynamic = "DynamicFormViewController"
+}
+
+enum SpendingStoryboardId: String {
+    case overview = "SpendingOverviewViewController"
 }
 
 enum MainStoryboardId: String {

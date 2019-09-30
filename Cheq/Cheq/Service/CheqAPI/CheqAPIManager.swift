@@ -139,7 +139,7 @@ class CheqAPIManager {
             }
         }
     }
-    
+
     func getUserDetails()-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser()

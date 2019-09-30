@@ -51,17 +51,19 @@ class RegistrationViewController: UIViewController {
         self.viewModel.screenName = .registration
     }
     
-    func navigateToOnboarding() {
-        AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-    }
-    
     func continueWithLoggedInFB(_ token: String) {
-        viewModel.registerWithFBAccessToken(token).done { [weak self] authUser in
-            guard let self = self else { return }
-            self.navigateToOnboarding()
+        AppConfig.shared.showSpinner()
+        viewModel.registerWithFBAccessToken(token).then { authUser in
+            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.then{ authUser in
+            AuthConfig.shared.activeManager.setUser(authUser)
+        }.done { authUser in
+            self.navigateToNextStage()
         }.catch { [weak self] err in
-                guard let self = self else { return }
+            guard let self = self else { return }
+            AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
+            }
         }
     }
 
@@ -88,10 +90,10 @@ class RegistrationViewController: UIViewController {
     @IBAction func register(_ sender: Any) {
         AppConfig.shared.showSpinner()
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
-        .done { authUser in
-            AppConfig.shared.hideSpinner {
-                self.navigateToOnboarding()
-            }
+        .then { authUser in
+            AuthConfig.shared.activeManager.setUser(authUser)
+        }.done { authUser in
+            self.navigateToNextStage()
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
@@ -109,6 +111,22 @@ extension RegistrationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true 
+    }
+}
+
+extension RegistrationViewController {
+    func navigateToNextStage() {
+        // check if we need to do onboarding
+        CheqAPIManager.shared.getUserDetails().done { _ in
+            // already existing registered user
+            AppConfig.shared.hideSpinner {
+                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
+            }
+        }
     }
 }
 
