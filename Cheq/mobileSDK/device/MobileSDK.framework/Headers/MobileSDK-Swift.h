@@ -347,7 +347,8 @@ typedef SWIFT_ENUM(NSInteger, ErrorKey, closed) {
   ErrorKeyMFA_PROMPT = 1,
   ErrorKeyMFA_FIELD_TYPE = 2,
   ErrorKeyPROVIDER = 3,
-  ErrorKeyREFRESH_FAILED_ACCOUNTS = 4,
+  ErrorKeyPROVIDER_ADDITIONAL = 4,
+  ErrorKeyREFRESH_FAILED_ACCOUNTS = 5,
 };
 
 
@@ -1007,7 +1008,7 @@ SWIFT_PROTOCOL("_TtP9MobileSDK23NotificationApiProtocol_")
 /// \param listener An <code>ApiListener</code> for an <code>ApiResponseModel</code> representing the handler for when the request is complete.
 ///
 - (void)registerToken:(NSString * _Nonnull)token listener:(ApiListener<ApiResponseModel *> * _Nonnull)listener;
-- (BOOL)handleNotificationWithData:(NSDictionary * _Nonnull)data config:(MoneysoftApiConfiguration * _Nonnull)config login:(LoginModel * _Nonnull)login SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)handleNotificationWithData:(NSDictionary * _Nonnull)data config:(MoneysoftApiConfiguration * _Nonnull)config login:(LoginModel * _Nonnull)login listener:(ApiListener<ApiResponseModel *> * _Nonnull)listener SWIFT_WARN_UNUSED_RESULT;
 @end
 
 typedef SWIFT_ENUM(NSInteger, Platform, closed) {

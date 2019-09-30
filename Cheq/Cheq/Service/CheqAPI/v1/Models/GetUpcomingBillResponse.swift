@@ -18,8 +18,9 @@ public struct GetUpcomingBillResponse: Codable {
     public var dueDate: String?
     public var daysToDueDate: Int?
     public var recurringFrequency: String?
+    public var categoryCode: String?
 
-    public init(_description: String?, merchant: String?, merchantLogoUrl: String?, amount: Double?, dueDate: String?, daysToDueDate: Int?, recurringFrequency: String?) {
+    public init(_description: String?, merchant: String?, merchantLogoUrl: String?, amount: Double?, dueDate: String?, daysToDueDate: Int?, recurringFrequency: String?, categoryCode: String?) {
         self._description = _description
         self.merchant = merchant
         self.merchantLogoUrl = merchantLogoUrl
@@ -27,6 +28,7 @@ public struct GetUpcomingBillResponse: Codable {
         self.dueDate = dueDate
         self.daysToDueDate = daysToDueDate
         self.recurringFrequency = recurringFrequency
+        self.categoryCode = categoryCode
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -37,6 +39,7 @@ public struct GetUpcomingBillResponse: Codable {
         case dueDate
         case daysToDueDate
         case recurringFrequency
+        case categoryCode
     }
 
 

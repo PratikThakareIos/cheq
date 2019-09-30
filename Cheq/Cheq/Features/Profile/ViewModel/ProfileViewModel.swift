@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileViewModel: BaseViewModel {
-    func load(_ complete: @escaping () -> Void) {
+    override func load(_ complete: @escaping () -> Void) {
         complete()
     }
 }

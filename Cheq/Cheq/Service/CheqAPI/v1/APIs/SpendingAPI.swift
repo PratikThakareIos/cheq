@@ -37,6 +37,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     }, {
@@ -46,6 +47,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     } ]
@@ -58,6 +60,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     }, {
@@ -67,6 +70,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     } ]
@@ -114,13 +118,13 @@ open class SpendingAPI {
   "categoryAmountStats" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   } ],
@@ -171,6 +175,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   }, {
@@ -180,6 +185,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   } ],
@@ -190,7 +196,8 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   }, {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
@@ -198,18 +205,19 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   } ],
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   } ]
@@ -253,6 +261,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   }, {
@@ -262,6 +271,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   } ],
@@ -272,7 +282,8 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   }, {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
@@ -280,18 +291,19 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   } ],
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   } ]
@@ -335,6 +347,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   }, {
@@ -344,6 +357,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   } ],
@@ -354,7 +368,8 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   }, {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
@@ -362,18 +377,19 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   } ],
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   } ]
@@ -417,6 +433,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   }, {
@@ -426,6 +443,7 @@ open class SpendingAPI {
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
+    "categoryCode" : "categoryCode",
     "merchantLogoUrl" : "merchantLogoUrl",
     "category" : "category"
   } ],
@@ -436,7 +454,8 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   }, {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
@@ -444,18 +463,19 @@ open class SpendingAPI {
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
-    "merchantLogoUrl" : "merchantLogoUrl"
+    "merchantLogoUrl" : "merchantLogoUrl",
+    "categoryCode" : "categoryCode"
   } ],
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
-    "iconUrl" : "iconUrl",
+    "categoryCode" : "categoryCode",
     "title" : "title",
     "categoryId" : 1
   } ]
@@ -502,6 +522,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     }, {
@@ -511,6 +532,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     } ]
@@ -523,6 +545,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     }, {
@@ -532,6 +555,7 @@ open class SpendingAPI {
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
+      "categoryCode" : "categoryCode",
       "merchantLogoUrl" : "merchantLogoUrl",
       "category" : "category"
     } ]
@@ -587,7 +611,8 @@ open class SpendingAPI {
   "description" : "description",
   "merchant" : "merchant",
   "daysToDueDate" : 6,
-  "merchantLogoUrl" : "merchantLogoUrl"
+  "merchantLogoUrl" : "merchantLogoUrl",
+  "categoryCode" : "categoryCode"
 }, {
   "amount" : 0.8008281904610115,
   "recurringFrequency" : "recurringFrequency",
@@ -595,7 +620,8 @@ open class SpendingAPI {
   "description" : "description",
   "merchant" : "merchant",
   "daysToDueDate" : 6,
-  "merchantLogoUrl" : "merchantLogoUrl"
+  "merchantLogoUrl" : "merchantLogoUrl",
+  "categoryCode" : "categoryCode"
 } ]}]
 
      - returns: RequestBuilder<[GetUpcomingBillResponse]> 

@@ -17,14 +17,20 @@ public struct GetUserEmployerResponse: Codable {
     public var noFixedAddress: Bool?
     public var latitude: Double?
     public var longitude: Double?
+    public var postCode: String?
+    public var state: String?
+    public var country: String?
 
-    public init(employerName: String?, employmentType: String?, address: String?, noFixedAddress: Bool?, latitude: Double?, longitude: Double?) {
+    public init(employerName: String?, employmentType: String?, address: String?, noFixedAddress: Bool?, latitude: Double?, longitude: Double?, postCode: String?, state: String?, country: String?) {
         self.employerName = employerName
         self.employmentType = employmentType
         self.address = address
         self.noFixedAddress = noFixedAddress
         self.latitude = latitude
         self.longitude = longitude
+        self.postCode = postCode
+        self.state = state
+        self.country = country
     }
 
 

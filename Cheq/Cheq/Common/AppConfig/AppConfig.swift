@@ -31,7 +31,7 @@ class AppConfig {
     var themes:[AppThemeProtocol] = [PrimaryTheme(), DarkTheme(), CBATheme()]
     var activeTheme: AppThemeProtocol = PrimaryTheme()
     var currentActiveThemeIndex = 0
-
+    var isShowingSpinner = false
     func switchTheme(_ index: Int) {
         guard index >= 0, index < themes.count else { return }
         self.currentActiveThemeIndex = index
@@ -43,6 +43,36 @@ class AppConfig {
 extension AppConfig {
     func toAppSetting() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+    
+    func setupNavBarUI() {
+        // hide nav bar
+        UINavigationBar.appearance().tintColor = AppConfig.shared.activeTheme.primaryColor
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().isTranslucent = true
+    }
+    
+    func progressNavBar(progress: CProgress, viewController: UIViewController) {
+        guard progress.aboutMe <= 1.0, progress.aboutMe >= 0.0 else { return }
+        guard progress.employmentDetails <= 1.0, progress.employmentDetails >= 0.0 else { return }
+        guard progress.linkingBank <= 1.0, progress.linkingBank >= 0.0 else { return }
+        
+        guard let _ = viewController.navigationController else { LoggingUtil.shared.cPrint("nav not available");  return }
+
+        let aboutMeProgress = CProgressView()
+        aboutMeProgress.setProgress(progress.aboutMe, animated: true)
+        
+        let employmentDetailsProgress = CProgressView()
+        employmentDetailsProgress.setProgress(progress.employmentDetails, animated: true)
+        
+        let linkingBankProgress = CProgressView()
+        linkingBankProgress.setProgress(progress.linkingBank, animated: true)
+        
+        let progressStackView = CProgressViewStackView(progressViews: [aboutMeProgress, employmentDetailsProgress, linkingBankProgress])
+
+        viewController.navigationItem.titleView = progressStackView
     }
 }
 
@@ -69,6 +99,8 @@ extension AppConfig {
 // MARK: Spinner
 extension AppConfig {
     func showSpinner() {
+        guard self.isShowingSpinner == false else { return }
+        self.isShowingSpinner = true
         SwiftSpinner.setTitleFont(activeTheme.headerFont)
         SwiftSpinner.setTitleColor(activeTheme.alternativeColor1)
         SwiftSpinner.setAnimationDelay(activeTheme.quickAnimationDuration)
@@ -76,10 +108,14 @@ extension AppConfig {
     }
     
     func hideSpinner() {
+        guard self.isShowingSpinner == true else { return }
+        self.isShowingSpinner = false
         SwiftSpinner.hide()
     }
     
     func hideSpinner(completion: @escaping ()->Void) {
+        guard self.isShowingSpinner == true else { completion(); return }
+        self.isShowingSpinner = false
         SwiftSpinner.hide(completion)
     }
 }

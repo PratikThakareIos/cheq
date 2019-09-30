@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FinanceViewModel: NSObject, BaseViewModel {
+class FinanceViewModel: BaseViewModel {
 
     let title: String
     let filters = FinancialPeriod.AllCases()
@@ -19,7 +19,7 @@ class FinanceViewModel: NSObject, BaseViewModel {
         self.title = title
     }
 
-    func load(_ complete: @escaping () -> Void) {
+    override func load(_ complete: @escaping () -> Void) {
         DispatchUtil.delay(3.0) {
             self.carouselCoordViewModel.load {
                 self.gridCoordViewModel.load {

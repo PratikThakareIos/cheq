@@ -15,14 +15,22 @@ import Crashlytics
 import FBSDKLoginKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    let backgroundTaskIdentifier = "CheqBackground-Service"
+    let fcmMsgFile = "temp.txt"
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let fileContent = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
+        LoggingUtil.shared.cPrint(fileContent)
+        // setup UI for nav
+        AppConfig.shared.setupNavBarUI()
+        
         // init firebase SDK
-         FirebaseApp.configure()
+        FirebaseApp.configure()
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -30,13 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // setup singleton and SDKs
         self.setupServices()
         
-        // setup remote notifications
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
         
-        // determine the initial view controller
-//        setupInitialViewController()
-        setupInitDevController()
+        self.setupInitialViewController()
+        
         return true
+    }
+    
+    static func setupRemoteNotifications() {
+        // setup remote notifications
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(UIApplication.shared, delegate: self)
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -49,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
     
@@ -60,27 +72,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.makeKeyAndVisible()
     }
     
+    func setupLogController() {
+        let vc = UIViewController()
+        let textView = UITextView()
+        vc.view.addSubview(textView)
+        textView.text = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
+        AutoLayoutUtil.pinToSuperview(textView, padding: 0.0)
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
     func setupInitDevController() {
-         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.kyc.rawValue)
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        vc.viewModel.coordinator = AgeRangeCoordinator()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
 
     func setupInitialViewController() {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        // choose initial controller
+        
+       window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
+        
+//        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//            self.window?.rootViewController = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.finance.rawValue)
+//            self.window?.makeKeyAndVisible()
+//        }.catch { err in
+//            self.handleNotLoggedIn()
+//        }
+        
+    }
+    
+    func handleNotLoggedIn() {
         if !AppConfig.shared.isFirstInstall() {
-            let regVc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue)
-            let nav = UINavigationController(rootViewController: regVc)
-            window?.rootViewController = nav
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue)
         } else {
-            let splashVc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splash.rawValue)
-            let nav = UINavigationController(rootViewController: splashVc)
-            window?.rootViewController = nav
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
         }
-        window?.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
+    }
+    
+    //MARK: UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    //MARK: Firebase messaging
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
+            if success {
+                LoggingUtil.shared.cPrint("fcmToken \(fcmToken)")
+                NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
+            }
+            }.catch {_ in }
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        LoggingUtil.shared.cPrint(remoteMessage.messageID)
     }
 }
 
@@ -96,16 +150,44 @@ extension AppDelegate {
                               fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         LoggingUtil.shared.cPrint(userInfo)
-        
         switch application.applicationState {
-        case .active: break
-        case .inactive, .background:
-            LoggingUtil.shared.cPrint("message received")
-            MoneySoftManager.shared.getInstitutions().done { _ in
-                completionHandler(.newData)
-            }.catch { err in
-                completionHandler(.noData)
+        case .active, .inactive, .background:
+            LoggingUtil.shared.cPrint(String(application.backgroundTimeRemaining))
+            if self.backgroundTask == .invalid, application.backgroundRefreshStatus == .available {
+                self.backgroundTask = application.beginBackgroundTask(withName: backgroundTaskIdentifier, expirationHandler: { self.expirationHandler() })
+                
+                self.handleRemoteNotification {
+                    self.expirationHandler()
+                    completionHandler(UIBackgroundFetchResult.noData)
+                }
             }
+        }
+    }
+    
+    func expirationHandler() {
+        UIApplication.shared.endBackgroundTask(self.backgroundTask)
+        self.backgroundTask = .invalid
+    }
+    
+    func handleRemoteNotification(_ completion: @escaping ()->Void) {
+        
+        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
+        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "\(dateString)")
+        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "message received \(dateString)")
+        var credentials = [LoginCredentialType: String]()
+        credentials[.email] = DataHelperUtil.shared.randomEmail()
+        credentials[.password] = DataHelperUtil.shared.randomPassword()
+        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
+            
+            completion()
+        }.then { authUser in
+            CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
+        }.done { authUser in
+            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
+        }.catch{ err in
+            LoggingUtil.shared.cPrint(err.localizedDescription)
+            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "\(err.localizedDescription)")
+            completion()
         }
     }
 }
@@ -116,24 +198,10 @@ extension AppDelegate {
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
         Fabric.with([Crashlytics.self])
+        let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
-        let _ = BluedotManager.shared
-    }
-}
-
-// MARK: Firebase Messaging
-extension AppDelegate: MessagingDelegate {
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
-            if success {
-                NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
-            }
-        }.catch {_ in }
-    }
-    
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        LoggingUtil.shared.cPrint(remoteMessage.messageID)
+//        let _ = VDotManager.shared
     }
 }
 

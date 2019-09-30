@@ -27,7 +27,7 @@ class FirebaseAuthManager: AuthManagerProtocol {
 extension FirebaseAuthManager {
     func getCurrentUser()-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-            if let authUser = AuthConfig.shared.activeUser {
+            if let authUser = AuthConfig.shared.activeUser, let token = authUser.authToken(), token.isEmpty == false {
                 resolver.fulfill(authUser)
             } else {
                 resolver.reject(AuthManagerError.unableToRetrieveCurrentUser)
@@ -100,6 +100,7 @@ extension FirebaseAuthManager {
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                 guard let user = result?.user else { resolver.reject(error ?? AuthManagerError.unknown); return }
                 let authUser = FirebaseAuthManager.buildAuthUser(.socialLoginEmail, user: user)
+                AuthConfig.shared.activeUser = authUser
                 resolver.fulfill(authUser)
             }
         }.then{ authUser in
@@ -159,8 +160,12 @@ extension FirebaseAuthManager {
             let firUser = authUser.ref as! User
             firUser.getIDTokenForcingRefresh(true, completion: { (authToken, error) in
                 guard let token = authToken else { resolver.reject(AuthManagerError.unableToRetrieveAuthToken); return }
+                LoggingUtil.shared.cPrint("email - \(authUser.email), auth token - \(token)")
+                let _ = CKeychain.setValue(CKey.authToken.rawValue, value: token)
+                let _ = CKeychain.setValue(CKey.loggedInEmail.rawValue, value: authUser.email)
                 let authUsr = authUser
                 if authUsr.saveAuthToken(token) {
+                    AuthConfig.shared.activeUser = authUser 
                     resolver.fulfill(authUsr)
                 } else {
                     resolver.reject(AuthManagerError.unableToStoreAuthToken)
@@ -242,7 +247,6 @@ extension FirebaseAuthManager {
         if let messageDelegate = delegate as? MessagingDelegate {
             Messaging.messaging().delegate = messageDelegate
         }
-        
         
         // setup for UserNotifications
         if #available(iOS 10.0, *) {

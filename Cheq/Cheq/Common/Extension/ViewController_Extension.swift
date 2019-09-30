@@ -8,13 +8,33 @@
 
 import UIKit
 import NotificationCenter
+import UDatePicker
 
 protocol UIViewControllerProtocol {
     func baseScrollView()-> UIScrollView?
 }
 
+// MARK: Hide navigation bar back button title
+extension UIViewController {
+    
+    func showBackButton() {
+        self.navigationItem.hidesBackButton = false
+    }
+    
+    func hideBackTitle() {
+        self.navigationItem.hidesBackButton = false
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+    }
+    
+    func hideBackButton() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+    }
+}
+
 // MARK: PopupDialog wrapper
 extension UIViewController {
+    
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
         let message = msg
@@ -104,17 +124,37 @@ extension UIViewController: UIViewControllerProtocol  {
 
 // MARK: Navigation Helper
 extension UIViewController {
-    @objc func pushToViewController(_ storyboardName: String, storyboardId: String) {
-        guard let nav =  self.navigationController else { return }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        nav.pushViewController(vc, animated: true)
+    
+    var isRootViewControllerUnderNav: Bool {
+        guard let nav = self.navigationController else { return false }
+        if self == nav.viewControllers[0] {
+            return true
+        } else {
+            return false
+        }
     }
     
-    @objc func presentViewController(_ storyboardName: String, storyboardId: String) {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        let nav = UINavigationController(rootViewController: vc)
-        self.present(nav, animated: true)
+    var isModal: Bool {
+        let presentingIsModal = presentingViewController != nil
+        let presentingIsNavigation = navigationController?.presentingViewController?.presentedViewController == navigationController
+        let presentingIsTabBar = tabBarController?.presentingViewController is UITabBarController
+        return presentingIsModal || presentingIsNavigation || presentingIsTabBar
+    }
+}
+
+// MARK: Date Picker
+extension UIViewController {
+    func showDatePicker(_ textField: UITextField, initialDate: Date, picker: UDatePicker?) {
+        var datePicker = picker
+        if datePicker == nil {
+            datePicker = UDatePicker(frame: view.frame, willDisappear: { date in
+                if date != nil {
+                    LoggingUtil.shared.cPrint("select date \(String(describing: date))")
+                    textField.text = date?.format(with: DataHelperUtil.shared.dobFormatStyle())
+                }
+            })
+        }
+        datePicker?.picker.date = initialDate
+        datePicker?.present(self)
     }
 }

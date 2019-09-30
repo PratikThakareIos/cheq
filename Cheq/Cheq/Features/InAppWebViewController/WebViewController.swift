@@ -16,6 +16,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideBackTitle()
     }
     
     override func viewDidAppear(_ animated: Bool) {

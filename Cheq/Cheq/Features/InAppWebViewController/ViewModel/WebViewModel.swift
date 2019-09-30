@@ -12,5 +12,5 @@ class WebViewModel: BaseViewModel {
     
     var url: String = ""
     
-    func load(_ complete: @escaping () -> Void) {}
+    override func load(_ complete: @escaping () -> Void) {}
 }

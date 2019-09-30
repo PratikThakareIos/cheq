@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class NotificationUtil {
     static let shared = NotificationUtil()
     private init() {

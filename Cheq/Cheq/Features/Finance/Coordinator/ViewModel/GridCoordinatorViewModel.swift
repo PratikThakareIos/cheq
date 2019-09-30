@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GridCoordinatorViewModel: NSObject, BaseViewModel {
+class GridCoordinatorViewModel: BaseViewModel {
 
     var pieChartModels: [CChartModel] = []
 
@@ -16,7 +16,7 @@ class GridCoordinatorViewModel: NSObject, BaseViewModel {
         super.init()
     }
 
-    func load(_ complete: @escaping () -> Void) {
+    override func load(_ complete: @escaping () -> Void) {
         // load data for grid
         self.pieChartModels = ChartModelUtil.fakePieChartModel()
         complete()

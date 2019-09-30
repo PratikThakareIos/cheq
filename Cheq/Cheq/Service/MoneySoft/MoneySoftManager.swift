@@ -52,13 +52,14 @@ class MoneySoftManager {
     
     func login(_ credentials: [LoginCredentialType: String])-> Promise<AuthenticationModel> {
         return Promise<AuthenticationModel>() { resolver in
-            
+
             var loginModel: LoginModel
             if let otp = credentials[.msOtp] {
                 loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "", verification: otp)
             } else {
                 loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "")
             }
+ 
             do {
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
                     guard let model = authModel else { resolver.reject(MoneySoftManagerError.unableToLoginWithCredential);
@@ -121,6 +122,22 @@ extension MoneySoftManager {
         }
     }
     
+    func updateTransactions(_ accounts: [FinancialAccountModel], options: UpdateTransactionOptions)-> Promise<[FinancialTransactionModel]> {
+        return Promise<[FinancialTransactionModel]>() { resolver in
+            do {
+                try msApi.financial().updateTransactions(financialAccounts: accounts, options: options, listener: ApiListListener<FinancialTransactionModel>(successHandler: { transactions in
+                    guard let updatedTransactions = transactions as? [FinancialTransactionModel] else { resolver.reject(MoneySoftManagerError.unableToUpdateTransactions); return }
+                    resolver.fulfill(updatedTransactions)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.unableToUpdateTransactions)
+                }))
+            } catch { 
+                resolver.reject(MoneySoftManagerError.unableToUpdateTransactions)
+            }
+        }
+    }
+    
     func refreshAccounts(_ accounts: [FinancialAccountModel], refreshOptions: RefreshAccountOptions)-> Promise<[FinancialAccountModel]> {
         return Promise<[FinancialAccountModel]>() { resolver in
             do {
@@ -132,7 +149,7 @@ extension MoneySoftManager {
                     resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
                 }))
             } catch {
-                resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+                resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
             }
         }
     }
@@ -195,6 +212,7 @@ extension MoneySoftManager {
     func getInstitutions()-> Promise<[FinancialInstitutionModel]> {
         return Promise<[FinancialInstitutionModel]>() { resolver in
             do {
+               
                 try msApi.financial().getInstitutions(listener: ApiListListener<FinancialInstitutionModel>(successHandler: { institutions in
                     if let financialInstitutions = institutions as? [FinancialInstitutionModel] {
                         resolver.fulfill(financialInstitutions)

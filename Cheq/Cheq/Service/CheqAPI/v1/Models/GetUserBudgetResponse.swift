@@ -11,13 +11,22 @@ import Foundation
 
 public struct GetUserBudgetResponse: Codable {
 
-    public var overallSpendingBudget: Double?
-    public var overallActualSpending: Double?
+    public enum RecurringFrequency: String, Codable { 
+        case weekly = "Weekly"
+        case fortnightly = "Fortnightly"
+        case monthly = "Monthly"
+        case bimonthly = "Bimonthly"
+        case quarterly = "Quarterly"
+        case halfYearly = "HalfYearly"
+        case yearly = "Yearly"
+    }
+    public var startDate: String?
+    public var recurringFrequency: RecurringFrequency?
     public var userBudgets: [UserBudget]?
 
-    public init(overallSpendingBudget: Double?, overallActualSpending: Double?, userBudgets: [UserBudget]?) {
-        self.overallSpendingBudget = overallSpendingBudget
-        self.overallActualSpending = overallActualSpending
+    public init(startDate: String?, recurringFrequency: RecurringFrequency?, userBudgets: [UserBudget]?) {
+        self.startDate = startDate
+        self.recurringFrequency = recurringFrequency
         self.userBudgets = userBudgets
     }
 

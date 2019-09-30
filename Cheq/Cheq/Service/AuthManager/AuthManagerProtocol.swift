@@ -46,12 +46,12 @@ extension AuthManagerProtocol {
     }
     
     func messagingRegistrationToken()-> String {
-        return CKeychain.getValueByKey("msgRegToken") ?? ""
+        return CKeychain.getValueByKey(CKey.msgRegToken.rawValue) ?? ""
     }
     
     func storeMessagingRegistrationToken(_ token: String)-> Promise<Bool> {
         return Promise<Bool>() { resolver in
-            let success = CKeychain.setValue("msgRegToken", value: token)
+            let success = CKeychain.setValue(CKey.msgRegToken.rawValue, value: token)
             resolver.fulfill(success)
         }
     }

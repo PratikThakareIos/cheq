@@ -13,13 +13,13 @@ import PromiseKit
 
 class FirebaseAuthManagerIntegrationTests: XCTestCase {
 
-    let authUserUtil = AuthUserUtil.shared
+    let dataUtil = DataHelperUtil.shared
     let firebaseAuth = FirebaseAuthManager.shared
 
     func testRestPasswordLink() {
         let expectation = XCTestExpectation(description: "registration with email, login, then request for password reset link")
         let email = "xuwei_liang@hotmail.com"
-        let password = authUserUtil.randomPassword()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .then { authUser in
@@ -39,11 +39,11 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register, Login, Update Password, Logout, Delete Account
     func testUpdatePassword() {
         let expectation = XCTestExpectation(description: "email registration, login then update user password")
-        let email = authUserUtil.randomEmail()
-        let password = authUserUtil.randomPassword()
+        let email = dataUtil.randomEmail()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         let newCredential: [LoginCredentialType: String] =
-            [.email: email, .password: authUserUtil.randomPassword()]
+            [.email: email, .password: dataUtil.randomPassword()]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .then { authUser in
             self.firebaseAuth.login(credentials)
@@ -70,9 +70,9 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
 
     func testRemoveUserAccount2() {
         let expectation = XCTestExpectation(description: "email registration, login then remove user account")
-        let email = authUserUtil.randomEmail()
+        let email = dataUtil.randomEmail()
         LoggingUtil.shared.cPrint(email)
-        let password = authUserUtil.randomPassword()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .then { authUser in
@@ -97,8 +97,8 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register, Login, Remove User Account
     func testRemoveUserAccount() {
         let expectation = XCTestExpectation(description: "email registration, login then remove user account")
-        let email = authUserUtil.randomEmail()
-        let password = authUserUtil.randomPassword()
+        let email = dataUtil.randomEmail()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .then { authUser in
@@ -119,8 +119,8 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register, Login, Logout
     func testRegisterLoginThenLogout2() {
         let expectation = XCTestExpectation(description: "email registration, login then logout with email")
-        let email = authUserUtil.randomEmail()
-        let password = authUserUtil.randomPassword()
+        let email = dataUtil.randomEmail()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .then { authUser in
@@ -141,8 +141,8 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register, Login, Logout
     func testRegisterLoginThenLogout() {
         let expectation = XCTestExpectation(description: "email registration, login then logout with email")
-        let email = authUserUtil.randomEmail()
-        let password = authUserUtil.randomPassword()
+        let email = dataUtil.randomEmail()
+        let password = dataUtil.randomPassword()
         let credentials:[LoginCredentialType: String] = [.email: email, .password: password]
         firebaseAuth.register(.socialLoginEmail, credentials: credentials)
         .done { authUser in
@@ -167,7 +167,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register with existing email
     func testRegisterWithExistingEmail() {
         let expectation = XCTestExpectation(description: "registration with email")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: authUserUtil.testEmail() , .password: authUserUtil.randomPassword()])
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: dataUtil.testEmail() , .password: dataUtil.randomPassword()])
         .done { authUser in
             XCTAssertThrowsError("testRegisterWithExistingEmail shoudn't work")
         }.catch { err in
@@ -182,7 +182,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     // Register with randomly generated email
     func testRegisterWithNewEmail() {
         let expectation = XCTestExpectation(description: "registration with email")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: authUserUtil.randomEmail(), .password: authUserUtil.randomPassword()])
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: dataUtil.randomEmail(), .password: dataUtil.randomPassword()])
             .done { authUser in
                 XCTAssertNotNil(authUser)
                 XCTAssertNotNil(authUser.email)
@@ -205,7 +205,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     
     func testRegisterTestAccount() {
         let expectation = XCTestExpectation(description: "registration for test account")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: authUserUtil.testEmail(), .password: AuthUserUtil.shared.testPass()]).done { authUser in
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: dataUtil.testEmail(), .password: DataHelperUtil.shared.testPass()]).done { authUser in
             XCTAssertNotNil(authUser)
             XCTAssertNotNil(authUser.email)
             XCTAssertNotNil(authUser.userId)
@@ -221,7 +221,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     
     func testDeleteTestAccount() {
         let expectation = XCTestExpectation(description: "delete test account")
-        firebaseAuth.login([.email: AuthUserUtil.shared.testEmail(), .password: AuthUserUtil.shared.testPass()]).then { authUser in
+        firebaseAuth.login([.email: DataHelperUtil.shared.testEmail(), .password: DataHelperUtil.shared.testPass()]).then { authUser in
             self.firebaseAuth.removeUserAcct(authUser)
         }.done {
             XCTAssertTrue(true)

@@ -66,14 +66,14 @@ extension PrimaryTheme {
         get { return UIColor(hex: "FF8F40") }
     }
 
-    // light blue
+    // light blue / cyan
     var alternativeColor3: UIColor {
         get { return UIColor(hex: "6BE4ff") }
     }
 
     // dark pink
     var alternativeColor4: UIColor {
-        get { return UIColor(hex: "DC4277") }
+        get { return UIColor(hex: "DFF0F6") }
     }
 
     var alternativeOrangeColor: UIColor {
@@ -110,15 +110,15 @@ extension PrimaryTheme {
 //MARK: fonts
 extension PrimaryTheme {
     var defaultFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 12.0)}
+         get { return UIFont(name: "Montserrat Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12.0) }
     }
 
     var mediumFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 15.0)}
+        get { return UIFont(name: "Montserrat Bold", size: 15.0) ?? UIFont.systemFont(ofSize: 15.0) }
     }
 
     var headerFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 20.0)}
+        get { return UIFont(name: "Montserrat Bold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0) }
     }
 }
 

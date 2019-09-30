@@ -8,7 +8,7 @@
 
 import Foundation
 
-let fbPermissions:[String] = [FBKey.email.rawValue, FBKey.userBirthday.rawValue, FBKey.publicProfile.rawValue]
+let fbPermissions:[String] = [FBKey.email.rawValue, FBKey.publicProfile.rawValue]
 
 let fbIconImage = "fbIcon"
 

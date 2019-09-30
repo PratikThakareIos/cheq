@@ -12,28 +12,25 @@ import Foundation
 public struct UserBudget: Codable {
 
     public var _id: Int?
-    public var cheqCategoryTitle: String?
-    public var categoryIconUrl: String?
-    public var spendingBudget: Double?
+    public var categoryTitle: String?
+    public var categoryCode: String?
+    public var estimatedBudget: Double?
     public var actualSpending: Double?
-    public var canDelete: Bool?
 
-    public init(_id: Int?, cheqCategoryTitle: String?, categoryIconUrl: String?, spendingBudget: Double?, actualSpending: Double?, canDelete: Bool?) {
+    public init(_id: Int?, categoryTitle: String?, categoryCode: String?, estimatedBudget: Double?, actualSpending: Double?) {
         self._id = _id
-        self.cheqCategoryTitle = cheqCategoryTitle
-        self.categoryIconUrl = categoryIconUrl
-        self.spendingBudget = spendingBudget
+        self.categoryTitle = categoryTitle
+        self.categoryCode = categoryCode
+        self.estimatedBudget = estimatedBudget
         self.actualSpending = actualSpending
-        self.canDelete = canDelete
     }
 
     public enum CodingKeys: String, CodingKey { 
         case _id = "id"
-        case cheqCategoryTitle
-        case categoryIconUrl
-        case spendingBudget
+        case categoryTitle
+        case categoryCode
+        case estimatedBudget
         case actualSpending
-        case canDelete
     }
 
 

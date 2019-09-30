@@ -54,8 +54,8 @@ protocol AppThemeProtocol {
     var popoverMenuToScreenWidthRatio: CGFloat { get }
     var defaultButtonHeight: CGFloat { get }
     var defaultCornerRadius: CGFloat { get }
-    var defaultTextFieldHeight: CGFloat { get }
-
+    var defaultProgressBarHeight: CGFloat { get }
+    
     func cardStyling(_ view: UIView, addBorder: Bool) 
     func cardStyling(_ view: UIView, bgColors: [UIColor])
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
@@ -69,7 +69,7 @@ extension AppThemeProtocol {
     var defaultCornerRadius: CGFloat { get { return 20.0 } }
     var defaultButtonHeight: CGFloat { get { return 56.0 }}
     var defaultTextFieldHeight: CGFloat { get { return 56.0 }}
-
+    var defaultProgressBarHeight: CGFloat { get { return 6.0 }}
     var popoverMenuLabelHeight: CGFloat { get { return 40.0 } }
     var popoverMenuToScreenWidthRatio: CGFloat { get { return 0.5 } }
 

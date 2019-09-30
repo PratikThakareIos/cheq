@@ -19,9 +19,11 @@ target 'Cheq' do
   pod 'Validator', '~> 3.2'
   pod 'PopupDialog', '~> 1.0.0'
   pod 'DateToolsSwift'
+  pod 'UDatePicker', '~> 1.1.1'
+  pod 'SearchTextField', '~> 1.2.0'
   
   # Pod for BlueDot SDK
-  pod 'BluedotPointSDK'
+  pod 'BluedotPointSDK', '15.0.0'
   
   # Pod dependency from MoneySoft
   pod 'Mantle'

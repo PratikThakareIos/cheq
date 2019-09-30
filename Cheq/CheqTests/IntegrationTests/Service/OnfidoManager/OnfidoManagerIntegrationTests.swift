@@ -15,8 +15,8 @@ class OnfidoManagerIntegrationTests: XCTestCase {
     func testOnfidoManagerSetup() {
         let expectation = XCTestExpectation(description: "test onfido sdk integrations")
         var credentials: [LoginCredentialType: String] = [:]
-        credentials[.email] = AuthUserUtil.shared.testEmail()
-        credentials[.password] = AuthUserUtil.shared.testPass()
+        credentials[.email] = DataHelperUtil.shared.testEmail()
+        credentials[.password] = DataHelperUtil.shared.testPass()
         firstly {
             return AuthConfig.shared.activeManager.login(credentials)
 //        }.then { authUser

@@ -17,8 +17,16 @@ enum CKeychainError: Error {
     case unableToStore
 }
 
+enum ValidationError: Error {
+    case allFieldsMustBeFilled
+    case unableToMapSelectedBank
+}
+
 enum CheqAPIManagerError: Error {
+    case unableToPerformKYCNow
+    case errorHasOccurredOnServer
     case unableToParseResponse
+    case invalidInput
 }
 
 enum MoneySoftManagerError: Error {
@@ -31,6 +39,7 @@ enum MoneySoftManagerError: Error {
     case unableToRetrieveFinancialInstitutionSignInForm
     case unableToRetreiveLinkableAccounts
     case unableToLinkAccounts
+    case unableToUpdateTransactions
     case unableToRefreshTransactions
     case unableToGetAccounts 
     case unableToRefreshAccounts
@@ -43,6 +52,7 @@ enum MoneySoftManagerError: Error {
 
 enum AuthManagerError: Error {
     case invalidRegistrationFields
+    case invalidLoginFields
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
     case unableToRetrieveAuthToken
@@ -59,11 +69,39 @@ enum AuthManagerError: Error {
     case unknown
 }
 
+extension CheqAPIManagerError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .errorHasOccurredOnServer:
+            return NSLocalizedString("Error has occurred on server", comment: "")
+        case .invalidInput:
+            return NSLocalizedString("Invalid input", comment: "")
+        case .unableToParseResponse:
+            return NSLocalizedString("Server error", comment: "")
+        case .unableToPerformKYCNow:
+            return NSLocalizedString("Unable to perform KYC operation now", comment: "")
+        }
+    }
+}
+
+extension ValidationError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .allFieldsMustBeFilled:
+            return NSLocalizedString("All fields must be entered", comment: "")
+        case .unableToMapSelectedBank:
+            return NSLocalizedString("Internal error with mapping selection", comment: "")
+        }
+    }
+}
+
 extension AuthManagerError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidRegistrationFields:
         return NSLocalizedString("Invalid registration fields", comment: "")
+        case .invalidLoginFields:
+        return NSLocalizedString("Invalid login fields", comment: "")
         case .unableToRegisterExistingEmail:
         return NSLocalizedString("Unable to register an existing email", comment: "")
         case .unableToRegisterWithMissingFBToken:

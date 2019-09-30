@@ -40,6 +40,7 @@ class FinanceViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        super.hideBackButton()
     }
 
     func reloadUI() {

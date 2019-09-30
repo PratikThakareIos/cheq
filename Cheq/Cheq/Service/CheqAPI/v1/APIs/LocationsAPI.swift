@@ -29,12 +29,18 @@ open class LocationsAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
+  "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
+  "postCode" : "postCode",
+  "state" : "state",
   "longitude" : 6.027456183070403
 }, {
+  "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
+  "postCode" : "postCode",
+  "state" : "state",
   "longitude" : 6.027456183070403
 } ]}]
      
@@ -75,14 +81,20 @@ open class LocationsAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
+  "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "name" : "name",
+  "postCode" : "postCode",
+  "state" : "state",
   "longitude" : 6.027456183070403
 }, {
+  "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "name" : "name",
+  "postCode" : "postCode",
+  "state" : "state",
   "longitude" : 6.027456183070403
 } ]}]
      

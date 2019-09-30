@@ -13,14 +13,14 @@ public struct CategoryAmountStatResponse: Codable {
 
     public var categoryId: Int?
     public var title: String?
-    public var iconUrl: String?
+    public var categoryCode: String?
     public var categoryAmount: Double?
     public var totalAmount: Double?
 
-    public init(categoryId: Int?, title: String?, iconUrl: String?, categoryAmount: Double?, totalAmount: Double?) {
+    public init(categoryId: Int?, title: String?, categoryCode: String?, categoryAmount: Double?, totalAmount: Double?) {
         self.categoryId = categoryId
         self.title = title
-        self.iconUrl = iconUrl
+        self.categoryCode = categoryCode
         self.categoryAmount = categoryAmount
         self.totalAmount = totalAmount
     }

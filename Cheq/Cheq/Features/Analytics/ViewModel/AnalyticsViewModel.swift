@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AnalyticsViewModel: NSObject, BaseViewModel {
-    func load(_ complete: @escaping () -> Void) {
+class AnalyticsViewModel: BaseViewModel {
+    override func load(_ complete: @escaping () -> Void) {
         complete()
     }
 

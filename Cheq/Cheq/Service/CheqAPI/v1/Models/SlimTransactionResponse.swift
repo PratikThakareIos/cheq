@@ -15,16 +15,18 @@ public struct SlimTransactionResponse: Codable {
     public var amount: Double?
     public var date: String?
     public var category: String?
+    public var categoryCode: String?
     public var merchant: String?
     public var merchantLogoUrl: String?
     public var financialAccountName: String?
     public var financialInstitutionLogoUrl: String?
 
-    public init(_description: String?, amount: Double?, date: String?, category: String?, merchant: String?, merchantLogoUrl: String?, financialAccountName: String?, financialInstitutionLogoUrl: String?) {
+    public init(_description: String?, amount: Double?, date: String?, category: String?, categoryCode: String?, merchant: String?, merchantLogoUrl: String?, financialAccountName: String?, financialInstitutionLogoUrl: String?) {
         self._description = _description
         self.amount = amount
         self.date = date
         self.category = category
+        self.categoryCode = categoryCode
         self.merchant = merchant
         self.merchantLogoUrl = merchantLogoUrl
         self.financialAccountName = financialAccountName
@@ -36,6 +38,7 @@ public struct SlimTransactionResponse: Codable {
         case amount
         case date
         case category
+        case categoryCode
         case merchant
         case merchantLogoUrl
         case financialAccountName

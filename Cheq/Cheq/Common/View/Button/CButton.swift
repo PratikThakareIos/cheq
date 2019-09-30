@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum CButtonType {
+    case normal
+    case alternate
+}
+
 class CButton: UIButton {
+    
+    var type: CButtonType = .normal
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,5 +39,18 @@ class CButton: UIButton {
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         var button = self as UIButton
         AppConfig.shared.activeTheme.roundRectButton(&button)
+    }
+    
+    func setType(_ type: CButtonType) {
+        self.type = type
+        switch type {
+        case .normal:
+            self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
+            self.setTitleColor(AppConfig.shared.activeTheme.altTextColor, for: .normal)
+        case .alternate:
+            self.titleLabel?.textColor = AppConfig.shared.activeTheme.primaryColor
+            self.setTitleColor(AppConfig.shared.activeTheme.primaryColor, for: .normal)
+            self.backgroundColor = .clear
+        }
     }
 }

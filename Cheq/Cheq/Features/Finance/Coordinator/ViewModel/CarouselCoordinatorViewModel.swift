@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CarouselCoordinatorViewModel: NSObject, BaseViewModel {
+class CarouselCoordinatorViewModel: BaseViewModel {
 
     var barChartModels: [CChartModel] = []
 
@@ -17,7 +17,7 @@ class CarouselCoordinatorViewModel: NSObject, BaseViewModel {
     }
 
     // load data for carousel
-    func load(_ complete: @escaping () -> Void) {
+    override func load(_ complete: @escaping () -> Void) {
         self.barChartModels = ChartModelUtil.fakeBarChartModel()
         complete()
     }

@@ -14,11 +14,15 @@ public struct PutUserKycResponse: Codable {
     public var applicantId: String?
     public var sdkToken: String?
     public var sentOnfidoKycExpressChecked: Bool?
+    public var hasKycFailed: Bool?
+    public var hasKycCompleted: Bool?
 
-    public init(applicantId: String?, sdkToken: String?, sentOnfidoKycExpressChecked: Bool?) {
+    public init(applicantId: String?, sdkToken: String?, sentOnfidoKycExpressChecked: Bool?, hasKycFailed: Bool?, hasKycCompleted: Bool?) {
         self.applicantId = applicantId
         self.sdkToken = sdkToken
         self.sentOnfidoKycExpressChecked = sentOnfidoKycExpressChecked
+        self.hasKycFailed = hasKycFailed
+        self.hasKycCompleted = hasKycCompleted
     }
 
 
