@@ -16,6 +16,8 @@ class SpendingOverviewViewModel: BaseViewModel {
             LoggingUtil.shared.cPrint("transactions : \(response.recentTransactions?.count)")
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
+        }.finally {
+            complete()
         }
     }
 }
