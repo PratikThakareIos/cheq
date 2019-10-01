@@ -23,6 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let fcmMsgFile = "temp.txt"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        // to setup VDot again
+        if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
+            let timestamp = Date().timeStamp()
+            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
+            let _ = VDotManager.shared
+        }
         
         let fileContent = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)

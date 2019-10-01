@@ -89,9 +89,8 @@ class CheqAPIManager {
                     LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData failed\n")
                     return
                 }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
-                let timeStamp = dateFormatter.string(from: Date())
+
+                let timeStamp = Date().timeStamp()
                 LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData successfully - \(timeStamp)\n")
                 resolver.fulfill(true)
             }

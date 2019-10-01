@@ -28,11 +28,12 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     // date formatter
     let dateFormatter = DateFormatter()
-
+    // time format
+    let worksheetTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     // geo fence threshold
     let geoFence = 10.0
     // metres
-    let distanceFilter = 1.0
+    let distanceFilter = 50.0
 
     // seconds
     let logInterval = 10
@@ -48,7 +49,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     private override init () {
         super.init()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateFormatter.dateFormat = worksheetTimeFormat
         let localTimeZoneAbbreviation = TimeZone.current.abbreviation() ?? ""
         dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation)
         self.setupLocationManager()
@@ -71,7 +72,6 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
             if success { let _ = self.cleanWorksheets() }
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
-            let _ = self.cleanWorksheets()
         }
     }
 
@@ -85,7 +85,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
             let nowString = self.dateFormatter.string(from: now)
             let distance = self.markedLocation.distance(from: currentLocation)
             self.atWork = distance <= self.geoFence ? true : false
-            self.logData(self.atWork, dateString: nowString, latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
+            self.logData(self.atWork, dateString: nowString, latitude: self.markedLocation.coordinate.latitude, longitude: self.markedLocation.coordinate.longitude)
         }
         
         if self.timeToFlush() {
@@ -102,6 +102,8 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         currentLogs.append(newLog)
         dictionary[VDotLogKey.worksheets.rawValue] = currentLogs
         let _ = CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        let timestamp = Date().timeStamp()
+        LoggingUtil.shared.cWriteToFile("temp.txt", newText: "logData - \(timestamp)")
     }
 
     func timeToLog()-> Bool {
