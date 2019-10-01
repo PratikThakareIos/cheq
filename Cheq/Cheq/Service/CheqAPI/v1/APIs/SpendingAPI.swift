@@ -34,22 +34,22 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   }, {
     "date" : "2000-01-23T04:56:07.000+00:00",
@@ -57,22 +57,22 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   } ],
   "monthAmountStats" : [ {
@@ -118,14 +118,14 @@ open class SpendingAPI {
   "categoryAmountStats" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   } ],
   "monthAmountStats" : [ {
@@ -172,27 +172,28 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -202,6 +203,7 @@ open class SpendingAPI {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -211,14 +213,14 @@ open class SpendingAPI {
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   } ]
 }}]
@@ -258,27 +260,28 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -288,6 +291,7 @@ open class SpendingAPI {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -297,14 +301,14 @@ open class SpendingAPI {
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   } ]
 }}]
@@ -344,27 +348,28 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -374,6 +379,7 @@ open class SpendingAPI {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -383,14 +389,14 @@ open class SpendingAPI {
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   } ]
 }}]
@@ -430,27 +436,28 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
     "amount" : 2.3021358869347655,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
     "merchant" : "merchant",
     "categoryCode" : "categoryCode",
-    "merchantLogoUrl" : "merchantLogoUrl",
-    "category" : "category"
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -460,6 +467,7 @@ open class SpendingAPI {
     "amount" : 0.8008281904610115,
     "recurringFrequency" : "recurringFrequency",
     "dueDate" : "dueDate",
+    "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
     "daysToDueDate" : 6,
@@ -469,14 +477,14 @@ open class SpendingAPI {
   "topCategoriesAmount" : [ {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   }, {
     "totalAmount" : 5.637376656633329,
     "categoryAmount" : 5.962133916683182,
+    "categoryTitle" : "categoryTitle",
     "categoryCode" : "categoryCode",
-    "title" : "title",
     "categoryId" : 1
   } ]
 }}]
@@ -519,22 +527,22 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   }, {
     "date" : "2000-01-23T04:56:07.000+00:00",
@@ -542,22 +550,22 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
       "amount" : 2.3021358869347655,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
       "merchant" : "merchant",
       "categoryCode" : "categoryCode",
-      "merchantLogoUrl" : "merchantLogoUrl",
-      "category" : "category"
+      "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   } ],
   "monthAmountStats" : [ {
@@ -608,6 +616,7 @@ open class SpendingAPI {
   "amount" : 0.8008281904610115,
   "recurringFrequency" : "recurringFrequency",
   "dueDate" : "dueDate",
+  "categoryTitle" : "categoryTitle",
   "description" : "description",
   "merchant" : "merchant",
   "daysToDueDate" : 6,
@@ -617,6 +626,7 @@ open class SpendingAPI {
   "amount" : 0.8008281904610115,
   "recurringFrequency" : "recurringFrequency",
   "dueDate" : "dueDate",
+  "categoryTitle" : "categoryTitle",
   "description" : "description",
   "merchant" : "merchant",
   "daysToDueDate" : 6,

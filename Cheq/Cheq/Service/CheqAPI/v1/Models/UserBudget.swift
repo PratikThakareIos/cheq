@@ -14,15 +14,17 @@ public struct UserBudget: Codable {
     public var _id: Int?
     public var categoryTitle: String?
     public var categoryCode: String?
-    public var estimatedBudget: Double?
-    public var actualSpending: Double?
+    public var estimatedBudget: Int?
+    public var actualSpending: Int?
+    public var hide: Bool?
 
-    public init(_id: Int?, categoryTitle: String?, categoryCode: String?, estimatedBudget: Double?, actualSpending: Double?) {
+    public init(_id: Int?, categoryTitle: String?, categoryCode: String?, estimatedBudget: Int?, actualSpending: Int?, hide: Bool?) {
         self._id = _id
         self.categoryTitle = categoryTitle
         self.categoryCode = categoryCode
         self.estimatedBudget = estimatedBudget
         self.actualSpending = actualSpending
+        self.hide = hide
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -31,6 +33,7 @@ public struct UserBudget: Codable {
         case categoryCode
         case estimatedBudget
         case actualSpending
+        case hide
     }
 
 

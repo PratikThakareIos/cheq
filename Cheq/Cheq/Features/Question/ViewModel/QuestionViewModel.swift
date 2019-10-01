@@ -140,7 +140,7 @@ extension QuestionViewModel {
     }
     
     func dateOfBirth()->Date {
-        let dob = Date(dateString:DataHelperUtil.shared.dobFormatStyle(), format: self.fieldValue(.dateOfBirth))
+        let dob = Date(dateString:TestUtil.shared.dobFormatStyle(), format: self.fieldValue(.dateOfBirth))
         return dob
     }
 

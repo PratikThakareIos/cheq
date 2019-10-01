@@ -83,10 +83,11 @@ open class FirebaseAPI {
 
     /**
 
+     - parameter financialAccountId: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func testRefreshAccount(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        testRefreshAccountWithRequestBuilder().execute { (response, error) -> Void in
+    open class func testRefreshAccount(financialAccountId: Int, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        testRefreshAccountWithRequestBuilder(financialAccountId: financialAccountId).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -97,15 +98,20 @@ open class FirebaseAPI {
 
 
     /**
-     - POST /v1/Firebase/moneysoft/refreshaccount
+     - POST /v1/Firebase/moneysoft/refreshaccount/{financialAccountId}
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
+     
+     - parameter financialAccountId: (path)  
 
      - returns: RequestBuilder<Void> 
      */
-    open class func testRefreshAccountWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Firebase/moneysoft/refreshaccount"
+    open class func testRefreshAccountWithRequestBuilder(financialAccountId: Int) -> RequestBuilder<Void> {
+        var path = "/v1/Firebase/moneysoft/refreshaccount/{financialAccountId}"
+        let financialAccountIdPreEscape = "\(financialAccountId)"
+        let financialAccountIdPostEscape = financialAccountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{financialAccountId}", with: financialAccountIdPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         

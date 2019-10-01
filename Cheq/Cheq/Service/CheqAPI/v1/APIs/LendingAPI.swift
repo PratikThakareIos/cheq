@@ -153,6 +153,68 @@ open class LendingAPI {
 
     /**
 
+     - parameter toFinancialAccountId: (query)  (optional)
+     - parameter amount: (query)  (optional)
+     - parameter fee: (query)  (optional)
+     - parameter repaymentDate: (query)  (optional)
+     - parameter agreedLoanTermsAndConditions: (query)  (optional)
+     - parameter loanAgreement: (query)  (optional)
+     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
+     - parameter directDebitAgreement: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postBorrow(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postBorrowWithRequestBuilder(toFinancialAccountId: toFinancialAccountId, amount: amount, fee: fee, repaymentDate: repaymentDate, agreedLoanTermsAndConditions: agreedLoanTermsAndConditions, loanAgreement: loanAgreement, agreedDirectDebitTermsAndConditions: agreedDirectDebitTermsAndConditions, directDebitAgreement: directDebitAgreement).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Lending/borrow
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter toFinancialAccountId: (query)  (optional)
+     - parameter amount: (query)  (optional)
+     - parameter fee: (query)  (optional)
+     - parameter repaymentDate: (query)  (optional)
+     - parameter agreedLoanTermsAndConditions: (query)  (optional)
+     - parameter loanAgreement: (query)  (optional)
+     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
+     - parameter directDebitAgreement: (query)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postBorrowWithRequestBuilder(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/borrow"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "ToFinancialAccountId": toFinancialAccountId?.encodeToJSON(), 
+            "Amount": amount, 
+            "Fee": fee, 
+            "RepaymentDate": repaymentDate?.encodeToJSON(), 
+            "AgreedLoanTermsAndConditions": agreedLoanTermsAndConditions, 
+            "LoanAgreement": loanAgreement, 
+            "AgreedDirectDebitTermsAndConditions": agreedDirectDebitTermsAndConditions, 
+            "DirectDebitAgreement": directDebitAgreement
+        ])
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -274,68 +336,6 @@ open class LendingAPI {
             "AccountName": accountName, 
             "Bsb": bsb, 
             "AccountNumber": accountNumber
-        ])
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter toFinancialAccountId: (query)  (optional)
-     - parameter amount: (query)  (optional)
-     - parameter fee: (query)  (optional)
-     - parameter repaymentDate: (query)  (optional)
-     - parameter agreedLoanTermsAndConditions: (query)  (optional)
-     - parameter loanAgreement: (query)  (optional)
-     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
-     - parameter directDebitAgreement: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postWithdraw(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postWithdrawWithRequestBuilder(toFinancialAccountId: toFinancialAccountId, amount: amount, fee: fee, repaymentDate: repaymentDate, agreedLoanTermsAndConditions: agreedLoanTermsAndConditions, loanAgreement: loanAgreement, agreedDirectDebitTermsAndConditions: agreedDirectDebitTermsAndConditions, directDebitAgreement: directDebitAgreement).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Lending/withdraw
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter toFinancialAccountId: (query)  (optional)
-     - parameter amount: (query)  (optional)
-     - parameter fee: (query)  (optional)
-     - parameter repaymentDate: (query)  (optional)
-     - parameter agreedLoanTermsAndConditions: (query)  (optional)
-     - parameter loanAgreement: (query)  (optional)
-     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
-     - parameter directDebitAgreement: (query)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func postWithdrawWithRequestBuilder(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil) -> RequestBuilder<Void> {
-        let path = "/v1/Lending/withdraw"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "ToFinancialAccountId": toFinancialAccountId?.encodeToJSON(), 
-            "Amount": amount, 
-            "Fee": fee, 
-            "RepaymentDate": repaymentDate?.encodeToJSON(), 
-            "AgreedLoanTermsAndConditions": agreedLoanTermsAndConditions, 
-            "LoanAgreement": loanAgreement, 
-            "AgreedDirectDebitTermsAndConditions": agreedDirectDebitTermsAndConditions, 
-            "DirectDebitAgreement": directDebitAgreement
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()

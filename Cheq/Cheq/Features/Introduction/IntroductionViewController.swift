@@ -71,7 +71,7 @@ class IntroductionViewController: UIViewController {
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = DataHelperUtil.shared.dobFormatStyle()
+            dateFormatter.dateFormat = TestUtil.shared.dobFormatStyle()
             let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
             CheqAPIManager.shared.retrieveUserDetailsKyc(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), residentialAddress: qVm.fieldValue(.residentialAddress), dateOfBirth: dob).done { response in
                 let sdkToken = response.sdkToken ?? ""

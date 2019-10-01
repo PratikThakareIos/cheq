@@ -15,6 +15,19 @@ class CheqAPIManager {
     private init () {
     }
 
+    func postNotificationToken(_ req: PostPushNotificationRequest)->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postPushNotificationTokenWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
+                    resolver.fulfill(true)
+                }
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func postAccounts(_ accounts: [PostFinancialAccountRequest])->Promise<Bool> {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
@@ -72,9 +85,14 @@ class CheqAPIManager {
             let postWorksheetReq = VDotManager.shared.loadWorksheets()
             LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                 if let error = err {
-                    resolver.reject(error); return
+                    resolver.reject(error)
+                    LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData failed\n")
+                    return
                 }
-                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd/MM/yyyy hh:mm:ss a"
+                let timeStamp = dateFormatter.string(from: Date())
+                LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData successfully - \(timeStamp)\n")
                 resolver.fulfill(true)
             }
         }
@@ -123,7 +141,6 @@ class CheqAPIManager {
                     
                     if let error = err { resolver.reject(error); return }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
                     var updatedAuthUser = authUser
                     updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                     let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
@@ -149,7 +166,6 @@ class CheqAPIManager {
                         
                         if let error = err { resolver.reject(error); return }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                        let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
                         var updatedAuthUser = authUser
                         updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                         let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
@@ -178,8 +194,6 @@ class CheqAPIManager {
                    
                     if let error = err { resolver.reject(error); return }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
-                    
                     var updatedAuthUser = authUser
                     updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                     let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")

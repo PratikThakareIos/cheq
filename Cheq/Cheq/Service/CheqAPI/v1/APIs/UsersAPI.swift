@@ -28,9 +28,6 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "bluedotCredential" : {
-    "bluedotProjectApiKey" : "bluedotProjectApiKey"
-  },
   "moneySoftCredential" : {
     "msPassword" : "msPassword",
     "msUsername" : "msUsername"
@@ -202,9 +199,6 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "bluedotCredential" : {
-    "bluedotProjectApiKey" : "bluedotProjectApiKey"
-  },
   "moneySoftCredential" : {
     "msPassword" : "msPassword",
     "msUsername" : "msUsername"
@@ -267,9 +261,6 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "bluedotCredential" : {
-    "bluedotProjectApiKey" : "bluedotProjectApiKey"
-  },
   "moneySoftCredential" : {
     "msPassword" : "msPassword",
     "msUsername" : "msUsername"

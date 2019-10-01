@@ -15,16 +15,9 @@ class MoneySoftUtil {
     private init() {}
     
     func randomPutUserEmployerRequest()-> PutUserEmployerRequest {
-        let dataUtil = DataHelperUtil.shared
-        let employer = PutUserEmployerRequest(employerName: dataUtil.testEmployerName(), employmentType: dataUtil.testEmploymentType(), address: dataUtil.testEmployeAddress(), noFixedAddress: false, latitude: 0.0, longitude: 0.0, postCode: dataUtil.testPostcode(), state: dataUtil.testState().rawValue, country: dataUtil.testCountry())
+        let testUtil = TestUtil.shared
+        let employer = PutUserEmployerRequest(employerName: testUtil.testEmployerName(), employmentType: testUtil.testEmploymentType(), address: testUtil.testEmployeAddress(), noFixedAddress: false, latitude: 0.0, longitude: 0.0, postCode: testUtil.testPostcode(), state: testUtil.testState().rawValue, country: testUtil.testCountry())
         return employer
-    }
-    
-    func randomPostPushNotificationReq()-> PostPushNotificationRequest {
-        let dataUtil = DataHelperUtil.shared
-        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? dataUtil.randomString(30)
-        let pushNotificationReq = PostPushNotificationRequest(deviceId: deviceId, firebasePushNotificationToken: dataUtil.randomString(30), applePushNotificationToken: dataUtil.randomString(30), deviceType: .ios)
-        return pushNotificationReq
     }
     
     func demoBankFormModel()-> InstitutionCredentialsFormModel {

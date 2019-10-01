@@ -15,7 +15,7 @@ import Crashlytics
 import FBSDKLoginKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
@@ -38,9 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // setup singleton and SDKs
         self.setupServices()
         
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+        // setup remote notifications
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
         
-        self.setupInitialViewController()
+//        self.setupInitialViewController()
+        self.setupLogController()
         
         return true
     }
@@ -61,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
+        CKeychain.setValue(CKey.apnToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
     
@@ -73,11 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupLogController() {
-        let vc = UIViewController()
-        let textView = UITextView()
-        vc.view.addSubview(textView)
-        textView.text = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
-        AutoLayoutUtil.pinToSuperview(textView, padding: 0.0)
+        let vc = LogViewController()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
@@ -128,6 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
                 LoggingUtil.shared.cPrint("fcmToken \(fcmToken)")
+                let _ = CKeychain.setValue(CKey.fcmToken.rawValue, value: fcmToken)
                 NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
             }
             }.catch {_ in }
@@ -135,6 +135,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         LoggingUtil.shared.cPrint(remoteMessage.messageID)
+        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
+        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "message received \(dateString)")
+        self.handleRemoteNotification {
+        }
     }
 }
 
@@ -175,15 +179,15 @@ extension AppDelegate {
         LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "\(dateString)")
         LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "message received \(dateString)")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.randomEmail()
-        credentials[.password] = DataHelperUtil.shared.randomPassword()
+        credentials[.email] = TestUtil.shared.randomEmail()
+        credentials[.password] = TestUtil.shared.randomPassword()
         AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
             
             completion()
         }.then { authUser in
-            CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
+            CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
         }.done { authUser in
-            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
+//            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
         }.catch{ err in
             LoggingUtil.shared.cPrint(err.localizedDescription)
             LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "\(err.localizedDescription)")
@@ -201,7 +205,7 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
-//        let _ = VDotManager.shared
+        let _ = VDotManager.shared
     }
 }
 

@@ -17,6 +17,8 @@ enum VDotLogKey: String {
     case worksheets = "worksheets"
     case atWork = "atWork"
     case dateTime = "dateTime"
+    case latitude = "latitude"
+    case longitude = "longitude"
 }
 
 class VDotManager: NSObject, CLLocationManagerDelegate {
@@ -33,8 +35,8 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     let distanceFilter = 1.0
 
     // seconds
-    let logInterval = 30000
-    let flushInterval = 90000
+    let logInterval = 10
+    let flushInterval = 60
     // center reference for geo fencing
     var markedLocation = CLLocation(latitude: -33.8653556
 , longitude: 151.205377)
@@ -46,7 +48,9 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     private override init () {
         super.init()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let localTimeZoneAbbreviation = TimeZone.current.abbreviation() ?? ""
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation)
         self.setupLocationManager()
     }
 
@@ -62,10 +66,12 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     }
 
     func flushStoredData() {
+        LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData")
         CheqAPIManager.shared.flushWorkTimesToServer().done { success in
             if success { let _ = self.cleanWorksheets() }
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
+            let _ = self.cleanWorksheets()
         }
     }
 
@@ -79,7 +85,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
             let nowString = self.dateFormatter.string(from: now)
             let distance = self.markedLocation.distance(from: currentLocation)
             self.atWork = distance <= self.geoFence ? true : false
-            self.logData(self.atWork, dateString: nowString)
+            self.logData(self.atWork, dateString: nowString, latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)
         }
         
         if self.timeToFlush() {
@@ -88,11 +94,11 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         }
     }
 
-    func logData(_ atWork: Bool, dateString: String) {
+    func logData(_ atWork: Bool, dateString: String, latitude: Double, longitude: Double) {
         var dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
         dictionary[VDotLogKey.email.rawValue] = CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
         var currentLogs:Array<Dictionary<String, Any>> = dictionary[VDotLogKey.worksheets.rawValue] as? Array<Dictionary<String, Any>> ?? []
-        let newLog:Dictionary<String, Any> = [VDotLogKey.atWork.rawValue: String(atWork), VDotLogKey.dateTime.rawValue: dateString]
+        let newLog:Dictionary<String, Any> = [VDotLogKey.atWork.rawValue: String(atWork), VDotLogKey.dateTime.rawValue: dateString, VDotLogKey.latitude.rawValue: latitude, VDotLogKey.longitude.rawValue: longitude]
         currentLogs.append(newLog)
         dictionary[VDotLogKey.worksheets.rawValue] = currentLogs
         let _ = CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
@@ -126,9 +132,10 @@ extension VDotManager {
             let atWorkString = workSheetDict[VDotLogKey.atWork.rawValue] as? String ?? "false"
             let atWork = Bool(atWorkString)
             let dateTimeString = workSheetDict[VDotLogKey.dateTime.rawValue] as? String ?? ""
-            let dateTime = VDotManager.shared.dateFormatter.date(from: dateTimeString)
-            let workSheet = Worksheet(atWork: atWork, dateTime: dateTime)
-            workSheets.append(workSheet)
+            if let dateTime = VDotManager.shared.dateFormatter.date(from: dateTimeString), let latitude = workSheetDict[VDotLogKey.latitude.rawValue] as? Double, let longitude = workSheetDict[VDotLogKey.longitude.rawValue] as? Double {
+                let workSheet = Worksheet(atWork: atWork, latitude: latitude, longitude: longitude, dateTime: dateTime)
+                workSheets.append(workSheet)
+            }
         }
         return PostWorksheetRequest(email: email, worksheets: workSheets)
     }

@@ -46,6 +46,7 @@ enum MoneySoftManagerError: Error {
     case unableToLinkAccounts
     case unableToUpdateTransactions
     case unableToRefreshTransactions
+    case unableToRegisterNotificationToken 
     case unableToGetAccounts 
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials

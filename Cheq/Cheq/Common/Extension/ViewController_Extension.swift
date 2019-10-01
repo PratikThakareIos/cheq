@@ -159,7 +159,7 @@ extension UIViewController {
             datePicker = UDatePicker(frame: view.frame, willDisappear: { date in
                 if date != nil {
                     LoggingUtil.shared.cPrint("select date \(String(describing: date))")
-                    textField.text = date?.format(with: DataHelperUtil.shared.dobFormatStyle())
+                    textField.text = date?.format(with: TestUtil.shared.dobFormatStyle())
                 }
             })
         }

@@ -28,20 +28,25 @@ open class BudgetingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "recurringFrequency" : "Weekly",
+  "recurringFrequency" : "recurringFrequency",
+  "totalSpending" : 6.027456183070403,
+  "totalBudget" : 0.8008281904610115,
+  "requireSetupProcess" : true,
   "startDate" : "startDate",
   "userBudgets" : [ {
+    "hide" : true,
     "categoryTitle" : "categoryTitle",
-    "estimatedBudget" : 6.027456183070403,
-    "id" : 0,
+    "estimatedBudget" : 5,
+    "id" : 1,
     "categoryCode" : "categoryCode",
-    "actualSpending" : 1.4658129805029452
+    "actualSpending" : 5
   }, {
+    "hide" : true,
     "categoryTitle" : "categoryTitle",
-    "estimatedBudget" : 6.027456183070403,
-    "id" : 0,
+    "estimatedBudget" : 5,
+    "id" : 1,
     "categoryCode" : "categoryCode",
-    "actualSpending" : 1.4658129805029452
+    "actualSpending" : 5
   } ]
 }}]
 
