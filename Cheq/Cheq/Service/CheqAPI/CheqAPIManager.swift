@@ -86,12 +86,12 @@ class CheqAPIManager {
             LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                 if let error = err {
                     resolver.reject(error)
-                    LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData failed\n")
+                    LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData failed\n")
                     return
                 }
 
                 let timeStamp = Date().timeStamp()
-                LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData successfully - \(timeStamp)\n")
+                LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData successfully - \(timeStamp)\n")
                 resolver.fulfill(true)
             }
         }

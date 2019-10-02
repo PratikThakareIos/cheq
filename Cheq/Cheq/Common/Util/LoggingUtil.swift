@@ -9,6 +9,9 @@
 import Foundation
 
 class LoggingUtil {
+    
+    let fcmMsgFile = "cLog.txt"
+    
     static let shared = LoggingUtil()
     private init() {
     }

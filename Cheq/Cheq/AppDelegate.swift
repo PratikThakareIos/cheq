@@ -20,18 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     var window: UIWindow?
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     let backgroundTaskIdentifier = "CheqBackground-Service"
-    let fcmMsgFile = "temp.txt"
-    
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
+        // keep a reference for re-use
+        AppData.shared.application = application
+        
         // to setup VDot again
         if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
             let timestamp = Date().timeStamp()
-            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
+            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
             let _ = VDotManager.shared
         }
         
-        let fileContent = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
+        let fileContent = LoggingUtil.shared.printLocationFile(LoggingUtil.shared.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
@@ -44,16 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         // setup singleton and SDKs
         self.setupServices()
+        self.setupInitialViewController()
         
-        // setup remote notifications
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
-        
-//        self.setupInitialViewController()
-        self.setupLogController()
+//        self.setupLogController()
         
         return true
     }
     
+    // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
         // setup remote notifications
         AuthConfig.shared.activeManager.setupForRemoteNotifications(UIApplication.shared, delegate: self)
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
-        CKeychain.setValue(CKey.apnToken.rawValue, value: apnsDeviceToken)
+        let _ = CKeychain.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
     
@@ -83,6 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     func setupLogController() {
+        
+        self.setupServicesForDev()
         let vc = LogViewController()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
@@ -90,6 +92,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     func setupInitDevController() {
+        
+        self.setupServicesForDev()
+        
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
         vc.viewModel.coordinator = AgeRangeCoordinator()
@@ -143,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         LoggingUtil.shared.cPrint(remoteMessage.messageID)
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
-        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "message received \(dateString)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "message received \(dateString)")
         self.handleRemoteNotification {
         }
     }
@@ -183,8 +188,8 @@ extension AppDelegate {
     func handleRemoteNotification(_ completion: @escaping ()->Void) {
         
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
-        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "\(dateString)")
-        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "message received \(dateString)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
         var credentials = [LoginCredentialType: String]()
         credentials[.email] = TestUtil.shared.randomEmail()
         credentials[.password] = TestUtil.shared.randomPassword()
@@ -197,7 +202,7 @@ extension AppDelegate {
 //            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
         }.catch{ err in
             LoggingUtil.shared.cPrint(err.localizedDescription)
-            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "\(err.localizedDescription)")
+            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(err.localizedDescription)")
             completion()
         }
     }
@@ -212,7 +217,16 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+    }
+    
+    func setupServicesForDev() {
+        guard let application = AppData.shared.application else { return }
+        Fabric.with([Crashlytics.self])
+        let _ = CheqAPIManager.shared
+        let _ = AppConfig.shared
+        let _ = AuthConfig.shared
         let _ = VDotManager.shared
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }
 

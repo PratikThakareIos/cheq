@@ -37,8 +37,8 @@ target 'Cheq' do
   pod 'OpenSSL-Universal'
   
   #Fabrics + Crashlytics
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.14.0'
 
   # Firebase pods
   pod 'Firebase/Core'

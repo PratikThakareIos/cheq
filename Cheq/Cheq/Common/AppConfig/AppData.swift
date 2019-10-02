@@ -63,6 +63,9 @@ class AppData {
     
     static let shared = AppData()
     private init() { loadOnfidoSDKToken() }
+
+    // instance of current application
+    var application: UIApplication? 
     
     // Facebook
     let fbAppId = "2855589534666837"

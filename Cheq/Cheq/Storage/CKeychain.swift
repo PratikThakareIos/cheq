@@ -31,7 +31,7 @@ enum CKey: String {
     case residentialAddress
 
     // push notification
-    case apnToken = "apnToken"
+    case apnsToken = "apnToken"
     case fcmToken = "fcmToken"
     case fireBasePushToken
 

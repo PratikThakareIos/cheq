@@ -40,7 +40,7 @@ class LogViewController: UIViewController {
             return MoneySoftManager.shared.postNotificationToken()
         }.then { success->Promise<Bool> in
             let fcmToken = CKeychain.getValueByKey(CKey.fcmToken.rawValue)
-            let apns = CKeychain.getValueByKey(CKey.apnToken.rawValue)
+            let apns = CKeychain.getValueByKey(CKey.apnsToken.rawValue)
             let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
             return CheqAPIManager.shared.postNotificationToken(req)
         }.done { success in

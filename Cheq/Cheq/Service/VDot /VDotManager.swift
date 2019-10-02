@@ -31,7 +31,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     // time format
     let worksheetTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     // geo fence threshold
-    let geoFence = 10.0
+    let geoFence = 100.0
     // metres
     let distanceFilter = 50.0
 
@@ -67,12 +67,17 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     }
 
     func flushStoredData() {
-        LoggingUtil.shared.cWriteToFile("temp.txt", newText: "flushStoredData")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData")
         CheqAPIManager.shared.flushWorkTimesToServer().done { success in
             if success { let _ = self.cleanWorksheets() }
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
         }
+    }
+    
+    func isAtWork(_ location: CLLocation)-> Bool {
+        let distance = self.markedLocation.distance(from: location)
+        return distance <= self.geoFence ? true : false
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -83,8 +88,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         if self.timeToLog() {
             self.lastTracked = now
             let nowString = self.dateFormatter.string(from: now)
-            let distance = self.markedLocation.distance(from: currentLocation)
-            self.atWork = distance <= self.geoFence ? true : false
+            self.atWork = self.isAtWork(currentLocation)
             self.logData(self.atWork, dateString: nowString, latitude: self.markedLocation.coordinate.latitude, longitude: self.markedLocation.coordinate.longitude)
         }
         
@@ -103,7 +107,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         dictionary[VDotLogKey.worksheets.rawValue] = currentLogs
         let _ = CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
         let timestamp = Date().timeStamp()
-        LoggingUtil.shared.cWriteToFile("temp.txt", newText: "logData - \(timestamp)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "logData - \(timestamp)")
     }
 
     func timeToLog()-> Bool {
