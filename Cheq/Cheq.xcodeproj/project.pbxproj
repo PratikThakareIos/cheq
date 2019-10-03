@@ -261,6 +261,8 @@
 		4F0D713623447ABE00AA819C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D70C723447ABE00AA819C /* Models.swift */; };
 		4F0D713723447ABE00AA819C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D70C823447ABE00AA819C /* Configuration.swift */; };
 		4F0D713823447ABE00AA819C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D70C823447ABE00AA819C /* Configuration.swift */; };
+		4F0D713F2345761500AA819C /* CPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D713E2345761500AA819C /* CPageControl.swift */; };
+		4F0D71402345761500AA819C /* CPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D713E2345761500AA819C /* CPageControl.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -507,6 +509,7 @@
 		4F0D70C623447ABE00AA819C /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
 		4F0D70C723447ABE00AA819C /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F0D70C823447ABE00AA819C /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F0D713E2345761500AA819C /* CPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPageControl.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -902,6 +905,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4F0D713D2345761500AA819C /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D713E2345761500AA819C /* CPageControl.swift */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1102,13 +1113,6 @@
 				4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		4FAE3654232F62A00035E57E /* FormValidator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FormValidator;
 			sourceTree = "<group>";
 		};
 		4FB479E5231DF27A005FA0C1 /* Util */ = {
@@ -1440,7 +1444,6 @@
 		9676524322FB061B001E43E0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4FAE3654232F62A00035E57E /* FormValidator */,
 				4F091098231F7E8400AA7F7D /* Extension */,
 				96B0069622FE728200173743 /* Enums */,
 				96B0068822FE698900173743 /* AppConfig */,
@@ -1508,6 +1511,7 @@
 		96A65E8022FDA1A300F1F7AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F0D713D2345761500AA819C /* PageControl */,
 				4F2E4BA0233B2168001F1BA2 /* PickerView */,
 				4F2E4AC4233836EA001F1BA2 /* ProgressView */,
 				4F2E4ABC23349C6B001F1BA2 /* Switch */,
@@ -2190,6 +2194,7 @@
 				4F0D712623447ABE00AA819C /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F0D710623447ABE00AA819C /* DailyTransactionsResponse.swift in Sources */,
 				4F0D64C023442FD400AA819C /* CKeychain.swift in Sources */,
+				4F0D71402345761500AA819C /* CPageControl.swift in Sources */,
 				4F0D64C123442FD400AA819C /* QuestionViewModel.swift in Sources */,
 				4F0D64C323442FD400AA819C /* FinancialInstitutionCoordinator.swift in Sources */,
 				4F0D70E223447ABE00AA819C /* JSONEncodableEncoding.swift in Sources */,
@@ -2363,6 +2368,7 @@
 				4F0D712523447ABE00AA819C /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F0D710523447ABE00AA819C /* DailyTransactionsResponse.swift in Sources */,
 				96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */,
+				4F0D713F2345761500AA819C /* CPageControl.swift in Sources */,
 				4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */,
 				4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4F0D70E123447ABE00AA819C /* JSONEncodableEncoding.swift in Sources */,

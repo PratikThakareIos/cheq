@@ -16,8 +16,10 @@ enum CKey: String {
     case onfidoSdkToken = "onfidoSdkToken"
     case loggedInEmail = "userEmail"
 
-    // auth tokem
+    // auth token
     case authToken = "authToken"
+    // fb token
+    case fbToken = "fbToken"
     
     // auth user details
     case email

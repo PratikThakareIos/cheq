@@ -11,6 +11,7 @@ import WebKit
 import FirebaseAuth
 import FBSDKLoginKit
 import FBSDKCoreKit
+import PromiseKit
 
 class RegistrationViewController: UIViewController {
     @IBOutlet weak var loginLinkText: CTextView!
@@ -53,7 +54,9 @@ class RegistrationViewController: UIViewController {
     
     func continueWithLoggedInFB(_ token: String) {
         AppConfig.shared.showSpinner()
-        viewModel.registerWithFBAccessToken(token).then { authUser in
+        viewModel.fetchProfileWithFBAccessToken().then { ()->Promise<AuthUser> in
+            self.viewModel.registerWithFBAccessToken(token)
+        }.then { authUser in
             AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
         }.then{ authUser in
             AuthConfig.shared.activeManager.setUser(authUser)
@@ -116,17 +119,22 @@ extension RegistrationViewController: UITextFieldDelegate {
 
 extension RegistrationViewController {
     func navigateToNextStage() {
-        // check if we need to do onboarding
-        CheqAPIManager.shared.getUserDetails().done { _ in
-            // already existing registered user
-            AppConfig.shared.hideSpinner {
-                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-            }
+        
+        AppConfig.shared.hideSpinner {
+            AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         }
+        
+        // check if we need to do onboarding
+//        CheqAPIManager.shared.getUserDetails().done { _ in
+//            // already existing registered user
+//            AppConfig.shared.hideSpinner {
+//                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+//            }
+//        }.catch { err in
+//            AppConfig.shared.hideSpinner {
+//                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
+//            }
+//        }
     }
 }
 

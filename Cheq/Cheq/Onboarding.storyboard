@@ -17,23 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REu-FO-p80">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REu-FO-p80">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-zf-1qG" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="182" y="617.5" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="WML-t2-REQ"/>
-                                            <constraint firstAttribute="width" constant="50" id="xml-Os-7mu"/>
-                                        </constraints>
-                                        <state key="normal" image="next-arrow">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="registration:" destination="2IP-cq-6fu" eventType="touchUpInside" id="wRR-ws-cWF"/>
-                                        </connections>
-                                    </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-yn-jYg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="597.5"/>
                                         <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,24 +101,37 @@
                                             <outlet property="delegate" destination="2IP-cq-6fu" id="1uU-9Y-siS"/>
                                         </connections>
                                     </collectionView>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-8O-py5">
-                                        <rect key="frame" x="0.0" y="497.5" width="414" height="40"/>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-8O-py5" customClass="CPageControl" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="597.5" width="414" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="bph-5n-oNo"/>
+                                            <constraint firstAttribute="height" constant="40" id="qhZ-9g-xWC"/>
                                         </constraints>
-                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pageControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-zf-1qG" customClass="CButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="182" y="657.5" width="50" height="50"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="FpX-cs-zzm"/>
+                                            <constraint firstAttribute="height" constant="50" id="NQx-aJ-SHK"/>
+                                        </constraints>
+                                        <state key="normal" image="next-arrow">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registration:" destination="2IP-cq-6fu" eventType="touchUpInside" id="wRR-ws-cWF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="V4T-zf-1qG" firstAttribute="centerX" secondItem="REu-FO-p80" secondAttribute="centerX" id="4wM-Jp-DbP"/>
+                                    <constraint firstItem="nIv-8O-py5" firstAttribute="top" secondItem="w8h-yn-jYg" secondAttribute="bottom" id="5Nf-Mm-EaD"/>
                                     <constraint firstItem="w8h-yn-jYg" firstAttribute="top" secondItem="REu-FO-p80" secondAttribute="top" id="B9d-Dz-Nr3"/>
-                                    <constraint firstItem="V4T-zf-1qG" firstAttribute="centerX" secondItem="REu-FO-p80" secondAttribute="centerX" id="HXA-Co-kcT"/>
-                                    <constraint firstItem="V4T-zf-1qG" firstAttribute="top" secondItem="nIv-8O-py5" secondAttribute="bottom" constant="80" id="NHr-wg-g6u"/>
-                                    <constraint firstItem="nIv-8O-py5" firstAttribute="top" secondItem="w8h-yn-jYg" secondAttribute="bottom" constant="-100" id="OG8-X9-CCL"/>
-                                    <constraint firstItem="nIv-8O-py5" firstAttribute="leading" secondItem="w8h-yn-jYg" secondAttribute="leading" id="V5A-ed-S6W"/>
+                                    <constraint firstAttribute="trailing" secondItem="nIv-8O-py5" secondAttribute="trailing" id="NRE-bD-I93"/>
+                                    <constraint firstItem="nIv-8O-py5" firstAttribute="leading" secondItem="REu-FO-p80" secondAttribute="leading" id="bqA-Rq-icx"/>
+                                    <constraint firstItem="V4T-zf-1qG" firstAttribute="top" secondItem="nIv-8O-py5" secondAttribute="bottom" constant="20" id="eXS-jJ-srB"/>
                                     <constraint firstAttribute="trailing" secondItem="w8h-yn-jYg" secondAttribute="trailing" id="iqK-iV-JoQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="V4T-zf-1qG" secondAttribute="bottom" priority="750" constant="60" id="mEB-x3-JlX"/>
-                                    <constraint firstItem="nIv-8O-py5" firstAttribute="trailing" secondItem="w8h-yn-jYg" secondAttribute="trailing" id="v8a-ms-OCX"/>
                                     <constraint firstItem="w8h-yn-jYg" firstAttribute="leading" secondItem="REu-FO-p80" secondAttribute="leading" id="xrY-bQ-OY3"/>
                                 </constraints>
                                 <connections>

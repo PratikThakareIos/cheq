@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseMessaging
 import PromiseKit
 import UserNotifications
+import FBSDKCoreKit
 
 class FirebaseAuthManager: AuthManagerProtocol {
 
@@ -148,6 +149,7 @@ extension FirebaseAuthManager {
             }
         case .socialLoginFB:
             let fbToken = credentials[.token] ?? ""
+            let _ = CKeychain.setValue(CKey.fbToken.rawValue, value: fbToken)
             return self.registerWithFB(fbToken)
             .then{ authUser in
                 self.retrieveAuthToken(authUser)
@@ -188,8 +190,10 @@ extension FirebaseAuthManager {
     func registerWithFB(_ fbToken: String)-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let credential = FacebookAuthProvider.credential(withAccessToken: fbToken)
+            // firebase login
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 guard let user = authResult?.user else { resolver.reject(error ?? AuthManagerError.unknown); return }
+                
                 let authUser = FirebaseAuthManager.buildAuthUser(.socialLoginFB, user: user)
                 resolver.fulfill(authUser)
             }

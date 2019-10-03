@@ -64,6 +64,7 @@ enum AuthManagerError: Error {
     case unableToRegisterWithMissingFBToken
     case unableToRetrieveAuthToken
     case unableToRetrieveFBToken
+    case unableToRetrieveFBProfile
     case unableToRetrieveCredential
     case unableToSignIn
     case unableInvalidEmail
@@ -119,6 +120,8 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Unable to retrieve auth token", comment: "")
         case .unableToRetrieveFBToken:
         return NSLocalizedString("Unable to retrieve facebook token", comment: "")
+        case .unableToRetrieveFBProfile:
+        return NSLocalizedString("Unable to retrieve facebook profile", comment: "")
         case .unableToRetrieveCredential:
         return NSLocalizedString("Unable to retrieve credentials", comment: "")
         case .unableToSignIn:

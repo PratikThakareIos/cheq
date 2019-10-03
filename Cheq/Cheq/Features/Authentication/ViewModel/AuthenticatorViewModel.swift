@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import FBSDKCoreKit
 
 enum links: String {
     case toc = "http://cheq.com.au"
@@ -21,6 +22,20 @@ class AuthenticatorViewModel: BaseViewModel {
 
     func registerWithFBAccessToken(_ token: String)-> Promise<AuthUser> {
         return AuthConfig.shared.activeManager.registerWithFB(token)
+    }
+    
+    func fetchProfileWithFBAccessToken()-> Promise<Void> {
+        return Promise<Void>() { resolver in
+            guard AccessToken.isCurrentAccessTokenActive else { resolver.reject(AuthManagerError.unableToRetrieveFBToken); return }
+            Profile.loadCurrentProfile { (profile, err) in
+                if err != nil { resolver.reject(AuthManagerError.unableToRetrieveFBProfile); return }
+                let qVm = QuestionViewModel()
+                qVm.loadSaved()
+                qVm.save(QuestionField.firstname.rawValue, value: profile?.firstName ?? "")
+                qVm.save(QuestionField.lastname.rawValue, value: profile?.lastName ?? "")
+                resolver.fulfill(())
+            }
+        }
     }
     
     func register(_ email: String, password: String, confirmPassword: String)-> Promise<AuthUser> {
