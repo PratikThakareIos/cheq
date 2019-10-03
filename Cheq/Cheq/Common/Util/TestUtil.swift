@@ -133,7 +133,7 @@ class TestUtil {
         return "2000"
     }
     
-    func testState()-> PutUserDetailRequest.State {
+    func testState()->  PutUserDetailRequest.State {
         return .nsw
     }
     

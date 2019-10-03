@@ -18,7 +18,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func loadForm() -> Promise<[DynamicFormInput]> {
         return Promise<[DynamicFormInput]> () { resolver in
             guard AppData.shared.financialInstitutions.count > 0 else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions); return }
-            guard let selectedFinancialInstitution = AppData.shared.financialInstitutions.first(where: { $0.name == AppData.shared.selectedFinancialInstitution }) else { resolver.reject(ValidationError.unableToMapSelectedBank); return }
+            guard let selectedFinancialInstitution = AppData.shared.selectedFinancialInstitution else { resolver.reject(ValidationError.unableToMapSelectedBank); return }
             MoneySoftManager.shared.getBankSignInForm(selectedFinancialInstitution).done { signInForm in
                 
                 // we store the form instance 

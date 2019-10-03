@@ -74,14 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
     
-    func setupSplashViewController() {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splash.rawValue)
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-    }
-    
     func setupLogController() {
         
         self.setupServicesForDev()
@@ -213,10 +205,13 @@ extension AppDelegate {
     
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
+        guard let application = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+        let _ = VDotManager.shared
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func setupServicesForDev() {

@@ -46,7 +46,7 @@ enum MoneySoftManagerError: Error {
     case unableToLinkAccounts
     case unableToUpdateTransactions
     case unableToRefreshTransactions
-    case unableToRegisterNotificationToken 
+    case unableToRegisterNotificationToken
     case unableToGetAccounts 
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials
@@ -59,6 +59,7 @@ enum MoneySoftManagerError: Error {
 enum AuthManagerError: Error {
     case invalidRegistrationFields
     case invalidLoginFields
+    case invalidFinancialInstitutionSelected
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
     case unableToRetrieveAuthToken
@@ -108,6 +109,8 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
         return NSLocalizedString("Invalid login fields", comment: "")
+        case .invalidFinancialInstitutionSelected:
+        return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:
         return NSLocalizedString("Unable to register an existing email", comment: "")
         case .unableToRegisterWithMissingFBToken:

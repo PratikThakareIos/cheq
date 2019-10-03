@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileSDK
 
 class MultipleChoiceViewController: UIViewController {
 
@@ -123,8 +124,10 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // to render the form 
             AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
             let selectedChoice = self.choices[indexPath.row]
-            AppData.shared.selectedFinancialInstitution = selectedChoice.title
-            guard let bank = AppData.shared.financialInstitutions.first(where: { $0.name == AppData.shared.selectedFinancialInstitution }) else { return }
+            AppData.shared.selectedFinancialInstitution = selectedChoice.ref as? FinancialInstitutionModel
+            guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
+                return
+            }
             AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
             AppNav.shared.pushToDynamicForm(bank, viewController: self)
             

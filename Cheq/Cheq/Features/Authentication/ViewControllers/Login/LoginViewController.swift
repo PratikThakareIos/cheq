@@ -51,6 +51,7 @@ class LoginViewController: RegistrationViewController {
         self.view.endEditing(true)
         
         AppConfig.shared.showSpinner()
+        
         viewModel.login(emailTextField.text ?? "", password: passwordTextField.text ?? "").done { authUser in
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint(authUser)

@@ -86,6 +86,10 @@ class AppNav {
         guard let nav =  viewController.navigationController else { return }
         nav.pushViewController(viewController, animated: true)
     }
+    
+    func pushToAppSetting() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
 }
 
 // MARK: present related

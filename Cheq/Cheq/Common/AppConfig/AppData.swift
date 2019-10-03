@@ -84,7 +84,8 @@ class AppData {
     var financialTransactions: [FinancialTransactionModel] = [] 
     let financialInstitutionsUnused = -1
     var financialInstitutions: [FinancialInstitutionModel] = []
-    var selectedFinancialInstitution: String = ""
+    var selectedFinancialInstitution: FinancialInstitutionModel?
+    
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
 
     // employment flow related data

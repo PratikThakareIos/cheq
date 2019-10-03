@@ -31,12 +31,12 @@ class LogViewController: UIViewController {
         var credentials = [LoginCredentialType: String] ()
         credentials[.email] = "hellotest4@gmail.com"
         credentials[.password] = TestUtil.shared.randomPassword()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser->Promise<AuthenticationModel> in
-            return MoneySoftManager.shared.login(MoneySoftUtil.shared.loginAccount2())
-        }.then { authModel->Promise<AuthUser> in
+        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser -> Promise<AuthUser> in
             let req = TestUtil.shared.putUserDetailsReq()
             return CheqAPIManager.shared.putUserDetails(req)
-        }.then { authUser->Promise<Bool> in
+        }.then { authUser->Promise<AuthenticationModel> in
+            return MoneySoftManager.shared.login(authUser.msCredential)
+        }.then { authModel->Promise<Bool> in
             return MoneySoftManager.shared.postNotificationToken()
         }.then { success->Promise<Bool> in
             let fcmToken = CKeychain.getValueByKey(CKey.fcmToken.rawValue)

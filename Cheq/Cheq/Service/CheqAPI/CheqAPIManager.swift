@@ -216,7 +216,8 @@ class CheqAPIManager {
         return Promise<PutUserKycResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 oauthToken = authUser.authToken() ?? ""
-                UsersAPI.putUserOnfidoKycWithRequestBuilder(firstName: firstName, lastName: lastName, residentialAddress: residentialAddress, dateOfBirth: dateOfBirth).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
+                let req = PutUserOnfidoKycRequest(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, residentialAddress: residentialAddress)
+                UsersAPI.putUserOnfidoKycWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
                     if err != nil {
                         // if we got an error we will do a getUserDetailsKYC incase we have existing application
                         UsersAPI.getUserOnfidoKycWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (response, getKycErr) in

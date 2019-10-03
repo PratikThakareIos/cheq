@@ -37,7 +37,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     // seconds
     let logInterval = 10
-    let flushInterval = 60
+    let flushInterval = 30
     // center reference for geo fencing
     var markedLocation = CLLocation(latitude: -33.8653556
 , longitude: 151.205377)
@@ -57,7 +57,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     func setupLocationManager() {
         self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.distanceFilter = self.distanceFilter
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()

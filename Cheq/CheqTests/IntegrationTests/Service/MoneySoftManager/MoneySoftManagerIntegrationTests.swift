@@ -20,6 +20,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let firebaseAuth = FirebaseAuthManager.shared
     
     func testMoneySoftSDK() {
+        let dataUtil = TestUtil.shared 
         let testBank = "Demobank"
         var storedAccounts: [FinancialAccountModel] = []
         let expectation = XCTestExpectation(description: "test money soft sdk integrations")
@@ -27,7 +28,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
         login[.email] = dataUtil.randomEmail()
         login[.password] = dataUtil.randomPassword()
         AuthConfig.shared.activeManager.login(login).then { authUser in
-            CheqAPIManager.shared.putUserDetails(self.dataUtil.putUserDetailsReq())
+            CheqAPIManager.shared.putUserDetails(dataUtil.putUserDetailsReq())
         }.then { authUser->Promise<AuthenticationModel> in
             let msLogin = authUser.msCredential
             return MoneySoftManager.shared.login(msLogin)

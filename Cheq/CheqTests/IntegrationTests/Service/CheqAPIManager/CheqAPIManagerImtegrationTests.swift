@@ -33,31 +33,42 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
                 }))
         } catch {
             LoggingUtil.shared.cPrint("")
+            expectation.fulfill()
         }
             
         wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
     }
     
-    func testMSCredentials() {
-        let testEmail = "rrhello-world3@gmail.com"
+    func testMSCredentials3() {
+        let testEmail = TestUtil.shared.randomEmail()
         let testPassword = "HelloWorld123!"
-//        let userDetails = DataHelperUtil.shared.putUserDetailsReq()
+        let userDetails = TestUtil.shared.putUserDetailsReq()
         
-        let expectation = XCTestExpectation(description: "testPutUserDetails3")
-//        var credentials = [LoginCredentialType: String]()
-//        credentials[.email] = testEmail
-//        credentials[.password] = testPassword
-//        authManager.activeManager.login(<#T##credentials: [LoginCredentialType : String]##[LoginCredentialType : String]#>)(.socialLoginEmail, credentials: credentials)
-//        .then { authUser->Promise<AuthUser> in
-//            return CheqAPIManager.shared.putUserDetails(userDetails)
-//        }.then { authUser->Promise<Void> in
-//            return MoneySoftManager.shared.logout()
-//        }.then { ()->Promise<AuthUser> in
-//            return self.authManager.activeManager.getCurrentUser()
-//        }.then { authUser->Promise<AuthenticationModel> in
-//            LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
-//            let msCredential = authUser.msCredential
-        
+        let expectation = XCTestExpectation(description: "testMSCredentials3")
+        var credentials = [LoginCredentialType: String]()
+        credentials[.email] = testEmail
+        credentials[.password] = testPassword
+        authManager.activeManager.register(.socialLoginEmail, credentials: credentials)
+        .then { authUser in
+            return CheqAPIManager.shared.putUserDetails(userDetails)
+        }.then { authUser in
+            return self.authManager.activeManager.getCurrentUser()
+        }.then { authUser->Promise<AuthenticationModel> in
+            LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
+            let msCredential = authUser.msCredential
+            return MoneySoftManager.shared.login(msCredential)
+        }.done { authModel in
+            LoggingUtil.shared.cPrint(authModel.accessToken ?? "")
+        }.catch { err in
+            LoggingUtil.shared.cPrint(err.localizedDescription)
+        }.finally {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: XCTestConfig.shared.expectionTimeout)
+    }
+    
+    func testMSCredentials() {
+        let expectation = XCTestExpectation(description: "testMSCredentials")
         var msCredential = [LoginCredentialType: String]()
         msCredential[.msUsername] = "eca91f24varun@test.com"
         msCredential[.msPassword] = "61BFF5E53C0C484Da3b78f4383efbfcB"
@@ -76,9 +87,9 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
         let testBank = "Demobank"
         var storedAccounts = [FinancialAccountModel]()
         var storedTransactions = [FinancialTransactionModel]()
-        let testEmail = DataHelperUtil.shared.randomEmail()
-        let testPassword = DataHelperUtil.shared.testPass()
-        let userDetails = DataHelperUtil.shared.putUserDetailsReq()
+        let testEmail = TestUtil.shared.randomEmail()
+        let testPassword = TestUtil.shared.testPass()
+        let userDetails = TestUtil.shared.putUserDetailsReq()
 
         let expectation = XCTestExpectation(description: "testPutUserDetails2")
         var credentials = [LoginCredentialType: String]()
@@ -166,13 +177,13 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
     }
 
     func testPutUserDetails() {
-        let dataUtil = DataHelperUtil.shared
+        let dataUtil = TestUtil.shared
         
         let userDetails = dataUtil.putUserDetailsReq()
         let expectation = XCTestExpectation(description: "testPutUserDetails")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.testEmail()
-        credentials[.password] = DataHelperUtil.shared.testPass()
+        credentials[.email] = TestUtil.shared.testEmail()
+        credentials[.password] = TestUtil.shared.testPass()
         authManager.activeManager.login(credentials)
         .then { authUser in
             return CheqAPIManager.shared.putUserDetails(userDetails)
@@ -188,12 +199,12 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
     }
     
     func testPutUserOnfidoKyc() {
-        let dataUtil = DataHelperUtil.shared
+        let dataUtil = TestUtil.shared
         let userDetails = dataUtil.putUserDetailsReq()
         let expectation = XCTestExpectation(description: "testPutUserOnfidoKyc")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.testEmail()
-        credentials[.password] = DataHelperUtil.shared.testPass()
+        credentials[.email] = dataUtil.testEmail()
+        credentials[.password] = dataUtil.testPass()
         authManager.activeManager.login(credentials)
         .then { authUser in
             CheqAPIManager.shared.putUserDetails(userDetails)
@@ -218,12 +229,12 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
     func testCheckKYCPhotoUploaded() {
         let expectation = XCTestExpectation(description: "testCheckKYCPhotoUploaded")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.randomEmail()
-        credentials[.password] = DataHelperUtil.shared.randomPassword()
+        credentials[.email] = TestUtil.shared.randomEmail()
+        credentials[.password] = TestUtil.shared.randomPassword()
         AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser in
         return AuthConfig.shared.activeManager.login(credentials)
         }.then { authUser in
-            return CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
+            return CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
         }.then { authUser->Promise<PutUserKycResponse> in
             CheqAPIManager.shared.retrieveUserDetailsKyc(firstName: "", lastName: "", residentialAddress: "", dateOfBirth: 20.years.earlier)
         }.done { response in
@@ -242,11 +253,11 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
     func testAddressLookup() {
         let expectation = XCTestExpectation(description: "testAddressLookup")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.testEmail()
-        credentials[.password] = DataHelperUtil.shared.testPass()
+        credentials[.email] = TestUtil.shared.testEmail()
+        credentials[.password] = TestUtil.shared.testPass()
         AuthConfig.shared.activeManager.login(credentials)
             .then { authUser->Promise<[GetAddressResponse]> in
-                CheqAPIManager.shared.residentialAddressLookup(DataHelperUtil.shared.testAddress())
+                CheqAPIManager.shared.residentialAddressLookup(TestUtil.shared.testAddress())
             }.done { addressList in
                 XCTAssertTrue(addressList.count > 0)
                 for current in addressList {

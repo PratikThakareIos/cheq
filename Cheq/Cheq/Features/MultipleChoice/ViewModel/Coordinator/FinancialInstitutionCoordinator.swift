@@ -25,12 +25,7 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
 
         return Promise<[ChoiceModel]>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<AuthenticationModel> in
-                let user = authUser
-//                var credentials:[LoginCredentialType: String] = [:]
-//                credentials[.msUsername] = user.msCredential[.msUsername]
-//                credentials[.msPassword] = user.msCredential[.msPassword]
-                var credentials = MoneySoftUtil.shared.loginAccount2()
-                return MoneySoftManager.shared.login(credentials)
+                return MoneySoftManager.shared.login(authUser.msCredential)
             }.then { authModel->Promise<[FinancialInstitutionModel]> in
                 MoneySoftManager.shared.getInstitutions()
             }.then { institutions->Promise<Bool> in
@@ -44,7 +39,6 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
                     for institution:FinancialInstitutionModel in institutions {
                         LoggingUtil.shared.cPrint(institution.image())
                         let choice = ChoiceModel(type: .choiceWithIcon, title: institution.name ?? institution.alias ?? "", caption: nil, image: nil, ref: institution)
-
                         result.append(choice)
                     }
 
