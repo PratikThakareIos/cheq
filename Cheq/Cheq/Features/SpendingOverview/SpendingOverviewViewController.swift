@@ -15,8 +15,9 @@ class SpendingOverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupKeyboardHandling()
+        self.setupUI()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         AppConfig.shared.showSpinner()
@@ -29,5 +30,6 @@ class SpendingOverviewViewController: UIViewController {
 
     func setupUI() {
         // TODO: setup + reload UI here
+        showLogoutButton()
     }
 }

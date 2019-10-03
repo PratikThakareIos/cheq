@@ -52,7 +52,7 @@ enum QuestionField: String {
 class QuestionViewModel: BaseViewModel {
 
     var sectionTitle = "About me"
-    var type: QuestionType = .legalName
+    var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
     var savedAnswer: [String: String] = [:]
     
     override init() {
@@ -65,50 +65,15 @@ class QuestionViewModel: BaseViewModel {
     }
     
     func question()-> String {
-        switch(type) {
-        case .legalName:
-            return "Enter your legal name as it appears on your ID"
-        case .dateOfBirth:
-            return "What is your date of birth?"
-        case .contactDetails:
-            return "What is your contact details?"
-        case .residentialAddress:
-            return "What is your residential address?"
-        case .companyName:
-            return "What is your employer's company name?"
-        case .companyAddress:
-            return "What is your employer's address"
-        case .maritalStatus:
-            return "What is your living status?"
-        }
+       return coordinator.question
     }
     
     func numOfTextFields()->Int {
-        switch(type) {
-        case .legalName, .maritalStatus:
-            return 2
-        case .dateOfBirth, .contactDetails, .residentialAddress, .companyAddress, .companyName:
-            return 1
-        }
+        return coordinator.numOfTextFields
     }
     
     func placeHolder(_ index: Int)->String {
-        switch(type) {
-        case .legalName:
-            let result = (index == 0) ? "First name" : "Last name"
-            return result 
-        case .dateOfBirth:
-            return "Date of birth"
-        case .contactDetails:
-            return "0410 000 000"
-        case .residentialAddress, .companyAddress:
-            return "123 Example Street"
-        case .companyName:
-            return "Company name"
-        case .maritalStatus:
-            let result = (index == 0) ? "Status" : "Number of dependents"
-            return result 
-        }
+        return coordinator.placeHolder(index)
     }
     
     func save(_ key: String, value: String) {
@@ -169,5 +134,28 @@ extension QuestionViewModel {
         let state = self.fieldValue(.residentialState)
         let localEnum = cState(fromRawValue: state)
         return StateCoordinator.convertCStateToState(localEnum)
+    }
+}
+
+extension QuestionViewModel {
+    static func coordinatorFor (_ questionType: QuestionType)-> QuestionCoordinatorProtocol {
+        var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
+        switch questionType {
+        case .legalName:
+            coordinator = LegalNameCoordinator()
+        case .dateOfBirth:
+            coordinator = DateOfBirthCoordinator()
+        case .contactDetails:
+            coordinator = MobileNumberCoordinator()
+        case .residentialAddress:
+            coordinator = ResidentialAddressCoordinator()
+        case .companyName:
+            coordinator = CompanyNameCoordinator()
+        case .companyAddress:
+            coordinator = CompanyAddressCoordinator()
+        case .maritalStatus:
+            coordinator = MaritalStatusCoordinator()
+        }
+        return coordinator
     }
 }

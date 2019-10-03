@@ -20,7 +20,7 @@ class AppNav {
         let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
         let questionViewModel = QuestionViewModel()
         questionViewModel.loadSaved()
-        questionViewModel.type = questionType
+        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
         vc.viewModel = questionViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: questionType.rawValue)
         nav.pushViewController(vc, animated: true)
@@ -94,6 +94,20 @@ class AppNav {
 
 // MARK: present related
 extension AppNav {
+    
+    func initViewController(_ questionType: QuestionType)->UIViewController? {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        guard let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as? QuestionViewController else { return nil }
+        vc.viewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
+        return vc 
+    }
+    
+    func initViewController(_ introType: IntroductionType)-> UIViewController? {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        guard let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as? IntroductionViewController else { return nil }
+        vc.viewModel.type = introType
+        return vc
+    }
     
     func initViewController(_ storyboardName: String, storyboardId: String)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)

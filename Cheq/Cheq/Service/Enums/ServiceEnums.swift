@@ -19,6 +19,8 @@ enum CKeychainError: Error {
 
 enum ValidationError: Error {
     case allFieldsMustBeFilled
+    case invalidMobileFormat
+    case invalidInputFormat
     case unableToMapSelectedBank
 }
 
@@ -97,6 +99,10 @@ extension ValidationError: LocalizedError {
         switch self {
         case .allFieldsMustBeFilled:
             return NSLocalizedString("All fields must be entered", comment: "")
+        case .invalidInputFormat:
+            return  NSLocalizedString("Invalid input format", comment: "")
+        case .invalidMobileFormat:
+            return NSLocalizedString("Invalid mobile format", comment: "")
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
         }

@@ -11,7 +11,8 @@ import Foundation
 enum NotificationEvent: String {
     case apnsDeviceToken = "apns"
     case fcmToken = "fcm"
-    case dismissKeyboard = "dismissKeyboard" 
+    case dismissKeyboard = "dismissKeyboard"
+    case logout = "logout"
 }
 
 enum NotificationUserInfoKey: String {

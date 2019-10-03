@@ -17,6 +17,25 @@ protocol UIViewControllerProtocol {
 // MARK: Hide navigation bar back button title
 extension UIViewController {
     
+    func allTextFields(from: UIView)-> [String: Any] {
+        var results = [String: Any]()
+        for subview in view.subviews {
+            if let textField = subview as? UITextField, let key = textField.placeholder, let value = textField.text {
+                results[key] = value
+            } else {
+                let subviewResults = allTextFields(from: subview)
+                // keep any existing conflicting key value
+                results = results.merging(subviewResults, uniquingKeysWith: { (first, _ ) in first })
+            }
+        }
+        
+        return results
+    }
+    
+    func showLogoutButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
+    }
+    
     func showBackButton() {
         self.navigationItem.hidesBackButton = false
     }
@@ -34,6 +53,17 @@ extension UIViewController {
 
 // MARK: PopupDialog wrapper
 extension UIViewController {
+    
+    func showDecision(_ msg: String, confirmCb: (()->Void)?, cancelCb: (()->Void)?) {
+        // Prepare the popup assets
+        let message = msg
+        let cPopup = CPopupDialog(.decision, messageBody: message, button: .ok, cancelButton: .cancel, confirm: {
+            if let cb = confirmCb { cb() }
+        }, cancel: {
+            if let cb = cancelCb { cb() }
+        })
+        cPopup.present(self)
+    }
     
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
@@ -165,5 +195,21 @@ extension UIViewController {
         }
         datePicker?.picker.date = initialDate
         datePicker?.present(self)
+    }
+}
+
+// Logout method
+extension UIViewController {
+    @objc func logout() {
+        showDecision("You want to logout?", confirmCb: {
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                AuthConfig.shared.activeManager.logout(authUser)
+                }.done {
+                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+                }.catch { err in
+                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+            }
+            
+        }, cancelCb: nil)
     }
 }

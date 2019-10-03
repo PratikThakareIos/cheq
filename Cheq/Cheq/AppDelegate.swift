@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         // setup singleton and SDKs
+        self.registerNotificationObservers()
         self.setupServices()
         self.setupInitialViewController()
         
@@ -96,16 +97,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
 
     func setupInitialViewController() {
-        
-       window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
-        
-//        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-//            self.window?.rootViewController = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.finance.rawValue)
-//            self.window?.makeKeyAndVisible()
-//        }.catch { err in
-//            self.handleNotLoggedIn()
-//        }
-        
+        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+            let vc = AppNav.shared.initViewController(.legalName)
+            self.window?.rootViewController = vc ?? UIViewController()
+            self.window?.makeKeyAndVisible()
+        }.catch { err in
+            self.handleNotLoggedIn()
+        }
+    }
+    
+    @objc func handleLogout(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle logout")
+        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue)
     }
     
     func handleNotLoggedIn() {
@@ -202,6 +205,11 @@ extension AppDelegate {
 
 // MARK: Segment
 extension AppDelegate {
+    
+    func registerNotificationObservers() {
+        // Event for programmatically logging out and returning to Registration screen
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
+    }
     
     // trigger the first initiation of AppConfig singleton
     func setupServices() {

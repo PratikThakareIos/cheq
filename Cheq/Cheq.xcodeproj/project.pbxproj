@@ -263,6 +263,23 @@
 		4F0D713823447ABE00AA819C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D70C823447ABE00AA819C /* Configuration.swift */; };
 		4F0D713F2345761500AA819C /* CPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D713E2345761500AA819C /* CPageControl.swift */; };
 		4F0D71402345761500AA819C /* CPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D713E2345761500AA819C /* CPageControl.swift */; };
+		4F0D714323458EBE00AA819C /* VDotManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D714223458EBE00AA819C /* VDotManagerTests.swift */; };
+		4F0D71472345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71462345A8ED00AA819C /* QuestionCoordinatorProtocol.swift */; };
+		4F0D71482345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71462345A8ED00AA819C /* QuestionCoordinatorProtocol.swift */; };
+		4F0D714B2345AB0800AA819C /* LegalNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D714A2345AB0800AA819C /* LegalNameCoordinator.swift */; };
+		4F0D714C2345AB0800AA819C /* LegalNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D714A2345AB0800AA819C /* LegalNameCoordinator.swift */; };
+		4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D714D2345AB2700AA819C /* DateOfBirthCoordinator.swift */; };
+		4F0D714F2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D714D2345AB2700AA819C /* DateOfBirthCoordinator.swift */; };
+		4F0D71512345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71502345AB4000AA819C /* MobileNumberCoordinator.swift */; };
+		4F0D71522345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71502345AB4000AA819C /* MobileNumberCoordinator.swift */; };
+		4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71532345AB8500AA819C /* ResidentialAddressCoordinator.swift */; };
+		4F0D71552345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71532345AB8500AA819C /* ResidentialAddressCoordinator.swift */; };
+		4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */; };
+		4F0D71582345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */; };
+		4F0D715A2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */; };
+		4F0D715B2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */; };
+		4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */; };
+		4F0D715E2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -510,6 +527,15 @@
 		4F0D70C723447ABE00AA819C /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F0D70C823447ABE00AA819C /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F0D713E2345761500AA819C /* CPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPageControl.swift; sourceTree = "<group>"; };
+		4F0D714223458EBE00AA819C /* VDotManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDotManagerTests.swift; sourceTree = "<group>"; };
+		4F0D71462345A8ED00AA819C /* QuestionCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		4F0D714A2345AB0800AA819C /* LegalNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNameCoordinator.swift; sourceTree = "<group>"; };
+		4F0D714D2345AB2700AA819C /* DateOfBirthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirthCoordinator.swift; sourceTree = "<group>"; };
+		4F0D71502345AB4000AA819C /* MobileNumberCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberCoordinator.swift; sourceTree = "<group>"; };
+		4F0D71532345AB8500AA819C /* ResidentialAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentialAddressCoordinator.swift; sourceTree = "<group>"; };
+		4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaritalStatusCoordinator.swift; sourceTree = "<group>"; };
+		4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNameCoordinator.swift; sourceTree = "<group>"; };
+		4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAddressCoordinator.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -716,6 +742,7 @@
 		4F05E7F6231DD9B800C3B9BF /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				4F0D714123458EA200AA819C /* Service */,
 				4F0D6240233DCE7200AA819C /* Common */,
 			);
 			path = UnitTests;
@@ -913,6 +940,45 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		4F0D714123458EA200AA819C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D714223458EBE00AA819C /* VDotManagerTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4F0D71442345A83600AA819C /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		4F0D71452345A84200AA819C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71492345A9A600AA819C /* protocol */,
+				4F0D714A2345AB0800AA819C /* LegalNameCoordinator.swift */,
+				4F0D714D2345AB2700AA819C /* DateOfBirthCoordinator.swift */,
+				4F0D71502345AB4000AA819C /* MobileNumberCoordinator.swift */,
+				4F0D71532345AB8500AA819C /* ResidentialAddressCoordinator.swift */,
+				4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */,
+				4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */,
+				4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		4F0D71492345A9A600AA819C /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71462345A8ED00AA819C /* QuestionCoordinatorProtocol.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,12 +1086,12 @@
 			path = PickerView;
 			sourceTree = "<group>";
 		};
-		4F2E4BA4233B2486001F1BA2 /* Coordinator */ = {
+		4F2E4BA4233B2486001F1BA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */,
+				4F0D71442345A83600AA819C /* Picker */,
 			);
-			path = Coordinator;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4F573A90231CC4C4004616F5 /* MoneySoft */ = {
@@ -1100,6 +1166,7 @@
 		4FAE3649232F4C780035E57E /* Question */ = {
 			isa = PBXGroup;
 			children = (
+				4F2E4BA4233B2486001F1BA2 /* View */,
 				4FAE364A232F4C880035E57E /* ViewModel */,
 				4FAE364E232F4CB00035E57E /* QuestionViewController.swift */,
 			);
@@ -1109,7 +1176,7 @@
 		4FAE364A232F4C880035E57E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4F2E4BA4233B2486001F1BA2 /* Coordinator */,
+				4F0D71452345A84200AA819C /* Coordinator */,
 				4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */,
 			);
 			path = ViewModel;
@@ -2126,10 +2193,12 @@
 			files = (
 				4F0D710823447ABE00AA819C /* Worksheet.swift in Sources */,
 				4F0D647923442FD400AA819C /* AppConfig.swift in Sources */,
+				4F0D715E2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
 				4F0D712023447ABE00AA819C /* GetRecurringBillResponse.swift in Sources */,
 				4F0D647B23442FD400AA819C /* CSearchTextField.swift in Sources */,
 				4F0D647C23442FD400AA819C /* StoryboardEnums.swift in Sources */,
 				4F0D647D23442FD400AA819C /* AuthenticatorViewModel.swift in Sources */,
+				4F0D71482345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */,
 				4F0D647E23442FD400AA819C /* AuthConfig.swift in Sources */,
 				4F0D713023447ABE00AA819C /* MoneySoftVisibleMessageRequest.swift in Sources */,
 				4F0D70EC23447ABE00AA819C /* PutUserEmployerRequest.swift in Sources */,
@@ -2151,6 +2220,7 @@
 				4F0D712E23447ABE00AA819C /* PostPushNotificationRequest.swift in Sources */,
 				4F0D711C23447ABE00AA819C /* GetUserResponse.swift in Sources */,
 				4F0D712A23447ABE00AA819C /* GetSpendingSpecificCategoryResponse.swift in Sources */,
+				4F0D714C2345AB0800AA819C /* LegalNameCoordinator.swift in Sources */,
 				4F0D649023442FD400AA819C /* NotificationUtil.swift in Sources */,
 				4F0D70E623447ABE00AA819C /* PutUserDetailRequest.swift in Sources */,
 				4F0D70F623447ABE00AA819C /* PostRecurringBillRequest.swift in Sources */,
@@ -2171,6 +2241,8 @@
 				4F0D64A223442FD400AA819C /* AppData.swift in Sources */,
 				4F0D70D623447ABE00AA819C /* LocationsAPI.swift in Sources */,
 				4F0D64A323442FD400AA819C /* CMultipleChoiceWithImageCell.swift in Sources */,
+				4F0D715B2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */,
+				4F0D71582345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				4F0D64A423442FD400AA819C /* CChartModel.swift in Sources */,
 				4F0D713823447ABE00AA819C /* Configuration.swift in Sources */,
 				4F0D64A823442FD400AA819C /* StringUtil.swift in Sources */,
@@ -2229,6 +2301,7 @@
 				4F0D64DA23442FD400AA819C /* ColorUtil.swift in Sources */,
 				4F0D64DB23442FD400AA819C /* CPieViewFormatter.swift in Sources */,
 				4F0D70E423447ABE00AA819C /* APIs.swift in Sources */,
+				4F0D71522345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */,
 				4F0D64DC23442FD400AA819C /* CPasswordToggleButton.swift in Sources */,
 				4F0D64DE23442FD400AA819C /* IntroductionViewController.swift in Sources */,
 				4F0D64DF23442FD400AA819C /* CheqAPIManager_Spending.swift in Sources */,
@@ -2245,6 +2318,7 @@
 				4F0D70DA23447ABE00AA819C /* BudgetingAPI.swift in Sources */,
 				4F0D64EE23442FD400AA819C /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D711623447ABE00AA819C /* PostFinancialAccountRequest.swift in Sources */,
+				4F0D714F2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F0D64EF23442FD400AA819C /* LinkAccountsCoordinator.swift in Sources */,
 				4F0D64F123442FD400AA819C /* CarouselCollectionViewCoordinator.swift in Sources */,
 				4F0D64F223442FD400AA819C /* AppThemeProtocol.swift in Sources */,
@@ -2288,6 +2362,7 @@
 				4F0D651423442FD400AA819C /* MoneySoftManager.swift in Sources */,
 				4F0D651523442FD400AA819C /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F0D651623442FD400AA819C /* CSwitchWithLabel.swift in Sources */,
+				4F0D71552345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				4F0D651923442FD400AA819C /* DynamicFormViewController.swift in Sources */,
 				4F0D651A23442FD400AA819C /* DarkTheme.swift in Sources */,
 				4F0D651C23442FD400AA819C /* CProgressView.swift in Sources */,
@@ -2300,10 +2375,12 @@
 			files = (
 				4F0D710723447ABE00AA819C /* Worksheet.swift in Sources */,
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
+				4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
 				4F0D711F23447ABE00AA819C /* GetRecurringBillResponse.swift in Sources */,
 				4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */,
 				4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */,
 				4F2E4B8E233AECD1001F1BA2 /* AuthenticatorViewModel.swift in Sources */,
+				4F0D71472345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */,
 				96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */,
 				4F0D712F23447ABE00AA819C /* MoneySoftVisibleMessageRequest.swift in Sources */,
 				4F0D70EB23447ABE00AA819C /* PutUserEmployerRequest.swift in Sources */,
@@ -2325,6 +2402,7 @@
 				4F0D712D23447ABE00AA819C /* PostPushNotificationRequest.swift in Sources */,
 				4F0D711B23447ABE00AA819C /* GetUserResponse.swift in Sources */,
 				4F0D712923447ABE00AA819C /* GetSpendingSpecificCategoryResponse.swift in Sources */,
+				4F0D714B2345AB0800AA819C /* LegalNameCoordinator.swift in Sources */,
 				4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */,
 				4F0D70E523447ABE00AA819C /* PutUserDetailRequest.swift in Sources */,
 				4F0D70F523447ABE00AA819C /* PostRecurringBillRequest.swift in Sources */,
@@ -2345,6 +2423,8 @@
 				4F0B06652330452000986E35 /* AppData.swift in Sources */,
 				4F0D70D523447ABE00AA819C /* LocationsAPI.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
+				4F0D715A2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */,
+				4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
 				4F0D713723447ABE00AA819C /* Configuration.swift in Sources */,
 				964F7BE023332A9800338227 /* StringUtil.swift in Sources */,
@@ -2403,6 +2483,7 @@
 				96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */,
 				96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */,
 				4F0D70E323447ABE00AA819C /* APIs.swift in Sources */,
+				4F0D71512345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */,
 				4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
@@ -2419,6 +2500,7 @@
 				4F0D70D923447ABE00AA819C /* BudgetingAPI.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D711523447ABE00AA819C /* PostFinancialAccountRequest.swift in Sources */,
+				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
@@ -2462,6 +2544,7 @@
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F2E4AC22334A5BB001F1BA2 /* CSwitchWithLabel.swift in Sources */,
+				4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
 				4F2E4ACC23383A3B001F1BA2 /* CProgressView.swift in Sources */,
@@ -2477,6 +2560,7 @@
 				4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */,
 				4F0911212320B91000AA7F7D /* XCTestConfig.swift in Sources */,
 				4FEDA4FF232EF7920042E4E2 /* CheqAPIManagerImtegrationTests.swift in Sources */,
+				4F0D714323458EBE00AA819C /* VDotManagerTests.swift in Sources */,
 				4FD7C207232A1C3300AC7A67 /* OnfidoManagerIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,7 +37,7 @@ class QuestionViewController: UIViewController {
         setupDelegate()
         setupUI()
         prePopulateEntry()
-        if viewModel.type == .maritalStatus {
+        if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
         }
     }
@@ -73,7 +73,7 @@ class QuestionViewController: UIViewController {
         self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
         self.questionTitle.text = self.viewModel.question()
         // special case for address look up
-        switch self.viewModel.type {
+        switch self.viewModel.coordinator.type {
         case  .residentialAddress:
         self.setupResidentialAddressLookup()
         case .companyName:
@@ -88,7 +88,7 @@ class QuestionViewController: UIViewController {
     
     func prePopulateEntry() {
         viewModel.loadSaved()
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .legalName:
             self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
             self.textField2.text = viewModel.fieldValue(QuestionField.lastname)   
@@ -109,7 +109,7 @@ class QuestionViewController: UIViewController {
     }
 
     @IBAction func next(_ sender: Any) {
-        switch self.viewModel.type {
+        switch self.viewModel.coordinator.type {
         case .legalName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
@@ -132,14 +132,16 @@ class QuestionViewController: UIViewController {
             }
             
             let putUserDetailsReq = self.viewModel.putUserDetailsRequest()
-            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).ensure {
-                 AppConfig.shared.hideSpinner()
-            }.done { authUser in
-                AppData.shared.updateProgressAfterCompleting(.residentialAddress)
-                AppNav.shared.pushToIntroduction(.employee, viewController: self)
+            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.residentialAddress)
+                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                }
             }.catch { err in
-                self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
-                    LoggingUtil.shared.cPrint(err.localizedDescription)
+                AppConfig.shared.hideSpinner {
+                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                        LoggingUtil.shared.cPrint(err.localizedDescription)
+                    }
                 }
                 return
             }
@@ -163,9 +165,10 @@ class QuestionViewController: UIViewController {
              let putUserDetailsReq = self.viewModel.putUserDetailsRequest()
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
-                AppConfig.shared.hideSpinner()
-                AppData.shared.updateProgressAfterCompleting(.maritalStatus)
-                AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.maritalStatus)
+                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(CheqAPIManagerError.errorHasOccurredOnServer) { }
@@ -194,17 +197,11 @@ extension QuestionViewController {
     }
     
     func validateInput() {
-
-        if self.viewModel.numOfTextFields() == 2, hasEmptyFields([self.textField1, self.textField2])  {
-            showError(ValidationError.allFieldsMustBeFilled) { return }
-        }
-        
-        if self.searchTextField.isHidden, self.viewModel.numOfTextFields() == 1, hasEmptyFields([self.textField1]) {
-            showError(ValidationError.allFieldsMustBeFilled) { return }
-        }
-        
-        if self.searchTextField.isHidden == false, self.viewModel.numOfTextFields() == 1, hasEmptyFields([self.searchTextField]) {
-            showError(ValidationError.allFieldsMustBeFilled) { return }
+        let inputs = allTextFields(from: self.view)
+        if let error =  self.viewModel.coordinator.validateInput(inputs) {
+            showError(error) {
+                return
+            }
         }
     }
     
@@ -219,7 +216,7 @@ extension QuestionViewController {
 //MARK: TextFields show/hide
 extension QuestionViewController {
     func populatePlaceHolderNormalTextField() {
-        if self.viewModel.numOfTextFields() == 2 {
+        if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
         } else {
@@ -228,7 +225,7 @@ extension QuestionViewController {
     }
     
     func showNormalTextFields() {
-        if self.viewModel.numOfTextFields() == 2 {
+        if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.isHidden = false
             textField2.isHidden = false
             searchTextField.isHidden = true
@@ -272,7 +269,7 @@ extension QuestionViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
     
-        switch self.viewModel.type {
+        switch self.viewModel.coordinator.type {
         
         case .maritalStatus:
             LoggingUtil.shared.cPrint(textField.placeholder ?? "")

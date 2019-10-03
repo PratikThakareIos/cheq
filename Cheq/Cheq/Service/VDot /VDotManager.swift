@@ -138,7 +138,8 @@ extension VDotManager {
             let atWorkString = workSheetDict[VDotLogKey.atWork.rawValue] as? String ?? "false"
             let atWork = Bool(atWorkString)
             let dateTimeString = workSheetDict[VDotLogKey.dateTime.rawValue] as? String ?? ""
-            if let dateTime = VDotManager.shared.dateFormatter.date(from: dateTimeString), let latitude = workSheetDict[VDotLogKey.latitude.rawValue] as? Double, let longitude = workSheetDict[VDotLogKey.longitude.rawValue] as? Double {
+            let dateTime = Date(dateString: dateTimeString, format: worksheetTimeFormat)
+            if let latitude = workSheetDict[VDotLogKey.latitude.rawValue] as? Double, let longitude = workSheetDict[VDotLogKey.longitude.rawValue] as? Double {
                 let workSheet = Worksheet(atWork: atWork, latitude: latitude, longitude: longitude, dateTime: dateTime)
                 workSheets.append(workSheet)
             }
