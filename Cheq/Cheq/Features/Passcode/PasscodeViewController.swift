@@ -27,6 +27,15 @@ class PasscodeViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.digit1.isEnabled = true
+        self.digit2.isEnabled = false
+        self.digit3.isEnabled = false
+        self.digit4.isEnabled = false
+        self.digit1.becomeFirstResponder()
+    }
+    
     func setupDelegates() {
         
         // Event for programmatically dismissing the keyboard anywhere
@@ -46,12 +55,10 @@ class PasscodeViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.instructionLabel.font = AppConfig.shared.activeTheme.headerFont
         
-        // dismiss when user taps outside the textfields
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKey))
-        self.view.addGestureRecognizer(tapGesture)
-        
         // keep a list so we can shift as user types the focus
         self.digits = [digit1, digit2, digit3, digit4]
+        
+        self.scrollView.isUserInteractionEnabled = false
     }
     
     @objc func dismissKey() {
@@ -81,18 +88,30 @@ extension PasscodeViewController: UITextFieldDelegate {
         guard let textField = activeTextField() else { return }
         
         if textField == self.digit4 {
+            self.digit3.isEnabled = true
             self.digit3.text = ""
             self.digit3.becomeFirstResponder()
+            self.digit1.isEnabled = false
+            self.digit2.isEnabled = false
+            self.digit4.isEnabled = false
         }
         
         if textField == self.digit3 {
+            self.digit2.isEnabled = true
             self.digit2.text = ""
             self.digit2.becomeFirstResponder()
+            self.digit1.isEnabled = false
+            self.digit3.isEnabled = false
+            self.digit4.isEnabled = false
         }
         
         if textField == self.digit2{
+            self.digit1.isEnabled = true
             self.digit1.text = ""
             self.digit1.becomeFirstResponder()
+            self.digit2.isEnabled = false
+            self.digit3.isEnabled = false
+            self.digit4.isEnabled = false
         }
     }
     
@@ -101,18 +120,32 @@ extension PasscodeViewController: UITextFieldDelegate {
         if let text = textField.text, text.isEmpty { return }
         
         if textField == self.digit1 {
+            self.digit2.isEnabled = true
             self.digit2.becomeFirstResponder()
+            self.digit1.isEnabled = false
+            self.digit3.isEnabled = false
+            self.digit4.isEnabled = false
         }
         
         if textField == self.digit2 {
+            self.digit3.isEnabled = true
             self.digit3.becomeFirstResponder()
+            self.digit1.isEnabled = false
+            self.digit2.isEnabled = false
+            self.digit4.isEnabled = false
         }
         
         if textField == self.digit3{
+            self.digit4.isEnabled = true
             self.digit4.becomeFirstResponder()
+            self.digit1.isEnabled = false
+            self.digit2.isEnabled = false
+            self.digit3.isEnabled = false
         }
         
         if textField == self.digit4 {
+            guard let digit1: String = self.digit1.text, let digit2: String = self.digit2.text, let digit3: String = self.digit3.text, let digit4: String = self.digit4.text else { return }
+            viewModel.passcode = String(describing: "\(digit1)\(digit2)\(digit3)\(digit4)")
             if let error = viewModel.validate() {
                 if error == .lockedOut {
                     showMessage(error.localizedDescription) {

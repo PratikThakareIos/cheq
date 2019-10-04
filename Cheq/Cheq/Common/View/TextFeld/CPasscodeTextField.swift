@@ -39,5 +39,11 @@ class CPasscodeTextField: UITextField {
         super.deleteBackward()
         NotificationUtil.shared.notify(NotificationEvent.deleteBackward.rawValue, key: "", value: "")
     }
+    
+    override var isEnabled: Bool {
+        didSet {
+            self.backgroundColor = self.isEnabled ? AppConfig.shared.activeTheme.altTextColor : AppConfig.shared.activeTheme.backgroundColor
+        }
+    }
 
 }
