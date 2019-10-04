@@ -19,4 +19,13 @@ extension NSMutableAttributedString {
             self.addAttribute(.font, value: font, range: range )
         }
     }
+    
+    func applyHighlight(_ text: String, color: UIColor, font: UIFont) {
+        let mainString = self.string as NSString
+        let range = mainString.range(of: text)
+        if range.location != NSNotFound {
+            self.addAttribute(.foregroundColor, value: color , range: range)
+            self.addAttribute(.font, value: font, range: range )
+        }
+    }
 }

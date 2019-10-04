@@ -39,7 +39,7 @@
 		4F0D648323442FD400AA819C /* MultipleChoiceViewModelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49FA23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift */; };
 		4F0D648523442FD400AA819C /* CPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068D22FE6ABF00173743 /* CPieChartView.swift */; };
 		4F0D648723442FD400AA819C /* CChartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068F22FE6D0A00173743 /* CChartViewProtocol.swift */; };
-		4F0D648823442FD400AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */; };
+		4F0D648823442FD400AA819C /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* EmailVerificationViewController.swift */; };
 		4F0D648C23442FD400AA819C /* ChartCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524622FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift */; };
 		4F0D648D23442FD400AA819C /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
 		4F0D648E23442FD400AA819C /* CBarViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069222FE709A00173743 /* CBarViewFormatter.swift */; };
@@ -56,7 +56,7 @@
 		4F0D649B23442FD400AA819C /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524122FB060E001E43E0 /* FinanceViewController.swift */; };
 		4F0D649D23442FD400AA819C /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D12327D1E800A05E25 /* NSAttributedString.swift */; };
 		4F0D649E23442FD400AA819C /* DataHelperUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4B94233AED51001F1BA2 /* DataHelperUtil.swift */; };
-		4F0D64A023442FD400AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */; };
+		4F0D64A023442FD400AA819C /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */; };
 		4F0D64A223442FD400AA819C /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B06642330452000986E35 /* AppData.swift */; };
 		4F0D64A323442FD400AA819C /* CMultipleChoiceWithImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B0673233066EE00986E35 /* CMultipleChoiceWithImageCell.swift */; };
 		4F0D64A423442FD400AA819C /* CChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069922FE7CF700173743 /* CChartModel.swift */; };
@@ -280,6 +280,18 @@
 		4F0D715B2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */; };
 		4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */; };
 		4F0D715E2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */; };
+		4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
+		4F0D71632346B52500AA819C /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
+		4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
+		4F0D71662346B53800AA819C /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
+		4F0D71682346B56100AA819C /* Lending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Lending.storyboard */; };
+		4F0D71692346B56100AA819C /* Lending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Lending.storyboard */; };
+		4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716C2346B9B600AA819C /* AccountViewModel.swift */; };
+		4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716C2346B9B600AA819C /* AccountViewModel.swift */; };
+		4F0D71702346B9D900AA819C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716F2346B9D900AA819C /* AccountViewController.swift */; };
+		4F0D71712346B9D900AA819C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716F2346B9D900AA819C /* AccountViewController.swift */; };
+		4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71722346CD4900AA819C /* VerificationViewModel.swift */; };
+		4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71722346CD4900AA819C /* VerificationViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -325,8 +337,8 @@
 		4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
 		4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C1EB2329E14400AC7A67 /* Common.storyboard */; };
 		4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F02329E16300AC7A67 /* IntroductionViewController.swift */; };
-		4FD7C1F72329E16300AC7A67 /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */; };
-		4FD7C1F92329E16300AC7A67 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */; };
+		4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */; };
+		4FD7C1F92329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F42329E16300AC7A67 /* EmailVerificationViewController.swift */; };
 		4FD7C203232A190600AC7A67 /* OnfidoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C202232A190600AC7A67 /* OnfidoManager.swift */; };
 		4FD7C207232A1C3300AC7A67 /* OnfidoManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C206232A1C3300AC7A67 /* OnfidoManagerIntegrationTests.swift */; };
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
@@ -536,6 +548,12 @@
 		4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaritalStatusCoordinator.swift; sourceTree = "<group>"; };
 		4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyNameCoordinator.swift; sourceTree = "<group>"; };
 		4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAddressCoordinator.swift; sourceTree = "<group>"; };
+		4F0D71612346B52400AA819C /* LendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingViewController.swift; sourceTree = "<group>"; };
+		4F0D71642346B53800AA819C /* LendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingViewModel.swift; sourceTree = "<group>"; };
+		4F0D71672346B56100AA819C /* Lending.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lending.storyboard; sourceTree = "<group>"; };
+		4F0D716C2346B9B600AA819C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		4F0D716F2346B9D900AA819C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		4F0D71722346CD4900AA819C /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -583,8 +601,8 @@
 		4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBEnums.swift; sourceTree = "<group>"; };
 		4FD7C1EB2329E14400AC7A67 /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		4FD7C1F02329E16300AC7A67 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
-		4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
-		4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewModel.swift; sourceTree = "<group>"; };
+		4FD7C1F42329E16300AC7A67 /* EmailVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailVerificationViewController.swift; sourceTree = "<group>"; };
 		4FD7C202232A190600AC7A67 /* OnfidoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnfidoManager.swift; sourceTree = "<group>"; };
 		4FD7C206232A1C3300AC7A67 /* OnfidoManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnfidoManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
@@ -979,6 +997,48 @@
 			path = protocol;
 			sourceTree = "<group>";
 		};
+		4F0D715F2346B49600AA819C /* Lending */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71602346B4A500AA819C /* ViewModel */,
+				4F0D71612346B52400AA819C /* LendingViewController.swift */,
+			);
+			path = Lending;
+			sourceTree = "<group>";
+		};
+		4F0D71602346B4A500AA819C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71642346B53800AA819C /* LendingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F0D716A2346B99D00AA819C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D716B2346B9A400AA819C /* VIewModel */,
+				4F0D716F2346B9D900AA819C /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		4F0D716B2346B9A400AA819C /* VIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D716C2346B9B600AA819C /* AccountViewModel.swift */,
+			);
+			path = VIewModel;
+			sourceTree = "<group>";
+		};
+		4F0D71752346CD4D00AA819C /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71722346CD4900AA819C /* VerificationViewModel.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1232,19 +1292,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4FD7C1F12329E16300AC7A67 /* Passcode */ = {
+		4FD7C1F12329E16300AC7A67 /* EmailVerification */ = {
 			isa = PBXGroup;
 			children = (
 				4FD7C1F22329E16300AC7A67 /* ViewModel */,
-				4FD7C1F42329E16300AC7A67 /* PasscodeViewController.swift */,
+				4FD7C1F42329E16300AC7A67 /* EmailVerificationViewController.swift */,
 			);
-			path = Passcode;
+			path = EmailVerification;
 			sourceTree = "<group>";
 		};
 		4FD7C1F22329E16300AC7A67 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4FD7C1F32329E16300AC7A67 /* PasscodeViewModel.swift */,
+				4F0D71752346CD4D00AA819C /* protocol */,
+				4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1418,7 +1479,6 @@
 		9676521222FAFD01001E43E0 /* Cheq */ = {
 			isa = PBXGroup;
 			children = (
-				96FADE98230ED16500AE6CBB /* Storage */,
 				9676525722FB080F001E43E0 /* Service */,
 				9676524322FB061B001E43E0 /* Common */,
 				9676523722FB0136001E43E0 /* Features */,
@@ -1434,6 +1494,7 @@
 				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
 				4FD7C1EB2329E14400AC7A67 /* Common.storyboard */,
 				966434CD2341A9AF00934FB0 /* Spending.storyboard */,
+				4F0D71672346B56100AA819C /* Lending.storyboard */,
 			);
 			path = Cheq;
 			sourceTree = "<group>";
@@ -1462,6 +1523,9 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
+				4F0D716A2346B99D00AA819C /* Account */,
+				4F0D715F2346B49600AA819C /* Lending */,
 				4F0D63032342F49800AA819C /* Logger */,
 				966434CC2341A96900934FB0 /* SpendingOverview */,
 				4F2E4B86233AECD1001F1BA2 /* Authentication */,
@@ -1469,7 +1533,6 @@
 				4F0B0667233057F800986E35 /* MultipleChoice */,
 				4FAE3649232F4C780035E57E /* Question */,
 				4FD7C1EE2329E16300AC7A67 /* Introduction */,
-				4FD7C1F12329E16300AC7A67 /* Passcode */,
 				4FD7C131232874FF00AC7A67 /* InAppWebViewController */,
 				9681EC702323D2ED00E9F6D1 /* SplashScreen */,
 				9676523A22FB0171001E43E0 /* Analytics */,
@@ -1546,6 +1609,7 @@
 		9676525722FB080F001E43E0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				96FADE98230ED16500AE6CBB /* Storage */,
 				4F573A91231CC929004616F5 /* CheqAPI */,
 				4FD7C201232A18D900AC7A67 /* OnfidoAPI */,
 				96BF5C832339889A0036F0EB /* VDot  */,
@@ -1929,6 +1993,7 @@
 				4F0D652523442FD400AA819C /* Onboarding.storyboard in Resources */,
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
+				4F0D71692346B56100AA819C /* Lending.storyboard in Resources */,
 				4F0D652823442FD400AA819C /* Assets.xcassets in Resources */,
 				4F0D652923442FD400AA819C /* Main.storyboard in Resources */,
 			);
@@ -1944,6 +2009,7 @@
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
+				4F0D71682346B56100AA819C /* Lending.storyboard in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */,
 			);
@@ -2211,8 +2277,9 @@
 				4F0D648323442FD400AA819C /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4F0D648523442FD400AA819C /* CPieChartView.swift in Sources */,
 				4F0D648723442FD400AA819C /* CChartViewProtocol.swift in Sources */,
-				4F0D648823442FD400AA819C /* PasscodeViewController.swift in Sources */,
+				4F0D648823442FD400AA819C /* EmailVerificationViewController.swift in Sources */,
 				4F0D648C23442FD400AA819C /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F0D71632346B52500AA819C /* LendingViewController.swift in Sources */,
 				4F0D648D23442FD400AA819C /* SpendingOverviewViewController.swift in Sources */,
 				4F0D710A23447ABE00AA819C /* GetSpendingOverviewResponse.swift in Sources */,
 				4F0D648E23442FD400AA819C /* CBarViewFormatter.swift in Sources */,
@@ -2237,7 +2304,7 @@
 				4F0D649B23442FD400AA819C /* FinanceViewController.swift in Sources */,
 				4F0D649D23442FD400AA819C /* NSAttributedString.swift in Sources */,
 				4F0D649E23442FD400AA819C /* DataHelperUtil.swift in Sources */,
-				4F0D64A023442FD400AA819C /* PasscodeViewModel.swift in Sources */,
+				4F0D64A023442FD400AA819C /* EmailVerificationViewModel.swift in Sources */,
 				4F0D64A223442FD400AA819C /* AppData.swift in Sources */,
 				4F0D70D623447ABE00AA819C /* LocationsAPI.swift in Sources */,
 				4F0D64A323442FD400AA819C /* CMultipleChoiceWithImageCell.swift in Sources */,
@@ -2245,6 +2312,7 @@
 				4F0D71582345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				4F0D64A423442FD400AA819C /* CChartModel.swift in Sources */,
 				4F0D713823447ABE00AA819C /* Configuration.swift in Sources */,
+				4F0D71712346B9D900AA819C /* AccountViewController.swift in Sources */,
 				4F0D64A823442FD400AA819C /* StringUtil.swift in Sources */,
 				4F0D712C23447ABE00AA819C /* UserBudgetUpdate.swift in Sources */,
 				4F0D64A923442FD400AA819C /* OnfidoManager.swift in Sources */,
@@ -2282,6 +2350,7 @@
 				4F0D64CB23442FD400AA819C /* CommonEnums.swift in Sources */,
 				4F0D64CC23442FD400AA819C /* SplashViewController.swift in Sources */,
 				4F0D64CD23442FD400AA819C /* CPickerView.swift in Sources */,
+				4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				4F0D64D123442FD400AA819C /* PrimaryTheme.swift in Sources */,
 				4F0D70CA23447ABE00AA819C /* APIHelper.swift in Sources */,
 				4F0D64D223442FD400AA819C /* MultipleChoiceViewController.swift in Sources */,
@@ -2308,6 +2377,7 @@
 				4F0D64E023442FD400AA819C /* Array_Extension.swift in Sources */,
 				4F0D711023447ABE00AA819C /* MonthAmountStatResponse.swift in Sources */,
 				4F0D64E123442FD400AA819C /* WebViewModel.swift in Sources */,
+				4F0D71662346B53800AA819C /* LendingViewModel.swift in Sources */,
 				4F0D64E223442FD400AA819C /* AuthUser.swift in Sources */,
 				4F0D64E423442FD400AA819C /* VDotManager.swift in Sources */,
 				4F0D64E523442FD400AA819C /* CLabel.swift in Sources */,
@@ -2359,6 +2429,7 @@
 				4F0D650C23442FD400AA819C /* ProfileViewController.swift in Sources */,
 				4F0D650D23442FD400AA819C /* LoggingUtil.swift in Sources */,
 				4F0D651123442FD400AA819C /* StateCoordinator.swift in Sources */,
+				4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				4F0D651423442FD400AA819C /* MoneySoftManager.swift in Sources */,
 				4F0D651523442FD400AA819C /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F0D651623442FD400AA819C /* CSwitchWithLabel.swift in Sources */,
@@ -2393,8 +2464,9 @@
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
-				4FD7C1F92329E16300AC7A67 /* PasscodeViewController.swift in Sources */,
+				4FD7C1F92329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */,
 				4F0D710923447ABE00AA819C /* GetSpendingOverviewResponse.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
@@ -2419,7 +2491,7 @@
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
 				96A9F6D22327D1E800A05E25 /* NSAttributedString.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
-				4FD7C1F72329E16300AC7A67 /* PasscodeViewModel.swift in Sources */,
+				4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */,
 				4F0B06652330452000986E35 /* AppData.swift in Sources */,
 				4F0D70D523447ABE00AA819C /* LocationsAPI.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
@@ -2427,6 +2499,7 @@
 				4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
 				4F0D713723447ABE00AA819C /* Configuration.swift in Sources */,
+				4F0D71702346B9D900AA819C /* AccountViewController.swift in Sources */,
 				964F7BE023332A9800338227 /* StringUtil.swift in Sources */,
 				4F0D712B23447ABE00AA819C /* UserBudgetUpdate.swift in Sources */,
 				4FD7C203232A190600AC7A67 /* OnfidoManager.swift in Sources */,
@@ -2464,6 +2537,7 @@
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
+				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F0D70C923447ABE00AA819C /* APIHelper.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
@@ -2490,6 +2564,7 @@
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
 				4F0D710F23447ABE00AA819C /* MonthAmountStatResponse.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
+				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
@@ -2541,6 +2616,7 @@
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
 				4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
+				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F2E4AC22334A5BB001F1BA2 /* CSwitchWithLabel.swift in Sources */,

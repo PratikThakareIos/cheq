@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
-        self.setupInitialViewController()
-        
+//        self.setupInitialViewController()
+        self.setupInitDevController()
 //        self.setupLogController()
         
         return true
@@ -88,9 +88,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         self.setupServicesForDev()
         
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
-        vc.viewModel.coordinator = AgeRangeCoordinator()
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.emailVerify.rawValue) as! EmailVerificationViewController
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
@@ -223,13 +222,13 @@ extension AppDelegate {
     }
     
     func setupServicesForDev() {
-        guard let application = AppData.shared.application else { return }
+        guard let _ = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
-        let _ = VDotManager.shared
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//        let _ = VDotManager.shared
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }
 

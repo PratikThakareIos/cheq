@@ -14,7 +14,7 @@ enum CKey: String {
     case msgRegToken = "msgRegToken"
     case bluedotAPIKey = "bluedotAPIKey"
     case onfidoSdkToken = "onfidoSdkToken"
-    case loggedInEmail = "userEmail"
+    
 
     // auth token
     case authToken = "authToken"
@@ -22,8 +22,7 @@ enum CKey: String {
     case fbToken = "fbToken"
     
     // auth user details
-    case email
-    case passwd
+    case loggedInEmail = "userEmail"
 
     // customer details
     case firstName
