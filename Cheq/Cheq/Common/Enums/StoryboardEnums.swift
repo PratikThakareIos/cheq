@@ -43,4 +43,5 @@ enum CommonStoryboardId: String {
     case web = "WebViewController"
     case kyc = "KYCViewController"
     case account = "AccountViewController"
+    case passcode = "PasscodeViewController"
 }

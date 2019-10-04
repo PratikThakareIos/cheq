@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.setupServicesForDev()
         
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.emailVerify.rawValue) as! EmailVerificationViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

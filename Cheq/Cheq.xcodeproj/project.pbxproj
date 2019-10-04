@@ -292,6 +292,12 @@
 		4F0D71712346B9D900AA819C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716F2346B9D900AA819C /* AccountViewController.swift */; };
 		4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71722346CD4900AA819C /* VerificationViewModel.swift */; };
 		4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71722346CD4900AA819C /* VerificationViewModel.swift */; };
+		4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71782346F6E300AA819C /* PasscodeViewController.swift */; };
+		4F0D717A2346F6E300AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71782346F6E300AA819C /* PasscodeViewController.swift */; };
+		4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */; };
+		4F0D717D2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */; };
+		4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */; };
+		4F0D71802347002A00AA819C /* CPasscodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -554,6 +560,9 @@
 		4F0D716C2346B9B600AA819C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		4F0D716F2346B9D900AA819C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4F0D71722346CD4900AA819C /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		4F0D71782346F6E300AA819C /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
+		4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPasscodeTextField.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -1039,6 +1048,23 @@
 			path = protocol;
 			sourceTree = "<group>";
 		};
+		4F0D71762346F6BD00AA819C /* Passcode */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D71772346F6CA00AA819C /* ViewModel */,
+				4F0D71782346F6E300AA819C /* PasscodeViewController.swift */,
+			);
+			path = Passcode;
+			sourceTree = "<group>";
+		};
+		4F0D71772346F6CA00AA819C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1195,6 +1221,7 @@
 			children = (
 				4F57BB0A2326005200B95C06 /* CTextField.swift */,
 				4FAE3655232F79CC0035E57E /* CSearchTextField.swift */,
+				4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */,
 			);
 			path = TextFeld;
 			sourceTree = "<group>";
@@ -1523,6 +1550,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F0D71762346F6BD00AA819C /* Passcode */,
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4F0D716A2346B99D00AA819C /* Account */,
 				4F0D715F2346B49600AA819C /* Lending */,
@@ -2347,11 +2375,13 @@
 				4F0D710023447ABE00AA819C /* PutUserOnfidoKycRequest.swift in Sources */,
 				4F0D64C923442FD400AA819C /* AgeRangeCoordinator.swift in Sources */,
 				4F0D64CA23442FD400AA819C /* NotificationEnums.swift in Sources */,
+				4F0D717D2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
 				4F0D64CB23442FD400AA819C /* CommonEnums.swift in Sources */,
 				4F0D64CC23442FD400AA819C /* SplashViewController.swift in Sources */,
 				4F0D64CD23442FD400AA819C /* CPickerView.swift in Sources */,
 				4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				4F0D64D123442FD400AA819C /* PrimaryTheme.swift in Sources */,
+				4F0D71802347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F0D70CA23447ABE00AA819C /* APIHelper.swift in Sources */,
 				4F0D64D223442FD400AA819C /* MultipleChoiceViewController.swift in Sources */,
 				4F0D64D323442FD400AA819C /* MoneySoftUtil.swift in Sources */,
@@ -2377,6 +2407,7 @@
 				4F0D64E023442FD400AA819C /* Array_Extension.swift in Sources */,
 				4F0D711023447ABE00AA819C /* MonthAmountStatResponse.swift in Sources */,
 				4F0D64E123442FD400AA819C /* WebViewModel.swift in Sources */,
+				4F0D717A2346F6E300AA819C /* PasscodeViewController.swift in Sources */,
 				4F0D71662346B53800AA819C /* LendingViewModel.swift in Sources */,
 				4F0D64E223442FD400AA819C /* AuthUser.swift in Sources */,
 				4F0D64E423442FD400AA819C /* VDotManager.swift in Sources */,
@@ -2534,11 +2565,13 @@
 				4F0D70FF23447ABE00AA819C /* PutUserOnfidoKycRequest.swift in Sources */,
 				4F2E4B9B233AFC67001F1BA2 /* AgeRangeCoordinator.swift in Sources */,
 				4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */,
+				4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
+				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F0D70C923447ABE00AA819C /* APIHelper.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,
@@ -2564,6 +2597,7 @@
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
 				4F0D710F23447ABE00AA819C /* MonthAmountStatResponse.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
+				4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,

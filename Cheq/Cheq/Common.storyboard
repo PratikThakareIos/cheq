@@ -9,6 +9,115 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Passcode View Controller-->
+        <scene sceneID="mWk-z3-cGo">
+            <objects>
+                <viewController storyboardIdentifier="PasscodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EpN-ah-kWh" customClass="PasscodeViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ziy-hQ-vIn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9t-3E-URe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jGD-hY-IEk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X9-cj-BXz">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="344"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="na3-Ja-sRr">
+                                                <rect key="frame" x="0.0" y="364" width="414" height="24"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a passcode to secure your account" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyd-k2-zKj" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="408" width="414" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="0dZ-dJ-uGr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FWU-ot-Kzc">
+                                                <rect key="frame" x="0.0" y="448.5" width="414" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-vZ-uQs">
+                                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CTextField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaY-im-acR" customClass="CPasscodeTextField" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="70.5" y="0.0" width="61" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CTextField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoP-t7-ZW0" customClass="CPasscodeTextField" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="141.5" y="0.0" width="60.5" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CTextField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lvz-EW-Pfu" customClass="CPasscodeTextField" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="212" y="0.0" width="60.5" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CTextField" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hSa-4U-xyL" customClass="CPasscodeTextField" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="282.5" y="0.0" width="61" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-Mp-IEG">
+                                                        <rect key="frame" x="353.5" y="0.0" width="60.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6J-FN-NLm">
+                                                <rect key="frame" x="0.0" y="518.5" width="414" height="344"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Y6J-FN-NLm" firstAttribute="height" secondItem="5X9-cj-BXz" secondAttribute="height" id="4s9-dM-0Rc"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jGD-hY-IEk" secondAttribute="bottom" id="BpA-bL-kYd"/>
+                                    <constraint firstItem="jGD-hY-IEk" firstAttribute="leading" secondItem="M9t-3E-URe" secondAttribute="leading" id="OSj-Qf-ziP"/>
+                                    <constraint firstAttribute="trailing" secondItem="jGD-hY-IEk" secondAttribute="trailing" id="PGJ-Tv-6VY"/>
+                                    <constraint firstItem="jGD-hY-IEk" firstAttribute="top" secondItem="M9t-3E-URe" secondAttribute="top" id="eih-Kf-jxg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M9t-3E-URe" secondAttribute="bottom" id="2iD-FA-AVo"/>
+                            <constraint firstItem="jGD-hY-IEk" firstAttribute="height" secondItem="jyT-uE-6bA" secondAttribute="height" priority="250" placeholder="YES" id="3iD-2s-uYk"/>
+                            <constraint firstItem="M9t-3E-URe" firstAttribute="top" secondItem="Ziy-hQ-vIn" secondAttribute="top" id="6z4-4d-4FZ"/>
+                            <constraint firstItem="jGD-hY-IEk" firstAttribute="width" secondItem="jyT-uE-6bA" secondAttribute="width" id="qQL-fk-eeC"/>
+                            <constraint firstAttribute="trailing" secondItem="M9t-3E-URe" secondAttribute="trailing" id="tME-IN-z25"/>
+                            <constraint firstItem="M9t-3E-URe" firstAttribute="leading" secondItem="Ziy-hQ-vIn" secondAttribute="leading" id="tUt-RI-W0W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jyT-uE-6bA"/>
+                    </view>
+                    <connections>
+                        <outlet property="digit1" destination="JaY-im-acR" id="HBn-kY-wgQ"/>
+                        <outlet property="digit2" destination="aoP-t7-ZW0" id="c4B-CE-S8z"/>
+                        <outlet property="digit3" destination="Lvz-EW-Pfu" id="IbB-oE-o0z"/>
+                        <outlet property="digit4" destination="hSa-4U-xyL" id="bem-HI-XRy"/>
+                        <outlet property="instructionLabel" destination="gyd-k2-zKj" id="K3k-rZ-0vE"/>
+                        <outlet property="scrollView" destination="M9t-3E-URe" id="7oG-Al-Y0p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d5a-VX-SMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-288" y="70"/>
+        </scene>
         <!--Email Verification View Controller-->
         <scene sceneID="J61-eP-XcU">
             <objects>
@@ -118,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vV-1j-y9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="70"/>
+            <point key="canvasLocation" x="594" y="70"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="jYG-bY-1hJ">
@@ -168,10 +277,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQ7-M4-mM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2157" y="77"/>
+            <point key="canvasLocation" x="2180" y="70"/>
         </scene>
     </scenes>
     <resources>
         <image name="email" width="74" height="77"/>
+        <image name="lock" width="24" height="24"/>
     </resources>
 </document>
