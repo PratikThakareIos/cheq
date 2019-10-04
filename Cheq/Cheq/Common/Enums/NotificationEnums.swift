@@ -13,6 +13,7 @@ enum NotificationEvent: String {
     case fcmToken = "fcm"
     case dismissKeyboard = "dismissKeyboard"
     case logout = "logout"
+    case deleteBackward = "delete"
 }
 
 enum NotificationUserInfoKey: String {

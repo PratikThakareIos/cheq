@@ -34,5 +34,10 @@ class CPasscodeTextField: UITextField {
             return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultTextFieldHeight)
         }
     }
+    
+    override func deleteBackward() {
+        super.deleteBackward()
+        NotificationUtil.shared.notify(NotificationEvent.deleteBackward.rawValue, key: "", value: "")
+    }
 
 }

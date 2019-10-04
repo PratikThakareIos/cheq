@@ -24,6 +24,10 @@ enum CKey: String {
     // auth user details
     case loggedInEmail = "userEmail"
 
+    // screen lock passcode
+    case passcodeLock = "passcodeLock"
+    case numOfFailedAttempts = "numOfFailedAttempts"
+    
     // customer details
     case firstName
     case middleName

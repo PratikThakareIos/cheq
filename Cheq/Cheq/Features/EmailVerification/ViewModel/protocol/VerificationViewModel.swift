@@ -12,6 +12,8 @@ enum VerificationValidationError: Error {
     case emptyInput
     case invalidLength
     case nonNumeric
+    case incorrect
+    case lockedOut
 }
 
 extension VerificationValidationError: LocalizedError {
@@ -23,6 +25,10 @@ extension VerificationValidationError: LocalizedError {
             return NSLocalizedString("invalid length", comment: "")
         case .nonNumeric:
             return NSLocalizedString("only numeric value is allowed", comment: "")
+        case .incorrect:
+            return NSLocalizedString("incorrect passcode", comment: "")
+        case .lockedOut:
+            return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
         }
     }
 }
