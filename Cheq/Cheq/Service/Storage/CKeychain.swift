@@ -26,6 +26,7 @@ enum CKey: String {
 
     // screen lock passcode
     case passcodeLock = "passcodeLock"
+    case confirmPasscodeLock = "confirmPasscodeLock"
     case numOfFailedAttempts = "numOfFailedAttempts"
     
     // customer details

@@ -82,9 +82,9 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
-    func pushToViewController(_ viewController: UIViewController) {
-        guard let nav =  viewController.navigationController else { return }
-        nav.pushViewController(viewController, animated: true)
+    func pushToViewController(_ newVc: UIViewController, from: UIViewController) {
+        guard let nav =  from.navigationController else { return }
+        nav.pushViewController(newVc, animated: true)
     }
     
     func pushToAppSetting() {
@@ -109,11 +109,15 @@ extension AppNav {
         return vc
     }
     
-    func initViewController(_ storyboardName: String, storyboardId: String)-> UIViewController {
+    func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        let nav = UINavigationController(rootViewController: vc)
-        return nav
+        if embedInNav {
+            let nav = UINavigationController(rootViewController: vc)
+            return nav
+        } else {
+            return vc
+        }
     }
     
     func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
@@ -155,6 +159,12 @@ extension AppNav {
 
 // MARK: smart dimiss
 extension AppNav {
+    
+    func dismissModal(_ viewController: UIViewController) {
+        guard let presentVc = viewController.presentingViewController else { return }
+        presentVc.dismiss(animated: true, completion: nil)
+    }
+    
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
             nav.popViewController(animated: true)

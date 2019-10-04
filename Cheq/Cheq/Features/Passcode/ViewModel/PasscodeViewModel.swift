@@ -11,6 +11,7 @@ import UIKit
 enum PasscodeValidationType: String {
     case setup = "Passcode Setup"
     case validate = "Passcode Validate"
+    case confirm = "Passcode Confirm"
 }
 
 class PasscodeViewModel: BaseViewModel {
@@ -28,7 +29,18 @@ class PasscodeViewModel: BaseViewModel {
         if !StringUtil.shared.isNumericOnly(passcode) { return VerificationValidationError.nonNumeric }
         if passcode.count != passcodeLength { return VerificationValidationError.invalidLength }
         
-        let storedPasscode = CKeychain.getValueByKey(CKey.passcodeLock.rawValue)
+        switch type {
+        case .confirm:
+            return self.confirmValidation()
+        case .setup:
+            return self.setupValidation()
+        case .validate:
+            return self.validation()
+        }
+    }
+    
+    func validation()->VerificationValidationError? {
+        let storedPasscode = CKeychain.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         if passcode != storedPasscode {
             
             // if we have incorrect entry, we increment failed attempts
@@ -36,9 +48,24 @@ class PasscodeViewModel: BaseViewModel {
             failed = failed + 1
             let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(failed))
             return VerificationValidationError.incorrect
+        } else {
+            return nil
         }
-        
-        // return nil to indicate no error
+    }
+    
+    func setupValidation()->VerificationValidationError? {
+        let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
+        let _ = CKeychain.setValue(CKey.passcodeLock.rawValue, value: passcode)
         return nil
+    }
+    
+    func confirmValidation()->VerificationValidationError? {
+        let storedPasscode = CKeychain.getValueByKey(CKey.passcodeLock.rawValue)
+        if passcode != storedPasscode {
+            return VerificationValidationError.incorrect
+        } else {
+            let _ = CKeychain.setValue(CKey.confirmPasscodeLock.rawValue, value: passcode)
+            return nil
+        }
     }
 }

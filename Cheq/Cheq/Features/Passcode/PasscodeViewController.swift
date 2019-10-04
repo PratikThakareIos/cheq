@@ -33,6 +33,10 @@ class PasscodeViewController: UIViewController {
         self.digit2.isEnabled = false
         self.digit3.isEnabled = false
         self.digit4.isEnabled = false
+        self.digit1.text = ""
+        self.digit2.text = ""
+        self.digit3.text = ""
+        self.digit4.text = ""
         self.digit1.becomeFirstResponder()
     }
     
@@ -53,6 +57,7 @@ class PasscodeViewController: UIViewController {
 
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        self.title = self.viewModel.type.rawValue
         self.instructionLabel.font = AppConfig.shared.activeTheme.headerFont
         
         // keep a list so we can shift as user types the focus
@@ -153,6 +158,22 @@ extension PasscodeViewController: UITextFieldDelegate {
                     }
                 } else {
                     showError(error) { }
+                }
+            }
+            
+            // navigate depending on scenario
+            switch viewModel.type {
+            case .validate:
+                AppNav.shared.dismiss(self)
+            case .setup:
+                guard let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as? PasscodeViewController else { return }
+                vc.viewModel.type = .confirm
+                AppNav.shared.pushToViewController(vc, from: self)
+            case .confirm:
+                let _ = CKeychain.setValue(CKey.passcodeLock.rawValue, value: viewModel.passcode)
+                let _ = CKeychain.setValue(CKey.confirmPasscodeLock.rawValue, value: viewModel.passcode)
+                self.showMessage("Passcode successfully updated!") {
+                    AppNav.shared.dismiss(self)
                 }
             }
         }

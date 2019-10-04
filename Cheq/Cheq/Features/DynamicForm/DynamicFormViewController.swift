@@ -112,7 +112,7 @@ class DynamicFormViewController: UIViewController {
         AppConfig.shared.showSpinner()
         viewModel.coordinator.submitForm().done { success in
             AppConfig.shared.hideSpinner {
-                AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController())
+                AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController(), from: self)
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {

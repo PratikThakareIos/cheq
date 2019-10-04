@@ -90,6 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .setup
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
@@ -107,14 +108,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
-        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue)
+        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, embedInNav: true)
     }
     
     func handleNotLoggedIn() {
         if !AppConfig.shared.isFirstInstall() {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, embedInNav: true)
         } else {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue, embedInNav: true)
         }
         self.window?.makeKeyAndVisible()
     }
