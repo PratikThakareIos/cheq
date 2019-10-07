@@ -14,6 +14,8 @@ enum NotificationEvent: String {
     case dismissKeyboard = "dismissKeyboard"
     case logout = "logout"
     case deleteBackward = "delete"
+    case appBecomeActive = "appBecomeActive"
+    case appBecomeIdle = "appBecomeIdle"
 }
 
 enum NotificationUserInfoKey: String {

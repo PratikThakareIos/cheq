@@ -31,6 +31,11 @@ class QuestionViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()

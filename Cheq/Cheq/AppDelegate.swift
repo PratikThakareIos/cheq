@@ -247,9 +247,12 @@ extension AppDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        LoggingUtil.shared.cPrint("applicationWillEnterForeground")
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        LoggingUtil.shared.cPrint("applicationDidBecomeActive")
+        NotificationUtil.shared.notify(NotificationEvent.appBecomeActive.rawValue, key: "", value: "")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

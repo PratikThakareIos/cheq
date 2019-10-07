@@ -63,6 +63,9 @@ class AppData {
     
     static let shared = AppData()
     private init() { loadOnfidoSDKToken() }
+    
+    // last active
+    var appLastActiveTimestamp = 100.years.earlier
 
     // instance of current application
     var application: UIApplication? 

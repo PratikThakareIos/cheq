@@ -25,6 +25,11 @@ class EmailVerificationViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+    }
+    
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         iconImage.image = viewModel.image

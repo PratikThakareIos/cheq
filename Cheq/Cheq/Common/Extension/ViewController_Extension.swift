@@ -84,6 +84,13 @@ extension UIViewController {
     }
 }
 
+// MARK: Setup Idle handling
+extension UIViewController {
+    func activeTimestamp() {
+        AppData.shared.appLastActiveTimestamp = Date()
+    }
+}
+
 // MARK: Keyboard handling
 extension UIViewController {
     @objc func scrollViewDidScroll(_ scrollView: UIScrollView) {

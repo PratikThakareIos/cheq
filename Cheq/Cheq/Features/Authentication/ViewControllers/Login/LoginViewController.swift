@@ -24,6 +24,11 @@ class LoginViewController: RegistrationViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+    }
+    
     override func setupDelegate() {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self

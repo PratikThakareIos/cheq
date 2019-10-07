@@ -19,10 +19,16 @@ class DynamicFormViewController: UIViewController {
     
     var viewModel = DynamicFormViewModel()
     var form:[DynamicFormInput] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
     }
     
     func setupUI() {

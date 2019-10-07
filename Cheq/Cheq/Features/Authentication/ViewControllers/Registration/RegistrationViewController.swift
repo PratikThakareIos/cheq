@@ -34,6 +34,11 @@ class RegistrationViewController: UIViewController {
         setupDelegate()
         setupUI()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+    }
 
     func setupDelegate() {
         self.emailTextField.delegate = self

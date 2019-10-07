@@ -11,8 +11,47 @@ import Onfido
 import MobileSDK
 
 class AppNav {
+    let minsToShowPasscode = 5
+    let appLastActiveTimestampCheckInterval = 30
+    var timer: Timer?
     static let shared = AppNav()
-    private init() { }
+    private init() {
+        // Event for programmatically for app becoming active
+        // Check if we need to show the passcode screen if passcode is setup
+        NotificationCenter.default.addObserver(self, selector: #selector(showPasscodeIfNeeded(notification:)), name: NSNotification.Name(NotificationEvent.appBecomeActive.rawValue), object: nil)
+        
+        // Timer to check app has been idle
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(appLastActiveTimestampCheckInterval), target: self, selector: #selector(showPasscodeIfNeeded(notification:)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func showPasscodeIfNeeded(notification: NSNotification) {
+        if passcodeExist(), isTimeToShowPasscode() {
+            presentPasscodeViewController()
+        }
+    }
+    
+    func isTimeToShowPasscode()->Bool {
+        let now = Date()
+        let minsEarlier = AppData.shared.appLastActiveTimestamp.minutesEarlier(than: now)
+        if minsEarlier >= minsToShowPasscode {
+            AppData.shared.appLastActiveTimestamp = now
+            return true
+        }
+        return false
+    }
+    
+    func passcodeExist()-> Bool {
+        let passcode = CKeychain.getValueByKey(CKey.confirmPasscodeLock.rawValue)
+        return !passcode.isEmpty
+    }
+    
+    func presentPasscodeViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .validate
+        let currentRootVc = UIApplication.shared.keyWindow!.rootViewController as! UIViewController
+        currentRootVc.present(vc, animated: true, completion: nil)
+    }
     
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }

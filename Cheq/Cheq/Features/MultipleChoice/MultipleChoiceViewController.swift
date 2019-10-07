@@ -24,6 +24,11 @@ class MultipleChoiceViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+    }
+    
     func setupDelegate() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
