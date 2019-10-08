@@ -95,8 +95,30 @@ class RegistrationViewController: UIViewController {
             }
         }
     }
+    
+    func validateInputs()-> ValidationError? {
+        let email = self.emailTextField.text ?? ""
+        if StringUtil.shared.isValidEmail(email) == false {
+            return ValidationError.invalidEmailFormat
+        }
+        
+        let password = self.passwordTextField.text ?? ""
+        if StringUtil.shared.isValidPassword(password) == false {
+            return ValidationError.invalidPasswordFormat
+        }
+        
+        return nil
+    }
 
     @IBAction func register(_ sender: Any) {
+        
+        self.view.endEditing(true)
+        
+        if let error = self.validateInputs() {
+            showError(error) { }
+            return
+        }
+        
         AppConfig.shared.showSpinner()
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
         .then { authUser in

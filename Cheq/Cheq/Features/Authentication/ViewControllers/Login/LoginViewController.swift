@@ -56,6 +56,11 @@ class LoginViewController: RegistrationViewController {
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
+        if let error = self.validateInputs() {
+            showError(error) { }
+            return
+        }
+        
         AppConfig.shared.showSpinner()
         
         viewModel.login(emailTextField.text ?? "", password: passwordTextField.text ?? "").done { authUser in

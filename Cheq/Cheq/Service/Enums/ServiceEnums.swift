@@ -21,6 +21,8 @@ enum ValidationError: Error {
     case allFieldsMustBeFilled
     case invalidMobileFormat
     case invalidInputFormat
+    case invalidEmailFormat
+    case invalidPasswordFormat
     case onlyAlphabetCharactersIsAllowed
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
@@ -105,6 +107,10 @@ extension ValidationError: LocalizedError {
             return  NSLocalizedString("Invalid input format", comment: "")
         case .invalidMobileFormat:
             return NSLocalizedString("Invalid mobile format", comment: "")
+        case .invalidEmailFormat:
+            return NSLocalizedString("Invalid email format", comment: "")
+        case .invalidPasswordFormat:
+            return NSLocalizedString("Invalid password format", comment: "")
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
         case .onlyAlphabetCharactersIsAllowed:

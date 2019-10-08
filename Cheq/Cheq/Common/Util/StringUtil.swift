@@ -23,7 +23,19 @@ class StringUtil {
     }
     
     func isAlphaOnly(_ string: String)-> Bool {
-        var alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ ")
+        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ ")
         return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
+    }
+    
+    func isValidEmail(_ string: String)-> Bool {
+        // here, `try!` will always succeed because the pattern is valid
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+    }
+    
+    // Password must be more than 6 characters, with at least one capital, numeric or special character
+    func isValidPassword(_ string: String)-> Bool {
+        let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[!#$%&? \"]).*$"
+        return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: string)
     }
 }
