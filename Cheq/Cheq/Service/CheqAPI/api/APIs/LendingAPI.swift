@@ -13,6 +13,54 @@ import Alamofire
 open class LendingAPI {
     /**
 
+     - parameter amount: (path)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getBorrowPreview(amount: Double, completion: @escaping ((_ data: GetLoanPreviewResponse?,_ error: Error?) -> Void)) {
+        getBorrowPreviewWithRequestBuilder(amount: amount).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Lending/borrow/preview/{amount}
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "directDebitAgreement" : "directDebitAgreement",
+  "amount" : 0.8008281904610115,
+  "loanAgreement" : "loanAgreement",
+  "repaymentDate" : "repaymentDate",
+  "fee" : 6.027456183070403,
+  "bankName" : "bankName",
+  "financialAccountId" : 1,
+  "maskedAccountNumber" : "maskedAccountNumber",
+  "firstTimeBorrow" : true
+}}]
+     
+     - parameter amount: (path)  
+
+     - returns: RequestBuilder<GetLoanPreviewResponse> 
+     */
+    open class func getBorrowPreviewWithRequestBuilder(amount: Double) -> RequestBuilder<GetLoanPreviewResponse> {
+        var path = "/v1/Lending/borrow/preview/{amount}"
+        let amountPreEscape = "\(amount)"
+        let amountPostEscape = amountPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{amount}", with: amountPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetLoanPreviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getLending(completion: @escaping ((_ data: GetLendingOverviewResponse?,_ error: Error?) -> Void)) {
@@ -28,30 +76,32 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "wagerEarned" : 5.962133916683182,
-  "lendingRequirement" : {
-    "directDebitAgreement" : "directDebitAgreement",
-    "bankAcccountBsb" : "bankAcccountBsb",
-    "loanAgreement" : "loanAgreement",
-    "hasVerifiedKyc" : true,
-    "bankAcccountNumber" : "bankAcccountNumber",
-    "hasConfirmedEmail" : true
-  },
-  "totalWithdrawal" : 1.4658129805029452,
-  "lendingAmountAvailable" : 0.8008281904610115,
-  "loanHistories" : [ {
+  "withdrawableAmount" : 0.8008281904610115,
+  "loanTranscations" : [ {
     "date" : "2000-01-23T04:56:07.000+00:00",
-    "amount" : 5.637376656633329,
-    "fee" : 2.3021358869347655,
-    "description" : "description"
+    "amount" : 1.4658129805029452,
+    "loanAgreementUrl" : "loanAgreementUrl",
+    "directDebitAgreementUrl" : "directDebitAgreementUrl",
+    "fee" : 5.962133916683182
   }, {
     "date" : "2000-01-23T04:56:07.000+00:00",
-    "amount" : 5.637376656633329,
-    "fee" : 2.3021358869347655,
-    "description" : "description"
+    "amount" : 1.4658129805029452,
+    "loanAgreementUrl" : "loanAgreementUrl",
+    "directDebitAgreementUrl" : "directDebitAgreementUrl",
+    "fee" : 5.962133916683182
   } ],
-  "lendingAmountLimit" : 6.027456183070403,
-  "nextPayDate" : "nextPayDate"
+  "eligibility" : {
+    "kycStatus" : "NotStarted",
+    "displayLockScreen" : true,
+    "failureDetail" : {
+      "failureReasonDescription" : "failureReasonDescription",
+      "failureReason" : "CreditAssessment"
+    },
+    "hasEmploymentDetail" : true,
+    "directDebitTryAgainDays" : 6,
+    "hasDirectDebitDetail" : true,
+    "hasNameConflict" : true
+  }
 }}]
 
      - returns: RequestBuilder<GetLendingOverviewResponse> 
@@ -86,14 +136,16 @@ open class LendingAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
   "date" : "2000-01-23T04:56:07.000+00:00",
-  "amount" : 5.637376656633329,
-  "fee" : 2.3021358869347655,
-  "description" : "description"
+  "amount" : 1.4658129805029452,
+  "loanAgreementUrl" : "loanAgreementUrl",
+  "directDebitAgreementUrl" : "directDebitAgreementUrl",
+  "fee" : 5.962133916683182
 }, {
   "date" : "2000-01-23T04:56:07.000+00:00",
-  "amount" : 5.637376656633329,
-  "fee" : 2.3021358869347655,
-  "description" : "description"
+  "amount" : 1.4658129805029452,
+  "loanAgreementUrl" : "loanAgreementUrl",
+  "directDebitAgreementUrl" : "directDebitAgreementUrl",
+  "fee" : 5.962133916683182
 } ]}]
 
      - returns: RequestBuilder<[LoanTransaction]> 
@@ -112,59 +164,15 @@ open class LendingAPI {
 
     /**
 
-     - parameter fileName: (path)  
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getTimesheets(fileName: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        getTimesheetsWithRequestBuilder(fileName: fileName).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - GET /v1/Lending/timesheets/{fileName}
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter fileName: (path)  
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func getTimesheetsWithRequestBuilder(fileName: String) -> RequestBuilder<Void> {
-        var path = "/v1/Lending/timesheets/{fileName}"
-        let fileNamePreEscape = "\(fileName)"
-        let fileNamePostEscape = fileNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{fileName}", with: fileNamePostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter toFinancialAccountId: (query)  (optional)
      - parameter amount: (query)  (optional)
      - parameter fee: (query)  (optional)
+     - parameter toFinancialAccountId: (query)  (optional)
      - parameter repaymentDate: (query)  (optional)
-     - parameter agreedLoanTermsAndConditions: (query)  (optional)
-     - parameter loanAgreement: (query)  (optional)
-     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
-     - parameter directDebitAgreement: (query)  (optional)
+     - parameter agreeLoanAgreement: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postBorrow(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postBorrowWithRequestBuilder(toFinancialAccountId: toFinancialAccountId, amount: amount, fee: fee, repaymentDate: repaymentDate, agreedLoanTermsAndConditions: agreedLoanTermsAndConditions, loanAgreement: loanAgreement, agreedDirectDebitTermsAndConditions: agreedDirectDebitTermsAndConditions, directDebitAgreement: directDebitAgreement).execute { (response, error) -> Void in
+    open class func postBorrow(amount: Int? = nil, fee: Int? = nil, toFinancialAccountId: Int? = nil, repaymentDate: Date? = nil, agreeLoanAgreement: Bool? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postBorrowWithRequestBuilder(amount: amount, fee: fee, toFinancialAccountId: toFinancialAccountId, repaymentDate: repaymentDate, agreeLoanAgreement: agreeLoanAgreement).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -180,32 +188,26 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      
-     - parameter toFinancialAccountId: (query)  (optional)
      - parameter amount: (query)  (optional)
      - parameter fee: (query)  (optional)
+     - parameter toFinancialAccountId: (query)  (optional)
      - parameter repaymentDate: (query)  (optional)
-     - parameter agreedLoanTermsAndConditions: (query)  (optional)
-     - parameter loanAgreement: (query)  (optional)
-     - parameter agreedDirectDebitTermsAndConditions: (query)  (optional)
-     - parameter directDebitAgreement: (query)  (optional)
+     - parameter agreeLoanAgreement: (query)  (optional)
 
      - returns: RequestBuilder<Void> 
      */
-    open class func postBorrowWithRequestBuilder(toFinancialAccountId: Int? = nil, amount: Double? = nil, fee: Double? = nil, repaymentDate: Date? = nil, agreedLoanTermsAndConditions: Bool? = nil, loanAgreement: String? = nil, agreedDirectDebitTermsAndConditions: Bool? = nil, directDebitAgreement: String? = nil) -> RequestBuilder<Void> {
+    open class func postBorrowWithRequestBuilder(amount: Int? = nil, fee: Int? = nil, toFinancialAccountId: Int? = nil, repaymentDate: Date? = nil, agreeLoanAgreement: Bool? = nil) -> RequestBuilder<Void> {
         let path = "/v1/Lending/borrow"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "Amount": amount?.encodeToJSON(), 
+            "Fee": fee?.encodeToJSON(), 
             "ToFinancialAccountId": toFinancialAccountId?.encodeToJSON(), 
-            "Amount": amount, 
-            "Fee": fee, 
             "RepaymentDate": repaymentDate?.encodeToJSON(), 
-            "AgreedLoanTermsAndConditions": agreedLoanTermsAndConditions, 
-            "LoanAgreement": loanAgreement, 
-            "AgreedDirectDebitTermsAndConditions": agreedDirectDebitTermsAndConditions, 
-            "DirectDebitAgreement": directDebitAgreement
+            "AgreeLoanAgreement": agreeLoanAgreement
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -253,58 +255,13 @@ open class LendingAPI {
 
     /**
 
-     - parameter dateOfWork: (form)  (optional)
-     - parameter uploadedFile: (form)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postTimesheets(dateOfWork: Date? = nil, uploadedFile: URL? = nil, completion: @escaping ((_ data: UploadTimesheetResponse?,_ error: Error?) -> Void)) {
-        postTimesheetsWithRequestBuilder(dateOfWork: dateOfWork, uploadedFile: uploadedFile).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-
-    /**
-     - POST /v1/Lending/timesheets/upload
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example={
-  "fileName" : "fileName"
-}}]
-     
-     - parameter dateOfWork: (form)  (optional)
-     - parameter uploadedFile: (form)  (optional)
-
-     - returns: RequestBuilder<UploadTimesheetResponse> 
-     */
-    open class func postTimesheetsWithRequestBuilder(dateOfWork: Date? = nil, uploadedFile: URL? = nil) -> RequestBuilder<UploadTimesheetResponse> {
-        let path = "/v1/Lending/timesheets/upload"
-        let URLString = SwaggerClientAPI.basePath + path
-        let formParams: [String:Any?] = [
-            "DateOfWork": dateOfWork?.encodeToJSON(),
-            "UploadedFile": uploadedFile
-        ]
-
-        let nonNullParameters = APIHelper.rejectNil(formParams)
-        let parameters = APIHelper.convertBoolToString(nonNullParameters)
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<UploadTimesheetResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter accountName: (query)  
      - parameter bsb: (query)  
      - parameter accountNumber: (query)  
+     - parameter isJointAccount: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postValidateAccount(accountName: String, bsb: String, accountNumber: String, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postValidateAccountWithRequestBuilder(accountName: accountName, bsb: bsb, accountNumber: accountNumber).execute { (response, error) -> Void in
+    open class func putBankAccount(bsb: String, accountNumber: String, isJointAccount: Bool? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putBankAccountWithRequestBuilder(bsb: bsb, accountNumber: accountNumber, isJointAccount: isJointAccount).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -315,32 +272,67 @@ open class LendingAPI {
 
 
     /**
-     - POST /v1/Lending/accounts/validate
+     - PUT /v1/Lending/bankaccount
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
      
-     - parameter accountName: (query)  
      - parameter bsb: (query)  
      - parameter accountNumber: (query)  
+     - parameter isJointAccount: (query)  (optional)
 
      - returns: RequestBuilder<Void> 
      */
-    open class func postValidateAccountWithRequestBuilder(accountName: String, bsb: String, accountNumber: String) -> RequestBuilder<Void> {
-        let path = "/v1/Lending/accounts/validate"
+    open class func putBankAccountWithRequestBuilder(bsb: String, accountNumber: String, isJointAccount: Bool? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/bankaccount"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "AccountName": accountName, 
             "Bsb": bsb, 
-            "AccountNumber": accountNumber
+            "AccountNumber": accountNumber, 
+            "IsJointAccount": isJointAccount
         ])
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func resolveNameConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        resolveNameConflictWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Lending/nameconflict/resolve
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func resolveNameConflictWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Lending/nameconflict/resolve"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
 }

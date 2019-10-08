@@ -11,22 +11,14 @@ import Foundation
 
 public struct GetLendingOverviewResponse: Codable {
 
-    public var lendingAmountAvailable: Double?
-    public var lendingAmountLimit: Double?
-    public var totalWithdrawal: Double?
-    public var wagerEarned: Double?
-    public var nextPayDate: String?
-    public var lendingRequirement: UserLendingRequirement?
-    public var loanHistories: [LoanTransaction]?
+    public var withdrawableAmount: Double?
+    public var eligibility: Eligibility?
+    public var loanTranscations: [LoanTransaction]?
 
-    public init(lendingAmountAvailable: Double?, lendingAmountLimit: Double?, totalWithdrawal: Double?, wagerEarned: Double?, nextPayDate: String?, lendingRequirement: UserLendingRequirement?, loanHistories: [LoanTransaction]?) {
-        self.lendingAmountAvailable = lendingAmountAvailable
-        self.lendingAmountLimit = lendingAmountLimit
-        self.totalWithdrawal = totalWithdrawal
-        self.wagerEarned = wagerEarned
-        self.nextPayDate = nextPayDate
-        self.lendingRequirement = lendingRequirement
-        self.loanHistories = loanHistories
+    public init(withdrawableAmount: Double?, eligibility: Eligibility?, loanTranscations: [LoanTransaction]?) {
+        self.withdrawableAmount = withdrawableAmount
+        self.eligibility = eligibility
+        self.loanTranscations = loanTranscations
     }
 
 

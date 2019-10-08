@@ -49,6 +49,7 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
+        self.viewModel.code = self.codeTextField.text ?? ""
         if let err = self.viewModel.validate() {
             showError(err) {
                 self.codeTextField.text = ""

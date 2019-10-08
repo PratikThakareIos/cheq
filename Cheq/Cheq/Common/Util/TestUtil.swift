@@ -59,7 +59,7 @@ class TestUtil {
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
-        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), ageRange: testUtil.testAgeRange(), mobile: testUtil.testMobile(), maritalStatus: .single, numberOfDependents: String(0), state: testUtil.testState())
+        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), ageRange: testUtil.testAgeRange(), mobile: testUtil.testMobile(), state: testUtil.testPutUserState())
         return req
     }
     
@@ -133,7 +133,11 @@ class TestUtil {
         return "2000"
     }
     
-    func testState()->  PutUserDetailRequest.State {
+    func testState()->  PutUserOnfidoKycRequest.State {
+        return .nsw
+    }
+    
+    func testPutUserState()-> PutUserDetailRequest.State {
         return .nsw
     }
     

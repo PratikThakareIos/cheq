@@ -13,6 +13,44 @@ import Alamofire
 open class UsersAPI {
     /**
 
+     - parameter request: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func forgetPassword(request: PostForgetPasswordRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        forgetPasswordWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Users/password/forget
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter request: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func forgetPasswordWithRequestBuilder(request: PostForgetPasswordRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/password/forget"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getUser(completion: @escaping ((_ data: GetUserResponse?,_ error: Error?) -> Void)) {
@@ -33,10 +71,10 @@ open class UsersAPI {
     "msUsername" : "msUsername"
   },
   "userDetail" : {
+    "ageRange" : "ageRange",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "numberOfDependents" : "numberOfDependents",
-    "hasVerifiedKyc" : true,
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "2000-01-23T04:56:07.000+00:00",
@@ -53,6 +91,9 @@ open class UsersAPI {
     "state" : "state",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
+  },
+  "userFinancialAccountsLinking" : {
+    "hasLinkedAnyFinancialAccounts" : true
   }
 }}]
 
@@ -74,7 +115,7 @@ open class UsersAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getUserOnfidoKyc(completion: @escaping ((_ data: PutUserKycResponse?,_ error: Error?) -> Void)) {
+    open class func getUserOnfidoKyc(completion: @escaping ((_ data: GetUserKycResponse?,_ error: Error?) -> Void)) {
         getUserOnfidoKycWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -87,23 +128,21 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "hasKycCompleted" : true,
-  "hasKycFailed" : true,
-  "sentOnfidoKycExpressChecked" : true,
+  "kycStatus" : "NotStarted",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]
 
-     - returns: RequestBuilder<PutUserKycResponse> 
+     - returns: RequestBuilder<GetUserKycResponse> 
      */
-    open class func getUserOnfidoKycWithRequestBuilder() -> RequestBuilder<PutUserKycResponse> {
+    open class func getUserOnfidoKycWithRequestBuilder() -> RequestBuilder<GetUserKycResponse> {
         let path = "/v1/Users/kyc"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<PutUserKycResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetUserKycResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -150,8 +189,8 @@ open class UsersAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putKycCheckPhoto(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        putKycCheckPhotoWithRequestBuilder().execute { (response, error) -> Void in
+    open class func putKycCheckCheck(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putKycCheckCheckWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -169,7 +208,7 @@ open class UsersAPI {
 
      - returns: RequestBuilder<Void> 
      */
-    open class func putKycCheckPhotoWithRequestBuilder() -> RequestBuilder<Void> {
+    open class func putKycCheckCheckWithRequestBuilder() -> RequestBuilder<Void> {
         let path = "/v1/Users/kyc/check"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -204,10 +243,10 @@ open class UsersAPI {
     "msUsername" : "msUsername"
   },
   "userDetail" : {
+    "ageRange" : "ageRange",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "numberOfDependents" : "numberOfDependents",
-    "hasVerifiedKyc" : true,
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "2000-01-23T04:56:07.000+00:00",
@@ -224,6 +263,9 @@ open class UsersAPI {
     "state" : "state",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
+  },
+  "userFinancialAccountsLinking" : {
+    "hasLinkedAnyFinancialAccounts" : true
   }
 }}]
      
@@ -248,9 +290,13 @@ open class UsersAPI {
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putUserEmployer(request: PutUserEmployerRequest? = nil, completion: @escaping ((_ data: GetUserResponse?,_ error: Error?) -> Void)) {
+    open class func putUserEmployer(request: PutUserEmployerRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
         putUserEmployerWithRequestBuilder(request: request).execute { (response, error) -> Void in
-            completion(response?.body, error)
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
         }
     }
 
@@ -260,47 +306,19 @@ open class UsersAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
-     - examples: [{contentType=application/json, example={
-  "moneySoftCredential" : {
-    "msPassword" : "msPassword",
-    "msUsername" : "msUsername"
-  },
-  "userDetail" : {
-    "firstName" : "firstName",
-    "lastName" : "lastName",
-    "numberOfDependents" : "numberOfDependents",
-    "hasVerifiedKyc" : true,
-    "residentialAddress" : "residentialAddress",
-    "mobile" : "mobile",
-    "dateOfBirth" : "2000-01-23T04:56:07.000+00:00",
-    "state" : "state",
-    "maritalStatus" : "maritalStatus"
-  },
-  "employer" : {
-    "country" : "country",
-    "address" : "address",
-    "employmentType" : "employmentType",
-    "latitude" : 0.8008281904610115,
-    "employerName" : "employerName",
-    "postCode" : "postCode",
-    "state" : "state",
-    "noFixedAddress" : true,
-    "longitude" : 6.027456183070403
-  }
-}}]
      
      - parameter request: (body)  (optional)
 
-     - returns: RequestBuilder<GetUserResponse> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func putUserEmployerWithRequestBuilder(request: PutUserEmployerRequest? = nil) -> RequestBuilder<GetUserResponse> {
+    open class func putUserEmployerWithRequestBuilder(request: PutUserEmployerRequest? = nil) -> RequestBuilder<Void> {
         let path = "/v1/Users/employer"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -310,7 +328,7 @@ open class UsersAPI {
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putUserOnfidoKyc(request: PutUserOnfidoKycRequest? = nil, completion: @escaping ((_ data: PutUserKycResponse?,_ error: Error?) -> Void)) {
+    open class func putUserOnfidoKyc(request: PutUserOnfidoKycRequest? = nil, completion: @escaping ((_ data: GetUserKycResponse?,_ error: Error?) -> Void)) {
         putUserOnfidoKycWithRequestBuilder(request: request).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -323,25 +341,134 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "hasKycCompleted" : true,
-  "hasKycFailed" : true,
-  "sentOnfidoKycExpressChecked" : true,
+  "kycStatus" : "NotStarted",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]
      
      - parameter request: (body)  (optional)
 
-     - returns: RequestBuilder<PutUserKycResponse> 
+     - returns: RequestBuilder<GetUserKycResponse> 
      */
-    open class func putUserOnfidoKycWithRequestBuilder(request: PutUserOnfidoKycRequest? = nil) -> RequestBuilder<PutUserKycResponse> {
+    open class func putUserOnfidoKycWithRequestBuilder(request: PutUserOnfidoKycRequest? = nil) -> RequestBuilder<GetUserKycResponse> {
         let path = "/v1/Users/kyc"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<PutUserKycResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetUserKycResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func requestUserSignupVerificationCode(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        requestUserSignupVerificationCodeWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Users/signup/request
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func requestUserSignupVerificationCodeWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Users/signup/request"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter request: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func resetPassword(request: PutResetPasswordRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        resetPasswordWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Users/password/reset
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter request: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func resetPasswordWithRequestBuilder(request: PutResetPasswordRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/password/reset"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
+     - parameter request: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func verifyUserSingupCode(request: PutUserSingupVerificationCodeRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        verifyUserSingupCodeWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Users/signup/confirm
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter request: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func verifyUserSingupCodeWithRequestBuilder(request: PutUserSingupVerificationCodeRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/signup/confirm"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }

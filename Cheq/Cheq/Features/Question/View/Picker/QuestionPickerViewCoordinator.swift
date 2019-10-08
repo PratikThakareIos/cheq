@@ -9,9 +9,15 @@
 import UIKit
 import MobileSDK
 
+enum MaritalStatus: String {
+    case single = "Single"
+    case couple = "Couple"
+}
+
 class QuestionPickerViewCoordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    static let maritalStatus = [PutUserDetailRequest.MaritalStatus.single, PutUserDetailRequest.MaritalStatus.couple]
+//    static let maritalStatus = [PutUserDetailRequest.MaritalStatus.single, PutUserDetailRequest.MaritalStatus.couple]
+    static let maritalStatus:[MaritalStatus] = [.single, .couple]
     static let dependents = ["0", "1", "2", "3", "4", "5+"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

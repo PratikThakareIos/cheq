@@ -100,7 +100,7 @@ class QuestionViewModel: BaseViewModel {
 extension QuestionViewModel {
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), ageRange: self.ageRange(), mobile: self.fieldValue(.contactDetails), maritalStatus: self.maritalStatus(), numberOfDependents: self.numOfDependent(), state: self.residentialState())
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), ageRange: self.ageRange(), mobile: self.fieldValue(.contactDetails), state: self.putUserResidentialState())
         return putUserDetailsReq
     }
     
@@ -121,19 +121,25 @@ extension QuestionViewModel {
         return self.fieldValue(.dependents)
     }
 
-    func maritalStatus()-> PutUserDetailRequest.MaritalStatus {
+    func maritalStatus()-> MaritalStatus {
         let value = self.fieldValue(.maritalStatus)
-        if value == PutUserDetailRequest.MaritalStatus.single.rawValue {
+        if value == MaritalStatus.single.rawValue {
             return .single
         } else {
             return .couple
         }
     }
 
-    func residentialState()-> PutUserDetailRequest.State {
+    func residentialState()-> PutUserOnfidoKycRequest.State {
         let state = self.fieldValue(.residentialState)
         let localEnum = cState(fromRawValue: state)
         return StateCoordinator.convertCStateToState(localEnum)
+    }
+    
+    func putUserResidentialState()-> PutUserDetailRequest.State {
+        let state = self.fieldValue(.residentialState)
+        let localEnum = cState(fromRawValue: state)
+        return StateCoordinator.convertCStateToPutUserState(localEnum)
     }
 }
 

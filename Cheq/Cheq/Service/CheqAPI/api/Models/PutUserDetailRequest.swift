@@ -18,10 +18,6 @@ public struct PutUserDetailRequest: Codable {
         case from55To64 = "From55To64"
         case over65 = "Over65"
     }
-    public enum MaritalStatus: String, Codable { 
-        case single = "Single"
-        case couple = "Couple"
-    }
     public enum State: String, Codable { 
         case nsw = "NSW"
         case qld = "QLD"
@@ -36,17 +32,13 @@ public struct PutUserDetailRequest: Codable {
     public var lastName: String
     public var ageRange: AgeRange?
     public var mobile: String
-    public var maritalStatus: MaritalStatus?
-    public var numberOfDependents: String?
     public var state: State?
 
-    public init(firstName: String, lastName: String, ageRange: AgeRange?, mobile: String, maritalStatus: MaritalStatus?, numberOfDependents: String?, state: State?) {
+    public init(firstName: String, lastName: String, ageRange: AgeRange?, mobile: String, state: State?) {
         self.firstName = firstName
         self.lastName = lastName
         self.ageRange = ageRange
         self.mobile = mobile
-        self.maritalStatus = maritalStatus
-        self.numberOfDependents = numberOfDependents
         self.state = state
     }
 

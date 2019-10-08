@@ -14,6 +14,18 @@ class DataHelperUtil {
     static let shared = DataHelperUtil()
     private init() {}
     
+    func retrieveUserDetailsKycReq()-> PutUserOnfidoKycRequest {
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = TestUtil.shared.dobFormatStyle()
+        let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
+        let cStateString = qVm.fieldValue(.residentialState)
+        let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
+        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), state: state)
+        return req 
+    }
+    
     func postFinancialTransactionsReq(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
         let postFinancialTransactionsRequest = transactions.map {
             PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.description, type: convertTransactionType($0.type), source: "")

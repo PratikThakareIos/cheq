@@ -14,23 +14,23 @@ public struct GetUserDetailResponse: Codable {
     public var firstName: String?
     public var lastName: String?
     public var mobile: String?
+    public var ageRange: String?
     public var dateOfBirth: Date?
     public var residentialAddress: String?
+    public var state: String?
     public var maritalStatus: String?
     public var numberOfDependents: String?
-    public var hasVerifiedKyc: Bool?
-    public var state: String?
 
-    public init(firstName: String?, lastName: String?, mobile: String?, dateOfBirth: Date?, residentialAddress: String?, maritalStatus: String?, numberOfDependents: String?, hasVerifiedKyc: Bool?, state: String?) {
+    public init(firstName: String?, lastName: String?, mobile: String?, ageRange: String?, dateOfBirth: Date?, residentialAddress: String?, state: String?, maritalStatus: String?, numberOfDependents: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.mobile = mobile
+        self.ageRange = ageRange
         self.dateOfBirth = dateOfBirth
         self.residentialAddress = residentialAddress
+        self.state = state
         self.maritalStatus = maritalStatus
         self.numberOfDependents = numberOfDependents
-        self.hasVerifiedKyc = hasVerifiedKyc
-        self.state = state
     }
 
 

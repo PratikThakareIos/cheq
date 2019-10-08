@@ -14,20 +14,15 @@ public struct LoanTransaction: Codable {
     public var amount: Double?
     public var fee: Double?
     public var date: Date?
-    public var _description: String?
+    public var loanAgreementUrl: String?
+    public var directDebitAgreementUrl: String?
 
-    public init(amount: Double?, fee: Double?, date: Date?, _description: String?) {
+    public init(amount: Double?, fee: Double?, date: Date?, loanAgreementUrl: String?, directDebitAgreementUrl: String?) {
         self.amount = amount
         self.fee = fee
         self.date = date
-        self._description = _description
-    }
-
-    public enum CodingKeys: String, CodingKey { 
-        case amount
-        case fee
-        case date
-        case _description = "description"
+        self.loanAgreementUrl = loanAgreementUrl
+        self.directDebitAgreementUrl = directDebitAgreementUrl
     }
 
 

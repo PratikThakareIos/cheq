@@ -138,17 +138,10 @@ class CheqAPIManager {
                 let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, address: req.address ?? "", noFixedAddress: req.noFixedAddress ?? false, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, postCode: req.postCode ?? "", state: req.state ?? "", country: req.country ?? "")
                 UsersAPI.putUserEmployerWithRequestBuilder(request: employerDetailsReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
                     
+                    
                     if let error = err { resolver.reject(error); return }
-                    guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    var updatedAuthUser = authUser
-                    updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
-                    let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
-                    updatedAuthUser.msCredential[.msPassword] = password
-                    AuthConfig.shared.activeManager.setUser(updatedAuthUser).done{ updateUser in
-                        resolver.fulfill(updateUser)
-                    }.catch {err in
-                            resolver.reject(err)
-                    }
+                    guard let _ = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    resolver.fulfill(authUser)
                 }
             }.catch { err in
                 resolver.reject(err)
@@ -211,12 +204,11 @@ class CheqAPIManager {
     
     // try PUT USER KYC, if error, it will do GET USER KYC
     // PUT will get error when we have initiated an application already 
-    func retrieveUserDetailsKyc(firstName: String, lastName: String, residentialAddress: String, dateOfBirth: Date)-> Promise<PutUserKycResponse> {
+    func retrieveUserDetailsKyc(_ req: PutUserOnfidoKycRequest)-> Promise<GetUserKycResponse> {
         var oauthToken = ""
-        return Promise<PutUserKycResponse>() { resolver in
+        return Promise<GetUserKycResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 oauthToken = authUser.authToken() ?? ""
-                let req = PutUserOnfidoKycRequest(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, residentialAddress: residentialAddress)
                 UsersAPI.putUserOnfidoKycWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
                     if err != nil {
                         // if we got an error we will do a getUserDetailsKYC incase we have existing application
@@ -236,17 +228,17 @@ class CheqAPIManager {
         }
     }
     
-    func checkKYCPhotoUploaded()-> Promise<Bool> {
-        return Promise<Bool>() { resolver in
-            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-                let token = authUser.authToken() ?? ""
-                UsersAPI.putKycCheckPhotoWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-                    if let error = err { resolver.reject(error); return }
-                    resolver.fulfill(true)
-                }
-            }.catch { err in
-                resolver.reject(err)
-            }
-        }
-    }
+//    func checkKYCPhotoUploaded()-> Promise<Bool> {
+//        return Promise<Bool>() { resolver in
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                UsersAPI.putKycCheckPhotoWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+//                    if let error = err { resolver.reject(error); return }
+//                    resolver.fulfill(true)
+//                }
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+//        }
+//    }
 }
