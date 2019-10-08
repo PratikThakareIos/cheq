@@ -16,18 +16,23 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var codeTextField: CTextField!
     @IBOutlet weak var confirmButton: CButton!
     @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var footerText: UILabel!
+    @IBOutlet weak var footerText: UITextView!
     @IBOutlet weak var scrollView: UIScrollView! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
+        setupDelegates()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+    }
+    
+    func setupDelegates() {
+        self.footerText.delegate = self
     }
     
     func setupUI() {
@@ -70,6 +75,20 @@ class EmailVerificationViewController: UIViewController {
     }
 }
 
+extension EmailVerificationViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        
+        LoggingUtil.shared.cPrint(URL.absoluteString)
+        if self.viewModel.isResendCodeReq(URL.absoluteString) {
+            // send signup request again
+            showMessage("Email verification code re-sent.", completion: nil)
+        }
+        
+        
+        return false
+    }
+}
+
 extension EmailVerificationViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.resignFirstResponder()
@@ -78,17 +97,6 @@ extension EmailVerificationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true 
-    }
-    
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        
-        LoggingUtil.shared.cPrint(URL.absoluteString)
-        if self.viewModel.isResendCodeReq(URL.absoluteString) {
-            // send signup request again
-        }
-        
-        
-        return false
     }
 }
 
