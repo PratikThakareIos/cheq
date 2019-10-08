@@ -26,11 +26,6 @@ class DynamicFormViewController: UIViewController {
         setupUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        activeTimestamp()
-    }
-    
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
@@ -39,7 +34,7 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        activeTimestamp()
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
             AppConfig.shared.hideSpinner {

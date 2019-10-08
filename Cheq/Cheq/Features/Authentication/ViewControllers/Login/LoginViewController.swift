@@ -27,6 +27,7 @@ class LoginViewController: RegistrationViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        
     }
     
     override func setupDelegate() {

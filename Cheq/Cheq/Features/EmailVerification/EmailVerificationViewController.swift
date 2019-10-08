@@ -51,6 +51,22 @@ class EmailVerificationViewController: UIViewController {
         }
         
         // TODO : verify code api call
+        AppConfig.shared.showSpinner()
+        // send signup confrm
+        self.handleSuccessVerification()
+        
+    }
+    
+    func handleSuccessVerification() {
+        AppConfig.shared.hideSpinner {
+            if AppNav.shared.passcodeExist() == false {
+                let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
+                passcodeVc.viewModel.type = .setup
+                AppNav.shared.pushToViewController(passcodeVc, from: self)
+            } else {
+                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
+            }
+        }
     }
 }
 
@@ -62,6 +78,17 @@ extension EmailVerificationViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true 
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        
+        LoggingUtil.shared.cPrint(URL.absoluteString)
+        if self.viewModel.isResendCodeReq(URL.absoluteString) {
+            // send signup request again
+        }
+        
+        
+        return false
     }
 }
 

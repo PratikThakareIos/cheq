@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
-//        self.setupInitialViewController()
-        self.setupInitDevController()
+        self.setupInitialViewController()
+//        self.setupInitDevController()
 //        self.setupLogController()
         
         return true
@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     func handleNotLoggedIn() {
         if !AppConfig.shared.isFirstInstall() {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, embedInNav: true)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue, embedInNav: true)
         }
@@ -213,13 +213,13 @@ extension AppDelegate {
     
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
-        guard let application = AppData.shared.application else { return }
+        guard let _ = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
-        let _ = AppConfig.shared
+//        let _ = AppConfig.shared
         let _ = AuthConfig.shared
-        let _ = VDotManager.shared
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//        let _ = VDotManager.shared
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func setupServicesForDev() {

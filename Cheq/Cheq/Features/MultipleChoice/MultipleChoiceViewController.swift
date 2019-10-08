@@ -24,11 +24,6 @@ class MultipleChoiceViewController: UIViewController {
         setupUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        activeTimestamp()
-    }
-    
     func setupDelegate() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -50,16 +45,13 @@ class MultipleChoiceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        activeTimestamp()
         if selectedChoice == nil {
             self.updateChoices()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+   
     func updateChoices() {
         if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
             AppConfig.shared.showSpinner()
@@ -145,7 +137,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let vm = self.viewModel
             vm.save(QuestionField.residentialState.rawValue, value: choice.title)
             AppData.shared.updateProgressAfterCompleting(.state)
-            AppNav.shared.pushToQuestionForm(.maritalStatus, viewController: self)
+            AppNav.shared.pushToIntroduction(.employee, viewController: self)
         }
     }
 }

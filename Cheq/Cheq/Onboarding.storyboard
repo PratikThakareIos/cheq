@@ -505,6 +505,7 @@
                         <outlet property="scrollView" destination="V4r-kb-bzE" id="n5B-K0-Q9X"/>
                         <outlet property="searchTextField" destination="G60-Wk-BNB" id="lXT-CK-fRy"/>
                         <outlet property="sectionTitle" destination="HgY-5A-5YD" id="Kss-qJ-gLZ"/>
+                        <outlet property="stackView" destination="Kc6-wm-al7" id="Noq-9E-mNO"/>
                         <outlet property="textField1" destination="R7a-gX-YUm" id="CtZ-Ak-vwg"/>
                         <outlet property="textField2" destination="Zlq-QP-Nls" id="1el-OW-Xkx"/>
                     </connections>

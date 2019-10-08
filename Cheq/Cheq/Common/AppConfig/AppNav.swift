@@ -21,20 +21,21 @@ class AppNav {
         NotificationCenter.default.addObserver(self, selector: #selector(showPasscodeIfNeeded(notification:)), name: NSNotification.Name(NotificationEvent.appBecomeActive.rawValue), object: nil)
         
         // Timer to check app has been idle
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(appLastActiveTimestampCheckInterval), target: self, selector: #selector(showPasscodeIfNeeded(notification:)), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: TimeInterval(appLastActiveTimestampCheckInterval), target: self, selector: #selector(showPasscodeIfNeeded(notification:)), userInfo: nil, repeats: true)
     }
     
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
-        if passcodeExist(), isTimeToShowPasscode() {
+        if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
             presentPasscodeViewController()
         }
     }
     
     func isTimeToShowPasscode()->Bool {
         let now = Date()
-        let minsEarlier = AppData.shared.appLastActiveTimestamp.minutesEarlier(than: now)
+        let earlier = CKeychain.dateByKey(CKey.activeTime.rawValue)
+        let minsEarlier = earlier.minutesEarlier(than: now)
         if minsEarlier >= minsToShowPasscode {
-            AppData.shared.appLastActiveTimestamp = now
+            let _ = CKeychain.setDate(CKey.activeTime.rawValue, date: now)
             return true
         }
         return false
@@ -49,7 +50,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
         vc.viewModel.type = .validate
-        let currentRootVc = UIApplication.shared.keyWindow!.rootViewController as! UIViewController
+        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
         currentRootVc.present(vc, animated: true, completion: nil)
     }
     

@@ -91,6 +91,7 @@ class IntroductionViewController: UIViewController {
         case .email:
             AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         case .employee:
+            AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
             AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
         case .enableLocation:
             AppNav.shared.pushToIntroduction(.notification, viewController: self)

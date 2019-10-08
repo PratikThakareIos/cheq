@@ -21,4 +21,9 @@ class StringUtil {
     func isNumericOnly(_ string: String)-> Bool {
         return !string.isEmpty && string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
+    
+    func isAlphaOnly(_ string: String)-> Bool {
+        var alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ ")
+        return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
+    }
 }

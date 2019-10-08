@@ -52,9 +52,30 @@ enum CKey: String {
 
     // work activity log
     case vDotLog = "VDotLog"
+    
+    // active date
+    case activeTime = "activeTime"
 }
 
 struct CKeychain {
+    
+    static let defaultDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    
+    static func dateByKey(_ key: String)-> Date {
+        guard let dateString = KeychainWrapper.standard.string(forKey: key) else {
+            return 100.years.earlier
+        }
+        
+        let date = Date(dateString: dateString, format: defaultDateTimeFormat)
+        return date
+    }
+    
+    static func setDate(_ key: String, date: Date)-> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = defaultDateTimeFormat
+        let dateString = dateFormatter.string(from: date)
+        return KeychainWrapper.standard.set(dateString, forKey: key)
+    }
 
     static func getValueByKey(_ key: String)-> String {
         let result = KeychainWrapper.standard.string(forKey: key) ?? ""

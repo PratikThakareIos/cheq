@@ -63,9 +63,6 @@ class AppData {
     
     static let shared = AppData()
     private init() { loadOnfidoSDKToken() }
-    
-    // last active
-    var appLastActiveTimestamp = 100.years.earlier
 
     // instance of current application
     var application: UIApplication? 
@@ -117,16 +114,18 @@ class AppData {
     
     func updateProgressAfterCompleting(_ screenName: ScreenName) {
         switch screenName {
+            
+        // about me
         case .legalName:
-            AppData.shared.progress = CProgress(aboutMe: 0.2, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.25, employmentDetails: 0.0, linkingBank: 0.0)
         case .dateOfBirth, .ageRange:
-            AppData.shared.progress = CProgress(aboutMe: 0.4, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.5, employmentDetails: 0.0, linkingBank: 0.0)
         case .contactDetails:
-            AppData.shared.progress = CProgress(aboutMe: 0.6, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.75, employmentDetails: 0.0, linkingBank: 0.0)
         case .residentialAddress, .state:
-            AppData.shared.progress = CProgress(aboutMe: 0.8, employmentDetails: 0.0, linkingBank: 0.0)
-        case .maritalStatus:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
+//        case .maritalStatus:
+//            AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
         case .employmentType:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.25, linkingBank: 0.0)
         case .onDemand:

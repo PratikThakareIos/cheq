@@ -59,7 +59,7 @@ class PasscodeViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.title = self.viewModel.type.rawValue
         self.instructionLabel.font = AppConfig.shared.activeTheme.headerFont
-        
+        self.instructionLabel.text = self.viewModel.instructions()
         // keep a list so we can shift as user types the focus
         self.digits = [digit1, digit2, digit3, digit4]
         
@@ -173,7 +173,7 @@ extension PasscodeViewController: UITextFieldDelegate {
                 let _ = CKeychain.setValue(CKey.passcodeLock.rawValue, value: viewModel.passcode)
                 let _ = CKeychain.setValue(CKey.confirmPasscodeLock.rawValue, value: viewModel.passcode)
                 self.showMessage("Passcode successfully updated!") {
-                    AppNav.shared.dismiss(self)
+                    AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
             }
         }

@@ -22,6 +22,9 @@ class LegalNameCoordinator: QuestionCoordinatorProtocol {
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
+  
+        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
         return nil
     }
 }

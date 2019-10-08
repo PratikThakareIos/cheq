@@ -11,8 +11,10 @@ import PromiseKit
 import FBSDKCoreKit
 
 enum links: String {
-    case toc = "http://cheq.com.au"
-    case privacy = "http://cheq.com.au/blog"
+    case toc = "https://cheq.com.au/terms-conditions"
+    case privacy = "https://cheq.com.au/privacy-policy"
+    
+    // internal screens
     case login = "http://login.cheq.com"
     case signup = "http://signup.cheq.com"
     case forgot = "http://forgot.cheq.com"

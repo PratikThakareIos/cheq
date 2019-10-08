@@ -21,6 +21,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var textField1: CTextField!
     @IBOutlet weak var textField2: CTextField!
     @IBOutlet weak var searchTextField: CSearchTextField!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     var datePicker: UDatePicker?
     var viewModel = QuestionViewModel()
@@ -34,6 +35,9 @@ class QuestionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        if viewModel.coordinator.type == .legalName {
+            hideBackButton()
+        }
     }
     
     override func viewDidLoad() {
@@ -114,6 +118,9 @@ class QuestionViewController: UIViewController {
     }
 
     @IBAction func next(_ sender: Any) {
+        
+        self.validateInput()
+        
         switch self.viewModel.coordinator.type {
         case .legalName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -201,8 +208,18 @@ extension QuestionViewController {
         self.viewModel.save(QuestionField.employerLongitude.rawValue, value: String(address.longitude ?? 0))
     }
     
+    func inputsFromTextFields(textFields: [UITextField])-> [String: Any] {
+        var results = [String: Any]()
+        for textField in textFields {
+            if let key = textField.placeholder, let value = textField.text {
+                results[key] = value
+            }
+        }
+        return results
+    }
+    
     func validateInput() {
-        let inputs = allTextFields(from: self.view)
+        let inputs = self.inputsFromTextFields(textFields: [self.searchTextField, self.textField1, self.textField2])
         if let error =  self.viewModel.coordinator.validateInput(inputs) {
             showError(error) {
                 return

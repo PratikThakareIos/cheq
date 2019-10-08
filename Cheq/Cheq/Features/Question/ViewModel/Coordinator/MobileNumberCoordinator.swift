@@ -21,13 +21,14 @@ class MobileNumberCoordinator: QuestionCoordinatorProtocol {
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
         for index in 0..<self.numOfTextFields {
-            let value: String = inputs[self.placeHolder(index)] as? String ?? ""
+            var value: String = inputs[self.placeHolder(index)] as? String ?? ""
+            value = value.replacingOccurrences(of: " ", with: "")
             if value.isEmpty { return ValidationError.allFieldsMustBeFilled }
             if !StringUtil.shared.isNumericOnly(value) { return ValidationError.invalidMobileFormat }
             if value.count < 10 { return ValidationError.allFieldsMustBeFilled }
             let nums = Array(value)
             if nums[0] != "0" { return ValidationError.invalidMobileFormat }
-            if nums[1] != "4" || nums[1] != "5" { return ValidationError.invalidMobileFormat}
+            if nums[1] != "4" && nums[1] != "5" { return ValidationError.invalidMobileFormat}
         }
         return nil
     }

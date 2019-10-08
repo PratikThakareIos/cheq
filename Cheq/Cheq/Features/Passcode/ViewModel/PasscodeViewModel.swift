@@ -24,6 +24,17 @@ class PasscodeViewModel: BaseViewModel {
         let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
     }
     
+    func instructions()-> String {
+        switch type {
+        case .validate:
+            return "Enter passcode"
+        case .setup:
+            return "Create a passcode to secure your account"
+        case .confirm:
+            return "Confirm passcode"
+        }
+    }
+    
     func validate()-> VerificationValidationError? {
         if passcode.isEmpty { return VerificationValidationError.emptyInput }
         if !StringUtil.shared.isNumericOnly(passcode) { return VerificationValidationError.nonNumeric }

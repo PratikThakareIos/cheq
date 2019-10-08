@@ -38,6 +38,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        hideBackTitle()
     }
 
     func setupDelegate() {
@@ -124,22 +125,10 @@ extension RegistrationViewController: UITextFieldDelegate {
 
 extension RegistrationViewController {
     func navigateToNextStage() {
-        
         AppConfig.shared.hideSpinner {
-            AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
+            let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
+            AppNav.shared.pushToViewController(emailVc, from: self)
         }
-        
-        // check if we need to do onboarding
-//        CheqAPIManager.shared.getUserDetails().done { _ in
-//            // already existing registered user
-//            AppConfig.shared.hideSpinner {
-//                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-//            }
-//        }.catch { err in
-//            AppConfig.shared.hideSpinner {
-//                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-//            }
-//        }
     }
 }
 

@@ -16,22 +16,7 @@ protocol UIViewControllerProtocol {
 
 // MARK: Hide navigation bar back button title
 extension UIViewController {
-    
-    func allTextFields(from: UIView)-> [String: Any] {
-        var results = [String: Any]()
-        for subview in view.subviews {
-            if let textField = subview as? UITextField, let key = textField.placeholder, let value = textField.text {
-                results[key] = value
-            } else {
-                let subviewResults = allTextFields(from: subview)
-                // keep any existing conflicting key value
-                results = results.merging(subviewResults, uniquingKeysWith: { (first, _ ) in first })
-            }
-        }
-        
-        return results
-    }
-    
+
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
     }
@@ -87,7 +72,7 @@ extension UIViewController {
 // MARK: Setup Idle handling
 extension UIViewController {
     func activeTimestamp() {
-        AppData.shared.appLastActiveTimestamp = Date()
+        let _ = CKeychain.setDate(CKey.activeTime.rawValue, date: Date())
     }
 }
 
