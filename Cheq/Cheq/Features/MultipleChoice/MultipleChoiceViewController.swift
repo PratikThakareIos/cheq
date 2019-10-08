@@ -137,7 +137,23 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let vm = self.viewModel
             vm.save(QuestionField.residentialState.rawValue, value: choice.title)
             AppData.shared.updateProgressAfterCompleting(.state)
-            AppNav.shared.pushToIntroduction(.employee, viewController: self)
+            let qVm = QuestionViewModel()
+            qVm.loadSaved()
+            let putUserDetailsReq = qVm.putUserDetailsRequest()
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.maritalStatus)
+                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                        
+                    }
+                }
+            }
+            return
         }
     }
 }

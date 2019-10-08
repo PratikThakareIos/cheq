@@ -43,7 +43,7 @@ protocol VerificationViewModel {
     var confirmButtonTitle: String { get }
     var footerText: NSAttributedString { get }
     func validate()->VerificationValidationError?
-    func isResendCodeReq(_ urlString: String)-> Bool
+    func isResendCodeReq(_ urlString: String)-> Bool 
 }
 
 extension VerificationViewModel {

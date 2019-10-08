@@ -46,6 +46,9 @@ class LoginViewController: RegistrationViewController {
         if self.isRootViewControllerUnderNav {
             self.signUpLinkText.isHidden = true 
         }
+        
+        self.emailTextField.keyboardType = .emailAddress
+        self.passwordTextField.keyboardType = .default
     }
     
     func navigateToDashboard() {

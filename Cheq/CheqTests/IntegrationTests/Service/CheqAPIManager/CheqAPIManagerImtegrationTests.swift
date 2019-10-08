@@ -208,12 +208,16 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
         authManager.activeManager.login(credentials)
         .then { authUser in
             CheqAPIManager.shared.putUserDetails(userDetails)
-        }.then { authUser -> Promise<PutUserKycResponse> in
+        }.then { authUser -> Promise<GetUserKycResponse> in
             
-            
-            CheqAPIManager.shared.retrieveUserDetailsKyc(firstName: userDetails.firstName, lastName: userDetails.lastName, residentialAddress: "", dateOfBirth: 20.years.earlier)
+            var putUserDetailsKycReq = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+            putUserDetailsKycReq.firstName = userDetails.firstName
+            putUserDetailsKycReq.lastName = userDetails.lastName
+            putUserDetailsKycReq.dateOfBirth = 30.years.earlier
+            putUserDetailsKycReq.residentialAddress = dataUtil.testAddress()
+            return CheqAPIManager.shared.retrieveUserDetailsKyc(putUserDetailsKycReq)
         }.done { kycResponse in
-            let resp: PutUserKycResponse = kycResponse
+            let resp: GetUserKycResponse = kycResponse
             XCTAssertNotNil(resp.sdkToken)
             XCTAssertNotNil(resp.applicantId)
             LoggingUtil.shared.cPrint(resp.sdkToken ?? "")
@@ -228,6 +232,8 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
     
     func testCheckKYCPhotoUploaded() {
         let expectation = XCTestExpectation(description: "testCheckKYCPhotoUploaded")
+        let dataUtil = TestUtil.shared
+        let userDetails = dataUtil.putUserDetailsReq()
         var credentials = [LoginCredentialType: String]()
         credentials[.email] = TestUtil.shared.randomEmail()
         credentials[.password] = TestUtil.shared.randomPassword()
@@ -235,10 +241,15 @@ class CheqAPIManagerImtegrationTests: XCTestCase {
         return AuthConfig.shared.activeManager.login(credentials)
         }.then { authUser in
             return CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
-        }.then { authUser->Promise<PutUserKycResponse> in
-            CheqAPIManager.shared.retrieveUserDetailsKyc(firstName: "", lastName: "", residentialAddress: "", dateOfBirth: 20.years.earlier)
+        }.then { authUser->Promise<GetUserKycResponse> in
+            var putUserDetailsKycReq = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+            putUserDetailsKycReq.firstName = userDetails.firstName
+            putUserDetailsKycReq.lastName = userDetails.lastName
+            putUserDetailsKycReq.dateOfBirth = 30.years.earlier
+            putUserDetailsKycReq.residentialAddress = dataUtil.testAddress()
+            return CheqAPIManager.shared.retrieveUserDetailsKyc(putUserDetailsKycReq)
         }.done { response in
-            let kycResponse: PutUserKycResponse = response
+            let kycResponse: GetUserKycResponse = response
             let sdkToken = kycResponse.sdkToken ?? ""
             LoggingUtil.shared.cPrint("sdk token: \(sdkToken)")
         }.catch { err in

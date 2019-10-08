@@ -56,6 +56,9 @@ class RegistrationViewController: UIViewController {
         self.loginLinkText.attributedText = viewModel.loginInText()
         self.footerText.attributedText = viewModel.conditionsAttributedText()
         self.viewModel.screenName = .registration
+        
+        self.emailTextField.keyboardType = .emailAddress
+        self.passwordTextField.keyboardType = .default
     }
     
     func continueWithLoggedInFB(_ token: String) {

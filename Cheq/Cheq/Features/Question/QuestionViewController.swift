@@ -100,26 +100,36 @@ class QuestionViewController: UIViewController {
         switch viewModel.coordinator.type {
         case .legalName:
             self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
-            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)   
+            self.textField1.keyboardType = .namePhonePad
+            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)
+            self.textField2.keyboardType = .namePhonePad
         case .dateOfBirth:
             self.textField1.text = viewModel.fieldValue(QuestionField.dateOfBirth)
+            self.textField1.keyboardType = .default
         case .contactDetails:
             self.textField1.text = viewModel.fieldValue(QuestionField.contactDetails)
+            self.textField1.keyboardType = .namePhonePad
         case .residentialAddress:
             self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
+            self.searchTextField.keyboardType = .default
         case .companyName:
             self.searchTextField.text = viewModel.fieldValue(QuestionField.employerName)
+            self.searchTextField.keyboardType = .default
         case .companyAddress:
             self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+            self.searchTextField.keyboardType = .default
         case .maritalStatus:
             self.textField1.text = viewModel.fieldValue(QuestionField.maritalStatus)
             self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
+            self.textField1.keyboardType = .default
+            self.textField2.keyboardType = .default
         }
     }
 
     @IBAction func next(_ sender: Any) {
         
         self.validateInput()
+
         
         switch self.viewModel.coordinator.type {
         case .legalName:
@@ -174,19 +184,7 @@ class QuestionViewController: UIViewController {
         case .maritalStatus:
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.dependents.rawValue, value: textField2.text ?? "")
-             let putUserDetailsReq = self.viewModel.putUserDetailsRequest()
-            AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
-                AppConfig.shared.hideSpinner {
-                    AppData.shared.updateProgressAfterCompleting(.maritalStatus)
-                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
-                }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) { }
-                }
-            }
-            return
+            // TO BE IMPLEMENTED 
         }
     }
 }
@@ -224,6 +222,7 @@ extension QuestionViewController {
             showError(error) {
                 return
             }
+            return
         }
     }
     

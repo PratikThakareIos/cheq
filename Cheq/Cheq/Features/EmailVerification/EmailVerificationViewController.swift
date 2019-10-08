@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class EmailVerificationViewController: UIViewController {
 
@@ -29,6 +30,18 @@ class EmailVerificationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        self.sendVerificationCode()
+    }
+    
+    func sendVerificationCode() {
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
+            AppConfig.shared.hideSpinner {}
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+            }
+        }
     }
     
     func setupDelegates() {
@@ -49,6 +62,11 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
+        
+        // DEV code - TO BE REMOVE
+        handleSuccessVerification()
+        
+        
         self.viewModel.code = self.codeTextField.text ?? ""
         if let err = self.viewModel.validate() {
             showError(err) {
@@ -58,20 +76,28 @@ class EmailVerificationViewController: UIViewController {
         
         // TODO : verify code api call
         AppConfig.shared.showSpinner()
+        let req = PutUserSingupVerificationCodeRequest(code: viewModel.code)
         // send signup confrm
-        self.handleSuccessVerification()
-        
+        CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
+            return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.done { authUser in
+            AppConfig.shared.hideSpinner {
+                self.handleSuccessVerification()
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+               self.showError(err, completion: nil)
+            }
+        }
     }
     
     func handleSuccessVerification() {
-        AppConfig.shared.hideSpinner {
-            if AppNav.shared.passcodeExist() == false {
-                let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
-                passcodeVc.viewModel.type = .setup
-                AppNav.shared.pushToViewController(passcodeVc, from: self)
-            } else {
-                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-            }
+        if AppNav.shared.passcodeExist() == false {
+            let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
+            passcodeVc.viewModel.type = .setup
+            AppNav.shared.pushToViewController(passcodeVc, from: self)
+        } else {
+            AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         }
     }
 }
@@ -81,11 +107,8 @@ extension EmailVerificationViewController: UITextViewDelegate {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
         if self.viewModel.isResendCodeReq(URL.absoluteString) {
-            // send signup request again
-            showMessage("Email verification code re-sent.", completion: nil)
+            self.sendVerificationCode()
         }
-        
-        
         return false
     }
 }
