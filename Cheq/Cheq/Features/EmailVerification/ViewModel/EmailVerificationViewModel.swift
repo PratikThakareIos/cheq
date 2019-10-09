@@ -21,7 +21,7 @@ class EmailVerificationViewModel: VerificationViewModel {
     
     var instructions: NSAttributedString {
         get {
-            let email = CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
+            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
             let instruction = NSMutableAttributedString(string: "We sent a 6 digit verification code to you at \(email).")
             instruction.applyHighlight(email, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
             return instruction

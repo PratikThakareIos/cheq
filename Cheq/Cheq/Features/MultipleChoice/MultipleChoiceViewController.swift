@@ -149,7 +149,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
-                        
                     }
                 }
             }

@@ -78,8 +78,8 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     }
 
     func nextViewController()->UIViewController {
-        let storyboard = UIStoryboard(name: StoryboardName.spending.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: SpendingStoryboardId.overview.rawValue)
+        let storyboard = UIStoryboard(name: StoryboardName.lending.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: LendingStoryboardId.lending.rawValue)
         return vc
     }
 }

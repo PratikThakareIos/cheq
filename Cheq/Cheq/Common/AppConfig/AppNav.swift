@@ -32,17 +32,17 @@ class AppNav {
     
     func isTimeToShowPasscode()->Bool {
         let now = Date()
-        let earlier = CKeychain.dateByKey(CKey.activeTime.rawValue)
+        let earlier = CKeychain.shared.dateByKey(CKey.activeTime.rawValue)
         let minsEarlier = earlier.minutesEarlier(than: now)
         if minsEarlier >= minsToShowPasscode {
-            let _ = CKeychain.setDate(CKey.activeTime.rawValue, date: now)
+            let _ = CKeychain.shared.setDate(CKey.activeTime.rawValue, date: now)
             return true
         }
         return false
     }
     
     func passcodeExist()-> Bool {
-        let passcode = CKeychain.getValueByKey(CKey.confirmPasscodeLock.rawValue)
+        let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
     

@@ -53,6 +53,7 @@ class EmailVerificationViewController: UIViewController {
         iconImage.image = viewModel.image
         codeTextField.placeholder = viewModel.codeFieldPlaceHolder
         codeTextField.keyboardType = .numberPad
+        codeTextField.reloadInputViews()
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerFont
         verificationInstructions.attributedText = viewModel.instructions
@@ -62,10 +63,6 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
-        
-        // DEV code - TO BE REMOVE
-        handleSuccessVerification()
-        
         
         self.viewModel.code = self.codeTextField.text ?? ""
         if let err = self.viewModel.validate() {
@@ -92,13 +89,9 @@ class EmailVerificationViewController: UIViewController {
     }
     
     func handleSuccessVerification() {
-        if AppNav.shared.passcodeExist() == false {
-            let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
-            passcodeVc.viewModel.type = .setup
-            AppNav.shared.pushToViewController(passcodeVc, from: self)
-        } else {
-            AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-        }
+        let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
+        passcodeVc.viewModel.type = .setup
+        AppNav.shared.pushToViewController(passcodeVc, from: self)
     }
 }
 

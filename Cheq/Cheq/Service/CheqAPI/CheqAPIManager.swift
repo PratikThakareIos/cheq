@@ -80,7 +80,7 @@ class CheqAPIManager {
 
     func flushWorkTimesToServer()-> Promise<Bool> {
         return Promise<Bool> () { resolver in
-            let token = CKeychain.getValueByKey(CKey.authToken.rawValue)
+            let token = CKeychain.shared.getValueByKey(CKey.authToken.rawValue)
             guard token.isEmpty == false else { return }
             let postWorksheetReq = VDotManager.shared.loadWorksheets()
             LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in

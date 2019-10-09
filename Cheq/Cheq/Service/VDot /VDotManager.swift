@@ -99,13 +99,13 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     }
 
     func logData(_ atWork: Bool, dateString: String, latitude: Double, longitude: Double) {
-        var dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
-        dictionary[VDotLogKey.email.rawValue] = CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
+        var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
+        dictionary[VDotLogKey.email.rawValue] = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
         var currentLogs:Array<Dictionary<String, Any>> = dictionary[VDotLogKey.worksheets.rawValue] as? Array<Dictionary<String, Any>> ?? []
         let newLog:Dictionary<String, Any> = [VDotLogKey.atWork.rawValue: String(atWork), VDotLogKey.dateTime.rawValue: dateString, VDotLogKey.latitude.rawValue: latitude, VDotLogKey.longitude.rawValue: longitude]
         currentLogs.append(newLog)
         dictionary[VDotLogKey.worksheets.rawValue] = currentLogs
-        let _ = CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        let _ = CKeychain.shared.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
         let timestamp = Date().timeStamp()
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "logData - \(timestamp)")
     }
@@ -124,14 +124,14 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 extension VDotManager {
 
     func cleanWorksheets()-> Bool {
-        var dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
+        var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
         dictionary[VDotLogKey.worksheets.rawValue] = []
-        return CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        return CKeychain.shared.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
     }
 
     func loadWorksheets()-> PostWorksheetRequest {
-        let dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
-        let email =  CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
+        let dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
+        let email =  CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
         let workSheetsDictionaryArray = dictionary[VDotLogKey.worksheets.rawValue] as? Array<[String:Any]> ?? []
         var workSheets = [Worksheet]()
         workSheetsDictionaryArray.forEach { workSheetDict in

@@ -20,7 +20,7 @@ extension VerificationValidationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .emptyInput:
-            return NSLocalizedString("Passcode must be entered", comment: "")
+            return NSLocalizedString("Verification needs to be entered", comment: "")
         case .invalidLength:
             return NSLocalizedString("invalid length", comment: "")
         case .nonNumeric:

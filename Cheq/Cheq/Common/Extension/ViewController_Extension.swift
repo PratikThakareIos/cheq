@@ -72,7 +72,7 @@ extension UIViewController {
 // MARK: Setup Idle handling
 extension UIViewController {
     func activeTimestamp() {
-        let _ = CKeychain.setDate(CKey.activeTime.rawValue, date: Date())
+        let _ = CKeychain.shared.setDate(CKey.activeTime.rawValue, date: Date())
     }
 }
 

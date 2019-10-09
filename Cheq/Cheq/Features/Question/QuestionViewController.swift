@@ -34,7 +34,9 @@ class QuestionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         activeTimestamp()
+        self.updateKeyboardViews()
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
         }
@@ -46,8 +48,21 @@ class QuestionViewController: UIViewController {
         setupDelegate()
         setupUI()
         prePopulateEntry()
+        setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
+        }
+        
+        
+    }
+    
+    func setupLookupIfNeeded() {
+        if viewModel.coordinator.type == .residentialAddress {
+            setupResidentialAddressLookup()
+        } else if viewModel.coordinator.type == .companyName {
+            setupEmployerNameLookup()
+        } else if viewModel.coordinator.type == .companyAddress {
+            setupEmployerAddressLookup()
         }
     }
     
@@ -93,6 +108,12 @@ class QuestionViewController: UIViewController {
         }
         
         AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+    }
+    
+    func updateKeyboardViews() {
+        self.textField1.reloadInputViews()
+        self.textField2.reloadInputViews()
+        self.searchTextField.reloadInputViews()
     }
     
     func prePopulateEntry() {

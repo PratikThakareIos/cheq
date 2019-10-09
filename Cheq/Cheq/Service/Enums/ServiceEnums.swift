@@ -112,7 +112,7 @@ extension ValidationError: LocalizedError {
         case .invalidEmailFormat:
             return NSLocalizedString("Invalid email format", comment: "")
         case .invalidPasswordFormat:
-            return NSLocalizedString("Invalid password format", comment: "")
+            return NSLocalizedString("Invalid password format. Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)", comment: "")
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
         case .onlyAlphabetCharactersIsAllowed:

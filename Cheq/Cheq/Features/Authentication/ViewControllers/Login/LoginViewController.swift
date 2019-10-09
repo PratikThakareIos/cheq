@@ -48,7 +48,9 @@ class LoginViewController: RegistrationViewController {
         }
         
         self.emailTextField.keyboardType = .emailAddress
+        self.emailTextField.reloadInputViews()
         self.passwordTextField.keyboardType = .default
+        self.passwordTextField.reloadInputViews()
     }
     
     func navigateToDashboard() {

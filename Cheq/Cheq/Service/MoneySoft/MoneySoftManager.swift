@@ -26,7 +26,7 @@ class MoneySoftManager {
     func postNotificationToken()-> Promise<Bool> {
         return Promise<Bool>() { resolver in
             do {
-                let fcmToken = CKeychain.getValueByKey(CKey.fcmToken.rawValue)
+                let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
                 try msApi.notifications().registerToken(fcmToken, listener: ApiListener<ApiResponseModel>(successHandler: { response in
                     resolver.fulfill(true)
                 }, errorHandler: { errorModel in

@@ -33,7 +33,8 @@ extension CheqAPIManager {
                 let token = authUser.authToken() ?? ""
                 UsersAPI.verifyUserSingupCodeWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     if let error = err {
-                        resolver.reject(error); return
+                        LoggingUtil.shared.cPrint(error.localizedDescription)
+                        resolver.reject(AuthManagerError.unableToVerifyEmailVerificationCode); return
                     }
                     resolver.fulfill(authUser)
                 }

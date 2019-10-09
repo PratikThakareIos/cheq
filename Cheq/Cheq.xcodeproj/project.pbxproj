@@ -362,6 +362,8 @@
 		4FEF9835234C477300E37421 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF97BB234C477300E37421 /* Configuration.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF9838234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
+		4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FEF983B234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -636,6 +638,7 @@
 		4FEF97BA234C477300E37421 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4FEF97BB234C477300E37421 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
+		4FEF9839234D51DC00E37421 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
@@ -1456,6 +1459,7 @@
 				4F09109B231F981E00AA7F7D /* NotificationUtil.swift */,
 				4FD7C12E2327299400AC7A67 /* ViewUtil.swift */,
 				964F7BDF23332A9800338227 /* StringUtil.swift */,
+				4FEF9839234D51DC00E37421 /* DateUtil.swift */,
 				4F2E4B94233AED51001F1BA2 /* DataHelperUtil.swift */,
 				4F0D63AF23431EFD00AA819C /* TestUtil.swift */,
 			);
@@ -2350,6 +2354,7 @@
 				4F0D649523442FD400AA819C /* BluedotManager.swift in Sources */,
 				4F0D649623442FD400AA819C /* FBEnums.swift in Sources */,
 				4F0D649723442FD400AA819C /* WebViewController.swift in Sources */,
+				4FEF983B234D51DC00E37421 /* DateUtil.swift in Sources */,
 				4F0D649823442FD400AA819C /* CollectionViewProtocol.swift in Sources */,
 				4F0D649923442FD400AA819C /* SpendingOverviewViewModel.swift in Sources */,
 				4FEF97CD234C477300E37421 /* BudgetingAPI.swift in Sources */,
@@ -2546,6 +2551,7 @@
 				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
+				4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */,
 				4FEF97CC234C477300E37421 /* BudgetingAPI.swift in Sources */,

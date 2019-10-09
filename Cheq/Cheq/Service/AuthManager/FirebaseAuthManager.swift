@@ -149,7 +149,7 @@ extension FirebaseAuthManager {
             }
         case .socialLoginFB:
             let fbToken = credentials[.token] ?? ""
-            let _ = CKeychain.setValue(CKey.fbToken.rawValue, value: fbToken)
+            let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: fbToken)
             return self.registerWithFB(fbToken)
             .then{ authUser in
                 self.retrieveAuthToken(authUser)
@@ -163,8 +163,8 @@ extension FirebaseAuthManager {
             firUser.getIDTokenForcingRefresh(true, completion: { (authToken, error) in
                 guard let token = authToken else { resolver.reject(AuthManagerError.unableToRetrieveAuthToken); return }
                 LoggingUtil.shared.cPrint("email - \(authUser.email), auth token - \(token)")
-                let _ = CKeychain.setValue(CKey.authToken.rawValue, value: token)
-                let _ = CKeychain.setValue(CKey.loggedInEmail.rawValue, value: authUser.email)
+                let _ = CKeychain.shared.setValue(CKey.authToken.rawValue, value: token)
+                let _ = CKeychain.shared.setValue(CKey.loggedInEmail.rawValue, value: authUser.email)
                 let authUsr = authUser
                 if authUsr.saveAuthToken(token) {
                     AuthConfig.shared.activeUser = authUser 
@@ -247,11 +247,6 @@ extension FirebaseAuthManager {
 extension FirebaseAuthManager {
 
     func setupForRemoteNotifications(_ application: UIApplication, delegate: Any) {
-        // Firebase Message delegate 
-        if let messageDelegate = delegate as? MessagingDelegate {
-            Messaging.messaging().delegate = messageDelegate
-        }
-        
         // setup for UserNotifications
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

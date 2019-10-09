@@ -21,7 +21,7 @@ class PasscodeViewModel: BaseViewModel {
     var passcode: String = ""
     
     static func resetFailedAttempts() {
-        let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
+        let _ = CKeychain.shared.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
     }
     
     func instructions()-> String {
@@ -51,13 +51,13 @@ class PasscodeViewModel: BaseViewModel {
     }
     
     func validation()->VerificationValidationError? {
-        let storedPasscode = CKeychain.getValueByKey(CKey.confirmPasscodeLock.rawValue)
+        let storedPasscode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         if passcode != storedPasscode {
             
             // if we have incorrect entry, we increment failed attempts
-            var failed = Int(CKeychain.getValueByKey(CKey.numOfFailedAttempts.rawValue)) ?? 0
+            var failed = Int(CKeychain.shared.getValueByKey(CKey.numOfFailedAttempts.rawValue)) ?? 0
             failed = failed + 1
-            let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(failed))
+            let _ = CKeychain.shared.setValue(CKey.numOfFailedAttempts.rawValue, value: String(failed))
             return VerificationValidationError.incorrect
         } else {
             return nil
@@ -65,17 +65,17 @@ class PasscodeViewModel: BaseViewModel {
     }
     
     func setupValidation()->VerificationValidationError? {
-        let _ = CKeychain.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
-        let _ = CKeychain.setValue(CKey.passcodeLock.rawValue, value: passcode)
+        let _ = CKeychain.shared.setValue(CKey.numOfFailedAttempts.rawValue, value: String(0))
+        let _ = CKeychain.shared.setValue(CKey.passcodeLock.rawValue, value: passcode)
         return nil
     }
     
     func confirmValidation()->VerificationValidationError? {
-        let storedPasscode = CKeychain.getValueByKey(CKey.passcodeLock.rawValue)
+        let storedPasscode = CKeychain.shared.getValueByKey(CKey.passcodeLock.rawValue)
         if passcode != storedPasscode {
             return VerificationValidationError.incorrect
         } else {
-            let _ = CKeychain.setValue(CKey.confirmPasscodeLock.rawValue, value: passcode)
+            let _ = CKeychain.shared.setValue(CKey.confirmPasscodeLock.rawValue, value: passcode)
             return nil
         }
     }

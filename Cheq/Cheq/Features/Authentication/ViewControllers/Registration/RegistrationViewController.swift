@@ -58,7 +58,9 @@ class RegistrationViewController: UIViewController {
         self.viewModel.screenName = .registration
         
         self.emailTextField.keyboardType = .emailAddress
+        self.emailTextField.reloadInputViews()
         self.passwordTextField.keyboardType = .default
+        self.passwordTextField.reloadInputViews()
     }
     
     func continueWithLoggedInFB(_ token: String) {
@@ -70,7 +72,7 @@ class RegistrationViewController: UIViewController {
         }.then{ authUser in
             AuthConfig.shared.activeManager.setUser(authUser)
         }.done { authUser in
-            self.navigateToNextStage()
+            self.beginOnboarding()
         }.catch { [weak self] err in
             guard let self = self else { return }
             AppConfig.shared.hideSpinner {
@@ -127,7 +129,7 @@ class RegistrationViewController: UIViewController {
         .then { authUser in
             AuthConfig.shared.activeManager.setUser(authUser)
         }.done { authUser in
-            self.navigateToNextStage()
+            self.beginOnboarding()
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
@@ -149,7 +151,8 @@ extension RegistrationViewController: UITextFieldDelegate {
 }
 
 extension RegistrationViewController {
-    func navigateToNextStage() {
+    
+    func beginOnboarding() {
         AppConfig.shared.hideSpinner {
             let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
             AppNav.shared.pushToViewController(emailVc, from: self)

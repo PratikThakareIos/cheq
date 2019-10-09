@@ -10,6 +10,7 @@ import UIKit
 import SwiftSpinner
 import UserNotifications
 import PromiseKit
+import DateToolsSwift
 
 let sharedAppConfig = AppConfig.shared
 
@@ -92,6 +93,8 @@ extension AppConfig {
     }
     
     func markFirstInstall() {
+       
+        CKeychain.shared.clearKeychain()
         UserDefaults.standard.set(true, forKey: installId())
         UserDefaults.standard.synchronize()
     }

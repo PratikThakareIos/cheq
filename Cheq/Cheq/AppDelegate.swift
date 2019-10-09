@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         // init firebase SDK
         FirebaseApp.configure()
+        // Firebase Message delegate
+        Messaging.messaging().delegate = self
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -57,7 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
         // setup remote notifications
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(UIApplication.shared, delegate: self)
+        guard let application = AppData.shared.application else { return }
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -71,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
-        let _ = CKeychain.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
+        let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
     
@@ -108,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
-        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, embedInNav: true)
+        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
     
     func handleNotLoggedIn() {
@@ -131,10 +134,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     //MARK: Firebase messaging
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
+        // storeMessagingRegistrationToken stores fcmToken to CKeychain
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
                 LoggingUtil.shared.cPrint("fcmToken \(fcmToken)")
-                let _ = CKeychain.setValue(CKey.fcmToken.rawValue, value: fcmToken)
                 NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
             }
             }.catch {_ in }
