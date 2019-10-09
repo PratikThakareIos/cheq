@@ -130,6 +130,11 @@ class AppNav {
     func pushToAppSetting() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
+    
+    func pushToAppLocationServices() {
+        guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { return }
+        UIApplication.shared.open(url)
+    }
 }
 
 // MARK: present related

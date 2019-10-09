@@ -265,6 +265,7 @@ extension AppDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         LoggingUtil.shared.cPrint("applicationDidBecomeActive")
         NotificationUtil.shared.notify(NotificationEvent.appBecomeActive.rawValue, key: "", value: "")
+        self.visualEffectView.removeFromSuperview()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
