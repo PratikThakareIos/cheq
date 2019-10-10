@@ -31,10 +31,10 @@
 	<string>1</string>
 	<key>FacebookAppID</key>
 	<string>2855589534666837</string>
-	<key>FacebookDisplayName</key>
-	<string>Cheq</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
 	<false/>
+	<key>FacebookDisplayName</key>
+	<string>Cheq</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>FirebaseScreenReportingEnabled</key>

@@ -49,9 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         // setup singleton and SDKs
         self.registerNotificationObservers()
-        self.setupServices()
-        self.setupInitialViewController()
-//        self.setupInitDevController()
+//        self.setupServices()
+//        self.setupInitialViewController()
+        self.setupInitDevController()
 //        self.setupLogController()
         
         return true
@@ -77,27 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
         let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
-    }
-    
-    func setupLogController() {
-        
-        self.setupServicesForDev()
-        let vc = LogViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-    }
-    
-    func setupInitDevController() {
-        
-        self.setupServicesForDev()
-        
-        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
-        vc.viewModel.type = .setup
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
     }
 
     func setupInitialViewController() {
@@ -270,6 +249,34 @@ extension AppDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+extension AppDelegate {
+
+    func setupInitDevController () {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.lending.rawValue, storyboardId: LendingStoryboardId.lending.rawValue, embedInNav: true)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
+
+    func setupLogController() {
+        self.setupServicesForDev()
+        let vc = LogViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+
+    func setupInitPasscodeController() {
+        self.setupServicesForDev()
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .setup
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 }
 

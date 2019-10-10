@@ -35,12 +35,12 @@ class IntroductionViewController: UIViewController {
         hideBackButton()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
-        self.titleLabel.text = self.viewModel.type.rawValue
+        self.titleLabel.text = self.viewModel.coordinator.type.rawValue
         self.caption.font = AppConfig.shared.activeTheme.mediumFont
         self.caption.text = self.viewModel.caption()
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee:
             self.secondaryButton.isHidden = false
 //        default:
@@ -53,7 +53,7 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .setupBank:
             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
         case .email:
@@ -83,7 +83,7 @@ class IntroductionViewController: UIViewController {
     }
 
     @IBAction func secondaryButton(_ sender: Any) {
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .setupBank:
             navigateToBankSetupLearnMore()
         case .email:

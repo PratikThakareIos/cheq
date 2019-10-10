@@ -137,7 +137,6 @@
 		4F0D651923442FD400AA819C /* DynamicFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F7BE623332F7C00338227 /* DynamicFormViewController.swift */; };
 		4F0D651A23442FD400AA819C /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695E36D230016C60037A49D /* DarkTheme.swift */; };
 		4F0D651C23442FD400AA819C /* CProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4ACB23383A3B001F1BA2 /* CProgressView.swift */; };
-		4F0D651E23442FD400AA819C /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */; };
 		4F0D651F23442FD400AA819C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
 		4F0D652323442FD400AA819C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4F0D652423442FD400AA819C /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
@@ -374,6 +373,20 @@
 		964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F7BE623332F7C00338227 /* DynamicFormViewController.swift */; };
 		964F7BEA2333419400338227 /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F7BE92333419400338227 /* StringUtilTests.swift */; };
 		964F7BEE2333513200338227 /* DynamicFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964F7BED2333513200338227 /* DynamicFormViewModel.swift */; };
+		9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D483234E9A6300847389 /* IntroductionCoordinatorProtocol.swift */; };
+		9654D485234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D483234E9A6300847389 /* IntroductionCoordinatorProtocol.swift */; };
+		9654D487234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D486234E9B5800847389 /* EmailIntroCoordinator.swift */; };
+		9654D488234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D486234E9B5800847389 /* EmailIntroCoordinator.swift */; };
+		9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D489234EA9AE00847389 /* EmployeeIntroCoordinator.swift */; };
+		9654D48B234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D489234EA9AE00847389 /* EmployeeIntroCoordinator.swift */; };
+		9654D48D234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D48C234EA9D700847389 /* SetupBankIntroCoordinator.swift */; };
+		9654D48E234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D48C234EA9D700847389 /* SetupBankIntroCoordinator.swift */; };
+		9654D490234EA9F900847389 /* EnableLocationIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */; };
+		9654D491234EA9F900847389 /* EnableLocationIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */; };
+		9654D493234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */; };
+		9654D494234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */; };
+		9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */; };
+		9654D497234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */; };
 		9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660718D23003FA700F0D5CC /* CBATheme.swift */; };
 		966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
 		966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
@@ -641,6 +654,7 @@
 		4FEF9839234D51DC00E37421 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6F3F665B7B53EEECE5F40028 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
 		9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModelUtil.swift; sourceTree = "<group>"; };
@@ -651,6 +665,13 @@
 		964F7BE623332F7C00338227 /* DynamicFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFormViewController.swift; sourceTree = "<group>"; };
 		964F7BE92333419400338227 /* StringUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
 		964F7BED2333513200338227 /* DynamicFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFormViewModel.swift; sourceTree = "<group>"; };
+		9654D483234E9A6300847389 /* IntroductionCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9654D486234E9B5800847389 /* EmailIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailIntroCoordinator.swift; sourceTree = "<group>"; };
+		9654D489234EA9AE00847389 /* EmployeeIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeIntroCoordinator.swift; sourceTree = "<group>"; };
+		9654D48C234EA9D700847389 /* SetupBankIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBankIntroCoordinator.swift; sourceTree = "<group>"; };
+		9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableLocationIntroCoordinator.swift; sourceTree = "<group>"; };
+		9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableNotificationIntroCoordinator.swift; sourceTree = "<group>"; };
+		9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityIntroCoordinator.swift; sourceTree = "<group>"; };
 		9660718D23003FA700F0D5CC /* CBATheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBATheme.swift; sourceTree = "<group>"; };
 		9664340F2341A5CC00934FB0 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966434CD2341A9AF00934FB0 /* Spending.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spending.storyboard; sourceTree = "<group>"; };
@@ -703,9 +724,8 @@
 		96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
-		AA539C0ECFDCA783C9E1F334 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
 		D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE7281A8BAA1670E7BD9455 /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
+		EAFCE9E195028399C87E8603 /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -714,7 +734,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0D651E23442FD400AA819C /* Pods_Cheq.framework in Frameworks */,
 				4F0D651F23442FD400AA819C /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,8 +765,8 @@
 			children = (
 				6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */,
 				FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */,
-				FAE7281A8BAA1670E7BD9455 /* Pods-Cheq.debug.xcconfig */,
-				AA539C0ECFDCA783C9E1F334 /* Pods-Cheq.release.xcconfig */,
+				EAFCE9E195028399C87E8603 /* Pods-Cheq.debug.xcconfig */,
+				6F3F665B7B53EEECE5F40028 /* Pods-Cheq.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1257,6 +1276,7 @@
 		4FD7C1EF2329E16300AC7A67 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9654D481234E99DD00847389 /* Coordinator */,
 				4FAE3658232FB26B0035E57E /* IntroductionViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1490,6 +1510,28 @@
 				964F7BED2333513200338227 /* DynamicFormViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9654D481234E99DD00847389 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9654D482234E99F600847389 /* protocol */,
+				9654D486234E9B5800847389 /* EmailIntroCoordinator.swift */,
+				9654D489234EA9AE00847389 /* EmployeeIntroCoordinator.swift */,
+				9654D48C234EA9D700847389 /* SetupBankIntroCoordinator.swift */,
+				9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */,
+				9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */,
+				9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9654D482234E99F600847389 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9654D483234E9A6300847389 /* IntroductionCoordinatorProtocol.swift */,
+			);
+			path = protocol;
 			sourceTree = "<group>";
 		};
 		966434CC2341A96900934FB0 /* SpendingOverview */ = {
@@ -1830,14 +1872,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F0D653123442FD400AA819C /* Build configuration list for PBXNativeTarget "CheqDevice" */;
 			buildPhases = (
-				4F0D647623442FD400AA819C /* [CP] Check Pods Manifest.lock */,
 				4F0D647723442FD400AA819C /* Sources */,
 				4F0D651D23442FD400AA819C /* Frameworks */,
 				4F0D652223442FD400AA819C /* Resources */,
 				4F0D652A23442FD400AA819C /* Embed Frameworks */,
 				4F0D652C23442FD400AA819C /* Embed App Extensions */,
-				4F0D652D23442FD400AA819C /* [CP] Embed Pods Frameworks */,
-				4F0D652E23442FD400AA819C /* [CP] Copy Pods Resources */,
 				4F0D652F23442FD400AA819C /* Migrate Moneysoft Framework bundle */,
 				4F0D653023442FD400AA819C /* Fabrics Run Script */,
 			);
@@ -1936,7 +1975,7 @@
 				};
 			};
 			buildConfigurationList = 9676520B22FAFD01001E43E0 /* Build configuration list for PBXProject "Cheq" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -2101,62 +2140,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F0D647623442FD400AA819C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cheq-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F0D652D23442FD400AA819C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F0D652E23442FD400AA819C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F0D652F23442FD400AA819C /* Migrate Moneysoft Framework bundle */ = {
@@ -2340,6 +2323,7 @@
 				4F0D648D23442FD400AA819C /* SpendingOverviewViewController.swift in Sources */,
 				4F0D648E23442FD400AA819C /* CBarViewFormatter.swift in Sources */,
 				4FEF97D1234C477300E37421 /* RecurringBillsAPI.swift in Sources */,
+				9654D48E234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FEF97C7234C477300E37421 /* HealthCheckAPI.swift in Sources */,
 				4FEF980B234C477300E37421 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F0D648F23442FD400AA819C /* CButton.swift in Sources */,
@@ -2360,10 +2344,12 @@
 				4FEF97CD234C477300E37421 /* BudgetingAPI.swift in Sources */,
 				4F0D649B23442FD400AA819C /* FinanceViewController.swift in Sources */,
 				4F0D649D23442FD400AA819C /* NSAttributedString.swift in Sources */,
+				9654D48B234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F0D649E23442FD400AA819C /* DataHelperUtil.swift in Sources */,
 				4FEF97CF234C477300E37421 /* SpendingAPI.swift in Sources */,
 				4F0D64A023442FD400AA819C /* EmailVerificationViewModel.swift in Sources */,
 				4FEF97D5234C477300E37421 /* JSONEncodableEncoding.swift in Sources */,
+				9654D494234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */,
 				4F0D64A223442FD400AA819C /* AppData.swift in Sources */,
 				4F0D64A323442FD400AA819C /* CMultipleChoiceWithImageCell.swift in Sources */,
 				4FEF97FF234C477300E37421 /* GetLoanPreviewResponse.swift in Sources */,
@@ -2394,6 +2380,7 @@
 				4F0D64BD23442FD400AA819C /* CToolbar.swift in Sources */,
 				4FEF9819234C477300E37421 /* GetUserResponse.swift in Sources */,
 				4FEF9815234C477300E37421 /* GetSpendingCategoryResponse.swift in Sources */,
+				9654D485234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				4FEF9809234C477300E37421 /* MonthAmountStatResponse.swift in Sources */,
 				4F0D64BE23442FD400AA819C /* ServiceEnums.swift in Sources */,
 				4F0D64BF23442FD400AA819C /* AppDelegate.swift in Sources */,
@@ -2450,6 +2437,7 @@
 				4F0D64E423442FD400AA819C /* VDotManager.swift in Sources */,
 				4F0D64E523442FD400AA819C /* CLabel.swift in Sources */,
 				4F0D64E723442FD400AA819C /* Date_Extension.swift in Sources */,
+				9654D491234EA9F900847389 /* EnableLocationIntroCoordinator.swift in Sources */,
 				4FEF97F1234C477300E37421 /* UserBudget.swift in Sources */,
 				4F0D64EC23442FD400AA819C /* CSwitch.swift in Sources */,
 				4F0D64ED23442FD400AA819C /* FinanceViewModel.swift in Sources */,
@@ -2486,6 +2474,7 @@
 				4FEF981D234C477300E37421 /* GetRecurringBillResponse.swift in Sources */,
 				4F0D650723442FD400AA819C /* CProgressViewStackView.swift in Sources */,
 				4F0D650823442FD400AA819C /* UICollectionView_Extension.swift in Sources */,
+				9654D488234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				4F0D650923442FD400AA819C /* AutoLayoutUtil.swift in Sources */,
 				4F0D650A23442FD400AA819C /* ProfileViewModel.swift in Sources */,
 				4F0D650B23442FD400AA819C /* Data_Extension.swift in Sources */,
@@ -2500,6 +2489,7 @@
 				4F0D71552345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				4FEF97E9234C477300E37421 /* FinancialInstitutionLogoModel.swift in Sources */,
 				4F0D651923442FD400AA819C /* DynamicFormViewController.swift in Sources */,
+				9654D497234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				4FEF97D9234C477300E37421 /* PutUserDetailRequest.swift in Sources */,
 				4F0D651A23442FD400AA819C /* DarkTheme.swift in Sources */,
 				4F0D651C23442FD400AA819C /* CProgressView.swift in Sources */,
@@ -2537,6 +2527,7 @@
 				966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
 				4FEF97D0234C477300E37421 /* RecurringBillsAPI.swift in Sources */,
+				9654D48D234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FEF97C6234C477300E37421 /* HealthCheckAPI.swift in Sources */,
 				4FEF980A234C477300E37421 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F57BB0F2326013100B95C06 /* CButton.swift in Sources */,
@@ -2557,10 +2548,12 @@
 				4FEF97CC234C477300E37421 /* BudgetingAPI.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
 				96A9F6D22327D1E800A05E25 /* NSAttributedString.swift in Sources */,
+				9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
 				4FEF97CE234C477300E37421 /* SpendingAPI.swift in Sources */,
 				4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */,
 				4FEF97D4234C477300E37421 /* JSONEncodableEncoding.swift in Sources */,
+				9654D493234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */,
 				4F0B06652330452000986E35 /* AppData.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
 				4FEF97FE234C477300E37421 /* GetLoanPreviewResponse.swift in Sources */,
@@ -2591,6 +2584,7 @@
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				4FEF9818234C477300E37421 /* GetUserResponse.swift in Sources */,
 				4FEF9814234C477300E37421 /* GetSpendingCategoryResponse.swift in Sources */,
+				9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				4FEF9808234C477300E37421 /* MonthAmountStatResponse.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
 				9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */,
@@ -2647,6 +2641,7 @@
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
 				96B8217D234354B800AA940F /* Date_Extension.swift in Sources */,
+				9654D490234EA9F900847389 /* EnableLocationIntroCoordinator.swift in Sources */,
 				4FEF97F0234C477300E37421 /* UserBudget.swift in Sources */,
 				4F2E4ABE23349C79001F1BA2 /* CSwitch.swift in Sources */,
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
@@ -2683,6 +2678,7 @@
 				4FEF981C234C477300E37421 /* GetRecurringBillResponse.swift in Sources */,
 				4F2E4AC923383A2D001F1BA2 /* CProgressViewStackView.swift in Sources */,
 				4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */,
+				9654D487234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */,
 				9676525422FB07C0001E43E0 /* ProfileViewModel.swift in Sources */,
 				4F09109A231F7E9A00AA7F7D /* Data_Extension.swift in Sources */,
@@ -2697,6 +2693,7 @@
 				4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				4FEF97E8234C477300E37421 /* FinancialInstitutionLogoModel.swift in Sources */,
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,
+				9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				4FEF97D8234C477300E37421 /* PutUserDetailRequest.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
 				4F2E4ACC23383A3B001F1BA2 /* CProgressView.swift in Sources */,
@@ -2749,7 +2746,6 @@
 /* Begin XCBuildConfiguration section */
 		4F0D653223442FD400AA819C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAE7281A8BAA1670E7BD9455 /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2772,7 +2768,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2783,7 +2779,6 @@
 		};
 		4F0D653323442FD400AA819C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA539C0ECFDCA783C9E1F334 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2806,7 +2801,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
@@ -2934,7 +2929,7 @@
 		};
 		9676523022FAFD04001E43E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAE7281A8BAA1670E7BD9455 /* Pods-Cheq.debug.xcconfig */;
+			baseConfigurationReference = EAFCE9E195028399C87E8603 /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2957,7 +2952,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2968,7 +2963,7 @@
 		};
 		9676523122FAFD04001E43E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA539C0ECFDCA783C9E1F334 /* Pods-Cheq.release.xcconfig */;
+			baseConfigurationReference = 6F3F665B7B53EEECE5F40028 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2991,7 +2986,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.testing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;

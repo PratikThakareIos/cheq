@@ -102,7 +102,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
         let introductionViewModel = IntroductionViewModel()
-        introductionViewModel.type = introductionType
+        introductionViewModel.coordinator = IntroductionViewModel.coordinatorFor(introductionType)
         vc.viewModel = introductionViewModel
         nav.pushViewController(vc, animated: true)
     }
@@ -150,7 +150,7 @@ extension AppNav {
     func initViewController(_ introType: IntroductionType)-> UIViewController? {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         guard let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as? IntroductionViewController else { return nil }
-        vc.viewModel.type = introType
+        vc.viewModel.coordinator = IntroductionViewModel.coordinatorFor(introType)
         return vc
     }
     

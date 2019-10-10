@@ -10,40 +10,19 @@
     </dependencies>
     <scenes>
         <!--Lending View Controller-->
-        <scene sceneID="9D1-c1-xeL">
+        <scene sceneID="kGh-pk-zaC">
             <objects>
-                <viewController storyboardIdentifier="LendingViewController " useStoryboardIdentifierAsRestorationIdentifier="YES" id="1xW-mK-dcf" customClass="LendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IgA-dF-2El">
+                <viewController storyboardIdentifier="LendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gh5-ns-Z4N" customClass="LendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="37o-pU-Tpf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="FUa-k8-PyL"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5BY-ug-oG6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K9O-f0-wPg">
-                        <barButtonItem key="rightBarButtonItem" title="Account" style="plain" id="Yee-J5-CDc"/>
-                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HIq-fj-hVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1Y-bb-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784.05797101449286" y="102.45535714285714"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EXW-C9-YAj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abF-bf-uov" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fOS-dr-evr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1xW-mK-dcf" kind="relationship" relationship="rootViewController" id="5Ny-n3-LLB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jrm-E8-uCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-126.08695652173914" y="102.45535714285714"/>
+            <point key="canvasLocation" x="-298" y="164"/>
         </scene>
     </scenes>
 </document>
