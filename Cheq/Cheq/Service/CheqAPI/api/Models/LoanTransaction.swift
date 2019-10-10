@@ -13,16 +13,18 @@ public struct LoanTransaction: Codable {
 
     public var amount: Double?
     public var fee: Double?
-    public var date: Date?
-    public var loanAgreementUrl: String?
-    public var directDebitAgreementUrl: String?
+    public var date: String?
+    public var loanType: String?
+    public var loanAgreement: String?
+    public var directDebitAgreement: String?
 
-    public init(amount: Double?, fee: Double?, date: Date?, loanAgreementUrl: String?, directDebitAgreementUrl: String?) {
+    public init(amount: Double?, fee: Double?, date: String?, loanType: String?, loanAgreement: String?, directDebitAgreement: String?) {
         self.amount = amount
         self.fee = fee
         self.date = date
-        self.loanAgreementUrl = loanAgreementUrl
-        self.directDebitAgreementUrl = directDebitAgreementUrl
+        self.loanType = loanType
+        self.loanAgreement = loanAgreement
+        self.directDebitAgreement = directDebitAgreement
     }
 
 

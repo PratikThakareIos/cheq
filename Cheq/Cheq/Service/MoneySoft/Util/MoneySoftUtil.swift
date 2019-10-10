@@ -29,7 +29,21 @@ class MoneySoftUtil {
         let form = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: 239, providerInstitutionId: "1004")
         return form
     }
-    
+
+    func fillFormWithStGeorgeAccount(_ form: inout InstitutionCredentialsFormModel) {
+        for promptModel in form.prompts {
+            switch(promptModel.index) {
+            case 1: promptModel.savedValue = "423953005124xxxx"
+            case 2: promptModel.savedValue = "xxxxxx"
+            case 3: promptModel.savedValue = "xxxxxxxx"
+            case 4: promptModel.savedValue =  "x"
+
+            default:
+                break
+            }
+        }
+    }
+
     // update this for testing different banks
     func fillFormWithTestAccount(_ form: inout InstitutionCredentialsFormModel) {
         for promptModel in form.prompts {

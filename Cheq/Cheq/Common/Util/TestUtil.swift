@@ -42,7 +42,7 @@ class TestUtil {
     
     func randomEmail()-> String {
         let randomPrefix = randomString(10)
-        let randomSuffix = suffix.randomElement() ?? "gmail.com"
+        let randomSuffix = "testcheq.com.au"
         return "\(randomPrefix)@\(randomSuffix)"
     }
     

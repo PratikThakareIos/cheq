@@ -10,5 +10,5 @@ import UIKit
 
 class XCTestConfig {
     static let shared = XCTestConfig()
-    let expectionTimeout = 120.0
+    let expectionTimeout = 180.0
 }

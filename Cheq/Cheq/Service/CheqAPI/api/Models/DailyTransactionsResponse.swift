@@ -11,10 +11,10 @@ import Foundation
 
 public struct DailyTransactionsResponse: Codable {
 
-    public var date: Date?
+    public var date: String?
     public var transactions: [SlimTransactionResponse]?
 
-    public init(date: Date?, transactions: [SlimTransactionResponse]?) {
+    public init(date: String?, transactions: [SlimTransactionResponse]?) {
         self.date = date
         self.transactions = transactions
     }

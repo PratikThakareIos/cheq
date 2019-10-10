@@ -29,7 +29,7 @@ open class SpendingAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example={
   "dailyTransactions" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
+    "date" : "date",
     "transactions" : [ {
       "date" : "date",
       "amount" : 2.3021358869347655,
@@ -52,7 +52,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
+    "date" : "date",
     "transactions" : [ {
       "date" : "date",
       "amount" : 2.3021358869347655,
@@ -522,7 +522,7 @@ open class SpendingAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example={
   "dailyTransactions" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
+    "date" : "date",
     "transactions" : [ {
       "date" : "date",
       "amount" : 2.3021358869347655,
@@ -545,7 +545,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     } ]
   }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
+    "date" : "date",
     "transactions" : [ {
       "date" : "date",
       "amount" : 2.3021358869347655,

@@ -31,13 +31,12 @@ open class LendingAPI {
      - examples: [{contentType=application/json, example={
   "directDebitAgreement" : "directDebitAgreement",
   "amount" : 0.8008281904610115,
+  "cashoutDate" : "cashoutDate",
   "loanAgreement" : "loanAgreement",
   "repaymentDate" : "repaymentDate",
   "fee" : 6.027456183070403,
   "bankName" : "bankName",
-  "financialAccountId" : 1,
-  "maskedAccountNumber" : "maskedAccountNumber",
-  "firstTimeBorrow" : true
+  "maskedAccountNumber" : "maskedAccountNumber"
 }}]
      
      - parameter amount: (path)  
@@ -76,31 +75,48 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "withdrawableAmount" : 0.8008281904610115,
-  "loanTranscations" : [ {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "amount" : 1.4658129805029452,
-    "loanAgreementUrl" : "loanAgreementUrl",
-    "directDebitAgreementUrl" : "directDebitAgreementUrl",
-    "fee" : 5.962133916683182
-  }, {
-    "date" : "2000-01-23T04:56:07.000+00:00",
-    "amount" : 1.4658129805029452,
-    "loanAgreementUrl" : "loanAgreementUrl",
-    "directDebitAgreementUrl" : "directDebitAgreementUrl",
-    "fee" : 5.962133916683182
-  } ],
-  "eligibility" : {
-    "kycStatus" : "NotStarted",
-    "displayLockScreen" : true,
-    "failureDetail" : {
-      "failureReasonDescription" : "failureReasonDescription",
-      "failureReason" : "CreditAssessment"
-    },
+  "decline" : {
+    "declineDescription" : "declineDescription",
+    "declineReason" : "declineReason"
+  },
+  "eligibleRequirement" : {
+    "kycStatus" : "kycStatus",
     "hasEmploymentDetail" : true,
-    "directDebitTryAgainDays" : 6,
-    "hasDirectDebitDetail" : true,
-    "hasNameConflict" : true
+    "hasDirectDebitDetail" : true
+  },
+  "borrowOverview" : {
+    "nextPayDay" : "nextPayDay",
+    "availableWithdrawAmount" : 0.8008281904610115,
+    "pendingRepayments" : [ {
+      "date" : "date",
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 6.027456183070403,
+      "loanType" : "loanType",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 1.4658129805029452
+    }, {
+      "date" : "date",
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 6.027456183070403,
+      "loanType" : "loanType",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 1.4658129805029452
+    } ],
+    "histories" : [ {
+      "date" : "date",
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 6.027456183070403,
+      "loanType" : "loanType",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 1.4658129805029452
+    }, {
+      "date" : "date",
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 6.027456183070403,
+      "loanType" : "loanType",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 1.4658129805029452
+    } ]
   }
 }}]
 
@@ -120,59 +136,11 @@ open class LendingAPI {
 
     /**
 
+     - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getLendingHistories(completion: @escaping ((_ data: [LoanTransaction]?,_ error: Error?) -> Void)) {
-        getLendingHistoriesWithRequestBuilder().execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-
-    /**
-     - GET /v1/Lending/histories
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "date" : "2000-01-23T04:56:07.000+00:00",
-  "amount" : 1.4658129805029452,
-  "loanAgreementUrl" : "loanAgreementUrl",
-  "directDebitAgreementUrl" : "directDebitAgreementUrl",
-  "fee" : 5.962133916683182
-}, {
-  "date" : "2000-01-23T04:56:07.000+00:00",
-  "amount" : 1.4658129805029452,
-  "loanAgreementUrl" : "loanAgreementUrl",
-  "directDebitAgreementUrl" : "directDebitAgreementUrl",
-  "fee" : 5.962133916683182
-} ]}]
-
-     - returns: RequestBuilder<[LoanTransaction]> 
-     */
-    open class func getLendingHistoriesWithRequestBuilder() -> RequestBuilder<[LoanTransaction]> {
-        let path = "/v1/Lending/histories"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<[LoanTransaction]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter amount: (query)  (optional)
-     - parameter fee: (query)  (optional)
-     - parameter toFinancialAccountId: (query)  (optional)
-     - parameter repaymentDate: (query)  (optional)
-     - parameter agreeLoanAgreement: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postBorrow(amount: Int? = nil, fee: Int? = nil, toFinancialAccountId: Int? = nil, repaymentDate: Date? = nil, agreeLoanAgreement: Bool? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postBorrowWithRequestBuilder(amount: amount, fee: fee, toFinancialAccountId: toFinancialAccountId, repaymentDate: repaymentDate, agreeLoanAgreement: agreeLoanAgreement).execute { (response, error) -> Void in
+    open class func postBorrow(request: PostLoanRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postBorrowWithRequestBuilder(request: request).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -188,31 +156,20 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      
-     - parameter amount: (query)  (optional)
-     - parameter fee: (query)  (optional)
-     - parameter toFinancialAccountId: (query)  (optional)
-     - parameter repaymentDate: (query)  (optional)
-     - parameter agreeLoanAgreement: (query)  (optional)
+     - parameter request: (body)  (optional)
 
      - returns: RequestBuilder<Void> 
      */
-    open class func postBorrowWithRequestBuilder(amount: Int? = nil, fee: Int? = nil, toFinancialAccountId: Int? = nil, repaymentDate: Date? = nil, agreeLoanAgreement: Bool? = nil) -> RequestBuilder<Void> {
+    open class func postBorrowWithRequestBuilder(request: PostLoanRequest? = nil) -> RequestBuilder<Void> {
         let path = "/v1/Lending/borrow"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "Amount": amount?.encodeToJSON(), 
-            "Fee": fee?.encodeToJSON(), 
-            "ToFinancialAccountId": toFinancialAccountId?.encodeToJSON(), 
-            "RepaymentDate": repaymentDate?.encodeToJSON(), 
-            "AgreeLoanAgreement": agreeLoanAgreement
-        ])
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -255,13 +212,11 @@ open class LendingAPI {
 
     /**
 
-     - parameter bsb: (query)  
-     - parameter accountNumber: (query)  
-     - parameter isJointAccount: (query)  (optional)
+     - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putBankAccount(bsb: String, accountNumber: String, isJointAccount: Bool? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        putBankAccountWithRequestBuilder(bsb: bsb, accountNumber: accountNumber, isJointAccount: isJointAccount).execute { (response, error) -> Void in
+    open class func putBankAccount(request: PutBankAccountRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putBankAccountWithRequestBuilder(request: request).execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -277,27 +232,20 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      
-     - parameter bsb: (query)  
-     - parameter accountNumber: (query)  
-     - parameter isJointAccount: (query)  (optional)
+     - parameter request: (body)  (optional)
 
      - returns: RequestBuilder<Void> 
      */
-    open class func putBankAccountWithRequestBuilder(bsb: String, accountNumber: String, isJointAccount: Bool? = nil) -> RequestBuilder<Void> {
+    open class func putBankAccountWithRequestBuilder(request: PutBankAccountRequest? = nil) -> RequestBuilder<Void> {
         let path = "/v1/Lending/bankaccount"
         let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "Bsb": bsb, 
-            "AccountNumber": accountNumber, 
-            "IsJointAccount": isJointAccount
-        ])
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**

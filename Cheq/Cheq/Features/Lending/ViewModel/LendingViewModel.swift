@@ -8,6 +8,12 @@
 
 import UIKit
 
-class LendingViewModel: BaseViewModel {
+enum WithdrawalAmount: Int {
+    case oneHundred = 100
+    case twoHundred = 200
+    case threeHundred = 300
+}
 
+class LendingViewModel: BaseViewModel {
+    var availableToWithdraw: [WithdrawalAmount] = [.oneHundred, .twoHundred, .threeHundred]
 }

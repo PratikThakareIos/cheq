@@ -74,21 +74,16 @@ open class UsersAPI {
     "ageRange" : "ageRange",
     "firstName" : "firstName",
     "lastName" : "lastName",
-    "numberOfDependents" : "numberOfDependents",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
-    "dateOfBirth" : "2000-01-23T04:56:07.000+00:00",
-    "state" : "state",
-    "maritalStatus" : "maritalStatus"
+    "dateOfBirth" : "dateOfBirth",
+    "state" : "state"
   },
   "employer" : {
-    "country" : "country",
     "address" : "address",
     "employmentType" : "employmentType",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
-    "postCode" : "postCode",
-    "state" : "state",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
   },
@@ -128,7 +123,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "NotStarted",
+  "kycStatus" : "kycStatus",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]
@@ -246,21 +241,16 @@ open class UsersAPI {
     "ageRange" : "ageRange",
     "firstName" : "firstName",
     "lastName" : "lastName",
-    "numberOfDependents" : "numberOfDependents",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
-    "dateOfBirth" : "2000-01-23T04:56:07.000+00:00",
-    "state" : "state",
-    "maritalStatus" : "maritalStatus"
+    "dateOfBirth" : "dateOfBirth",
+    "state" : "state"
   },
   "employer" : {
-    "country" : "country",
     "address" : "address",
     "employmentType" : "employmentType",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
-    "postCode" : "postCode",
-    "state" : "state",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
   },
@@ -341,7 +331,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "NotStarted",
+  "kycStatus" : "kycStatus",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]

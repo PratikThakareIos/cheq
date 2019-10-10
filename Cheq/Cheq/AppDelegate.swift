@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
 //        self.setupServices()
-//        self.setupInitialViewController()
-        self.setupInitDevController()
+        self.setupInitialViewController()
+//        self.setupInitDevController()
 //        self.setupLogController()
         
         return true
@@ -208,7 +208,7 @@ extension AppDelegate {
     
     func setupServicesForDev() {
         guard let _ = AppData.shared.application else { return }
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared

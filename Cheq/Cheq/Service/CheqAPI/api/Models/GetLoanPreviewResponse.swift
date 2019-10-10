@@ -13,22 +13,20 @@ public struct GetLoanPreviewResponse: Codable {
 
     public var amount: Double?
     public var fee: Double?
+    public var cashoutDate: String?
     public var repaymentDate: String?
-    public var financialAccountId: Int?
     public var bankName: String?
     public var maskedAccountNumber: String?
-    public var firstTimeBorrow: Bool?
     public var loanAgreement: String?
     public var directDebitAgreement: String?
 
-    public init(amount: Double?, fee: Double?, repaymentDate: String?, financialAccountId: Int?, bankName: String?, maskedAccountNumber: String?, firstTimeBorrow: Bool?, loanAgreement: String?, directDebitAgreement: String?) {
+    public init(amount: Double?, fee: Double?, cashoutDate: String?, repaymentDate: String?, bankName: String?, maskedAccountNumber: String?, loanAgreement: String?, directDebitAgreement: String?) {
         self.amount = amount
         self.fee = fee
+        self.cashoutDate = cashoutDate
         self.repaymentDate = repaymentDate
-        self.financialAccountId = financialAccountId
         self.bankName = bankName
         self.maskedAccountNumber = maskedAccountNumber
-        self.firstTimeBorrow = firstTimeBorrow
         self.loanAgreement = loanAgreement
         self.directDebitAgreement = directDebitAgreement
     }

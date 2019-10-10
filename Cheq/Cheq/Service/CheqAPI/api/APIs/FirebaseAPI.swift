@@ -15,41 +15,6 @@ open class FirebaseAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func clearAllFirebaseUsers(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        clearAllFirebaseUsersWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - DELETE /v1/Firebase/users
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func clearAllFirebaseUsersWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Firebase/users"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     open class func getTestingToken(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
         getTestingTokenWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {
@@ -112,76 +77,6 @@ open class FirebaseAPI {
         let financialAccountIdPreEscape = "\(financialAccountId)"
         let financialAccountIdPostEscape = financialAccountIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{financialAccountId}", with: financialAccountIdPostEscape, options: .literal, range: nil)
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func testSendEmail(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        testSendEmailWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Firebase/emails
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func testSendEmailWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Firebase/emails"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func testSendEmailWithAttachment(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        testSendEmailWithAttachmentWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Firebase/emails/attachments
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func testSendEmailWithAttachmentWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Firebase/emails/attachments"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
