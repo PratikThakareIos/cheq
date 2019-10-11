@@ -154,6 +154,12 @@ extension AppNav {
         return vc
     }
     
+    func initTabViewController()-> UIViewController {
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.tab.rawValue)
+        return vc 
+    }
+    
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)

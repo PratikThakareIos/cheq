@@ -144,7 +144,7 @@
 		4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		4F0D652723442FD400AA819C /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C1EB2329E14400AC7A67 /* Common.storyboard */; };
 		4F0D652823442FD400AA819C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9676521C22FAFD03001E43E0 /* Assets.xcassets */; };
-		4F0D652923442FD400AA819C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* Main.storyboard */; };
+		4F0D652923442FD400AA819C /* MainBackup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* MainBackup.storyboard */; };
 		4F0D653623442FE700AA819C /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F0D6FDB23446B3800AA819C /* CheqDevice-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F57BAF62322291400B95C06 /* CheqDevice-Info.plist */; };
 		4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9676522122FAFD03001E43E0 /* Cheq.plist */; };
@@ -171,8 +171,8 @@
 		4F0D71632346B52500AA819C /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
 		4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
 		4F0D71662346B53800AA819C /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
-		4F0D71682346B56100AA819C /* Lending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Lending.storyboard */; };
-		4F0D71692346B56100AA819C /* Lending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Lending.storyboard */; };
+		4F0D71682346B56100AA819C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Main.storyboard */; };
+		4F0D71692346B56100AA819C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F0D71672346B56100AA819C /* Main.storyboard */; };
 		4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716C2346B9B600AA819C /* AccountViewModel.swift */; };
 		4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716C2346B9B600AA819C /* AccountViewModel.swift */; };
 		4F0D71702346B9D900AA819C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D716F2346B9D900AA819C /* AccountViewController.swift */; };
@@ -240,6 +240,10 @@
 		4FEF9838234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
 		4FEF983B234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FEF984423503CC000E37421 /* CompleteDetailsCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FEF984323503CC000E37421 /* CompleteDetailsCardView.xib */; };
+		4FEF984523503CC000E37421 /* CompleteDetailsCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FEF984323503CC000E37421 /* CompleteDetailsCardView.xib */; };
+		4FEF984723503CD600E37421 /* CompleteDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF984623503CD600E37421 /* CompleteDetailsCardView.swift */; };
+		4FEF984823503CD600E37421 /* CompleteDetailsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF984623503CD600E37421 /* CompleteDetailsCardView.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -402,7 +406,7 @@
 		966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A19E522FEA95600A6E444 /* GridCoordinatorViewModel.swift */; };
 		966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A19E722FEDACC00A6E444 /* DispatchUtil.swift */; };
 		9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676521322FAFD01001E43E0 /* AppDelegate.swift */; };
-		9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* Main.storyboard */; };
+		9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* MainBackup.storyboard */; };
 		9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9676521C22FAFD03001E43E0 /* Assets.xcassets */; };
 		9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676523D22FB05C1001E43E0 /* ProfileViewController.swift */; };
@@ -533,7 +537,7 @@
 		4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyAddressCoordinator.swift; sourceTree = "<group>"; };
 		4F0D71612346B52400AA819C /* LendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingViewController.swift; sourceTree = "<group>"; };
 		4F0D71642346B53800AA819C /* LendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LendingViewModel.swift; sourceTree = "<group>"; };
-		4F0D71672346B56100AA819C /* Lending.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lending.storyboard; sourceTree = "<group>"; };
+		4F0D71672346B56100AA819C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4F0D716C2346B9B600AA819C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		4F0D716F2346B9D900AA819C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		4F0D71722346CD4900AA819C /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
@@ -596,6 +600,8 @@
 		4FEDA467232B773A0042E4E2 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
 		4FEF9839234D51DC00E37421 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		4FEF984323503CC000E37421 /* CompleteDetailsCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteDetailsCardView.xib; sourceTree = "<group>"; };
+		4FEF984623503CD600E37421 /* CompleteDetailsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsCardView.swift; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F3F665B7B53EEECE5F40028 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
@@ -692,7 +698,7 @@
 		966A19E722FEDACC00A6E444 /* DispatchUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchUtil.swift; sourceTree = "<group>"; };
 		9676521022FAFD01001E43E0 /* Cheq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cheq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9676521322FAFD01001E43E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9676521A22FAFD01001E43E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9676521A22FAFD01001E43E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainBackup.storyboard; sourceTree = "<group>"; };
 		9676521C22FAFD03001E43E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9676521F22FAFD03001E43E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9676522122FAFD03001E43E0 /* Cheq.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Cheq.plist; sourceTree = "<group>"; };
@@ -1550,6 +1556,8 @@
 		9654D499234ED35700847389 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FEF984323503CC000E37421 /* CompleteDetailsCardView.xib */,
+				4FEF984623503CD600E37421 /* CompleteDetailsCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1607,11 +1615,11 @@
 				4F091091231F6C0200AA7F7D /* Cheq.entitlements */,
 				9676525F22FB0946001E43E0 /* TabViewController.swift */,
 				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
-				9676521922FAFD01001E43E0 /* Main.storyboard */,
+				9676521922FAFD01001E43E0 /* MainBackup.storyboard */,
 				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
 				4FD7C1EB2329E14400AC7A67 /* Common.storyboard */,
 				966434CD2341A9AF00934FB0 /* Spending.storyboard */,
-				4F0D71672346B56100AA819C /* Lending.storyboard */,
+				4F0D71672346B56100AA819C /* Main.storyboard */,
 			);
 			path = Cheq;
 			sourceTree = "<group>";
@@ -2106,11 +2114,12 @@
 				4F0D6FDB23446B3800AA819C /* CheqDevice-Info.plist in Resources */,
 				4F0D652423442FD400AA819C /* Spending.storyboard in Resources */,
 				4F0D652523442FD400AA819C /* Onboarding.storyboard in Resources */,
+				4FEF984523503CC000E37421 /* CompleteDetailsCardView.xib in Resources */,
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
-				4F0D71692346B56100AA819C /* Lending.storyboard in Resources */,
+				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
 				4F0D652823442FD400AA819C /* Assets.xcassets in Resources */,
-				4F0D652923442FD400AA819C /* Main.storyboard in Resources */,
+				4F0D652923442FD400AA819C /* MainBackup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2122,11 +2131,12 @@
 				966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
+				4FEF984423503CC000E37421 /* CompleteDetailsCardView.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
-				4F0D71682346B56100AA819C /* Lending.storyboard in Resources */,
+				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
-				9676521B22FAFD01001E43E0 /* Main.storyboard in Resources */,
+				9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2467,6 +2477,7 @@
 				4F0D64EC23442FD400AA819C /* CSwitch.swift in Sources */,
 				4F0D64ED23442FD400AA819C /* FinanceViewModel.swift in Sources */,
 				4F0D64EE23442FD400AA819C /* GridCoordinatorViewModel.swift in Sources */,
+				4FEF984823503CD600E37421 /* CompleteDetailsCardView.swift in Sources */,
 				963F1A88234F47F2009104BF /* GetLoanPreviewResponse.swift in Sources */,
 				4F0D714F2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F0D64EF23442FD400AA819C /* LinkAccountsCoordinator.swift in Sources */,
@@ -2674,6 +2685,7 @@
 				4F2E4ABE23349C79001F1BA2 /* CSwitch.swift in Sources */,
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
+				4FEF984723503CD600E37421 /* CompleteDetailsCardView.swift in Sources */,
 				963F1A87234F47F2009104BF /* GetLoanPreviewResponse.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
@@ -2751,12 +2763,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9676521922FAFD01001E43E0 /* Main.storyboard */ = {
+		9676521922FAFD01001E43E0 /* MainBackup.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9676521A22FAFD01001E43E0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainBackup.storyboard;
 			sourceTree = "<group>";
 		};
 		9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */ = {

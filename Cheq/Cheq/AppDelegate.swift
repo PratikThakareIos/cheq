@@ -256,7 +256,7 @@ extension AppDelegate {
 
     func setupInitDevController () {
         self.setupServicesForDev()
-        let vc = AppNav.shared.initViewController(StoryboardName.lending.rawValue, storyboardId: LendingStoryboardId.lending.rawValue, embedInNav: true)
+        let vc = AppNav.shared.initTabViewController()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
