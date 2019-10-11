@@ -18,10 +18,13 @@ protocol AppThemeProtocol {
     var defaultFont: UIFont { get }
     var mediumFont: UIFont { get }
     var headerFont: UIFont { get }
+    var extraLargeFont: UIFont { get }
 
     //MARK: colors
     var barStyle: UIBarStyle { get }
     var textColor: UIColor { get }
+    var grayTextColor: UIColor { get }
+    var lightGrayColor: UIColor { get }
     var altTextColor: UIColor { get }
     var linksColor: UIColor { get }
     var primaryColor: UIColor { get }
@@ -157,6 +160,10 @@ extension AppThemeProtocol {
     var headerFont: UIFont {
         get { return UIFont.systemFont(ofSize: 20.0)}
     }
+    
+    var extraLargeFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 36.0)}
+    }
 
     var longAnimationDuration: TimeInterval { return 1.0 }
     var mediumAnimationDuration: TimeInterval { return 0.5 }
@@ -172,5 +179,13 @@ extension AppThemeProtocol {
     
     var altTextColor: UIColor {
         get { return .white }
+    }
+    
+    var grayTextColor: UIColor {
+        get { return UIColor(hex: "999999") }
+    }
+    
+    var lightGrayColor: UIColor {
+        get { return UIColor(hex: "edecee") }
     }
 }

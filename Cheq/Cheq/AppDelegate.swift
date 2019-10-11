@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
 //        self.setupServices()
-        self.setupInitialViewController()
-//        self.setupInitDevController()
+//        self.setupInitialViewController()
+        self.setupInitDevController()
 //        self.setupLogController()
         
         return true

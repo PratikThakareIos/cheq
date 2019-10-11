@@ -54,7 +54,7 @@
 		4F0D649823442FD400AA819C /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4F0D649923442FD400AA819C /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
 		4F0D649B23442FD400AA819C /* FinanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524122FB060E001E43E0 /* FinanceViewController.swift */; };
-		4F0D649D23442FD400AA819C /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D12327D1E800A05E25 /* NSAttributedString.swift */; };
+		4F0D649D23442FD400AA819C /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */; };
 		4F0D649E23442FD400AA819C /* DataHelperUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4B94233AED51001F1BA2 /* DataHelperUtil.swift */; };
 		4F0D64A023442FD400AA819C /* EmailVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */; };
 		4F0D64A223442FD400AA819C /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B06642330452000986E35 /* AppData.swift */; };
@@ -421,7 +421,7 @@
 		9695E36E230016C60037A49D /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695E36D230016C60037A49D /* DarkTheme.swift */; };
 		96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */; };
 		96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6CE2327725A00A05E25 /* CLabel.swift */; };
-		96A9F6D22327D1E800A05E25 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D12327D1E800A05E25 /* NSAttributedString.swift */; };
+		96A9F6D22327D1E800A05E25 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */; };
 		96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6D52327DBE600A05E25 /* CTextView.swift */; };
 		96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068B22FE6A9E00173743 /* CBarChartView.swift */; };
@@ -714,7 +714,7 @@
 		9695E36D230016C60037A49D /* DarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		96A9F6CE2327725A00A05E25 /* CLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabel.swift; sourceTree = "<group>"; };
-		96A9F6D12327D1E800A05E25 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		96A9F6D52327DBE600A05E25 /* CTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextView.swift; sourceTree = "<group>"; };
 		96B0068922FE69AA00173743 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		96B0068B22FE6A9E00173743 /* CBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBarChartView.swift; sourceTree = "<group>"; };
@@ -837,7 +837,7 @@
 			children = (
 				4F091099231F7E9A00AA7F7D /* Data_Extension.swift */,
 				4F57BB1223260EBA00B95C06 /* ViewController_Extension.swift */,
-				96A9F6D12327D1E800A05E25 /* NSAttributedString.swift */,
+				96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */,
 				4F2E4AB123346EB5001F1BA2 /* Array_Extension.swift */,
 				96B8217C234354B800AA940F /* Date_Extension.swift */,
 			);
@@ -2363,7 +2363,7 @@
 				963F1A76234F47F2009104BF /* UserBudget.swift in Sources */,
 				4F0D649923442FD400AA819C /* SpendingOverviewViewModel.swift in Sources */,
 				4F0D649B23442FD400AA819C /* FinanceViewController.swift in Sources */,
-				4F0D649D23442FD400AA819C /* NSAttributedString.swift in Sources */,
+				4F0D649D23442FD400AA819C /* NSMutableAttributedString.swift in Sources */,
 				9654D48B234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F0D649E23442FD400AA819C /* DataHelperUtil.swift in Sources */,
 				963F1ABE234F47F2009104BF /* JSONEncodingHelper.swift in Sources */,
@@ -2570,7 +2570,7 @@
 				963F1A75234F47F2009104BF /* UserBudget.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
-				96A9F6D22327D1E800A05E25 /* NSAttributedString.swift in Sources */,
+				96A9F6D22327D1E800A05E25 /* NSMutableAttributedString.swift in Sources */,
 				9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
 				963F1ABD234F47F2009104BF /* JSONEncodingHelper.swift in Sources */,
