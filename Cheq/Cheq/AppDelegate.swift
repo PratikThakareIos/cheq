@@ -51,8 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.registerNotificationObservers()
 //        self.setupServices()
 //        self.setupInitialViewController()
-        self.setupInitDevController()
+//        self.setupInitDevController()
 //        self.setupLogController()
+        self.setupQuestionController()
         
         return true
     }
@@ -253,6 +254,14 @@ extension AppDelegate {
 }
 
 extension AppDelegate {
+
+    func setupQuestionController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
+        vc.viewModel.coordinator = BankAccountCoordinator()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
 
     func setupInitDevController () {
         self.setupServicesForDev()

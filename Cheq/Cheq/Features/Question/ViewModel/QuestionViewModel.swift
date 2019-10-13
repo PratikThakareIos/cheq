@@ -18,6 +18,7 @@ enum QuestionType: String {
     case maritalStatus = "maritalStatus"
     case companyName = "companyName"
     case companyAddress = "companyAddress"
+    case bankAccount = "bankAccount"
 }
 
 enum QuestionField: String {
@@ -31,6 +32,7 @@ enum QuestionField: String {
     case residentialPostcode = "residentialPostcode"
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
+
     
     //age range
     case ageRange = "ageRange"
@@ -47,6 +49,12 @@ enum QuestionField: String {
     case employerCountry = "employerCountry"
     case employerLatitude = "employerLatitude"
     case employerLongitude = "employerLongitude"
+
+    // bank details
+    case bankName = "bankName"
+    case bankBSB = "bankBSB"
+    case bankAccNo = "bankAccNo"
+    case bankIsJoint = "isJointAccount"
 }
 
 class QuestionViewModel: BaseViewModel {
@@ -70,6 +78,10 @@ class QuestionViewModel: BaseViewModel {
     
     func numOfTextFields()->Int {
         return coordinator.numOfTextFields
+    }
+
+    func numOfCheckbox()->Int {
+        return coordinator.numOfCheckBox
     }
     
     func placeHolder(_ index: Int)->String {
@@ -161,6 +173,8 @@ extension QuestionViewModel {
             coordinator = CompanyAddressCoordinator()
         case .maritalStatus:
             coordinator = MaritalStatusCoordinator()
+        case .bankAccount:
+            coordinator = BankAccountCoordinator()
         }
         return coordinator
     }

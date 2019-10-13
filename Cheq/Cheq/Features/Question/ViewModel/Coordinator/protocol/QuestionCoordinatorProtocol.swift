@@ -10,8 +10,10 @@ import UIKit
 
 protocol QuestionCoordinatorProtocol {
     var type: QuestionType { get }
+    var sectionTitle: String { get }
     var question: String { get }
     var numOfTextFields: Int { get }
+    var numOfCheckBox: Int { get }
     
     func placeHolder(_ index: Int)->String
     
@@ -26,4 +28,18 @@ extension QuestionCoordinatorProtocol {
             return 1
         }
     }
+
+    // default is 0
+    var numOfCheckBox: Int {
+        get {
+            return 0 
+        }
+    }
+
+    var sectionTitle: String {
+        get {
+            return "About me"
+        }
+    }
+
 }

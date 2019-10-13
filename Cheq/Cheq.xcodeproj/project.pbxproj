@@ -479,6 +479,8 @@
 		96F9FFE52352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
 		96F9FFE723530A9C0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
 		96F9FFE823530A9D0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
+		96F9FFF523533AC20041001F /* BankAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */; };
+		96F9FFF623533AC20041001F /* BankAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */; };
 		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
 		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
 		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
@@ -795,6 +797,7 @@
 		96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineIntroCoordinator.swift; sourceTree = "<group>"; };
+		96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountCoordinator.swift; sourceTree = "<group>"; };
 		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
@@ -1034,6 +1037,7 @@
 				4F0D71562345AB9800AA819C /* MaritalStatusCoordinator.swift */,
 				4F0D71592345ABA900AA819C /* CompanyNameCoordinator.swift */,
 				4F0D715C2345ABBA00AA819C /* CompanyAddressCoordinator.swift */,
+				96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -2586,6 +2590,7 @@
 				4F0D64A923442FD400AA819C /* OnfidoManager.swift in Sources */,
 				4F0D64AA23442FD400AA819C /* ViewUtil.swift in Sources */,
 				4F0D64AB23442FD400AA819C /* DynamicFormViewModel.swift in Sources */,
+				96F9FFF623533AC20041001F /* BankAccountCoordinator.swift in Sources */,
 				963F1AB6234F47F2009104BF /* UserBudgetUpdate.swift in Sources */,
 				4F0D64B023442FD400AA819C /* CMultipleChoiceWithCaptionCell.swift in Sources */,
 				4F0D64B223442FD400AA819C /* AnalyticsViewModel.swift in Sources */,
@@ -2810,6 +2815,7 @@
 				4FD7C203232A190600AC7A67 /* OnfidoManager.swift in Sources */,
 				4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */,
 				964F7BEE2333513200338227 /* DynamicFormViewModel.swift in Sources */,
+				96F9FFF523533AC20041001F /* BankAccountCoordinator.swift in Sources */,
 				963F1AB5234F47F2009104BF /* UserBudgetUpdate.swift in Sources */,
 				4F0B0671233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
 				9676525622FB07E5001E43E0 /* AnalyticsViewModel.swift in Sources */,

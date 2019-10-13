@@ -430,7 +430,7 @@
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Kc6-wm-al7">
-                                        <rect key="frame" x="0.0" y="20" width="374" height="312.5"/>
+                                        <rect key="frame" x="0.0" y="20" width="374" height="438.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgY-5A-5YD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -466,8 +466,21 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6G7-n7-7Zq" customClass="CButton" customModule="Cheq" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="juh-4v-dMp" userLabel="Text Field3" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="282.5" width="374" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h47-5p-Al8" customClass="CSwitchWithLabel" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="332.5" width="374" height="56"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="IJM-IX-kuY"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6G7-n7-7Zq" customClass="CButton" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="408.5" width="374" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -500,6 +513,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="checkboxContainerView" destination="h47-5p-Al8" id="stI-sP-sSp"/>
                         <outlet property="nextButton" destination="6G7-n7-7Zq" id="t6x-eZ-2mH"/>
                         <outlet property="questionTitle" destination="aha-Oi-K8D" id="ngI-eN-epP"/>
                         <outlet property="scrollView" destination="V4r-kb-bzE" id="n5B-K0-Q9X"/>
@@ -508,6 +522,7 @@
                         <outlet property="stackView" destination="Kc6-wm-al7" id="Noq-9E-mNO"/>
                         <outlet property="textField1" destination="R7a-gX-YUm" id="CtZ-Ak-vwg"/>
                         <outlet property="textField2" destination="Zlq-QP-Nls" id="1el-OW-Xkx"/>
+                        <outlet property="textField3" destination="juh-4v-dMp" id="Ypm-UC-FlA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsX-Mo-65z" userLabel="First Responder" sceneMemberID="firstResponder"/>

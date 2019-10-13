@@ -20,6 +20,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var nextButton: CButton!
     @IBOutlet weak var textField1: CTextField!
     @IBOutlet weak var textField2: CTextField!
+    @IBOutlet weak var textField3: CTextField!
+    @IBOutlet weak var checkboxContainerView: UIView!
+    
     @IBOutlet weak var searchTextField: CSearchTextField!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -84,15 +87,17 @@ class QuestionViewController: UIViewController {
     func setupDelegate() {
         textField1.delegate = self
         textField2.delegate = self
+        textField3.delegate = self
         searchTextField.delegate = self
     }
     
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
-        self.sectionTitle.text = self.viewModel.sectionTitle
+        self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         self.hideBackTitle()
         self.showNormalTextFields()
+        self.showCheckbox()
         self.populatePlaceHolderNormalTextField()
         self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
         self.questionTitle.text = self.viewModel.question()
@@ -144,6 +149,10 @@ class QuestionViewController: UIViewController {
             self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
             self.textField1.keyboardType = .default
             self.textField2.keyboardType = .default
+        case .bankAccount:
+            self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
+            self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
+            self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
         }
     }
 
@@ -219,7 +228,9 @@ class QuestionViewController: UIViewController {
         case .maritalStatus:
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.dependents.rawValue, value: textField2.text ?? "")
-            // TO BE IMPLEMENTED 
+            // TO BE IMPLEMENTED
+        case .bankAccount:
+            LoggingUtil.shared.cPrint("bank account next")
         }
     }
 }
@@ -252,7 +263,7 @@ extension QuestionViewController {
     }
     
     func validateInput() {
-        let inputs = self.inputsFromTextFields(textFields: [self.searchTextField, self.textField1, self.textField2])
+        let inputs = self.inputsFromTextFields(textFields: [self.searchTextField, self.textField1, self.textField2, self.textField3])
         if let error =  self.viewModel.coordinator.validateInput(inputs) {
             showError(error) {
                 return
@@ -271,8 +282,14 @@ extension QuestionViewController {
 
 //MARK: TextFields show/hide
 extension QuestionViewController {
+
+
     func populatePlaceHolderNormalTextField() {
-        if self.viewModel.coordinator.numOfTextFields == 2 {
+        if self.viewModel.coordinator.numOfTextFields == 3 {
+            textField1.placeholder = self.viewModel.placeHolder(0)
+            textField2.placeholder = self.viewModel.placeHolder(1)
+            textField3.placeholder = self.viewModel.placeHolder(2)
+        } else if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
         } else {
@@ -281,20 +298,43 @@ extension QuestionViewController {
     }
     
     func showNormalTextFields() {
-        if self.viewModel.coordinator.numOfTextFields == 2 {
+        if self.viewModel.coordinator.numOfTextFields == 3 {
             textField1.isHidden = false
             textField2.isHidden = false
+            textField3.isHidden = false
+            searchTextField.isHidden = true
+        } else if self.viewModel.coordinator.numOfTextFields == 2 {
+            textField1.isHidden = false
+            textField2.isHidden = false
+            textField3.isHidden = true
             searchTextField.isHidden = true
         } else {
             textField1.isHidden = false
             textField2.isHidden = true
+            textField3.isHidden = true
             searchTextField.isHidden = true
         }
+    }
+
+    func showCheckbox() {
+        if self.viewModel.coordinator.numOfCheckBox > 0 {
+            let cSwitch = CSwitchWithLabel(frame: CGRect.zero, title: self.viewModel.placeHolder(3))
+            self.checkboxContainerView.isHidden = false
+            self.checkboxContainerView.addSubview(cSwitch)
+            AutoLayoutUtil.pinToSuperview(cSwitch, padding: 0)
+        } else {
+            self.checkboxContainerView.isHidden = true
+        }
+    }
+
+    func hideCheckbox() {
+        self.checkboxContainerView.isHidden = true
     }
     
     func hideNormalTextFields() {
         textField1.isHidden = true
         textField2.isHidden = true
+        textField3.isHidden = true
         searchTextField.isHidden = false
     }
 }
@@ -360,6 +400,7 @@ extension QuestionViewController{
     
     func setupEmployerNameLookup() {
         self.hideNormalTextFields()
+        self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedEmployer = itemPosition
@@ -382,6 +423,7 @@ extension QuestionViewController{
     
     func setupEmployerAddressLookup() {
         self.hideNormalTextFields()
+        self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
@@ -405,6 +447,7 @@ extension QuestionViewController{
     
     func setupResidentialAddressLookup() {
         self.hideNormalTextFields()
+        self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedResidentialAddress = itemPosition

@@ -59,7 +59,7 @@ class IntroductionViewModel: BaseViewModel {
         case .verifyIdentity:
             return VerifyIdentityIntroCoordinator()
         case .workDetailsDecline:
-            return DeclineIntroCoordinator()
+            return EmploymentTypeDeclineIntroCoordinator()
         }
     }
 }

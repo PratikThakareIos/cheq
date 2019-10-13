@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeclineIntroCoordinator: IntroductionCoordinatorProtocol {
+class EmploymentTypeDeclineIntroCoordinator: IntroductionCoordinatorProtocol {
     var type: IntroductionType = .workDetailsDecline
 
     var caption: String = "Unfortunately, we do not currently cater to casual/self-employed/part-time workers. As we grow we will look to expand our service to your employment type. You'll be the first to know about it. Till then, feel free to use our budgeting and spending tools to help you manage your personal finances."
