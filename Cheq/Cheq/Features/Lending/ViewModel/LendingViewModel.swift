@@ -9,8 +9,8 @@
 import UIKit
 
 class LendingViewModel {
-    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(),
-        CompleteDetailsTableViewCellViewModel()] as [TableViewCellViewModelProtocol]
+    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
+        CompleteDetailsTableViewCellViewModel(), BottomTableViewCellViewModel()] as [TableViewCellViewModelProtocol]
     var sections = [TableSectionViewModel]()
 
     init() {
@@ -20,6 +20,8 @@ class LendingViewModel {
         section.rows.append(intercom)
         let amountSelect = AmountSelectTableViewCellViewModel()
         section.rows.append(amountSelect)
+        let topView = TopTableViewCellViewModel()
+        section.rows.append(topView)
         let completionProgress = CompletionProgressTableViewCellViewModel()
         section.rows.append(completionProgress)
         let completeWorkDetails = CompleteDetailsTableViewCellViewModel()
@@ -34,6 +36,8 @@ class LendingViewModel {
         verifyYourDetails.type = .verifyYourDetails
         verifyYourDetails.expanded = false
         section.rows.append(verifyYourDetails)
+        let bottom = BottomTableViewCellViewModel()
+        section.rows.append(bottom)
         self.sections.append(section)
     }
 }

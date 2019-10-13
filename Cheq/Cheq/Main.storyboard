@@ -34,14 +34,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="20" y="88" width="374" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cJz-X1-sMR" firstAttribute="leading" secondItem="5BY-ug-oG6" secondAttribute="leading" id="DBW-vS-NTM"/>
-                            <constraint firstItem="5BY-ug-oG6" firstAttribute="trailing" secondItem="cJz-X1-sMR" secondAttribute="trailing" id="DoR-TN-csC"/>
+                            <constraint firstItem="cJz-X1-sMR" firstAttribute="leading" secondItem="5BY-ug-oG6" secondAttribute="leading" constant="20" id="DBW-vS-NTM"/>
+                            <constraint firstItem="5BY-ug-oG6" firstAttribute="trailing" secondItem="cJz-X1-sMR" secondAttribute="trailing" constant="20" id="DoR-TN-csC"/>
                             <constraint firstItem="cJz-X1-sMR" firstAttribute="top" secondItem="5BY-ug-oG6" secondAttribute="top" id="bYp-7X-PyG"/>
                             <constraint firstItem="5BY-ug-oG6" firstAttribute="bottom" secondItem="cJz-X1-sMR" secondAttribute="bottom" id="gSS-0E-EcG"/>
                         </constraints>

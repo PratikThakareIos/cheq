@@ -463,6 +463,20 @@
 		96F9FFC52352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */; };
 		96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */; };
 		96F9FFC82352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */; };
+		96F9FFCF2352DAE00041001F /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFCD2352DAE00041001F /* BottomTableViewCell.swift */; };
+		96F9FFD02352DAE00041001F /* BottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFCD2352DAE00041001F /* BottomTableViewCell.swift */; };
+		96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFCE2352DAE00041001F /* BottomTableViewCell.xib */; };
+		96F9FFD22352DAE00041001F /* BottomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFCE2352DAE00041001F /* BottomTableViewCell.xib */; };
+		96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFD32352DB050041001F /* TopTableViewCell.swift */; };
+		96F9FFD62352DB060041001F /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFD32352DB050041001F /* TopTableViewCell.swift */; };
+		96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFD42352DB060041001F /* TopTableViewCell.xib */; };
+		96F9FFD82352DB060041001F /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFD42352DB060041001F /* TopTableViewCell.xib */; };
+		96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFD92352DD530041001F /* UIView_Extension.swift */; };
+		96F9FFDB2352DD530041001F /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFD92352DD530041001F /* UIView_Extension.swift */; };
+		96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */; };
+		96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */; };
+		96F9FFE42352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
+		96F9FFE52352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
 		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
 		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
 		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
@@ -771,6 +785,13 @@
 		96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		96F9FFCD2352DAE00041001F /* BottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCell.swift; sourceTree = "<group>"; };
+		96F9FFCE2352DAE00041001F /* BottomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTableViewCell.xib; sourceTree = "<group>"; };
+		96F9FFD32352DB050041001F /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
+		96F9FFD42352DB060041001F /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
+		96F9FFD92352DD530041001F /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
+		96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
@@ -885,6 +906,7 @@
 				96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */,
 				4F2E4AB123346EB5001F1BA2 /* Array_Extension.swift */,
 				96B8217C234354B800AA940F /* Date_Extension.swift */,
+				96F9FFD92352DD530041001F /* UIView_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1572,6 +1594,8 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				96F9FFCC2352DAAF0041001F /* Bottom */,
+				96F9FFCB2352DAAE0041001F /* Top */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
@@ -1974,6 +1998,42 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		96F9FFCB2352DAAE0041001F /* Top */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFDD2352DDD10041001F /* ViewModel */,
+				96F9FFD32352DB050041001F /* TopTableViewCell.swift */,
+				96F9FFD42352DB060041001F /* TopTableViewCell.xib */,
+			);
+			path = Top;
+			sourceTree = "<group>";
+		};
+		96F9FFCC2352DAAF0041001F /* Bottom */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFE22352E0910041001F /* ViewModel */,
+				96F9FFCD2352DAE00041001F /* BottomTableViewCell.swift */,
+				96F9FFCE2352DAE00041001F /* BottomTableViewCell.xib */,
+			);
+			path = Bottom;
+			sourceTree = "<group>";
+		};
+		96F9FFDD2352DDD10041001F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96F9FFE22352E0910041001F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		96FADD29230E82C900AE6CBB /* AuthManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2228,12 +2288,14 @@
 			files = (
 				4F0D652323442FD400AA819C /* LaunchScreen.storyboard in Resources */,
 				4F0D6FDB23446B3800AA819C /* CheqDevice-Info.plist in Resources */,
+				96F9FFD82352DB060041001F /* TopTableViewCell.xib in Resources */,
 				964FA996235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4F0D652423442FD400AA819C /* Spending.storyboard in Resources */,
 				4F0D652523442FD400AA819C /* Onboarding.storyboard in Resources */,
 				96F9FFC52352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
 				96F9FFB62352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
+				96F9FFD22352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
 				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
 				4F0D652823442FD400AA819C /* Assets.xcassets in Resources */,
@@ -2248,12 +2310,14 @@
 			files = (
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */,
+				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
+				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
@@ -2544,6 +2608,7 @@
 				963F1AC2234F47F2009104BF /* Configuration.swift in Sources */,
 				4F0D64C623442FD400AA819C /* MultipleChoiceViewModel.swift in Sources */,
 				963F1A9A234F47F2009104BF /* PostFinancialAccountRequest.swift in Sources */,
+				96F9FFD02352DAE00041001F /* BottomTableViewCell.swift in Sources */,
 				963F1A6C234F47F2009104BF /* PostWorksheetRequest.swift in Sources */,
 				4F0D64C723442FD400AA819C /* CBarChartView.swift in Sources */,
 				963F1A60234F47F2009104BF /* PutUserDetailRequest.swift in Sources */,
@@ -2560,6 +2625,7 @@
 				963F1A68234F47F2009104BF /* PostFinancialTransactionRequest.swift in Sources */,
 				4F0D64CB23442FD400AA819C /* CommonEnums.swift in Sources */,
 				4F0D64CC23442FD400AA819C /* SplashViewController.swift in Sources */,
+				96F9FFD62352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F0D64CD23442FD400AA819C /* CPickerView.swift in Sources */,
 				963F1A56234F47F2009104BF /* SpendingAPI.swift in Sources */,
 				4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */,
@@ -2614,6 +2680,7 @@
 				4F0D714F2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F0D64EF23442FD400AA819C /* LinkAccountsCoordinator.swift in Sources */,
 				4F0D64F123442FD400AA819C /* CarouselCollectionViewCoordinator.swift in Sources */,
+				96F9FFDB2352DD530041001F /* UIView_Extension.swift in Sources */,
 				4F0D64F223442FD400AA819C /* AppThemeProtocol.swift in Sources */,
 				4F0D64F423442FD400AA819C /* DispatchUtil.swift in Sources */,
 				4F0D64F523442FD400AA819C /* RegistrationViewController.swift in Sources */,
@@ -2634,6 +2701,7 @@
 				4F0D650623442FD400AA819C /* OnDemandCoordinator.swift in Sources */,
 				963F1AA2234F47F2009104BF /* GetUserResponse.swift in Sources */,
 				4F0D650723442FD400AA819C /* CProgressViewStackView.swift in Sources */,
+				96F9FFE52352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */,
 				4F0D650823442FD400AA819C /* UICollectionView_Extension.swift in Sources */,
 				9654D488234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				4F0D650923442FD400AA819C /* AutoLayoutUtil.swift in Sources */,
@@ -2646,6 +2714,7 @@
 				4F0D651123442FD400AA819C /* StateCoordinator.swift in Sources */,
 				4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A90234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
+				96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F0D651423442FD400AA819C /* MoneySoftManager.swift in Sources */,
 				4F0D651523442FD400AA819C /* CarouselCoordinatorViewModel.swift in Sources */,
 				963F1A64234F47F2009104BF /* PutResetPasswordRequest.swift in Sources */,
@@ -2762,6 +2831,7 @@
 				963F1AC1234F47F2009104BF /* Configuration.swift in Sources */,
 				4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */,
 				963F1A99234F47F2009104BF /* PostFinancialAccountRequest.swift in Sources */,
+				96F9FFCF2352DAE00041001F /* BottomTableViewCell.swift in Sources */,
 				963F1A6B234F47F2009104BF /* PostWorksheetRequest.swift in Sources */,
 				96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */,
 				963F1A5F234F47F2009104BF /* PutUserDetailRequest.swift in Sources */,
@@ -2778,6 +2848,7 @@
 				963F1A67234F47F2009104BF /* PostFinancialTransactionRequest.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
+				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				963F1A55234F47F2009104BF /* SpendingAPI.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
@@ -2832,6 +2903,7 @@
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
+				96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
 				4F2E4B90233AECD1001F1BA2 /* RegistrationViewController.swift in Sources */,
@@ -2852,6 +2924,7 @@
 				4F2E49FE233441DE001F1BA2 /* OnDemandCoordinator.swift in Sources */,
 				963F1AA1234F47F2009104BF /* GetUserResponse.swift in Sources */,
 				4F2E4AC923383A2D001F1BA2 /* CProgressViewStackView.swift in Sources */,
+				96F9FFE42352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */,
 				4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */,
 				9654D487234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */,
@@ -2864,6 +2937,7 @@
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A8F234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
+				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
 				963F1A63234F47F2009104BF /* PutResetPasswordRequest.swift in Sources */,
