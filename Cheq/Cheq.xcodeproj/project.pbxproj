@@ -1478,6 +1478,34 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9600A71E2353539C0082C2A3 /* HistoryItemCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HistoryItemCell;
+			sourceTree = "<group>";
+		};
+		9600A71F235353AF0082C2A3 /* LoanAmountCard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoanAmountCard;
+			sourceTree = "<group>";
+		};
+		9600A720235353DD0082C2A3 /* LoanAgreement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoanAgreement;
+			sourceTree = "<group>";
+		};
+		9600A721235353E90082C2A3 /* ConfirmationSwipe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ConfirmationSwipe;
+			sourceTree = "<group>";
+		};
 		9629A58C22FC302000828FCF /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1683,10 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9600A721235353E90082C2A3 /* ConfirmationSwipe */,
+				9600A720235353DD0082C2A3 /* LoanAgreement */,
+				9600A71F235353AF0082C2A3 /* LoanAmountCard */,
+				9600A71E2353539C0082C2A3 /* HistoryItemCell */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
