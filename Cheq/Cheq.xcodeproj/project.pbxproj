@@ -451,6 +451,18 @@
 		96F9FFA82352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */; };
 		96F9FFAB2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFAA2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift */; };
 		96F9FFAC2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFAA2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift */; };
+		96F9FFB32352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
+		96F9FFB42352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
+		96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFB22352BF5E0041001F /* CompletionProgressTableViewCell.xib */; };
+		96F9FFB62352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFB22352BF5E0041001F /* CompletionProgressTableViewCell.xib */; };
+		96F9FFBA2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */; };
+		96F9FFBB2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */; };
+		96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */; };
+		96F9FFC32352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */; };
+		96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */; };
+		96F9FFC52352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */; };
+		96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */; };
+		96F9FFC82352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */; };
 		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
 		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
 		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
@@ -753,6 +765,12 @@
 		96F9FFA32352B0C70041001F /* IntercomChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomChatTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntercomChatTableViewCell.xib; sourceTree = "<group>"; };
 		96F9FFAA2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomChatTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionProgressTableViewCell.swift; sourceTree = "<group>"; };
+		96F9FFB22352BF5E0041001F /* CompletionProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletionProgressTableViewCell.xib; sourceTree = "<group>"; };
+		96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionProgressTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteDetailsTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
@@ -1554,12 +1572,13 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				96F9FFAF2352BE400041001F /* CompletionProgress */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
-				96F9FFA22352B09D0041001F /* IntercomChat */,
 				964FA9902352879C00B07AD7 /* AmountSelect */,
+				96F9FFBD2352C3C90041001F /* CompleteDetails */,
+				96F9FFAF2352BE400041001F /* CompletionProgress */,
+				96F9FFA22352B09D0041001F /* IntercomChat */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1922,8 +1941,37 @@
 		96F9FFAF2352BE400041001F /* CompletionProgress */ = {
 			isa = PBXGroup;
 			children = (
+				96F9FFB82352C0AB0041001F /* ViewModel */,
+				96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */,
+				96F9FFB22352BF5E0041001F /* CompletionProgressTableViewCell.xib */,
 			);
 			path = CompletionProgress;
+			sourceTree = "<group>";
+		};
+		96F9FFB82352C0AB0041001F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		96F9FFBD2352C3C90041001F /* CompleteDetails */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFBF2352C4B20041001F /* ViewModel */,
+				96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */,
+				96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */,
+			);
+			path = CompleteDetails;
+			sourceTree = "<group>";
+		};
+		96F9FFBF2352C4B20041001F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96F9FFC62352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		96FADD29230E82C900AE6CBB /* AuthManager */ = {
@@ -2183,7 +2231,9 @@
 				964FA996235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4F0D652423442FD400AA819C /* Spending.storyboard in Resources */,
 				4F0D652523442FD400AA819C /* Onboarding.storyboard in Resources */,
+				96F9FFC52352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
+				96F9FFB62352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
 				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
 				4F0D652823442FD400AA819C /* Assets.xcassets in Resources */,
@@ -2201,7 +2251,9 @@
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
+				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
+				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
@@ -2398,6 +2450,7 @@
 			files = (
 				4F0D647923442FD400AA819C /* AppConfig.swift in Sources */,
 				963F1AAC234F47F2009104BF /* GetUserBudgetResponse.swift in Sources */,
+				96F9FFB42352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */,
 				4F0D715E2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
 				4F0D647B23442FD400AA819C /* CSearchTextField.swift in Sources */,
 				4F0D647C23442FD400AA819C /* StoryboardEnums.swift in Sources */,
@@ -2424,6 +2477,7 @@
 				4F0D71632346B52500AA819C /* LendingViewController.swift in Sources */,
 				4F0D648D23442FD400AA819C /* SpendingOverviewViewController.swift in Sources */,
 				963F1A50234F47F2009104BF /* LocationsAPI.swift in Sources */,
+				96F9FFC32352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F0D648E23442FD400AA819C /* CBarViewFormatter.swift in Sources */,
 				9654D48E234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F0D648F23442FD400AA819C /* CButton.swift in Sources */,
@@ -2434,6 +2488,7 @@
 				963F1A8C234F47F2009104BF /* BorrowOverview.swift in Sources */,
 				4F0D649323442FD400AA819C /* CarouselCollectionViewCell.swift in Sources */,
 				4F0D649423442FD400AA819C /* ViewController_Extension.swift in Sources */,
+				96F9FFBB2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				963F1A70234F47F2009104BF /* PostRecurringBillRequest.swift in Sources */,
 				4F0D649523442FD400AA819C /* BluedotManager.swift in Sources */,
 				4F0D649623442FD400AA819C /* FBEnums.swift in Sources */,
@@ -2532,6 +2587,7 @@
 				963F1A84234F47F2009104BF /* PostLoanRequest.swift in Sources */,
 				4F0D64DE23442FD400AA819C /* IntroductionViewController.swift in Sources */,
 				4F0D64DF23442FD400AA819C /* CheqAPIManager_Spending.swift in Sources */,
+				96F9FFC82352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F0D64E023442FD400AA819C /* Array_Extension.swift in Sources */,
 				963F1A72234F47F2009104BF /* GetUserKycResponse.swift in Sources */,
 				4F0D64E123442FD400AA819C /* WebViewModel.swift in Sources */,
@@ -2612,6 +2668,7 @@
 			files = (
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
 				963F1AAB234F47F2009104BF /* GetUserBudgetResponse.swift in Sources */,
+				96F9FFB32352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */,
 				4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
 				4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */,
 				4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */,
@@ -2638,6 +2695,7 @@
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */,
 				963F1A4F234F47F2009104BF /* LocationsAPI.swift in Sources */,
+				96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
 				9654D48D234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F57BB0F2326013100B95C06 /* CButton.swift in Sources */,
@@ -2648,6 +2706,7 @@
 				963F1A8B234F47F2009104BF /* BorrowOverview.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
+				96F9FFBA2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				963F1A6F234F47F2009104BF /* PostRecurringBillRequest.swift in Sources */,
 				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
@@ -2746,6 +2805,7 @@
 				963F1A83234F47F2009104BF /* PostLoanRequest.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
+				96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
 				963F1A71234F47F2009104BF /* GetUserKycResponse.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,

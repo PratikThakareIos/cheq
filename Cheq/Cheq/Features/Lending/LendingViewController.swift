@@ -66,8 +66,12 @@ extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
 
         // setup cell
         let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
-         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
+        let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
+        if cell is CompleteDetailsTableViewCell {
+            cell.viewModel = cellViewModel
+            cell.setupConfig()
+        }
         return cell
     }
 }

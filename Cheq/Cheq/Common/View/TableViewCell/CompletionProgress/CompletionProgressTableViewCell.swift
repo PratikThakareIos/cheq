@@ -1,5 +1,5 @@
 //
-//  IntercomChatTableViewCell.swift
+//  CompletionProgressTableViewCell.swift
 //  Cheq
 //
 //  Created by XUWEI LIANG on 13/10/19.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class IntercomChatTableViewCell: CTableViewCell {
+class CompletionProgressTableViewCell: CTableViewCell {
+
+    @IBOutlet weak var completionTitle: CLabel!
+    @IBOutlet weak var completionProgress: CLabel!
+    @IBOutlet weak var completionProgressBar: CProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.setupConfig()
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,12 +25,11 @@ class IntercomChatTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func intercom() {
-        LoggingUtil.shared.cPrint("present intercom")
-    }
 
     override func setupConfig() {
-        self.viewModel = IntercomChatTableViewCellViewModel()
-        self.backgroundColor = .clear
+        self.completionTitle.font = AppConfig.shared.activeTheme.mediumFont
+        self.completionProgressBar.setProgress(0.5, animated: true)
     }
+
+    
 }

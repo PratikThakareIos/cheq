@@ -8,9 +8,15 @@
 
 import UIKit
 
-class CTableViewCell: UITableViewCell {
+protocol CTableViewCellProtocol {
+    func setupConfig()
+}
+
+class CTableViewCell: UITableViewCell, CTableViewCellProtocol {
+    
+    func setupConfig() {
+        // subclass needs to override
+    }
 
     var viewModel: TableViewCellViewModelProtocol?
-
-    func setupConfig() {}
 }

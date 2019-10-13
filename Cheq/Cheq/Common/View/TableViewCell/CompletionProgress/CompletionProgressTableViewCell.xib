@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompleteDetailsTableViewCell" customModule="Cheq" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompletionProgressTableViewCell" rowHeight="80" id="KGk-i7-Jjw" customClass="CompletionProgressTableViewCell" customModule="Cheq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-sQ-XwB" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Gje-bQ-JEe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5TS-sy-nho" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="40" width="320" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="trC-ZC-4LA"/>
+                        </constraints>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmi-Z6-BdD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                        <rect key="frame" x="160" y="0.0" width="160" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Cmi-Z6-BdD" secondAttribute="trailing" id="0B2-E9-cGz"/>
+                    <constraint firstAttribute="bottom" secondItem="5TS-sy-nho" secondAttribute="bottom" constant="20" id="5g2-5S-l5k"/>
+                    <constraint firstItem="wAg-sQ-XwB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ETy-0o-Pu3"/>
+                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="height" secondItem="wAg-sQ-XwB" secondAttribute="height" id="Kfy-GW-fsA"/>
+                    <constraint firstItem="5TS-sy-nho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rte-mV-zTH"/>
+                    <constraint firstAttribute="trailing" secondItem="5TS-sy-nho" secondAttribute="trailing" id="Vf8-Hi-wCG"/>
+                    <constraint firstItem="5TS-sy-nho" firstAttribute="top" secondItem="wAg-sQ-XwB" secondAttribute="bottom" id="c3q-lB-6jc"/>
+                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fG8-Oi-8py"/>
+                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="width" secondItem="wAg-sQ-XwB" secondAttribute="width" id="hbM-iR-Big"/>
+                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="leading" secondItem="wAg-sQ-XwB" secondAttribute="trailing" id="i4e-Hp-boV"/>
+                    <constraint firstItem="wAg-sQ-XwB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yBv-Z5-41r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="completionProgress" destination="Cmi-Z6-BdD" id="Dw2-F8-32t"/>
+                <outlet property="completionProgressBar" destination="5TS-sy-nho" id="55Q-5z-AWT"/>
+                <outlet property="completionTitle" destination="wAg-sQ-XwB" id="LEK-1O-1pi"/>
+            </connections>
+            <point key="canvasLocation" x="63.768115942028992" y="101.78571428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
