@@ -91,9 +91,22 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
         case .employmentType:
+
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
+
+            if AppData.shared.completingDetailsForLending {
+                var restricted = [EmploymentType]()
+                restricted = [.partTime, .casual, .selfEmployed]
+                if restricted.contains(employmentType) {
+                    // decline scenario
+                    AppNav.shared.pushToIntroduction(.workDetailsDecline, viewController: self)
+                    return
+                }
+            }
+
+
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
             } else {
@@ -109,11 +122,24 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
             let noFixedAddress = (empType == .onDemand) ? true : false
             let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: vm.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+
+            AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppData.shared.updateProgressAfterCompleting(.onDemand)
-                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+                    AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                } else {
+                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                }
             }.catch { err in
                 self.showError(err) {
+
+                    // TODO: DEBUG CODE - REMOVE
+                    if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+                        AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                    } else {
+                        AppNav.shared.dismissModal(self)
+                    }
                 }
             }
         case .financialInstitutions:

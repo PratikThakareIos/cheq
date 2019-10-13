@@ -82,7 +82,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Sfi-gR-bCw" kind="relationship" relationship="viewControllers" id="dWk-3B-eVY"/>
                         <segue destination="fCA-g3-tzo" kind="relationship" relationship="viewControllers" id="5Wt-N0-BrP"/>
                         <segue destination="Pcr-8f-oVW" kind="relationship" relationship="viewControllers" id="kPl-Di-BBD"/>
                     </connections>

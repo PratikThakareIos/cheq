@@ -34,6 +34,15 @@ extension UIViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
+
+    func showCloseButton() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeButton))
+    }
+
+    @objc func closeButton() {
+        AppNav.shared.dismissModal(self)
+    }
 }
 
 // MARK: PopupDialog wrapper

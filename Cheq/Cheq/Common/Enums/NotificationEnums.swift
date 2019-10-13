@@ -18,6 +18,10 @@ enum NotificationEvent: String {
     case appBecomeIdle = "appBecomeIdle"
 }
 
+enum UINotificationEvent: String {
+    case completeDetails = "completeDetails"
+}
+
 enum NotificationUserInfoKey: String {
     case token = "token"
 }

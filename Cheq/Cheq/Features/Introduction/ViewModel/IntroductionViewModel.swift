@@ -15,6 +15,9 @@ enum IntroductionType: String {
     case enableLocation = "Enable location"
     case notification = "Notification"
     case verifyIdentity = "Verify your identity"
+
+    // decline types
+    case workDetailsDecline = "Our eligibility criteria"
 }
 
 class IntroductionViewModel: BaseViewModel {
@@ -55,6 +58,8 @@ class IntroductionViewModel: BaseViewModel {
             return SetupBankIntroCoordinator()
         case .verifyIdentity:
             return VerifyIdentityIntroCoordinator()
+        case .workDetailsDecline:
+            return DeclineIntroCoordinator()
         }
     }
 }

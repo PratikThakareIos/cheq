@@ -24,10 +24,33 @@ class LendingViewController: UIViewController {
         setupUI()
         setupDelegate()
         registerCells()
+
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard let _ = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue) as? String else {
+            self.login()
+            return
+        }
+
+    }
+
+    func login() {
+        var credentials = [LoginCredentialType: String]()
+        credentials[.email] = TestUtil.shared.randomEmail()
+        credentials[.password] = TestUtil.shared.randomPassword()
+        AppConfig.shared.showSpinner()
+        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
+            AppConfig.shared.hideSpinner {
+
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+
+                }
+        }
     }
 
     func setupUI() {
@@ -38,6 +61,9 @@ class LendingViewController: UIViewController {
     }
 
     func setupDelegate() {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
+
         self.tableView.delegate = self
         self.tableView.dataSource = self 
     }
@@ -47,6 +73,24 @@ class LendingViewController: UIViewController {
             LoggingUtil.shared.cPrint(vm.identifier)
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+        }
+    }
+
+    @objc func completeDetails(_ notificaton: NSNotification) {
+        guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
+        let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
+        switch type {
+        case .workDetails:
+            AppData.shared.completingDetailsForLending = true
+            AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
+        case .bankDetils:
+            AppData.shared.completingDetailsForLending = true
+            // banking details flow
+            break
+        case .verifyYourDetails: break
+            AppData.shared.completingDetailsForLending = true
+            // verification flow
+            break
         }
     }
 }
@@ -72,6 +116,8 @@ extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.viewModel = cellViewModel
             cell.setupConfig()
         }
+        cell.layoutMargins.left = 20.0
+        cell.layoutMargins.right = 20.0
         return cell
     }
 }

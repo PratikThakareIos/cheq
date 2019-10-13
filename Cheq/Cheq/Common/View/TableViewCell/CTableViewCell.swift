@@ -13,7 +13,11 @@ protocol CTableViewCellProtocol {
 }
 
 class CTableViewCell: UITableViewCell, CTableViewCellProtocol {
-    
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
     func setupConfig() {
         // subclass needs to override
     }

@@ -53,6 +53,28 @@ class AppNav {
         guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
         currentRootVc.present(vc, animated: true, completion: nil)
     }
+
+    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        switch multipleChoiceType {
+        case .employmentType:
+            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
+        case .onDemand:
+            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
+        case .financialInstitutions:
+            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
+        case .ageRange:
+            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
+        case .state:
+            multipleChoiceViewModel.coordinator = StateCoordinator()
+        }
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
     
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }

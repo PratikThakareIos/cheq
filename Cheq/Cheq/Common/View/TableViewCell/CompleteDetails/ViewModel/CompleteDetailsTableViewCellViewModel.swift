@@ -12,6 +12,10 @@ enum CompleteDetailsType: String {
     case workDetails = "Work details"
     case bankDetils = "Enter your bank details"
     case verifyYourDetails = "Verify your identity"
+
+    init(fromRawValue: String){
+        self = CompleteDetailsType(rawValue: fromRawValue) ?? .workDetails
+    }
 }
 
 class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {

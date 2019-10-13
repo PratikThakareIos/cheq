@@ -30,11 +30,14 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.detailsSection.backgroundColor = .clear
         guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
         self.header.text = vm.headerText()
+        self.header.font = AppConfig.shared.activeTheme.mediumFont
         self.detailsText.text = vm.detailsText()
         self.detailsSection.isHidden = !vm.expanded
     }
 
     @IBAction func expand(_ sender: Any) {
         LoggingUtil.shared.cPrint("expand")
+        guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
+        NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
     }
 }

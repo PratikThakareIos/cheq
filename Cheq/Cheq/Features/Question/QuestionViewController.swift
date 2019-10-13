@@ -134,7 +134,7 @@ class QuestionViewController: UIViewController {
             self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
             self.searchTextField.keyboardType = .default
         case .companyName:
-            self.searchTextField.text = viewModel.fieldValue(QuestionField.employerName)
+            self.searchTextField.text = AppData.shared.completingOnDemandOther ? "" : viewModel.fieldValue(QuestionField.employerName)
             self.searchTextField.keyboardType = .default
         case .companyAddress:
             self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
@@ -196,12 +196,26 @@ class QuestionViewController: UIViewController {
             }
             self.viewModel.save(QuestionField.employerName.rawValue, value: searchTextField.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.companyName)
-            AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
+
+
+            // check if we are onboarding or completing details for lending
+            if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
+                AppData.shared.completingDetailsForLending = false
+                AppData.shared.completingOnDemandOther = false
+                AppNav.shared.dismissModal(self)
+            } else {
+                AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
+            }
         case .companyAddress:
             self.viewModel.save(QuestionField.employerAddress.rawValue, value: searchTextField.text ?? "")
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
-            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            if AppData.shared.completingDetailsForLending {
+                AppData.shared.completingDetailsForLending = false
+                AppNav.shared.dismissModal(self)
+            } else {
+                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            }
         case .maritalStatus:
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.dependents.rawValue, value: textField2.text ?? "")

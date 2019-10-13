@@ -477,6 +477,8 @@
 		96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */; };
 		96F9FFE42352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
 		96F9FFE52352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
+		96F9FFE723530A9C0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
+		96F9FFE823530A9D0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
 		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
 		96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */; };
 		96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD30230E856500AE6CBB /* ServiceEnums.swift */; };
@@ -792,6 +794,7 @@
 		96F9FFD92352DD530041001F /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineIntroCoordinator.swift; sourceTree = "<group>"; };
 		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
 		96FADD30230E856500AE6CBB /* ServiceEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEnums.swift; sourceTree = "<group>"; };
@@ -1594,8 +1597,6 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				96F9FFCC2352DAAF0041001F /* Bottom */,
-				96F9FFCB2352DAAE0041001F /* Top */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
@@ -1603,6 +1604,8 @@
 				96F9FFBD2352C3C90041001F /* CompleteDetails */,
 				96F9FFAF2352BE400041001F /* CompletionProgress */,
 				96F9FFA22352B09D0041001F /* IntercomChat */,
+				96F9FFCC2352DAAF0041001F /* Bottom */,
+				96F9FFCB2352DAAE0041001F /* Top */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1635,6 +1638,7 @@
 				9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */,
 				9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */,
 				9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */,
+				96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -2714,6 +2718,7 @@
 				4F0D651123442FD400AA819C /* StateCoordinator.swift in Sources */,
 				4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A90234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
+				96F9FFE823530A9D0041001F /* DeclineIntroCoordinator.swift in Sources */,
 				96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F0D651423442FD400AA819C /* MoneySoftManager.swift in Sources */,
 				4F0D651523442FD400AA819C /* CarouselCoordinatorViewModel.swift in Sources */,
@@ -2937,6 +2942,7 @@
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A8F234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
+				96F9FFE723530A9C0041001F /* DeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,

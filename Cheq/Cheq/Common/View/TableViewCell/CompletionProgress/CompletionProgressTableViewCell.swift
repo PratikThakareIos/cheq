@@ -17,6 +17,7 @@ class CompletionProgressTableViewCell: CTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupConfig()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,6 +29,7 @@ class CompletionProgressTableViewCell: CTableViewCell {
 
     override func setupConfig() {
         self.completionTitle.font = AppConfig.shared.activeTheme.mediumFont
+        self.completionProgress.font = AppConfig.shared.activeTheme.defaultFont
         self.completionProgressBar.setProgress(0.5, animated: true)
     }
 

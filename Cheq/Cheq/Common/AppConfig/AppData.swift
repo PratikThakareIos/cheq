@@ -98,6 +98,10 @@ class AppData {
     var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
 
+    // lending scenarios
+    var completingDetailsForLending = false
+    var completingOnDemandOther = false
+
     func saveOnfidoSDKToken(_ sdkToken: String) {
         self.onfidoSdkToken = sdkToken
         UserDefaults.standard.set(onfidoSdkToken, forKey: self.onfidoSdkKey())

@@ -33,6 +33,11 @@ class IntroductionViewController: UIViewController {
     
     func setupUI() {
         hideBackButton()
+
+        if self.viewModel.coordinator.type == .workDetailsDecline {
+            showCloseButton()
+        }
+
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
         self.titleLabel.text = self.viewModel.coordinator.type.rawValue
@@ -41,7 +46,7 @@ class IntroductionViewController: UIViewController {
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
         switch viewModel.coordinator.type {
-        case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee:
+        case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee, .workDetailsDecline:
             self.secondaryButton.isHidden = false
 //        default:
 //            self.secondaryButton.isHidden = true
@@ -79,6 +84,8 @@ class IntroductionViewController: UIViewController {
             }.catch { err in
                 self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
             }
+        case .workDetailsDecline:
+            LoggingUtil.shared.cPrint("Chat with us")
         }
     }
 
@@ -98,6 +105,8 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
+        case .workDetailsDecline:
+            LoggingUtil.shared.cPrint("check with our FAQ")
         }
     }
 }
