@@ -240,6 +240,18 @@
 		4FEF9838234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
 		4FEF983B234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
+		9600A70D235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
+		9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
+		9600A70F235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
+		9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
+		9600A712235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
+		9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */; };
+		9600A71723534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */; };
+		9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */; };
+		9600A71923534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */; };
+		9600A71C23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71B23534F630082C2A3 /* HeaderTableViewCellViewModel.swift */; };
+		9600A71D23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71B23534F630082C2A3 /* HeaderTableViewCellViewModel.swift */; };
 		9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A59422FC460200828FCF /* PrimaryTheme.swift */; };
 		9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */; };
 		9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */; };
@@ -647,6 +659,12 @@
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F3F665B7B53EEECE5F40028 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
+		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CButtonTableViewCell.xib; sourceTree = "<group>"; };
+		9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		9600A71B23534F630082C2A3 /* HeaderTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		9629A59422FC460200828FCF /* PrimaryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTheme.swift; sourceTree = "<group>"; };
 		9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModelUtil.swift; sourceTree = "<group>"; };
@@ -1424,6 +1442,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9600A708235348B80082C2A3 /* CButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				9600A709235348C70082C2A3 /* ViewModel */,
+				9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */,
+				9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */,
+			);
+			path = CButtonCell;
+			sourceTree = "<group>";
+		};
+		9600A709235348C70082C2A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9600A71323534EA10082C2A3 /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				9600A71A23534F390082C2A3 /* ViewModel */,
+				9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */,
+				9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		9600A71A23534F390082C2A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9600A71B23534F630082C2A3 /* HeaderTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		9629A58C22FC302000828FCF /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1605,6 +1659,8 @@
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
 				964FA9902352879C00B07AD7 /* AmountSelect */,
+				9600A708235348B80082C2A3 /* CButtonCell */,
+				9600A71323534EA10082C2A3 /* HeaderCell */,
 				96F9FFBD2352C3C90041001F /* CompleteDetails */,
 				96F9FFAF2352BE400041001F /* CompletionProgress */,
 				96F9FFA22352B09D0041001F /* IntercomChat */,
@@ -2297,6 +2353,8 @@
 				4F0D652323442FD400AA819C /* LaunchScreen.storyboard in Resources */,
 				4F0D6FDB23446B3800AA819C /* CheqDevice-Info.plist in Resources */,
 				96F9FFD82352DB060041001F /* TopTableViewCell.xib in Resources */,
+				9600A71923534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
+				9600A70F235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
 				964FA996235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4F0D652423442FD400AA819C /* Spending.storyboard in Resources */,
 				4F0D652523442FD400AA819C /* Onboarding.storyboard in Resources */,
@@ -2319,6 +2377,8 @@
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
+				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
+				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
@@ -2670,6 +2730,7 @@
 				963F1AA8234F47F2009104BF /* GetEmployerPlaceResponse.swift in Sources */,
 				963F1A78234F47F2009104BF /* PutUserOnfidoKycRequest.swift in Sources */,
 				963F1A4C234F47F2009104BF /* LendingAPI.swift in Sources */,
+				9600A71723534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
 				4F0D71662346B53800AA819C /* LendingViewModel.swift in Sources */,
 				963F1A9E234F47F2009104BF /* GetSpendingCategoryResponse.swift in Sources */,
 				4F0D64E223442FD400AA819C /* AuthUser.swift in Sources */,
@@ -2692,6 +2753,7 @@
 				96F9FFDB2352DD530041001F /* UIView_Extension.swift in Sources */,
 				4F0D64F223442FD400AA819C /* AppThemeProtocol.swift in Sources */,
 				4F0D64F423442FD400AA819C /* DispatchUtil.swift in Sources */,
+				9600A70D235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */,
 				4F0D64F523442FD400AA819C /* RegistrationViewController.swift in Sources */,
 				4F0D64F623442FD400AA819C /* CTextView.swift in Sources */,
 				4F0D64FA23442FD400AA819C /* SplashViewModel.swift in Sources */,
@@ -2703,6 +2765,7 @@
 				4F0D64FF23442FD400AA819C /* BaseViewModel.swift in Sources */,
 				4F0D650023442FD400AA819C /* AppNav.swift in Sources */,
 				4F0D650123442FD400AA819C /* CFacebookButton.swift in Sources */,
+				9600A712235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */,
 				4F0D650223442FD400AA819C /* GridCollectionViewCell.swift in Sources */,
 				4F0D650323442FD400AA819C /* FirebaseAuthManager.swift in Sources */,
 				4F0D650423442FD400AA819C /* CPopupDialog.swift in Sources */,
@@ -2734,6 +2797,7 @@
 				4F0D651923442FD400AA819C /* DynamicFormViewController.swift in Sources */,
 				9654D497234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				963F1A4E234F47F2009104BF /* HealthCheckAPI.swift in Sources */,
+				9600A71D23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */,
 				963F1A98234F47F2009104BF /* GetUserEmployerResponse.swift in Sources */,
 				4F0D651A23442FD400AA819C /* DarkTheme.swift in Sources */,
 				4F0D651C23442FD400AA819C /* CProgressView.swift in Sources */,
@@ -2895,6 +2959,7 @@
 				963F1AA7234F47F2009104BF /* GetEmployerPlaceResponse.swift in Sources */,
 				963F1A77234F47F2009104BF /* PutUserOnfidoKycRequest.swift in Sources */,
 				963F1A4B234F47F2009104BF /* LendingAPI.swift in Sources */,
+				9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				963F1A9D234F47F2009104BF /* GetSpendingCategoryResponse.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
@@ -2917,6 +2982,7 @@
 				96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
+				9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */,
 				4F2E4B90233AECD1001F1BA2 /* RegistrationViewController.swift in Sources */,
 				96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */,
 				9681EC732323D37000E9F6D1 /* SplashViewModel.swift in Sources */,
@@ -2928,6 +2994,7 @@
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
 				4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */,
 				4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */,
+				9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */,
@@ -2959,6 +3026,7 @@
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,
 				9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				963F1A4D234F47F2009104BF /* HealthCheckAPI.swift in Sources */,
+				9600A71C23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */,
 				963F1A97234F47F2009104BF /* GetUserEmployerResponse.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
 				4F2E4ACC23383A3B001F1BA2 /* CProgressView.swift in Sources */,

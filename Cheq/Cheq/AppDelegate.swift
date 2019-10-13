@@ -51,10 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.registerNotificationObservers()
 //        self.setupServices()
 //        self.setupInitialViewController()
-//        self.setupInitDevController()
+        self.setupInitDevController()
 //        self.setupLogController()
-        self.setupQuestionController()
-        
+//        self.setupQuestionController()
+
         return true
     }
     

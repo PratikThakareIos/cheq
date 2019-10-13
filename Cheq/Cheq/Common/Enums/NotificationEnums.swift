@@ -20,6 +20,7 @@ enum NotificationEvent: String {
 
 enum UINotificationEvent: String {
     case completeDetails = "completeDetails"
+    case buttonClicked = "buttonClicked"
 }
 
 enum NotificationUserInfoKey: String {

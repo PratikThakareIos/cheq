@@ -30,7 +30,8 @@ class LendingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let _ = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue) as? String else {
+        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue) 
+        if email.isEmpty {
             self.login()
             return
         }
