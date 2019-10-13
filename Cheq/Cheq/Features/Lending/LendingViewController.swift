@@ -10,83 +10,64 @@ import UIKit
 
 class LendingViewController: UIViewController {
 
+    let intercomIdentifier = String(describing: IntercomChatTableViewCell.self)
+    let amountSelectIdentifier = String(describing: AmountSelectTableViewCell.self)
     var viewModel = LendingViewModel()
     
-    // Loan amount control
-    @IBOutlet weak var controlView: UIView!
-    @IBOutlet weak var infoView: UIView!
-    @IBOutlet weak var loanAmountHeader: UILabel!
-    @IBOutlet weak var loanAmount: UILabel!
-    @IBOutlet weak var loanAmountCaption: UILabel!
-    @IBOutlet weak var increaseLoanAmouontButton: UIButton!
-    @IBOutlet weak var decreaseLoanAmouontButton: UIButton!
-    
+
     // Complete Details section
-    @IBOutlet weak var completeDetailsCardView: UIView!
-    
-    @IBOutlet weak var controlViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
         setupUI()
+        setupDelegate()
+        registerCells()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        ViewUtil.shared.circularMask(&self.controlView)
-        ViewUtil.shared.circularMask(&self.infoView)
-        ViewUtil.shared.applyBorder(&self.infoView, borderSize: 20.0, color: AppConfig.shared.activeTheme.backgroundColor)
     }
 
     func setupUI() {
-        if let completeDetails = UINib(nibName: "CompleteDetailsCardView", bundle: Bundle.main).instantiate(withOwner: self, options: nil)[0] as? CompleteDetailsCardView {
-            completeDetails.frame.size = self.completeDetailsCardView.frame.size
-            self.completeDetailsCardView.addSubview(completeDetails)
-        }
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        AppConfig.shared.activeTheme.cardStyling(self.completeDetailsCardView, addBorder: true)
-        
-        // loan amount
-        self.infoView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayColor
-        self.loanAmount.font = AppConfig.shared.activeTheme.headerFont
-        self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
-        self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultFont
-        self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.grayTextColor
-        self.loanAmountCaption.font = AppConfig.shared.activeTheme.defaultFont
-        self.loanAmountCaption.textColor = AppConfig.shared.activeTheme.grayTextColor
-        self.updateControlButtons()
-        
+        self.tableView.estimatedRowHeight = 1
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    
-    @IBAction func minusPressed(_ sender: Any) {
-        LoggingUtil.shared.cPrint("minusPressed")
-        viewModel.minus()
-        self.updateControlButtons()
+
+    func setupDelegate() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self 
     }
-    
-    @IBAction func plusPressed(_ sender: Any) {
-        LoggingUtil.shared.cPrint("plusPressed")
-        viewModel.plus()
-        self.updateControlButtons()
-    }
-    
-    func updateControlButtons() {
-        self.decreaseLoanAmouontButton.isEnabled = viewModel.minusEnabled
-        self.increaseLoanAmouontButton.isEnabled = viewModel.plusEnabled
-        let amount: WithdrawalAmount = viewModel.currentSelectedAmount()
-        let loanAmount = String("$\(amount.rawValue)")
-        let attributedString = NSMutableAttributedString(string: loanAmount)
-        attributedString.applyHighlight(amount.rawValue, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeFont)
-        self.loanAmount.attributedText = attributedString
+
+    func registerCells() {
+        for vm: TableViewCellViewModelProtocol in self.viewModel.cells {
+            LoggingUtil.shared.cPrint(vm.identifier)
+            let nib = UINib(nibName: vm.identifier, bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+        }
     }
 }
 
-extension LendingViewController {
-    @objc override func baseScrollView() -> UIScrollView? {
-        return self.scrollView
+extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.viewModel.sections.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section: TableSectionViewModel = self.viewModel.sections[section]
+        return section.rows.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        // setup cell
+        let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
+         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
+        let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
+        return cell
     }
 }
