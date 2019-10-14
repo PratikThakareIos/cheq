@@ -61,7 +61,7 @@ class LendingViewController: UIViewController {
     }
 
     @objc func reloadTableLayout(_ notification: NSNotification) {
-        self.tableView.reloadData()
+        self.tableView.reloadWithoutScroll()
     }
 
     func setupDelegate() {

@@ -457,6 +457,8 @@
 		9680CEAA2354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */; };
 		9680CEAD2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */; };
 		9680CEAE2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */; };
+		9680CEB02354B4B3009CF66E /* TableView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAF2354B4B3009CF66E /* TableView_Extension.swift */; };
+		9680CEB12354B4B3009CF66E /* TableView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAF2354B4B3009CF66E /* TableView_Extension.swift */; };
 		9681EC732323D37000E9F6D1 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681EC722323D37000E9F6D1 /* SplashViewModel.swift */; };
 		9695E36E230016C60037A49D /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695E36D230016C60037A49D /* DarkTheme.swift */; };
 		96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */; };
@@ -808,6 +810,7 @@
 		9680CEA52354A74C009CF66E /* TransferCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCardTableViewCell.swift; sourceTree = "<group>"; };
 		9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferCardTableViewCell.xib; sourceTree = "<group>"; };
 		9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCardTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		9680CEAF2354B4B3009CF66E /* TableView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView_Extension.swift; sourceTree = "<group>"; };
 		9681EC722323D37000E9F6D1 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		9695E36D230016C60037A49D /* DarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
@@ -958,6 +961,7 @@
 				4F2E4AB123346EB5001F1BA2 /* Array_Extension.swift */,
 				96B8217C234354B800AA940F /* Date_Extension.swift */,
 				96F9FFD92352DD530041001F /* UIView_Extension.swift */,
+				9680CEAF2354B4B3009CF66E /* TableView_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2751,6 +2755,7 @@
 				963F1A74234F47F2009104BF /* GetLendingOverviewResponse.swift in Sources */,
 				963F1A52234F47F2009104BF /* FirebaseAPI.swift in Sources */,
 				4F0D64B723442FD400AA819C /* TabViewController.swift in Sources */,
+				9680CEB12354B4B3009CF66E /* TableView_Extension.swift in Sources */,
 				963F1A8A234F47F2009104BF /* GetSpendingOverviewResponse.swift in Sources */,
 				963F1AB8234F47F2009104BF /* PostPushNotificationRequest.swift in Sources */,
 				4FB1CB1A2353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
@@ -2986,6 +2991,7 @@
 				963F1A73234F47F2009104BF /* GetLendingOverviewResponse.swift in Sources */,
 				963F1A51234F47F2009104BF /* FirebaseAPI.swift in Sources */,
 				9676526022FB0946001E43E0 /* TabViewController.swift in Sources */,
+				9680CEB02354B4B3009CF66E /* TableView_Extension.swift in Sources */,
 				963F1A89234F47F2009104BF /* GetSpendingOverviewResponse.swift in Sources */,
 				963F1AB7234F47F2009104BF /* PostPushNotificationRequest.swift in Sources */,
 				4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
