@@ -40,6 +40,7 @@ protocol AppThemeProtocol {
     
     // gray scale system color
     var lightGrayScaleColor: UIColor { get }
+    var lightGrayBorderColor: UIColor { get }
     
     // gray system color
     var darkGrayColor: UIColor { get }
@@ -208,6 +209,10 @@ extension AppThemeProtocol {
     // gray scale system color
     var lightGrayScaleColor: UIColor {
         get { return UIColor(hex: "EDECEE") }
+    }
+
+     var lightGrayBorderColor: UIColor {
+        get { return UIColor(hex: "E0E0E0") }
     }
     
     // gray system color

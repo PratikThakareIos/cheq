@@ -15,7 +15,8 @@ class AgreementItemTableViewCell: CTableViewCell {
     @IBOutlet weak var agreementContent: CLabel!
     @IBOutlet weak var readMore: UIButton!
     @IBOutlet weak var containerView: UIView!
-    
+    var expanded: Bool = false
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -37,26 +38,25 @@ class AgreementItemTableViewCell: CTableViewCell {
         self.readMore.setTitle(vm.readMoreTitle, for: .normal)
         self.readMore.setTitleColor(AppConfig.shared.activeTheme.linksColor, for: .normal)
         self.readMore.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
-        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: UIColor(hex: "E0E0E0"))
-        self.agreementContent.numberOfLines = 2
+        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
     }
     
     @IBAction func readMore(_ sender: Any) {
         LoggingUtil.shared.cPrint("Read more")
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
-        if self.agreementContent.numberOfLines == 2 {
-            self.agreementContent.numberOfLines = 0
-            self.readMore.setTitle(vm.readLessTitle, for: .normal)
-            let size = self.agreementContent.sizeThatFits(CGSize(width: self.agreementContent.frame.size.width, height: 10000.0))
-            agreementContentHeight.constant = size.height
-        } else {
+        if expanded == true {
             self.agreementContent.numberOfLines = 2
+            self.agreementContentHeight.constant = 50
             self.readMore.setTitle(vm.readMoreTitle, for: .normal)
-            let size = self.agreementContent.sizeThatFits(CGSize(width: self.agreementContent.frame.size.width, height: 10000.0))
-            agreementContentHeight.constant = size.height
+            expanded = false
+        } else {
+            self.agreementContent.numberOfLines = 0
+            let size = self.agreementContent.sizeThatFits(CGSize(width: self.agreementContent.frame.size.width, height: CGFloat.greatestFiniteMagnitude))
+
+            self.agreementContentHeight.constant = size.height
+            self.readMore.setTitle(vm.readLessTitle, for: .normal)
+            expanded = true
         }
-        
-        self.layoutIfNeeded()
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
     }
-    
 }

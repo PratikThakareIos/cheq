@@ -24,8 +24,6 @@ class LendingViewController: UIViewController {
         setupUI()
         setupDelegate()
         registerCells()
-
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +56,12 @@ class LendingViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.estimatedRowHeight = 1
         self.tableView.rowHeight = UITableView.automaticDimension
+
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+    }
+
+    @objc func reloadTableLayout(_ notification: NSNotification) {
+        self.tableView.reloadData()
     }
 
     func setupDelegate() {
