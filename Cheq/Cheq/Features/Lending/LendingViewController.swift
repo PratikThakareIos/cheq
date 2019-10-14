@@ -69,6 +69,7 @@ class LendingViewController: UIViewController {
     }
 
     func registerCells() {
+   
         for vm: TableViewCellViewModelProtocol in self.viewModel.cells {
             LoggingUtil.shared.cPrint(vm.identifier)
             let nib = UINib(nibName: vm.identifier, bundle: nil)

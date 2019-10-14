@@ -9,7 +9,7 @@
 import UIKit
 
 class LendingViewModel {
-    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CButtonTableViewCellViewModel(),HeaderTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
+    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CButtonTableViewCellViewModel(),AgreementItemTableViewCellViewModel(), HeaderTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
         CompleteDetailsTableViewCellViewModel(), BottomTableViewCellViewModel()] as [TableViewCellViewModelProtocol]
     var sections = [TableSectionViewModel]()
 
@@ -23,6 +23,8 @@ class LendingViewModel {
         let cashOut = CButtonTableViewCellViewModel()
         cashOut.icon = "speedy"
         section.rows.append(cashOut)
+        let loanAgreement = AgreementItemTableViewCellViewModel()
+        section.rows.append(loanAgreement)
         let header = HeaderTableViewCellViewModel()
         section.rows.append(header)
         let historyItem = HistoryItemTableViewCellViewModel()

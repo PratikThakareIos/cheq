@@ -69,6 +69,7 @@ protocol AppThemeProtocol {
     var defaultCornerRadius: CGFloat { get }
     var defaultProgressBarHeight: CGFloat { get }
     
+    func cardStyling(_ view: UIView, borderColor: UIColor?)
     func cardStyling(_ view: UIView, addBorder: Bool) 
     func cardStyling(_ view: UIView, bgColors: [UIColor])
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
@@ -104,6 +105,15 @@ extension AppThemeProtocol {
             view.layer.shadowOpacity = 0.2
             view.layer.shadowOffset = CGSize(width: 5, height: 5)
             view.layer.shadowRadius = view.layer.cornerRadius / 2.0
+        }
+    }
+    
+    func cardStyling(_ view: UIView, borderColor: UIColor?) {
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        if let color = borderColor {
+            view.layer.borderWidth = 1.0
+            view.layer.borderColor = color.cgColor
         }
     }
 

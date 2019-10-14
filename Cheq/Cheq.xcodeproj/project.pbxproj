@@ -224,6 +224,12 @@
 		4FB1CB162353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */; };
 		4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */; };
 		4FB1CB1A2353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */; };
+		4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB1D235439B800E7B224 /* AgreementItemTableViewCell.swift */; };
+		4FB1CB20235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB1D235439B800E7B224 /* AgreementItemTableViewCell.swift */; };
+		4FB1CB21235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB1E235439B800E7B224 /* AgreementItemTableViewCell.xib */; };
+		4FB1CB22235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB1E235439B800E7B224 /* AgreementItemTableViewCell.xib */; };
+		4FB1CB24235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB23235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift */; };
+		4FB1CB25235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB23235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift */; };
 		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
 		4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
 		4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */; };
@@ -644,6 +650,9 @@
 		4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTableViewCell.swift; sourceTree = "<group>"; };
 		4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryItemTableViewCell.xib; sourceTree = "<group>"; };
 		4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4FB1CB1D235439B800E7B224 /* AgreementItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementItemTableViewCell.swift; sourceTree = "<group>"; };
+		4FB1CB1E235439B800E7B224 /* AgreementItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgreementItemTableViewCell.xib; sourceTree = "<group>"; };
+		4FB1CB23235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementItemTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUtil.swift; sourceTree = "<group>"; };
 		4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -1359,6 +1368,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4FB1CB1B2354395E00E7B224 /* AgreementItem */ = {
+			isa = PBXGroup;
+			children = (
+				4FB1CB1C2354397E00E7B224 /* ViewModel */,
+				4FB1CB1D235439B800E7B224 /* AgreementItemTableViewCell.swift */,
+				4FB1CB1E235439B800E7B224 /* AgreementItemTableViewCell.xib */,
+			);
+			path = AgreementItem;
+			sourceTree = "<group>";
+		};
+		4FB1CB1C2354397E00E7B224 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FB1CB23235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FB479E5231DF27A005FA0C1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1685,6 +1712,7 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
+				4FB1CB1B2354395E00E7B224 /* AgreementItem */,
 				964FA9902352879C00B07AD7 /* AmountSelect */,
 				4FB1CB102353C8B000E7B224 /* HistoryItem */,
 				9600A708235348B80082C2A3 /* CButtonCell */,
@@ -2390,6 +2418,7 @@
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
 				96F9FFB62352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB162353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
+				4FB1CB22235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */,
 				96F9FFD22352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
 				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
@@ -2415,6 +2444,7 @@
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
+				4FB1CB21235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */,
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
@@ -2647,6 +2677,7 @@
 				963F1A7C234F47F2009104BF /* DeclineDetail.swift in Sources */,
 				4F0D649023442FD400AA819C /* NotificationUtil.swift in Sources */,
 				4F0D649223442FD400AA819C /* CTextField.swift in Sources */,
+				4FB1CB25235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */,
 				963F1A8C234F47F2009104BF /* BorrowOverview.swift in Sources */,
 				4F0D649323442FD400AA819C /* CarouselCollectionViewCell.swift in Sources */,
 				4F0D649423442FD400AA819C /* ViewController_Extension.swift in Sources */,
@@ -2815,6 +2846,7 @@
 				963F1A58234F47F2009104BF /* RecurringBillsAPI.swift in Sources */,
 				4F0D650C23442FD400AA819C /* ProfileViewController.swift in Sources */,
 				4F0D650D23442FD400AA819C /* LoggingUtil.swift in Sources */,
+				4FB1CB20235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
 				4F0D651123442FD400AA819C /* StateCoordinator.swift in Sources */,
 				4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A90234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
@@ -2878,6 +2910,7 @@
 				963F1A7B234F47F2009104BF /* DeclineDetail.swift in Sources */,
 				4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */,
 				4F57BB0B2326005200B95C06 /* CTextField.swift in Sources */,
+				4FB1CB24235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */,
 				963F1A8B234F47F2009104BF /* BorrowOverview.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
@@ -3046,6 +3079,7 @@
 				963F1A57234F47F2009104BF /* RecurringBillsAPI.swift in Sources */,
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
 				4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */,
+				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A8F234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
