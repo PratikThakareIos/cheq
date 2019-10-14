@@ -13,6 +13,7 @@ class IntercomChatTableViewCell: CTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.viewModel = IntercomChatTableViewCellViewModel()
         self.setupConfig()
 
     }
@@ -28,7 +29,6 @@ class IntercomChatTableViewCell: CTableViewCell {
     }
 
     override func setupConfig() {
-        self.viewModel = IntercomChatTableViewCellViewModel()
         self.backgroundColor = .clear
     }
 }
