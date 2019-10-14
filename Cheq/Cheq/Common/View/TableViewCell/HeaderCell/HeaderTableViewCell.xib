@@ -19,16 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVL-ga-nAx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <rect key="frame" x="10" y="0.0" width="300" height="43.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMb-Az-I3j" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="260" height="43.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-Ux-sAT">
-                                <rect key="frame" x="260" y="0.0" width="60" height="43.5"/>
+                                <rect key="frame" x="240" y="0.0" width="60" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="R4Z-wF-Otr"/>
                                 </constraints>
@@ -43,9 +43,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="aVL-ga-nAx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3CC-Ed-gnE"/>
-                    <constraint firstAttribute="trailing" secondItem="aVL-ga-nAx" secondAttribute="trailing" id="40l-1o-at4"/>
+                    <constraint firstAttribute="trailing" secondItem="aVL-ga-nAx" secondAttribute="trailing" constant="10" id="40l-1o-at4"/>
                     <constraint firstAttribute="bottom" secondItem="aVL-ga-nAx" secondAttribute="bottom" id="H7a-9w-cye"/>
-                    <constraint firstItem="aVL-ga-nAx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oFw-BQ-EZF"/>
+                    <constraint firstItem="aVL-ga-nAx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oFw-BQ-EZF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

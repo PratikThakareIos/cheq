@@ -14,44 +14,45 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompletionProgressTableViewCell" rowHeight="80" id="KGk-i7-Jjw" customClass="CompletionProgressTableViewCell" customModule="Cheq" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-sQ-XwB" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GND-bW-X8l">
+                        <rect key="frame" x="10" y="0.0" width="300" height="32"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqN-WC-IzF">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-sQ-XwB" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0 of 3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmi-Z6-BdD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="255" y="0.0" width="45" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5TS-sy-nho" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="30.5" width="300" height="2.5"/>
+                            </progressView>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Gje-bQ-JEe"/>
+                            <constraint firstItem="xqN-WC-IzF" firstAttribute="leading" secondItem="GND-bW-X8l" secondAttribute="leading" id="Eac-fs-cR9"/>
+                            <constraint firstAttribute="trailing" secondItem="xqN-WC-IzF" secondAttribute="trailing" id="Jkr-O6-fYe"/>
+                            <constraint firstItem="xqN-WC-IzF" firstAttribute="top" secondItem="GND-bW-X8l" secondAttribute="top" id="Zqp-0M-JoT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5TS-sy-nho" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="40" width="320" height="11"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="10" id="trC-ZC-4LA"/>
-                        </constraints>
-                    </progressView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 of 3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmi-Z6-BdD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                        <rect key="frame" x="160" y="0.0" width="160" height="40"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Cmi-Z6-BdD" secondAttribute="trailing" id="0B2-E9-cGz"/>
-                    <constraint firstAttribute="bottom" secondItem="5TS-sy-nho" secondAttribute="bottom" constant="20" id="5g2-5S-l5k"/>
-                    <constraint firstItem="wAg-sQ-XwB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ETy-0o-Pu3"/>
-                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="height" secondItem="wAg-sQ-XwB" secondAttribute="height" id="Kfy-GW-fsA"/>
-                    <constraint firstItem="5TS-sy-nho" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rte-mV-zTH"/>
-                    <constraint firstAttribute="trailing" secondItem="5TS-sy-nho" secondAttribute="trailing" id="Vf8-Hi-wCG"/>
-                    <constraint firstItem="5TS-sy-nho" firstAttribute="top" secondItem="wAg-sQ-XwB" secondAttribute="bottom" id="c3q-lB-6jc"/>
-                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fG8-Oi-8py"/>
-                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="width" secondItem="wAg-sQ-XwB" secondAttribute="width" id="hbM-iR-Big"/>
-                    <constraint firstItem="Cmi-Z6-BdD" firstAttribute="leading" secondItem="wAg-sQ-XwB" secondAttribute="trailing" id="i4e-Hp-boV"/>
-                    <constraint firstItem="wAg-sQ-XwB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yBv-Z5-41r"/>
+                    <constraint firstItem="GND-bW-X8l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="NVg-ja-08f"/>
+                    <constraint firstAttribute="trailing" secondItem="GND-bW-X8l" secondAttribute="trailing" constant="10" id="dnR-ZB-evm"/>
+                    <constraint firstItem="GND-bW-X8l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kgG-U4-n4L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

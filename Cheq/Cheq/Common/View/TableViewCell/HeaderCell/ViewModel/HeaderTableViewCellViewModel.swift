@@ -10,4 +10,6 @@ import UIKit
 
 class HeaderTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "HeaderTableViewCell"
+    var title: String = "Activity"
+    var showViewAll: Bool = false 
 }

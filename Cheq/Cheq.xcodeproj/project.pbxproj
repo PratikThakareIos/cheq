@@ -218,6 +218,12 @@
 		4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364E232F4CB00035E57E /* QuestionViewController.swift */; };
 		4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3655232F79CC0035E57E /* CSearchTextField.swift */; };
 		4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3658232FB26B0035E57E /* IntroductionViewModel.swift */; };
+		4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */; };
+		4FB1CB142353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */; };
+		4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */; };
+		4FB1CB162353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */; };
+		4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */; };
+		4FB1CB1A2353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */; };
 		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
 		4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
 		4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */; };
@@ -489,8 +495,8 @@
 		96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */; };
 		96F9FFE42352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
 		96F9FFE52352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */; };
-		96F9FFE723530A9C0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
-		96F9FFE823530A9D0041001F /* DeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */; };
+		96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift */; };
+		96F9FFE823530A9D0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFE623530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift */; };
 		96F9FFF523533AC20041001F /* BankAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */; };
 		96F9FFF623533AC20041001F /* BankAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */; };
 		96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */; };
@@ -635,6 +641,9 @@
 		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
 		4FAE3658232FB26B0035E57E /* IntroductionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewModel.swift; sourceTree = "<group>"; };
+		4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTableViewCell.swift; sourceTree = "<group>"; };
+		4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryItemTableViewCell.xib; sourceTree = "<group>"; };
+		4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUtil.swift; sourceTree = "<group>"; };
 		4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -814,7 +823,7 @@
 		96F9FFD92352DD530041001F /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		96F9FFDE2352DDF70041001F /* TopTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		96F9FFE32352E0A60041001F /* BottomTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineIntroCoordinator.swift; sourceTree = "<group>"; };
+		96F9FFE623530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmploymentTypeDeclineIntroCoordinator.swift; sourceTree = "<group>"; };
 		96F9FFF423533AC20041001F /* BankAccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountCoordinator.swift; sourceTree = "<group>"; };
 		96FADD2C230E831800AE6CBB /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		96FADD2E230E834100AE6CBB /* AuthManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerProtocol.swift; sourceTree = "<group>"; };
@@ -1332,6 +1341,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4FB1CB102353C8B000E7B224 /* HistoryItem */ = {
+			isa = PBXGroup;
+			children = (
+				4FB1CB172353C8C800E7B224 /* ViewModel */,
+				4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */,
+				4FB1CB122353C8C400E7B224 /* HistoryItemTableViewCell.xib */,
+			);
+			path = HistoryItem;
+			sourceTree = "<group>";
+		};
+		4FB1CB172353C8C800E7B224 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FB1CB182353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FB479E5231DF27A005FA0C1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,34 +1503,6 @@
 				9600A71B23534F630082C2A3 /* HeaderTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		9600A71E2353539C0082C2A3 /* HistoryItemCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = HistoryItemCell;
-			sourceTree = "<group>";
-		};
-		9600A71F235353AF0082C2A3 /* LoanAmountCard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoanAmountCard;
-			sourceTree = "<group>";
-		};
-		9600A720235353DD0082C2A3 /* LoanAgreement */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoanAgreement;
-			sourceTree = "<group>";
-		};
-		9600A721235353E90082C2A3 /* ConfirmationSwipe */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ConfirmationSwipe;
 			sourceTree = "<group>";
 		};
 		9629A58C22FC302000828FCF /* CollectionViewCell */ = {
@@ -1683,14 +1682,11 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9600A721235353E90082C2A3 /* ConfirmationSwipe */,
-				9600A720235353DD0082C2A3 /* LoanAgreement */,
-				9600A71F235353AF0082C2A3 /* LoanAmountCard */,
-				9600A71E2353539C0082C2A3 /* HistoryItemCell */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
 				964FA9902352879C00B07AD7 /* AmountSelect */,
+				4FB1CB102353C8B000E7B224 /* HistoryItem */,
 				9600A708235348B80082C2A3 /* CButtonCell */,
 				9600A71323534EA10082C2A3 /* HeaderCell */,
 				96F9FFBD2352C3C90041001F /* CompleteDetails */,
@@ -1730,7 +1726,7 @@
 				9654D48F234EA9F900847389 /* EnableLocationIntroCoordinator.swift */,
 				9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */,
 				9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */,
-				96F9FFE623530A9C0041001F /* DeclineIntroCoordinator.swift */,
+				96F9FFE623530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -2393,6 +2389,7 @@
 				96F9FFC52352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F0D652623442FD400AA819C /* GoogleService-Info.plist in Resources */,
 				96F9FFB62352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
+				4FB1CB162353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
 				96F9FFD22352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
 				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
@@ -2417,6 +2414,7 @@
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
+				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
@@ -2694,6 +2692,7 @@
 				4F0D64B723442FD400AA819C /* TabViewController.swift in Sources */,
 				963F1A8A234F47F2009104BF /* GetSpendingOverviewResponse.swift in Sources */,
 				963F1AB8234F47F2009104BF /* PostPushNotificationRequest.swift in Sources */,
+				4FB1CB1A2353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				963F1A5E234F47F2009104BF /* APIs.swift in Sources */,
 				4F0D64BD23442FD400AA819C /* CToolbar.swift in Sources */,
 				964FA99A235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -2731,6 +2730,7 @@
 				963F1A56234F47F2009104BF /* SpendingAPI.swift in Sources */,
 				4F0D71742346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				964FA994235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
+				4FB1CB142353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				963F1A5A234F47F2009104BF /* CodableHelper.swift in Sources */,
 				4F0D64D123442FD400AA819C /* PrimaryTheme.swift in Sources */,
 				4F0D71802347002A00AA819C /* CPasscodeTextField.swift in Sources */,
@@ -2818,7 +2818,7 @@
 				4F0D651123442FD400AA819C /* StateCoordinator.swift in Sources */,
 				4F0D716E2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A90234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
-				96F9FFE823530A9D0041001F /* DeclineIntroCoordinator.swift in Sources */,
+				96F9FFE823530A9D0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFE02352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F0D651423442FD400AA819C /* MoneySoftManager.swift in Sources */,
 				4F0D651523442FD400AA819C /* CarouselCoordinatorViewModel.swift in Sources */,
@@ -2923,6 +2923,7 @@
 				9676526022FB0946001E43E0 /* TabViewController.swift in Sources */,
 				963F1A89234F47F2009104BF /* GetSpendingOverviewResponse.swift in Sources */,
 				963F1AB7234F47F2009104BF /* PostPushNotificationRequest.swift in Sources */,
+				4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				963F1A5D234F47F2009104BF /* APIs.swift in Sources */,
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -2960,6 +2961,7 @@
 				963F1A55234F47F2009104BF /* SpendingAPI.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
+				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				963F1A59234F47F2009104BF /* CodableHelper.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
@@ -3047,7 +3049,7 @@
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				963F1A8F234F47F2009104BF /* GetUpcomingBillResponse.swift in Sources */,
-				96F9FFE723530A9C0041001F /* DeclineIntroCoordinator.swift in Sources */,
+				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,

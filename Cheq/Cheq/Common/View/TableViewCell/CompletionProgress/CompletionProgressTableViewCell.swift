@@ -17,6 +17,7 @@ class CompletionProgressTableViewCell: CTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.viewModel = CompletionProgressTableViewCellViewModel()
         setupConfig()
     }
 
@@ -31,6 +32,9 @@ class CompletionProgressTableViewCell: CTableViewCell {
         self.completionTitle.font = AppConfig.shared.activeTheme.mediumFont
         self.completionProgress.font = AppConfig.shared.activeTheme.defaultFont
         self.completionProgressBar.setProgress(0.5, animated: true)
+        let vm = self.viewModel as! CompletionProgressTableViewCellViewModel
+        self.completionProgressBar.mode = vm.mode
+        self.completionProgressBar.setupConfig()
     }
 
     

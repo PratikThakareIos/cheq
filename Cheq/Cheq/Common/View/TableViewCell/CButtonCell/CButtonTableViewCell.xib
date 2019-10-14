@@ -18,26 +18,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eR-Vr-HAt" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                        <rect key="frame" x="40" y="0.0" width="240" height="43.5"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eR-Vr-HAt" customClass="CButton" customModule="Cheq" customModuleProvider="target">
+                        <rect key="frame" x="64" y="0.0" width="192" height="43.5"/>
                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Cash out now"/>
+                        <state key="normal" title="Cash out now" image="speedy"/>
                         <connections>
                             <action selector="clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IHH-gq-iqM"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="7eR-Vr-HAt" secondAttribute="trailing" constant="40" id="I2v-Vt-KsA"/>
                     <constraint firstItem="7eR-Vr-HAt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QWC-Gq-gDR"/>
+                    <constraint firstItem="7eR-Vr-HAt" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="UnE-DU-kMj"/>
                     <constraint firstAttribute="bottom" secondItem="7eR-Vr-HAt" secondAttribute="bottom" id="p5s-Ro-P86"/>
-                    <constraint firstItem="7eR-Vr-HAt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="yfU-2r-AZa"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="7eR-Vr-HAt" firstAttribute="width" secondItem="njF-e1-oar" secondAttribute="width" multiplier="0.6" id="8Jw-K9-Eoh"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="button" destination="7eR-Vr-HAt" id="F7a-pk-d9o"/>
             </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="speedy" width="14" height="20"/>
+    </resources>
 </document>

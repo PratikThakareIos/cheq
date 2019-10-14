@@ -23,8 +23,6 @@ protocol AppThemeProtocol {
     //MARK: colors
     var barStyle: UIBarStyle { get }
     var textColor: UIColor { get }
-    var grayTextColor: UIColor { get }
-    var lightGrayColor: UIColor { get }
     var altTextColor: UIColor { get }
     var linksColor: UIColor { get }
     var primaryColor: UIColor { get }
@@ -36,6 +34,18 @@ protocol AppThemeProtocol {
     var alternativeColor4: UIColor { get }
     var facebookColor: UIColor { get }
     var nonActiveAlpha: CGFloat { get }
+    
+    // monetary color
+    var monetaryColor: UIColor { get }
+    
+    // gray scale system color
+    var lightGrayScaleColor: UIColor { get }
+    
+    // gray system color
+    var darkGrayColor: UIColor { get }
+    var mediumGrayColor: UIColor { get }
+    var lightGrayColor: UIColor { get }
+    var lightestGrayColor: UIColor { get }
 
     //MARK: gradients
     var gradientSet1: [UIColor] { get }
@@ -180,12 +190,30 @@ extension AppThemeProtocol {
     var altTextColor: UIColor {
         get { return .white }
     }
+
+    var monetaryColor: UIColor {
+        get { return UIColor(hex: "10E483") }
+    }
     
-    var grayTextColor: UIColor {
-        get { return UIColor(hex: "999999") }
+    // gray scale system color
+    var lightGrayScaleColor: UIColor {
+        get { return UIColor(hex: "EDECEE") }
+    }
+    
+    // gray system color
+    var darkGrayColor: UIColor {
+        get { return UIColor(hex: "111111") }
+    }
+    
+    var mediumGrayColor: UIColor {
+        get { return UIColor(hex: "333333") }
     }
     
     var lightGrayColor: UIColor {
-        get { return UIColor(hex: "edecee") }
+        get { return UIColor(hex: "666666") }
+    }
+    
+    var lightestGrayColor: UIColor {
+        get { return UIColor(hex: "999999") }
     }
 }

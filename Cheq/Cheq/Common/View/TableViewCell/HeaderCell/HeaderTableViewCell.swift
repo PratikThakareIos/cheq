@@ -16,6 +16,7 @@ class HeaderTableViewCell: CTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.viewModel = HeaderTableViewCellViewModel()
         setupConfig()
     }
 
@@ -27,10 +28,13 @@ class HeaderTableViewCell: CTableViewCell {
 
     override func setupConfig() {
         // customise UI
+        let vm = self.viewModel as! HeaderTableViewCellViewModel
         self.backgroundColor = .clear
-       self.headerTitle.font = AppConfig.shared.activeTheme.mediumFont
-    self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.grayTextColor, for: .normal)
+        self.headerTitle.font = AppConfig.shared.activeTheme.mediumFont
+        self.headerTitle.text = vm.title
+        self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.lightGrayColor, for: .normal)
         self.viewAllButton.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
+        self.viewAllButton.isHidden = !vm.showViewAll
     }
 
     @IBAction func viewAll(_ sender: Any) {

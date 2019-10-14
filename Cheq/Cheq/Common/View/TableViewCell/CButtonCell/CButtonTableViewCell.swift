@@ -15,11 +15,16 @@ class CButtonTableViewCell: CTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.viewModel = CButtonTableViewCellViewModel()
         setupConfig()
     }
 
     override func setupConfig() {
+        self.backgroundColor = .clear
+        let buttonVm = self.viewModel as! CButtonTableViewCellViewModel
+        self.button.setTitle(buttonVm.title, for: .normal)
         self.button.setTitleColor(AppConfig.shared.activeTheme.altTextColor, for: .normal)
+        self.button.setImage(UIImage(named: buttonVm.icon), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

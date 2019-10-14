@@ -9,7 +9,7 @@
 import UIKit
 
 class LendingViewModel {
-    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CButtonTableViewCellViewModel(),HeaderTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
+    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CButtonTableViewCellViewModel(),HeaderTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
         CompleteDetailsTableViewCellViewModel(), BottomTableViewCellViewModel()] as [TableViewCellViewModelProtocol]
     var sections = [TableSectionViewModel]()
 
@@ -21,12 +21,20 @@ class LendingViewModel {
         let amountSelect = AmountSelectTableViewCellViewModel()
         section.rows.append(amountSelect)
         let cashOut = CButtonTableViewCellViewModel()
+        cashOut.icon = "speedy"
         section.rows.append(cashOut)
         let header = HeaderTableViewCellViewModel()
         section.rows.append(header)
+        let historyItem = HistoryItemTableViewCellViewModel()
+        historyItem.cashDirection = .credit
+        section.rows.append(historyItem)
+        let historyItem2 = HistoryItemTableViewCellViewModel()
+        historyItem2.cashDirection = .debit
+        section.rows.append(historyItem2)
         let topView = TopTableViewCellViewModel()
         section.rows.append(topView)
         let completionProgress = CompletionProgressTableViewCellViewModel()
+        completionProgress.mode = .monetary
         section.rows.append(completionProgress)
         let completeWorkDetails = CompleteDetailsTableViewCellViewModel()
         completeWorkDetails.type = .workDetails

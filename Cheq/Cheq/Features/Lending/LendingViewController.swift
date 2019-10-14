@@ -58,7 +58,6 @@ class LendingViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.estimatedRowHeight = 1
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     func setupDelegate() {
@@ -113,12 +112,8 @@ extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
         let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
-        if cell is CompleteDetailsTableViewCell {
-            cell.viewModel = cellViewModel
-            cell.setupConfig()
-        }
-        cell.layoutMargins.left = 20.0
-        cell.layoutMargins.right = 20.0
+        cell.viewModel = cellViewModel
+        cell.setupConfig()
         return cell
     }
 }
