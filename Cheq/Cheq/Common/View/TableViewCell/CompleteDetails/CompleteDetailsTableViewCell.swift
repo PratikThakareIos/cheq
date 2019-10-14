@@ -18,6 +18,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
     @IBOutlet weak var detailsText: CLabel!
 
     override func awakeFromNib() {
+        self.viewModel = CompleteDetailsTableViewCellViewModel()
         super.awakeFromNib()
     }
 

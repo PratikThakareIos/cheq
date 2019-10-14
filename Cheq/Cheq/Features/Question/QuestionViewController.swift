@@ -55,8 +55,6 @@ class QuestionViewController: UIViewController {
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
         }
-        
-        
     }
     
     func setupLookupIfNeeded() {
