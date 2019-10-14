@@ -451,6 +451,12 @@
 		9676526022FB0946001E43E0 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676525F22FB0946001E43E0 /* TabViewController.swift */; };
 		9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676526122FB156E001E43E0 /* CarouselCollectionViewCell.swift */; };
 		9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676526322FB158B001E43E0 /* GridCollectionViewCell.swift */; };
+		9680CEA72354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEA52354A74C009CF66E /* TransferCardTableViewCell.swift */; };
+		9680CEA82354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEA52354A74C009CF66E /* TransferCardTableViewCell.swift */; };
+		9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */; };
+		9680CEAA2354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */; };
+		9680CEAD2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */; };
+		9680CEAE2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */; };
 		9681EC732323D37000E9F6D1 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681EC722323D37000E9F6D1 /* SplashViewModel.swift */; };
 		9695E36E230016C60037A49D /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695E36D230016C60037A49D /* DarkTheme.swift */; };
 		96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */; };
@@ -799,6 +805,9 @@
 		9676525F22FB0946001E43E0 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9676526122FB156E001E43E0 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		9676526322FB158B001E43E0 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
+		9680CEA52354A74C009CF66E /* TransferCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCardTableViewCell.swift; sourceTree = "<group>"; };
+		9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferCardTableViewCell.xib; sourceTree = "<group>"; };
+		9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCardTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		9681EC722323D37000E9F6D1 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		9695E36D230016C60037A49D /* DarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		96A65E7C22FD4B9300F1F7AB /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
@@ -1721,6 +1730,7 @@
 				96F9FFAF2352BE400041001F /* CompletionProgress */,
 				96F9FFA22352B09D0041001F /* IntercomChat */,
 				96F9FFCC2352DAAF0041001F /* Bottom */,
+				9680CEA42354A71E009CF66E /* TransferCard */,
 				96F9FFCB2352DAAE0041001F /* Top */,
 			);
 			path = TableViewCell;
@@ -1950,6 +1960,24 @@
 				96FADD29230E82C900AE6CBB /* AuthManager */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		9680CEA42354A71E009CF66E /* TransferCard */ = {
+			isa = PBXGroup;
+			children = (
+				9680CEAB2354A76C009CF66E /* ViewModel */,
+				9680CEA52354A74C009CF66E /* TransferCardTableViewCell.swift */,
+				9680CEA62354A74C009CF66E /* TransferCardTableViewCell.xib */,
+			);
+			path = TransferCard;
+			sourceTree = "<group>";
+		};
+		9680CEAB2354A76C009CF66E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9680CEAC2354A786009CF66E /* TransferCardTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9681EC702323D2ED00E9F6D1 /* SplashScreen */ = {
@@ -2422,6 +2450,7 @@
 				96F9FFD22352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D652723442FD400AA819C /* Common.storyboard in Resources */,
 				4F0D71692346B56100AA819C /* Main.storyboard in Resources */,
+				9680CEAA2354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4F0D652823442FD400AA819C /* Assets.xcassets in Resources */,
 				4F0D652923442FD400AA819C /* MainBackup.storyboard in Resources */,
 				96F9FFA82352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */,
@@ -2448,6 +2477,7 @@
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
+				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */,
 				96F9FFA72352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */,
@@ -2743,6 +2773,7 @@
 				963F1A6C234F47F2009104BF /* PostWorksheetRequest.swift in Sources */,
 				4F0D64C723442FD400AA819C /* CBarChartView.swift in Sources */,
 				963F1A60234F47F2009104BF /* PutUserDetailRequest.swift in Sources */,
+				9680CEA82354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */,
 				963F1A9C234F47F2009104BF /* FinancialAccountSlim.swift in Sources */,
 				96F9FFA02352B0120041001F /* CTableViewCell.swift in Sources */,
 				963F1AAE234F47F2009104BF /* EligibleRequirement.swift in Sources */,
@@ -2784,6 +2815,7 @@
 				963F1A92234F47F2009104BF /* MonthAmountStatResponse.swift in Sources */,
 				963F1A84234F47F2009104BF /* PostLoanRequest.swift in Sources */,
 				4F0D64DE23442FD400AA819C /* IntroductionViewController.swift in Sources */,
+				9680CEAE2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */,
 				4F0D64DF23442FD400AA819C /* CheqAPIManager_Spending.swift in Sources */,
 				96F9FFC82352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F0D64E023442FD400AA819C /* Array_Extension.swift in Sources */,
@@ -2976,6 +3008,7 @@
 				963F1A6B234F47F2009104BF /* PostWorksheetRequest.swift in Sources */,
 				96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */,
 				963F1A5F234F47F2009104BF /* PutUserDetailRequest.swift in Sources */,
+				9680CEA72354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */,
 				963F1A9B234F47F2009104BF /* FinancialAccountSlim.swift in Sources */,
 				96F9FF9F2352B0120041001F /* CTableViewCell.swift in Sources */,
 				963F1AAD234F47F2009104BF /* EligibleRequirement.swift in Sources */,
@@ -3017,6 +3050,7 @@
 				963F1A91234F47F2009104BF /* MonthAmountStatResponse.swift in Sources */,
 				963F1A83234F47F2009104BF /* PostLoanRequest.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
+				9680CEAD2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */,
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
 				96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,

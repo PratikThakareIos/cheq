@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum CashDirection {
-    case debit
-    case credit
-}
-
 class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "HistoryItemTableViewCell"
     var cashDirection: CashDirection = .debit

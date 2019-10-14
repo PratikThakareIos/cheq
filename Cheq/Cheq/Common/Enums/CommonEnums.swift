@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum CashDirection {
+    case debit
+    case credit
+}
+
 enum cAgeRange: String {
     case age18to24 = "Aged 18 to 24"
     case age25to34 = "Aged 25 to 34"

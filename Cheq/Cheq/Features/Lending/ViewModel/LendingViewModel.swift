@@ -9,8 +9,19 @@
 import UIKit
 
 class LendingViewModel {
-    var cells = [IntercomChatTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), CButtonTableViewCellViewModel(),AgreementItemTableViewCellViewModel(), HeaderTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), TopTableViewCellViewModel(),  CompletionProgressTableViewCellViewModel(),
-        CompleteDetailsTableViewCellViewModel(), BottomTableViewCellViewModel()] as [TableViewCellViewModelProtocol]
+    var cells = [
+        IntercomChatTableViewCellViewModel(),
+        AmountSelectTableViewCellViewModel(),
+        CButtonTableViewCellViewModel(),
+        TransferCardTableViewCellViewModel(),
+        AgreementItemTableViewCellViewModel(),
+        HeaderTableViewCellViewModel(),
+        HistoryItemTableViewCellViewModel(),
+        TopTableViewCellViewModel(),
+        CompletionProgressTableViewCellViewModel(),
+        CompleteDetailsTableViewCellViewModel(),
+        BottomTableViewCellViewModel()
+    ] as [TableViewCellViewModelProtocol]
     var sections = [TableSectionViewModel]()
 
     init() {
@@ -23,6 +34,12 @@ class LendingViewModel {
         let cashOut = CButtonTableViewCellViewModel()
         cashOut.icon = "speedy"
         section.rows.append(cashOut)
+        let transferCardCredit = TransferCardTableViewCellViewModel()
+        transferCardCredit.direction = .credit
+        section.rows.append(transferCardCredit)
+        let transferCardDebit = TransferCardTableViewCellViewModel()
+        transferCardDebit.direction = .debit
+        section.rows.append(transferCardDebit)
         let loanAgreement = AgreementItemTableViewCellViewModel()
         section.rows.append(loanAgreement)
         let header = HeaderTableViewCellViewModel()
