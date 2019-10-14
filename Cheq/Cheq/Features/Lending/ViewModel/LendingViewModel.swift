@@ -41,10 +41,12 @@ class LendingViewModel {
         completeWorkDetails.expanded = true
         section.rows.append(completeWorkDetails)
         let completeBankDetails = CompleteDetailsTableViewCellViewModel()
+        completeBankDetails.completionState = .inactive
         completeBankDetails.type = .bankDetils
         completeBankDetails.expanded = false
         section.rows.append(completeBankDetails)
         let verifyYourDetails = CompleteDetailsTableViewCellViewModel()
+        verifyYourDetails.completionState = .inactive
         verifyYourDetails.type = .verifyYourDetails
         verifyYourDetails.expanded = false
         section.rows.append(verifyYourDetails)

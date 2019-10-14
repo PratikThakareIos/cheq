@@ -18,17 +18,42 @@ enum CompleteDetailsType: String {
     }
 }
 
+enum CompleteDetailsState: String {
+    case inactive = "Inactive"
+    case pending = "Pending"
+    case done = "Done"
+    
+    init(fromRawValue: String) {
+        self = CompleteDetailsState(rawValue: fromRawValue) ?? .inactive
+    }
+}
+
 class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "CompleteDetailsTableViewCell"
     var type: CompleteDetailsType = .workDetails
+    var completionState: CompleteDetailsState = .pending
     var expanded: Bool = false 
 
     func imageIcon()-> String {
-        switch type {
-        case .bankDetils: return "InfoIcon"
-        case .workDetails: return "InfoIcon"
-        case .verifyYourDetails: return "InfoIcon"
+        var filename = ""
+        var suffix = ""
+        switch completionState {
+        case .done: return "DetailsSuccess"
+        case .inactive:
+            suffix = "Inactive"
+        case .pending:
+            suffix = "Pending"
         }
+        switch type {
+        case .bankDetils:
+            filename = "bankDetails"
+        case .workDetails:
+            filename = "workDetails"
+        case .verifyYourDetails:
+            filename = "identityVerification"
+        }
+        
+        return String(describing: "\(filename)\(suffix)")
     }
 
     func headerText()-> String {

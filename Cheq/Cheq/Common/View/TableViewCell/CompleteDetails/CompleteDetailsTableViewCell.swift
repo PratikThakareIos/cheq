@@ -34,6 +34,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.header.font = AppConfig.shared.activeTheme.mediumFont
         self.detailsText.text = vm.detailsText()
         self.detailsSection.isHidden = !vm.expanded
+        self.icon.image = UIImage(named: vm.imageIcon())
     }
 
     @IBAction func expand(_ sender: Any) {
