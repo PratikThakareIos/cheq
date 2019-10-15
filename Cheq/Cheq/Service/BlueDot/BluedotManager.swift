@@ -19,7 +19,8 @@ class BluedotManager: NSObject {
         BDLocationManager.instance()?.locationDelegate = self
         //MARK: Authenticate
         //Determine the authetication state
-        let key = CKeychain.getValueByKey(CKey.bluedotAPIKey.rawValue) ?? apiKey
+        let bluedotKey = CKeychain.shared.getValueByKey(CKey.bluedotAPIKey.rawValue)
+        let key = bluedotKey.isEmpty ? bluedotKey : apiKey
         switch BDLocationManager.instance()!.authenticationState {
         case .notAuthenticated:
             BDLocationManager.instance()?.authenticate(withApiKey: key, requestAuthorization: BDAuthorizationLevel.authorizedAlways)

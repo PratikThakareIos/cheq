@@ -17,6 +17,8 @@ enum VDotLogKey: String {
     case worksheets = "worksheets"
     case atWork = "atWork"
     case dateTime = "dateTime"
+    case latitude = "latitude"
+    case longitude = "longitude"
 }
 
 class VDotManager: NSObject, CLLocationManagerDelegate {
@@ -26,15 +28,16 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     // date formatter
     let dateFormatter = DateFormatter()
-
+    // time format
+    let worksheetTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     // geo fence threshold
-    let geoFence = 10.0
+    let geoFence = 100.0
     // metres
-    let distanceFilter = 1.0
+    let distanceFilter = 50.0
 
     // seconds
-    let logInterval = 10
-    let flushInterval = 60
+    let logInterval = 300 // 5 mins 
+    let flushInterval = 3600 // 1hr
     // center reference for geo fencing
     var markedLocation = CLLocation(latitude: -33.8653556
 , longitude: 151.205377)
@@ -46,13 +49,15 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     private override init () {
         super.init()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = worksheetTimeFormat
+        let localTimeZoneAbbreviation = TimeZone.current.abbreviation() ?? ""
+        dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation)
         self.setupLocationManager()
     }
 
     func setupLocationManager() {
         self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.locationManager.distanceFilter = self.distanceFilter
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
@@ -62,11 +67,17 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     }
 
     func flushStoredData() {
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData")
         CheqAPIManager.shared.flushWorkTimesToServer().done { success in
             if success { let _ = self.cleanWorksheets() }
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
         }
+    }
+    
+    func isAtWork(_ location: CLLocation)-> Bool {
+        let distance = self.markedLocation.distance(from: location)
+        return distance <= self.geoFence ? true : false
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -77,9 +88,8 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         if self.timeToLog() {
             self.lastTracked = now
             let nowString = self.dateFormatter.string(from: now)
-            let distance = self.markedLocation.distance(from: currentLocation)
-            self.atWork = distance <= self.geoFence ? true : false
-            self.logData(self.atWork, dateString: nowString)
+            self.atWork = self.isAtWork(currentLocation)
+            self.logData(self.atWork, dateString: nowString, latitude: self.markedLocation.coordinate.latitude, longitude: self.markedLocation.coordinate.longitude)
         }
         
         if self.timeToFlush() {
@@ -88,14 +98,16 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         }
     }
 
-    func logData(_ atWork: Bool, dateString: String) {
-        var dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
-        dictionary[VDotLogKey.email.rawValue] = CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
+    func logData(_ atWork: Bool, dateString: String, latitude: Double, longitude: Double) {
+        var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
+        dictionary[VDotLogKey.email.rawValue] = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
         var currentLogs:Array<Dictionary<String, Any>> = dictionary[VDotLogKey.worksheets.rawValue] as? Array<Dictionary<String, Any>> ?? []
-        let newLog:Dictionary<String, Any> = [VDotLogKey.atWork.rawValue: String(atWork), VDotLogKey.dateTime.rawValue: dateString]
+        let newLog:Dictionary<String, Any> = [VDotLogKey.atWork.rawValue: String(atWork), VDotLogKey.dateTime.rawValue: dateString, VDotLogKey.latitude.rawValue: latitude, VDotLogKey.longitude.rawValue: longitude]
         currentLogs.append(newLog)
         dictionary[VDotLogKey.worksheets.rawValue] = currentLogs
-        let _ = CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        let _ = CKeychain.shared.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        let timestamp = Date().timeStamp()
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "logData - \(timestamp)")
     }
 
     func timeToLog()-> Bool {
@@ -112,23 +124,25 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 extension VDotManager {
 
     func cleanWorksheets()-> Bool {
-        var dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
+        var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
         dictionary[VDotLogKey.worksheets.rawValue] = []
-        return CKeychain.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
+        return CKeychain.shared.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
     }
 
     func loadWorksheets()-> PostWorksheetRequest {
-        let dictionary = CKeychain.getDictionaryByKey(CKey.vDotLog.rawValue)
-        let email =  CKeychain.getValueByKey(CKey.loggedInEmail.rawValue)
+        let dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
+        let email =  CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
         let workSheetsDictionaryArray = dictionary[VDotLogKey.worksheets.rawValue] as? Array<[String:Any]> ?? []
         var workSheets = [Worksheet]()
         workSheetsDictionaryArray.forEach { workSheetDict in
             let atWorkString = workSheetDict[VDotLogKey.atWork.rawValue] as? String ?? "false"
             let atWork = Bool(atWorkString)
             let dateTimeString = workSheetDict[VDotLogKey.dateTime.rawValue] as? String ?? ""
-            let dateTime = VDotManager.shared.dateFormatter.date(from: dateTimeString)
-            let workSheet = Worksheet(atWork: atWork, dateTime: dateTime)
-            workSheets.append(workSheet)
+            let dateTime = Date(dateString: dateTimeString, format: worksheetTimeFormat)
+            if let latitude = workSheetDict[VDotLogKey.latitude.rawValue] as? Double, let longitude = workSheetDict[VDotLogKey.longitude.rawValue] as? Double {
+                let workSheet = Worksheet(atWork: atWork, latitude: latitude, longitude: longitude, dateTime: dateTime)
+                workSheets.append(workSheet)
+            }
         }
         return PostWorksheetRequest(email: email, worksheets: workSheets)
     }

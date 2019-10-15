@@ -13,25 +13,19 @@ import DateToolsSwift
 class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {
-        // DEBUG code - TO BE REMOVE
-//        var credentials = [LoginCredentialType: String]()
-//        credentials[.email] = DataHelperUtil.shared.randomEmail()
-//        credentials[.password] = DataHelperUtil.shared.randomPassword()
-//        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser in
-//            AuthConfig.shared.activeManager.login(credentials)
-//        }.then { authUser in
-//            CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
-//        }.then { authUser in
-//            CheqAPIManager.shared.putUserEmployer(DataHelperUtil.shared.putEmployerDetailsReq())
-//        }.done { authUser in
-//            LoggingUtil.shared.cPrint("")
-//        }.catch { err in
-//            AuthConfig.shared.activeManager.login(credentials).done { authUser in
-//                LoggingUtil.shared.cPrint("")
-//            }.catch { err in
-//                LoggingUtil.shared.cPrint("")
-//            }
-//        }
+    }
+
+    func postNotificationToken(_ req: PostPushNotificationRequest)->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postPushNotificationTokenWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
+                    resolver.fulfill(true)
+                }
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
     }
     
     func postAccounts(_ accounts: [PostFinancialAccountRequest])->Promise<Bool> {
@@ -86,14 +80,18 @@ class CheqAPIManager {
 
     func flushWorkTimesToServer()-> Promise<Bool> {
         return Promise<Bool> () { resolver in
-            let token = CKeychain.getValueByKey(CKey.authToken.rawValue)
+            let token = CKeychain.shared.getValueByKey(CKey.authToken.rawValue)
             guard token.isEmpty == false else { return }
             let postWorksheetReq = VDotManager.shared.loadWorksheets()
             LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                 if let error = err {
-                    resolver.reject(error); return
+                    resolver.reject(error)
+                    LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData failed\n")
+                    return
                 }
-                
+
+                let timeStamp = Date().timeStamp()
+                LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData successfully - \(timeStamp)\n")
                 resolver.fulfill(true)
             }
         }
@@ -140,25 +138,17 @@ class CheqAPIManager {
                 let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, address: req.address ?? "", noFixedAddress: req.noFixedAddress ?? false, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, postCode: req.postCode ?? "", state: req.state ?? "", country: req.country ?? "")
                 UsersAPI.putUserEmployerWithRequestBuilder(request: employerDetailsReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
                     
+                    
                     if let error = err { resolver.reject(error); return }
-                    guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
-                    var updatedAuthUser = authUser
-                    updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
-                    let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
-                    updatedAuthUser.msCredential[.msPassword] = password
-                    AuthConfig.shared.activeManager.setUser(updatedAuthUser).done{ updateUser in
-                        resolver.fulfill(updateUser)
-                    }.catch {err in
-                            resolver.reject(err)
-                    }
+                    guard let _ = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    resolver.fulfill(authUser)
                 }
             }.catch { err in
                 resolver.reject(err)
             }
         }
     }
-    
+
     func getUserDetails()-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser()
@@ -168,7 +158,6 @@ class CheqAPIManager {
                         
                         if let error = err { resolver.reject(error); return }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                        let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
                         var updatedAuthUser = authUser
                         updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                         let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
@@ -197,8 +186,6 @@ class CheqAPIManager {
                    
                     if let error = err { resolver.reject(error); return }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    let _ = CKeychain.setValue(CKey.bluedotAPIKey.rawValue, value: resp.bluedotCredential?.bluedotProjectApiKey ?? "")
-                    
                     var updatedAuthUser = authUser
                     updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                     let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
@@ -217,12 +204,12 @@ class CheqAPIManager {
     
     // try PUT USER KYC, if error, it will do GET USER KYC
     // PUT will get error when we have initiated an application already 
-    func retrieveUserDetailsKyc(firstName: String, lastName: String, residentialAddress: String, dateOfBirth: Date)-> Promise<PutUserKycResponse> {
+    func retrieveUserDetailsKyc(_ req: PutUserOnfidoKycRequest)-> Promise<GetUserKycResponse> {
         var oauthToken = ""
-        return Promise<PutUserKycResponse>() { resolver in
+        return Promise<GetUserKycResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 oauthToken = authUser.authToken() ?? ""
-                UsersAPI.putUserOnfidoKycWithRequestBuilder(firstName: firstName, lastName: lastName, residentialAddress: residentialAddress, dateOfBirth: dateOfBirth).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
+                UsersAPI.putUserOnfidoKycWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
                     if err != nil {
                         // if we got an error we will do a getUserDetailsKYC incase we have existing application
                         UsersAPI.getUserOnfidoKycWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (response, getKycErr) in
@@ -241,17 +228,17 @@ class CheqAPIManager {
         }
     }
     
-    func checkKYCPhotoUploaded()-> Promise<Bool> {
-        return Promise<Bool>() { resolver in
-            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-                let token = authUser.authToken() ?? ""
-                UsersAPI.putKycCheckPhotoWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-                    if let error = err { resolver.reject(error); return }
-                    resolver.fulfill(true)
-                }
-            }.catch { err in
-                resolver.reject(err)
-            }
-        }
-    }
+//    func checkKYCPhotoUploaded()-> Promise<Bool> {
+//        return Promise<Bool>() { resolver in
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                UsersAPI.putKycCheckPhotoWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+//                    if let error = err { resolver.reject(error); return }
+//                    resolver.fulfill(true)
+//                }
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+//        }
+//    }
 }

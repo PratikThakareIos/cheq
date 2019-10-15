@@ -22,6 +22,7 @@ class WebViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadUrl()
+        activeTimestamp()
     }
     
     func reloadUrl() {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4F0D6186233DA90500AA819C"
+               BlueprintIdentifier = "4F0D647523442FD400AA819C"
                BuildableName = "CheqDevice.app"
                BlueprintName = "CheqDevice"
                ReferencedContainer = "container:Cheq.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F0D6186233DA90500AA819C"
+            BlueprintIdentifier = "4F0D647523442FD400AA819C"
             BuildableName = "CheqDevice.app"
             BlueprintName = "CheqDevice"
             ReferencedContainer = "container:Cheq.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F0D6186233DA90500AA819C"
+            BlueprintIdentifier = "4F0D647523442FD400AA819C"
             BuildableName = "CheqDevice.app"
             BlueprintName = "CheqDevice"
             ReferencedContainer = "container:Cheq.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4F0D6186233DA90500AA819C"
+            BlueprintIdentifier = "4F0D647523442FD400AA819C"
             BuildableName = "CheqDevice.app"
             BlueprintName = "CheqDevice"
             ReferencedContainer = "container:Cheq.xcodeproj">

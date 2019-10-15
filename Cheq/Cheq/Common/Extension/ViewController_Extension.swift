@@ -16,6 +16,10 @@ protocol UIViewControllerProtocol {
 
 // MARK: Hide navigation bar back button title
 extension UIViewController {
+
+    func showLogoutButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
+    }
     
     func showBackButton() {
         self.navigationItem.hidesBackButton = false
@@ -30,10 +34,30 @@ extension UIViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
+
+    func showCloseButton() {
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeButton))
+    }
+
+    @objc func closeButton() {
+        AppNav.shared.dismissModal(self)
+    }
 }
 
 // MARK: PopupDialog wrapper
 extension UIViewController {
+    
+    func showDecision(_ msg: String, confirmCb: (()->Void)?, cancelCb: (()->Void)?) {
+        // Prepare the popup assets
+        let message = msg
+        let cPopup = CPopupDialog(.decision, messageBody: message, button: .ok, cancelButton: .cancel, confirm: {
+            if let cb = confirmCb { cb() }
+        }, cancel: {
+            if let cb = cancelCb { cb() }
+        })
+        cPopup.present(self)
+    }
     
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
@@ -54,6 +78,13 @@ extension UIViewController {
     }
 }
 
+// MARK: Setup Idle handling
+extension UIViewController {
+    func activeTimestamp() {
+        let _ = CKeychain.shared.setDate(CKey.activeTime.rawValue, date: Date())
+    }
+}
+
 // MARK: Keyboard handling
 extension UIViewController {
     @objc func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -63,6 +94,11 @@ extension UIViewController {
     }
     
     func setupKeyboardHandling() {
+
+        // Event for programmatically dismissing the keyboard anywhere
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard(notification:)), name: NSNotification.Name(NotificationEvent.dismissKeyboard.rawValue), object: nil)
+
+        // Events from native keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -112,6 +148,10 @@ extension UIViewController {
             scrollView.contentInset = contentInset
         }
     }
+
+    @objc func dismissKeyboard(notification: NSNotification) {
+        self.view.endEditing(true)
+    }
 }
 
 // MARK: BaseScrollView 
@@ -150,11 +190,27 @@ extension UIViewController {
             datePicker = UDatePicker(frame: view.frame, willDisappear: { date in
                 if date != nil {
                     LoggingUtil.shared.cPrint("select date \(String(describing: date))")
-                    textField.text = date?.format(with: DataHelperUtil.shared.dobFormatStyle())
+                    textField.text = date?.format(with: TestUtil.shared.dobFormatStyle())
                 }
             })
         }
         datePicker?.picker.date = initialDate
         datePicker?.present(self)
+    }
+}
+
+// Logout method
+extension UIViewController {
+    @objc func logout() {
+        showDecision("You want to logout?", confirmCb: {
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                AuthConfig.shared.activeManager.logout(authUser)
+                }.done {
+                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+                }.catch { err in
+                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+            }
+            
+        }, cancelCb: nil)
     }
 }

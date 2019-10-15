@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum CProgressColorMode {
+    case information
+    case monetary
+}
+
 class CProgressView: UIProgressView {
+    
+    var mode: CProgressColorMode = .information
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +30,8 @@ class CProgressView: UIProgressView {
     func setupConfig() {
         self.backgroundColor = .clear
         self.trackTintColor = AppConfig.shared.activeTheme.alternativeColor4
-        self.progressTintColor = AppConfig.shared.activeTheme.alternativeColor3
+        self.progressTintColor = (mode == .information) ? AppConfig.shared.activeTheme.alternativeColor3 : AppConfig.shared.activeTheme.monetaryColor
+        
         AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
         layer.cornerRadius = 5.0
     }

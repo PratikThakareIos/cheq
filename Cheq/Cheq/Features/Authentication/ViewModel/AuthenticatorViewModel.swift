@@ -8,19 +8,38 @@
 
 import UIKit
 import PromiseKit
+import FBSDKCoreKit
 
 enum links: String {
-    case toc = "http://cheq.com.au"
-    case privacy = "http://cheq.com.au/blog"
+    case toc = "https://cheq.com.au/terms-conditions"
+    case privacy = "https://cheq.com.au/privacy-policy"
+    
+    // internal screens
     case login = "http://login.cheq.com"
     case signup = "http://signup.cheq.com"
     case forgot = "http://forgot.cheq.com"
+    case resentCode = "http://resendCode.cheq.com"
+    case email = "http://email.cheq.com.au"
 }
 
 class AuthenticatorViewModel: BaseViewModel {
 
     func registerWithFBAccessToken(_ token: String)-> Promise<AuthUser> {
         return AuthConfig.shared.activeManager.registerWithFB(token)
+    }
+    
+    func fetchProfileWithFBAccessToken()-> Promise<Void> {
+        return Promise<Void>() { resolver in
+            guard AccessToken.isCurrentAccessTokenActive else { resolver.reject(AuthManagerError.unableToRetrieveFBToken); return }
+            Profile.loadCurrentProfile { (profile, err) in
+                if err != nil { resolver.reject(AuthManagerError.unableToRetrieveFBProfile); return }
+                let qVm = QuestionViewModel()
+                qVm.loadSaved()
+                qVm.save(QuestionField.firstname.rawValue, value: profile?.firstName ?? "")
+                qVm.save(QuestionField.lastname.rawValue, value: profile?.lastName ?? "")
+                resolver.fulfill(())
+            }
+        }
     }
     
     func register(_ email: String, password: String, confirmPassword: String)-> Promise<AuthUser> {

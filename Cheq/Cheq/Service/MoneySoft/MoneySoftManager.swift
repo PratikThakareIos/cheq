@@ -23,6 +23,22 @@ class MoneySoftManager {
         self.msApi = MoneysoftApi()
     }
     
+    func postNotificationToken()-> Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            do {
+                let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+                try msApi.notifications().registerToken(fcmToken, listener: ApiListener<ApiResponseModel>(successHandler: { response in
+                    resolver.fulfill(true)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.unableToRegisterNotificationToken)
+                }))
+            } catch {
+                resolver.reject(MoneySoftManagerError.unableToRegisterNotificationToken)
+            }
+        }
+    }
+    
     func getProfile()-> Promise<UserProfileModel> {
         return Promise<UserProfileModel>() { resolver in
             do {

@@ -13,7 +13,7 @@ import PromiseKit
 
 class FirebaseAuthManagerIntegrationTests: XCTestCase {
 
-    let dataUtil = DataHelperUtil.shared
+    let dataUtil = TestUtil.shared
     let firebaseAuth = FirebaseAuthManager.shared
 
     func testRestPasswordLink() {
@@ -205,7 +205,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     
     func testRegisterTestAccount() {
         let expectation = XCTestExpectation(description: "registration for test account")
-        firebaseAuth.register(.socialLoginEmail, credentials: [.email: dataUtil.testEmail(), .password: DataHelperUtil.shared.testPass()]).done { authUser in
+        firebaseAuth.register(.socialLoginEmail, credentials: [.email: dataUtil.testEmail(), .password: dataUtil.testPass()]).done { authUser in
             XCTAssertNotNil(authUser)
             XCTAssertNotNil(authUser.email)
             XCTAssertNotNil(authUser.userId)
@@ -221,7 +221,7 @@ class FirebaseAuthManagerIntegrationTests: XCTestCase {
     
     func testDeleteTestAccount() {
         let expectation = XCTestExpectation(description: "delete test account")
-        firebaseAuth.login([.email: DataHelperUtil.shared.testEmail(), .password: DataHelperUtil.shared.testPass()]).then { authUser in
+        firebaseAuth.login([.email: TestUtil.shared.testEmail(), .password: TestUtil.shared.testPass()]).then { authUser in
             self.firebaseAuth.removeUserAcct(authUser)
         }.done {
             XCTAssertTrue(true)

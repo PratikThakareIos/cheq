@@ -24,6 +24,12 @@ class LoginViewController: RegistrationViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeTimestamp()
+        
+    }
+    
     override func setupDelegate() {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
@@ -40,17 +46,28 @@ class LoginViewController: RegistrationViewController {
         if self.isRootViewControllerUnderNav {
             self.signUpLinkText.isHidden = true 
         }
+        
+        self.emailTextField.keyboardType = .emailAddress
+        self.emailTextField.reloadInputViews()
+        self.passwordTextField.keyboardType = .default
+        self.passwordTextField.reloadInputViews()
     }
     
     func navigateToDashboard() {
         // go to dashboard board
-        AppNav.shared.presentViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.finance.rawValue, viewController: self)
+        AppNav.shared.initTabViewController()
     }
     
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
+        if let error = self.validateInputs() {
+            showError(error) { }
+            return
+        }
+        
         AppConfig.shared.showSpinner()
+        
         viewModel.login(emailTextField.text ?? "", password: passwordTextField.text ?? "").done { authUser in
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint(authUser)

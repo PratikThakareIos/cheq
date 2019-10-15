@@ -26,16 +26,16 @@ struct AuthUser {
 
     // func  to return basic token 
     func authToken()->String? {
-        return CKeychain.getValueByKey(self.uniqueAuthTokenKey())
+        return CKeychain.shared.getValueByKey(self.uniqueAuthTokenKey())
     }
 
     // store authToken from keystore
     func saveAuthToken(_ authToken: String)-> Bool {
-       return CKeychain.setValue(self.uniqueAuthTokenKey(), value: authToken)
+       return CKeychain.shared.setValue(self.uniqueAuthTokenKey(), value: authToken)
     }
 
     // remove authToken from keystore
     func clearAuthToken()-> Bool {
-        return CKeychain.setValue(self.uniqueAuthTokenKey(), value: "")
+        return CKeychain.shared.setValue(self.uniqueAuthTokenKey(), value: "")
     }
 }

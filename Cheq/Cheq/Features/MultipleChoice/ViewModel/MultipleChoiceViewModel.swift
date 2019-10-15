@@ -69,7 +69,12 @@ extension MultipleChoiceViewModel {
     }
     
     func load() {
-        self.savedAnswer = UserDefaults.standard.value(forKey: self.viewModelKey()) as! [String : String]
+        guard let existing = UserDefaults.standard.value(forKey: self.viewModelKey()) as? Dictionary<String,String> else {
+            self.savedAnswer = [:]
+            return
+        }
+
+        self.savedAnswer = existing
     }
 }
 

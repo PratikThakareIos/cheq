@@ -18,6 +18,7 @@ protocol AppThemeProtocol {
     var defaultFont: UIFont { get }
     var mediumFont: UIFont { get }
     var headerFont: UIFont { get }
+    var extraLargeFont: UIFont { get }
 
     //MARK: colors
     var barStyle: UIBarStyle { get }
@@ -33,6 +34,19 @@ protocol AppThemeProtocol {
     var alternativeColor4: UIColor { get }
     var facebookColor: UIColor { get }
     var nonActiveAlpha: CGFloat { get }
+    
+    // monetary color
+    var monetaryColor: UIColor { get }
+    
+    // gray scale system color
+    var lightGrayScaleColor: UIColor { get }
+    var lightGrayBorderColor: UIColor { get }
+    
+    // gray system color
+    var darkGrayColor: UIColor { get }
+    var mediumGrayColor: UIColor { get }
+    var lightGrayColor: UIColor { get }
+    var lightestGrayColor: UIColor { get }
 
     //MARK: gradients
     var gradientSet1: [UIColor] { get }
@@ -56,6 +70,7 @@ protocol AppThemeProtocol {
     var defaultCornerRadius: CGFloat { get }
     var defaultProgressBarHeight: CGFloat { get }
     
+    func cardStyling(_ view: UIView, borderColor: UIColor?)
     func cardStyling(_ view: UIView, addBorder: Bool) 
     func cardStyling(_ view: UIView, bgColors: [UIColor])
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
@@ -91,6 +106,15 @@ extension AppThemeProtocol {
             view.layer.shadowOpacity = 0.2
             view.layer.shadowOffset = CGSize(width: 5, height: 5)
             view.layer.shadowRadius = view.layer.cornerRadius / 2.0
+        }
+    }
+    
+    func cardStyling(_ view: UIView, borderColor: UIColor?) {
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        if let color = borderColor {
+            view.layer.borderWidth = 1.0
+            view.layer.borderColor = color.cgColor
         }
     }
 
@@ -157,6 +181,10 @@ extension AppThemeProtocol {
     var headerFont: UIFont {
         get { return UIFont.systemFont(ofSize: 20.0)}
     }
+    
+    var extraLargeFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 36.0)}
+    }
 
     var longAnimationDuration: TimeInterval { return 1.0 }
     var mediumAnimationDuration: TimeInterval { return 0.5 }
@@ -172,5 +200,35 @@ extension AppThemeProtocol {
     
     var altTextColor: UIColor {
         get { return .white }
+    }
+
+    var monetaryColor: UIColor {
+        get { return UIColor(hex: "10E483") }
+    }
+    
+    // gray scale system color
+    var lightGrayScaleColor: UIColor {
+        get { return UIColor(hex: "EDECEE") }
+    }
+
+     var lightGrayBorderColor: UIColor {
+        get { return UIColor(hex: "E0E0E0") }
+    }
+    
+    // gray system color
+    var darkGrayColor: UIColor {
+        get { return UIColor(hex: "111111") }
+    }
+    
+    var mediumGrayColor: UIColor {
+        get { return UIColor(hex: "333333") }
+    }
+    
+    var lightGrayColor: UIColor {
+        get { return UIColor(hex: "666666") }
+    }
+    
+    var lightestGrayColor: UIColor {
+        get { return UIColor(hex: "999999") }
     }
 }

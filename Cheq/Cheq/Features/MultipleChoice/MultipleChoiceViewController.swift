@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobileSDK
 
 class MultipleChoiceViewController: UIViewController {
 
@@ -44,16 +45,13 @@ class MultipleChoiceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        activeTimestamp()
         if selectedChoice == nil {
             self.updateChoices()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+   
     func updateChoices() {
         if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
             AppConfig.shared.showSpinner()
@@ -93,9 +91,22 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
         case .employmentType:
+
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
+
+            if AppData.shared.completingDetailsForLending {
+                var restricted = [EmploymentType]()
+                restricted = [.partTime, .casual, .selfEmployed]
+                if restricted.contains(employmentType) {
+                    // decline scenario
+                    AppNav.shared.pushToIntroduction(.workDetailsDecline, viewController: self)
+                    return
+                }
+            }
+
+
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
             } else {
@@ -111,11 +122,24 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
             let noFixedAddress = (empType == .onDemand) ? true : false
             let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: vm.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+
+            AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppData.shared.updateProgressAfterCompleting(.onDemand)
-                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+                    AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                } else {
+                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                }
             }.catch { err in
                 self.showError(err) {
+
+                    // TODO: DEBUG CODE - REMOVE
+                    if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+                        AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                    } else {
+                        AppNav.shared.dismissModal(self)
+                    }
                 }
             }
         case .financialInstitutions:
@@ -123,8 +147,10 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // to render the form 
             AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
             let selectedChoice = self.choices[indexPath.row]
-            AppData.shared.selectedFinancialInstitution = selectedChoice.title
-            guard let bank = AppData.shared.financialInstitutions.first(where: { $0.name == AppData.shared.selectedFinancialInstitution }) else { return }
+            AppData.shared.selectedFinancialInstitution = selectedChoice.ref as? FinancialInstitutionModel
+            guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
+                return
+            }
             AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
             AppNav.shared.pushToDynamicForm(bank, viewController: self)
             
@@ -137,7 +163,22 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let vm = self.viewModel
             vm.save(QuestionField.residentialState.rawValue, value: choice.title)
             AppData.shared.updateProgressAfterCompleting(.state)
-            AppNav.shared.pushToQuestionForm(.maritalStatus, viewController: self)
+            let qVm = QuestionViewModel()
+            qVm.loadSaved()
+            let putUserDetailsReq = qVm.putUserDetailsRequest()
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.maritalStatus)
+                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                    }
+                }
+            }
+            return
         }
     }
 }

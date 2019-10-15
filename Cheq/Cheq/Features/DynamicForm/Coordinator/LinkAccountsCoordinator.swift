@@ -18,7 +18,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func loadForm() -> Promise<[DynamicFormInput]> {
         return Promise<[DynamicFormInput]> () { resolver in
             guard AppData.shared.financialInstitutions.count > 0 else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions); return }
-            guard let selectedFinancialInstitution = AppData.shared.financialInstitutions.first(where: { $0.name == AppData.shared.selectedFinancialInstitution }) else { resolver.reject(ValidationError.unableToMapSelectedBank); return }
+            guard let selectedFinancialInstitution = AppData.shared.selectedFinancialInstitution else { resolver.reject(ValidationError.unableToMapSelectedBank); return }
             MoneySoftManager.shared.getBankSignInForm(selectedFinancialInstitution).done { signInForm in
                 
                 // we store the form instance 
@@ -47,16 +47,17 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
             return MoneySoftManager.shared.linkAccounts(linkableAccounts)
             }.then { linkedAccounts in
                 return MoneySoftManager.shared.getAccounts()
-            }.then { fetchedAccounts  -> Promise<[FinancialAccountModel]> in
-                let refreshOptions = RefreshAccountOptions()
-                refreshOptions.includeTransactions = true
-                let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
-                return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
-            }.then { refreshedAccounts->Promise<Bool> in
-                AppData.shared.storedAccounts = refreshedAccounts
+            }.then { fetchedAccounts-> Promise<Bool> in
+                AppData.shared.storedAccounts = fetchedAccounts
                 let postFinancialAccountsReq = DataHelperUtil.shared.postFinancialAccountsReq(AppData.shared.storedAccounts)
                 return CheqAPIManager.shared.postAccounts(postFinancialAccountsReq)
-            }.then { success->Promise<[FinancialTransactionModel]> in
+            }.then { success->Promise<[FinancialAccountModel]> in
+                let refreshOptions = RefreshAccountOptions()
+                refreshOptions.includeTransactions = true
+                let fetchedAccounts = AppData.shared.storedAccounts
+                let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
+                return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
+            }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
                 let transactionFilter = TransactionFilter()
                 transactionFilter.fromDate = 3.months.earlier
                 transactionFilter.toDate = Date()
@@ -78,7 +79,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
 
     func nextViewController()->UIViewController {
         let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.finance.rawValue)
+        let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.lending.rawValue)
         return vc
     }
 }

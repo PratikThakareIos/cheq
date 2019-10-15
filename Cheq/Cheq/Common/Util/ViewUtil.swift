@@ -24,6 +24,29 @@ class ViewUtil {
         button.clipsToBounds = true
     }
     
+    func applyBorder(_ view: inout UIView, borderSize: CGFloat, color: UIColor) {
+        view.layer.borderColor = color.cgColor
+        view.layer.borderWidth = borderSize
+    }
+    
+    func applyGradientBorder(_ view: inout UIView, borderSize: CGFloat, colors: [UIColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame =  CGRect(origin: CGPoint.zero, size: view.frame.size)
+        gradient.colors = colors.map { $0.cgColor }
+        
+        // create the shape for masking the gradient
+        let shape = CAShapeLayer()
+        shape.lineWidth = borderSize
+        shape.path = UIBezierPath(roundedRect: view.layer.bounds, cornerRadius: view.layer.cornerRadius).cgPath
+        shape.strokeColor = UIColor.black.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        
+        gradient.mask = shape
+        
+        // apply to view
+        view.layer.addSublayer(gradient)
+    }
+    
     func applyViewGradient(_ view:UIView, startingColor: UIColor, endColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = view.frame

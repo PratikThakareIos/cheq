@@ -11,6 +11,17 @@ import Foundation
 enum NotificationEvent: String {
     case apnsDeviceToken = "apns"
     case fcmToken = "fcm"
+    case dismissKeyboard = "dismissKeyboard"
+    case logout = "logout"
+    case deleteBackward = "delete"
+    case appBecomeActive = "appBecomeActive"
+    case appBecomeIdle = "appBecomeIdle"
+}
+
+enum UINotificationEvent: String {
+    case completeDetails = "completeDetails"
+    case buttonClicked = "buttonClicked"
+    case reloadTableLayout = "reloadTableLayout"
 }
 
 enum NotificationUserInfoKey: String {

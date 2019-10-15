@@ -18,6 +18,7 @@ enum QuestionType: String {
     case maritalStatus = "maritalStatus"
     case companyName = "companyName"
     case companyAddress = "companyAddress"
+    case bankAccount = "bankAccount"
 }
 
 enum QuestionField: String {
@@ -31,6 +32,7 @@ enum QuestionField: String {
     case residentialPostcode = "residentialPostcode"
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
+
     
     //age range
     case ageRange = "ageRange"
@@ -47,12 +49,18 @@ enum QuestionField: String {
     case employerCountry = "employerCountry"
     case employerLatitude = "employerLatitude"
     case employerLongitude = "employerLongitude"
+
+    // bank details
+    case bankName = "bankName"
+    case bankBSB = "bankBSB"
+    case bankAccNo = "bankAccNo"
+    case bankIsJoint = "isJointAccount"
 }
 
 class QuestionViewModel: BaseViewModel {
 
     var sectionTitle = "About me"
-    var type: QuestionType = .legalName
+    var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
     var savedAnswer: [String: String] = [:]
     
     override init() {
@@ -65,50 +73,19 @@ class QuestionViewModel: BaseViewModel {
     }
     
     func question()-> String {
-        switch(type) {
-        case .legalName:
-            return "Enter your legal name as it appears on your ID"
-        case .dateOfBirth:
-            return "What is your date of birth?"
-        case .contactDetails:
-            return "What is your contact details?"
-        case .residentialAddress:
-            return "What is your residential address?"
-        case .companyName:
-            return "What is your employer's company name?"
-        case .companyAddress:
-            return "What is your employer's address"
-        case .maritalStatus:
-            return "What is your living status?"
-        }
+       return coordinator.question
     }
     
     func numOfTextFields()->Int {
-        switch(type) {
-        case .legalName, .maritalStatus:
-            return 2
-        case .dateOfBirth, .contactDetails, .residentialAddress, .companyAddress, .companyName:
-            return 1
-        }
+        return coordinator.numOfTextFields
+    }
+
+    func numOfCheckbox()->Int {
+        return coordinator.numOfCheckBox
     }
     
     func placeHolder(_ index: Int)->String {
-        switch(type) {
-        case .legalName:
-            let result = (index == 0) ? "First name" : "Last name"
-            return result 
-        case .dateOfBirth:
-            return "Date of birth"
-        case .contactDetails:
-            return "0410 000 000"
-        case .residentialAddress, .companyAddress:
-            return "123 Example Street"
-        case .companyName:
-            return "Company name"
-        case .maritalStatus:
-            let result = (index == 0) ? "Status" : "Number of dependents"
-            return result 
-        }
+        return coordinator.placeHolder(index)
     }
     
     func save(_ key: String, value: String) {
@@ -135,12 +112,12 @@ class QuestionViewModel: BaseViewModel {
 extension QuestionViewModel {
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), ageRange: self.ageRange(), mobile: self.fieldValue(.contactDetails), maritalStatus: self.maritalStatus(), numberOfDependents: self.numOfDependent(), state: self.residentialState())
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), ageRange: self.ageRange(), mobile: self.fieldValue(.contactDetails), state: self.putUserResidentialState())
         return putUserDetailsReq
     }
     
     func dateOfBirth()->Date {
-        let dob = Date(dateString:DataHelperUtil.shared.dobFormatStyle(), format: self.fieldValue(.dateOfBirth))
+        let dob = Date(dateString:TestUtil.shared.dobFormatStyle(), format: self.fieldValue(.dateOfBirth))
         return dob
     }
 
@@ -156,18 +133,49 @@ extension QuestionViewModel {
         return self.fieldValue(.dependents)
     }
 
-    func maritalStatus()-> PutUserDetailRequest.MaritalStatus {
+    func maritalStatus()-> MaritalStatus {
         let value = self.fieldValue(.maritalStatus)
-        if value == PutUserDetailRequest.MaritalStatus.single.rawValue {
+        if value == MaritalStatus.single.rawValue {
             return .single
         } else {
             return .couple
         }
     }
 
-    func residentialState()-> PutUserDetailRequest.State {
+    func residentialState()-> PutUserOnfidoKycRequest.State {
         let state = self.fieldValue(.residentialState)
         let localEnum = cState(fromRawValue: state)
         return StateCoordinator.convertCStateToState(localEnum)
+    }
+    
+    func putUserResidentialState()-> PutUserDetailRequest.State {
+        let state = self.fieldValue(.residentialState)
+        let localEnum = cState(fromRawValue: state)
+        return StateCoordinator.convertCStateToPutUserState(localEnum)
+    }
+}
+
+extension QuestionViewModel {
+    static func coordinatorFor (_ questionType: QuestionType)-> QuestionCoordinatorProtocol {
+        var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
+        switch questionType {
+        case .legalName:
+            coordinator = LegalNameCoordinator()
+        case .dateOfBirth:
+            coordinator = DateOfBirthCoordinator()
+        case .contactDetails:
+            coordinator = MobileNumberCoordinator()
+        case .residentialAddress:
+            coordinator = ResidentialAddressCoordinator()
+        case .companyName:
+            coordinator = CompanyNameCoordinator()
+        case .companyAddress:
+            coordinator = CompanyAddressCoordinator()
+        case .maritalStatus:
+            coordinator = MaritalStatusCoordinator()
+        case .bankAccount:
+            coordinator = BankAccountCoordinator()
+        }
+        return coordinator
     }
 }

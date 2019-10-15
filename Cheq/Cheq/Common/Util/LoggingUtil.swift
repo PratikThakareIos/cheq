@@ -9,6 +9,9 @@
 import Foundation
 
 class LoggingUtil {
+    
+    let fcmMsgFile = "cLog.txt"
+    
     static let shared = LoggingUtil()
     private init() {
     }
@@ -37,7 +40,9 @@ class LoggingUtil {
     
     func createFileIfNeeded(_ file: String) {
         let filePath = getDocumentsDirectory().appendingPathComponent(file)
-        if FileManager.default.fileExists(atPath: filePath.absoluteString) == false {
+        do {
+            let _ = try FileHandle(forWritingTo: filePath)
+        } catch {
             try! "".data(using: .utf8)?.write(to: filePath)
         }
     }

@@ -28,19 +28,25 @@ class IntroductionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        activeTimestamp()
     }
     
     func setupUI() {
         hideBackButton()
+
+        if self.viewModel.coordinator.type == .workDetailsDecline {
+            showCloseButton()
+        }
+
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
-        self.titleLabel.text = self.viewModel.type.rawValue
+        self.titleLabel.text = self.viewModel.coordinator.type.rawValue
         self.caption.font = AppConfig.shared.activeTheme.mediumFont
         self.caption.text = self.viewModel.caption()
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
-        switch viewModel.type {
-        case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee:
+        switch viewModel.coordinator.type {
+        case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee, .workDetailsDecline:
             self.secondaryButton.isHidden = false
 //        default:
 //            self.secondaryButton.isHidden = true
@@ -52,7 +58,7 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .setupBank:
             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
         case .email:
@@ -70,26 +76,27 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             let qVm = QuestionViewModel()
             qVm.loadSaved()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = DataHelperUtil.shared.dobFormatStyle()
-            let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
-            CheqAPIManager.shared.retrieveUserDetailsKyc(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), residentialAddress: qVm.fieldValue(.residentialAddress), dateOfBirth: dob).done { response in
+            let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+            CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
                 let sdkToken = response.sdkToken ?? ""
                 AppData.shared.saveOnfidoSDKToken(sdkToken)
                 AppNav.shared.navigateToKYCFlow(self)
             }.catch { err in
                 self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
             }
+        case .workDetailsDecline:
+            LoggingUtil.shared.cPrint("Chat with us")
         }
     }
 
     @IBAction func secondaryButton(_ sender: Any) {
-        switch viewModel.type {
+        switch viewModel.coordinator.type {
         case .setupBank:
             navigateToBankSetupLearnMore()
         case .email:
             AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         case .employee:
+            AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
             AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
         case .enableLocation:
             AppNav.shared.pushToIntroduction(.notification, viewController: self)
@@ -98,6 +105,8 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
+        case .workDetailsDecline:
+            LoggingUtil.shared.cPrint("check with our FAQ")
         }
     }
 }

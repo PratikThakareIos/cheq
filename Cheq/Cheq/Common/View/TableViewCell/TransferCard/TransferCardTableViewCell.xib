@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TransferCardTableViewCell" rowHeight="158" id="KGk-i7-Jjw" customClass="TransferCardTableViewCell" customModule="Cheq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="158"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="157.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIe-QA-RaN" userLabel="ContainerView">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="140"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pPc-Wt-608">
+                                <rect key="frame" x="20" y="10" width="325" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Xa-uEy">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZl-q4-9dS" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="39" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$10 fee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfs-jX-xen" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="49" y="0.0" width="68" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg1-A7-AWC">
+                                                <rect key="frame" x="127" y="0.0" width="198" height="60"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debit" translatesAutoresizingMaskIntoConstraints="NO" id="ZqL-4M-LzQ">
+                                                        <rect key="frame" x="158" y="15" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="YrJ-on-52i"/>
+                                                            <constraint firstAttribute="width" constant="30" id="x4r-xt-V7p"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ZqL-4M-LzQ" secondAttribute="trailing" constant="10" id="nTP-Bg-Def"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="1Rj-D8-Rpe"/>
+                                            <constraint firstItem="ZqL-4M-LzQ" firstAttribute="centerY" secondItem="vZl-q4-9dS" secondAttribute="centerY" id="Fkm-Tn-OCC"/>
+                                            <constraint firstItem="xfs-jX-xen" firstAttribute="bottom" secondItem="vZl-q4-9dS" secondAttribute="bottom" id="TnZ-cg-AlQ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Will be deducted from your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URZ-Nw-sGa" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="325" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="nwN-Uv-5NE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next paycheq, 21 Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e04-Qg-ekD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="325" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="lrT-DV-ecp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="S6x-Xa-uEy" firstAttribute="top" secondItem="pPc-Wt-608" secondAttribute="top" id="MUt-Jt-09J"/>
+                                    <constraint firstAttribute="trailing" secondItem="S6x-Xa-uEy" secondAttribute="trailing" id="WCI-RO-54D"/>
+                                    <constraint firstItem="URZ-Nw-sGa" firstAttribute="top" secondItem="S6x-Xa-uEy" secondAttribute="bottom" id="bsw-uL-wBx"/>
+                                    <constraint firstItem="S6x-Xa-uEy" firstAttribute="leading" secondItem="pPc-Wt-608" secondAttribute="leading" id="yuf-3Y-cH9"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pPc-Wt-608" secondAttribute="trailing" constant="20" id="DcC-pf-pOD"/>
+                            <constraint firstAttribute="bottom" secondItem="pPc-Wt-608" secondAttribute="bottom" constant="10" id="WbP-HD-vAx"/>
+                            <constraint firstItem="pPc-Wt-608" firstAttribute="leading" secondItem="BIe-QA-RaN" secondAttribute="leading" constant="20" id="hq0-KK-QAs"/>
+                            <constraint firstItem="pPc-Wt-608" firstAttribute="top" secondItem="BIe-QA-RaN" secondAttribute="top" constant="10" id="utt-Zb-FQa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BIe-QA-RaN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6KX-WT-Kc4"/>
+                    <constraint firstAttribute="trailing" secondItem="BIe-QA-RaN" secondAttribute="trailing" id="CNP-6d-M7A"/>
+                    <constraint firstItem="BIe-QA-RaN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sg0-8A-IVH"/>
+                    <constraint firstAttribute="bottom" secondItem="BIe-QA-RaN" secondAttribute="bottom" id="z4b-pT-PTY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountLabel" destination="vZl-q4-9dS" id="I6C-Ef-VxF"/>
+                <outlet property="containerView" destination="BIe-QA-RaN" id="Muq-Rx-kpb"/>
+                <outlet property="dateString" destination="e04-Qg-ekD" id="CE3-is-w0d"/>
+                <outlet property="descriptionLabel" destination="URZ-Nw-sGa" id="gAD-dt-b8I"/>
+                <outlet property="feeLabel" destination="xfs-jX-xen" id="xiL-eh-RIq"/>
+                <outlet property="transferIcon" destination="ZqL-4M-LzQ" id="15R-OB-RHO"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="36.160714285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="debit" width="24" height="24"/>
+    </resources>
+</document>

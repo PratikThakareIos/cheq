@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="HYQ-QJ-5vD">
+            <objects>
+                <viewController storyboardIdentifier="FinanceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eVJ-jz-eFJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcE-pI-91v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84644777199999999" blue="0.336507416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="0HN-bH-1RS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aG1-y3-8Lp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Lt-FD-e7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="-569"/>
+        </scene>
+        <!--Lending View Controller-->
+        <scene sceneID="kGh-pk-zaC">
+            <objects>
+                <viewController storyboardIdentifier="LendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gh5-ns-Z4N" customClass="LendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="37o-pU-Tpf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
+                                <rect key="frame" x="10" y="88" width="394" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cJz-X1-sMR" firstAttribute="leading" secondItem="5BY-ug-oG6" secondAttribute="leading" constant="10" id="DBW-vS-NTM"/>
+                            <constraint firstItem="5BY-ug-oG6" firstAttribute="trailing" secondItem="cJz-X1-sMR" secondAttribute="trailing" constant="10" id="DoR-TN-csC"/>
+                            <constraint firstItem="cJz-X1-sMR" firstAttribute="top" secondItem="5BY-ug-oG6" secondAttribute="top" id="bYp-7X-PyG"/>
+                            <constraint firstItem="5BY-ug-oG6" firstAttribute="bottom" secondItem="cJz-X1-sMR" secondAttribute="bottom" id="gSS-0E-EcG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5BY-ug-oG6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
+                    <connections>
+                        <outlet property="tableView" destination="cJz-X1-sMR" id="edT-hL-57N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1Y-bb-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147.8260869565217" y="162.72321428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OiW-7F-kfs">
+            <objects>
+                <viewController id="Rfb-1r-f6T" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Te9-v8-WYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.012068703154794913" green="0.99093407256605814" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5jS-7a-p4d"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fhn-bT-NcM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riN-J7-zbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="891"/>
+        </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="IHW-jZ-1gG">
+            <objects>
+                <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CxM-bx-Nzq" customClass="TabViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="P4Y-tc-Z55">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="fCA-g3-tzo" kind="relationship" relationship="viewControllers" id="5Wt-N0-BrP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rmT-Q8-0cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-832" y="163"/>
+        </scene>
+        <!--Cashout-->
+        <scene sceneID="z6G-Zh-bY4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCA-g3-tzo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cashout" image="financeIcon" id="eMQ-MP-TEQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wGs-fp-jRe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gh5-ns-Z4N" kind="relationship" relationship="rootViewController" id="f57-ue-Tsb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqf-gM-SLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="123" y="163"/>
+        </scene>
+        <!--Spending-->
+        <scene sceneID="dfW-76-Q4Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sfi-gR-bCw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Spending" image="analyticsIcon" id="QDd-tr-hz7"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QYS-f0-J5J">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rfb-1r-f6T" kind="relationship" relationship="rootViewController" id="oWB-c7-ECo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHw-1p-a2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="891"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="FvH-wu-sMb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcr-8f-oVW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" image="profileIcon" id="5Ts-ET-dEX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUn-52-blZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eVJ-jz-eFJ" kind="relationship" relationship="rootViewController" id="1Av-dG-N8q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BSM-uY-XG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="-569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="analyticsIcon" width="30" height="30"/>
+        <image name="financeIcon" width="30" height="30"/>
+        <image name="profileIcon" width="30" height="30"/>
+    </resources>
+</document>

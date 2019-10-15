@@ -11,8 +11,70 @@ import Onfido
 import MobileSDK
 
 class AppNav {
+    let minsToShowPasscode = 5
+    let appLastActiveTimestampCheckInterval = 30
+    var timer: Timer?
     static let shared = AppNav()
-    private init() { }
+    private init() {
+        // Event for programmatically for app becoming active
+        // Check if we need to show the passcode screen if passcode is setup
+        NotificationCenter.default.addObserver(self, selector: #selector(showPasscodeIfNeeded(notification:)), name: NSNotification.Name(NotificationEvent.appBecomeActive.rawValue), object: nil)
+        
+        // Timer to check app has been idle
+//        timer = Timer.scheduledTimer(timeInterval: TimeInterval(appLastActiveTimestampCheckInterval), target: self, selector: #selector(showPasscodeIfNeeded(notification:)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func showPasscodeIfNeeded(notification: NSNotification) {
+        if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
+            presentPasscodeViewController()
+        }
+    }
+    
+    func isTimeToShowPasscode()->Bool {
+        let now = Date()
+        let earlier = CKeychain.shared.dateByKey(CKey.activeTime.rawValue)
+        let minsEarlier = earlier.minutesEarlier(than: now)
+        if minsEarlier >= minsToShowPasscode {
+            let _ = CKeychain.shared.setDate(CKey.activeTime.rawValue, date: now)
+            return true
+        }
+        return false
+    }
+    
+    func passcodeExist()-> Bool {
+        let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
+        return !passcode.isEmpty
+    }
+    
+    func presentPasscodeViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .validate
+        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
+        currentRootVc.present(vc, animated: true, completion: nil)
+    }
+
+    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        switch multipleChoiceType {
+        case .employmentType:
+            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
+        case .onDemand:
+            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
+        case .financialInstitutions:
+            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
+        case .ageRange:
+            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
+        case .state:
+            multipleChoiceViewModel.coordinator = StateCoordinator()
+        }
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
     
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
@@ -20,7 +82,7 @@ class AppNav {
         let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
         let questionViewModel = QuestionViewModel()
         questionViewModel.loadSaved()
-        questionViewModel.type = questionType
+        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
         vc.viewModel = questionViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: questionType.rawValue)
         nav.pushViewController(vc, animated: true)
@@ -62,7 +124,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
         let introductionViewModel = IntroductionViewModel()
-        introductionViewModel.type = introductionType
+        introductionViewModel.coordinator = IntroductionViewModel.coordinatorFor(introductionType)
         vc.viewModel = introductionViewModel
         nav.pushViewController(vc, animated: true)
     }
@@ -82,20 +144,53 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
-    func pushToViewController(_ viewController: UIViewController) {
-        guard let nav =  viewController.navigationController else { return }
-        nav.pushViewController(viewController, animated: true)
+    func pushToViewController(_ newVc: UIViewController, from: UIViewController) {
+        guard let nav =  from.navigationController else { return }
+        nav.pushViewController(newVc, animated: true)
+    }
+    
+    func pushToAppSetting() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+    }
+    
+    func pushToAppLocationServices() {
+        guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { return }
+        UIApplication.shared.open(url)
     }
 }
 
 // MARK: present related
 extension AppNav {
     
-    func initViewController(_ storyboardName: String, storyboardId: String)-> UIViewController {
+    func initViewController(_ questionType: QuestionType)->UIViewController? {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        guard let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as? QuestionViewController else { return nil }
+        vc.viewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
+        return vc 
+    }
+    
+    func initViewController(_ introType: IntroductionType)-> UIViewController? {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        guard let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as? IntroductionViewController else { return nil }
+        vc.viewModel.coordinator = IntroductionViewModel.coordinatorFor(introType)
+        return vc
+    }
+    
+    func initTabViewController()-> UIViewController {
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.tab.rawValue)
+        return vc 
+    }
+    
+    func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        let nav = UINavigationController(rootViewController: vc)
-        return nav
+        if embedInNav {
+            let nav = UINavigationController(rootViewController: vc)
+            return nav
+        } else {
+            return vc
+        }
     }
     
     func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
@@ -137,6 +232,12 @@ extension AppNav {
 
 // MARK: smart dimiss
 extension AppNav {
+    
+    func dismissModal(_ viewController: UIViewController) {
+        guard let presentVc = viewController.presentingViewController else { return }
+        presentVc.dismiss(animated: true, completion: nil)
+    }
+    
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
             nav.popViewController(animated: true)

@@ -19,6 +19,7 @@ class DynamicFormViewController: UIViewController {
     
     var viewModel = DynamicFormViewModel()
     var form:[DynamicFormInput] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
@@ -33,7 +34,7 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        activeTimestamp()
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
             AppConfig.shared.hideSpinner {
@@ -112,7 +113,7 @@ class DynamicFormViewController: UIViewController {
         AppConfig.shared.showSpinner()
         viewModel.coordinator.submitForm().done { success in
             AppConfig.shared.hideSpinner {
-                AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController())
+                AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController(), from: self)
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {

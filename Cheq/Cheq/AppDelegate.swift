@@ -15,39 +15,54 @@ import Crashlytics
 import FBSDKLoginKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     let backgroundTaskIdentifier = "CheqBackground-Service"
-    let fcmMsgFile = "temp.txt"
-    
+    var visualEffectView = UIVisualEffectView()
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let fileContent = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
+        // keep a reference for re-use
+        AppData.shared.application = application
+        
+        // to setup VDot again
+        if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
+            let timestamp = Date().timeStamp()
+            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
+            let _ = VDotManager.shared
+        }
+        
+        let fileContent = LoggingUtil.shared.printLocationFile(LoggingUtil.shared.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
         
         // init firebase SDK
         FirebaseApp.configure()
+        // Firebase Message delegate
+        Messaging.messaging().delegate = self
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         // setup singleton and SDKs
-        self.setupServices()
-        
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
-        
-        self.setupInitialViewController()
-        
+        self.registerNotificationObservers()
+//        self.setupServices()
+//        self.setupInitialViewController()
+        self.setupInitDevController()
+//        self.setupLogController()
+//        self.setupQuestionController()
+
         return true
     }
     
+    // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
         // setup remote notifications
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(UIApplication.shared, delegate: self)
+        guard let application = AppData.shared.application else { return }
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -61,55 +76,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // extract deviceToken into String and notify observers
         let apnsDeviceToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         LoggingUtil.shared.cPrint("apns \(apnsDeviceToken)")
+        let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
-    }
-    
-    func setupSplashViewController() {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splash.rawValue)
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-    }
-    
-    func setupLogController() {
-        let vc = UIViewController()
-        let textView = UITextView()
-        vc.view.addSubview(textView)
-        textView.text = LoggingUtil.shared.printLocationFile(self.fcmMsgFile)
-        AutoLayoutUtil.pinToSuperview(textView, padding: 0.0)
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-    }
-    
-    func setupInitDevController() {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
-        vc.viewModel.coordinator = AgeRangeCoordinator()
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
     }
 
     func setupInitialViewController() {
-        
-       window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
-        
-//        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-//            self.window?.rootViewController = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.finance.rawValue)
-//            self.window?.makeKeyAndVisible()
-//        }.catch { err in
-//            self.handleNotLoggedIn()
-//        }
-        
+        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+            let vc = AppNav.shared.initViewController(.legalName)
+            self.window?.rootViewController = vc ?? UIViewController()
+            self.window?.makeKeyAndVisible()
+        }.catch { err in
+            self.handleNotLoggedIn()
+        }
+    }
+    
+    @objc func handleLogout(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle logout")
+        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
     
     func handleNotLoggedIn() {
         if !AppConfig.shared.isFirstInstall() {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue, embedInNav: true)
         }
         self.window?.makeKeyAndVisible()
     }
@@ -125,6 +115,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: Firebase messaging
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        
+        // storeMessagingRegistrationToken stores fcmToken to CKeychain
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
                 LoggingUtil.shared.cPrint("fcmToken \(fcmToken)")
@@ -135,6 +127,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         LoggingUtil.shared.cPrint(remoteMessage.messageID)
+        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "message received \(dateString)")
+        self.handleRemoteNotification {
+        }
     }
 }
 
@@ -172,21 +168,21 @@ extension AppDelegate {
     func handleRemoteNotification(_ completion: @escaping ()->Void) {
         
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
-        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile, newText: "\(dateString)")
-        LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "message received \(dateString)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
+        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
         var credentials = [LoginCredentialType: String]()
-        credentials[.email] = DataHelperUtil.shared.randomEmail()
-        credentials[.password] = DataHelperUtil.shared.randomPassword()
+        credentials[.email] = TestUtil.shared.randomEmail()
+        credentials[.password] = TestUtil.shared.randomPassword()
         AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
             
             completion()
         }.then { authUser in
-            CheqAPIManager.shared.putUserDetails(DataHelperUtil.shared.putUserDetailsReq())
+            CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
         }.done { authUser in
-            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
+//            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
         }.catch{ err in
             LoggingUtil.shared.cPrint(err.localizedDescription)
-            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "\(err.localizedDescription)")
+            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(err.localizedDescription)")
             completion()
         }
     }
@@ -195,13 +191,30 @@ extension AppDelegate {
 // MARK: Segment
 extension AppDelegate {
     
+    func registerNotificationObservers() {
+        // Event for programmatically logging out and returning to Registration screen
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
+    }
+    
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
+        guard let _ = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
+        let _ = CheqAPIManager.shared
+//        let _ = AppConfig.shared
+        let _ = AuthConfig.shared
+//        let _ = VDotManager.shared
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+    }
+    
+    func setupServicesForDev() {
+        guard let _ = AppData.shared.application else { return }
+//        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
 //        let _ = VDotManager.shared
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }
 
@@ -210,6 +223,12 @@ extension AppDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        if !self.visualEffectView.isDescendant(of: self.window!) {
+            let blurEffect = UIBlurEffect(style: .light)
+            self.visualEffectView = UIVisualEffectView(effect: blurEffect)
+            self.visualEffectView.frame = (self.window?.bounds)!
+            self.window?.addSubview(self.visualEffectView)
+        }
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -219,13 +238,54 @@ extension AppDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        LoggingUtil.shared.cPrint("applicationWillEnterForeground")
+        self.visualEffectView.removeFromSuperview()
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        LoggingUtil.shared.cPrint("applicationDidBecomeActive")
+        NotificationUtil.shared.notify(NotificationEvent.appBecomeActive.rawValue, key: "", value: "")
+        self.visualEffectView.removeFromSuperview()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+extension AppDelegate {
+
+    func setupQuestionController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
+        vc.viewModel.coordinator = BankAccountCoordinator()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
+
+    func setupInitDevController () {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initTabViewController()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
+
+    func setupLogController() {
+        self.setupServicesForDev()
+        let vc = LogViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+
+    func setupInitPasscodeController() {
+        self.setupServicesForDev()
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .setup
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 }
 

@@ -25,11 +25,16 @@ enum OnboardingStoryboardId: String {
 }
 
 enum MainStoryboardId: String {
-    case finance = "FinanceViewController"
+    case tab = "TabViewController"
+    case lending = "LendingViewController"
+    case spending = "SpendingOverviewViewController"
+    case budget = "BudgetViewController"
 }
 
 enum CommonStoryboardId: String {
-    case passcode = "PasscodeViewController"
+    case emailVerify = "EmailVerificationViewController"
     case web = "WebViewController"
     case kyc = "KYCViewController"
+    case account = "AccountViewController"
+    case passcode = "PasscodeViewController"
 }

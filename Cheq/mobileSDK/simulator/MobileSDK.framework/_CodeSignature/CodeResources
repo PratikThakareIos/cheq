@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/MobileSDK-Swift.h</key>
 		<data>
-		MQxUCeek56MqS13bwv6aTbw4Ees=
+		+Wfd00cl9M1pkxu7sYnpKFlNjAs=
 		</data>
 		<key>Headers/MobileSDK.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		dmSI3In/6D5F2D6wWdZV++PnavE=
+		Ld66ga37nPBri2OwafUmIHijKS0=
 		</data>
 		<key>Modules/MobileSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/MobileSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		nrXdZp2/3gVglPZu/iXnGh08HGg=
+		2ayxs1FDQukS3Twxgz4wfSVPN+Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -109,11 +109,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MQxUCeek56MqS13bwv6aTbw4Ees=
+			+Wfd00cl9M1pkxu7sYnpKFlNjAs=
 			</data>
 			<key>hash2</key>
 			<data>
-			qIp2KQGf7rwzUXPbqRUIqeP5cy6kIlc0rJQvsdQarfo=
+			uS16KypvyV9419ord0/r429xlVyV9RVOMEDthVzibF4=
 			</data>
 		</dict>
 		<key>Headers/MobileSDK.h</key>
@@ -142,11 +142,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nrXdZp2/3gVglPZu/iXnGh08HGg=
+			2ayxs1FDQukS3Twxgz4wfSVPN+Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			tBBO4CIM/lnnr80LMqofUEfx7z1a0roOKtBgTS++d4s=
+			h5XtoYy72T+e0GGqx0KBiQApluj7VTk1Fd/8B4TUWmU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

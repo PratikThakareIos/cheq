@@ -63,6 +63,9 @@ class AppData {
     
     static let shared = AppData()
     private init() { loadOnfidoSDKToken() }
+
+    // instance of current application
+    var application: UIApplication? 
     
     // Facebook
     let fbAppId = "2855589534666837"
@@ -81,16 +84,23 @@ class AppData {
     var financialTransactions: [FinancialTransactionModel] = [] 
     let financialInstitutionsUnused = -1
     var financialInstitutions: [FinancialInstitutionModel] = []
-    var selectedFinancialInstitution: String = ""
+    var selectedFinancialInstitution: FinancialInstitutionModel?
+    
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
 
     // employment flow related data
     var employmentType: EmploymentType = .fulltime
     var onDemandType: OnDemandType = .other
     var employerList = [GetEmployerPlaceResponse]()
+    var employerAddressList = [GetEmployerPlaceResponse]()
     var residentialAddressList = [GetAddressResponse]()
     var selectedEmployer: Int = 0
+    var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
+
+    // lending scenarios
+    var completingDetailsForLending = false
+    var completingOnDemandOther = false
 
     func saveOnfidoSDKToken(_ sdkToken: String) {
         self.onfidoSdkToken = sdkToken
@@ -108,16 +118,18 @@ class AppData {
     
     func updateProgressAfterCompleting(_ screenName: ScreenName) {
         switch screenName {
+            
+        // about me
         case .legalName:
-            AppData.shared.progress = CProgress(aboutMe: 0.2, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.25, employmentDetails: 0.0, linkingBank: 0.0)
         case .dateOfBirth, .ageRange:
-            AppData.shared.progress = CProgress(aboutMe: 0.4, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.5, employmentDetails: 0.0, linkingBank: 0.0)
         case .contactDetails:
-            AppData.shared.progress = CProgress(aboutMe: 0.6, employmentDetails: 0.0, linkingBank: 0.0)
+            AppData.shared.progress = CProgress(aboutMe: 0.75, employmentDetails: 0.0, linkingBank: 0.0)
         case .residentialAddress, .state:
-            AppData.shared.progress = CProgress(aboutMe: 0.8, employmentDetails: 0.0, linkingBank: 0.0)
-        case .maritalStatus:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
+//        case .maritalStatus:
+//            AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
         case .employmentType:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.25, linkingBank: 0.0)
         case .onDemand:

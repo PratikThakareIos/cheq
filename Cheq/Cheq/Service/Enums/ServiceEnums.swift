@@ -19,6 +19,12 @@ enum CKeychainError: Error {
 
 enum ValidationError: Error {
     case allFieldsMustBeFilled
+    case invalidMobileFormat
+    case invalidInputFormat
+    case invalidEmailFormat
+    case invalidPasswordFormat
+    case onlyAlphabetCharactersIsAllowed
+    case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
 }
 
@@ -27,6 +33,11 @@ enum CheqAPIManagerError: Error {
     case errorHasOccurredOnServer
     case unableToParseResponse
     case invalidInput
+}
+
+enum CheqAPIManagerError_Spending: Error {
+    case unableToRetrieveOverview
+    case unableToRetrieveTransactions 
 }
 
 enum MoneySoftManagerError: Error {
@@ -41,6 +52,7 @@ enum MoneySoftManagerError: Error {
     case unableToLinkAccounts
     case unableToUpdateTransactions
     case unableToRefreshTransactions
+    case unableToRegisterNotificationToken
     case unableToGetAccounts 
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials
@@ -53,13 +65,17 @@ enum MoneySoftManagerError: Error {
 enum AuthManagerError: Error {
     case invalidRegistrationFields
     case invalidLoginFields
+    case invalidFinancialInstitutionSelected
     case unableToRegisterExistingEmail
     case unableToRegisterWithMissingFBToken
     case unableToRetrieveAuthToken
     case unableToRetrieveFBToken
+    case unableToRetrieveFBProfile
     case unableToRetrieveCredential
     case unableToSignIn
     case unableInvalidEmail
+    case unableToRequestEmailVerificationCode
+    case unableToVerifyEmailVerificationCode
     case unableToStoreAuthToken
     case unableToCleanAuthToken
     case unableToRetrieveCurrentUser
@@ -89,8 +105,20 @@ extension ValidationError: LocalizedError {
         switch self {
         case .allFieldsMustBeFilled:
             return NSLocalizedString("All fields must be entered", comment: "")
+        case .invalidInputFormat:
+            return  NSLocalizedString("Invalid input format", comment: "")
+        case .invalidMobileFormat:
+            return NSLocalizedString("Invalid mobile format", comment: "")
+        case .invalidEmailFormat:
+            return NSLocalizedString("Invalid email format", comment: "")
+        case .invalidPasswordFormat:
+            return NSLocalizedString("Invalid password format. Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)", comment: "")
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
+        case .onlyAlphabetCharactersIsAllowed:
+            return NSLocalizedString("Only alphabet characters is allowed", comment: "")
+        case .onlyNumericCharactersIsAllowed:
+            return NSLocalizedString("Only numeric characteres is allowed", comment: "")
         }
     }
 }
@@ -102,6 +130,8 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
         return NSLocalizedString("Invalid login fields", comment: "")
+        case .invalidFinancialInstitutionSelected:
+        return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:
         return NSLocalizedString("Unable to register an existing email", comment: "")
         case .unableToRegisterWithMissingFBToken:
@@ -110,6 +140,8 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Unable to retrieve auth token", comment: "")
         case .unableToRetrieveFBToken:
         return NSLocalizedString("Unable to retrieve facebook token", comment: "")
+        case .unableToRetrieveFBProfile:
+        return NSLocalizedString("Unable to retrieve facebook profile", comment: "")
         case .unableToRetrieveCredential:
         return NSLocalizedString("Unable to retrieve credentials", comment: "")
         case .unableToSignIn:
@@ -130,6 +162,10 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Unable to send password reset link", comment: "")
         case .unknown:
         return NSLocalizedString("An error has occurred", comment: "")
+        case .unableToRequestEmailVerificationCode:
+        return NSLocalizedString("An error has occurred", comment: "")
+        case .unableToVerifyEmailVerificationCode:
+        return NSLocalizedString("Unable to validate verification code", comment: "")
         }
     }
 }
