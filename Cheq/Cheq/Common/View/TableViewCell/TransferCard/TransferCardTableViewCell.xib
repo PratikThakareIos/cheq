@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pPc-Wt-608">
                                 <rect key="frame" x="20" y="10" width="325" height="120"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Xa-uEy">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Xa-uEy">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZl-q4-9dS" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
@@ -34,16 +34,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$10 fee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfs-jX-xen" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="49" y="0.0" width="68" height="60"/>
+                                                <rect key="frame" x="43" y="0.0" width="68" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wg1-A7-AWC">
-                                                <rect key="frame" x="127" y="0.0" width="198" height="60"/>
+                                                <rect key="frame" x="115" y="0.0" width="210" height="60"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debit" translatesAutoresizingMaskIntoConstraints="NO" id="ZqL-4M-LzQ">
-                                                        <rect key="frame" x="158" y="15" width="30" height="30"/>
+                                                        <rect key="frame" x="170" y="15" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="YrJ-on-52i"/>
                                                             <constraint firstAttribute="width" constant="30" id="x4r-xt-V7p"/>

@@ -42,13 +42,9 @@ class LendingViewController: UIViewController {
         credentials[.password] = TestUtil.shared.randomPassword()
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
-            AppConfig.shared.hideSpinner {
-
-            }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-
-                }
+            AppConfig.shared.hideSpinner {}
+        }.catch { err in
+            AppConfig.shared.hideSpinner {}
         }
     }
 
@@ -61,6 +57,7 @@ class LendingViewController: UIViewController {
     }
 
     @objc func reloadTableLayout(_ notification: NSNotification) {
+        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
         self.tableView.reloadWithoutScroll()
     }
 

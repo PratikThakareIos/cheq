@@ -41,7 +41,7 @@ class TransferCardTableViewCell: CTableViewCell {
         self.feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.feeLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         self.dateString.text = vm.dateString
-        let transferImage = (vm.direction == .debit) ? "debit" : "credit"
+        let transferImage = vm.imageIcon()
         self.transferIcon.image = UIImage(named: transferImage)
         self.descriptionLabel.text = vm.descriptionText
     }

@@ -15,4 +15,9 @@ class TransferCardTableViewCellViewModel: TableViewCellViewModelProtocol {
     var direction: CashDirection = .credit
     var descriptionText = "Will be deposited to your account"
     var dateString = "Today, 17 Sep"
+    
+    func imageIcon()->String {
+        let iconName = self.direction == .debit ? "debit" : "credit"
+        return iconName
+    }
 }

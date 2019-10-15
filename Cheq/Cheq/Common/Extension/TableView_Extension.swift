@@ -11,7 +11,9 @@ import UIKit
 extension UITableView {
     func reloadWithoutScroll() {
         let contentOffset = self.contentOffset
-        self.reloadData()
+//        self.reloadData()
+        self.beginUpdates()
+        self.endUpdates()
         self.layoutIfNeeded()
         self.setContentOffset(contentOffset, animated: false)
     }

@@ -18,4 +18,12 @@ class NotificationUtil {
         let dataDict:[String: String] = [key: value]
         NotificationCenter.default.post(name: Notification.Name(name), object: nil, userInfo: dataDict)
     }
+    
+    func notify(_ name: String, key: String, value: Any!) {
+        var dataDict:[String: Any] = [:]
+        if value != nil {
+            dataDict = [key: value]
+        }
+        NotificationCenter.default.post(name: Notification.Name(name), object: nil, userInfo: dataDict)
+    }
 }
