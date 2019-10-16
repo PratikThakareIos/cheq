@@ -150,11 +150,25 @@ class TestUtil {
         return "Australia"
     }
     
+    func loginWithTestAccount()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            let email = "dean1@testcheq.com.au"
+            let password = "1@aAbc23"
+            var loginCredentials = [LoginCredentialType: String]()
+            loginCredentials[.email] = email
+            loginCredentials[.password] = password
+            AuthConfig.shared.activeManager.login(loginCredentials).done { authUser in
+                resolver.fulfill(authUser)
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let testBank = "St.George Bank"
             var storedAccounts = [FinancialAccountModel]()
-//            var storedTransactions = [FinancialTransactionModel]()
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = TestUtil.shared.randomEmail()
             loginCredentials[.password] = TestUtil.shared.randomPassword()

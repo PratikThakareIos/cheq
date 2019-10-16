@@ -77,6 +77,13 @@ open class LendingAPI {
     "declineDescription" : "declineDescription",
     "declineReason" : "None"
   },
+  "currentLendingSummary" : {
+    "totalFees" : 2.3021358869347655,
+    "totalRepaymentAmount" : 5.637376656633329,
+    "repaymentDate" : "repaymentDate",
+    "feesPercent" : 7.061401241503109,
+    "totalCashRequested" : 5.962133916683182
+  },
   "eligibleRequirement" : {
     "kycStatus" : "NotStarted",
     "hasBankAccountDetail" : true,
@@ -91,14 +98,14 @@ open class LendingAPI {
     "canUploadTimesheet" : true,
     "activities" : [ {
       "date" : "date",
-      "amount" : 5.637376656633329,
+      "amount" : 3.616076749251911,
       "type" : "Cashout"
     }, {
       "date" : "date",
-      "amount" : 5.637376656633329,
+      "amount" : 3.616076749251911,
       "type" : "Cashout"
     } ],
-    "availableCashoutAmount" : 5.962133916683182
+    "availableCashoutAmount" : 9.301444243932576
   }
 }}]
 

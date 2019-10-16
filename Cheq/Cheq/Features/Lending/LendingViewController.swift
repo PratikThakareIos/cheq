@@ -8,6 +8,7 @@
 
 import UIKit
 import PromiseKit
+import PullToRefreshKit
 
 class LendingViewController: UIViewController {
 
@@ -29,21 +30,30 @@ class LendingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
-        if email.isEmpty {
-            AppConfig.shared.showSpinner()
-            TestUtil.shared.autoSetupAccount().done { authUser in
-                AppConfig.shared.hideSpinner {
-                    // now do Lending API call and refresh tableview
-                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-                }
+//        if AuthConfig.shared.activeUser != nil {
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//        } else {
+//            endToEndSetup()
+//        }
+        
+        TestUtil.shared.loginWithTestAccount().done { authUser in
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        }.catch { err in
+            self.showError(err, completion: nil)
+        }
+    }
+    
+    func endToEndSetup() {
+        AppConfig.shared.showSpinner()
+        TestUtil.shared.autoSetupAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                // now do Lending API call and refresh tableview
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            }
             }.catch{ err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err, completion: nil)
                 }
-            }
-        } else {
-            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
     }
     
@@ -51,6 +61,7 @@ class LendingViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
             AppConfig.shared.hideSpinner {
+                self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
                 
@@ -94,8 +105,10 @@ class LendingViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.estimatedRowHeight = 1
         self.tableView.rowHeight = UITableView.automaticDimension
-
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+        
+        self.tableView.addPullToRefreshAction {
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        }
     }
 
     @objc func reloadTableLayout(_ notification: NSNotification) {
@@ -105,7 +118,7 @@ class LendingViewController: UIViewController {
 
     func setupDelegate() {
         self.tableView.delegate = self
-        self.tableView.dataSource = self 
+        self.tableView.dataSource = self
     }
 
     func registerCells() {
@@ -123,6 +136,9 @@ class LendingViewController: UIViewController {
     }
     
     func registerObservables() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.lendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.lendingOverview.rawValue), object: nil)

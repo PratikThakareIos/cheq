@@ -32,7 +32,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -42,7 +42,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -55,7 +55,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -65,7 +65,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -116,17 +116,17 @@ open class SpendingAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example={
   "categoryAmountStats" : [ {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   }, {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   } ],
   "monthAmountStats" : [ {
     "amount" : 0.8008281904610115,
@@ -170,7 +170,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -180,7 +180,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -190,38 +190,45 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   }, {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "overviewCard" : {
+    "infoIcon" : "infoIcon",
+    "numberOfDaysTillPayday" : 6,
+    "payCycleEndDate" : "payCycleEndDate",
+    "allAccountCashBalance" : 0.8008281904610115,
+    "payCycleStartDate" : "payCycleStartDate"
+  },
   "topCategoriesAmount" : [ {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   }, {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   } ]
 }}]
 
@@ -258,7 +265,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -268,7 +275,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -278,38 +285,45 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   }, {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "overviewCard" : {
+    "infoIcon" : "infoIcon",
+    "numberOfDaysTillPayday" : 6,
+    "payCycleEndDate" : "payCycleEndDate",
+    "allAccountCashBalance" : 0.8008281904610115,
+    "payCycleStartDate" : "payCycleStartDate"
+  },
   "topCategoriesAmount" : [ {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   }, {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   } ]
 }}]
 
@@ -346,7 +360,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -356,7 +370,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -366,38 +380,45 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   }, {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "overviewCard" : {
+    "infoIcon" : "infoIcon",
+    "numberOfDaysTillPayday" : 6,
+    "payCycleEndDate" : "payCycleEndDate",
+    "allAccountCashBalance" : 0.8008281904610115,
+    "payCycleStartDate" : "payCycleStartDate"
+  },
   "topCategoriesAmount" : [ {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   }, {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   } ]
 }}]
 
@@ -434,7 +455,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -444,7 +465,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 2.3021358869347655,
+    "amount" : 9.301444243932576,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -454,38 +475,45 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   } ],
   "upcomingBills" : [ {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   }, {
-    "amount" : 0.8008281904610115,
+    "amount" : 1.4658129805029452,
     "recurringFrequency" : "Weekly",
     "dueDate" : "dueDate",
     "categoryTitle" : "categoryTitle",
     "description" : "description",
     "merchant" : "merchant",
-    "daysToDueDate" : 6,
+    "daysToDueDate" : 5,
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "overviewCard" : {
+    "infoIcon" : "infoIcon",
+    "numberOfDaysTillPayday" : 6,
+    "payCycleEndDate" : "payCycleEndDate",
+    "allAccountCashBalance" : 0.8008281904610115,
+    "payCycleStartDate" : "payCycleStartDate"
+  },
   "topCategoriesAmount" : [ {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   }, {
-    "totalAmount" : 5.637376656633329,
-    "categoryAmount" : 5.962133916683182,
+    "totalAmount" : 7.061401241503109,
+    "categoryAmount" : 2.3021358869347655,
     "categoryTitle" : "categoryTitle",
     "categoryCode" : "Benefits",
-    "categoryId" : 1
+    "categoryId" : 5
   } ]
 }}]
 
@@ -525,7 +553,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -535,7 +563,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -548,7 +576,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -558,7 +586,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 2.3021358869347655,
+      "amount" : 9.301444243932576,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -613,23 +641,23 @@ open class SpendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
-  "amount" : 0.8008281904610115,
+  "amount" : 1.4658129805029452,
   "recurringFrequency" : "Weekly",
   "dueDate" : "dueDate",
   "categoryTitle" : "categoryTitle",
   "description" : "description",
   "merchant" : "merchant",
-  "daysToDueDate" : 6,
+  "daysToDueDate" : 5,
   "merchantLogoUrl" : "merchantLogoUrl",
   "categoryCode" : "Benefits"
 }, {
-  "amount" : 0.8008281904610115,
+  "amount" : 1.4658129805029452,
   "recurringFrequency" : "Weekly",
   "dueDate" : "dueDate",
   "categoryTitle" : "categoryTitle",
   "description" : "description",
   "merchant" : "merchant",
-  "daysToDueDate" : 6,
+  "daysToDueDate" : 5,
   "merchantLogoUrl" : "merchantLogoUrl",
   "categoryCode" : "Benefits"
 } ]}]

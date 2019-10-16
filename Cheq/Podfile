@@ -21,6 +21,7 @@ target 'Cheq' do
   pod 'DateToolsSwift'
   pod 'UDatePicker', '~> 1.1.1'
   pod 'SearchTextField', '~> 1.2.0'
+  pod 'PullToRefreshKit'
   
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK', '15.0.0'
