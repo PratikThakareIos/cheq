@@ -13,6 +13,7 @@ class LendingViewModel {
         IntercomChatTableViewCellViewModel(),
         AmountSelectTableViewCellViewModel(),
         CButtonTableViewCellViewModel(),
+        MessageBubbleTableViewCellViewModel(),
         TransferCardTableViewCellViewModel(),
         AgreementItemTableViewCellViewModel(),
         HeaderTableViewCellViewModel(),
@@ -20,7 +21,8 @@ class LendingViewModel {
         TopTableViewCellViewModel(),
         CompletionProgressTableViewCellViewModel(),
         CompleteDetailsTableViewCellViewModel(),
-        BottomTableViewCellViewModel()
+        BottomTableViewCellViewModel(),
+        SwipeToConfirmTableViewCellViewModel()
     ] as [TableViewCellViewModelProtocol]
     var sections = [TableSectionViewModel]()
 
@@ -32,8 +34,9 @@ class LendingViewModel {
         let amountSelect = AmountSelectTableViewCellViewModel()
         section.rows.append(amountSelect)
         let cashOut = CButtonTableViewCellViewModel()
-        cashOut.icon = "speedy"
         section.rows.append(cashOut)
+        let messageBubble = MessageBubbleTableViewCellViewModel()
+        section.rows.append(messageBubble)
         let transferCardCredit = TransferCardTableViewCellViewModel()
         transferCardCredit.direction = .credit
         section.rows.append(transferCardCredit)
@@ -71,6 +74,8 @@ class LendingViewModel {
         section.rows.append(verifyYourDetails)
         let bottom = BottomTableViewCellViewModel()
         section.rows.append(bottom)
+        let draggable = SwipeToConfirmTableViewCellViewModel()
+        section.rows.append(draggable)
         self.sections.append(section)
     }
 }

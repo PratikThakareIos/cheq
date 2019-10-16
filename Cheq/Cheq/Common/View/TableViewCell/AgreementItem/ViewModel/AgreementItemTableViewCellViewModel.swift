@@ -14,4 +14,5 @@ class AgreementItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     var message: String = "Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on. Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on. Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on Cheq Pty Ltd provides you with the ability to borrow up to $300 on each pay cycle on"
     var readMoreTitle: String = "Read more"
     var readLessTitle: String = "Read less"
+    var expanded: Bool = false
 }
