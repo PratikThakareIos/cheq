@@ -13,5 +13,6 @@ class CompletionProgressTableViewCellViewModel: TableViewCellViewModelProtocol {
     var mode: CProgressColorMode = .information
     var header: String = "Complete"
     var completedItem: Int = 0
-    var totalItem: Int = 0 
+    var totalItem: Int = 0
+    var progress: Float = 0.5
 }

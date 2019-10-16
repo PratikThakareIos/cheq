@@ -177,7 +177,12 @@ class TestUtil {
                 return MoneySoftManager.shared.getProfile()
             }.then { profile->Promise<[FinancialInstitutionModel]> in
                 return MoneySoftManager.shared.getInstitutions()
-            }.then { institutions->Promise<InstitutionCredentialsFormModel> in
+            }.then { institutions-> Promise<Bool> in
+                AppData.shared.financialInstitutions = institutions
+                let postReq = DataHelperUtil.shared.postFinancialInstitutionsRequest(institutions)
+                return CheqAPIManager.shared.postBanks(postReq)
+            }.then { success->Promise<InstitutionCredentialsFormModel> in
+                let institutions = AppData.shared.financialInstitutions
                 let banks: [FinancialInstitutionModel] = institutions
                 banks.forEach {
                     let name = $0.name ?? ""
@@ -213,7 +218,7 @@ class TestUtil {
                 transactionFilter.offset = 0
                 return MoneySoftManager.shared.getTransactions(transactionFilter)
             }.then { transactions->Promise<Bool> in
-//                storedTransactions = transactions
+                AppData.shared.financialTransactions = transactions
                 let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsReq(transactions)
                 return CheqAPIManager.shared.postTransactions(postFinancialTransactionsReq)
             }.then { success->Promise<AuthUser> in

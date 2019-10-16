@@ -34,7 +34,7 @@ class CompletionProgressTableViewCell: CTableViewCell {
         self.completionTitle.text = vm.header
         self.completionProgress.font = AppConfig.shared.activeTheme.defaultFont
         self.completionProgress.text = String(describing: "\(vm.completedItem) of \(vm.totalItem)")
-        self.completionProgressBar.setProgress(0.5, animated: true)
+        self.completionProgressBar.setProgress(vm.progress, animated: true)
         self.completionProgressBar.mode = vm.mode
         self.completionProgressBar.setupConfig()
     }

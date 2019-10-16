@@ -29,8 +29,8 @@ class LendingViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
-//        if email.isEmpty {
+        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        if email.isEmpty {
             AppConfig.shared.showSpinner()
             TestUtil.shared.autoSetupAccount().done { authUser in
                 AppConfig.shared.hideSpinner {
@@ -42,70 +42,30 @@ class LendingViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
-//        }
-        
-//        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        } else {
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        }
     }
     
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
             AppConfig.shared.hideSpinner {
-                let section = TableSectionViewModel()
+                var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
                 
                 // intercom chat
                 section.rows.append(IntercomChatTableViewCellViewModel())
-                
-                // loan control
-                if let loanSetting = getLendingOverviewResponse.loanSetting {
-                    let amountSelect = AmountSelectTableViewCellViewModel()
-                    amountSelect.selectedAmountIndex = 0
-                    amountSelect.buildAvaialbleToWithDraw(low: loanSetting.minimalAmount ?? 100, limit: loanSetting.maximumAmount ?? 300, increment: loanSetting.incrementalAmount ?? 100)
-                    section.rows.append(amountSelect)
-                    
-                }
-                
-                // cash out button
-                let cashoutButton = CButtonTableViewCellViewModel()
-                section.rows.append(cashoutButton)
+                self.viewModel.addLoanSetting(getLendingOverviewResponse, section: &section)
+                self.viewModel.addCashoutButton(getLendingOverviewResponse, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
-                
-                // complete details
-                let top = TopTableViewCellViewModel()
-                section.rows.append(top)
-               
-                var completed = 0
-                let eligibleRequirement = getLendingOverviewResponse.eligibleRequirement
-                if eligibleRequirement?.hasBankAccountDetail ?? true {
-                    completed = completed + 1
-                }
-                
-                if eligibleRequirement?.hasEmploymentDetail ?? true {
-                    completed = completed + 1
-                }
-                
-                let kycStatus: EligibleRequirement.KycStatus = eligibleRequirement?.kycStatus ?? EligibleRequirement.KycStatus.notStarted
-                if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant || kycStatus == EligibleRequirement.KycStatus.inProcessing || kycStatus == EligibleRequirement.KycStatus.success {
-                    completed = completed + 1
-                }
-                
-                if completed < 3 {
-                    let completedProgressViewModel = CompletionProgressTableViewCellViewModel()
-                    completedProgressViewModel.mode = .monetary
-                    completedProgressViewModel.completedItem = completed
-                    completedProgressViewModel.totalItem = 3
-                    section.rows.append(completedProgressViewModel)
-                }
-                
-                
-                let bottom = BottomTableViewCellViewModel()
-                section.rows.append(bottom)
-                
-                
+                self.viewModel.completeDetails(getLendingOverviewResponse, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
                 // actvity
-                let header = HeaderTableViewCellViewModel()
-                section.rows.append(header)
+                if let activities = getLendingOverviewResponse.borrowOverview?.activities, activities.count > 0 {
+                    self.viewModel.activityList(getLendingOverviewResponse, section: &section)
+                    section.rows.append(SpacerTableViewCellViewModel())
+                }
                 
                 self.viewModel.addSection(section)
                 self.registerCells()

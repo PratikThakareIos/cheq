@@ -65,7 +65,11 @@ class AppData {
     private init() { loadOnfidoSDKToken() }
 
     // instance of current application
-    var application: UIApplication? 
+    var application: UIApplication?
+    
+    // Intercom
+    let intercomAPIKey = "ios_sdk-5cf54594065095344f1653739fcbe6b5eac1758f"
+    let intercomAppId = "i8127kii"
     
     // Facebook
     let fbAppId = "2855589534666837"
