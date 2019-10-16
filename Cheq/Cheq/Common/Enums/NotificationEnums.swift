@@ -23,6 +23,7 @@ enum UINotificationEvent: String {
     case buttonClicked = "buttonClicked"
     case reloadTableLayout = "reloadTableLayout"
     case swipeConfirmation = "swipeConfirmation"
+    case lendingOverview = "lendingOverview" 
 }
 
 enum NotificationUserInfoKey: String {

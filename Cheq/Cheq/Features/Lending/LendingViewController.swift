@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class LendingViewController: UIViewController {
 
@@ -30,10 +31,24 @@ class LendingViewController: UIViewController {
         super.viewDidAppear(animated)
         let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue) 
         if email.isEmpty {
-            self.login()
-            return
+            AppConfig.shared.showSpinner()
+            TestUtil.shared.autoSetupAccount().done { authUser in
+                AppConfig.shared.hideSpinner {
+                    // now do Lending API call and refresh tableview
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                }
+            }.catch{ err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+            }
         }
-
+        
+        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+    }
+    
+    @objc func lendingOverview(_ notification: NSNotification) {
+        
     }
 
     func login() {
