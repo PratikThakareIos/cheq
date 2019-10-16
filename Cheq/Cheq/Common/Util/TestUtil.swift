@@ -153,7 +153,7 @@ class TestUtil {
     func loginWithTestAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let email = "dean1@testcheq.com.au"
-            let password = "1@aAbc23"
+            let password = "xxxxxxx"
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = email
             loginCredentials[.password] = password
