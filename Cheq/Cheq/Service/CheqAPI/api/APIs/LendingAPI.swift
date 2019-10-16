@@ -34,9 +34,7 @@ open class LendingAPI {
   "cashoutDate" : "cashoutDate",
   "loanAgreement" : "loanAgreement",
   "repaymentDate" : "repaymentDate",
-  "fee" : 6.027456183070403,
-  "bankName" : "bankName",
-  "maskedAccountNumber" : "maskedAccountNumber"
+  "fee" : 6.027456183070403
 }}]
      
      - parameter amount: (path)  
@@ -77,46 +75,30 @@ open class LendingAPI {
      - examples: [{contentType=application/json, example={
   "decline" : {
     "declineDescription" : "declineDescription",
-    "declineReason" : "declineReason"
+    "declineReason" : "None"
   },
   "eligibleRequirement" : {
-    "kycStatus" : "kycStatus",
-    "hasEmploymentDetail" : true,
-    "hasDirectDebitDetail" : true
+    "kycStatus" : "NotStarted",
+    "hasBankAccountDetail" : true,
+    "hasEmploymentDetail" : true
+  },
+  "loanSetting" : {
+    "maximumAmount" : 0,
+    "minimalAmount" : 6,
+    "incrementalAmount" : 1
   },
   "borrowOverview" : {
-    "nextPayDay" : "nextPayDay",
-    "availableWithdrawAmount" : 0.8008281904610115,
-    "pendingRepayments" : [ {
+    "canUploadTimesheet" : true,
+    "activities" : [ {
       "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
-      "amount" : 6.027456183070403,
-      "loanType" : "loanType",
-      "loanAgreement" : "loanAgreement",
-      "fee" : 1.4658129805029452
+      "amount" : 5.637376656633329,
+      "type" : "Cashout"
     }, {
       "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
-      "amount" : 6.027456183070403,
-      "loanType" : "loanType",
-      "loanAgreement" : "loanAgreement",
-      "fee" : 1.4658129805029452
+      "amount" : 5.637376656633329,
+      "type" : "Cashout"
     } ],
-    "histories" : [ {
-      "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
-      "amount" : 6.027456183070403,
-      "loanType" : "loanType",
-      "loanAgreement" : "loanAgreement",
-      "fee" : 1.4658129805029452
-    }, {
-      "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
-      "amount" : 6.027456183070403,
-      "loanType" : "loanType",
-      "loanAgreement" : "loanAgreement",
-      "fee" : 1.4658129805029452
-    } ]
+    "availableCashoutAmount" : 5.962133916683182
   }
 }}]
 
@@ -252,8 +234,8 @@ open class LendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func resolveNameConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        resolveNameConflictWithRequestBuilder().execute { (response, error) -> Void in
+    open class func resolveIdentityConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        resolveIdentityConflictWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -264,15 +246,15 @@ open class LendingAPI {
 
 
     /**
-     - PUT /v1/Lending/nameconflict/resolve
+     - PUT /v1/Lending/identityconflict/resolve
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
 
      - returns: RequestBuilder<Void> 
      */
-    open class func resolveNameConflictWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Lending/nameconflict/resolve"
+    open class func resolveIdentityConflictWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Lending/identityconflict/resolve"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         

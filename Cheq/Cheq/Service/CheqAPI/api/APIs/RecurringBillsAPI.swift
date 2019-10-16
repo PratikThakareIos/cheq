@@ -70,7 +70,7 @@ open class RecurringBillsAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
   "amount" : 6.027456183070403,
-  "recurringFrequency" : "recurringFrequency",
+  "recurringFrequency" : "Weekly",
   "endDate" : "endDate",
   "isAddedByUser" : true,
   "description" : "description",
@@ -80,7 +80,7 @@ open class RecurringBillsAPI {
   "startDate" : "startDate"
 }, {
   "amount" : 6.027456183070403,
-  "recurringFrequency" : "recurringFrequency",
+  "recurringFrequency" : "Weekly",
   "endDate" : "endDate",
   "isAddedByUser" : true,
   "description" : "description",

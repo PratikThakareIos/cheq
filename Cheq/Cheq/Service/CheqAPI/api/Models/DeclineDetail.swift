@@ -11,10 +11,21 @@ import Foundation
 
 public struct DeclineDetail: Codable {
 
-    public var declineReason: String?
+    public enum DeclineReason: String, Codable { 
+        case _none = "None"
+        case creditAssessment = "CreditAssessment"
+        case employmentType = "EmploymentType"
+        case jointAccount = "JointAccount"
+        case kycFailed = "KycFailed"
+        case monthlyPayCycle = "MonthlyPayCycle"
+        case noPayCycle = "NoPayCycle"
+        case hasWriteOff = "HasWriteOff"
+        case identityConflict = "IdentityConflict"
+    }
+    public var declineReason: DeclineReason?
     public var declineDescription: String?
 
-    public init(declineReason: String?, declineDescription: String?) {
+    public init(declineReason: DeclineReason?, declineDescription: String?) {
         self.declineReason = declineReason
         self.declineDescription = declineDescription
     }

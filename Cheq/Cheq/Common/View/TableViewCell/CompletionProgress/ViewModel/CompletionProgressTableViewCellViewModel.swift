@@ -11,4 +11,7 @@ import UIKit
 class CompletionProgressTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "CompletionProgressTableViewCell"
     var mode: CProgressColorMode = .information
+    var header: String = "Complete"
+    var completedItem: Int = 0
+    var totalItem: Int = 0 
 }

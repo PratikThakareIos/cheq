@@ -152,7 +152,7 @@ class TestUtil {
     
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-            let testBank = "demobank"
+            let testBank = "St.George Bank"
             var storedAccounts = [FinancialAccountModel]()
 //            var storedTransactions = [FinancialTransactionModel]()
             var loginCredentials = [LoginCredentialType: String]()
@@ -176,7 +176,7 @@ class TestUtil {
             }.then { msAuthModel-> Promise<UserProfileModel> in
                 return MoneySoftManager.shared.getProfile()
             }.then { profile->Promise<[FinancialInstitutionModel]> in
-                MoneySoftManager.shared.getInstitutions()
+                return MoneySoftManager.shared.getInstitutions()
             }.then { institutions->Promise<InstitutionCredentialsFormModel> in
                 let banks: [FinancialInstitutionModel] = institutions
                 banks.forEach {
@@ -188,7 +188,7 @@ class TestUtil {
                 return MoneySoftManager.shared.getBankSignInForm(selected!)
             }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
                 var form = signInForm
-                MoneySoftUtil.shared.fillFormWithTestAccount(&form)
+                MoneySoftUtil.shared.fillFormWithStGeorgeAccount(&form)
                 LoggingUtil.shared.cPrint(form)
                 return MoneySoftManager.shared.linkableAccounts(form)
             }.then { linkableAccounts in
@@ -209,13 +209,6 @@ class TestUtil {
                 let transactionFilter = TransactionFilter()
                 transactionFilter.fromDate = 90.days.earlier
                 transactionFilter.toDate = Date() 
-                transactionFilter.count = 1000
-                transactionFilter.offset = 0
-                return MoneySoftManager.shared.getTransactions(transactionFilter)
-            }.then { transactions -> Promise<[FinancialTransactionModel]> in
-                let transactionFilter = TransactionFilter()
-                transactionFilter.fromDate = 30.days.earlier
-                transactionFilter.toDate = Date()
                 transactionFilter.count = 1000
                 transactionFilter.offset = 0
                 return MoneySoftManager.shared.getTransactions(transactionFilter)

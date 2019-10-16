@@ -37,7 +37,12 @@ enum CheqAPIManagerError: Error {
 
 enum CheqAPIManagerError_Spending: Error {
     case unableToRetrieveOverview
-    case unableToRetrieveTransactions 
+    case unableToRetrieveTransactions
+    
+}
+
+enum CheqAPIManagerError_Lending: Error {
+    case unableToRetrieveLendingOverview
 }
 
 enum MoneySoftManagerError: Error {
@@ -83,6 +88,26 @@ enum AuthManagerError: Error {
     case unableToUpdatePassword
     case unableToSendPasswordResetLink
     case unknown
+}
+
+extension CheqAPIManagerError_Spending: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveOverview:
+            return NSLocalizedString("Unable to retrieve spending overview, please try again later.", comment: "")
+        case .unableToRetrieveTransactions:
+            return NSLocalizedString("Unable to retrieve transactions, please try again later.", comment: "")
+        }
+    }
+}
+
+extension CheqAPIManagerError_Lending: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveLendingOverview:
+            return NSLocalizedString("Unable to retrieve lending overview, please try again later.", comment: "")
+        }
+    }
 }
 
 extension CheqAPIManagerError: LocalizedError {

@@ -69,10 +69,10 @@ class AmountSelectTableViewCell: CTableViewCell {
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         self.decreaseLoanAmouontButton.isEnabled = amountSelectViewModel.minusEnabled
         self.increaseLoanAmouontButton.isEnabled = amountSelectViewModel.plusEnabled
-        let amount: WithdrawalAmount = amountSelectViewModel.currentSelectedAmount()
-        let loanAmount = String("$\(amount.rawValue)")
+        let amount: String = amountSelectViewModel.currentSelectedAmount()
+        let loanAmount = String("$\(amount)")
         let attributedString = NSMutableAttributedString(string: loanAmount)
-        attributedString.applyHighlight(amount.rawValue, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeFont)
+        attributedString.applyHighlight(amount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeFont)
         self.loanAmount.attributedText = attributedString
     }
 }

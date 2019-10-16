@@ -239,7 +239,7 @@ extension QuestionViewController {
     func saveResidentialAddress(_ address: GetAddressResponse) {
         self.viewModel.save(QuestionField.residentialAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.residentialPostcode.rawValue, value: address.postCode ?? "")
-        self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state ?? "")
+        self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state?.rawValue ?? "")
         self.viewModel.save(QuestionField.residentialCountry.rawValue, value: address.country ?? "")
     }
     

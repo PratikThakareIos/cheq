@@ -71,17 +71,17 @@ open class UsersAPI {
     "msUsername" : "msUsername"
   },
   "userDetail" : {
-    "ageRange" : "ageRange",
+    "ageRange" : "From18To24",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "state"
+    "state" : "NSW"
   },
   "employer" : {
     "address" : "address",
-    "employmentType" : "employmentType",
+    "employmentType" : "Fulltime",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
     "noFixedAddress" : true,
@@ -123,7 +123,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "kycStatus",
+  "kycStatus" : "NotStarted",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]
@@ -238,17 +238,17 @@ open class UsersAPI {
     "msUsername" : "msUsername"
   },
   "userDetail" : {
-    "ageRange" : "ageRange",
+    "ageRange" : "From18To24",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "state"
+    "state" : "NSW"
   },
   "employer" : {
     "address" : "address",
-    "employmentType" : "employmentType",
+    "employmentType" : "Fulltime",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
     "noFixedAddress" : true,
@@ -331,7 +331,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "kycStatus",
+  "kycStatus" : "NotStarted",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]

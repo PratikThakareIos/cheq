@@ -11,16 +11,14 @@ import Foundation
 
 public struct BorrowOverview: Codable {
 
-    public var availableWithdrawAmount: Double?
-    public var nextPayDay: String?
-    public var pendingRepayments: [LoanTransaction]?
-    public var histories: [LoanTransaction]?
+    public var availableCashoutAmount: Double?
+    public var canUploadTimesheet: Bool?
+    public var activities: [LoanActivity]?
 
-    public init(availableWithdrawAmount: Double?, nextPayDay: String?, pendingRepayments: [LoanTransaction]?, histories: [LoanTransaction]?) {
-        self.availableWithdrawAmount = availableWithdrawAmount
-        self.nextPayDay = nextPayDay
-        self.pendingRepayments = pendingRepayments
-        self.histories = histories
+    public init(availableCashoutAmount: Double?, canUploadTimesheet: Bool?, activities: [LoanActivity]?) {
+        self.availableCashoutAmount = availableCashoutAmount
+        self.canUploadTimesheet = canUploadTimesheet
+        self.activities = activities
     }
 
 
