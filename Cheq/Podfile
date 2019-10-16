@@ -23,6 +23,9 @@ target 'Cheq' do
   pod 'SearchTextField', '~> 1.2.0'
   pod 'PullToRefreshKit'
   
+  # intercom
+  pod 'Intercom', '~> 5.4.1'
+  
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK', '15.0.0'
   

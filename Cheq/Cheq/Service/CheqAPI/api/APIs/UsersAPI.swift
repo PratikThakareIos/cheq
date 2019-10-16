@@ -123,7 +123,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "NotStarted",
+  "kycStatus" : "Blocked",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]
@@ -331,7 +331,7 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "kycStatus" : "NotStarted",
+  "kycStatus" : "Blocked",
   "applicantId" : "applicantId",
   "sdkToken" : "sdkToken"
 }}]

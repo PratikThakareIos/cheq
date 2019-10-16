@@ -26,7 +26,9 @@ extension CheqAPIManager {
                     resolver.fulfill(response)
                 })
             }.catch { err in
-                resolver.reject(err)
+                //TODO - remove fulfill mock data code 
+//                resolver.reject(err)
+                resolver.fulfill(TestUtil.shared.testLendingOverview())
             }
         }
     }

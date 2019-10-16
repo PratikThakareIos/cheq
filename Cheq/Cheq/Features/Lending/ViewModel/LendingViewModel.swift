@@ -48,11 +48,12 @@ extension LendingViewModel {
         let hasBankAccountDetail = lendingOverview.eligibleRequirement?.hasBankAccountDetail ?? false
         let hasEmploymentDetail = lendingOverview.eligibleRequirement?.hasEmploymentDetail ?? false
         let isKycDone = lendingOverview.eligibleRequirement?.kycStatus == EligibleRequirement.KycStatus.success
-        guard hasEmploymentDetail, hasBankAccountDetail, isKycDone else { return }
-        let cashoutButton = CButtonTableViewCellViewModel()
-        cashoutButton.title = "Cash out now"
-        cashoutButton.icon = "speedy"
-        section.rows.append(cashoutButton)
+        if hasEmploymentDetail, hasBankAccountDetail, isKycDone {
+            let cashoutButton = CButtonTableViewCellViewModel()
+            cashoutButton.title = "Cash out now"
+            cashoutButton.icon = "speedy"
+            section.rows.append(cashoutButton)
+        }
     }
 }
 
@@ -126,7 +127,7 @@ extension LendingViewModel {
 extension LendingViewModel {
     func activityList(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
         
-        guard let activities = lendingOverview.borrowOverview?.activities else { return }
+        guard let activities = lendingOverview.borrowOverview?.activities, activities.count > 0 else { return }
         
         let header = HeaderTableViewCellViewModel()
         section.rows.append(header)
@@ -136,13 +137,14 @@ extension LendingViewModel {
         for loanActivity: LoanActivity in activities {
             let activityItem = HistoryItemTableViewCellViewModel()
             let amount = loanActivity.amount ?? 0.0
-            let prefix = amount >= 0.0 ? "$" : "-$"
-            activityItem.amount = String("\(prefix)\(loanActivity.amount)")
+            let prefix = "$"
+            activityItem.amount = String("\(prefix)\(amount)")
             activityItem.itemCaption = loanActivity.date ?? ""
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
             activityItem.itemTitle = type.rawValue
             activityItem.fee = ""
             activityItem.cashDirection = (type == .repayment) ? .debit : .credit
+            section.rows.append(activityItem)
         }
         
         let bottom = BottomTableViewCellViewModel()

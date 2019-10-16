@@ -150,10 +150,51 @@ class TestUtil {
         return "Australia"
     }
     
+    func randomAmount()->Double {
+        return Double.random(in: -100...100)
+    }
+    
+    func randomDate()-> Date {
+        let random = Int.random(in: 0...30)
+        return random.days.earlier
+    }
+    
+    func randomBool()-> Bool {
+        return Bool.random()
+    }
+    
+    func randomLoanActivityType()->LoanActivity.ModelType {
+        return randomBool() ? LoanActivity.ModelType.cashout : LoanActivity.ModelType.repayment
+    }
+    
+    func testLoanActivities()->[LoanActivity] {
+        var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
+        var loanActivities = [LoanActivity]()
+        for _ in 0..<10 {
+            let loanActivity = LoanActivity(amount: randomAmount(), date: DateUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
+            loanActivities.append(loanActivity)
+        }
+        return loanActivities
+    }
+    
+    func testLendingOverview()->GetLendingOverviewResponse {
+        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
+        let currentLendingSummary = CurrentLendingSummary(totalCashRequested: 200, totalRepaymentAmount: 0, totalFees: 10, feesPercent: 0, repaymentDate: DateUtil.shared.defaultDateFormatter().string(from: 7.days.later))
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, canUploadTimesheet: false, activities: TestUtil.shared.testLoanActivities())
+        
+        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: false, hasBankAccountDetail: false, kycStatus: EligibleRequirement.KycStatus.notStarted)
+        
+        // ignore decline for now 
+        let decline = DeclineDetail(declineReason: DeclineDetail.DeclineReason.noPayCycle, declineDescription: "")
+        
+        var lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, currentLendingSummary: currentLendingSummary, borrowOverview: borrowOverview, eligibleRequirement: eligibleRequirement, decline: nil)
+        return lendingOverview
+    }
+    
     func loginWithTestAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let email = "dean1@testcheq.com.au"
-            let password = "xxxxxxx"
+            let password = "1@aAbc23"
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = email
             loginCredentials[.password] = password

@@ -73,10 +73,8 @@ class LendingViewController: UIViewController {
                 self.viewModel.completeDetails(getLendingOverviewResponse, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                 // actvity
-                if let activities = getLendingOverviewResponse.borrowOverview?.activities, activities.count > 0 {
-                    self.viewModel.activityList(getLendingOverviewResponse, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                }
+                self.viewModel.activityList(getLendingOverviewResponse, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
                 
                 self.viewModel.addSection(section)
                 self.registerCells()
@@ -86,6 +84,14 @@ class LendingViewController: UIViewController {
             AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
             }
+        }
+    }
+    
+    @objc func intercom(_ notification: NSNotification) {
+        IntercomManager.shared.loginIntercom().done { authUser in
+            IntercomManager.shared.present()
+        }.catch { err in
+            self.showError(err, completion: nil)
         }
     }
 
@@ -142,6 +148,8 @@ class LendingViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.lendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.lendingOverview.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
 
     @objc func completeDetails(_ notificaton: NSNotification) {

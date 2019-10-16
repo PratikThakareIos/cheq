@@ -32,12 +32,14 @@ class HistoryItemTableViewCell: CTableViewCell {
     
     override func setupConfig() {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
+        self.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         itemTitle.font = AppConfig.shared.activeTheme.mediumFont
         itemTitle.text = historyItemVm.itemTitle
         itemCaption.font = AppConfig.shared.activeTheme.defaultFont
         itemCaption.text = historyItemVm.itemCaption
         amountLabel.font = AppConfig.shared.activeTheme.mediumFont
         amountLabel.text = historyItemVm.amount
+        amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor : AppConfig.shared.activeTheme.monetaryColor
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
         iconImage.image = UIImage(named: historyItemVm.imageIcon())

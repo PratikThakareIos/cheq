@@ -183,6 +183,8 @@
 	</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Required for video capture</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Send photo to solve app issues</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

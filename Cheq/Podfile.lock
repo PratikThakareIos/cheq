@@ -126,6 +126,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.2)
   - Hex (6.1.0)
+  - Intercom (5.4.1)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
@@ -187,6 +188,7 @@ DEPENDENCIES:
   - FirebaseUI/Facebook
   - FMDB
   - Hex
+  - Intercom (~> 5.4.1)
   - Mantle
   - NavigationDropdownMenu
   - Obfuscator
@@ -239,6 +241,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - Hex
+    - Intercom
     - Mantle
     - nanopb
     - NavigationDropdownMenu
@@ -292,6 +295,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
+  Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
@@ -314,6 +318,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 5ad25916026d3f21e8ac9d023bb31e508cc43758
+PODFILE CHECKSUM: 54d0e4fd768b5b0b9069936b04745dec23bf4bed
 
 COCOAPODS: 1.7.4

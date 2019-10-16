@@ -34,9 +34,9 @@ class MoneySoftUtil {
         for promptModel in form.prompts {
             switch(promptModel.index) {
             case 1: promptModel.savedValue = "4239530051245679"
-            case 2: promptModel.savedValue = "xxxxxxxx"
-            case 3: promptModel.savedValue = "xxxxxx"
-            case 4: promptModel.savedValue =  "x"
+            case 2: promptModel.savedValue = "129846"
+            case 3: promptModel.savedValue = "1stliang"
+            case 4: promptModel.savedValue =  "1"
 
             default:
                 break

@@ -58,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return true
     }
     
+   
+    
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
         // setup remote notifications

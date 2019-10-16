@@ -85,7 +85,7 @@ open class LendingAPI {
     "totalCashRequested" : 5.962133916683182
   },
   "eligibleRequirement" : {
-    "kycStatus" : "NotStarted",
+    "kycStatus" : "Blocked",
     "hasBankAccountDetail" : true,
     "hasEmploymentDetail" : true
   },

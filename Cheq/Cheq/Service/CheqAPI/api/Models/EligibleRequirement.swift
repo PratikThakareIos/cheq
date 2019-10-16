@@ -12,6 +12,7 @@ import Foundation
 public struct EligibleRequirement: Codable {
 
     public enum KycStatus: String, Codable { 
+        case blocked = "Blocked"
         case notStarted = "NotStarted"
         case createdApplicant = "CreatedApplicant"
         case inProcessing = "InProcessing"

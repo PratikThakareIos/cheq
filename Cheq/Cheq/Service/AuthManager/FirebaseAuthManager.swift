@@ -84,7 +84,9 @@ extension FirebaseAuthManager {
             if authUser.clearAuthToken() {
                 do {
                     try Auth.auth().signOut()
+                    IntercomManager.shared.logoutIntercom().ensure {
                         resolver.fulfill(())
+                    }
                 } catch(let err) {
                     resolver.reject(err)
                 }
@@ -108,6 +110,8 @@ extension FirebaseAuthManager {
             self.retrieveAuthToken(authUser)
         }.then { authUser in
             self.setUser(authUser)
+        }.then { authUser in
+            IntercomManager.shared.loginIntercom()
         }
     }
 
