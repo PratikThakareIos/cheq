@@ -101,6 +101,17 @@ class DynamicFormViewController: UIViewController {
                     }
                 }
             }
+            
+            // saving value from check box 
+            if let switchWithLabel = view as? CSwitchWithLabel {
+                let key = switchWithLabel.titleLabel
+                let value = String(switchWithLabel.switchValue())
+                for prompt in form.prompts {
+                    if prompt.label == key {
+                        prompt.savedValue = value
+                    }
+                }
+            }
         }
         
         // update the form with input entries 

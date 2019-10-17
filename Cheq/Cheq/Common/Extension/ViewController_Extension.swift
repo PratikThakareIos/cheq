@@ -22,7 +22,8 @@ extension UIViewController {
     }
     
     func showBackButton() {
-        self.navigationItem.hidesBackButton = false
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
     }
     
     func hideBackTitle() {
@@ -37,11 +38,15 @@ extension UIViewController {
 
     func showCloseButton() {
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeButton))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navClose"), style: .plain, target: self, action: #selector(closeButton))
     }
 
     @objc func closeButton() {
         AppNav.shared.dismissModal(self)
+    }
+    
+    @objc func back() {
+        AppNav.shared.dismiss(self)
     }
 }
 

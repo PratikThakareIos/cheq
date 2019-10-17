@@ -182,7 +182,7 @@ class TestUtil {
         let currentLendingSummary = CurrentLendingSummary(totalCashRequested: 200, totalRepaymentAmount: 0, totalFees: 10, feesPercent: 0, repaymentDate: DateUtil.shared.defaultDateFormatter().string(from: 7.days.later))
         let borrowOverview = BorrowOverview(availableCashoutAmount: 200, canUploadTimesheet: false, activities: TestUtil.shared.testLoanActivities())
         
-        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: false, hasBankAccountDetail: false, kycStatus: EligibleRequirement.KycStatus.notStarted)
+        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasBankAccountDetail: false, kycStatus: EligibleRequirement.KycStatus.notStarted)
         
         // ignore decline for now 
         let decline = DeclineDetail(declineReason: DeclineDetail.DeclineReason.noPayCycle, declineDescription: "")

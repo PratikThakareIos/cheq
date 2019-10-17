@@ -23,7 +23,7 @@ class StringUtil {
     }
     
     func isAlphaOnly(_ string: String)-> Bool {
-        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ ")
+        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ.- ")
         return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
     }
     

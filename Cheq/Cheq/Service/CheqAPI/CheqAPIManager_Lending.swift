@@ -26,9 +26,30 @@ extension CheqAPIManager {
                     resolver.fulfill(response)
                 })
             }.catch { err in
-                //TODO - remove fulfill mock data code 
-//                resolver.reject(err)
-                resolver.fulfill(TestUtil.shared.testLendingOverview())
+                //TODO - remove fulfill mock data code
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview)
+            }
+        }
+    }
+    
+    func updateDirectDebitBankAccount()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                let qvm = QuestionViewModel()
+                qvm.loadSaved()
+                let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
+                let putBankAccountRequest = PutBankAccountRequest(bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
+                LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails); return }
+                    resolver.fulfill(authUser)
+                }
+            }.catch { err in
+                resolver.reject(err)
             }
         }
     }

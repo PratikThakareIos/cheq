@@ -89,14 +89,14 @@ extension LendingViewModel {
             completed = completed + 1
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
             completeDetailsForBankDetails.type = .bankDetils
-            completeDetailsForBankDetails.completionState = .done
-            completeDetailsForBankDetails.expanded = false
+            completeDetailsForBankDetails.completionState = hasBankDetails ? .done : .pending
+            completeDetailsForBankDetails.expanded = hasBankDetails ? false : true
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         } else {
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
             completeDetailsForBankDetails.type = .bankDetils
-            completeDetailsForBankDetails.completionState = hasEmploymentDetail ? .pending : .inactive
-            completeDetailsForBankDetails.expanded = hasEmploymentDetail ? true : false
+            completeDetailsForBankDetails.completionState = .inactive
+            completeDetailsForBankDetails.expanded = false
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         }
         
@@ -114,7 +114,7 @@ extension LendingViewModel {
             completedProgressViewModel.mode = .monetary
             completedProgressViewModel.completedItem = completed
             completedProgressViewModel.totalItem = 3
-            completedProgressViewModel.progress = Float(completed / 3)
+            completedProgressViewModel.progress = Float(completed) / Float(3)
             section.rows.append(completedProgressViewModel)
             section.rows.append(contentsOf: completeDetailsViewModels)
             let bottom = BottomTableViewCellViewModel()

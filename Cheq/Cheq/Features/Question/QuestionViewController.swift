@@ -22,6 +22,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var textField2: CTextField!
     @IBOutlet weak var textField3: CTextField!
     @IBOutlet weak var checkboxContainerView: UIView!
+    var switchWithLabel = CSwitchWithLabel()
     
     @IBOutlet weak var searchTextField: CSearchTextField!
     @IBOutlet weak var stackView: UIStackView!
@@ -42,6 +43,10 @@ class QuestionViewController: UIViewController {
         self.updateKeyboardViews()
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
+        }
+        
+        if AppData.shared.completingDetailsForLending {
+            showCloseButton()
         }
     }
     
@@ -110,7 +115,11 @@ class QuestionViewController: UIViewController {
         default: break
         }
         
-        AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        if AppData.shared.completingDetailsForLending {
+            AppConfig.shared.removeProgressNavBar(self)
+        } else {
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }
     }
     
     func updateKeyboardViews() {
@@ -156,7 +165,10 @@ class QuestionViewController: UIViewController {
 
     @IBAction func next(_ sender: Any) {
         
-        self.validateInput()
+        if let error = self.validateInput() {
+            showError(error, completion: nil)
+            return
+        }
 
         
         switch self.viewModel.coordinator.type {
@@ -229,6 +241,20 @@ class QuestionViewController: UIViewController {
             // TO BE IMPLEMENTED
         case .bankAccount:
             LoggingUtil.shared.cPrint("bank account next")
+            self.viewModel.save(QuestionField.bankName.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.bankBSB.rawValue, value: textField2.text ?? "")
+            self.viewModel.save(QuestionField.bankAccNo.rawValue, value: textField3.text ?? "")
+            self.viewModel.save(QuestionField.bankIsJoint.rawValue, value: String(switchWithLabel.switchValue()))
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.updateDirectDebitBankAccount().done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppNav.shared.dismissModal(self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+            }
         }
     }
 }
@@ -260,14 +286,9 @@ extension QuestionViewController {
         return results
     }
     
-    func validateInput() {
+    func validateInput()->Error? {
         let inputs = self.inputsFromTextFields(textFields: [self.searchTextField, self.textField1, self.textField2, self.textField3])
-        if let error =  self.viewModel.coordinator.validateInput(inputs) {
-            showError(error) {
-                return
-            }
-            return
-        }
+        return self.viewModel.coordinator.validateInput(inputs)
     }
     
     func hasEmptyFields(_ fields:[UITextField])->Bool {
@@ -316,10 +337,10 @@ extension QuestionViewController {
 
     func showCheckbox() {
         if self.viewModel.coordinator.numOfCheckBox > 0 {
-            let cSwitch = CSwitchWithLabel(frame: CGRect.zero, title: self.viewModel.placeHolder(3))
+            self.switchWithLabel = CSwitchWithLabel(frame: CGRect.zero, title: self.viewModel.placeHolder(3))
             self.checkboxContainerView.isHidden = false
-            self.checkboxContainerView.addSubview(cSwitch)
-            AutoLayoutUtil.pinToSuperview(cSwitch, padding: 0)
+            self.checkboxContainerView.addSubview(self.switchWithLabel)
+            AutoLayoutUtil.pinToSuperview(self.switchWithLabel, padding: 0)
         } else {
             self.checkboxContainerView.isHidden = true
         }

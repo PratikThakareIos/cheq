@@ -53,23 +53,22 @@ class AppNav {
         guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
         currentRootVc.present(vc, animated: true, completion: nil)
     }
+    
+    func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
+        let questionViewModel = QuestionViewModel()
+        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
+        vc.viewModel = questionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
 
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
         let multipleChoiceViewModel = MultipleChoiceViewModel()
-        switch multipleChoiceType {
-        case .employmentType:
-            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
-        case .onDemand:
-            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
-        case .financialInstitutions:
-            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
-        case .ageRange:
-            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
-        case .state:
-            multipleChoiceViewModel.coordinator = StateCoordinator()
-        }
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
         let nav = UINavigationController(rootViewController: vc)
@@ -93,18 +92,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
         let multipleChoiceViewModel = MultipleChoiceViewModel()
-        switch multipleChoiceType {
-        case .employmentType:
-            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
-        case .onDemand:
-            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
-        case .financialInstitutions:
-            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
-        case .ageRange:
-            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
-        case .state:
-            multipleChoiceViewModel.coordinator = StateCoordinator()
-        }
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
         nav.pushViewController(vc, animated: true)

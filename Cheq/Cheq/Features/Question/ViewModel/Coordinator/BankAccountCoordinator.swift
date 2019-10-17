@@ -33,7 +33,21 @@ class BankAccountCoordinator: QuestionCoordinatorProtocol {
     var numOfCheckBox: Int = 1
 
     func validateInput(_ inputs: [String : Any]) -> ValidationError? {
-        return nil
+        // bank name
+        guard let bankName = inputs[self.placeHolder(0)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isAlphaOnly(bankName) else { return  ValidationError.invalidNameFormat }
+        
+        // bsb
+        guard let bsb = inputs[self.placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isNumericOnly(bsb) else { return ValidationError.onlyNumericCharactersIsAllowed }
+        guard bsb.count == 6 else { return ValidationError.invalidInputFormat }
+        
+        // account number
+        guard let accNo = inputs[self.placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isNumericOnly(accNo) else { return ValidationError.onlyNumericCharactersIsAllowed }
+        
+        // validation passes
+        return nil 
     }
 
 

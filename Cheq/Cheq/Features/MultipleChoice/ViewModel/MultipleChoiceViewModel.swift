@@ -79,6 +79,23 @@ extension MultipleChoiceViewModel {
 }
 
 extension MultipleChoiceViewModel {
+    static func coordinatorfor(_ multipleChoiceType: MultipleChoiceQuestionType)->MultipleChoiceViewModelCoordinator {
+        switch multipleChoiceType {
+        case .employmentType:
+            return EmployementTypeCoordinator()
+        case .onDemand:
+            return  OnDemandCoordinator()
+        case .financialInstitutions:
+            return FinancialInstitutionCoordinator()
+        case .ageRange:
+            return AgeRangeCoordinator()
+        case .state:
+            return StateCoordinator()
+        }
+    }
+}
+
+extension MultipleChoiceViewModel {
     func cheqAPIEmploymentType(_ type: EmploymentType)-> PutUserEmployerRequest.EmploymentType {
         switch type {
         case .fulltime:

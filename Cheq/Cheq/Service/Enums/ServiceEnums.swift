@@ -21,6 +21,7 @@ enum ValidationError: Error {
     case allFieldsMustBeFilled
     case invalidMobileFormat
     case invalidInputFormat
+    case invalidNameFormat
     case invalidEmailFormat
     case invalidPasswordFormat
     case onlyAlphabetCharactersIsAllowed
@@ -43,6 +44,7 @@ enum CheqAPIManagerError_Spending: Error {
 
 enum CheqAPIManagerError_Lending: Error {
     case unableToRetrieveLendingOverview
+    case unableToPutBankDetails
 }
 
 enum MoneySoftManagerError: Error {
@@ -106,6 +108,8 @@ extension CheqAPIManagerError_Lending: LocalizedError {
         switch self {
         case .unableToRetrieveLendingOverview:
             return NSLocalizedString("Unable to retrieve lending overview, please try again later.", comment: "")
+        case .unableToPutBankDetails:
+            return NSLocalizedString("Unable to update bank details, please try again later.", comment: "")
         }
     }
 }
@@ -132,6 +136,8 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("All fields must be entered", comment: "")
         case .invalidInputFormat:
             return  NSLocalizedString("Invalid input format", comment: "")
+        case .invalidNameFormat:
+            return NSLocalizedString("Invalid name format", comment: "")
         case .invalidMobileFormat:
             return NSLocalizedString("Invalid mobile format", comment: "")
         case .invalidEmailFormat:

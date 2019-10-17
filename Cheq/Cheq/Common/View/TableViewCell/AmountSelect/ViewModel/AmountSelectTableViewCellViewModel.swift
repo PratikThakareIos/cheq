@@ -21,7 +21,7 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     func buildAvaialbleToWithDraw(low: Int, limit: Int, increment: Int) {
         var range = [String]()
-        for current in stride(from: low, to: limit, by: increment) {
+        for current in stride(from: low, through: limit, by: increment) {
             range.append(String(current))
         }
         availableToWithdraw = range

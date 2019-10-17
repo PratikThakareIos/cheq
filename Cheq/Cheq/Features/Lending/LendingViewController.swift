@@ -57,44 +57,6 @@ class LendingViewController: UIViewController {
         }
     }
     
-    @objc func lendingOverview(_ notification: NSNotification) {
-        AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
-            AppConfig.shared.hideSpinner {
-                self.viewModel.sections.removeAll()
-                var section = TableSectionViewModel()
-                LoggingUtil.shared.cPrint("build view model here...")
-                
-                // intercom chat
-                section.rows.append(IntercomChatTableViewCellViewModel())
-                self.viewModel.addLoanSetting(getLendingOverviewResponse, section: &section)
-                self.viewModel.addCashoutButton(getLendingOverviewResponse, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                self.viewModel.completeDetails(getLendingOverviewResponse, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                // actvity
-                self.viewModel.activityList(getLendingOverviewResponse, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                
-                self.viewModel.addSection(section)
-                self.registerCells()
-                self.tableView.reloadData()
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
-            }
-        }
-    }
-    
-    @objc func intercom(_ notification: NSNotification) {
-        IntercomManager.shared.loginIntercom().done { authUser in
-            IntercomManager.shared.present()
-        }.catch { err in
-            self.showError(err, completion: nil)
-        }
-    }
-
     func login() {
         var credentials = [LoginCredentialType: String]()
         credentials[.email] = TestUtil.shared.randomEmail()
@@ -117,10 +79,7 @@ class LendingViewController: UIViewController {
         }
     }
 
-    @objc func reloadTableLayout(_ notification: NSNotification) {
-        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.reloadWithoutScroll()
-    }
+   
 
     func setupDelegate() {
         self.tableView.delegate = self
@@ -152,6 +111,18 @@ class LendingViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
 
+    
+}
+
+// observable handlers
+extension LendingViewController {
+    
+    @objc func reloadTableLayout(_ notification: NSNotification) {
+        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
+        self.tableView.reloadWithoutScroll()
+    }
+    
+    
     @objc func completeDetails(_ notificaton: NSNotification) {
         guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
@@ -162,11 +133,50 @@ class LendingViewController: UIViewController {
         case .bankDetils:
             AppData.shared.completingDetailsForLending = true
             // banking details flow
-            break
+            AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
         case .verifyYourDetails: break
-            AppData.shared.completingDetailsForLending = true
-            // verification flow
+        AppData.shared.completingDetailsForLending = true
+        // verification flow
             break
+        }
+    }
+    
+    @objc func lendingOverview(_ notification: NSNotification) {
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
+            let lendingOverview = TestUtil.shared.testLendingOverview()
+            AppConfig.shared.hideSpinner {
+                self.viewModel.sections.removeAll()
+                var section = TableSectionViewModel()
+                LoggingUtil.shared.cPrint("build view model here...")
+                
+                // intercom chat
+                section.rows.append(IntercomChatTableViewCellViewModel())
+                self.viewModel.addLoanSetting(lendingOverview, section: &section)
+                self.viewModel.addCashoutButton(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                self.viewModel.completeDetails(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                // actvity
+                self.viewModel.activityList(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                
+                self.viewModel.addSection(section)
+                self.registerCells()
+                self.tableView.reloadData()
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
+    }
+    
+    @objc func intercom(_ notification: NSNotification) {
+        IntercomManager.shared.loginIntercom().done { authUser in
+            IntercomManager.shared.present()
+            }.catch { err in
+                self.showError(err, completion: nil)
         }
     }
 }

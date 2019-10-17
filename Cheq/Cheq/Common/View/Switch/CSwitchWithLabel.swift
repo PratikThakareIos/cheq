@@ -12,6 +12,7 @@ class CSwitchWithLabel: UIStackView {
     let defaultSpacing: CGFloat = 4.0
     var titleLabel: String = ""
     var label: CLabel = CLabel(frame: CGRect.zero)
+    var toggle = UISwitch()
     
     init(frame: CGRect, title: String) {
         super.init(frame: frame)
@@ -40,7 +41,7 @@ class CSwitchWithLabel: UIStackView {
     
     func setupUI() {
         setupMargin()
-        let toggle = CSwitch(frame: CGRect.zero)
+        self.toggle = CSwitch(frame: CGRect.zero)
         let spacer = UIView(frame: CGRect.zero)
         spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
         let label = CLabel(frame: CGRect.zero)
@@ -57,5 +58,8 @@ class CSwitchWithLabel: UIStackView {
         self.label.text = value
         self.setNeedsDisplay()
     }
-
+    
+    func switchValue()->Bool {
+        return self.toggle.isOn
+    }
 }
