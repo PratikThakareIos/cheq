@@ -156,7 +156,15 @@ class CheqAPIManager {
                     let token = authUser.authToken() ?? ""
                     UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
                         
-                        if let error = err { resolver.reject(error); return }
+                        // http code 400 indicates bad req, we will indicate user needs to do onboarding again
+                        if response?.statusCode == 400 {
+                            resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                            return 
+                        }
+                        
+                        if let error = err {
+                            resolver.reject(error); return
+                        }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                         var updatedAuthUser = authUser
                         updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername

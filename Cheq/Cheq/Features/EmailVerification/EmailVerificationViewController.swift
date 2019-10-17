@@ -77,9 +77,6 @@ class EmailVerificationViewController: UIViewController {
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-        }.then { authUser->Promise<AuthUser> in
-            // doing PutUser for email login users after email verification
-            return CheqAPIManager.shared.putUser()
         }.done { authUser in
             AppConfig.shared.hideSpinner {
                 self.handleSuccessVerification()
