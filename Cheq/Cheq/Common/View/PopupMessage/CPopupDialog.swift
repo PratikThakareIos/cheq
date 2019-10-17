@@ -53,6 +53,7 @@ class CPopupDialog {
         self.buttonTitle = button.rawValue
         self.cancelButtonTitle = ""
         self.popup = PopupDialog(title: self.messageTitle, message: self.messageBody)
+        self.popup.transitionStyle = .fadeIn
         setupUI(&popup)
         // Create buttons
         let buttonOne = CancelButton(title: self.buttonTitle) {

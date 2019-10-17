@@ -19,6 +19,7 @@ enum QuestionType: String {
     case companyName = "companyName"
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
+    case verifyLegalNameAndAddress = "verifyLegalNameAndAddress"
 }
 
 enum QuestionField: String {
@@ -26,6 +27,7 @@ enum QuestionField: String {
     // about me
     case firstname = "firstname"
     case lastname = "lastname"
+    case fullLegalName = "fullLegalName" 
     case dateOfBirth = "dateOfBirth"
     case contactDetails = "mobile"
     case residentialAddress = "residentialAddress"
@@ -175,6 +177,9 @@ extension QuestionViewModel {
             coordinator = MaritalStatusCoordinator()
         case .bankAccount:
             coordinator = BankAccountCoordinator()
+        case .verifyLegalNameAndAddress:
+            //TODO 
+            break
         }
         return coordinator
     }

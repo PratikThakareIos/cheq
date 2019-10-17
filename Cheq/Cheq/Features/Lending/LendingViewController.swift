@@ -135,8 +135,9 @@ extension LendingViewController {
             // banking details flow
             AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
         case .verifyYourDetails: break
-        AppData.shared.completingDetailsForLending = true
-        // verification flow
+            AppData.shared.completingDetailsForLending = true
+            // verification flow
+            
             break
         }
     }

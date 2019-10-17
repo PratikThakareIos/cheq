@@ -73,7 +73,7 @@ class AppData {
     
     // Facebook
     let fbAppId = "2855589534666837"
-    let fbAppSecret = "87b757a52a9b7db61fce607278c4aa2e"
+    let fbAppSecret = "cbe55b8da36d66d01237a9fa1ed276c5"
 
     // Bluedot API Key
     var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"

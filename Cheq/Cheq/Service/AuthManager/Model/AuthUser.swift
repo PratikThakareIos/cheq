@@ -11,6 +11,7 @@ import SwiftKeychainWrapper
 
 struct AuthUser {
     let type:SocialLoginType
+    let isEmailVerified:Bool
     let email:String
     let userId:String
     let username:String

@@ -77,6 +77,9 @@ class EmailVerificationViewController: UIViewController {
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.then { authUser->Promise<AuthUser> in
+            // doing PutUser for email login users after email verification
+            return CheqAPIManager.shared.putUser()
         }.done { authUser in
             AppConfig.shared.hideSpinner {
                 self.handleSuccessVerification()
@@ -87,7 +90,7 @@ class EmailVerificationViewController: UIViewController {
             }
         }
     }
-    
+ 
     func handleSuccessVerification() {
         let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
         passcodeVc.viewModel.type = .setup

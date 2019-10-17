@@ -154,9 +154,28 @@ extension RegistrationViewController {
     
     func beginOnboarding() {
         AppConfig.shared.hideSpinner {
-            let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
-            AppNav.shared.pushToViewController(emailVc, from: self)
+            guard let activeUser = AuthConfig.shared.activeUser else {
+                self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
+                return
+            }
+            
+            if activeUser.type == .socialLoginEmail {
+                self.toEmailVerification()
+            } else {
+                // for Facebook emails
+                self.toPasscodeSetup()
+            }
         }
+    }
+    
+    func toPasscodeSetup() {
+        let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false)
+        AppNav.shared.pushToViewController(passcodeVc, from: self)
+    }
+    
+    func toEmailVerification() {
+        let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
+        AppNav.shared.pushToViewController(emailVc, from: self)
     }
 }
 

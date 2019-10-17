@@ -217,6 +217,41 @@ open class UsersAPI {
 
     /**
 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putUser(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putUserWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Users
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func putUserWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Users"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */

@@ -167,7 +167,11 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
             AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                return CheqAPIManager.shared.putUser(authUser)
+            }.then { authUser in
+                return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
+            }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.maritalStatus)
                     AppNav.shared.pushToIntroduction(.employee, viewController: self)

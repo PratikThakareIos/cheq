@@ -174,6 +174,16 @@ class CheqAPIManager {
         }
     }
     
+    func putUser(_ authUser: AuthUser)->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            let token = authUser.authToken() ?? ""
+            UsersAPI.putUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                if let error = err { resolver.reject(error); return }
+                resolver.fulfill(authUser)
+            })
+        }
+    }
+    
     func putUserDetails(_ req: PutUserDetailRequest)->Promise<AuthUser> {
         
         return Promise<AuthUser>() { resolver in

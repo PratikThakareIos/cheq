@@ -86,10 +86,11 @@ extension LendingViewModel {
         }
         
         if hasEmploymentDetail {
-            completed = completed + 1
+            
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
             completeDetailsForBankDetails.type = .bankDetils
             completeDetailsForBankDetails.completionState = hasBankDetails ? .done : .pending
+            completed = hasBankDetails ? completed + 1 : completed
             completeDetailsForBankDetails.expanded = hasBankDetails ? false : true
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         } else {

@@ -25,7 +25,9 @@ enum links: String {
 class AuthenticatorViewModel: BaseViewModel {
 
     func registerWithFBAccessToken(_ token: String)-> Promise<AuthUser> {
-        return AuthConfig.shared.activeManager.registerWithFB(token)
+        return AuthConfig.shared.activeManager.registerWithFB(token).then { authUser->Promise<AuthUser> in
+            return CheqAPIManager.shared.putUserIfFB(authUser)
+        }
     }
     
     func fetchProfileWithFBAccessToken()-> Promise<Void> {

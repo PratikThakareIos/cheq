@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="28.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UW6-5N-gvL">
-                                <rect key="frame" x="0.0" y="11.5" width="320" height="17"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="28.5"/>
                                 <color key="backgroundColor" red="0.99607849120000003" green="0.83921575550000005" blue="0.0039215688589999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
@@ -31,7 +31,7 @@
                             <constraint firstItem="UW6-5N-gvL" firstAttribute="leading" secondItem="8US-aI-uiC" secondAttribute="leading" id="7bH-2K-ksA"/>
                             <constraint firstAttribute="trailing" secondItem="UW6-5N-gvL" secondAttribute="trailing" id="Agx-Aj-dzW"/>
                             <constraint firstAttribute="bottom" secondItem="UW6-5N-gvL" secondAttribute="bottom" id="Mfw-Dv-ylv"/>
-                            <constraint firstItem="UW6-5N-gvL" firstAttribute="height" secondItem="8US-aI-uiC" secondAttribute="height" multiplier="0.6" id="Pf9-nX-0nC"/>
+                            <constraint firstItem="UW6-5N-gvL" firstAttribute="height" secondItem="8US-aI-uiC" secondAttribute="height" id="Pf9-nX-0nC"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -160,6 +160,9 @@ class QuestionViewController: UIViewController {
             self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
             self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
             self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
+        case .verifyLegalNameAndAddress:
+            self.textField1.text = viewModel.fieldValue(QuestionField.fullLegalName)
+            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
         }
     }
 
@@ -255,6 +258,8 @@ class QuestionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
+        case .verifyLegalNameAndAddress:
+            LoggingUtil.shared.cPrint("verifyLegalNameAndAddress")
         }
     }
 }

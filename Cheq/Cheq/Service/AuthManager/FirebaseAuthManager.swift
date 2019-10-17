@@ -84,8 +84,10 @@ extension FirebaseAuthManager {
             if authUser.clearAuthToken() {
                 do {
                     try Auth.auth().signOut()
-                    IntercomManager.shared.logoutIntercom().ensure {
+                    IntercomManager.shared.logoutIntercom().done {
                         resolver.fulfill(())
+                    }.catch { err in
+                        resolver.reject(err)
                     }
                 } catch(let err) {
                     resolver.reject(err)
@@ -153,14 +155,14 @@ extension FirebaseAuthManager {
             }
         case .socialLoginFB:
             let fbToken = credentials[.token] ?? ""
-            let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: fbToken)
+            let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: fbToken) 
             return self.registerWithFB(fbToken)
             .then{ authUser in
                 self.retrieveAuthToken(authUser)
             }
         }
     }
-
+    
     func retrieveAuthToken(_ authUser: AuthUser)-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let firUser = authUser.ref as! User
@@ -223,7 +225,7 @@ extension FirebaseAuthManager {
 // MARK: util
 extension FirebaseAuthManager {
     class func buildAuthUser(_ type: SocialLoginType, user: User)-> AuthUser {
-        let authUser = AuthUser(type: type, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", msCredential: [:], ref: user)
+        let authUser = AuthUser(type: type, isEmailVerified: user.isEmailVerified, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", msCredential: [:], ref: user)
         return authUser
     }
 }
