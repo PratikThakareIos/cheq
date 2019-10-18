@@ -198,7 +198,7 @@ extension AppNav {
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
-        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.primaryColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
+        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
         let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let config = try! OnfidoConfig.builder()
             .withAppearance(appearance)
@@ -212,10 +212,16 @@ extension AppNav {
             .with(responseHandler: { results in
                 // Callback when flow ends
                 // for KYC, we dismiss the introductionViewController after KYC flow ended
+                guard AppData.shared.completingDetailsForLending else { return }
                 viewController.dismiss(animated: true, completion: nil)
             })
-        let onfidoRun = try! onfidoFlow.run()
-        viewController.present(onfidoRun, animated: true, completion: nil) //`self` should be your view controller
+        
+        do {
+            let onfidoRun = try onfidoFlow.run()
+            viewController.present(onfidoRun, animated: true) { }
+        } catch let err {
+            viewController.showError(err, completion: nil)
+        }
     }
 }
 
