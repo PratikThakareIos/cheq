@@ -422,6 +422,8 @@
 		4F80FCDC2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */; };
 		4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4F80FCDF2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
+		4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */; };
+		4F80FCE2235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */; };
 		4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */; };
 		4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364E232F4CB00035E57E /* QuestionViewController.swift */; };
 		4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3655232F79CC0035E57E /* CSearchTextField.swift */; };
@@ -767,6 +769,7 @@
 		4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycFailedIntroCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPayCycleIntroCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAssessmentIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineViewTestUtil.swift; sourceTree = "<group>"; };
 		4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
@@ -1816,6 +1819,7 @@
 				4FEF9839234D51DC00E37421 /* DateUtil.swift */,
 				4F2E4B94233AED51001F1BA2 /* DataHelperUtil.swift */,
 				4F0D63AF23431EFD00AA819C /* TestUtil.swift */,
+				4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3054,6 +3058,7 @@
 				4F80FB8E2357C8B9009C8F83 /* FinanceViewModel.swift in Sources */,
 				4F80FB912357C8B9009C8F83 /* GridCoordinatorViewModel.swift in Sources */,
 				4F80FB932357C8B9009C8F83 /* DateOfBirthCoordinator.swift in Sources */,
+				4F80FCE2235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
 				4F80FC4E23581E59009C8F83 /* BudgetingAPI.swift in Sources */,
 				4F80FB942357C8B9009C8F83 /* LinkAccountsCoordinator.swift in Sources */,
 				4F80FB952357C8B9009C8F83 /* IntercomManager.swift in Sources */,
@@ -3308,6 +3313,7 @@
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
+				4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
 				4F80FC4D23581E59009C8F83 /* BudgetingAPI.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
 				4F80FAD72357C565009C8F83 /* IntercomManager.swift in Sources */,

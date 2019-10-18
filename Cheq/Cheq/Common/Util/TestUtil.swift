@@ -185,7 +185,7 @@ class TestUtil {
         let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.notStarted)
         
         // ignore decline for now 
-        let decline = DeclineDetail(declineReason: DeclineDetail.DeclineReason.noPayCycle, declineDescription: "hdsakjjdlkasjdklsajdlkasjldjal")
+        let decline = DeclineViewTestUtil.shared.generateDeclineDetails(DeclineDetail.DeclineReason.creditAssessment)
         
         let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, currentLendingSummary: currentLendingSummary, borrowOverview: borrowOverview, eligibleRequirement: eligibleRequirement, decline: decline)
         return lendingOverview
