@@ -80,14 +80,14 @@ class LoginViewController: RegistrationViewController {
                 
                 // special case, if getUserDetails fails, then we go through onboarding process again
                 // even if you have login with firebase account
-                if err.localizedDescription == CheqAPIManagerError.onboardingRequiredFromGetUserDetails.localizedDescription {
+                switch err {
+                case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
                     self.beginOnboarding()
-                    return
+                default:
+                    self.showError(err, completion: {
+                        self.passwordTextField.text = ""
+                    })
                 }
-                
-                self.showError(err, completion: {
-                    self.passwordTextField.text = ""
-                })
             }
         }
     }

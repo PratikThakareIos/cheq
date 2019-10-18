@@ -16,7 +16,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     @IBOutlet weak var draggableText: CLabel!
     @IBOutlet weak var footerText: CLabel!
     @IBOutlet weak var containerView: UIView!
-//    let panGestureRecognizer: UIPanGestureRecognizer =  UIPanGestureRecognizer(target: self, action: #selector(drag(_:)))
+    var draggableCenter: CGPoint = CGPoint.zero
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +47,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         AppConfig.shared.activeTheme.cardStyling(self.draggable, addBorder: false)
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(drag(_:)))
         self.draggable.addGestureRecognizer(panGestureRecognizer)
+        self.draggableCenter = draggable.center
     }
     
     @objc func drag(_ gestureRecognizer : UIPanGestureRecognizer) {
@@ -54,27 +55,38 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         guard gestureRecognizer.view != nil else { return }
         guard let draggableView = gestureRecognizer.view else { return }
         guard let draggableViewContainer = draggableView.superview else { return }
-        var currentCenter: CGPoint = draggableView.center
-        var translation = gestureRecognizer.translation(in: draggableViewContainer)
-        switch gestureRecognizer.state {
-        case .began:
-            currentCenter = draggableView.center
-            translation = gestureRecognizer.translation(in: draggableViewContainer)
-        case .changed:
-            draggableView.center = CGPoint(x: currentCenter.x + translation.x, y: currentCenter.y)
-            let rightEdge = draggableView.center.x + draggableView.frame.size.width/2
-            let leftEdge = draggableView.center.x - draggableView.frame.size.width/2
-            if rightEdge >= draggableViewContainer.frame.width {
-                LoggingUtil.shared.cPrint("right edge reached")
-                draggableView.center = CGPoint(x: draggableViewContainer.frame.width - draggableView.frame.width/2 - 10, y: currentCenter.y)
-                NotificationUtil.shared.notify(UINotificationEvent.swipeConfirmation.rawValue, key: "", value: "")
-            }
-
-            if leftEdge <= 0 {
-                LoggingUtil.shared.cPrint("left edge reached")
-                draggableView.center = CGPoint(x: draggableView.frame.width/2 + 10, y: currentCenter.y)
-            }
-        default: break
+        
+        let translation = gestureRecognizer.translation(in: draggableViewContainer)
+        if gestureRecognizer.state == .began {
+            self.draggableCenter = draggableView.center
         }
+        if gestureRecognizer.state == .changed {
+            LoggingUtil.shared.cPrint("translation x - \(translation.x)")
+            let newCenter = CGPoint(x: self.draggableCenter.x + translation.x, y: self.draggableCenter.y)
+            self.draggableCenter = newCenter
+            self.draggable.center = draggableCenter
+            gestureRecognizer.setTranslation(CGPoint.zero, in: draggableViewContainer)
+            edgeDetection(draggableView, draggableViewContainer: draggableViewContainer)
+        }
+    }
+    
+    func edgeDetection(_ draggableView: UIView, draggableViewContainer: UIView) {
+        let rightEdge = draggableView.center.x + draggableView.frame.size.width/2
+        let leftEdge = draggableView.center.x - draggableView.frame.size.width/2
+        
+        
+        
+        if rightEdge >= draggableViewContainer.frame.width {
+            LoggingUtil.shared.cPrint("right edge reached")
+            draggableView.center = CGPoint(x: draggableViewContainer.frame.width - draggableView.frame.width/2 - 10, y: draggableView.center.y)
+            NotificationUtil.shared.notify(UINotificationEvent.swipeConfirmation.rawValue, key: "", value: "")
+        }
+        
+        if leftEdge <= 0 {
+            LoggingUtil.shared.cPrint("left edge reached")
+            draggableView.center = CGPoint(x: draggableView.frame.width/2 + 10, y: draggableView.center.y)
+        }
+        
+        self.backgroundText.alpha = 1 - (leftEdge / draggable.frame.width)
     }
 }

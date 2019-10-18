@@ -38,7 +38,7 @@ extension QuestionCoordinatorProtocol {
 
     var sectionTitle: String {
         get {
-            return "About me"
+            return Section.aboutMe.rawValue
         }
     }
 

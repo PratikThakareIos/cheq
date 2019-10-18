@@ -29,7 +29,7 @@ enum ValidationError: Error {
     case unableToMapSelectedBank
 }
 
-enum CheqAPIManagerError: Error {
+enum CheqAPIManagerError: Error, Equatable {
     case unableToPerformKYCNow
     case errorHasOccurredOnServer
     case unableToParseResponse

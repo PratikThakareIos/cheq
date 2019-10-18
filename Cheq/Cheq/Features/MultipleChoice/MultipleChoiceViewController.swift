@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileSDK
+import Onfido
 
 class MultipleChoiceViewController: UIViewController {
 
@@ -40,7 +41,11 @@ class MultipleChoiceViewController: UIViewController {
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         
-        AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        if AppData.shared.completingDetailsForLending {
+            AppConfig.shared.removeProgressNavBar(self)
+        } else {
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,23 +95,24 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         let choice = self.choices[indexPath.row]
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
+        case .kycSelectDoc:
+            
+            let kycSelectDoc = KycDocType(fromRawValue: choice.title)
+            viewModel.savedAnswer[QuestionField.kycDocSelect.rawValue] = kycSelectDoc.rawValue
+            OnfidoManager.shared.fetchSdkToken().done { response in
+                let onfidoSdkToken = response.sdkToken ?? ""
+                AppData.shared.saveOnfidoSDKToken(onfidoSdkToken)
+                AppNav.shared.navigateToKYCFlow(kycSelectDoc, viewController: self)
+            }.catch { err in
+                self.showError(err, completion: nil)
+                return
+            }
+            
         case .employmentType:
 
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
-
-            if AppData.shared.completingDetailsForLending {
-                var restricted = [EmploymentType]()
-                restricted = [.partTime, .casual, .selfEmployed]
-                if restricted.contains(employmentType) {
-                    // decline scenario
-                    AppNav.shared.pushToIntroduction(.workDetailsDecline, viewController: self)
-                    return
-                }
-            }
-
-
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
             } else {
@@ -182,6 +188,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                     }
                 }
             }
+            
+        case .kycSelectDoc:
+            LoggingUtil.shared.cPrint("trigger onfido kyc")
             return
         }
     }

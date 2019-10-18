@@ -406,6 +406,8 @@
 		4F80FCBE23581E59009C8F83 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3B23581E59009C8F83 /* Models.swift */; };
 		4F80FCBF23581E59009C8F83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3C23581E59009C8F83 /* Configuration.swift */; };
 		4F80FCC023581E59009C8F83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3C23581E59009C8F83 /* Configuration.swift */; };
+		4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
+		4F80FCC623591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
 		4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */; };
 		4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364E232F4CB00035E57E /* QuestionViewController.swift */; };
 		4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3655232F79CC0035E57E /* CSearchTextField.swift */; };
@@ -743,6 +745,7 @@
 		4F80FC3A23581E59009C8F83 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
 		4F80FC3B23581E59009C8F83 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F80FC3C23581E59009C8F83 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocumentCoordinator.swift; sourceTree = "<group>"; };
 		4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
@@ -1204,6 +1207,7 @@
 				4F2E4A002334426F001F1BA2 /* EmployementTypeCoordinator.swift */,
 				4F2E4B9A233AFC67001F1BA2 /* AgeRangeCoordinator.swift */,
 				4F2E4B9D233B10F3001F1BA2 /* StateCoordinator.swift */,
+				4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -2858,6 +2862,7 @@
 				4F80FAED2357C8B9009C8F83 /* TestUtil.swift in Sources */,
 				4F80FAEE2357C8B9009C8F83 /* GridCollectionViewCoordinator.swift in Sources */,
 				4F80FAEF2357C8B9009C8F83 /* ChartModelUtil.swift in Sources */,
+				4F80FCC623591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */,
 				4F80FAF02357C8B9009C8F83 /* IntroductionViewModel.swift in Sources */,
 				4F80FAF12357C8B9009C8F83 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4F80FAF52357C8B9009C8F83 /* CPieChartView.swift in Sources */,
@@ -3104,6 +3109,7 @@
 				4F0D63B023431EFD00AA819C /* TestUtil.swift in Sources */,
 				963D62F222FB225B006344C9 /* GridCollectionViewCoordinator.swift in Sources */,
 				9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */,
+				4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */,
 				4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */,
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,

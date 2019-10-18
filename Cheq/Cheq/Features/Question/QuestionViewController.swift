@@ -160,9 +160,6 @@ class QuestionViewController: UIViewController {
             self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
             self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
             self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
-        case .verifyLegalNameAndAddress:
-            self.textField1.text = viewModel.fieldValue(QuestionField.fullLegalName)
-            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
         }
     }
 
@@ -178,10 +175,24 @@ class QuestionViewController: UIViewController {
         case .legalName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
+            
+            guard AppData.shared.completingDetailsForLending == false else {
+                AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+                return
+            }
+            
+           
             AppData.shared.updateProgressAfterCompleting(.legalName)
             AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
+            
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
+            
+            guard AppData.shared.completingDetailsForLending == false else {
+                AppNav.shared.pushToMultipleChoice(.kycSelectDoc, viewController:self)
+                return
+            }
+            
             AppData.shared.updateProgressAfterCompleting(.dateOfBirth)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
         case .contactDetails:
@@ -189,7 +200,13 @@ class QuestionViewController: UIViewController {
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
             AppNav.shared.pushToMultipleChoice(.state, viewController: self)
         case .residentialAddress:
-            self.viewModel.save(QuestionField.residentialAddress.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.residentialAddress.rawValue, value: searchTextField.text ?? "")
+            
+            guard AppData.shared.completingDetailsForLending == false else {
+                AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
+                return
+            }
+            
             AppConfig.shared.showSpinner()
             if AppData.shared.residentialAddressList.count > 0 {
                 let address = AppData.shared.residentialAddressList[AppData.shared.selectedResidentialAddress]
@@ -258,8 +275,6 @@ class QuestionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
-        case .verifyLegalNameAndAddress:
-            LoggingUtil.shared.cPrint("verifyLegalNameAndAddress")
         }
     }
 }

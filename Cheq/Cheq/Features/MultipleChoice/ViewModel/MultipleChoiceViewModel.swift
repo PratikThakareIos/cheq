@@ -16,6 +16,7 @@ enum MultipleChoiceQuestionType: String {
     case financialInstitutions = "Financial Institutions"
     case ageRange = "Age Range"
     case state = "State"
+    case kycSelectDoc = "Select a document"
 }
 
 enum ChoiceType {
@@ -91,6 +92,8 @@ extension MultipleChoiceViewModel {
             return AgeRangeCoordinator()
         case .state:
             return StateCoordinator()
+        case .kycSelectDoc:
+            return SelectDocumentCoordinator()
         }
     }
 }

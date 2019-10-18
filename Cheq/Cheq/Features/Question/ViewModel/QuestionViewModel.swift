@@ -19,7 +19,6 @@ enum QuestionType: String {
     case companyName = "companyName"
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
-    case verifyLegalNameAndAddress = "verifyLegalNameAndAddress"
 }
 
 enum QuestionField: String {
@@ -35,6 +34,8 @@ enum QuestionField: String {
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
 
+    // kyc
+    case kycDocSelect = "KycDocSelect"
     
     //age range
     case ageRange = "ageRange"
@@ -61,7 +62,6 @@ enum QuestionField: String {
 
 class QuestionViewModel: BaseViewModel {
 
-    var sectionTitle = "About me"
     var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
     var savedAnswer: [String: String] = [:]
     
@@ -177,9 +177,6 @@ extension QuestionViewModel {
             coordinator = MaritalStatusCoordinator()
         case .bankAccount:
             coordinator = BankAccountCoordinator()
-        case .verifyLegalNameAndAddress:
-            //TODO 
-            break
         }
         return coordinator
     }

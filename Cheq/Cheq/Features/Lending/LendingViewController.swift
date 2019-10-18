@@ -134,11 +134,10 @@ extension LendingViewController {
             AppData.shared.completingDetailsForLending = true
             // banking details flow
             AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
-        case .verifyYourDetails: break
+        case .verifyYourDetails:
             AppData.shared.completingDetailsForLending = true
             // verification flow
-            
-            break
+            AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
         }
     }
     
@@ -161,7 +160,8 @@ extension LendingViewController {
                 // actvity
                 self.viewModel.activityList(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
-                
+                self.viewModel.swipeToConfirm(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
                 self.viewModel.addSection(section)
                 self.registerCells()
                 self.tableView.reloadData()

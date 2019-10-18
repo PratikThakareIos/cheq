@@ -152,3 +152,12 @@ extension LendingViewModel {
         section.rows.append(bottom)
     }
 }
+
+// swipe to confirm
+extension LendingViewModel {
+    func swipeToConfirm(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
+        //add condition to check if we should show swipe to confirm 
+        let swipe = SwipeToConfirmTableViewCellViewModel()
+        section.rows.append(swipe)
+    }
+}

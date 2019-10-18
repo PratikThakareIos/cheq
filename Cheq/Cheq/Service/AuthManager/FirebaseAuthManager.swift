@@ -136,6 +136,7 @@ extension FirebaseAuthManager {
         .then { authUser in
             return self.retrieveAuthToken(authUser)
         }.then { authUser in
+            
             return self.postNotificationToken(authUser)
         }
     }
@@ -186,7 +187,10 @@ extension FirebaseAuthManager {
     
     func postNotificationToken(_ authUser: AuthUser)-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-            return AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+            
+            guard authUser.msCredential.isEmpty == false else { resolver.fulfill(authUser); return }
+            
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
                 let fcm = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
                 LoggingUtil.shared.cPrint("apns \(apns)")

@@ -28,6 +28,9 @@ enum ScreenName: String {
     case state = "state"
     case maritalStatus = "maritalStatus"
     
+    // kyc verification
+    case kycSelectDoc = "kycSelectDoc"
+    
     // employment details
     case employmentType = "Employment type"
     case onDemand = "On Demand"
@@ -79,7 +82,7 @@ class AppData {
     var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
 
     // KYC 
-    var onfidoSdkToken: String = "eyJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiZ3ZCWDVSWndxeEFSY2hmaHJPTnp0UTNBajFSaDk4eUV5VzJDQjZRSnZ5YlNrVjZEVTZ6MGEvYitEUUJFXG5vd2lYUnpKWkRlUDhFclgyOUw5R2RUZHA3a0locm81bWY1LzIrTWI4aEI3Ny9yND1cbiIsInV1aWQiOiJIbVFxNVpvWG1XRiIsImV4cCI6MTU2OTIyNzU2NywidXJscyI6eyJvbmZpZG9fYXBpX3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20iLCJ0ZWxlcGhvbnlfdXJsIjoiaHR0cHM6Ly90ZWxlcGhvbnkub25maWRvLmNvbSIsImRldGVjdF9kb2N1bWVudF91cmwiOiJodHRwczovL3Nkay5vbmZpZG8uY29tIiwic3luY191cmwiOiJodHRwczovL3N5bmMub25maWRvLmNvbSIsImhvc3RlZF9zZGtfdXJsIjoiaHR0cHM6Ly9pZC5vbmZpZG8uY29tIn19.PLm5Pj78H4WzYJAGDckJznaEsS9nW56Syvj7JTtx8Uk"
+    var onfidoSdkToken: String = ""
     
     var progress = CProgress()
 
@@ -108,18 +111,15 @@ class AppData {
 
     func saveOnfidoSDKToken(_ sdkToken: String) {
         self.onfidoSdkToken = sdkToken
-        UserDefaults.standard.set(onfidoSdkToken, forKey: self.onfidoSdkKey())
+        UserDefaults.standard.set(onfidoSdkToken, forKey: CKey.onfidoSdkToken.rawValue)
         UserDefaults.standard.synchronize()
     }
     
-    func loadOnfidoSDKToken() {
-       self.onfidoSdkToken =  UserDefaults.standard.string(forKey:  self.onfidoSdkKey()) ?? ""
+    func loadOnfidoSDKToken()->String {
+        self.onfidoSdkToken =  UserDefaults.standard.string(forKey: CKey.onfidoSdkToken.rawValue) ?? ""
+        return self.onfidoSdkToken
     }
-    
-    func onfidoSdkKey()->String {
-        return "onfidoSdkToken"
-    }
-    
+
     func updateProgressAfterCompleting(_ screenName: ScreenName) {
         switch screenName {
             

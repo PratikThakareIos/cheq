@@ -80,7 +80,8 @@ class IntroductionViewController: UIViewController {
             CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
                 let sdkToken = response.sdkToken ?? ""
                 AppData.shared.saveOnfidoSDKToken(sdkToken)
-                AppNav.shared.navigateToKYCFlow(self)
+                let kycSelectDoc = KycDocType(fromRawValue: qVm.fieldValue(QuestionField.kycDocSelect))
+                AppNav.shared.navigateToKYCFlow(kycSelectDoc, viewController: self)
             }.catch { err in
                 self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
             }

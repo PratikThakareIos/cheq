@@ -191,19 +191,20 @@ extension AppNav {
 
 // MARK: KYC
 extension AppNav {
-    func navigateToKYCFlow(_ viewController: UIViewController) {
+    func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
         guard AppData.shared.onfidoSdkToken.isEmpty == false else {
-            viewController.showMessage("Test KYC on device, sdk token must be available", completion: nil)
+            viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
         let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.primaryColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
+        let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let config = try! OnfidoConfig.builder()
             .withAppearance(appearance)
             .withSDKToken(AppData.shared.onfidoSdkToken)
             .withWelcomeStep()
-            .withDocumentStep()
+            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
             .withFaceStep(ofVariant: .photo(withConfiguration: nil))
             .build()
         

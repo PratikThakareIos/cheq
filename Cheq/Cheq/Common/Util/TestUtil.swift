@@ -222,10 +222,12 @@ class TestUtil {
             }.then { authUser->Promise<AuthUser> in
                 return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.then { authUser->Promise<AuthUser> in
-                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
+                    return CheqAPIManager.shared.putUser(authUser)
             }.then { authUser->Promise<AuthUser> in
                 let userDetails = TestUtil.shared.putUserDetailsReq()
                 return CheqAPIManager.shared.putUserDetails(userDetails)
+            }.then { authUser->Promise<AuthUser> in
+                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
             }.then { authUser->Promise<AuthenticationModel> in
                 LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
                 let msCredential = authUser.msCredential

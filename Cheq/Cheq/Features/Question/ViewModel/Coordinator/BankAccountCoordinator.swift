@@ -11,7 +11,7 @@ import UIKit
 class BankAccountCoordinator: QuestionCoordinatorProtocol {
     var type: QuestionType = .bankAccount
 
-    var sectionTitle: String = "Bank details"
+    var sectionTitle: String = Section.bankDetails.rawValue
     var question: String = "Add your account"
 
     func placeHolder(_ index: Int) -> String {

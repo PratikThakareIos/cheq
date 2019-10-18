@@ -159,7 +159,7 @@ class CheqAPIManager {
                         // http code 400 indicates bad req, we will indicate user needs to do onboarding again
                         if response?.statusCode == 400 {
                             resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
-                            return 
+                            return
                         }
                         
                         if let error = err {
