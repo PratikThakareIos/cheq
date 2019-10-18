@@ -79,8 +79,6 @@ class LendingViewController: UIViewController {
         }
     }
 
-   
-
     func setupDelegate() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -146,6 +144,16 @@ extension LendingViewController {
         CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
             let lendingOverview = TestUtil.shared.testLendingOverview()
             AppConfig.shared.hideSpinner {
+                
+                guard self.declineExist(lendingOverview) == false else {
+                    if let declineDetails =  lendingOverview.decline, let declineReason = declineDetails.declineReason {
+                        AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
+                    } else {
+                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
+                    }
+                    return
+                }
+                
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
@@ -173,11 +181,34 @@ extension LendingViewController {
         }
     }
     
-    @objc func intercom(_ notification: NSNotification) {
-        IntercomManager.shared.loginIntercom().done { authUser in
-            IntercomManager.shared.present()
-            }.catch { err in
-                self.showError(err, completion: nil)
+    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
+        guard let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason else { return true }
+        return false
+    }
+    
+    func presentDeclineIfNeeded(_ lendingOverview: GetLendingOverviewResponse) {
+        guard let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason else { return }
+        
+        switch declineReason {
+        case ._none:
+            break
+        case .noPayCycle:
+            
+            break
+        case .creditAssessment:
+            break
+        case .employmentType:
+            break
+        case .hasWriteOff:
+            break
+        case .identityConflict:
+            break
+        case .jointAccount:
+            break
+        case .kycFailed:
+            break
+        case .monthlyPayCycle:
+            break
         }
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 protocol IntroductionCoordinatorProtocol {
+
     var type: IntroductionType { get }
     var caption: String { get }
     var title: String { get }

@@ -408,6 +408,20 @@
 		4F80FCC023581E59009C8F83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3C23581E59009C8F83 /* Configuration.swift */; };
 		4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
 		4F80FCC623591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
+		4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */; };
+		4F80FCCD235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */; };
+		4F80FCCF23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCCE23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift */; };
+		4F80FCD023597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCCE23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift */; };
+		4F80FCD223597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD123597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift */; };
+		4F80FCD323597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD123597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift */; };
+		4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD423597ECD009C8F83 /* JointAccountIntroCoordinator.swift */; };
+		4F80FCD623597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD423597ECD009C8F83 /* JointAccountIntroCoordinator.swift */; };
+		4F80FCD823597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */; };
+		4F80FCD923597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */; };
+		4F80FCDB2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */; };
+		4F80FCDC2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */; };
+		4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
+		4F80FCDF2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */; };
 		4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364E232F4CB00035E57E /* QuestionViewController.swift */; };
 		4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3655232F79CC0035E57E /* CSearchTextField.swift */; };
@@ -746,6 +760,13 @@
 		4F80FC3B23581E59009C8F83 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F80FC3C23581E59009C8F83 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocumentCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasWriteOffIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCCE23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPayCycleIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCD123597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityConflictIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCD423597ECD009C8F83 /* JointAccountIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JointAccountIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycFailedIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPayCycleIntroCoordinator.swift; sourceTree = "<group>"; };
+		4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAssessmentIntroCoordinator.swift; sourceTree = "<group>"; };
 		4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
@@ -1878,6 +1899,13 @@
 				9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */,
 				9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */,
 				96F9FFE623530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift */,
+				4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */,
+				4F80FCCE23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift */,
+				4F80FCD123597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift */,
+				4F80FCD423597ECD009C8F83 /* JointAccountIntroCoordinator.swift */,
+				4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */,
+				4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */,
+				4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -2892,6 +2920,8 @@
 				4F80FC9823581E59009C8F83 /* FinancialAccountSlim.swift in Sources */,
 				4F80FB0E2357C8B9009C8F83 /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				4F80FB0F2357C8B9009C8F83 /* BluedotManager.swift in Sources */,
+				4F80FCD923597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
+				4F80FCDF2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F80FC7A23581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */,
 				4F80FB102357C8B9009C8F83 /* FBEnums.swift in Sources */,
 				4F80FB112357C8B9009C8F83 /* WebViewController.swift in Sources */,
@@ -3005,6 +3035,7 @@
 				4F80FB812357C8B9009C8F83 /* Array_Extension.swift in Sources */,
 				4F80FB822357C8B9009C8F83 /* WebViewModel.swift in Sources */,
 				4F80FB832357C8B9009C8F83 /* PasscodeViewController.swift in Sources */,
+				4F80FCDC2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				4F80FB842357C8B9009C8F83 /* HeaderTableViewCell.swift in Sources */,
 				4F80FC7C23581E59009C8F83 /* Worksheet.swift in Sources */,
 				4F80FC4423581E59009C8F83 /* UsersAPI.swift in Sources */,
@@ -3049,6 +3080,7 @@
 				4F80FBA72357C8B9009C8F83 /* AppNav.swift in Sources */,
 				4F80FBA82357C8B9009C8F83 /* CFacebookButton.swift in Sources */,
 				4F80FBA92357C8B9009C8F83 /* CButtonTableViewCellViewModel.swift in Sources */,
+				4F80FCD023597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				4F80FC8023581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				4F80FBAB2357C8B9009C8F83 /* GridCollectionViewCell.swift in Sources */,
 				4F80FC4623581E59009C8F83 /* LendingAPI.swift in Sources */,
@@ -3062,6 +3094,7 @@
 				4F80FBB32357C8B9009C8F83 /* EmailIntroCoordinator.swift in Sources */,
 				4F80FBB42357C8B9009C8F83 /* AutoLayoutUtil.swift in Sources */,
 				4F80FBB52357C8B9009C8F83 /* ProfileViewModel.swift in Sources */,
+				4F80FCD323597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */,
 				4F80FC8423581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */,
 				4F80FBB62357C8B9009C8F83 /* Data_Extension.swift in Sources */,
 				4F80FC6223581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */,
@@ -3069,6 +3102,7 @@
 				4F80FC5E23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */,
 				4F80FCA023581E59009C8F83 /* GetAddressResponse.swift in Sources */,
 				4F80FBBA2357C8B9009C8F83 /* LoggingUtil.swift in Sources */,
+				4F80FCD623597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4F80FBBB2357C8B9009C8F83 /* AgreementItemTableViewCell.swift in Sources */,
 				4F80FBBC2357C8B9009C8F83 /* StateCoordinator.swift in Sources */,
 				4F80FBBD2357C8B9009C8F83 /* AccountViewModel.swift in Sources */,
@@ -3076,6 +3110,7 @@
 				4F80FC4A23581E59009C8F83 /* LocationsAPI.swift in Sources */,
 				4F80FC6423581E59009C8F83 /* PostWorksheetRequest.swift in Sources */,
 				4F80FBC02357C8B9009C8F83 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
+				4F80FCCD235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				4F80FBC12357C8B9009C8F83 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4F80FBC22357C8B9009C8F83 /* TopTableViewCellViewModel.swift in Sources */,
 				4F80FBC32357C8B9009C8F83 /* MoneySoftManager.swift in Sources */,
@@ -3139,6 +3174,8 @@
 				4F80FC9723581E59009C8F83 /* FinancialAccountSlim.swift in Sources */,
 				96F9FFBA2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
+				4F80FCD823597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
+				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F80FC7923581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
@@ -3252,6 +3289,7 @@
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
 				4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */,
+				4F80FCDB2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
 				4F80FC7B23581E59009C8F83 /* Worksheet.swift in Sources */,
 				4F80FC4323581E59009C8F83 /* UsersAPI.swift in Sources */,
@@ -3296,6 +3334,7 @@
 				4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */,
 				4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */,
 				9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */,
+				4F80FCCF23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				4F80FC7F23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
 				4F80FC4523581E59009C8F83 /* LendingAPI.swift in Sources */,
@@ -3309,6 +3348,7 @@
 				9654D487234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */,
 				9676525422FB07C0001E43E0 /* ProfileViewModel.swift in Sources */,
+				4F80FCD223597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */,
 				4F80FC8323581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */,
 				4F09109A231F7E9A00AA7F7D /* Data_Extension.swift in Sources */,
 				4F80FC6123581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */,
@@ -3316,6 +3356,7 @@
 				4F80FC5D23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */,
 				4F80FC9F23581E59009C8F83 /* GetAddressResponse.swift in Sources */,
 				4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */,
+				4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
@@ -3323,6 +3364,7 @@
 				4F80FC4923581E59009C8F83 /* LocationsAPI.swift in Sources */,
 				4F80FC6323581E59009C8F83 /* PostWorksheetRequest.swift in Sources */,
 				4FB1CC5A23554CEC00E7B224 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
+				4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,

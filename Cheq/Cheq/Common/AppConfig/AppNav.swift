@@ -45,36 +45,7 @@ class AppNav {
         let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
-    
-    func presentPasscodeViewController() {
-        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
-        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
-        vc.viewModel.type = .validate
-        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
-        currentRootVc.present(vc, animated: true, completion: nil)
-    }
-    
-    func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
-        let questionViewModel = QuestionViewModel()
-        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
-        vc.viewModel = questionViewModel
-        let nav = UINavigationController(rootViewController: vc)
-        viewController.present(nav, animated: true, completion: nil)
-    }
 
-    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
-        let multipleChoiceViewModel = MultipleChoiceViewModel()
-        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
-        vc.viewModel = multipleChoiceViewModel
-        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
-        let nav = UINavigationController(rootViewController: vc)
-        viewController.present(nav, animated: true, completion: nil)
-    }
-    
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -187,6 +158,58 @@ extension AppNav {
         let nav = UINavigationController(rootViewController: vc)
         viewController.present(nav, animated: true)
     }
+    
+    func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        let introductionViewModel = IntroductionViewModel()
+        let introType = IntroductionViewModel.introTypeFromDeclineReason(declineReason) ?? IntroductionType.noPayCycle
+        let introCoordinator = IntroductionViewModel.coordinatorFor(introType)
+        introductionViewModel.coordinator = introCoordinator
+        vc.viewModel = introductionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentIntroduction(_ introductionType: IntroductionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        let introductionViewModel = IntroductionViewModel()
+        let introCoordinator = IntroductionViewModel.coordinatorFor(introductionType)
+        introductionViewModel.coordinator = introCoordinator
+        vc.viewModel = introductionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentPasscodeViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .validate
+        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
+        currentRootVc.present(vc, animated: true, completion: nil)
+    }
+    
+    func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
+        let questionViewModel = QuestionViewModel()
+        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
+        vc.viewModel = questionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
 }
 
 // MARK: KYC
@@ -228,9 +251,11 @@ extension AppNav {
 // MARK: smart dimiss
 extension AppNav {
     
-    func dismissModal(_ viewController: UIViewController) {
+    func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
-        presentVc.dismiss(animated: true, completion: nil)
+        presentVc.dismiss(animated: true) {
+            if let cb = completion { cb() }
+        }
     }
     
     func dismiss(_ viewController: UIViewController) {

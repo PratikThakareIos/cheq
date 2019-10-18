@@ -46,6 +46,7 @@ enum CheqAPIManagerError_Spending: Error {
 enum CheqAPIManagerError_Lending: Error {
     case unableToRetrieveLendingOverview
     case unableToPutBankDetails
+    case unableToResolveNameConflict
 }
 
 enum MoneySoftManagerError: Error {
@@ -111,6 +112,8 @@ extension CheqAPIManagerError_Lending: LocalizedError {
             return NSLocalizedString("Unable to retrieve lending overview, please try again later.", comment: "")
         case .unableToPutBankDetails:
             return NSLocalizedString("Unable to update bank details, please try again later.", comment: "")
+        case .unableToResolveNameConflict:
+            return NSLocalizedString("Unable to resolve name conflict", comment: "")
         }
     }
 }

@@ -42,11 +42,22 @@ extension UIViewController {
     }
 
     @objc func closeButton() {
-        AppNav.shared.dismissModal(self)
+        AppNav.shared.dismissModal(self, completion: nil)
     }
     
     @objc func back() {
         AppNav.shared.dismiss(self)
+    }
+}
+
+// MARK: Intercom
+extension UIViewController {
+    @objc func intercom(_ notification: NSNotification) {
+        IntercomManager.shared.loginIntercom().done { authUser in
+            IntercomManager.shared.present()
+            }.catch { err in
+                self.showError(err, completion: nil)
+        }
     }
 }
 

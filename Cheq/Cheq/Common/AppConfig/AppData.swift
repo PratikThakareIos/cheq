@@ -65,7 +65,7 @@ struct CProgress {
 class AppData {
     
     static let shared = AppData()
-    private init() { loadOnfidoSDKToken() }
+    private init() { let _ = loadOnfidoSDKToken() }
 
     // instance of current application
     var application: UIApplication?
@@ -83,6 +83,9 @@ class AppData {
 
     // KYC 
     var onfidoSdkToken: String = ""
+    
+    // lending description from backend
+    var declineDescription: String = ""
     
     var progress = CProgress()
 

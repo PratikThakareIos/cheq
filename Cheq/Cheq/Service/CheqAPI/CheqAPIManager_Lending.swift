@@ -33,6 +33,26 @@ extension CheqAPIManager {
         }
     }
     
+    func resolveNameConflict()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                LendingAPI.resolveIdentityConflictWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToResolveNameConflict)
+                        return
+                    }
+                    
+                    resolver.fulfill(authUser)
+                }
+                
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func updateDirectDebitBankAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
