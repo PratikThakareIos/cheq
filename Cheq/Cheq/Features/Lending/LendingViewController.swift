@@ -147,6 +147,7 @@ extension LendingViewController {
                 
                 guard self.declineExist(lendingOverview) == false else {
                     if let declineDetails =  lendingOverview.decline, let declineReason = declineDetails.declineReason {
+                        AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
                         AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
                     } else {
                         self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
@@ -182,34 +183,8 @@ extension LendingViewController {
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
-        guard let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason else { return true }
-        return false
-    }
-    
-    func presentDeclineIfNeeded(_ lendingOverview: GetLendingOverviewResponse) {
-        guard let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason else { return }
-        
-        switch declineReason {
-        case ._none:
-            break
-        case .noPayCycle:
-            
-            break
-        case .creditAssessment:
-            break
-        case .employmentType:
-            break
-        case .hasWriteOff:
-            break
-        case .identityConflict:
-            break
-        case .jointAccount:
-            break
-        case .kycFailed:
-            break
-        case .monthlyPayCycle:
-            break
-        }
+        guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
+        return true
     }
 }
 
