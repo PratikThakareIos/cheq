@@ -62,6 +62,7 @@ enum MoneySoftManagerError: Error {
     case unableToUpdateTransactions
     case unableToRefreshTransactions
     case unableToRegisterNotificationToken
+    case errorFromHandleNotification
     case unableToGetAccounts 
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials

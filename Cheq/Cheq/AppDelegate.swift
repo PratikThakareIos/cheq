@@ -172,19 +172,12 @@ extension AppDelegate {
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
-        var credentials = [LoginCredentialType: String]()
-        credentials[.email] = TestUtil.shared.randomEmail()
-        credentials[.password] = TestUtil.shared.randomPassword()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
-            
-            completion()
-        }.then { authUser in
-            CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
-        }.done { authUser in
-//            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
-        }.catch{ err in
+        MoneySoftManager.shared.handleNotification().done { success in
+            LoggingUtil.shared.cPrint("handle notification success")
+        }.catch { err in
+            LoggingUtil.shared.cPrint("handle notification failed")
             LoggingUtil.shared.cPrint(err.localizedDescription)
-            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(err.localizedDescription)")
+        }.finally {
             completion()
         }
     }

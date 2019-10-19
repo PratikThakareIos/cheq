@@ -14,13 +14,33 @@ import PromiseKit
 class MoneySoftManager {
     static let shared = MoneySoftManager()
     let msApi: MoneysoftApi
-    let API_BASE_URL = "https://api.beta.moneysoft.com.au"
-    let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
+    static let API_BASE_URL = "https://api.beta.moneysoft.com.au"
+    static let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
+    let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: 600)
+    
+    let bgTaskConfig = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: 60)
     
     private init() {
-        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: 600)
         MoneysoftApi.configure(config)
         self.msApi = MoneysoftApi()
+    }
+    
+    
+    
+    func handleNotification()-> Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let loginModel = self.buildLoginModel(authUser.msCredential)
+                try self.msApi.notifications().handleNotification(data: [:], config: self.bgTaskConfig, login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { _ in
+                    resolver.fulfill(true)
+                }, errorHandler: { errorModel in
+                    MoneySoftUtil.shared.logErrorModel(errorModel)
+                    resolver.reject(MoneySoftManagerError.errorFromHandleNotification)
+                }))
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
     }
     
     func postNotificationToken()-> Promise<Bool> {
@@ -69,12 +89,7 @@ class MoneySoftManager {
     func login(_ credentials: [LoginCredentialType: String])-> Promise<AuthenticationModel> {
         return Promise<AuthenticationModel>() { resolver in
 
-            var loginModel: LoginModel
-            if let otp = credentials[.msOtp] {
-                loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "", verification: otp)
-            } else {
-                loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "")
-            }
+            let loginModel: LoginModel = buildLoginModel(credentials)
  
             do {
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
@@ -361,5 +376,19 @@ extension MoneySoftManager {
         } catch {
             completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts))
         }
+    }
+}
+
+
+// MARK: helper method
+extension MoneySoftManager {
+    func buildLoginModel(_ credentials: Dictionary<LoginCredentialType, String>)->LoginModel {
+        var loginModel: LoginModel
+        if let otp = credentials[.msOtp] {
+            loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "", verification: otp)
+        } else {
+            loginModel = LoginModel(username: credentials[.msUsername] ?? "", password: credentials[.msPassword] ?? "")
+        }
+        return loginModel
     }
 }
