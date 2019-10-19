@@ -51,9 +51,6 @@ class LendingViewController: CTableViewController {
     }
 
     func setupUI() {
-        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.tableView.estimatedRowHeight = 1
-        self.tableView.rowHeight = UITableView.automaticDimension
         
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")

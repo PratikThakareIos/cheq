@@ -13,6 +13,13 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var viewModel: BaseTableVCViewModel = BaseTableVCViewModel()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        self.tableView.estimatedRowHeight = 1
+        self.tableView.rowHeight = UITableView.automaticDimension
+    }
+    
     func setupDelegate() {
         guard self.tableView != nil else { return }
         self.tableView.delegate = self

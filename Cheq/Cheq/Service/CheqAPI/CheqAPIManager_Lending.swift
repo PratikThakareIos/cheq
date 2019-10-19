@@ -11,6 +11,27 @@ import PromiseKit
 
 extension CheqAPIManager {
     
+    func borrow()->Promise<Void> {
+        return Promise<Void>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                let req = DataHelperUtil.shared.postLoanRequest() 
+                LendingAPI.postBorrowWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                        return
+                    }
+                    
+                    resolver.fulfill(())
+                })
+            }.catch { err in
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+            }
+        }
+    }
+    
     func loanPreview()->Promise<GetLoanPreviewResponse> {
         return Promise<GetLoanPreviewResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in

@@ -26,6 +26,15 @@ class DataHelperUtil {
         return req 
     }
     
+    func postLoanRequest()->PostLoanRequest {
+        let amount = Int(AppData.shared.amountSelected) ?? 0
+        let fee = 5 * (amount / 100) // should get back from backend
+        let hasAccepted = AppData.shared.acceptedAgreement
+        
+        let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted)
+        return req 
+    }
+    
     func postPushNotificationRequest()-> PostPushNotificationRequest {
         let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
         let apnsToken = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)

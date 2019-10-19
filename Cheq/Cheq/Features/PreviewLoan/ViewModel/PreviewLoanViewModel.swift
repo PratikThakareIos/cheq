@@ -7,7 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 class PreviewLoanViewModel: BaseTableVCViewModel {
-
 }

@@ -48,6 +48,7 @@ enum CheqAPIManagerError_Lending: Error {
     case unableToRetrieveLoanPreview
     case unableToPutBankDetails
     case unableToResolveNameConflict
+    case unableToProcessBorrow 
 }
 
 enum MoneySoftManagerError: Error {
@@ -118,6 +119,8 @@ extension CheqAPIManagerError_Lending: LocalizedError {
             return NSLocalizedString("Unable to resolve name conflict", comment: "")
         case .unableToRetrieveLoanPreview:
             return NSLocalizedString("Unable to retrieve loan preview", comment: "")
+        case .unableToProcessBorrow:
+            return NSLocalizedString("Unable to process on server, please try again later", comment: "")
         }
     }
 }
