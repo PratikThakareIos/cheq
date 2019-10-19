@@ -70,6 +70,9 @@ class AppData {
     // instance of current application
     var application: UIApplication?
     
+    // amount selected from loan setting
+    var amountSelected = "0"
+    
     // Intercom
     let intercomAPIKey = "ios_sdk-5cf54594065095344f1653739fcbe6b5eac1758f"
     let intercomAppId = "i8127kii"

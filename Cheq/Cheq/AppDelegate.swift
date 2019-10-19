@@ -196,15 +196,13 @@ extension AppDelegate {
         guard let _ = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
-//        let _ = AppConfig.shared
+        let _ = AppConfig.shared
         let _ = AuthConfig.shared
-//        let _ = VDotManager.shared
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func setupServicesForDev() {
         guard let _ = AppData.shared.application else { return }
-//        Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared

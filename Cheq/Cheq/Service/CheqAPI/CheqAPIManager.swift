@@ -245,18 +245,4 @@ class CheqAPIManager {
             }
         }
     }
-    
-//    func checkKYCPhotoUploaded()-> Promise<Bool> {
-//        return Promise<Bool>() { resolver in
-//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-//                let token = authUser.authToken() ?? ""
-//                UsersAPI.putKycCheckPhotoWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-//                    if let error = err { resolver.reject(error); return }
-//                    resolver.fulfill(true)
-//                }
-//            }.catch { err in
-//                resolver.reject(err)
-//            }
-//        }
-//    }
 }

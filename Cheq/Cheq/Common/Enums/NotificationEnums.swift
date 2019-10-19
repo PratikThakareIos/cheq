@@ -30,4 +30,5 @@ enum UINotificationEvent: String {
 enum NotificationUserInfoKey: String {
     case token = "token"
     case cell = "cell"
+    case button = "button" 
 }

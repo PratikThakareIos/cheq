@@ -10,18 +10,11 @@ import UIKit
 import PromiseKit
 import PullToRefreshKit
 
-class LendingViewController: UIViewController {
-
-    let intercomIdentifier = String(describing: IntercomChatTableViewCell.self)
-    let amountSelectIdentifier = String(describing: AmountSelectTableViewCell.self)
-    var viewModel = LendingViewModel()
-    
-
-    // Complete Details section
-    @IBOutlet weak var tableView: UITableView!
+class LendingViewController: CTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = LendingViewModel()
         setupKeyboardHandling()
         setupUI()
         setupDelegate()
@@ -56,18 +49,6 @@ class LendingViewController: UIViewController {
                 }
         }
     }
-    
-    func login() {
-        var credentials = [LoginCredentialType: String]()
-        credentials[.email] = TestUtil.shared.randomEmail()
-        credentials[.password] = TestUtil.shared.randomPassword()
-        AppConfig.shared.showSpinner()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
-            AppConfig.shared.hideSpinner {}
-        }.catch { err in
-            AppConfig.shared.hideSpinner {}
-        }
-    }
 
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
@@ -76,25 +57,6 @@ class LendingViewController: UIViewController {
         
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-        }
-    }
-
-    func setupDelegate() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-    }
-
-    func registerCells() {
-   
-        var registered = [String: Bool]()
-        for section: TableSectionViewModel in self.viewModel.sections {
-            for vm: TableViewCellViewModelProtocol in section.rows {
-                if registered[vm.identifier] == nil {
-                    let nib = UINib(nibName: vm.identifier, bundle: nil)
-                    self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
-                    registered[vm.identifier] = true
-                }
-            }
         }
     }
     
@@ -107,6 +69,8 @@ class LendingViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.lendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.lendingOverview.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.button(_:)), name: NSNotification.Name(UINotificationEvent.buttonClicked.rawValue), object: nil)
     }
 
     
@@ -159,17 +123,16 @@ extension LendingViewController {
                 var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
                 
+                guard let vm = self.viewModel as?  LendingViewModel else { return }
                 // intercom chat
                 section.rows.append(IntercomChatTableViewCellViewModel())
-                self.viewModel.addLoanSetting(lendingOverview, section: &section)
-                self.viewModel.addCashoutButton(lendingOverview, section: &section)
+                    vm.addLoanSetting(lendingOverview, section: &section)
+                    vm.addCashoutButton(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
-                self.viewModel.completeDetails(lendingOverview, section: &section)
+                    vm.completeDetails(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
-                // actvity
-                self.viewModel.activityList(lendingOverview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                self.viewModel.swipeToConfirm(lendingOverview, section: &section)
+                    // actvity
+                    vm.activityList(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                 self.viewModel.addSection(section)
                 self.registerCells()
@@ -186,27 +149,20 @@ extension LendingViewController {
         guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
         return true
     }
-}
-
-extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.sections.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section: TableSectionViewModel = self.viewModel.sections[section]
-        return section.rows.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        // setup cell
-        let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
-        let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
-        let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
-        cell.viewModel = cellViewModel
-        cell.setupConfig()
-        return cell
+    
+    @objc func button(_ notification: NSNotification) {
+        
+        guard let button = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? UIButton else { return }
+    
+        if button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
+            // go to preview loan
+            let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
+            guard borrowAmount > 0.0 else {
+                showMessage("Please select loan amount", completion: nil)
+                return
+            }
+            
+            AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
+        }
     }
 }

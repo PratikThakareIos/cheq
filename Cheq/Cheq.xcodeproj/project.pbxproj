@@ -424,6 +424,14 @@
 		4F80FCDF2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */; };
 		4F80FCE2235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */; };
+		4F80FCE6235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE5235B30A4009C8F83 /* PreviewLoanViewController.swift */; };
+		4F80FCE7235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE5235B30A4009C8F83 /* PreviewLoanViewController.swift */; };
+		4F80FCE9235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */; };
+		4F80FCEA235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */; };
+		4F80FCEC235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCEB235B311A009C8F83 /* BaseTableVCViewModel.swift */; };
+		4F80FCED235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCEB235B311A009C8F83 /* BaseTableVCViewModel.swift */; };
+		4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCF0235B3435009C8F83 /* CTableViewController.swift */; };
+		4F80FCF2235B3435009C8F83 /* CTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCF0235B3435009C8F83 /* CTableViewController.swift */; };
 		4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */; };
 		4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE364E232F4CB00035E57E /* QuestionViewController.swift */; };
 		4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE3655232F79CC0035E57E /* CSearchTextField.swift */; };
@@ -770,6 +778,10 @@
 		4F80FCDA2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPayCycleIntroCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAssessmentIntroCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineViewTestUtil.swift; sourceTree = "<group>"; };
+		4F80FCE5235B30A4009C8F83 /* PreviewLoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLoanViewController.swift; sourceTree = "<group>"; };
+		4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLoanViewModel.swift; sourceTree = "<group>"; };
+		4F80FCEB235B311A009C8F83 /* BaseTableVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVCViewModel.swift; sourceTree = "<group>"; };
+		4F80FCF0235B3435009C8F83 /* CTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewController.swift; sourceTree = "<group>"; };
 		4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
@@ -1493,6 +1505,39 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4F80FCE3235B3069009C8F83 /* PreviewLoan */ = {
+			isa = PBXGroup;
+			children = (
+				4F80FCE4235B3078009C8F83 /* ViewModel */,
+				4F80FCE5235B30A4009C8F83 /* PreviewLoanViewController.swift */,
+			);
+			path = PreviewLoan;
+			sourceTree = "<group>";
+		};
+		4F80FCE4235B3078009C8F83 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F80FCEE235B340A009C8F83 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F80FCEF235B3420009C8F83 /* TableViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4F80FCEF235B3420009C8F83 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F80FCF0235B3435009C8F83 /* CTableViewController.swift */,
+			);
+			path = TableViewController;
+			sourceTree = "<group>";
+		};
 		4FAE3647232F40490035E57E /* SnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1828,6 +1873,7 @@
 			isa = PBXGroup;
 			children = (
 				9676524422FB064C001E43E0 /* BaseViewModel.swift */,
+				4F80FCEB235B311A009C8F83 /* BaseTableVCViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2008,6 +2054,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
 				4F0D71762346F6BD00AA819C /* Passcode */,
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4F0D716A2346B99D00AA819C /* Account */,
@@ -2060,6 +2107,7 @@
 		9676524322FB061B001E43E0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F80FCEE235B340A009C8F83 /* ViewController */,
 				4F091098231F7E8400AA7F7D /* Extension */,
 				96B0069622FE728200173743 /* Enums */,
 				96B0068822FE698900173743 /* AppConfig */,
@@ -2898,6 +2946,7 @@
 				4F80FAF02357C8B9009C8F83 /* IntroductionViewModel.swift in Sources */,
 				4F80FAF12357C8B9009C8F83 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4F80FAF52357C8B9009C8F83 /* CPieChartView.swift in Sources */,
+				4F80FCE7235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				4F80FAF62357C8B9009C8F83 /* CChartViewProtocol.swift in Sources */,
 				4F80FAF72357C8B9009C8F83 /* EmailVerificationViewController.swift in Sources */,
 				4F80FC4C23581E59009C8F83 /* FirebaseAPI.swift in Sources */,
@@ -2969,6 +3018,7 @@
 				4F80FB302357C8B9009C8F83 /* CheqAPIManager_Lending.swift in Sources */,
 				4F80FC8A23581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */,
 				4F80FB342357C8B9009C8F83 /* QuestionViewController.swift in Sources */,
+				4F80FCED235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */,
 				4F80FC6823581E59009C8F83 /* CurrentLendingSummary.swift in Sources */,
 				4F80FB372357C8B9009C8F83 /* AuthManagerProtocol.swift in Sources */,
 				4F80FB382357C8B9009C8F83 /* TabViewController.swift in Sources */,
@@ -3047,6 +3097,7 @@
 				4F80FB862357C8B9009C8F83 /* LendingViewModel.swift in Sources */,
 				4F80FB872357C8B9009C8F83 /* AuthUser.swift in Sources */,
 				4F80FB882357C8B9009C8F83 /* VDotManager.swift in Sources */,
+				4F80FCEA235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */,
 				4F80FC7223581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */,
 				4F80FC3E23581E59009C8F83 /* APIHelper.swift in Sources */,
 				4F80FB892357C8B9009C8F83 /* CLabel.swift in Sources */,
@@ -3119,6 +3170,7 @@
 				4F80FBC12357C8B9009C8F83 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4F80FBC22357C8B9009C8F83 /* TopTableViewCellViewModel.swift in Sources */,
 				4F80FBC32357C8B9009C8F83 /* MoneySoftManager.swift in Sources */,
+				4F80FCF2235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				4F80FBC42357C8B9009C8F83 /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F80FC9A23581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */,
 				4F80FBC52357C8B9009C8F83 /* CSwitchWithLabel.swift in Sources */,
@@ -3153,6 +3205,7 @@
 				4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */,
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
+				4F80FCE6235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
 				4FD7C1F92329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
 				4F80FC4B23581E59009C8F83 /* FirebaseAPI.swift in Sources */,
@@ -3224,6 +3277,7 @@
 				4FB1CD242356AF5E00E7B224 /* CheqAPIManager_Lending.swift in Sources */,
 				4F80FC8923581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */,
 				4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */,
+				4F80FCEC235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */,
 				4F80FC6723581E59009C8F83 /* CurrentLendingSummary.swift in Sources */,
 				96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */,
 				9676526022FB0946001E43E0 /* TabViewController.swift in Sources */,
@@ -3302,6 +3356,7 @@
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
+				4F80FCE9235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */,
 				4F80FC7123581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */,
 				4F80FC3D23581E59009C8F83 /* APIHelper.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
@@ -3374,6 +3429,7 @@
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
+				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
 				4F80FC9923581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */,
 				4F2E4AC22334A5BB001F1BA2 /* CSwitchWithLabel.swift in Sources */,

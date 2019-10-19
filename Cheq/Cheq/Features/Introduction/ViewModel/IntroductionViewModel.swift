@@ -16,6 +16,7 @@ enum IntroEmoji: String {
     case notification = "notification"
     case verifyIdentity = "verifyIdentity"
     case cry = "cry"
+    case speedy = "speedy"
 }
 
 enum IntroButtonTitle: String {

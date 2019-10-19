@@ -10,15 +10,9 @@ import UIKit
 import MobileSDK
 
 
-class LendingViewModel {
+class LendingViewModel: BaseTableVCViewModel {
     
-    var sections = [TableSectionViewModel]()
-
-    init() {
-    }
-    
-    func addSection(_ section: TableSectionViewModel) {
-        self.sections.append(section)
+    override init() {
     }
     
     func isKycStatusPending(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
@@ -50,8 +44,8 @@ extension LendingViewModel {
         let isKycDone = lendingOverview.eligibleRequirement?.kycStatus == EligibleRequirement.KycStatus.success
         if hasEmploymentDetail, hasBankAccountDetail, isKycDone {
             let cashoutButton = CButtonTableViewCellViewModel()
-            cashoutButton.title = "Cash out now"
-            cashoutButton.icon = "speedy"
+            cashoutButton.title = keyButtonTitle.Cashout.rawValue
+            cashoutButton.icon = IntroEmoji.speedy.rawValue
             section.rows.append(cashoutButton)
         }
     }
@@ -156,7 +150,7 @@ extension LendingViewModel {
 // swipe to confirm
 extension LendingViewModel {
     func swipeToConfirm(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
-        //add condition to check if we should show swipe to confirm 
+        //add condition to check if we should show swipe to confirm
         let swipe = SwipeToConfirmTableViewCellViewModel()
         section.rows.append(swipe)
     }

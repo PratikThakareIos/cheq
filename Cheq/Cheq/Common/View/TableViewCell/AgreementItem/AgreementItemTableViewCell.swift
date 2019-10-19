@@ -48,7 +48,7 @@ class AgreementItemTableViewCell: CTableViewCell {
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
         if vm.expanded == true {
             vm.expanded = false
-            self.agreementContent.numberOfLines = 2
+            self.agreementContent.numberOfLines = 0
             self.readMore.setTitle(vm.readMoreTitle, for: .normal)
             
         } else {
@@ -58,7 +58,6 @@ class AgreementItemTableViewCell: CTableViewCell {
             
         }
         self.readMore.setNeedsDisplay()
-        
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "cell", value: self)
+    NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
     }
 }
