@@ -48,7 +48,9 @@ class PreviewLoanViewController: CTableViewController {
             AppConfig.shared.hideSpinner {
                 // return to LendingViewController and load
                 // backend should tell LendingViewController to show successfully borrow screen
-                AppNav.shared.dismiss(self)
+                self.showMessage("Processed successfully ! :)") {
+                    AppNav.shared.dismiss(self)
+                }
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -61,18 +63,16 @@ class PreviewLoanViewController: CTableViewController {
 extension PreviewLoanViewController {
     
     @objc func previewLoan(_ notification: NSNotification) {
-//        // built the list to render
-//        AppConfig.shared.showSpinner()
-//        CheqAPIManager.shared.loanPreview().done{ getLoanPreviewResponse in
-            let loanPreview = TestUtil.shared.testLoanPreview()
-//            AppConfig.shared.hideSpinner {
-        
+
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.loanPreview().done{ loanPreview in
+            AppConfig.shared.hideSpinner {
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
                 
                 guard let vm = self.viewModel as?  PreviewLoanViewModel else { return }
-            section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
         
                 vm.addTransferToCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
@@ -88,11 +88,11 @@ extension PreviewLoanViewController {
                 self.viewModel.addSection(section)
                 self.registerCells()
                 self.tableView.reloadData()
-//            }
-//            }.catch { err in
-//                AppConfig.shared.hideSpinner {
-//                    self.showError(err, completion: nil)
-//                }
-//        }
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
+        }
     }
 }

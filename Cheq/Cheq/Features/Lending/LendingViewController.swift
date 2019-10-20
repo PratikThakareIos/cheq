@@ -23,31 +23,7 @@ class LendingViewController: CTableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if AuthConfig.shared.activeUser != nil {
-//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-//        } else {
-//            endToEndSetup()
-//        }
-        
-        TestUtil.shared.loginWithTestAccount().done { authUser in
-            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-        }.catch { err in
-            self.showError(err, completion: nil)
-        }
-    }
-    
-    func endToEndSetup() {
-        AppConfig.shared.showSpinner()
-        TestUtil.shared.autoSetupAccount().done { authUser in
-            AppConfig.shared.hideSpinner {
-                // now do Lending API call and refresh tableview
-                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-            }
-            }.catch{ err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
-                }
-        }
+        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
     }
 
     func setupUI() {
@@ -96,8 +72,7 @@ extension LendingViewController {
     
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
-            let lendingOverview = TestUtil.shared.testLendingOverview()
+        CheqAPIManager.shared.lendingOverview().done{ lendingOverview in
             AppConfig.shared.hideSpinner {
                 
                 guard self.declineExist(lendingOverview) == false else {
@@ -119,6 +94,7 @@ extension LendingViewController {
                 section.rows.append(IntercomChatTableViewCellViewModel())
                     vm.addLoanSetting(lendingOverview, section: &section)
                     vm.addCashoutButton(lendingOverview, section: &section)
+                    vm.addMessageBubble(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                     vm.completeDetails(lendingOverview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
