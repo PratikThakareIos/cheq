@@ -72,6 +72,7 @@ class AppData {
     
     // amount selected from loan setting
     var amountSelected = "0"
+    var loanFee = 10 
     var acceptedAgreement: Bool = false 
     
     // Intercom

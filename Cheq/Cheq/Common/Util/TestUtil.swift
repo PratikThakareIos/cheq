@@ -177,6 +177,27 @@ class TestUtil {
         return loanActivities
     }
     
+    func testLoanAgreement()->String {
+        return """
+        A loan agreement is an agreement between two parties whereby one party (usually referred to as the ‘lender’) agrees to provide a loan to the other party (usually referred to as the ‘borrower’).
+        
+        Downloading your free legal document is easy. Fill in the required information and your document will be emailed to you instantly.
+        
+        You will need the following information to generate your document:
+        
+        name of the lender and borrower; and
+        address of the lender and borrower.
+        """
+    }
+    
+    func testLoanPreview()->GetLoanPreviewResponse {
+        let amount = Double(AppData.shared.amountSelected)
+        let fee = Double(AppData.shared.loanFee)
+        let formatter = DateUtil.shared.defaultDateFormatter()
+        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement())
+        return loanPreview
+    }
+    
     func testLendingOverview()->GetLendingOverviewResponse {
         let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         let currentLendingSummary = CurrentLendingSummary(totalCashRequested: 200, totalRepaymentAmount: 0, totalFees: 10, feesPercent: 0, repaymentDate: DateUtil.shared.defaultDateFormatter().string(from: 7.days.later))

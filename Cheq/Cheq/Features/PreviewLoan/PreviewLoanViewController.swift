@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PullToRefreshKit
 
 class PreviewLoanViewController: CTableViewController {
 
@@ -21,25 +22,23 @@ class PreviewLoanViewController: CTableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.loanPreview().done { preview in
-            AppConfig.shared.hideSpinner {
-                
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
-            }
-        }
+        hideBackTitle()
+        NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
     }
     
     func setupUI() {
-        
+        self.tableView.addPullToRefreshAction {
+            NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
+        }
     }
     
     func registerObservables() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(confirm(_:)), name: NSNotification.Name(UINotificationEvent.swipeConfirmation.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(previewLoan(_:)), name: NSNotification.Name(UINotificationEvent.previewLoan.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout(_:)), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
     }
     
     @objc func confirm(_ notification: NSNotification) {
@@ -56,5 +55,44 @@ class PreviewLoanViewController: CTableViewController {
                 self.showError(err, completion: nil)
             }
         }
+    }
+}
+
+extension PreviewLoanViewController {
+    
+    @objc func previewLoan(_ notification: NSNotification) {
+//        // built the list to render
+//        AppConfig.shared.showSpinner()
+//        CheqAPIManager.shared.loanPreview().done{ getLoanPreviewResponse in
+            let loanPreview = TestUtil.shared.testLoanPreview()
+//            AppConfig.shared.hideSpinner {
+        
+                self.viewModel.sections.removeAll()
+                var section = TableSectionViewModel()
+                LoggingUtil.shared.cPrint("build view model here...")
+                
+                guard let vm = self.viewModel as?  PreviewLoanViewModel else { return }
+            section.rows.append(SpacerTableViewCellViewModel())
+        
+                vm.addTransferToCard(loanPreview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                vm.addRepaymemtCard(loanPreview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                vm.addLoanAgreementCard(loanPreview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                vm.addDirectDebitAgreementCard(loanPreview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SwipeToConfirmTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
+                self.viewModel.addSection(section)
+                self.registerCells()
+                self.tableView.reloadData()
+//            }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err, completion: nil)
+//                }
+//        }
     }
 }

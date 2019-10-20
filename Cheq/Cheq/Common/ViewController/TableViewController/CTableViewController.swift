@@ -18,6 +18,7 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.estimatedRowHeight = 1
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.separatorStyle = .none
     }
     
     func setupDelegate() {
@@ -25,6 +26,17 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
+}
+
+extension CTableViewController {
+    // handle notification to trigger reload of table
+    @objc func reloadTableLayout(_ notification: NSNotification) {
+        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
+    
 }
 
 extension CTableViewController {

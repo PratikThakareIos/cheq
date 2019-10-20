@@ -13,7 +13,11 @@ class TransferCardTableViewCellViewModel: TableViewCellViewModelProtocol {
     var transferAmount = "$100"
     var feeAmountText = " + $10 fee"
     var direction: CashDirection = .credit
-    var descriptionText = "Will be deposited to your account"
+    func descriptionText()-> String {
+        let text = self.direction == .credit ? "Will be deposited to your account" : "Will be deducted from your account"
+        return text
+    }
+    
     var dateString = "Today, 17 Sep"
     
     func imageIcon()->String {

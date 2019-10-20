@@ -51,7 +51,7 @@ class LendingViewController: CTableViewController {
     }
 
     func setupUI() {
-        
+        hideBackTitle()
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
@@ -75,12 +75,6 @@ class LendingViewController: CTableViewController {
 
 // observable handlers
 extension LendingViewController {
-    
-    @objc func reloadTableLayout(_ notification: NSNotification) {
-        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.reloadWithoutScroll()
-    }
-    
     
     @objc func completeDetails(_ notificaton: NSNotification) {
         guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
@@ -146,12 +140,13 @@ extension LendingViewController {
         guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
         return true
     }
-    
+  
     @objc func button(_ notification: NSNotification) {
         
-        guard let button = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? UIButton else { return }
+        
+        guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
     
-        if button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
+        if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
             // go to preview loan
             let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
             guard borrowAmount > 0.0 else {

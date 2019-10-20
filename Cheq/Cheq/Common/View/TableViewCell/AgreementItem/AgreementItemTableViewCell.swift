@@ -10,6 +10,7 @@ import UIKit
 
 class AgreementItemTableViewCell: CTableViewCell {
 
+    @IBOutlet weak var agreementContentHeight: NSLayoutConstraint! 
     @IBOutlet weak var agreementTitle: CLabel!
     @IBOutlet weak var agreementContent: CLabel!
     @IBOutlet weak var readMore: UIButton!
@@ -46,18 +47,19 @@ class AgreementItemTableViewCell: CTableViewCell {
     @IBAction func readMore(_ sender: Any) {
         LoggingUtil.shared.cPrint("Read more")
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
-        if vm.expanded == true {
-            vm.expanded = false
-            self.agreementContent.numberOfLines = 0
-            self.readMore.setTitle(vm.readMoreTitle, for: .normal)
-            
-        } else {
+        if vm.expanded == false {
             vm.expanded = true
-            self.agreementContent.numberOfLines = 0
+            let sizeThatFits = self.agreementContent.sizeThatFits(CGSize(width: self.agreementContent.frame.width, height: CGFloat(MAXFLOAT)))
+            self.agreementContentHeight.constant = sizeThatFits.height
             self.readMore.setTitle(vm.readLessTitle, for: .normal)
             
+        } else {
+            vm.expanded = false
+            self.agreementContentHeight.constant = 45
+            self.readMore.setTitle(vm.readMoreTitle, for: .normal)
+            
         }
-        self.readMore.setNeedsDisplay()
+        self.setNeedsLayout()
     NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
     }
 }
