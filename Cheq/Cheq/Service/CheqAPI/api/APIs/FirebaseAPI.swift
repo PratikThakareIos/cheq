@@ -122,42 +122,4 @@ open class FirebaseAPI {
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
-    /**
-
-     - parameter request: (body)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func testSendVisibleMessage(request: MoneySoftVisibleMessageRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        testSendVisibleMessageWithRequestBuilder(request: request).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Firebase/moneysoft/sendvisiblemessage
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter request: (body)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func testSendVisibleMessageWithRequestBuilder(request: MoneySoftVisibleMessageRequest? = nil) -> RequestBuilder<Void> {
-        let path = "/v1/Firebase/moneysoft/sendvisiblemessage"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
-
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-
 }

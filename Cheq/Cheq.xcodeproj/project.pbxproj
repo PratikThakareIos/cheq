@@ -45,6 +45,138 @@
 		4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71782346F6E300AA819C /* PasscodeViewController.swift */; };
 		4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */; };
 		4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */; };
+		4F1808DF235D22460018507D /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089B235D22460018507D /* APIHelper.swift */; };
+		4F1808E0235D22460018507D /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089B235D22460018507D /* APIHelper.swift */; };
+		4F1808E1235D22460018507D /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089C235D22460018507D /* AlamofireImplementations.swift */; };
+		4F1808E2235D22460018507D /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089C235D22460018507D /* AlamofireImplementations.swift */; };
+		4F1808E3235D22460018507D /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089E235D22460018507D /* FinancesAPI.swift */; };
+		4F1808E4235D22460018507D /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089E235D22460018507D /* FinancesAPI.swift */; };
+		4F1808E5235D22460018507D /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089F235D22460018507D /* UsersAPI.swift */; };
+		4F1808E6235D22460018507D /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089F235D22460018507D /* UsersAPI.swift */; };
+		4F1808E7235D22460018507D /* LendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A0235D22460018507D /* LendingAPI.swift */; };
+		4F1808E8235D22460018507D /* LendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A0235D22460018507D /* LendingAPI.swift */; };
+		4F1808E9235D22460018507D /* HealthCheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A1235D22460018507D /* HealthCheckAPI.swift */; };
+		4F1808EA235D22460018507D /* HealthCheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A1235D22460018507D /* HealthCheckAPI.swift */; };
+		4F1808EB235D22460018507D /* LocationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A2235D22460018507D /* LocationsAPI.swift */; };
+		4F1808EC235D22460018507D /* LocationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A2235D22460018507D /* LocationsAPI.swift */; };
+		4F1808ED235D22460018507D /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A3235D22460018507D /* FirebaseAPI.swift */; };
+		4F1808EE235D22460018507D /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A3235D22460018507D /* FirebaseAPI.swift */; };
+		4F1808EF235D22460018507D /* BudgetingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A4235D22460018507D /* BudgetingAPI.swift */; };
+		4F1808F0235D22460018507D /* BudgetingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A4235D22460018507D /* BudgetingAPI.swift */; };
+		4F1808F1235D22460018507D /* SpendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A5235D22460018507D /* SpendingAPI.swift */; };
+		4F1808F2235D22460018507D /* SpendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A5235D22460018507D /* SpendingAPI.swift */; };
+		4F1808F3235D22460018507D /* RecurringBillsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A6235D22460018507D /* RecurringBillsAPI.swift */; };
+		4F1808F4235D22460018507D /* RecurringBillsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A6235D22460018507D /* RecurringBillsAPI.swift */; };
+		4F1808F5235D22460018507D /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A7235D22460018507D /* CodableHelper.swift */; };
+		4F1808F6235D22460018507D /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A7235D22460018507D /* CodableHelper.swift */; };
+		4F1808F7235D22460018507D /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A8235D22460018507D /* JSONEncodableEncoding.swift */; };
+		4F1808F8235D22460018507D /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A8235D22460018507D /* JSONEncodableEncoding.swift */; };
+		4F1808F9235D22460018507D /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A9235D22460018507D /* APIs.swift */; };
+		4F1808FA235D22460018507D /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A9235D22460018507D /* APIs.swift */; };
+		4F1808FB235D22460018507D /* PutUserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AB235D22460018507D /* PutUserDetailRequest.swift */; };
+		4F1808FC235D22460018507D /* PutUserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AB235D22460018507D /* PutUserDetailRequest.swift */; };
+		4F1808FD235D22460018507D /* PutResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AC235D22460018507D /* PutResetPasswordRequest.swift */; };
+		4F1808FE235D22460018507D /* PutResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AC235D22460018507D /* PutResetPasswordRequest.swift */; };
+		4F1808FF235D22460018507D /* PutUserEmployerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AD235D22460018507D /* PutUserEmployerRequest.swift */; };
+		4F180900235D22460018507D /* PutUserEmployerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AD235D22460018507D /* PutUserEmployerRequest.swift */; };
+		4F180901235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */; };
+		4F180902235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */; };
+		4F180903235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AF235D22460018507D /* GetUserMoneySoftResponse.swift */; };
+		4F180904235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AF235D22460018507D /* GetUserMoneySoftResponse.swift */; };
+		4F180905235D22460018507D /* PostWorksheetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B0235D22460018507D /* PostWorksheetRequest.swift */; };
+		4F180906235D22460018507D /* PostWorksheetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B0235D22460018507D /* PostWorksheetRequest.swift */; };
+		4F180907235D22460018507D /* PostRecurringBillRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B1235D22460018507D /* PostRecurringBillRequest.swift */; };
+		4F180908235D22460018507D /* PostRecurringBillRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B1235D22460018507D /* PostRecurringBillRequest.swift */; };
+		4F180909235D22460018507D /* GetBudgetSpendingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B2235D22460018507D /* GetBudgetSpendingsResponse.swift */; };
+		4F18090A235D22460018507D /* GetBudgetSpendingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B2235D22460018507D /* GetBudgetSpendingsResponse.swift */; };
+		4F18090B235D22460018507D /* GetUserKycResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B3235D22460018507D /* GetUserKycResponse.swift */; };
+		4F18090C235D22460018507D /* GetUserKycResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B3235D22460018507D /* GetUserKycResponse.swift */; };
+		4F18090D235D22460018507D /* LoanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B4235D22460018507D /* LoanActivity.swift */; };
+		4F18090E235D22460018507D /* LoanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B4235D22460018507D /* LoanActivity.swift */; };
+		4F18090F235D22460018507D /* GetLendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B5235D22460018507D /* GetLendingOverviewResponse.swift */; };
+		4F180910235D22460018507D /* GetLendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B5235D22460018507D /* GetLendingOverviewResponse.swift */; };
+		4F180911235D22460018507D /* UserBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B6235D22460018507D /* UserBudget.swift */; };
+		4F180912235D22460018507D /* UserBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B6235D22460018507D /* UserBudget.swift */; };
+		4F180913235D22460018507D /* PutUserOnfidoKycRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B7235D22460018507D /* PutUserOnfidoKycRequest.swift */; };
+		4F180914235D22460018507D /* PutUserOnfidoKycRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B7235D22460018507D /* PutUserOnfidoKycRequest.swift */; };
+		4F180915235D22460018507D /* PutFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B8235D22460018507D /* PutFinancialAccountRequest.swift */; };
+		4F180916235D22460018507D /* PutFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B8235D22460018507D /* PutFinancialAccountRequest.swift */; };
+		4F180917235D22460018507D /* DeclineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B9235D22460018507D /* DeclineDetail.swift */; };
+		4F180918235D22460018507D /* DeclineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808B9235D22460018507D /* DeclineDetail.swift */; };
+		4F180919235D22460018507D /* GetUserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BA235D22460018507D /* GetUserDetailResponse.swift */; };
+		4F18091A235D22460018507D /* GetUserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BA235D22460018507D /* GetUserDetailResponse.swift */; };
+		4F18091B235D22460018507D /* DailyTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BB235D22460018507D /* DailyTransactionsResponse.swift */; };
+		4F18091C235D22460018507D /* DailyTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BB235D22460018507D /* DailyTransactionsResponse.swift */; };
+		4F18091D235D22460018507D /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BC235D22460018507D /* Worksheet.swift */; };
+		4F18091E235D22460018507D /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BC235D22460018507D /* Worksheet.swift */; };
+		4F18091F235D22460018507D /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
+		4F180920235D22460018507D /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
+		4F180921235D22460018507D /* PutUserSingupVerificationCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BE235D22460018507D /* PutUserSingupVerificationCodeRequest.swift */; };
+		4F180922235D22460018507D /* PutUserSingupVerificationCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BE235D22460018507D /* PutUserSingupVerificationCodeRequest.swift */; };
+		4F180923235D22460018507D /* GetLoanPreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BF235D22460018507D /* GetLoanPreviewResponse.swift */; };
+		4F180924235D22460018507D /* GetLoanPreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BF235D22460018507D /* GetLoanPreviewResponse.swift */; };
+		4F180925235D22460018507D /* GetSpendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C0235D22460018507D /* GetSpendingOverviewResponse.swift */; };
+		4F180926235D22460018507D /* GetSpendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C0235D22460018507D /* GetSpendingOverviewResponse.swift */; };
+		4F180927235D22460018507D /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C1235D22460018507D /* BorrowOverview.swift */; };
+		4F180928235D22460018507D /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C1235D22460018507D /* BorrowOverview.swift */; };
+		4F180929235D22460018507D /* SlimTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C2235D22460018507D /* SlimTransactionResponse.swift */; };
+		4F18092A235D22460018507D /* SlimTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C2235D22460018507D /* SlimTransactionResponse.swift */; };
+		4F18092B235D22460018507D /* GetUpcomingBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C3235D22460018507D /* GetUpcomingBillResponse.swift */; };
+		4F18092C235D22460018507D /* GetUpcomingBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C3235D22460018507D /* GetUpcomingBillResponse.swift */; };
+		4F18092D235D22460018507D /* MonthAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C4235D22460018507D /* MonthAmountStatResponse.swift */; };
+		4F18092E235D22460018507D /* MonthAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C4235D22460018507D /* MonthAmountStatResponse.swift */; };
+		4F18092F235D22460018507D /* UserFinancialAccountsLinkingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C5235D22460018507D /* UserFinancialAccountsLinkingResponse.swift */; };
+		4F180930235D22460018507D /* UserFinancialAccountsLinkingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C5235D22460018507D /* UserFinancialAccountsLinkingResponse.swift */; };
+		4F180931235D22460018507D /* CategoryAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C6235D22460018507D /* CategoryAmountStatResponse.swift */; };
+		4F180932235D22460018507D /* CategoryAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C6235D22460018507D /* CategoryAmountStatResponse.swift */; };
+		4F180933235D22460018507D /* GetUserEmployerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C7235D22460018507D /* GetUserEmployerResponse.swift */; };
+		4F180934235D22460018507D /* GetUserEmployerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C7235D22460018507D /* GetUserEmployerResponse.swift */; };
+		4F180935235D22460018507D /* PostFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C8235D22460018507D /* PostFinancialAccountRequest.swift */; };
+		4F180936235D22460018507D /* PostFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C8235D22460018507D /* PostFinancialAccountRequest.swift */; };
+		4F180937235D22460018507D /* LoanSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C9235D22460018507D /* LoanSetting.swift */; };
+		4F180938235D22460018507D /* LoanSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C9235D22460018507D /* LoanSetting.swift */; };
+		4F180939235D22460018507D /* FinancialAccountSlim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CA235D22460018507D /* FinancialAccountSlim.swift */; };
+		4F18093A235D22460018507D /* FinancialAccountSlim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CA235D22460018507D /* FinancialAccountSlim.swift */; };
+		4F18093B235D22460018507D /* GetSpendingCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CB235D22460018507D /* GetSpendingCategoryResponse.swift */; };
+		4F18093C235D22460018507D /* GetSpendingCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CB235D22460018507D /* GetSpendingCategoryResponse.swift */; };
+		4F18093D235D22460018507D /* PostForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CC235D22460018507D /* PostForgetPasswordRequest.swift */; };
+		4F18093E235D22460018507D /* PostForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CC235D22460018507D /* PostForgetPasswordRequest.swift */; };
+		4F18093F235D22460018507D /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CD235D22460018507D /* GetUserResponse.swift */; };
+		4F180940235D22460018507D /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CD235D22460018507D /* GetUserResponse.swift */; };
+		4F180941235D22470018507D /* GetAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CE235D22460018507D /* GetAddressResponse.swift */; };
+		4F180942235D22470018507D /* GetAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CE235D22460018507D /* GetAddressResponse.swift */; };
+		4F180943235D22470018507D /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */; };
+		4F180944235D22470018507D /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */; };
+		4F180945235D22470018507D /* GetEmployerPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D0235D22460018507D /* GetEmployerPlaceResponse.swift */; };
+		4F180946235D22470018507D /* GetEmployerPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D0235D22460018507D /* GetEmployerPlaceResponse.swift */; };
+		4F180947235D22470018507D /* PutBankAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D1235D22460018507D /* PutBankAccountRequest.swift */; };
+		4F180948235D22470018507D /* PutBankAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D1235D22460018507D /* PutBankAccountRequest.swift */; };
+		4F180949235D22470018507D /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D2235D22460018507D /* GetUserBudgetResponse.swift */; };
+		4F18094A235D22470018507D /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D2235D22460018507D /* GetUserBudgetResponse.swift */; };
+		4F18094B235D22470018507D /* EligibleRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D3235D22460018507D /* EligibleRequirement.swift */; };
+		4F18094C235D22470018507D /* EligibleRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D3235D22460018507D /* EligibleRequirement.swift */; };
+		4F18094D235D22470018507D /* RecentBorrowingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D4235D22460018507D /* RecentBorrowingSummary.swift */; };
+		4F18094E235D22470018507D /* RecentBorrowingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D4235D22460018507D /* RecentBorrowingSummary.swift */; };
+		4F18094F235D22470018507D /* PostFinancialInstitutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D5235D22460018507D /* PostFinancialInstitutionRequest.swift */; };
+		4F180950235D22470018507D /* PostFinancialInstitutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D5235D22460018507D /* PostFinancialInstitutionRequest.swift */; };
+		4F180951235D22470018507D /* SpendingOverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D6235D22460018507D /* SpendingOverviewCard.swift */; };
+		4F180952235D22470018507D /* SpendingOverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D6235D22460018507D /* SpendingOverviewCard.swift */; };
+		4F180953235D22470018507D /* PutUserBudgetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D7235D22460018507D /* PutUserBudgetsRequest.swift */; };
+		4F180954235D22470018507D /* PutUserBudgetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D7235D22460018507D /* PutUserBudgetsRequest.swift */; };
+		4F180955235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D8235D22460018507D /* GetSpendingSpecificCategoryResponse.swift */; };
+		4F180956235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D8235D22460018507D /* GetSpendingSpecificCategoryResponse.swift */; };
+		4F180957235D22470018507D /* UserBudgetUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D9235D22460018507D /* UserBudgetUpdate.swift */; };
+		4F180958235D22470018507D /* UserBudgetUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808D9235D22460018507D /* UserBudgetUpdate.swift */; };
+		4F180959235D22470018507D /* PostPushNotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DA235D22460018507D /* PostPushNotificationRequest.swift */; };
+		4F18095A235D22470018507D /* PostPushNotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DA235D22460018507D /* PostPushNotificationRequest.swift */; };
+		4F18095B235D22470018507D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DB235D22460018507D /* Extensions.swift */; };
+		4F18095C235D22470018507D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DB235D22460018507D /* Extensions.swift */; };
+		4F18095D235D22470018507D /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DC235D22460018507D /* JSONEncodingHelper.swift */; };
+		4F18095E235D22470018507D /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DC235D22460018507D /* JSONEncodingHelper.swift */; };
+		4F18095F235D22470018507D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DD235D22460018507D /* Models.swift */; };
+		4F180960235D22470018507D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DD235D22460018507D /* Models.swift */; };
+		4F180961235D22470018507D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
+		4F180962235D22470018507D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -274,138 +406,6 @@
 		4F80FBE92357C8B9009C8F83 /* MainBackup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* MainBackup.storyboard */; };
 		4F80FBEA2357C8B9009C8F83 /* IntercomChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */; };
 		4F80FBF72357C8D9009C8F83 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F80FC3D23581E59009C8F83 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBF923581E59009C8F83 /* APIHelper.swift */; };
-		4F80FC3E23581E59009C8F83 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBF923581E59009C8F83 /* APIHelper.swift */; };
-		4F80FC3F23581E59009C8F83 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFA23581E59009C8F83 /* AlamofireImplementations.swift */; };
-		4F80FC4023581E59009C8F83 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFA23581E59009C8F83 /* AlamofireImplementations.swift */; };
-		4F80FC4123581E59009C8F83 /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFC23581E59009C8F83 /* FinancesAPI.swift */; };
-		4F80FC4223581E59009C8F83 /* FinancesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFC23581E59009C8F83 /* FinancesAPI.swift */; };
-		4F80FC4323581E59009C8F83 /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFD23581E59009C8F83 /* UsersAPI.swift */; };
-		4F80FC4423581E59009C8F83 /* UsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFD23581E59009C8F83 /* UsersAPI.swift */; };
-		4F80FC4523581E59009C8F83 /* LendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFE23581E59009C8F83 /* LendingAPI.swift */; };
-		4F80FC4623581E59009C8F83 /* LendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFE23581E59009C8F83 /* LendingAPI.swift */; };
-		4F80FC4723581E59009C8F83 /* HealthCheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFF23581E59009C8F83 /* HealthCheckAPI.swift */; };
-		4F80FC4823581E59009C8F83 /* HealthCheckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FBFF23581E59009C8F83 /* HealthCheckAPI.swift */; };
-		4F80FC4923581E59009C8F83 /* LocationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0023581E59009C8F83 /* LocationsAPI.swift */; };
-		4F80FC4A23581E59009C8F83 /* LocationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0023581E59009C8F83 /* LocationsAPI.swift */; };
-		4F80FC4B23581E59009C8F83 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0123581E59009C8F83 /* FirebaseAPI.swift */; };
-		4F80FC4C23581E59009C8F83 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0123581E59009C8F83 /* FirebaseAPI.swift */; };
-		4F80FC4D23581E59009C8F83 /* BudgetingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0223581E59009C8F83 /* BudgetingAPI.swift */; };
-		4F80FC4E23581E59009C8F83 /* BudgetingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0223581E59009C8F83 /* BudgetingAPI.swift */; };
-		4F80FC4F23581E59009C8F83 /* SpendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0323581E59009C8F83 /* SpendingAPI.swift */; };
-		4F80FC5023581E59009C8F83 /* SpendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0323581E59009C8F83 /* SpendingAPI.swift */; };
-		4F80FC5123581E59009C8F83 /* RecurringBillsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0423581E59009C8F83 /* RecurringBillsAPI.swift */; };
-		4F80FC5223581E59009C8F83 /* RecurringBillsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0423581E59009C8F83 /* RecurringBillsAPI.swift */; };
-		4F80FC5323581E59009C8F83 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0523581E59009C8F83 /* CodableHelper.swift */; };
-		4F80FC5423581E59009C8F83 /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0523581E59009C8F83 /* CodableHelper.swift */; };
-		4F80FC5523581E59009C8F83 /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0623581E59009C8F83 /* JSONEncodableEncoding.swift */; };
-		4F80FC5623581E59009C8F83 /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0623581E59009C8F83 /* JSONEncodableEncoding.swift */; };
-		4F80FC5723581E59009C8F83 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0723581E59009C8F83 /* APIs.swift */; };
-		4F80FC5823581E59009C8F83 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0723581E59009C8F83 /* APIs.swift */; };
-		4F80FC5923581E59009C8F83 /* PutUserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0923581E59009C8F83 /* PutUserDetailRequest.swift */; };
-		4F80FC5A23581E59009C8F83 /* PutUserDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0923581E59009C8F83 /* PutUserDetailRequest.swift */; };
-		4F80FC5B23581E59009C8F83 /* PutResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0A23581E59009C8F83 /* PutResetPasswordRequest.swift */; };
-		4F80FC5C23581E59009C8F83 /* PutResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0A23581E59009C8F83 /* PutResetPasswordRequest.swift */; };
-		4F80FC5D23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0B23581E59009C8F83 /* PutUserEmployerRequest.swift */; };
-		4F80FC5E23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0B23581E59009C8F83 /* PutUserEmployerRequest.swift */; };
-		4F80FC5F23581E59009C8F83 /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0C23581E59009C8F83 /* PostFinancialTransactionRequest.swift */; };
-		4F80FC6023581E59009C8F83 /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0C23581E59009C8F83 /* PostFinancialTransactionRequest.swift */; };
-		4F80FC6123581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0D23581E59009C8F83 /* GetUserMoneySoftResponse.swift */; };
-		4F80FC6223581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0D23581E59009C8F83 /* GetUserMoneySoftResponse.swift */; };
-		4F80FC6323581E59009C8F83 /* PostWorksheetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0E23581E59009C8F83 /* PostWorksheetRequest.swift */; };
-		4F80FC6423581E59009C8F83 /* PostWorksheetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0E23581E59009C8F83 /* PostWorksheetRequest.swift */; };
-		4F80FC6523581E59009C8F83 /* PostRecurringBillRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0F23581E59009C8F83 /* PostRecurringBillRequest.swift */; };
-		4F80FC6623581E59009C8F83 /* PostRecurringBillRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC0F23581E59009C8F83 /* PostRecurringBillRequest.swift */; };
-		4F80FC6723581E59009C8F83 /* CurrentLendingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1023581E59009C8F83 /* CurrentLendingSummary.swift */; };
-		4F80FC6823581E59009C8F83 /* CurrentLendingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1023581E59009C8F83 /* CurrentLendingSummary.swift */; };
-		4F80FC6923581E59009C8F83 /* GetUserKycResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1123581E59009C8F83 /* GetUserKycResponse.swift */; };
-		4F80FC6A23581E59009C8F83 /* GetUserKycResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1123581E59009C8F83 /* GetUserKycResponse.swift */; };
-		4F80FC6B23581E59009C8F83 /* LoanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1223581E59009C8F83 /* LoanActivity.swift */; };
-		4F80FC6C23581E59009C8F83 /* LoanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1223581E59009C8F83 /* LoanActivity.swift */; };
-		4F80FC6D23581E59009C8F83 /* GetLendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1323581E59009C8F83 /* GetLendingOverviewResponse.swift */; };
-		4F80FC6E23581E59009C8F83 /* GetLendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1323581E59009C8F83 /* GetLendingOverviewResponse.swift */; };
-		4F80FC6F23581E59009C8F83 /* UserBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1423581E59009C8F83 /* UserBudget.swift */; };
-		4F80FC7023581E59009C8F83 /* UserBudget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1423581E59009C8F83 /* UserBudget.swift */; };
-		4F80FC7123581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1523581E59009C8F83 /* PutUserOnfidoKycRequest.swift */; };
-		4F80FC7223581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1523581E59009C8F83 /* PutUserOnfidoKycRequest.swift */; };
-		4F80FC7323581E59009C8F83 /* PutFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1623581E59009C8F83 /* PutFinancialAccountRequest.swift */; };
-		4F80FC7423581E59009C8F83 /* PutFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1623581E59009C8F83 /* PutFinancialAccountRequest.swift */; };
-		4F80FC7523581E59009C8F83 /* DeclineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1723581E59009C8F83 /* DeclineDetail.swift */; };
-		4F80FC7623581E59009C8F83 /* DeclineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1723581E59009C8F83 /* DeclineDetail.swift */; };
-		4F80FC7723581E59009C8F83 /* GetUserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1823581E59009C8F83 /* GetUserDetailResponse.swift */; };
-		4F80FC7823581E59009C8F83 /* GetUserDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1823581E59009C8F83 /* GetUserDetailResponse.swift */; };
-		4F80FC7923581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1923581E59009C8F83 /* DailyTransactionsResponse.swift */; };
-		4F80FC7A23581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1923581E59009C8F83 /* DailyTransactionsResponse.swift */; };
-		4F80FC7B23581E59009C8F83 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1A23581E59009C8F83 /* Worksheet.swift */; };
-		4F80FC7C23581E59009C8F83 /* Worksheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1A23581E59009C8F83 /* Worksheet.swift */; };
-		4F80FC7D23581E59009C8F83 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1B23581E59009C8F83 /* PostLoanRequest.swift */; };
-		4F80FC7E23581E59009C8F83 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1B23581E59009C8F83 /* PostLoanRequest.swift */; };
-		4F80FC7F23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1C23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift */; };
-		4F80FC8023581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1C23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift */; };
-		4F80FC8123581E59009C8F83 /* GetLoanPreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1D23581E59009C8F83 /* GetLoanPreviewResponse.swift */; };
-		4F80FC8223581E59009C8F83 /* GetLoanPreviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1D23581E59009C8F83 /* GetLoanPreviewResponse.swift */; };
-		4F80FC8323581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1E23581E59009C8F83 /* GetSpendingOverviewResponse.swift */; };
-		4F80FC8423581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1E23581E59009C8F83 /* GetSpendingOverviewResponse.swift */; };
-		4F80FC8523581E59009C8F83 /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1F23581E59009C8F83 /* BorrowOverview.swift */; };
-		4F80FC8623581E59009C8F83 /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC1F23581E59009C8F83 /* BorrowOverview.swift */; };
-		4F80FC8723581E59009C8F83 /* SlimTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2023581E59009C8F83 /* SlimTransactionResponse.swift */; };
-		4F80FC8823581E59009C8F83 /* SlimTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2023581E59009C8F83 /* SlimTransactionResponse.swift */; };
-		4F80FC8923581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2123581E59009C8F83 /* GetUpcomingBillResponse.swift */; };
-		4F80FC8A23581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2123581E59009C8F83 /* GetUpcomingBillResponse.swift */; };
-		4F80FC8B23581E59009C8F83 /* MonthAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2223581E59009C8F83 /* MonthAmountStatResponse.swift */; };
-		4F80FC8C23581E59009C8F83 /* MonthAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2223581E59009C8F83 /* MonthAmountStatResponse.swift */; };
-		4F80FC8D23581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2323581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift */; };
-		4F80FC8E23581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2323581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift */; };
-		4F80FC8F23581E59009C8F83 /* CategoryAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2423581E59009C8F83 /* CategoryAmountStatResponse.swift */; };
-		4F80FC9023581E59009C8F83 /* CategoryAmountStatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2423581E59009C8F83 /* CategoryAmountStatResponse.swift */; };
-		4F80FC9123581E59009C8F83 /* GetUserEmployerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2523581E59009C8F83 /* GetUserEmployerResponse.swift */; };
-		4F80FC9223581E59009C8F83 /* GetUserEmployerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2523581E59009C8F83 /* GetUserEmployerResponse.swift */; };
-		4F80FC9323581E59009C8F83 /* PostFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2623581E59009C8F83 /* PostFinancialAccountRequest.swift */; };
-		4F80FC9423581E59009C8F83 /* PostFinancialAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2623581E59009C8F83 /* PostFinancialAccountRequest.swift */; };
-		4F80FC9523581E59009C8F83 /* LoanSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2723581E59009C8F83 /* LoanSetting.swift */; };
-		4F80FC9623581E59009C8F83 /* LoanSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2723581E59009C8F83 /* LoanSetting.swift */; };
-		4F80FC9723581E59009C8F83 /* FinancialAccountSlim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2823581E59009C8F83 /* FinancialAccountSlim.swift */; };
-		4F80FC9823581E59009C8F83 /* FinancialAccountSlim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2823581E59009C8F83 /* FinancialAccountSlim.swift */; };
-		4F80FC9923581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2923581E59009C8F83 /* GetSpendingCategoryResponse.swift */; };
-		4F80FC9A23581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2923581E59009C8F83 /* GetSpendingCategoryResponse.swift */; };
-		4F80FC9B23581E59009C8F83 /* PostForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2A23581E59009C8F83 /* PostForgetPasswordRequest.swift */; };
-		4F80FC9C23581E59009C8F83 /* PostForgetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2A23581E59009C8F83 /* PostForgetPasswordRequest.swift */; };
-		4F80FC9D23581E59009C8F83 /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2B23581E59009C8F83 /* GetUserResponse.swift */; };
-		4F80FC9E23581E59009C8F83 /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2B23581E59009C8F83 /* GetUserResponse.swift */; };
-		4F80FC9F23581E59009C8F83 /* GetAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2C23581E59009C8F83 /* GetAddressResponse.swift */; };
-		4F80FCA023581E59009C8F83 /* GetAddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2C23581E59009C8F83 /* GetAddressResponse.swift */; };
-		4F80FCA123581E59009C8F83 /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2D23581E59009C8F83 /* GetRecurringBillResponse.swift */; };
-		4F80FCA223581E59009C8F83 /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2D23581E59009C8F83 /* GetRecurringBillResponse.swift */; };
-		4F80FCA323581E59009C8F83 /* GetEmployerPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2E23581E59009C8F83 /* GetEmployerPlaceResponse.swift */; };
-		4F80FCA423581E59009C8F83 /* GetEmployerPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2E23581E59009C8F83 /* GetEmployerPlaceResponse.swift */; };
-		4F80FCA523581E59009C8F83 /* PutBankAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2F23581E59009C8F83 /* PutBankAccountRequest.swift */; };
-		4F80FCA623581E59009C8F83 /* PutBankAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC2F23581E59009C8F83 /* PutBankAccountRequest.swift */; };
-		4F80FCA723581E59009C8F83 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3023581E59009C8F83 /* GetUserBudgetResponse.swift */; };
-		4F80FCA823581E59009C8F83 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3023581E59009C8F83 /* GetUserBudgetResponse.swift */; };
-		4F80FCA923581E59009C8F83 /* EligibleRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3123581E59009C8F83 /* EligibleRequirement.swift */; };
-		4F80FCAA23581E59009C8F83 /* EligibleRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3123581E59009C8F83 /* EligibleRequirement.swift */; };
-		4F80FCAB23581E59009C8F83 /* PostFinancialInstitutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3223581E59009C8F83 /* PostFinancialInstitutionRequest.swift */; };
-		4F80FCAC23581E59009C8F83 /* PostFinancialInstitutionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3223581E59009C8F83 /* PostFinancialInstitutionRequest.swift */; };
-		4F80FCAD23581E59009C8F83 /* SpendingOverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3323581E59009C8F83 /* SpendingOverviewCard.swift */; };
-		4F80FCAE23581E59009C8F83 /* SpendingOverviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3323581E59009C8F83 /* SpendingOverviewCard.swift */; };
-		4F80FCAF23581E59009C8F83 /* PutUserBudgetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3423581E59009C8F83 /* PutUserBudgetsRequest.swift */; };
-		4F80FCB023581E59009C8F83 /* PutUserBudgetsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3423581E59009C8F83 /* PutUserBudgetsRequest.swift */; };
-		4F80FCB123581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3523581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift */; };
-		4F80FCB223581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3523581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift */; };
-		4F80FCB323581E59009C8F83 /* UserBudgetUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3623581E59009C8F83 /* UserBudgetUpdate.swift */; };
-		4F80FCB423581E59009C8F83 /* UserBudgetUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3623581E59009C8F83 /* UserBudgetUpdate.swift */; };
-		4F80FCB523581E59009C8F83 /* PostPushNotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3723581E59009C8F83 /* PostPushNotificationRequest.swift */; };
-		4F80FCB623581E59009C8F83 /* PostPushNotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3723581E59009C8F83 /* PostPushNotificationRequest.swift */; };
-		4F80FCB723581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift */; };
-		4F80FCB823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift */; };
-		4F80FCB923581E59009C8F83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3923581E59009C8F83 /* Extensions.swift */; };
-		4F80FCBA23581E59009C8F83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3923581E59009C8F83 /* Extensions.swift */; };
-		4F80FCBB23581E59009C8F83 /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3A23581E59009C8F83 /* JSONEncodingHelper.swift */; };
-		4F80FCBC23581E59009C8F83 /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3A23581E59009C8F83 /* JSONEncodingHelper.swift */; };
-		4F80FCBD23581E59009C8F83 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3B23581E59009C8F83 /* Models.swift */; };
-		4F80FCBE23581E59009C8F83 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3B23581E59009C8F83 /* Models.swift */; };
-		4F80FCBF23581E59009C8F83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3C23581E59009C8F83 /* Configuration.swift */; };
-		4F80FCC023581E59009C8F83 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FC3C23581E59009C8F83 /* Configuration.swift */; };
 		4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
 		4F80FCC623591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */; };
 		4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */; };
@@ -670,6 +670,72 @@
 		4F0D71782346F6E300AA819C /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewModel.swift; sourceTree = "<group>"; };
 		4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPasscodeTextField.swift; sourceTree = "<group>"; };
+		4F18089B235D22460018507D /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		4F18089C235D22460018507D /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
+		4F18089E235D22460018507D /* FinancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancesAPI.swift; sourceTree = "<group>"; };
+		4F18089F235D22460018507D /* UsersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersAPI.swift; sourceTree = "<group>"; };
+		4F1808A0235D22460018507D /* LendingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LendingAPI.swift; sourceTree = "<group>"; };
+		4F1808A1235D22460018507D /* HealthCheckAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCheckAPI.swift; sourceTree = "<group>"; };
+		4F1808A2235D22460018507D /* LocationsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsAPI.swift; sourceTree = "<group>"; };
+		4F1808A3235D22460018507D /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		4F1808A4235D22460018507D /* BudgetingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetingAPI.swift; sourceTree = "<group>"; };
+		4F1808A5235D22460018507D /* SpendingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingAPI.swift; sourceTree = "<group>"; };
+		4F1808A6235D22460018507D /* RecurringBillsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurringBillsAPI.swift; sourceTree = "<group>"; };
+		4F1808A7235D22460018507D /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		4F1808A8235D22460018507D /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
+		4F1808A9235D22460018507D /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		4F1808AB235D22460018507D /* PutUserDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserDetailRequest.swift; sourceTree = "<group>"; };
+		4F1808AC235D22460018507D /* PutResetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutResetPasswordRequest.swift; sourceTree = "<group>"; };
+		4F1808AD235D22460018507D /* PutUserEmployerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserEmployerRequest.swift; sourceTree = "<group>"; };
+		4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialTransactionRequest.swift; sourceTree = "<group>"; };
+		4F1808AF235D22460018507D /* GetUserMoneySoftResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserMoneySoftResponse.swift; sourceTree = "<group>"; };
+		4F1808B0235D22460018507D /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
+		4F1808B1235D22460018507D /* PostRecurringBillRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRecurringBillRequest.swift; sourceTree = "<group>"; };
+		4F1808B2235D22460018507D /* GetBudgetSpendingsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBudgetSpendingsResponse.swift; sourceTree = "<group>"; };
+		4F1808B3235D22460018507D /* GetUserKycResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserKycResponse.swift; sourceTree = "<group>"; };
+		4F1808B4235D22460018507D /* LoanActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanActivity.swift; sourceTree = "<group>"; };
+		4F1808B5235D22460018507D /* GetLendingOverviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLendingOverviewResponse.swift; sourceTree = "<group>"; };
+		4F1808B6235D22460018507D /* UserBudget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBudget.swift; sourceTree = "<group>"; };
+		4F1808B7235D22460018507D /* PutUserOnfidoKycRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserOnfidoKycRequest.swift; sourceTree = "<group>"; };
+		4F1808B8235D22460018507D /* PutFinancialAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutFinancialAccountRequest.swift; sourceTree = "<group>"; };
+		4F1808B9235D22460018507D /* DeclineDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclineDetail.swift; sourceTree = "<group>"; };
+		4F1808BA235D22460018507D /* GetUserDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserDetailResponse.swift; sourceTree = "<group>"; };
+		4F1808BB235D22460018507D /* DailyTransactionsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTransactionsResponse.swift; sourceTree = "<group>"; };
+		4F1808BC235D22460018507D /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
+		4F1808BD235D22460018507D /* PostLoanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLoanRequest.swift; sourceTree = "<group>"; };
+		4F1808BE235D22460018507D /* PutUserSingupVerificationCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserSingupVerificationCodeRequest.swift; sourceTree = "<group>"; };
+		4F1808BF235D22460018507D /* GetLoanPreviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLoanPreviewResponse.swift; sourceTree = "<group>"; };
+		4F1808C0235D22460018507D /* GetSpendingOverviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingOverviewResponse.swift; sourceTree = "<group>"; };
+		4F1808C1235D22460018507D /* BorrowOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorrowOverview.swift; sourceTree = "<group>"; };
+		4F1808C2235D22460018507D /* SlimTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimTransactionResponse.swift; sourceTree = "<group>"; };
+		4F1808C3235D22460018507D /* GetUpcomingBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpcomingBillResponse.swift; sourceTree = "<group>"; };
+		4F1808C4235D22460018507D /* MonthAmountStatResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthAmountStatResponse.swift; sourceTree = "<group>"; };
+		4F1808C5235D22460018507D /* UserFinancialAccountsLinkingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFinancialAccountsLinkingResponse.swift; sourceTree = "<group>"; };
+		4F1808C6235D22460018507D /* CategoryAmountStatResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAmountStatResponse.swift; sourceTree = "<group>"; };
+		4F1808C7235D22460018507D /* GetUserEmployerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserEmployerResponse.swift; sourceTree = "<group>"; };
+		4F1808C8235D22460018507D /* PostFinancialAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialAccountRequest.swift; sourceTree = "<group>"; };
+		4F1808C9235D22460018507D /* LoanSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanSetting.swift; sourceTree = "<group>"; };
+		4F1808CA235D22460018507D /* FinancialAccountSlim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialAccountSlim.swift; sourceTree = "<group>"; };
+		4F1808CB235D22460018507D /* GetSpendingCategoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingCategoryResponse.swift; sourceTree = "<group>"; };
+		4F1808CC235D22460018507D /* PostForgetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostForgetPasswordRequest.swift; sourceTree = "<group>"; };
+		4F1808CD235D22460018507D /* GetUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
+		4F1808CE235D22460018507D /* GetAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddressResponse.swift; sourceTree = "<group>"; };
+		4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRecurringBillResponse.swift; sourceTree = "<group>"; };
+		4F1808D0235D22460018507D /* GetEmployerPlaceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEmployerPlaceResponse.swift; sourceTree = "<group>"; };
+		4F1808D1235D22460018507D /* PutBankAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutBankAccountRequest.swift; sourceTree = "<group>"; };
+		4F1808D2235D22460018507D /* GetUserBudgetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserBudgetResponse.swift; sourceTree = "<group>"; };
+		4F1808D3235D22460018507D /* EligibleRequirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibleRequirement.swift; sourceTree = "<group>"; };
+		4F1808D4235D22460018507D /* RecentBorrowingSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentBorrowingSummary.swift; sourceTree = "<group>"; };
+		4F1808D5235D22460018507D /* PostFinancialInstitutionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialInstitutionRequest.swift; sourceTree = "<group>"; };
+		4F1808D6235D22460018507D /* SpendingOverviewCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingOverviewCard.swift; sourceTree = "<group>"; };
+		4F1808D7235D22460018507D /* PutUserBudgetsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserBudgetsRequest.swift; sourceTree = "<group>"; };
+		4F1808D8235D22460018507D /* GetSpendingSpecificCategoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingSpecificCategoryResponse.swift; sourceTree = "<group>"; };
+		4F1808D9235D22460018507D /* UserBudgetUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBudgetUpdate.swift; sourceTree = "<group>"; };
+		4F1808DA235D22460018507D /* PostPushNotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPushNotificationRequest.swift; sourceTree = "<group>"; };
+		4F1808DB235D22460018507D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4F1808DC235D22460018507D /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
+		4F1808DD235D22460018507D /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4F1808DE235D22460018507D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -703,72 +769,6 @@
 		4F57BB1223260EBA00B95C06 /* ViewController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extension.swift; sourceTree = "<group>"; };
 		4F80FAD62357C565009C8F83 /* IntercomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomManager.swift; sourceTree = "<group>"; };
 		4F80FBF52357C8B9009C8F83 /* CheqDevice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDevice.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F80FBF923581E59009C8F83 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		4F80FBFA23581E59009C8F83 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
-		4F80FBFC23581E59009C8F83 /* FinancesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancesAPI.swift; sourceTree = "<group>"; };
-		4F80FBFD23581E59009C8F83 /* UsersAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersAPI.swift; sourceTree = "<group>"; };
-		4F80FBFE23581E59009C8F83 /* LendingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LendingAPI.swift; sourceTree = "<group>"; };
-		4F80FBFF23581E59009C8F83 /* HealthCheckAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthCheckAPI.swift; sourceTree = "<group>"; };
-		4F80FC0023581E59009C8F83 /* LocationsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsAPI.swift; sourceTree = "<group>"; };
-		4F80FC0123581E59009C8F83 /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
-		4F80FC0223581E59009C8F83 /* BudgetingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetingAPI.swift; sourceTree = "<group>"; };
-		4F80FC0323581E59009C8F83 /* SpendingAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingAPI.swift; sourceTree = "<group>"; };
-		4F80FC0423581E59009C8F83 /* RecurringBillsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecurringBillsAPI.swift; sourceTree = "<group>"; };
-		4F80FC0523581E59009C8F83 /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
-		4F80FC0623581E59009C8F83 /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
-		4F80FC0723581E59009C8F83 /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
-		4F80FC0923581E59009C8F83 /* PutUserDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserDetailRequest.swift; sourceTree = "<group>"; };
-		4F80FC0A23581E59009C8F83 /* PutResetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutResetPasswordRequest.swift; sourceTree = "<group>"; };
-		4F80FC0B23581E59009C8F83 /* PutUserEmployerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserEmployerRequest.swift; sourceTree = "<group>"; };
-		4F80FC0C23581E59009C8F83 /* PostFinancialTransactionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialTransactionRequest.swift; sourceTree = "<group>"; };
-		4F80FC0D23581E59009C8F83 /* GetUserMoneySoftResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserMoneySoftResponse.swift; sourceTree = "<group>"; };
-		4F80FC0E23581E59009C8F83 /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
-		4F80FC0F23581E59009C8F83 /* PostRecurringBillRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRecurringBillRequest.swift; sourceTree = "<group>"; };
-		4F80FC1023581E59009C8F83 /* CurrentLendingSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLendingSummary.swift; sourceTree = "<group>"; };
-		4F80FC1123581E59009C8F83 /* GetUserKycResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserKycResponse.swift; sourceTree = "<group>"; };
-		4F80FC1223581E59009C8F83 /* LoanActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanActivity.swift; sourceTree = "<group>"; };
-		4F80FC1323581E59009C8F83 /* GetLendingOverviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLendingOverviewResponse.swift; sourceTree = "<group>"; };
-		4F80FC1423581E59009C8F83 /* UserBudget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBudget.swift; sourceTree = "<group>"; };
-		4F80FC1523581E59009C8F83 /* PutUserOnfidoKycRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserOnfidoKycRequest.swift; sourceTree = "<group>"; };
-		4F80FC1623581E59009C8F83 /* PutFinancialAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutFinancialAccountRequest.swift; sourceTree = "<group>"; };
-		4F80FC1723581E59009C8F83 /* DeclineDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeclineDetail.swift; sourceTree = "<group>"; };
-		4F80FC1823581E59009C8F83 /* GetUserDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserDetailResponse.swift; sourceTree = "<group>"; };
-		4F80FC1923581E59009C8F83 /* DailyTransactionsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTransactionsResponse.swift; sourceTree = "<group>"; };
-		4F80FC1A23581E59009C8F83 /* Worksheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worksheet.swift; sourceTree = "<group>"; };
-		4F80FC1B23581E59009C8F83 /* PostLoanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostLoanRequest.swift; sourceTree = "<group>"; };
-		4F80FC1C23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserSingupVerificationCodeRequest.swift; sourceTree = "<group>"; };
-		4F80FC1D23581E59009C8F83 /* GetLoanPreviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLoanPreviewResponse.swift; sourceTree = "<group>"; };
-		4F80FC1E23581E59009C8F83 /* GetSpendingOverviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingOverviewResponse.swift; sourceTree = "<group>"; };
-		4F80FC1F23581E59009C8F83 /* BorrowOverview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorrowOverview.swift; sourceTree = "<group>"; };
-		4F80FC2023581E59009C8F83 /* SlimTransactionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimTransactionResponse.swift; sourceTree = "<group>"; };
-		4F80FC2123581E59009C8F83 /* GetUpcomingBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUpcomingBillResponse.swift; sourceTree = "<group>"; };
-		4F80FC2223581E59009C8F83 /* MonthAmountStatResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthAmountStatResponse.swift; sourceTree = "<group>"; };
-		4F80FC2323581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFinancialAccountsLinkingResponse.swift; sourceTree = "<group>"; };
-		4F80FC2423581E59009C8F83 /* CategoryAmountStatResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAmountStatResponse.swift; sourceTree = "<group>"; };
-		4F80FC2523581E59009C8F83 /* GetUserEmployerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserEmployerResponse.swift; sourceTree = "<group>"; };
-		4F80FC2623581E59009C8F83 /* PostFinancialAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialAccountRequest.swift; sourceTree = "<group>"; };
-		4F80FC2723581E59009C8F83 /* LoanSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoanSetting.swift; sourceTree = "<group>"; };
-		4F80FC2823581E59009C8F83 /* FinancialAccountSlim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinancialAccountSlim.swift; sourceTree = "<group>"; };
-		4F80FC2923581E59009C8F83 /* GetSpendingCategoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingCategoryResponse.swift; sourceTree = "<group>"; };
-		4F80FC2A23581E59009C8F83 /* PostForgetPasswordRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostForgetPasswordRequest.swift; sourceTree = "<group>"; };
-		4F80FC2B23581E59009C8F83 /* GetUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
-		4F80FC2C23581E59009C8F83 /* GetAddressResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddressResponse.swift; sourceTree = "<group>"; };
-		4F80FC2D23581E59009C8F83 /* GetRecurringBillResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRecurringBillResponse.swift; sourceTree = "<group>"; };
-		4F80FC2E23581E59009C8F83 /* GetEmployerPlaceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEmployerPlaceResponse.swift; sourceTree = "<group>"; };
-		4F80FC2F23581E59009C8F83 /* PutBankAccountRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutBankAccountRequest.swift; sourceTree = "<group>"; };
-		4F80FC3023581E59009C8F83 /* GetUserBudgetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUserBudgetResponse.swift; sourceTree = "<group>"; };
-		4F80FC3123581E59009C8F83 /* EligibleRequirement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibleRequirement.swift; sourceTree = "<group>"; };
-		4F80FC3223581E59009C8F83 /* PostFinancialInstitutionRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFinancialInstitutionRequest.swift; sourceTree = "<group>"; };
-		4F80FC3323581E59009C8F83 /* SpendingOverviewCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingOverviewCard.swift; sourceTree = "<group>"; };
-		4F80FC3423581E59009C8F83 /* PutUserBudgetsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PutUserBudgetsRequest.swift; sourceTree = "<group>"; };
-		4F80FC3523581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetSpendingSpecificCategoryResponse.swift; sourceTree = "<group>"; };
-		4F80FC3623581E59009C8F83 /* UserBudgetUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBudgetUpdate.swift; sourceTree = "<group>"; };
-		4F80FC3723581E59009C8F83 /* PostPushNotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPushNotificationRequest.swift; sourceTree = "<group>"; };
-		4F80FC3823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneySoftVisibleMessageRequest.swift; sourceTree = "<group>"; };
-		4F80FC3923581E59009C8F83 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		4F80FC3A23581E59009C8F83 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
-		4F80FC3B23581E59009C8F83 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		4F80FC3C23581E59009C8F83 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F80FCC423591B74009C8F83 /* SelectDocumentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDocumentCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCCB235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasWriteOffIntroCoordinator.swift; sourceTree = "<group>"; };
 		4F80FCCE23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPayCycleIntroCoordinator.swift; sourceTree = "<group>"; };
@@ -1234,6 +1234,95 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4F18089A235D22460018507D /* api */ = {
+			isa = PBXGroup;
+			children = (
+				4F18089B235D22460018507D /* APIHelper.swift */,
+				4F18089C235D22460018507D /* AlamofireImplementations.swift */,
+				4F18089D235D22460018507D /* APIs */,
+				4F1808A7235D22460018507D /* CodableHelper.swift */,
+				4F1808A8235D22460018507D /* JSONEncodableEncoding.swift */,
+				4F1808A9235D22460018507D /* APIs.swift */,
+				4F1808AA235D22460018507D /* Models */,
+				4F1808DB235D22460018507D /* Extensions.swift */,
+				4F1808DC235D22460018507D /* JSONEncodingHelper.swift */,
+				4F1808DD235D22460018507D /* Models.swift */,
+				4F1808DE235D22460018507D /* Configuration.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		4F18089D235D22460018507D /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				4F18089E235D22460018507D /* FinancesAPI.swift */,
+				4F18089F235D22460018507D /* UsersAPI.swift */,
+				4F1808A0235D22460018507D /* LendingAPI.swift */,
+				4F1808A1235D22460018507D /* HealthCheckAPI.swift */,
+				4F1808A2235D22460018507D /* LocationsAPI.swift */,
+				4F1808A3235D22460018507D /* FirebaseAPI.swift */,
+				4F1808A4235D22460018507D /* BudgetingAPI.swift */,
+				4F1808A5235D22460018507D /* SpendingAPI.swift */,
+				4F1808A6235D22460018507D /* RecurringBillsAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		4F1808AA235D22460018507D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4F1808AB235D22460018507D /* PutUserDetailRequest.swift */,
+				4F1808AC235D22460018507D /* PutResetPasswordRequest.swift */,
+				4F1808AD235D22460018507D /* PutUserEmployerRequest.swift */,
+				4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */,
+				4F1808AF235D22460018507D /* GetUserMoneySoftResponse.swift */,
+				4F1808B0235D22460018507D /* PostWorksheetRequest.swift */,
+				4F1808B1235D22460018507D /* PostRecurringBillRequest.swift */,
+				4F1808B2235D22460018507D /* GetBudgetSpendingsResponse.swift */,
+				4F1808B3235D22460018507D /* GetUserKycResponse.swift */,
+				4F1808B4235D22460018507D /* LoanActivity.swift */,
+				4F1808B5235D22460018507D /* GetLendingOverviewResponse.swift */,
+				4F1808B6235D22460018507D /* UserBudget.swift */,
+				4F1808B7235D22460018507D /* PutUserOnfidoKycRequest.swift */,
+				4F1808B8235D22460018507D /* PutFinancialAccountRequest.swift */,
+				4F1808B9235D22460018507D /* DeclineDetail.swift */,
+				4F1808BA235D22460018507D /* GetUserDetailResponse.swift */,
+				4F1808BB235D22460018507D /* DailyTransactionsResponse.swift */,
+				4F1808BC235D22460018507D /* Worksheet.swift */,
+				4F1808BD235D22460018507D /* PostLoanRequest.swift */,
+				4F1808BE235D22460018507D /* PutUserSingupVerificationCodeRequest.swift */,
+				4F1808BF235D22460018507D /* GetLoanPreviewResponse.swift */,
+				4F1808C0235D22460018507D /* GetSpendingOverviewResponse.swift */,
+				4F1808C1235D22460018507D /* BorrowOverview.swift */,
+				4F1808C2235D22460018507D /* SlimTransactionResponse.swift */,
+				4F1808C3235D22460018507D /* GetUpcomingBillResponse.swift */,
+				4F1808C4235D22460018507D /* MonthAmountStatResponse.swift */,
+				4F1808C5235D22460018507D /* UserFinancialAccountsLinkingResponse.swift */,
+				4F1808C6235D22460018507D /* CategoryAmountStatResponse.swift */,
+				4F1808C7235D22460018507D /* GetUserEmployerResponse.swift */,
+				4F1808C8235D22460018507D /* PostFinancialAccountRequest.swift */,
+				4F1808C9235D22460018507D /* LoanSetting.swift */,
+				4F1808CA235D22460018507D /* FinancialAccountSlim.swift */,
+				4F1808CB235D22460018507D /* GetSpendingCategoryResponse.swift */,
+				4F1808CC235D22460018507D /* PostForgetPasswordRequest.swift */,
+				4F1808CD235D22460018507D /* GetUserResponse.swift */,
+				4F1808CE235D22460018507D /* GetAddressResponse.swift */,
+				4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */,
+				4F1808D0235D22460018507D /* GetEmployerPlaceResponse.swift */,
+				4F1808D1235D22460018507D /* PutBankAccountRequest.swift */,
+				4F1808D2235D22460018507D /* GetUserBudgetResponse.swift */,
+				4F1808D3235D22460018507D /* EligibleRequirement.swift */,
+				4F1808D4235D22460018507D /* RecentBorrowingSummary.swift */,
+				4F1808D5235D22460018507D /* PostFinancialInstitutionRequest.swift */,
+				4F1808D6235D22460018507D /* SpendingOverviewCard.swift */,
+				4F1808D7235D22460018507D /* PutUserBudgetsRequest.swift */,
+				4F1808D8235D22460018507D /* GetSpendingSpecificCategoryResponse.swift */,
+				4F1808D9235D22460018507D /* UserBudgetUpdate.swift */,
+				4F1808DA235D22460018507D /* PostPushNotificationRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1363,7 +1452,7 @@
 		4F573A91231CC929004616F5 /* CheqAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4F80FBF823581E59009C8F83 /* api */,
+				4F18089A235D22460018507D /* api */,
 				4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */,
 				4FB1CD232356AF5E00E7B224 /* CheqAPIManager_Lending.swift */,
 				966434DB2341C66E00934FB0 /* CheqAPIManager_Spending.swift */,
@@ -1414,95 +1503,6 @@
 				4F80FAD62357C565009C8F83 /* IntercomManager.swift */,
 			);
 			path = Intercom;
-			sourceTree = "<group>";
-		};
-		4F80FBF823581E59009C8F83 /* api */ = {
-			isa = PBXGroup;
-			children = (
-				4F80FBF923581E59009C8F83 /* APIHelper.swift */,
-				4F80FBFA23581E59009C8F83 /* AlamofireImplementations.swift */,
-				4F80FBFB23581E59009C8F83 /* APIs */,
-				4F80FC0523581E59009C8F83 /* CodableHelper.swift */,
-				4F80FC0623581E59009C8F83 /* JSONEncodableEncoding.swift */,
-				4F80FC0723581E59009C8F83 /* APIs.swift */,
-				4F80FC0823581E59009C8F83 /* Models */,
-				4F80FC3923581E59009C8F83 /* Extensions.swift */,
-				4F80FC3A23581E59009C8F83 /* JSONEncodingHelper.swift */,
-				4F80FC3B23581E59009C8F83 /* Models.swift */,
-				4F80FC3C23581E59009C8F83 /* Configuration.swift */,
-			);
-			path = api;
-			sourceTree = "<group>";
-		};
-		4F80FBFB23581E59009C8F83 /* APIs */ = {
-			isa = PBXGroup;
-			children = (
-				4F80FBFC23581E59009C8F83 /* FinancesAPI.swift */,
-				4F80FBFD23581E59009C8F83 /* UsersAPI.swift */,
-				4F80FBFE23581E59009C8F83 /* LendingAPI.swift */,
-				4F80FBFF23581E59009C8F83 /* HealthCheckAPI.swift */,
-				4F80FC0023581E59009C8F83 /* LocationsAPI.swift */,
-				4F80FC0123581E59009C8F83 /* FirebaseAPI.swift */,
-				4F80FC0223581E59009C8F83 /* BudgetingAPI.swift */,
-				4F80FC0323581E59009C8F83 /* SpendingAPI.swift */,
-				4F80FC0423581E59009C8F83 /* RecurringBillsAPI.swift */,
-			);
-			path = APIs;
-			sourceTree = "<group>";
-		};
-		4F80FC0823581E59009C8F83 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4F80FC0923581E59009C8F83 /* PutUserDetailRequest.swift */,
-				4F80FC0A23581E59009C8F83 /* PutResetPasswordRequest.swift */,
-				4F80FC0B23581E59009C8F83 /* PutUserEmployerRequest.swift */,
-				4F80FC0C23581E59009C8F83 /* PostFinancialTransactionRequest.swift */,
-				4F80FC0D23581E59009C8F83 /* GetUserMoneySoftResponse.swift */,
-				4F80FC0E23581E59009C8F83 /* PostWorksheetRequest.swift */,
-				4F80FC0F23581E59009C8F83 /* PostRecurringBillRequest.swift */,
-				4F80FC1023581E59009C8F83 /* CurrentLendingSummary.swift */,
-				4F80FC1123581E59009C8F83 /* GetUserKycResponse.swift */,
-				4F80FC1223581E59009C8F83 /* LoanActivity.swift */,
-				4F80FC1323581E59009C8F83 /* GetLendingOverviewResponse.swift */,
-				4F80FC1423581E59009C8F83 /* UserBudget.swift */,
-				4F80FC1523581E59009C8F83 /* PutUserOnfidoKycRequest.swift */,
-				4F80FC1623581E59009C8F83 /* PutFinancialAccountRequest.swift */,
-				4F80FC1723581E59009C8F83 /* DeclineDetail.swift */,
-				4F80FC1823581E59009C8F83 /* GetUserDetailResponse.swift */,
-				4F80FC1923581E59009C8F83 /* DailyTransactionsResponse.swift */,
-				4F80FC1A23581E59009C8F83 /* Worksheet.swift */,
-				4F80FC1B23581E59009C8F83 /* PostLoanRequest.swift */,
-				4F80FC1C23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift */,
-				4F80FC1D23581E59009C8F83 /* GetLoanPreviewResponse.swift */,
-				4F80FC1E23581E59009C8F83 /* GetSpendingOverviewResponse.swift */,
-				4F80FC1F23581E59009C8F83 /* BorrowOverview.swift */,
-				4F80FC2023581E59009C8F83 /* SlimTransactionResponse.swift */,
-				4F80FC2123581E59009C8F83 /* GetUpcomingBillResponse.swift */,
-				4F80FC2223581E59009C8F83 /* MonthAmountStatResponse.swift */,
-				4F80FC2323581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift */,
-				4F80FC2423581E59009C8F83 /* CategoryAmountStatResponse.swift */,
-				4F80FC2523581E59009C8F83 /* GetUserEmployerResponse.swift */,
-				4F80FC2623581E59009C8F83 /* PostFinancialAccountRequest.swift */,
-				4F80FC2723581E59009C8F83 /* LoanSetting.swift */,
-				4F80FC2823581E59009C8F83 /* FinancialAccountSlim.swift */,
-				4F80FC2923581E59009C8F83 /* GetSpendingCategoryResponse.swift */,
-				4F80FC2A23581E59009C8F83 /* PostForgetPasswordRequest.swift */,
-				4F80FC2B23581E59009C8F83 /* GetUserResponse.swift */,
-				4F80FC2C23581E59009C8F83 /* GetAddressResponse.swift */,
-				4F80FC2D23581E59009C8F83 /* GetRecurringBillResponse.swift */,
-				4F80FC2E23581E59009C8F83 /* GetEmployerPlaceResponse.swift */,
-				4F80FC2F23581E59009C8F83 /* PutBankAccountRequest.swift */,
-				4F80FC3023581E59009C8F83 /* GetUserBudgetResponse.swift */,
-				4F80FC3123581E59009C8F83 /* EligibleRequirement.swift */,
-				4F80FC3223581E59009C8F83 /* PostFinancialInstitutionRequest.swift */,
-				4F80FC3323581E59009C8F83 /* SpendingOverviewCard.swift */,
-				4F80FC3423581E59009C8F83 /* PutUserBudgetsRequest.swift */,
-				4F80FC3523581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift */,
-				4F80FC3623581E59009C8F83 /* UserBudgetUpdate.swift */,
-				4F80FC3723581E59009C8F83 /* PostPushNotificationRequest.swift */,
-				4F80FC3823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		4F80FCE3235B3069009C8F83 /* PreviewLoan */ = {
@@ -2931,6 +2931,8 @@
 			files = (
 				4F80FADF2357C8B9009C8F83 /* AppConfig.swift in Sources */,
 				4F80FAE12357C8B9009C8F83 /* CompletionProgressTableViewCell.swift in Sources */,
+				4F1808F0235D22460018507D /* BudgetingAPI.swift in Sources */,
+				4F1808E8235D22460018507D /* LendingAPI.swift in Sources */,
 				4F80FAE32357C8B9009C8F83 /* CompanyAddressCoordinator.swift in Sources */,
 				4F80FAE42357C8B9009C8F83 /* CSearchTextField.swift in Sources */,
 				4F80FAE52357C8B9009C8F83 /* StoryboardEnums.swift in Sources */,
@@ -2938,248 +2940,246 @@
 				4F80FAE72357C8B9009C8F83 /* SpacerTableViewCellViewModel.swift in Sources */,
 				4F80FAE82357C8B9009C8F83 /* TableSectionViewModel.swift in Sources */,
 				4F80FAE92357C8B9009C8F83 /* QuestionCoordinatorProtocol.swift in Sources */,
+				4F180918235D22460018507D /* DeclineDetail.swift in Sources */,
+				4F1808EC235D22460018507D /* LocationsAPI.swift in Sources */,
+				4F180904235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */,
 				4F80FAEB2357C8B9009C8F83 /* AuthConfig.swift in Sources */,
 				4F80FAED2357C8B9009C8F83 /* TestUtil.swift in Sources */,
 				4F80FAEE2357C8B9009C8F83 /* GridCollectionViewCoordinator.swift in Sources */,
+				4F18094E235D22470018507D /* RecentBorrowingSummary.swift in Sources */,
 				4F80FAEF2357C8B9009C8F83 /* ChartModelUtil.swift in Sources */,
 				4F80FCC623591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */,
+				4F180936235D22460018507D /* PostFinancialAccountRequest.swift in Sources */,
+				4F180956235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4F80FAF02357C8B9009C8F83 /* IntroductionViewModel.swift in Sources */,
 				4F80FAF12357C8B9009C8F83 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4F80FAF52357C8B9009C8F83 /* CPieChartView.swift in Sources */,
 				4F80FCE7235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				4F80FAF62357C8B9009C8F83 /* CChartViewProtocol.swift in Sources */,
 				4F80FAF72357C8B9009C8F83 /* EmailVerificationViewController.swift in Sources */,
-				4F80FC4C23581E59009C8F83 /* FirebaseAPI.swift in Sources */,
-				4F80FCA823581E59009C8F83 /* GetUserBudgetResponse.swift in Sources */,
-				4F80FC5223581E59009C8F83 /* RecurringBillsAPI.swift in Sources */,
 				4F80FAF92357C8B9009C8F83 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F80FAFA2357C8B9009C8F83 /* LendingViewController.swift in Sources */,
-				4F80FCC023581E59009C8F83 /* Configuration.swift in Sources */,
+				4F180962235D22470018507D /* Configuration.swift in Sources */,
 				4F80FAFC2357C8B9009C8F83 /* SpendingOverviewViewController.swift in Sources */,
+				4F180902235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */,
 				4F80FAFF2357C8B9009C8F83 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F80FB002357C8B9009C8F83 /* CBarViewFormatter.swift in Sources */,
 				4F80FB012357C8B9009C8F83 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F80FB022357C8B9009C8F83 /* CButton.swift in Sources */,
-				4F80FC6023581E59009C8F83 /* PostFinancialTransactionRequest.swift in Sources */,
-				4F80FCAC23581E59009C8F83 /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F80FB032357C8B9009C8F83 /* LegalNameCoordinator.swift in Sources */,
-				4F80FC7423581E59009C8F83 /* PutFinancialAccountRequest.swift in Sources */,
 				4F80FB052357C8B9009C8F83 /* NotificationUtil.swift in Sources */,
-				4F80FC8623581E59009C8F83 /* BorrowOverview.swift in Sources */,
 				4F80FB062357C8B9009C8F83 /* CTextField.swift in Sources */,
 				4F80FB072357C8B9009C8F83 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4F180960235D22470018507D /* Models.swift in Sources */,
 				4F80FB0C2357C8B9009C8F83 /* CarouselCollectionViewCell.swift in Sources */,
 				4F80FB0D2357C8B9009C8F83 /* ViewController_Extension.swift in Sources */,
-				4F80FC9823581E59009C8F83 /* FinancialAccountSlim.swift in Sources */,
 				4F80FB0E2357C8B9009C8F83 /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				4F80FB0F2357C8B9009C8F83 /* BluedotManager.swift in Sources */,
 				4F80FCD923597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
+				4F180954235D22470018507D /* PutUserBudgetsRequest.swift in Sources */,
 				4F80FCDF2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
-				4F80FC7A23581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */,
 				4F80FB102357C8B9009C8F83 /* FBEnums.swift in Sources */,
 				4F80FB112357C8B9009C8F83 /* WebViewController.swift in Sources */,
 				4F80FB142357C8B9009C8F83 /* DateUtil.swift in Sources */,
-				4F80FC8823581E59009C8F83 /* SlimTransactionResponse.swift in Sources */,
 				4F80FB152357C8B9009C8F83 /* CollectionViewProtocol.swift in Sources */,
+				4F180920235D22460018507D /* PostLoanRequest.swift in Sources */,
 				4F80FB162357C8B9009C8F83 /* SpendingOverviewViewModel.swift in Sources */,
+				4F180928235D22460018507D /* BorrowOverview.swift in Sources */,
+				4F1808E0235D22460018507D /* APIHelper.swift in Sources */,
+				4F180944235D22470018507D /* GetRecurringBillResponse.swift in Sources */,
+				4F18090C235D22460018507D /* GetUserKycResponse.swift in Sources */,
 				4F80FB172357C8B9009C8F83 /* FinanceViewController.swift in Sources */,
 				4F80FB182357C8B9009C8F83 /* NSMutableAttributedString.swift in Sources */,
 				4F80FB1A2357C8B9009C8F83 /* EmployeeIntroCoordinator.swift in Sources */,
+				4F180908235D22460018507D /* PostRecurringBillRequest.swift in Sources */,
 				4F80FB1B2357C8B9009C8F83 /* DataHelperUtil.swift in Sources */,
 				4F80FB1C2357C8B9009C8F83 /* EmailVerificationViewModel.swift in Sources */,
-				4F80FCA423581E59009C8F83 /* GetEmployerPlaceResponse.swift in Sources */,
 				4F80FB1D2357C8B9009C8F83 /* EnableNotificationIntroCoordinator.swift in Sources */,
 				4F80FB1F2357C8B9009C8F83 /* AppData.swift in Sources */,
 				4F80FB202357C8B9009C8F83 /* CMultipleChoiceWithImageCell.swift in Sources */,
+				4F1808FE235D22460018507D /* PutResetPasswordRequest.swift in Sources */,
 				4F80FB212357C8B9009C8F83 /* CompanyNameCoordinator.swift in Sources */,
-				4F80FC7023581E59009C8F83 /* UserBudget.swift in Sources */,
-				4F80FC5823581E59009C8F83 /* APIs.swift in Sources */,
 				4F80FB222357C8B9009C8F83 /* MaritalStatusCoordinator.swift in Sources */,
 				4F80FB232357C8B9009C8F83 /* CChartModel.swift in Sources */,
-				4F80FC4823581E59009C8F83 /* HealthCheckAPI.swift in Sources */,
 				4F80FB242357C8B9009C8F83 /* AccountViewController.swift in Sources */,
+				4F18092A235D22460018507D /* SlimTransactionResponse.swift in Sources */,
+				4F180952235D22470018507D /* SpendingOverviewCard.swift in Sources */,
+				4F1808FA235D22460018507D /* APIs.swift in Sources */,
+				4F180940235D22460018507D /* GetUserResponse.swift in Sources */,
 				4F80FB252357C8B9009C8F83 /* IntercomChatTableViewCell.swift in Sources */,
-				4F80FC6A23581E59009C8F83 /* GetUserKycResponse.swift in Sources */,
 				4F80FB262357C8B9009C8F83 /* StringUtil.swift in Sources */,
 				4F80FB272357C8B9009C8F83 /* OnfidoManager.swift in Sources */,
-				4F80FC8E23581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
-				4F80FCBE23581E59009C8F83 /* Models.swift in Sources */,
-				4F80FCA623581E59009C8F83 /* PutBankAccountRequest.swift in Sources */,
 				4F80FB292357C8B9009C8F83 /* ViewUtil.swift in Sources */,
-				4F80FCB223581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
+				4F18095C235D22470018507D /* Extensions.swift in Sources */,
 				4F80FB2A2357C8B9009C8F83 /* DynamicFormViewModel.swift in Sources */,
+				4F180934235D22460018507D /* GetUserEmployerResponse.swift in Sources */,
 				4F80FB2B2357C8B9009C8F83 /* BankAccountCoordinator.swift in Sources */,
-				4F80FCB623581E59009C8F83 /* PostPushNotificationRequest.swift in Sources */,
 				4F80FB2C2357C8B9009C8F83 /* SpacerTableViewCell.swift in Sources */,
+				4F18094A235D22470018507D /* GetUserBudgetResponse.swift in Sources */,
 				4F80FB2D2357C8B9009C8F83 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
 				4F80FB2E2357C8B9009C8F83 /* AnalyticsViewModel.swift in Sources */,
-				4F80FC6C23581E59009C8F83 /* LoanActivity.swift in Sources */,
-				4F80FC9423581E59009C8F83 /* PostFinancialAccountRequest.swift in Sources */,
 				4F80FB302357C8B9009C8F83 /* CheqAPIManager_Lending.swift in Sources */,
-				4F80FC8A23581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */,
 				4F80FB342357C8B9009C8F83 /* QuestionViewController.swift in Sources */,
 				4F80FCED235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */,
-				4F80FC6823581E59009C8F83 /* CurrentLendingSummary.swift in Sources */,
 				4F80FB372357C8B9009C8F83 /* AuthManagerProtocol.swift in Sources */,
 				4F80FB382357C8B9009C8F83 /* TabViewController.swift in Sources */,
+				4F180930235D22460018507D /* UserFinancialAccountsLinkingResponse.swift in Sources */,
+				4F18090E235D22460018507D /* LoanActivity.swift in Sources */,
 				4F80FB392357C8B9009C8F83 /* TableView_Extension.swift in Sources */,
 				4F80FB3C2357C8B9009C8F83 /* HistoryItemTableViewCellViewModel.swift in Sources */,
+				4F1808F4235D22460018507D /* RecurringBillsAPI.swift in Sources */,
 				4F80FB3D2357C8B9009C8F83 /* CToolbar.swift in Sources */,
 				4F80FB3F2357C8B9009C8F83 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				4F80FB412357C8B9009C8F83 /* IntroductionCoordinatorProtocol.swift in Sources */,
-				4F80FC9223581E59009C8F83 /* GetUserEmployerResponse.swift in Sources */,
-				4F80FC9023581E59009C8F83 /* CategoryAmountStatResponse.swift in Sources */,
 				4F80FB422357C8B9009C8F83 /* ServiceEnums.swift in Sources */,
+				4F1808EE235D22460018507D /* FirebaseAPI.swift in Sources */,
 				4F80FB432357C8B9009C8F83 /* AppDelegate.swift in Sources */,
+				4F18093E235D22460018507D /* PostForgetPasswordRequest.swift in Sources */,
 				4F80FB442357C8B9009C8F83 /* MessageBubbleTableViewCell.swift in Sources */,
 				4F80FB452357C8B9009C8F83 /* CKeychain.swift in Sources */,
 				4F80FB462357C8B9009C8F83 /* TableViewCellViewModelProtocol.swift in Sources */,
-				4F80FCBC23581E59009C8F83 /* JSONEncodingHelper.swift in Sources */,
 				4F80FB472357C8B9009C8F83 /* CPageControl.swift in Sources */,
 				4F80FB482357C8B9009C8F83 /* SwipeToConfirmTableViewCell.swift in Sources */,
 				4F80FB4D2357C8B9009C8F83 /* QuestionViewModel.swift in Sources */,
-				4F80FC6E23581E59009C8F83 /* GetLendingOverviewResponse.swift in Sources */,
-				4F80FC8C23581E59009C8F83 /* MonthAmountStatResponse.swift in Sources */,
 				4F80FB4E2357C8B9009C8F83 /* FinancialInstitutionCoordinator.swift in Sources */,
+				4F18095A235D22470018507D /* PostPushNotificationRequest.swift in Sources */,
+				4F180932235D22460018507D /* CategoryAmountStatResponse.swift in Sources */,
 				4F80FB4F2357C8B9009C8F83 /* MultipleChoiceViewModel.swift in Sources */,
 				4F80FB502357C8B9009C8F83 /* BottomTableViewCell.swift in Sources */,
 				4F80FB512357C8B9009C8F83 /* CBarChartView.swift in Sources */,
+				4F180926235D22460018507D /* GetSpendingOverviewResponse.swift in Sources */,
+				4F180916235D22460018507D /* PutFinancialAccountRequest.swift in Sources */,
 				4F80FB522357C8B9009C8F83 /* TransferCardTableViewCell.swift in Sources */,
 				4F80FB532357C8B9009C8F83 /* CTableViewCell.swift in Sources */,
 				4F80FB542357C8B9009C8F83 /* LoginViewController.swift in Sources */,
 				4F80FB562357C8B9009C8F83 /* AgeRangeCoordinator.swift in Sources */,
+				4F180900235D22460018507D /* PutUserEmployerRequest.swift in Sources */,
 				4F80FB572357C8B9009C8F83 /* NotificationEnums.swift in Sources */,
+				4F180910235D22460018507D /* GetLendingOverviewResponse.swift in Sources */,
 				4F80FB592357C8B9009C8F83 /* PasscodeViewModel.swift in Sources */,
 				4F80FB5A2357C8B9009C8F83 /* CommonEnums.swift in Sources */,
+				4F18092E235D22460018507D /* MonthAmountStatResponse.swift in Sources */,
+				4F180942235D22470018507D /* GetAddressResponse.swift in Sources */,
 				4F80FB5B2357C8B9009C8F83 /* SplashViewController.swift in Sources */,
-				4F80FCBA23581E59009C8F83 /* Extensions.swift in Sources */,
+				4F180938235D22460018507D /* LoanSetting.swift in Sources */,
 				4F80FB5C2357C8B9009C8F83 /* TopTableViewCell.swift in Sources */,
 				4F80FB5D2357C8B9009C8F83 /* CPickerView.swift in Sources */,
 				4F80FB5E2357C8B9009C8F83 /* VerificationViewModel.swift in Sources */,
 				4F80FB602357C8B9009C8F83 /* AmountSelectTableViewCell.swift in Sources */,
-				4F80FC5023581E59009C8F83 /* SpendingAPI.swift in Sources */,
 				4F80FB612357C8B9009C8F83 /* HistoryItemTableViewCell.swift in Sources */,
 				4F80FB632357C8B9009C8F83 /* PrimaryTheme.swift in Sources */,
 				4F80FB652357C8B9009C8F83 /* CPasscodeTextField.swift in Sources */,
 				4F80FB672357C8B9009C8F83 /* MultipleChoiceViewController.swift in Sources */,
 				4F80FB682357C8B9009C8F83 /* MoneySoftUtil.swift in Sources */,
 				4F80FB692357C8B9009C8F83 /* IntercomChatTableViewCellViewModel.swift in Sources */,
-				4F80FC9E23581E59009C8F83 /* GetUserResponse.swift in Sources */,
+				4F18091E235D22460018507D /* Worksheet.swift in Sources */,
 				4F80FB6C2357C8B9009C8F83 /* DynamicFormViewModelCoordinator.swift in Sources */,
-				4F80FC4023581E59009C8F83 /* AlamofireImplementations.swift in Sources */,
 				4F80FB6D2357C8B9009C8F83 /* BenefitCollectionViewCell.swift in Sources */,
-				4F80FC8223581E59009C8F83 /* GetLoanPreviewResponse.swift in Sources */,
 				4F80FB6E2357C8B9009C8F83 /* CBATheme.swift in Sources */,
 				4F80FB6F2357C8B9009C8F83 /* CheqAPIManager_Verification.swift in Sources */,
 				4F80FB702357C8B9009C8F83 /* AnalyticsViewController.swift in Sources */,
-				4F80FC5C23581E59009C8F83 /* PutResetPasswordRequest.swift in Sources */,
 				4F80FB712357C8B9009C8F83 /* CheqAPIManager.swift in Sources */,
 				4F80FB722357C8B9009C8F83 /* ColorUtil.swift in Sources */,
 				4F80FB742357C8B9009C8F83 /* CPieViewFormatter.swift in Sources */,
 				4F80FB752357C8B9009C8F83 /* MobileNumberCoordinator.swift in Sources */,
-				4F80FC7623581E59009C8F83 /* DeclineDetail.swift in Sources */,
 				4F80FB782357C8B9009C8F83 /* CPasswordToggleButton.swift in Sources */,
-				4F80FC5423581E59009C8F83 /* CodableHelper.swift in Sources */,
-				4F80FC7E23581E59009C8F83 /* PostLoanRequest.swift in Sources */,
 				4F80FB7A2357C8B9009C8F83 /* IntroductionViewController.swift in Sources */,
 				4F80FB7B2357C8B9009C8F83 /* TransferCardTableViewCellViewModel.swift in Sources */,
 				4F80FB7C2357C8B9009C8F83 /* MessageBubbleTableViewCellViewModel.swift in Sources */,
+				4F18092C235D22460018507D /* GetUpcomingBillResponse.swift in Sources */,
 				4F80FB7E2357C8B9009C8F83 /* CheqAPIManager_Spending.swift in Sources */,
 				4F80FB7F2357C8B9009C8F83 /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F80FB812357C8B9009C8F83 /* Array_Extension.swift in Sources */,
+				4F180906235D22460018507D /* PostWorksheetRequest.swift in Sources */,
 				4F80FB822357C8B9009C8F83 /* WebViewModel.swift in Sources */,
 				4F80FB832357C8B9009C8F83 /* PasscodeViewController.swift in Sources */,
 				4F80FCDC2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
+				4F180950235D22470018507D /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F80FB842357C8B9009C8F83 /* HeaderTableViewCell.swift in Sources */,
-				4F80FC7C23581E59009C8F83 /* Worksheet.swift in Sources */,
-				4F80FC4423581E59009C8F83 /* UsersAPI.swift in Sources */,
-				4F80FC9C23581E59009C8F83 /* PostForgetPasswordRequest.swift in Sources */,
 				4F80FB862357C8B9009C8F83 /* LendingViewModel.swift in Sources */,
 				4F80FB872357C8B9009C8F83 /* AuthUser.swift in Sources */,
 				4F80FB882357C8B9009C8F83 /* VDotManager.swift in Sources */,
+				4F18095E235D22470018507D /* JSONEncodingHelper.swift in Sources */,
 				4F80FCEA235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */,
-				4F80FC7223581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */,
-				4F80FC3E23581E59009C8F83 /* APIHelper.swift in Sources */,
+				4F1808E4235D22460018507D /* FinancesAPI.swift in Sources */,
 				4F80FB892357C8B9009C8F83 /* CLabel.swift in Sources */,
 				4F80FB8A2357C8B9009C8F83 /* Date_Extension.swift in Sources */,
-				4F80FCA223581E59009C8F83 /* GetRecurringBillResponse.swift in Sources */,
 				4F80FB8C2357C8B9009C8F83 /* EnableLocationIntroCoordinator.swift in Sources */,
+				4F18091C235D22460018507D /* DailyTransactionsResponse.swift in Sources */,
+				4F18090A235D22460018507D /* GetBudgetSpendingsResponse.swift in Sources */,
 				4F80FB8D2357C8B9009C8F83 /* CSwitch.swift in Sources */,
-				4F80FCAA23581E59009C8F83 /* EligibleRequirement.swift in Sources */,
+				4F180912235D22460018507D /* UserBudget.swift in Sources */,
 				4F80FB8E2357C8B9009C8F83 /* FinanceViewModel.swift in Sources */,
 				4F80FB912357C8B9009C8F83 /* GridCoordinatorViewModel.swift in Sources */,
 				4F80FB932357C8B9009C8F83 /* DateOfBirthCoordinator.swift in Sources */,
+				4F18094C235D22470018507D /* EligibleRequirement.swift in Sources */,
 				4F80FCE2235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
-				4F80FC4E23581E59009C8F83 /* BudgetingAPI.swift in Sources */,
 				4F80FB942357C8B9009C8F83 /* LinkAccountsCoordinator.swift in Sources */,
 				4F80FB952357C8B9009C8F83 /* IntercomManager.swift in Sources */,
-				4F80FCB023581E59009C8F83 /* PutUserBudgetsRequest.swift in Sources */,
+				4F180958235D22470018507D /* UserBudgetUpdate.swift in Sources */,
 				4F80FB962357C8B9009C8F83 /* CarouselCollectionViewCoordinator.swift in Sources */,
 				4F80FB972357C8B9009C8F83 /* UIView_Extension.swift in Sources */,
-				4F80FCB823581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift in Sources */,
 				4F80FB982357C8B9009C8F83 /* AppThemeProtocol.swift in Sources */,
-				4F80FC7823581E59009C8F83 /* GetUserDetailResponse.swift in Sources */,
 				4F80FB9A2357C8B9009C8F83 /* DispatchUtil.swift in Sources */,
 				4F80FB9B2357C8B9009C8F83 /* CButtonTableViewCell.swift in Sources */,
-				4F80FCAE23581E59009C8F83 /* SpendingOverviewCard.swift in Sources */,
+				4F180924235D22460018507D /* GetLoanPreviewResponse.swift in Sources */,
 				4F80FB9D2357C8B9009C8F83 /* RegistrationViewController.swift in Sources */,
-				4F80FC5623581E59009C8F83 /* JSONEncodableEncoding.swift in Sources */,
+				4F180914235D22460018507D /* PutUserOnfidoKycRequest.swift in Sources */,
+				4F180948235D22470018507D /* PutBankAccountRequest.swift in Sources */,
 				4F80FB9E2357C8B9009C8F83 /* CTextView.swift in Sources */,
+				4F18093A235D22460018507D /* FinancialAccountSlim.swift in Sources */,
 				4F80FB9F2357C8B9009C8F83 /* SplashViewModel.swift in Sources */,
+				4F1808E2235D22460018507D /* AlamofireImplementations.swift in Sources */,
 				4F80FBA02357C8B9009C8F83 /* LogViewController.swift in Sources */,
 				4F80FBA12357C8B9009C8F83 /* EmployementTypeCoordinator.swift in Sources */,
-				4F80FC4223581E59009C8F83 /* FinancesAPI.swift in Sources */,
 				4F80FBA32357C8B9009C8F83 /* MoneySoftUser.swift in Sources */,
+				4F180946235D22470018507D /* GetEmployerPlaceResponse.swift in Sources */,
 				4F80FBA42357C8B9009C8F83 /* QuestionPickerViewCoordinator.swift in Sources */,
 				4F80FBA52357C8B9009C8F83 /* BaseViewModel.swift in Sources */,
-				4F80FCB423581E59009C8F83 /* UserBudgetUpdate.swift in Sources */,
 				4F80FBA72357C8B9009C8F83 /* AppNav.swift in Sources */,
 				4F80FBA82357C8B9009C8F83 /* CFacebookButton.swift in Sources */,
 				4F80FBA92357C8B9009C8F83 /* CButtonTableViewCellViewModel.swift in Sources */,
 				4F80FCD023597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
-				4F80FC8023581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				4F80FBAB2357C8B9009C8F83 /* GridCollectionViewCell.swift in Sources */,
-				4F80FC4623581E59009C8F83 /* LendingAPI.swift in Sources */,
 				4F80FBAC2357C8B9009C8F83 /* FirebaseAuthManager.swift in Sources */,
 				4F80FBAD2357C8B9009C8F83 /* CPopupDialog.swift in Sources */,
 				4F80FBAF2357C8B9009C8F83 /* OnDemandCoordinator.swift in Sources */,
 				4F80FBB02357C8B9009C8F83 /* CProgressViewStackView.swift in Sources */,
 				4F80FBB12357C8B9009C8F83 /* BottomTableViewCellViewModel.swift in Sources */,
-				4F80FC9623581E59009C8F83 /* LoanSetting.swift in Sources */,
+				4F18093C235D22460018507D /* GetSpendingCategoryResponse.swift in Sources */,
+				4F18091A235D22460018507D /* GetUserDetailResponse.swift in Sources */,
 				4F80FBB22357C8B9009C8F83 /* UICollectionView_Extension.swift in Sources */,
 				4F80FBB32357C8B9009C8F83 /* EmailIntroCoordinator.swift in Sources */,
 				4F80FBB42357C8B9009C8F83 /* AutoLayoutUtil.swift in Sources */,
 				4F80FBB52357C8B9009C8F83 /* ProfileViewModel.swift in Sources */,
+				4F1808E6235D22460018507D /* UsersAPI.swift in Sources */,
 				4F80FCD323597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */,
-				4F80FC8423581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */,
 				4F80FBB62357C8B9009C8F83 /* Data_Extension.swift in Sources */,
-				4F80FC6223581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */,
 				4F80FBB72357C8B9009C8F83 /* ProfileViewController.swift in Sources */,
-				4F80FC5E23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */,
-				4F80FCA023581E59009C8F83 /* GetAddressResponse.swift in Sources */,
 				4F80FBBA2357C8B9009C8F83 /* LoggingUtil.swift in Sources */,
 				4F80FCD623597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4F80FBBB2357C8B9009C8F83 /* AgreementItemTableViewCell.swift in Sources */,
+				4F180922235D22460018507D /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				4F80FBBC2357C8B9009C8F83 /* StateCoordinator.swift in Sources */,
 				4F80FBBD2357C8B9009C8F83 /* AccountViewModel.swift in Sources */,
-				4F80FC6623581E59009C8F83 /* PostRecurringBillRequest.swift in Sources */,
-				4F80FC4A23581E59009C8F83 /* LocationsAPI.swift in Sources */,
-				4F80FC6423581E59009C8F83 /* PostWorksheetRequest.swift in Sources */,
 				4F80FBC02357C8B9009C8F83 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4F80FCCD235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				4F80FBC12357C8B9009C8F83 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4F80FBC22357C8B9009C8F83 /* TopTableViewCellViewModel.swift in Sources */,
+				4F1808FC235D22460018507D /* PutUserDetailRequest.swift in Sources */,
 				4F80FBC32357C8B9009C8F83 /* MoneySoftManager.swift in Sources */,
 				4F80FCF2235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				4F80FBC42357C8B9009C8F83 /* CarouselCoordinatorViewModel.swift in Sources */,
-				4F80FC9A23581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */,
 				4F80FBC52357C8B9009C8F83 /* CSwitchWithLabel.swift in Sources */,
 				4F80FBC62357C8B9009C8F83 /* ResidentialAddressCoordinator.swift in Sources */,
 				4F80FBC82357C8B9009C8F83 /* DynamicFormViewController.swift in Sources */,
 				4F80FBC92357C8B9009C8F83 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				4F80FBCA2357C8B9009C8F83 /* HeaderTableViewCellViewModel.swift in Sources */,
-				4F80FC5A23581E59009C8F83 /* PutUserDetailRequest.swift in Sources */,
+				4F1808EA235D22460018507D /* HealthCheckAPI.swift in Sources */,
 				4F80FBCB2357C8B9009C8F83 /* DarkTheme.swift in Sources */,
+				4F1808F2235D22460018507D /* SpendingAPI.swift in Sources */,
+				4F1808F8235D22460018507D /* JSONEncodableEncoding.swift in Sources */,
+				4F1808F6235D22460018507D /* CodableHelper.swift in Sources */,
 				4F80FBCC2357C8B9009C8F83 /* CProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3190,6 +3190,8 @@
 			files = (
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
 				96F9FFB32352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */,
+				4F1808EF235D22460018507D /* BudgetingAPI.swift in Sources */,
+				4F1808E7235D22460018507D /* LendingAPI.swift in Sources */,
 				4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
 				4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */,
 				4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */,
@@ -3197,248 +3199,246 @@
 				4FB1CDF22356C13F00E7B224 /* SpacerTableViewCellViewModel.swift in Sources */,
 				964FA99F2352967800B07AD7 /* TableSectionViewModel.swift in Sources */,
 				4F0D71472345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */,
+				4F180917235D22460018507D /* DeclineDetail.swift in Sources */,
+				4F1808EB235D22460018507D /* LocationsAPI.swift in Sources */,
+				4F180903235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */,
 				96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */,
 				4F0D63B023431EFD00AA819C /* TestUtil.swift in Sources */,
 				963D62F222FB225B006344C9 /* GridCollectionViewCoordinator.swift in Sources */,
+				4F18094D235D22470018507D /* RecentBorrowingSummary.swift in Sources */,
 				9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */,
 				4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */,
+				4F180935235D22460018507D /* PostFinancialAccountRequest.swift in Sources */,
+				4F180955235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */,
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
 				4F80FCE6235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
 				4FD7C1F92329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
-				4F80FC4B23581E59009C8F83 /* FirebaseAPI.swift in Sources */,
-				4F80FCA723581E59009C8F83 /* GetUserBudgetResponse.swift in Sources */,
-				4F80FC5123581E59009C8F83 /* RecurringBillsAPI.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
-				4F80FCBF23581E59009C8F83 /* Configuration.swift in Sources */,
+				4F180961235D22470018507D /* Configuration.swift in Sources */,
 				966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */,
+				4F180901235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */,
 				96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
 				9654D48D234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F57BB0F2326013100B95C06 /* CButton.swift in Sources */,
-				4F80FC5F23581E59009C8F83 /* PostFinancialTransactionRequest.swift in Sources */,
-				4F80FCAB23581E59009C8F83 /* PostFinancialInstitutionRequest.swift in Sources */,
 				4F0D714B2345AB0800AA819C /* LegalNameCoordinator.swift in Sources */,
-				4F80FC7323581E59009C8F83 /* PutFinancialAccountRequest.swift in Sources */,
 				4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */,
-				4F80FC8523581E59009C8F83 /* BorrowOverview.swift in Sources */,
 				4F57BB0B2326005200B95C06 /* CTextField.swift in Sources */,
 				4FB1CB24235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4F18095F235D22470018507D /* Models.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
-				4F80FC9723581E59009C8F83 /* FinancialAccountSlim.swift in Sources */,
 				96F9FFBA2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */,
 				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
 				4F80FCD823597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
+				4F180953235D22470018507D /* PutUserBudgetsRequest.swift in Sources */,
 				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
-				4F80FC7923581E59009C8F83 /* DailyTransactionsResponse.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
 				4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */,
-				4F80FC8723581E59009C8F83 /* SlimTransactionResponse.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
+				4F18091F235D22460018507D /* PostLoanRequest.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */,
+				4F180927235D22460018507D /* BorrowOverview.swift in Sources */,
+				4F1808DF235D22460018507D /* APIHelper.swift in Sources */,
+				4F180943235D22470018507D /* GetRecurringBillResponse.swift in Sources */,
+				4F18090B235D22460018507D /* GetUserKycResponse.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
 				96A9F6D22327D1E800A05E25 /* NSMutableAttributedString.swift in Sources */,
 				9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
+				4F180907235D22460018507D /* PostRecurringBillRequest.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
 				4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */,
-				4F80FCA323581E59009C8F83 /* GetEmployerPlaceResponse.swift in Sources */,
 				9654D493234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */,
 				4F0B06652330452000986E35 /* AppData.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
+				4F1808FD235D22460018507D /* PutResetPasswordRequest.swift in Sources */,
 				4F0D715A2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */,
-				4F80FC6F23581E59009C8F83 /* UserBudget.swift in Sources */,
-				4F80FC5723581E59009C8F83 /* APIs.swift in Sources */,
 				4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
-				4F80FC4723581E59009C8F83 /* HealthCheckAPI.swift in Sources */,
 				4F0D71702346B9D900AA819C /* AccountViewController.swift in Sources */,
+				4F180929235D22460018507D /* SlimTransactionResponse.swift in Sources */,
+				4F180951235D22470018507D /* SpendingOverviewCard.swift in Sources */,
+				4F1808F9235D22460018507D /* APIs.swift in Sources */,
+				4F18093F235D22460018507D /* GetUserResponse.swift in Sources */,
 				96F9FFA52352B0C80041001F /* IntercomChatTableViewCell.swift in Sources */,
-				4F80FC6923581E59009C8F83 /* GetUserKycResponse.swift in Sources */,
 				964F7BE023332A9800338227 /* StringUtil.swift in Sources */,
 				4FD7C203232A190600AC7A67 /* OnfidoManager.swift in Sources */,
-				4F80FC8D23581E59009C8F83 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
-				4F80FCBD23581E59009C8F83 /* Models.swift in Sources */,
-				4F80FCA523581E59009C8F83 /* PutBankAccountRequest.swift in Sources */,
 				4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */,
-				4F80FCB123581E59009C8F83 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
+				4F18095B235D22470018507D /* Extensions.swift in Sources */,
 				964F7BEE2333513200338227 /* DynamicFormViewModel.swift in Sources */,
+				4F180933235D22460018507D /* GetUserEmployerResponse.swift in Sources */,
 				96F9FFF523533AC20041001F /* BankAccountCoordinator.swift in Sources */,
-				4F80FCB523581E59009C8F83 /* PostPushNotificationRequest.swift in Sources */,
 				4FB1CDED2356C11E00E7B224 /* SpacerTableViewCell.swift in Sources */,
+				4F180949235D22470018507D /* GetUserBudgetResponse.swift in Sources */,
 				4F0B0671233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
 				9676525622FB07E5001E43E0 /* AnalyticsViewModel.swift in Sources */,
-				4F80FC6B23581E59009C8F83 /* LoanActivity.swift in Sources */,
-				4F80FC9323581E59009C8F83 /* PostFinancialAccountRequest.swift in Sources */,
 				4FB1CD242356AF5E00E7B224 /* CheqAPIManager_Lending.swift in Sources */,
-				4F80FC8923581E59009C8F83 /* GetUpcomingBillResponse.swift in Sources */,
 				4FAE364F232F4CB00035E57E /* QuestionViewController.swift in Sources */,
 				4F80FCEC235B311A009C8F83 /* BaseTableVCViewModel.swift in Sources */,
-				4F80FC6723581E59009C8F83 /* CurrentLendingSummary.swift in Sources */,
 				96FADD2F230E834100AE6CBB /* AuthManagerProtocol.swift in Sources */,
 				9676526022FB0946001E43E0 /* TabViewController.swift in Sources */,
+				4F18092F235D22460018507D /* UserFinancialAccountsLinkingResponse.swift in Sources */,
+				4F18090D235D22460018507D /* LoanActivity.swift in Sources */,
 				9680CEB02354B4B3009CF66E /* TableView_Extension.swift in Sources */,
 				4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
+				4F1808F3235D22460018507D /* RecurringBillsAPI.swift in Sources */,
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
-				4F80FC9123581E59009C8F83 /* GetUserEmployerResponse.swift in Sources */,
-				4F80FC8F23581E59009C8F83 /* CategoryAmountStatResponse.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
+				4F1808ED235D22460018507D /* FirebaseAPI.swift in Sources */,
 				9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */,
+				4F18093D235D22460018507D /* PostForgetPasswordRequest.swift in Sources */,
 				4FB1CB382355375D00E7B224 /* MessageBubbleTableViewCell.swift in Sources */,
 				96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */,
 				964FA99C2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift in Sources */,
-				4F80FCBB23581E59009C8F83 /* JSONEncodingHelper.swift in Sources */,
 				4F0D713F2345761500AA819C /* CPageControl.swift in Sources */,
 				4FB1CC5423554CCD00E7B224 /* SwipeToConfirmTableViewCell.swift in Sources */,
 				4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */,
-				4F80FC6D23581E59009C8F83 /* GetLendingOverviewResponse.swift in Sources */,
-				4F80FC8B23581E59009C8F83 /* MonthAmountStatResponse.swift in Sources */,
 				4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */,
+				4F180959235D22470018507D /* PostPushNotificationRequest.swift in Sources */,
+				4F180931235D22460018507D /* CategoryAmountStatResponse.swift in Sources */,
 				4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */,
 				96F9FFCF2352DAE00041001F /* BottomTableViewCell.swift in Sources */,
 				96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */,
+				4F180925235D22460018507D /* GetSpendingOverviewResponse.swift in Sources */,
+				4F180915235D22460018507D /* PutFinancialAccountRequest.swift in Sources */,
 				9680CEA72354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */,
 				96F9FF9F2352B0120041001F /* CTableViewCell.swift in Sources */,
 				4F2E4B92233AECD1001F1BA2 /* LoginViewController.swift in Sources */,
 				4F2E4B9B233AFC67001F1BA2 /* AgeRangeCoordinator.swift in Sources */,
+				4F1808FF235D22460018507D /* PutUserEmployerRequest.swift in Sources */,
 				4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */,
+				4F18090F235D22460018507D /* GetLendingOverviewResponse.swift in Sources */,
 				4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
+				4F18092D235D22460018507D /* MonthAmountStatResponse.swift in Sources */,
+				4F180941235D22470018507D /* GetAddressResponse.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
-				4F80FCB923581E59009C8F83 /* Extensions.swift in Sources */,
+				4F180937235D22460018507D /* LoanSetting.swift in Sources */,
 				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
-				4F80FC4F23581E59009C8F83 /* SpendingAPI.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,
 				96F9FFAB2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift in Sources */,
-				4F80FC9D23581E59009C8F83 /* GetUserResponse.swift in Sources */,
+				4F18091D235D22460018507D /* Worksheet.swift in Sources */,
 				4F2E4AB723349445001F1BA2 /* DynamicFormViewModelCoordinator.swift in Sources */,
-				4F80FC3F23581E59009C8F83 /* AlamofireImplementations.swift in Sources */,
 				4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */,
-				4F80FC8123581E59009C8F83 /* GetLoanPreviewResponse.swift in Sources */,
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
 				4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */,
 				9676524022FB05D1001E43E0 /* AnalyticsViewController.swift in Sources */,
-				4F80FC5B23581E59009C8F83 /* PutResetPasswordRequest.swift in Sources */,
 				4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */,
 				96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */,
 				96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */,
 				4F0D71512345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */,
-				4F80FC7523581E59009C8F83 /* DeclineDetail.swift in Sources */,
 				4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */,
-				4F80FC5323581E59009C8F83 /* CodableHelper.swift in Sources */,
-				4F80FC7D23581E59009C8F83 /* PostLoanRequest.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
 				9680CEAD2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */,
 				4FB1CB3D235539D200E7B224 /* MessageBubbleTableViewCellViewModel.swift in Sources */,
+				4F18092B235D22460018507D /* GetUpcomingBillResponse.swift in Sources */,
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
 				96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
+				4F180905235D22460018507D /* PostWorksheetRequest.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
 				4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */,
 				4F80FCDB2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
+				4F18094F235D22470018507D /* PostFinancialInstitutionRequest.swift in Sources */,
 				9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
-				4F80FC7B23581E59009C8F83 /* Worksheet.swift in Sources */,
-				4F80FC4323581E59009C8F83 /* UsersAPI.swift in Sources */,
-				4F80FC9B23581E59009C8F83 /* PostForgetPasswordRequest.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
+				4F18095D235D22470018507D /* JSONEncodingHelper.swift in Sources */,
 				4F80FCE9235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */,
-				4F80FC7123581E59009C8F83 /* PutUserOnfidoKycRequest.swift in Sources */,
-				4F80FC3D23581E59009C8F83 /* APIHelper.swift in Sources */,
+				4F1808E3235D22460018507D /* FinancesAPI.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
 				96B8217D234354B800AA940F /* Date_Extension.swift in Sources */,
-				4F80FCA123581E59009C8F83 /* GetRecurringBillResponse.swift in Sources */,
 				9654D490234EA9F900847389 /* EnableLocationIntroCoordinator.swift in Sources */,
+				4F18091B235D22460018507D /* DailyTransactionsResponse.swift in Sources */,
+				4F180909235D22460018507D /* GetBudgetSpendingsResponse.swift in Sources */,
 				4F2E4ABE23349C79001F1BA2 /* CSwitch.swift in Sources */,
-				4F80FCA923581E59009C8F83 /* EligibleRequirement.swift in Sources */,
+				4F180911235D22460018507D /* UserBudget.swift in Sources */,
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
+				4F18094B235D22470018507D /* EligibleRequirement.swift in Sources */,
 				4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
-				4F80FC4D23581E59009C8F83 /* BudgetingAPI.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
 				4F80FAD72357C565009C8F83 /* IntercomManager.swift in Sources */,
-				4F80FCAF23581E59009C8F83 /* PutUserBudgetsRequest.swift in Sources */,
+				4F180957235D22470018507D /* UserBudgetUpdate.swift in Sources */,
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
 				96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */,
-				4F80FCB723581E59009C8F83 /* MoneySoftVisibleMessageRequest.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
-				4F80FC7723581E59009C8F83 /* GetUserDetailResponse.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
 				9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */,
-				4F80FCAD23581E59009C8F83 /* SpendingOverviewCard.swift in Sources */,
+				4F180923235D22460018507D /* GetLoanPreviewResponse.swift in Sources */,
 				4F2E4B90233AECD1001F1BA2 /* RegistrationViewController.swift in Sources */,
-				4F80FC5523581E59009C8F83 /* JSONEncodableEncoding.swift in Sources */,
+				4F180913235D22460018507D /* PutUserOnfidoKycRequest.swift in Sources */,
+				4F180947235D22470018507D /* PutBankAccountRequest.swift in Sources */,
 				96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */,
+				4F180939235D22460018507D /* FinancialAccountSlim.swift in Sources */,
 				9681EC732323D37000E9F6D1 /* SplashViewModel.swift in Sources */,
+				4F1808E1235D22460018507D /* AlamofireImplementations.swift in Sources */,
 				4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */,
 				4F2E4A012334426F001F1BA2 /* EmployementTypeCoordinator.swift in Sources */,
-				4F80FC4123581E59009C8F83 /* FinancesAPI.swift in Sources */,
 				4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */,
+				4F180945235D22470018507D /* GetEmployerPlaceResponse.swift in Sources */,
 				4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */,
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
-				4F80FCB323581E59009C8F83 /* UserBudgetUpdate.swift in Sources */,
 				4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */,
 				4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */,
 				9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */,
 				4F80FCCF23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
-				4F80FC7F23581E59009C8F83 /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
-				4F80FC4523581E59009C8F83 /* LendingAPI.swift in Sources */,
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */,
 				4F2E49FE233441DE001F1BA2 /* OnDemandCoordinator.swift in Sources */,
 				4F2E4AC923383A2D001F1BA2 /* CProgressViewStackView.swift in Sources */,
 				96F9FFE42352E0A60041001F /* BottomTableViewCellViewModel.swift in Sources */,
-				4F80FC9523581E59009C8F83 /* LoanSetting.swift in Sources */,
+				4F18093B235D22460018507D /* GetSpendingCategoryResponse.swift in Sources */,
+				4F180919235D22460018507D /* GetUserDetailResponse.swift in Sources */,
 				4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */,
 				9654D487234E9B5800847389 /* EmailIntroCoordinator.swift in Sources */,
 				9629A5A322FCCBC400828FCF /* AutoLayoutUtil.swift in Sources */,
 				9676525422FB07C0001E43E0 /* ProfileViewModel.swift in Sources */,
+				4F1808E5235D22460018507D /* UsersAPI.swift in Sources */,
 				4F80FCD223597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */,
-				4F80FC8323581E59009C8F83 /* GetSpendingOverviewResponse.swift in Sources */,
 				4F09109A231F7E9A00AA7F7D /* Data_Extension.swift in Sources */,
-				4F80FC6123581E59009C8F83 /* GetUserMoneySoftResponse.swift in Sources */,
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
-				4F80FC5D23581E59009C8F83 /* PutUserEmployerRequest.swift in Sources */,
-				4F80FC9F23581E59009C8F83 /* GetAddressResponse.swift in Sources */,
 				4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */,
 				4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
+				4F180921235D22460018507D /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
-				4F80FC6523581E59009C8F83 /* PostRecurringBillRequest.swift in Sources */,
-				4F80FC4923581E59009C8F83 /* LocationsAPI.swift in Sources */,
-				4F80FC6323581E59009C8F83 /* PostWorksheetRequest.swift in Sources */,
 				4FB1CC5A23554CEC00E7B224 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
+				4F1808FB235D22460018507D /* PutUserDetailRequest.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
-				4F80FC9923581E59009C8F83 /* GetSpendingCategoryResponse.swift in Sources */,
 				4F2E4AC22334A5BB001F1BA2 /* CSwitchWithLabel.swift in Sources */,
 				4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,
 				9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
 				9600A71C23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */,
-				4F80FC5923581E59009C8F83 /* PutUserDetailRequest.swift in Sources */,
+				4F1808E9235D22460018507D /* HealthCheckAPI.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
+				4F1808F1235D22460018507D /* SpendingAPI.swift in Sources */,
+				4F1808F7235D22460018507D /* JSONEncodableEncoding.swift in Sources */,
+				4F1808F5235D22460018507D /* CodableHelper.swift in Sources */,
 				4F2E4ACC23383A3B001F1BA2 /* CProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

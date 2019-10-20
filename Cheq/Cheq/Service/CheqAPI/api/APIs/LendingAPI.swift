@@ -73,16 +73,16 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
+  "recentBorrowings" : {
+    "totalFees" : 9.301444243932576,
+    "totalRepaymentAmount" : 7.061401241503109,
+    "repaymentDate" : "repaymentDate",
+    "feesPercent" : 3.616076749251911,
+    "totalCashRequested" : 2.3021358869347655
+  },
   "decline" : {
     "declineDescription" : "declineDescription",
     "declineReason" : "None"
-  },
-  "currentLendingSummary" : {
-    "totalFees" : 2.3021358869347655,
-    "totalRepaymentAmount" : 5.637376656633329,
-    "repaymentDate" : "repaymentDate",
-    "feesPercent" : 7.061401241503109,
-    "totalCashRequested" : 5.962133916683182
   },
   "eligibleRequirement" : {
     "kycStatus" : "Blocked",
@@ -98,14 +98,14 @@ open class LendingAPI {
     "canUploadTimesheet" : true,
     "activities" : [ {
       "date" : "date",
-      "amount" : 3.616076749251911,
+      "amount" : 5.637376656633329,
       "type" : "Cashout"
     }, {
       "date" : "date",
-      "amount" : 3.616076749251911,
+      "amount" : 5.637376656633329,
       "type" : "Cashout"
     } ],
-    "availableCashoutAmount" : 9.301444243932576
+    "availableCashoutAmount" : 5.962133916683182
   }
 }}]
 

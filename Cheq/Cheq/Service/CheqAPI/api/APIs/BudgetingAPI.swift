@@ -13,6 +13,66 @@ import Alamofire
 open class BudgetingAPI {
     /**
 
+     - parameter _id: (path)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getBudget(_id: Int, completion: @escaping ((_ data: GetBudgetSpendingsResponse?,_ error: Error?) -> Void)) {
+        getBudgetWithRequestBuilder(_id: _id).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Budgeting/{id}/spending
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "spendings" : [ {
+    "date" : "date",
+    "amount" : 0.8008281904610115,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
+  }, {
+    "date" : "date",
+    "amount" : 0.8008281904610115,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
+  } ]
+}}]
+     
+     - parameter _id: (path)  
+
+     - returns: RequestBuilder<GetBudgetSpendingsResponse> 
+     */
+    open class func getBudgetWithRequestBuilder(_id: Int) -> RequestBuilder<GetBudgetSpendingsResponse> {
+        var path = "/v1/Budgeting/{id}/spending"
+        let _idPreEscape = "\(_id)"
+        let _idPostEscape = _idPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{id}", with: _idPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetBudgetSpendingsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func getBudgets(completion: @escaping ((_ data: GetUserBudgetResponse?,_ error: Error?) -> Void)) {

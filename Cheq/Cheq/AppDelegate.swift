@@ -131,8 +131,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         LoggingUtil.shared.cPrint(remoteMessage.messageID)
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "message received \(dateString)")
-        self.handleRemoteNotification {
-        }
     }
 }
 
@@ -154,7 +152,7 @@ extension AppDelegate {
             if self.backgroundTask == .invalid, application.backgroundRefreshStatus == .available {
                 self.backgroundTask = application.beginBackgroundTask(withName: backgroundTaskIdentifier, expirationHandler: { self.expirationHandler() })
                 
-                self.handleRemoteNotification {
+                self.handleRemoteNotification(userInfo) {
                     self.expirationHandler()
                     completionHandler(UIBackgroundFetchResult.noData)
                 }
@@ -167,12 +165,12 @@ extension AppDelegate {
         self.backgroundTask = .invalid
     }
     
-    func handleRemoteNotification(_ completion: @escaping ()->Void) {
+    func handleRemoteNotification(_ data: [AnyHashable : Any], _ completion: @escaping ()->Void) {
         
-        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
-        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
-        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
-        MoneySoftManager.shared.handleNotification().done { success in
+//        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
+//        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
+//        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
+        MoneySoftManager.shared.handleNotification(data).done { success in
             LoggingUtil.shared.cPrint("handle notification success")
         }.catch { err in
             LoggingUtil.shared.cPrint("handle notification failed")

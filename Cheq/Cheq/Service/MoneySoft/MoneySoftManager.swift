@@ -27,11 +27,11 @@ class MoneySoftManager {
     
     
     
-    func handleNotification()-> Promise<Bool> {
+    func handleNotification(_ data: [AnyHashable : Any])-> Promise<Bool> {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let loginModel = self.buildLoginModel(authUser.msCredential)
-                try self.msApi.notifications().handleNotification(data: [:], config: self.bgTaskConfig, login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { _ in
+                try self.msApi.notifications().handleNotification(data: data, config: self.bgTaskConfig, login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { resp in
                     resolver.fulfill(true)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
