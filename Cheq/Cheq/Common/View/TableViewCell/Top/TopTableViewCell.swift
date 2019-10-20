@@ -27,7 +27,7 @@ class TopTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear
         self.topView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        self.topView.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        self.topView.layer.cornerRadius = topView.frame.size.height / 2
         self.topView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
 }

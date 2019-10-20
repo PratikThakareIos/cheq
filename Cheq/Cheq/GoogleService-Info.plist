@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1050418153149-hnrtllotk1shmuppclv6mir8lbk2uq9s.apps.googleusercontent.com</string>
+	<string>913217111793-04hs7b8d83g63n1olju95u8pqcn3tj43.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1050418153149-hnrtllotk1shmuppclv6mir8lbk2uq9s</string>
+	<string>com.googleusercontent.apps.913217111793-04hs7b8d83g63n1olju95u8pqcn3tj43</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAdP4Ed_0d4ofe7DK_Dw9rXjT6TPgEsI7k</string>
+	<string>AIzaSyBKCUA_GTbsGTprvXshjljEXZ3YK2xZkq4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1050418153149</string>
+	<string>913217111793</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>au.com.cheq.testing</string>
+	<string>au.com.cheq</string>
 	<key>PROJECT_ID</key>
-	<string>testing-cheqapi</string>
+	<string>dev-cheqapi</string>
 	<key>STORAGE_BUCKET</key>
-	<string>testing-cheqapi.appspot.com</string>
+	<string>dev-cheqapi.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1050418153149:ios:71e61a03b3d76a211459d4</string>
+	<string>1:913217111793:ios:d4c06bf70b3873ff</string>
 	<key>DATABASE_URL</key>
-	<string>https://testing-cheqapi.firebaseio.com</string>
+	<string>https://dev-cheqapi.firebaseio.com</string>
 </dict>
 </plist>

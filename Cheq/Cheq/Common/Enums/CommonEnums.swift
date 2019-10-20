@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum CountryCode: String {
+    case AU = "AU"
+}
+
 enum CashDirection {
     case debit
     case credit

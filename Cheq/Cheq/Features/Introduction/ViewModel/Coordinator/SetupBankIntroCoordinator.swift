@@ -13,7 +13,7 @@ class SetupBankIntroCoordinator: IntroductionCoordinatorProtocol {
     var type: IntroductionType = .setupBank
     var caption = "Please provide us your bank details"
     var title = IntroductionType.setupBank.rawValue
-    var confirmTitle = "Setup your bank"
-    var secondaryButtonTitle = "Learn more"
-    var imageName = "bank"
+    var confirmTitle = IntroButtonTitle.setupYourBank.rawValue
+    var secondaryButtonTitle = IntroButtonTitle.learnMore.rawValue
+    var imageName = IntroEmoji.bank.rawValue
 }

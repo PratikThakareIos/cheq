@@ -33,14 +33,14 @@ open class LocationsAPI {
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "postCode" : "postCode",
-  "state" : "state",
+  "state" : "NSW",
   "longitude" : 6.027456183070403
 }, {
   "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "postCode" : "postCode",
-  "state" : "state",
+  "state" : "NSW",
   "longitude" : 6.027456183070403
 } ]}]
      
@@ -86,7 +86,7 @@ open class LocationsAPI {
   "latitude" : 0.8008281904610115,
   "name" : "name",
   "postCode" : "postCode",
-  "state" : "state",
+  "state" : "NSW",
   "longitude" : 6.027456183070403
 }, {
   "country" : "country",
@@ -94,7 +94,7 @@ open class LocationsAPI {
   "latitude" : 0.8008281904610115,
   "name" : "name",
   "postCode" : "postCode",
-  "state" : "state",
+  "state" : "NSW",
   "longitude" : 6.027456183070403
 } ]}]
      

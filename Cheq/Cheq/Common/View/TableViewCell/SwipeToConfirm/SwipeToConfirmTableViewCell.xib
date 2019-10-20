@@ -19,16 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-iF-m0E" userLabel="ContainerView">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="125.5"/>
+                        <rect key="frame" x="10" y="0.0" width="430" height="125.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wjd-35-fp1">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="125.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="430" height="125.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xK2-h5-OBh">
-                                        <rect key="frame" x="0.0" y="0.0" width="450" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="76"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to agree and cash out..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXv-Js-EcQ" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="430" height="76"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="410" height="76"/>
                                                 <color key="backgroundColor" red="0.39841526849999997" green="1" blue="0.21989714129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -40,17 +40,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCk-j9-Qdo">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="56"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Agree" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlR-Ta-Qfh" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="56"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Agree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlR-Ta-Qfh" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="110" height="56"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="255" horizontalCompressionResistancePriority="746" translatesAutoresizingMaskIntoConstraints="NO" id="wda-hu-9Yd">
-                                                                <rect key="frame" x="100" y="0.0" width="50" height="56"/>
+                                                                <rect key="frame" x="110" y="0.0" width="40" height="56"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next-arrow-purple" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-uP-sBZ">
-                                                                        <rect key="frame" x="20" y="18" width="20" height="20"/>
+                                                                        <rect key="frame" x="10" y="18" width="20" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="AOZ-LP-UXC"/>
                                                                             <constraint firstAttribute="width" constant="20" id="DPi-UF-NN2"/>
@@ -61,7 +61,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="sRV-uP-sBZ" secondAttribute="trailing" constant="10" id="4w5-1C-5mB"/>
                                                                     <constraint firstItem="sRV-uP-sBZ" firstAttribute="centerY" secondItem="wda-hu-9Yd" secondAttribute="centerY" id="L6E-Yt-evm"/>
-                                                                    <constraint firstItem="sRV-uP-sBZ" firstAttribute="leading" secondItem="wda-hu-9Yd" secondAttribute="leading" constant="20" id="ogz-9U-zw0"/>
+                                                                    <constraint firstItem="sRV-uP-sBZ" firstAttribute="leading" secondItem="wda-hu-9Yd" secondAttribute="leading" constant="10" id="ogz-9U-zw0"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -90,7 +90,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By swiping right you agree to the terms of the loan and Direct debit agreements." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNf-Rg-qTf" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="450" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="86" width="430" height="39.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -109,8 +109,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="B7r-iF-m0E" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Pfq-JJ-bs6"/>
-                    <constraint firstItem="B7r-iF-m0E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="azj-Iu-kfp"/>
-                    <constraint firstAttribute="trailing" secondItem="B7r-iF-m0E" secondAttribute="trailing" id="swK-uX-gSh"/>
+                    <constraint firstItem="B7r-iF-m0E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="azj-Iu-kfp"/>
+                    <constraint firstAttribute="trailing" secondItem="B7r-iF-m0E" secondAttribute="trailing" constant="10" id="swK-uX-gSh"/>
                     <constraint firstAttribute="bottom" secondItem="B7r-iF-m0E" secondAttribute="bottom" id="xgP-IA-AOX"/>
                 </constraints>
             </tableViewCellContentView>

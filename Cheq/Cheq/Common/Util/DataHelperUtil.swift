@@ -26,6 +26,22 @@ class DataHelperUtil {
         return req 
     }
     
+    func postLoanRequest()->PostLoanRequest {
+        let amount = Int(AppData.shared.amountSelected) ?? 0
+        let fee = 5 * (amount / 100) // should get back from backend
+        let hasAccepted = AppData.shared.acceptedAgreement
+        
+        let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted)
+        return req 
+    }
+    
+    func postPushNotificationRequest()-> PostPushNotificationRequest {
+        let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+        let apnsToken = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
+        let req = PostPushNotificationRequest(deviceId: UUID().uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apnsToken, deviceType: .ios)
+        return req
+    }
+    
     func postFinancialTransactionsReq(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
         let postFinancialTransactionsRequest = transactions.map {
             PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name ?? "", type: convertTransactionType($0.type), source: "")

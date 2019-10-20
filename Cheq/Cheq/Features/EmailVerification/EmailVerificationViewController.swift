@@ -87,7 +87,7 @@ class EmailVerificationViewController: UIViewController {
             }
         }
     }
-    
+ 
     func handleSuccessVerification() {
         let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false) as! PasscodeViewController
         passcodeVc.viewModel.type = .setup

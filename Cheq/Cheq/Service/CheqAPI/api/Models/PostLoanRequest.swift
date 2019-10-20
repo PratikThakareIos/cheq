@@ -13,15 +13,11 @@ public struct PostLoanRequest: Codable {
 
     public var amount: Int?
     public var fee: Int?
-    public var toFinancialAccountId: Int?
-    public var repaymentDate: Date?
     public var agreeLoanAgreement: Bool?
 
-    public init(amount: Int?, fee: Int?, toFinancialAccountId: Int?, repaymentDate: Date?, agreeLoanAgreement: Bool?) {
+    public init(amount: Int?, fee: Int?, agreeLoanAgreement: Bool?) {
         self.amount = amount
         self.fee = fee
-        self.toFinancialAccountId = toFinancialAccountId
-        self.repaymentDate = repaymentDate
         self.agreeLoanAgreement = agreeLoanAgreement
     }
 

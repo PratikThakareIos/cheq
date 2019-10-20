@@ -68,22 +68,27 @@ class LoginViewController: RegistrationViewController {
         
         AppConfig.shared.showSpinner()
         
+        // whenever we successfully login, we post notification token
         viewModel.login(emailTextField.text ?? "", password: passwordTextField.text ?? "").done { authUser in
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint(authUser)
                 // Load to dashboard
-                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                if let initialController = storyboard.instantiateInitialViewController() {
-                    self.show(initialController, sender: self)
-                }
+                self.navigateToDashboard()
             }
-            }.catch { [weak self] err in
-                AppConfig.shared.hideSpinner {
-                    guard let self = self else { return }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                
+                // special case, if getUserDetails fails, then we go through onboarding process again
+                // even if you have login with firebase account
+                switch err {
+                case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
+                    self.beginOnboarding()
+                default:
                     self.showError(err, completion: {
                         self.passwordTextField.text = ""
                     })
                 }
+            }
         }
     }
     

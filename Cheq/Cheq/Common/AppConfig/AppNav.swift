@@ -45,37 +45,7 @@ class AppNav {
         let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
-    
-    func presentPasscodeViewController() {
-        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
-        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
-        vc.viewModel.type = .validate
-        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
-        currentRootVc.present(vc, animated: true, completion: nil)
-    }
 
-    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
-        let multipleChoiceViewModel = MultipleChoiceViewModel()
-        switch multipleChoiceType {
-        case .employmentType:
-            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
-        case .onDemand:
-            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
-        case .financialInstitutions:
-            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
-        case .ageRange:
-            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
-        case .state:
-            multipleChoiceViewModel.coordinator = StateCoordinator()
-        }
-        vc.viewModel = multipleChoiceViewModel
-        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
-        let nav = UINavigationController(rootViewController: vc)
-        viewController.present(nav, animated: true, completion: nil)
-    }
-    
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -93,18 +63,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
         let multipleChoiceViewModel = MultipleChoiceViewModel()
-        switch multipleChoiceType {
-        case .employmentType:
-            multipleChoiceViewModel.coordinator = EmployementTypeCoordinator()
-        case .onDemand:
-            multipleChoiceViewModel.coordinator = OnDemandCoordinator()
-        case .financialInstitutions:
-            multipleChoiceViewModel.coordinator = FinancialInstitutionCoordinator()
-        case .ageRange:
-            multipleChoiceViewModel.coordinator = AgeRangeCoordinator()
-        case .state:
-            multipleChoiceViewModel.coordinator = StateCoordinator()
-        }
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
         nav.pushViewController(vc, animated: true)
@@ -199,23 +158,76 @@ extension AppNav {
         let nav = UINavigationController(rootViewController: vc)
         viewController.present(nav, animated: true)
     }
+    
+    func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        let introductionViewModel = IntroductionViewModel()
+        let introType = IntroductionViewModel.introTypeFromDeclineReason(declineReason) ?? IntroductionType.noPayCycle
+        let introCoordinator = IntroductionViewModel.coordinatorFor(introType)
+        introductionViewModel.coordinator = introCoordinator
+        vc.viewModel = introductionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentIntroduction(_ introductionType: IntroductionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        let introductionViewModel = IntroductionViewModel()
+        let introCoordinator = IntroductionViewModel.coordinatorFor(introductionType)
+        introductionViewModel.coordinator = introCoordinator
+        vc.viewModel = introductionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentPasscodeViewController() {
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
+        vc.viewModel.type = .validate
+        guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
+        currentRootVc.present(vc, animated: true, completion: nil)
+    }
+    
+    func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
+        let questionViewModel = QuestionViewModel()
+        questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
+        vc.viewModel = questionViewModel
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        let nav = UINavigationController(rootViewController: vc)
+        viewController.present(nav, animated: true, completion: nil)
+    }
 }
 
 // MARK: KYC
 extension AppNav {
-    func navigateToKYCFlow(_ viewController: UIViewController) {
+    func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
         guard AppData.shared.onfidoSdkToken.isEmpty == false else {
-            viewController.showMessage("Test KYC on device, sdk token must be available", completion: nil)
+            viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
-        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.primaryColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
+        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
+        let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let config = try! OnfidoConfig.builder()
             .withAppearance(appearance)
             .withSDKToken(AppData.shared.onfidoSdkToken)
             .withWelcomeStep()
-            .withDocumentStep()
+            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
             .withFaceStep(ofVariant: .photo(withConfiguration: nil))
             .build()
         
@@ -223,19 +235,27 @@ extension AppNav {
             .with(responseHandler: { results in
                 // Callback when flow ends
                 // for KYC, we dismiss the introductionViewController after KYC flow ended
+                guard AppData.shared.completingDetailsForLending else { return }
                 viewController.dismiss(animated: true, completion: nil)
             })
-        let onfidoRun = try! onfidoFlow.run()
-        viewController.present(onfidoRun, animated: true, completion: nil) //`self` should be your view controller
+        
+        do {
+            let onfidoRun = try onfidoFlow.run()
+            viewController.present(onfidoRun, animated: true) { }
+        } catch let err {
+            viewController.showError(err, completion: nil)
+        }
     }
 }
 
 // MARK: smart dimiss
 extension AppNav {
     
-    func dismissModal(_ viewController: UIViewController) {
+    func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
-        presentVc.dismiss(animated: true, completion: nil)
+        presentVc.dismiss(animated: true) {
+            if let cb = completion { cb() }
+        }
     }
     
     func dismiss(_ viewController: UIViewController) {

@@ -23,6 +23,7 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
+        registerObservables()
         setupUI()
     }
     
@@ -31,10 +32,14 @@ class IntroductionViewController: UIViewController {
         activeTimestamp()
     }
     
+    func registerObservables() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
+    }
+    
     func setupUI() {
         hideBackButton()
 
-        if self.viewModel.coordinator.type == .workDetailsDecline {
+        if self.viewModel.coordinator.type == .employmentTypeDeclined {
             showCloseButton()
         }
 
@@ -46,10 +51,10 @@ class IntroductionViewController: UIViewController {
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
         switch viewModel.coordinator.type {
-        case .setupBank, .email, .enableLocation, .notification, .verifyIdentity, .employee, .workDetailsDecline:
+        case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
             self.secondaryButton.isHidden = false
-//        default:
-//            self.secondaryButton.isHidden = true
+        default:
+            self.secondaryButton.isHidden = true
         }
         
         self.confirmButton.setTitle(viewModel.confirmButtonTitle(), for: .normal)
@@ -80,12 +85,27 @@ class IntroductionViewController: UIViewController {
             CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
                 let sdkToken = response.sdkToken ?? ""
                 AppData.shared.saveOnfidoSDKToken(sdkToken)
-                AppNav.shared.navigateToKYCFlow(self)
+                let kycSelectDoc = KycDocType(fromRawValue: qVm.fieldValue(QuestionField.kycDocSelect))
+                AppNav.shared.navigateToKYCFlow(kycSelectDoc, viewController: self)
             }.catch { err in
                 self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
             }
-        case .workDetailsDecline:
+        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment:
             LoggingUtil.shared.cPrint("Chat with us")
+            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+        case .identityConflict:
+            LoggingUtil.shared.cPrint("Confirm and change")
+            // resolve kyc conflict
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppNav.shared.dismissModal(self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+            }
         }
     }
 
@@ -105,8 +125,9 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
-        case .workDetailsDecline:
-            LoggingUtil.shared.cPrint("check with our FAQ")
+        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict:
+            LoggingUtil.shared.cPrint("Chat with us")
+            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         }
     }
 }

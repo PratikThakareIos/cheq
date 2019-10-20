@@ -84,7 +84,11 @@ extension FirebaseAuthManager {
             if authUser.clearAuthToken() {
                 do {
                     try Auth.auth().signOut()
+                    IntercomManager.shared.logoutIntercom().done {
                         resolver.fulfill(())
+                    }.catch { err in
+                        resolver.reject(err)
+                    }
                 } catch(let err) {
                     resolver.reject(err)
                 }
@@ -108,6 +112,8 @@ extension FirebaseAuthManager {
             self.retrieveAuthToken(authUser)
         }.then { authUser in
             self.setUser(authUser)
+        }.then { authUser in
+            IntercomManager.shared.loginIntercom()
         }
     }
 
@@ -127,8 +133,11 @@ extension FirebaseAuthManager {
                 resolver.fulfill(authUser)
             }
             }
-            .then { authUser in
-                return self.retrieveAuthToken(authUser)
+        .then { authUser in
+            return self.retrieveAuthToken(authUser)
+        }.then { authUser in
+            
+            return self.postNotificationToken(authUser)
         }
     }
 
@@ -149,14 +158,14 @@ extension FirebaseAuthManager {
             }
         case .socialLoginFB:
             let fbToken = credentials[.token] ?? ""
-            let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: fbToken)
+            let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: fbToken) 
             return self.registerWithFB(fbToken)
             .then{ authUser in
                 self.retrieveAuthToken(authUser)
             }
         }
     }
-
+    
     func retrieveAuthToken(_ authUser: AuthUser)-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let firUser = authUser.ref as! User
@@ -173,6 +182,32 @@ extension FirebaseAuthManager {
                     resolver.reject(AuthManagerError.unableToStoreAuthToken)
                 }
             })
+        }
+    }
+    
+    func postNotificationToken(_ authUser: AuthUser)-> Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            
+            guard authUser.msCredential.isEmpty == false else { resolver.fulfill(authUser); return }
+            
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
+                let fcm = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+                LoggingUtil.shared.cPrint("apns \(apns)")
+                LoggingUtil.shared.cPrint("fcm \(fcm)")
+                MoneySoftManager.shared.login(authUser.msCredential).then { authModel->Promise<Bool> in
+                    return MoneySoftManager.shared.postNotificationToken()
+                }.then { success->Promise<Bool> in
+                    let req = DataHelperUtil.shared.postPushNotificationRequest()
+                    return CheqAPIManager.shared.postNotificationToken(req)
+                }.done { success in
+                    resolver.fulfill(authUser)
+                }.catch { err in
+                    resolver.reject(err)
+                }
+            }.catch {err in
+                resolver.reject(err)
+            }
         }
     }
 
@@ -219,7 +254,7 @@ extension FirebaseAuthManager {
 // MARK: util
 extension FirebaseAuthManager {
     class func buildAuthUser(_ type: SocialLoginType, user: User)-> AuthUser {
-        let authUser = AuthUser(type: type, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", msCredential: [:], ref: user)
+        let authUser = AuthUser(type: type, isEmailVerified: user.isEmailVerified, email: user.email ?? "", userId: user.uid, username: user.displayName ?? "", avatarUrl: user.photoURL?.absoluteString ?? "", msCredential: [:], ref: user)
         return authUser
     }
 }

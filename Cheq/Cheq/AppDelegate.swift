@@ -58,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return true
     }
     
+   
+    
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
         // setup remote notifications
@@ -170,19 +172,12 @@ extension AppDelegate {
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
-        var credentials = [LoginCredentialType: String]()
-        credentials[.email] = TestUtil.shared.randomEmail()
-        credentials[.password] = TestUtil.shared.randomPassword()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
-            
-            completion()
-        }.then { authUser in
-            CheqAPIManager.shared.putUserDetails(TestUtil.shared.putUserDetailsReq())
-        }.done { authUser in
-//            LoggingUtil.shared.cWriteToFile(self.fcmMsgFile,newText: "successfully registered a user \(dateString)")
-        }.catch{ err in
+        MoneySoftManager.shared.handleNotification().done { success in
+            LoggingUtil.shared.cPrint("handle notification success")
+        }.catch { err in
+            LoggingUtil.shared.cPrint("handle notification failed")
             LoggingUtil.shared.cPrint(err.localizedDescription)
-            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(err.localizedDescription)")
+        }.finally {
             completion()
         }
     }
@@ -201,15 +196,13 @@ extension AppDelegate {
         guard let _ = AppData.shared.application else { return }
         Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
-//        let _ = AppConfig.shared
+        let _ = AppConfig.shared
         let _ = AuthConfig.shared
-//        let _ = VDotManager.shared
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
     
     func setupServicesForDev() {
         guard let _ = AppData.shared.application else { return }
-//        Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared

@@ -43,6 +43,6 @@ class TransferCardTableViewCell: CTableViewCell {
         self.dateString.text = vm.dateString
         let transferImage = vm.imageIcon()
         self.transferIcon.image = UIImage(named: transferImage)
-        self.descriptionLabel.text = vm.descriptionText
+        self.descriptionLabel.text = vm.descriptionText()
     }
 }

@@ -7,77 +7,75 @@
 //
 
 import UIKit
+import PromiseKit
+import PullToRefreshKit
 
-class LendingViewController: UIViewController {
-
-    let intercomIdentifier = String(describing: IntercomChatTableViewCell.self)
-    let amountSelectIdentifier = String(describing: AmountSelectTableViewCell.self)
-    var viewModel = LendingViewModel()
-    
-
-    // Complete Details section
-    @IBOutlet weak var tableView: UITableView!
+class LendingViewController: CTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = LendingViewModel()
         setupKeyboardHandling()
         setupUI()
         setupDelegate()
-        registerCells()
+        registerObservables()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue) 
-        if email.isEmpty {
-            self.login()
-            return
-        }
-
-    }
-
-    func login() {
-        var credentials = [LoginCredentialType: String]()
-        credentials[.email] = TestUtil.shared.randomEmail()
-        credentials[.password] = TestUtil.shared.randomPassword()
-        AppConfig.shared.showSpinner()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).done { authUser in
-            AppConfig.shared.hideSpinner {}
+//        if AuthConfig.shared.activeUser != nil {
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//        } else {
+//            endToEndSetup()
+//        }
+        
+        TestUtil.shared.loginWithTestAccount().done { authUser in
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }.catch { err in
-            AppConfig.shared.hideSpinner {}
+            self.showError(err, completion: nil)
+        }
+    }
+    
+    func endToEndSetup() {
+        AppConfig.shared.showSpinner()
+        TestUtil.shared.autoSetupAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                // now do Lending API call and refresh tableview
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            }
+            }.catch{ err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
         }
     }
 
     func setupUI() {
-        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.tableView.estimatedRowHeight = 1
-        self.tableView.rowHeight = UITableView.automaticDimension
-
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
-    }
-
-    @objc func reloadTableLayout(_ notification: NSNotification) {
-        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.reloadWithoutScroll()
-    }
-
-    func setupDelegate() {
-
-        NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
-
-        self.tableView.delegate = self
-        self.tableView.dataSource = self 
-    }
-
-    func registerCells() {
-   
-        for vm: TableViewCellViewModelProtocol in self.viewModel.cells {
-            LoggingUtil.shared.cPrint(vm.identifier)
-            let nib = UINib(nibName: vm.identifier, bundle: nil)
-            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+        hideBackTitle()
+        self.tableView.addPullToRefreshAction {
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
     }
+    
+    func registerObservables() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.lendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.lendingOverview.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.button(_:)), name: NSNotification.Name(UINotificationEvent.buttonClicked.rawValue), object: nil)
+    }
 
+    
+}
+
+// observable handlers
+extension LendingViewController {
+    
     @objc func completeDetails(_ notificaton: NSNotification) {
         guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
@@ -88,34 +86,75 @@ class LendingViewController: UIViewController {
         case .bankDetils:
             AppData.shared.completingDetailsForLending = true
             // banking details flow
-            break
-        case .verifyYourDetails: break
+            AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
+        case .verifyYourDetails:
             AppData.shared.completingDetailsForLending = true
             // verification flow
-            break
+            AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
         }
     }
-}
-
-extension LendingViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.sections.count
+    
+    @objc func lendingOverview(_ notification: NSNotification) {
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.lendingOverview().done{ getLendingOverviewResponse in
+            let lendingOverview = TestUtil.shared.testLendingOverview()
+            AppConfig.shared.hideSpinner {
+                
+                guard self.declineExist(lendingOverview) == false else {
+                    if let declineDetails =  lendingOverview.decline, let declineReason = declineDetails.declineReason {
+                        AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
+                        AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
+                    } else {
+                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
+                    }
+                    return
+                }
+                
+                self.viewModel.sections.removeAll()
+                var section = TableSectionViewModel()
+                LoggingUtil.shared.cPrint("build view model here...")
+                
+                guard let vm = self.viewModel as?  LendingViewModel else { return }
+                // intercom chat
+                section.rows.append(IntercomChatTableViewCellViewModel())
+                    vm.addLoanSetting(lendingOverview, section: &section)
+                    vm.addCashoutButton(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                    vm.completeDetails(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                    // actvity
+                    vm.activityList(lendingOverview, section: &section)
+                section.rows.append(SpacerTableViewCellViewModel())
+                self.viewModel.addSection(section)
+                self.registerCells()
+                self.tableView.reloadData()
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section: TableSectionViewModel = self.viewModel.sections[section]
-        return section.rows.count
+    
+    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
+        guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
+        return true
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        // setup cell
-        let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
-        let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
-        let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
-        cell.viewModel = cellViewModel
-        cell.setupConfig()
-        return cell
+  
+    @objc func button(_ notification: NSNotification) {
+        
+        
+        guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
+    
+        if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
+            // go to preview loan
+            let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
+            guard borrowAmount > 0.0 else {
+                showMessage("Please select loan amount", completion: nil)
+                return
+            }
+            
+            AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
+        }
     }
 }

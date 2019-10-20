@@ -150,11 +150,87 @@ class TestUtil {
         return "Australia"
     }
     
+    func randomAmount()->Double {
+        return Double.random(in: -100...100)
+    }
+    
+    func randomDate()-> Date {
+        let random = Int.random(in: 0...30)
+        return random.days.earlier
+    }
+    
+    func randomBool()-> Bool {
+        return Bool.random()
+    }
+    
+    func randomLoanActivityType()->LoanActivity.ModelType {
+        return randomBool() ? LoanActivity.ModelType.cashout : LoanActivity.ModelType.repayment
+    }
+    
+    func testLoanActivities()->[LoanActivity] {
+        var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
+        var loanActivities = [LoanActivity]()
+        for _ in 0..<10 {
+            let loanActivity = LoanActivity(amount: randomAmount(), date: DateUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
+            loanActivities.append(loanActivity)
+        }
+        return loanActivities
+    }
+    
+    func testLoanAgreement()->String {
+        return """
+        A loan agreement is an agreement between two parties whereby one party (usually referred to as the ‘lender’) agrees to provide a loan to the other party (usually referred to as the ‘borrower’).
+        
+        Downloading your free legal document is easy. Fill in the required information and your document will be emailed to you instantly.
+        
+        You will need the following information to generate your document:
+        
+        name of the lender and borrower; and
+        address of the lender and borrower.
+        """
+    }
+    
+    func testLoanPreview()->GetLoanPreviewResponse {
+        let amount = Double(AppData.shared.amountSelected)
+        let fee = Double(AppData.shared.loanFee)
+        let formatter = DateUtil.shared.defaultDateFormatter()
+        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement())
+        return loanPreview
+    }
+    
+    func testLendingOverview()->GetLendingOverviewResponse {
+        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
+        let currentLendingSummary = CurrentLendingSummary(totalCashRequested: 200, totalRepaymentAmount: 0, totalFees: 10, feesPercent: 0, repaymentDate: DateUtil.shared.defaultDateFormatter().string(from: 7.days.later))
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, canUploadTimesheet: false, activities: TestUtil.shared.testLoanActivities())
+        
+        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success)
+        
+        // ignore decline for now 
+        let decline = DeclineViewTestUtil.shared.generateDeclineDetails(DeclineDetail.DeclineReason.creditAssessment)
+        
+        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, currentLendingSummary: currentLendingSummary, borrowOverview: borrowOverview, eligibleRequirement: eligibleRequirement, decline: nil)
+        return lendingOverview
+    }
+    
+    func loginWithTestAccount()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            let email = "dean1@testcheq.com.au"
+            let password = "1@aAbc23"
+            var loginCredentials = [LoginCredentialType: String]()
+            loginCredentials[.email] = email
+            loginCredentials[.password] = password
+            AuthConfig.shared.activeManager.login(loginCredentials).done { authUser in
+                resolver.fulfill(authUser)
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-            let testBank = "demobank"
+            let testBank = "St.George Bank"
             var storedAccounts = [FinancialAccountModel]()
-//            var storedTransactions = [FinancialTransactionModel]()
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = TestUtil.shared.randomEmail()
             loginCredentials[.password] = TestUtil.shared.randomPassword()
@@ -167,8 +243,12 @@ class TestUtil {
             }.then { authUser->Promise<AuthUser> in
                 return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.then { authUser->Promise<AuthUser> in
+                    return CheqAPIManager.shared.putUser(authUser)
+            }.then { authUser->Promise<AuthUser> in
                 let userDetails = TestUtil.shared.putUserDetailsReq()
                 return CheqAPIManager.shared.putUserDetails(userDetails)
+            }.then { authUser->Promise<AuthUser> in
+                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
             }.then { authUser->Promise<AuthenticationModel> in
                 LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
                 let msCredential = authUser.msCredential
@@ -176,8 +256,13 @@ class TestUtil {
             }.then { msAuthModel-> Promise<UserProfileModel> in
                 return MoneySoftManager.shared.getProfile()
             }.then { profile->Promise<[FinancialInstitutionModel]> in
-                MoneySoftManager.shared.getInstitutions()
-            }.then { institutions->Promise<InstitutionCredentialsFormModel> in
+                return MoneySoftManager.shared.getInstitutions()
+            }.then { institutions-> Promise<Bool> in
+                AppData.shared.financialInstitutions = institutions
+                let postReq = DataHelperUtil.shared.postFinancialInstitutionsRequest(institutions)
+                return CheqAPIManager.shared.postBanks(postReq)
+            }.then { success->Promise<InstitutionCredentialsFormModel> in
+                let institutions = AppData.shared.financialInstitutions
                 let banks: [FinancialInstitutionModel] = institutions
                 banks.forEach {
                     let name = $0.name ?? ""
@@ -188,7 +273,7 @@ class TestUtil {
                 return MoneySoftManager.shared.getBankSignInForm(selected!)
             }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
                 var form = signInForm
-                MoneySoftUtil.shared.fillFormWithTestAccount(&form)
+                MoneySoftUtil.shared.fillFormWithStGeorgeAccount(&form)
                 LoggingUtil.shared.cPrint(form)
                 return MoneySoftManager.shared.linkableAccounts(form)
             }.then { linkableAccounts in
@@ -212,15 +297,8 @@ class TestUtil {
                 transactionFilter.count = 1000
                 transactionFilter.offset = 0
                 return MoneySoftManager.shared.getTransactions(transactionFilter)
-            }.then { transactions -> Promise<[FinancialTransactionModel]> in
-                let transactionFilter = TransactionFilter()
-                transactionFilter.fromDate = 30.days.earlier
-                transactionFilter.toDate = Date()
-                transactionFilter.count = 1000
-                transactionFilter.offset = 0
-                return MoneySoftManager.shared.getTransactions(transactionFilter)
             }.then { transactions->Promise<Bool> in
-//                storedTransactions = transactions
+                AppData.shared.financialTransactions = transactions
                 let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsReq(transactions)
                 return CheqAPIManager.shared.postTransactions(postFinancialTransactionsReq)
             }.then { success->Promise<AuthUser> in

@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewModel {
-    
+
     var screenName: ScreenName = .unknown
     @objc func load(_ complete: @escaping () -> Void) { complete() }
 }

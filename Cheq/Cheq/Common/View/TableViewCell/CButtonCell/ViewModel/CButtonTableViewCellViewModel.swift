@@ -8,8 +8,12 @@
 
 import UIKit
 
+enum keyButtonTitle: String {
+    case Cashout = "Cash out now"
+}
+
 class CButtonTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "CButtonTableViewCell"
-    var title: String = "Cash out now"
-    var icon: String = "speedy"
+    var title: String = keyButtonTitle.Cashout.rawValue
+    var icon: String = IntroEmoji.speedy.rawValue
 }

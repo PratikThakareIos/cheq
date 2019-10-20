@@ -11,11 +11,19 @@ import Foundation
 
 public struct GetUserKycResponse: Codable {
 
+    public enum KycStatus: String, Codable { 
+        case blocked = "Blocked"
+        case notStarted = "NotStarted"
+        case createdApplicant = "CreatedApplicant"
+        case inProcessing = "InProcessing"
+        case failed = "Failed"
+        case success = "Success"
+    }
     public var applicantId: String?
-    public var kycStatus: String?
+    public var kycStatus: KycStatus?
     public var sdkToken: String?
 
-    public init(applicantId: String?, kycStatus: String?, sdkToken: String?) {
+    public init(applicantId: String?, kycStatus: KycStatus?, sdkToken: String?) {
         self.applicantId = applicantId
         self.kycStatus = kycStatus
         self.sdkToken = sdkToken

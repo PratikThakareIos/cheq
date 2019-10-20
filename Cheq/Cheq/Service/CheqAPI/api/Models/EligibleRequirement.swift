@@ -11,13 +11,21 @@ import Foundation
 
 public struct EligibleRequirement: Codable {
 
+    public enum KycStatus: String, Codable { 
+        case blocked = "Blocked"
+        case notStarted = "NotStarted"
+        case createdApplicant = "CreatedApplicant"
+        case inProcessing = "InProcessing"
+        case failed = "Failed"
+        case success = "Success"
+    }
     public var hasEmploymentDetail: Bool?
-    public var hasDirectDebitDetail: Bool?
-    public var kycStatus: String?
+    public var hasBankAccountDetail: Bool?
+    public var kycStatus: KycStatus?
 
-    public init(hasEmploymentDetail: Bool?, hasDirectDebitDetail: Bool?, kycStatus: String?) {
+    public init(hasEmploymentDetail: Bool?, hasBankAccountDetail: Bool?, kycStatus: KycStatus?) {
         self.hasEmploymentDetail = hasEmploymentDetail
-        self.hasDirectDebitDetail = hasDirectDebitDetail
+        self.hasBankAccountDetail = hasBankAccountDetail
         self.kycStatus = kycStatus
     }
 

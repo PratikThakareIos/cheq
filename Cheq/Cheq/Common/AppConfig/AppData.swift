@@ -28,6 +28,9 @@ enum ScreenName: String {
     case state = "state"
     case maritalStatus = "maritalStatus"
     
+    // kyc verification
+    case kycSelectDoc = "kycSelectDoc"
+    
     // employment details
     case employmentType = "Employment type"
     case onDemand = "On Demand"
@@ -62,20 +65,32 @@ struct CProgress {
 class AppData {
     
     static let shared = AppData()
-    private init() { loadOnfidoSDKToken() }
+    private init() { let _ = loadOnfidoSDKToken() }
 
     // instance of current application
-    var application: UIApplication? 
+    var application: UIApplication?
+    
+    // amount selected from loan setting
+    var amountSelected = "0"
+    var loanFee = 10 
+    var acceptedAgreement: Bool = false 
+    
+    // Intercom
+    let intercomAPIKey = "ios_sdk-5cf54594065095344f1653739fcbe6b5eac1758f"
+    let intercomAppId = "i8127kii"
     
     // Facebook
     let fbAppId = "2855589534666837"
-    let fbAppSecret = "87b757a52a9b7db61fce607278c4aa2e"
+    let fbAppSecret = "cbe55b8da36d66d01237a9fa1ed276c5"
 
     // Bluedot API Key
     var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
 
     // KYC 
-    var onfidoSdkToken: String = "eyJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjoiZ3ZCWDVSWndxeEFSY2hmaHJPTnp0UTNBajFSaDk4eUV5VzJDQjZRSnZ5YlNrVjZEVTZ6MGEvYitEUUJFXG5vd2lYUnpKWkRlUDhFclgyOUw5R2RUZHA3a0locm81bWY1LzIrTWI4aEI3Ny9yND1cbiIsInV1aWQiOiJIbVFxNVpvWG1XRiIsImV4cCI6MTU2OTIyNzU2NywidXJscyI6eyJvbmZpZG9fYXBpX3VybCI6Imh0dHBzOi8vYXBpLm9uZmlkby5jb20iLCJ0ZWxlcGhvbnlfdXJsIjoiaHR0cHM6Ly90ZWxlcGhvbnkub25maWRvLmNvbSIsImRldGVjdF9kb2N1bWVudF91cmwiOiJodHRwczovL3Nkay5vbmZpZG8uY29tIiwic3luY191cmwiOiJodHRwczovL3N5bmMub25maWRvLmNvbSIsImhvc3RlZF9zZGtfdXJsIjoiaHR0cHM6Ly9pZC5vbmZpZG8uY29tIn19.PLm5Pj78H4WzYJAGDckJznaEsS9nW56Syvj7JTtx8Uk"
+    var onfidoSdkToken: String = ""
+    
+    // lending description from backend
+    var declineDescription: String = ""
     
     var progress = CProgress()
 
@@ -104,18 +119,15 @@ class AppData {
 
     func saveOnfidoSDKToken(_ sdkToken: String) {
         self.onfidoSdkToken = sdkToken
-        UserDefaults.standard.set(onfidoSdkToken, forKey: self.onfidoSdkKey())
+        UserDefaults.standard.set(onfidoSdkToken, forKey: CKey.onfidoSdkToken.rawValue)
         UserDefaults.standard.synchronize()
     }
     
-    func loadOnfidoSDKToken() {
-       self.onfidoSdkToken =  UserDefaults.standard.string(forKey:  self.onfidoSdkKey()) ?? ""
+    func loadOnfidoSDKToken()->String {
+        self.onfidoSdkToken =  UserDefaults.standard.string(forKey: CKey.onfidoSdkToken.rawValue) ?? ""
+        return self.onfidoSdkToken
     }
-    
-    func onfidoSdkKey()->String {
-        return "onfidoSdkToken"
-    }
-    
+
     func updateProgressAfterCompleting(_ screenName: ScreenName) {
         switch screenName {
             

@@ -11,6 +11,15 @@ import Foundation
 
 public struct GetRecurringBillResponse: Codable {
 
+    public enum RecurringFrequency: String, Codable { 
+        case weekly = "Weekly"
+        case fortnightly = "Fortnightly"
+        case monthly = "Monthly"
+        case bimonthly = "Bimonthly"
+        case quarterly = "Quarterly"
+        case halfYearly = "HalfYearly"
+        case yearly = "Yearly"
+    }
     public var _id: Int?
     public var _description: String?
     public var merchant: String?
@@ -18,10 +27,10 @@ public struct GetRecurringBillResponse: Codable {
     public var amount: Double?
     public var startDate: String?
     public var endDate: String?
-    public var recurringFrequency: String?
+    public var recurringFrequency: RecurringFrequency?
     public var isAddedByUser: Bool?
 
-    public init(_id: Int?, _description: String?, merchant: String?, merchantLogoUrl: String?, amount: Double?, startDate: String?, endDate: String?, recurringFrequency: String?, isAddedByUser: Bool?) {
+    public init(_id: Int?, _description: String?, merchant: String?, merchantLogoUrl: String?, amount: Double?, startDate: String?, endDate: String?, recurringFrequency: RecurringFrequency?, isAddedByUser: Bool?) {
         self._id = _id
         self._description = _description
         self.merchant = merchant

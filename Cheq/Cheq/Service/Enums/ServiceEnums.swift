@@ -21,6 +21,7 @@ enum ValidationError: Error {
     case allFieldsMustBeFilled
     case invalidMobileFormat
     case invalidInputFormat
+    case invalidNameFormat
     case invalidEmailFormat
     case invalidPasswordFormat
     case onlyAlphabetCharactersIsAllowed
@@ -28,16 +29,26 @@ enum ValidationError: Error {
     case unableToMapSelectedBank
 }
 
-enum CheqAPIManagerError: Error {
+enum CheqAPIManagerError: Error, Equatable {
     case unableToPerformKYCNow
     case errorHasOccurredOnServer
     case unableToParseResponse
     case invalidInput
+    case onboardingRequiredFromGetUserDetails
 }
 
 enum CheqAPIManagerError_Spending: Error {
     case unableToRetrieveOverview
-    case unableToRetrieveTransactions 
+    case unableToRetrieveTransactions
+    
+}
+
+enum CheqAPIManagerError_Lending: Error {
+    case unableToRetrieveLendingOverview
+    case unableToRetrieveLoanPreview
+    case unableToPutBankDetails
+    case unableToResolveNameConflict
+    case unableToProcessBorrow 
 }
 
 enum MoneySoftManagerError: Error {
@@ -53,6 +64,7 @@ enum MoneySoftManagerError: Error {
     case unableToUpdateTransactions
     case unableToRefreshTransactions
     case unableToRegisterNotificationToken
+    case errorFromHandleNotification
     case unableToGetAccounts 
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials
@@ -85,6 +97,34 @@ enum AuthManagerError: Error {
     case unknown
 }
 
+extension CheqAPIManagerError_Spending: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveOverview:
+            return NSLocalizedString("Unable to retrieve spending overview, please try again later.", comment: "")
+        case .unableToRetrieveTransactions:
+            return NSLocalizedString("Unable to retrieve transactions, please try again later.", comment: "")
+        }
+    }
+}
+
+extension CheqAPIManagerError_Lending: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveLendingOverview:
+            return NSLocalizedString("Unable to retrieve lending overview, please try again later.", comment: "")
+        case .unableToPutBankDetails:
+            return NSLocalizedString("Unable to update bank details, please try again later.", comment: "")
+        case .unableToResolveNameConflict:
+            return NSLocalizedString("Unable to resolve name conflict", comment: "")
+        case .unableToRetrieveLoanPreview:
+            return NSLocalizedString("Unable to retrieve loan preview", comment: "")
+        case .unableToProcessBorrow:
+            return NSLocalizedString("Unable to process on server, please try again later", comment: "")
+        }
+    }
+}
+
 extension CheqAPIManagerError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -96,6 +136,8 @@ extension CheqAPIManagerError: LocalizedError {
             return NSLocalizedString("Server error", comment: "")
         case .unableToPerformKYCNow:
             return NSLocalizedString("Unable to perform KYC operation now", comment: "")
+        case .onboardingRequiredFromGetUserDetails:
+            return NSLocalizedString("Onboarding process required", comment: "")
         }
     }
 }
@@ -107,6 +149,8 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("All fields must be entered", comment: "")
         case .invalidInputFormat:
             return  NSLocalizedString("Invalid input format", comment: "")
+        case .invalidNameFormat:
+            return NSLocalizedString("Invalid name format", comment: "")
         case .invalidMobileFormat:
             return NSLocalizedString("Invalid mobile format", comment: "")
         case .invalidEmailFormat:

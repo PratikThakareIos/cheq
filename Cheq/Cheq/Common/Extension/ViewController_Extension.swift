@@ -22,7 +22,8 @@ extension UIViewController {
     }
     
     func showBackButton() {
-        self.navigationItem.hidesBackButton = false
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
     }
     
     func hideBackTitle() {
@@ -37,11 +38,26 @@ extension UIViewController {
 
     func showCloseButton() {
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close", style: .plain, target: self, action: #selector(closeButton))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navClose"), style: .plain, target: self, action: #selector(closeButton))
     }
 
     @objc func closeButton() {
-        AppNav.shared.dismissModal(self)
+        AppNav.shared.dismissModal(self, completion: nil)
+    }
+    
+    @objc func back() {
+        AppNav.shared.dismiss(self)
+    }
+}
+
+// MARK: Intercom
+extension UIViewController {
+    @objc func intercom(_ notification: NSNotification) {
+        IntercomManager.shared.loginIntercom().done { authUser in
+            IntercomManager.shared.present()
+            }.catch { err in
+                self.showError(err, completion: nil)
+        }
     }
 }
 

@@ -26,6 +26,7 @@ enum QuestionField: String {
     // about me
     case firstname = "firstname"
     case lastname = "lastname"
+    case fullLegalName = "fullLegalName" 
     case dateOfBirth = "dateOfBirth"
     case contactDetails = "mobile"
     case residentialAddress = "residentialAddress"
@@ -33,6 +34,8 @@ enum QuestionField: String {
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
 
+    // kyc
+    case kycDocSelect = "KycDocSelect"
     
     //age range
     case ageRange = "ageRange"
@@ -59,7 +62,6 @@ enum QuestionField: String {
 
 class QuestionViewModel: BaseViewModel {
 
-    var sectionTitle = "About me"
     var coordinator: QuestionCoordinatorProtocol = LegalNameCoordinator()
     var savedAnswer: [String: String] = [:]
     

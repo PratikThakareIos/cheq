@@ -40,6 +40,9 @@ class CompleteDetailsTableViewCell: CTableViewCell {
     @IBAction func expand(_ sender: Any) {
         LoggingUtil.shared.cPrint("expand")
         guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
-        NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
+        if vm.completionState == .pending {
+             NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
+        }
+       
     }
 }

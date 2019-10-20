@@ -39,7 +39,7 @@
                                                 <rect key="frame" x="0.0" y="86" width="47.5" height="47.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Zvh-8t-TKg" secondAttribute="height" multiplier="1:1" id="8Gq-UQ-Adr"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="M10-Fm-a0f"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="M10-Fm-a0f"/>
                                                 </constraints>
                                                 <state key="normal" image="minusEnabled"/>
                                                 <state key="disabled" image="minusDisabled"/>
@@ -108,10 +108,10 @@ withdrawal</string>
                                         <rect key="frame" x="267.5" y="0.0" width="47.5" height="220"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHV-Nr-Fa7" userLabel="plus">
-                                                <rect key="frame" x="10" y="96.5" width="26.5" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="86" width="47.5" height="47.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="kHV-Nr-Fa7" secondAttribute="height" multiplier="1:1" id="RXB-A4-RXM"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="phd-kF-pcN"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="phd-kF-pcN"/>
                                                 </constraints>
                                                 <state key="normal" image="plustEnabled"/>
                                                 <state key="disabled" image="plusDisabled"/>
@@ -122,8 +122,8 @@ withdrawal</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="kHV-Nr-Fa7" secondAttribute="trailing" constant="11" id="8hz-w1-15m"/>
-                                            <constraint firstItem="kHV-Nr-Fa7" firstAttribute="leading" secondItem="Soj-d3-LB8" secondAttribute="leading" constant="10" id="W1u-Y8-jme"/>
+                                            <constraint firstAttribute="trailing" secondItem="kHV-Nr-Fa7" secondAttribute="trailing" id="8hz-w1-15m"/>
+                                            <constraint firstItem="kHV-Nr-Fa7" firstAttribute="leading" secondItem="Soj-d3-LB8" secondAttribute="leading" id="W1u-Y8-jme"/>
                                             <constraint firstItem="kHV-Nr-Fa7" firstAttribute="centerY" secondItem="Soj-d3-LB8" secondAttribute="centerY" id="dPM-gn-4F9"/>
                                         </constraints>
                                     </view>

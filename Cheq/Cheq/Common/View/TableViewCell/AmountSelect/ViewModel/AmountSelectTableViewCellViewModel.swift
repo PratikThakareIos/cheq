@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum WithdrawalAmount: String {
-    case oneHundred = "100"
-    case twoHundred = "200"
-    case threeHundred = "300"
-}
-
 class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     var identifier: String = "AmountSelectTableViewCell"
@@ -22,10 +16,18 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
     var plusEnabled = true
     // index at 1 is in the middle
     var selectedAmountIndex = 1
-    var availableToWithdraw: [WithdrawalAmount] = [.oneHundred, .twoHundred, .threeHundred]
+    var availableToWithdraw: [String] = ["100", "200", "300"]
     
     
-    func currentSelectedAmount()-> WithdrawalAmount {
+    func buildAvaialbleToWithDraw(low: Int, limit: Int, increment: Int) {
+        var range = [String]()
+        for current in stride(from: low, through: limit, by: increment) {
+            range.append(String(current))
+        }
+        availableToWithdraw = range
+    }
+    
+    func currentSelectedAmount()-> String {
         return availableToWithdraw[selectedAmountIndex]
     }
     

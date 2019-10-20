@@ -26,6 +26,7 @@ class IntercomChatTableViewCell: CTableViewCell {
 
     @IBAction func intercom() {
         LoggingUtil.shared.cPrint("present intercom")
+        NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
     }
 
     override func setupConfig() {

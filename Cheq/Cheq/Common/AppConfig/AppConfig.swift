@@ -56,6 +56,11 @@ extension AppConfig {
         UINavigationBar.appearance().isTranslucent = true
     }
     
+    func removeProgressNavBar(_ viewController: UIViewController) {
+        guard let _ = viewController.navigationController else { LoggingUtil.shared.cPrint("nav not available");  return }
+        viewController.navigationItem.titleView = nil
+    }
+    
     func progressNavBar(progress: CProgress, viewController: UIViewController) {
         guard progress.aboutMe <= 1.0, progress.aboutMe >= 0.0 else { return }
         guard progress.employmentDetails <= 1.0, progress.employmentDetails >= 0.0 else { return }

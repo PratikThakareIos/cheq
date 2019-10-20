@@ -14,13 +14,11 @@ public struct PutResetPasswordRequest: Codable {
     public var email: String
     public var verificationCode: String
     public var newPassword: String
-    public var newPasswordConfirm: String
 
-    public init(email: String, verificationCode: String, newPassword: String, newPasswordConfirm: String) {
+    public init(email: String, verificationCode: String, newPassword: String) {
         self.email = email
         self.verificationCode = verificationCode
         self.newPassword = newPassword
-        self.newPasswordConfirm = newPasswordConfirm
     }
 
 

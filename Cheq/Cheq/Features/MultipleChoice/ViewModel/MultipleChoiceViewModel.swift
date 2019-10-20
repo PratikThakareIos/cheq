@@ -16,6 +16,7 @@ enum MultipleChoiceQuestionType: String {
     case financialInstitutions = "Financial Institutions"
     case ageRange = "Age Range"
     case state = "State"
+    case kycSelectDoc = "Select a document"
 }
 
 enum ChoiceType {
@@ -75,6 +76,25 @@ extension MultipleChoiceViewModel {
         }
 
         self.savedAnswer = existing
+    }
+}
+
+extension MultipleChoiceViewModel {
+    static func coordinatorfor(_ multipleChoiceType: MultipleChoiceQuestionType)->MultipleChoiceViewModelCoordinator {
+        switch multipleChoiceType {
+        case .employmentType:
+            return EmployementTypeCoordinator()
+        case .onDemand:
+            return  OnDemandCoordinator()
+        case .financialInstitutions:
+            return FinancialInstitutionCoordinator()
+        case .ageRange:
+            return AgeRangeCoordinator()
+        case .state:
+            return StateCoordinator()
+        case .kycSelectDoc:
+            return SelectDocumentCoordinator()
+        }
     }
 }
 

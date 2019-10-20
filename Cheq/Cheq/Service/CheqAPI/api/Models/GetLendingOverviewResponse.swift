@@ -11,11 +11,15 @@ import Foundation
 
 public struct GetLendingOverviewResponse: Codable {
 
+    public var loanSetting: LoanSetting?
+    public var currentLendingSummary: CurrentLendingSummary?
     public var borrowOverview: BorrowOverview?
     public var eligibleRequirement: EligibleRequirement?
     public var decline: DeclineDetail?
 
-    public init(borrowOverview: BorrowOverview?, eligibleRequirement: EligibleRequirement?, decline: DeclineDetail?) {
+    public init(loanSetting: LoanSetting?, currentLendingSummary: CurrentLendingSummary?, borrowOverview: BorrowOverview?, eligibleRequirement: EligibleRequirement?, decline: DeclineDetail?) {
+        self.loanSetting = loanSetting
+        self.currentLendingSummary = currentLendingSummary
         self.borrowOverview = borrowOverview
         self.eligibleRequirement = eligibleRequirement
         self.decline = decline
