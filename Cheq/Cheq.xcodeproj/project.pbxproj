@@ -177,6 +177,12 @@
 		4F180960235D22470018507D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DD235D22460018507D /* Models.swift */; };
 		4F180961235D22470018507D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
 		4F180962235D22470018507D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
+		4F18096A235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */; };
+		4F18096B235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */; };
+		4F18096D235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */; };
+		4F18096E235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */; };
+		4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */; };
+		4F180973235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -738,6 +744,9 @@
 		4F1808DC235D22460018507D /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
 		4F1808DD235D22460018507D /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F1808DE235D22460018507D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordSetupViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -1323,6 +1332,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4F180967235D39700018507D /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				4F180968235D39810018507D /* ViewModel */,
+				4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		4F180968235D39810018507D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1726,6 +1752,7 @@
 			children = (
 				4F0D71752346CD4D00AA819C /* protocol */,
 				4FD7C1F32329E16300AC7A67 /* EmailVerificationViewModel.swift */,
+				4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2054,6 +2081,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F180967235D39700018507D /* ForgotPassword */,
 				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
 				4F0D71762346F6BD00AA819C /* Passcode */,
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
@@ -2884,6 +2912,7 @@
 				4F180918235D22460018507D /* DeclineDetail.swift in Sources */,
 				4F1808EC235D22460018507D /* LocationsAPI.swift in Sources */,
 				4F180904235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */,
+				4F18096E235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */,
 				4F80FAEB2357C8B9009C8F83 /* AuthConfig.swift in Sources */,
 				4F80FAED2357C8B9009C8F83 /* TestUtil.swift in Sources */,
 				4F80FAEE2357C8B9009C8F83 /* GridCollectionViewCoordinator.swift in Sources */,
@@ -2894,6 +2923,7 @@
 				4F180956235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4F80FAF02357C8B9009C8F83 /* IntroductionViewModel.swift in Sources */,
 				4F80FAF12357C8B9009C8F83 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
+				4F18096B235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */,
 				4F80FAF52357C8B9009C8F83 /* CPieChartView.swift in Sources */,
 				4F80FCE7235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				4F80FAF62357C8B9009C8F83 /* CChartViewProtocol.swift in Sources */,
@@ -3108,6 +3138,7 @@
 				4F80FBC12357C8B9009C8F83 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4F80FBC22357C8B9009C8F83 /* TopTableViewCellViewModel.swift in Sources */,
 				4F1808FC235D22460018507D /* PutUserDetailRequest.swift in Sources */,
+				4F180973235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
 				4F80FBC32357C8B9009C8F83 /* MoneySoftManager.swift in Sources */,
 				4F80FCF2235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				4F80FBC42357C8B9009C8F83 /* CarouselCoordinatorViewModel.swift in Sources */,
@@ -3143,6 +3174,7 @@
 				4F180917235D22460018507D /* DeclineDetail.swift in Sources */,
 				4F1808EB235D22460018507D /* LocationsAPI.swift in Sources */,
 				4F180903235D22460018507D /* GetUserMoneySoftResponse.swift in Sources */,
+				4F18096D235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */,
 				96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */,
 				4F0D63B023431EFD00AA819C /* TestUtil.swift in Sources */,
 				963D62F222FB225B006344C9 /* GridCollectionViewCoordinator.swift in Sources */,
@@ -3153,6 +3185,7 @@
 				4F180955235D22470018507D /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */,
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
+				4F18096A235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */,
 				96B0068E22FE6ABF00173743 /* CPieChartView.swift in Sources */,
 				4F80FCE6235B30A4009C8F83 /* PreviewLoanViewController.swift in Sources */,
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
@@ -3367,6 +3400,7 @@
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F1808FB235D22460018507D /* PutUserDetailRequest.swift in Sources */,
+				4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,

@@ -253,7 +253,7 @@ extension AppDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
-
+    
     func setupInitDevController () {
         self.setupServicesForDev()
         let vc = AppNav.shared.initTabViewController()

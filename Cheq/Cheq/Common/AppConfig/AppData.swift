@@ -75,6 +75,9 @@ class AppData {
     var loanFee = 10 
     var acceptedAgreement: Bool = false 
     
+    // forgot password email
+    var forgotPasswordEmail = ""
+    
     // Intercom
     let intercomAPIKey = "ios_sdk-5cf54594065095344f1653739fcbe6b5eac1758f"
     let intercomAppId = "i8127kii"

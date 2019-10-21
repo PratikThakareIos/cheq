@@ -87,6 +87,7 @@ enum AuthManagerError: Error {
     case unableToSignIn
     case unableInvalidEmail
     case unableToRequestEmailVerificationCode
+    case unableToRequestPasswordResetEmail
     case unableToVerifyEmailVerificationCode
     case unableToStoreAuthToken
     case unableToCleanAuthToken
@@ -210,6 +211,8 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("An error has occurred", comment: "")
         case .unableToVerifyEmailVerificationCode:
         return NSLocalizedString("Unable to validate verification code", comment: "")
+        case .unableToRequestPasswordResetEmail:
+        return NSLocalizedString("Unable to send password reset email", comment: "")
         }
     }
 }

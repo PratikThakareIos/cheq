@@ -15,6 +15,7 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var viewTitle: CLabel!
     @IBOutlet weak var verificationInstructions: CLabel!
     @IBOutlet weak var codeTextField: CTextField!
+    @IBOutlet weak var newPasswordField: CTextField!
     @IBOutlet weak var confirmButton: CButton!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var footerText: UITextView!
@@ -31,6 +32,9 @@ class EmailVerificationViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         self.sendVerificationCode()
+        if self.viewModel.type == .passwordReset {
+            showCloseButton()
+        }
     }
     
     func sendVerificationCode() {
@@ -53,7 +57,12 @@ class EmailVerificationViewController: UIViewController {
         iconImage.image = viewModel.image
         codeTextField.placeholder = viewModel.codeFieldPlaceHolder
         codeTextField.keyboardType = .numberPad
+        codeTextField.isHidden = !viewModel.showCodeField()
         codeTextField.reloadInputViews()
+        newPasswordField.placeholder = viewModel.newPasswordPlaceHolder
+        newPasswordField.isHidden = !viewModel.showNewPasswordField()
+        newPasswordField.keyboardType = .default
+        newPasswordField.reloadInputViews()
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerFont
         verificationInstructions.attributedText = viewModel.instructions
@@ -62,8 +71,31 @@ class EmailVerificationViewController: UIViewController {
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
     }
     
-    @IBAction func verify() {
+    func verifyCodeAndResetPassword() {
+        self.viewModel.code = self.codeTextField.text ?? ""
+        self.viewModel.newPassword = self.newPasswordField.text ?? ""
+        if let err = self.viewModel.validate() {
+            showError(err) {
+                self.codeTextField.text = ""
+                self.newPasswordField.text = ""
+            }
+        }
         
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
+            AppConfig.shared.hideSpinner {
+                self.showMessage("New password is created :)") {
+                    AppNav.shared.dismissModal(self)
+                }
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
+        }
+    }
+    
+    func verifyCode() {
         self.viewModel.code = self.codeTextField.text ?? ""
         if let err = self.viewModel.validate() {
             showError(err) {
@@ -77,14 +109,22 @@ class EmailVerificationViewController: UIViewController {
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-        }.done { authUser in
-            AppConfig.shared.hideSpinner {
-                self.handleSuccessVerification()
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-               self.showError(err, completion: nil)
-            }
+            }.done { authUser in
+                AppConfig.shared.hideSpinner {
+                    self.handleSuccessVerification()
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
+    }
+    
+    @IBAction func verify() {
+        if self.viewModel.type == .email {
+            self.verifyCode()
+        } else {
+            self.verifyCodeAndResetPassword()
         }
     }
  

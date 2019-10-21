@@ -14,6 +14,29 @@ class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {
     }
+    
+    func resetPassword(_ code: String, newPassword: String)->Promise<Void> {
+        return Promise<Void>() { resolver in
+            let req = DataHelperUtil.shared.putResetPasswordRequest(code, newPassword: newPassword)
+            UsersAPI.resetPasswordWithRequestBuilder(request: req).execute( { (response, err) in
+                if let error = err { resolver.reject(error); return }
+                resolver.fulfill(())
+            })
+        }
+    }
+    
+    func forgotPassword()->Promise<Void> {
+        return Promise<Void>() { resolver in
+            let req = DataHelperUtil.shared.postForgotPasswordRequest()
+            UsersAPI.forgetPasswordWithRequestBuilder(request: req).execute { (response, err) in
+                if let error = err {
+                    LoggingUtil.shared.cPrint(error)
+                    resolver.reject(AuthManagerError.unableToRequestPasswordResetEmail); return
+                }
+                resolver.fulfill(())
+            }
+        }
+    }
 
     func postNotificationToken(_ req: PostPushNotificationRequest)->Promise<Bool> {
         return Promise<Bool>() { resolver in

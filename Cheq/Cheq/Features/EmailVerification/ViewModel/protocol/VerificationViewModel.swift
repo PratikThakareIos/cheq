@@ -8,12 +8,18 @@
 
 import UIKit
 
+enum VerificatonType {
+    case email
+    case passwordReset
+}
+
 enum VerificationValidationError: Error {
     case emptyInput
     case invalidLength
     case nonNumeric
     case incorrect
     case lockedOut
+    case invalidPasswordFormat
 }
 
 extension VerificationValidationError: LocalizedError {
@@ -29,21 +35,29 @@ extension VerificationValidationError: LocalizedError {
             return NSLocalizedString("incorrect passcode", comment: "")
         case .lockedOut:
             return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
+        case .invalidPasswordFormat:
+            return NSLocalizedString("Invalid password format. Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)", comment: "")
         }
     }
 }
 
 protocol VerificationViewModel {
+    var type: VerificatonType { get } 
     var code: String { get set }
+    var newPassword: String { get set }
     var codeLength: Int { get }
     var header: String { get }
     var image: UIImage { get }
     var codeFieldPlaceHolder: String { get }
+    var newPasswordPlaceHolder: String { get }
     var instructions: NSAttributedString { get }
     var confirmButtonTitle: String { get }
     var footerText: NSAttributedString { get }
     func validate()->VerificationValidationError?
-    func isResendCodeReq(_ urlString: String)-> Bool 
+    func isResendCodeReq(_ urlString: String)-> Bool
+    
+    func showCodeField()->Bool
+    func showNewPasswordField()->Bool
 }
 
 extension VerificationViewModel {
@@ -51,6 +65,7 @@ extension VerificationViewModel {
         if self.code.isEmpty { return VerificationValidationError.emptyInput }
         if self.code.count != self.codeLength { return VerificationValidationError.invalidLength }
         if !StringUtil.shared.isNumericOnly(self.code) { return VerificationValidationError.nonNumeric }
+        
         return nil
     }
     
@@ -67,6 +82,12 @@ extension VerificationViewModel {
     }
     
     func isResendCodeReq(_ urlString: String)-> Bool {
-        return urlString == links.resentCode.rawValue
+        return urlString == links.resendCode.rawValue
+    }
+    
+    var newPasswordPlaceHolder: String {
+        get {
+            return "New password"
+        }
     }
 }

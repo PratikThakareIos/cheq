@@ -18,6 +18,7 @@ enum OnboardingStoryboardId: String {
     case splash = "SplashViewController"
     case registration = "RegistrationViewController"
     case login = "LoginViewController"
+    case forgot = "ForgotPasswordViewController"
     case question = "QuestionViewController"
     case intro = "IntroductionViewController"
     case multipleChoice = "MultipleChoiceViewController"

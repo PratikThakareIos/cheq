@@ -1,20 +1,18 @@
 //
-//  PasscodeViewModel.swift
+//  NewPasswordSetupViewModel.swift
 //  Cheq
 //
-//  Created by Xuwei Liang on 12/9/19.
+//  Created by Xuwei Liang on 21/10/19.
 //  Copyright © 2019 Cheq. All rights reserved.
 //
 
 import UIKit
-import PromiseKit
 
-
-
-class EmailVerificationViewModel: VerificationViewModel {
-    var type: VerificatonType = .email 
-    var code: String = ""
+class NewPasswordSetupViewModel: VerificationViewModel {
+    var type: VerificatonType = .passwordReset
     var newPassword: String = ""
+    var code: String = ""
+    
     var header: String = "Cheq your email"
     
     var image: UIImage = UIImage(named: "email") ?? UIImage()
@@ -32,10 +30,10 @@ class EmailVerificationViewModel: VerificationViewModel {
         return true
     }
     func showNewPasswordField()->Bool {
-        return false
+        return true
     }
     
-    var confirmButtonTitle: String = "Verify code"
+    var confirmButtonTitle: String = "Reset password"
     
     var footerText: NSAttributedString {
         get {
@@ -44,4 +42,20 @@ class EmailVerificationViewModel: VerificationViewModel {
             return text
         }
     }
+}
+
+extension NewPasswordSetupViewModel {
+    func validate()->VerificationValidationError? {
+        if self.code.isEmpty { return VerificationValidationError.emptyInput }
+        if self.code.count != self.codeLength { return VerificationValidationError.invalidLength }
+        if !StringUtil.shared.isNumericOnly(self.code) { return VerificationValidationError.nonNumeric }
+
+        if StringUtil.shared.isValidPassword(self.newPassword) == false {
+            return VerificationValidationError.invalidPasswordFormat
+        }
+        
+        return nil
+    }
+    
+    
 }
