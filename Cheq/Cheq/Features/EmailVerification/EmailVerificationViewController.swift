@@ -84,7 +84,7 @@ class EmailVerificationViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
             AppConfig.shared.hideSpinner {
-                self.showMessage("New password is created :)") {
+                self.showMessage("New password successfully created.") {
                     AppNav.shared.dismissModal(self)
                 }
             }
