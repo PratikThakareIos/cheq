@@ -181,6 +181,7 @@ DEPENDENCIES:
   - DateToolsSwift
   - Fabric (~> 1.10.2)
   - Firebase/Analytics
+  - Firebase/Auth
   - Firebase/Core
   - Firebase/InAppMessagingDisplay
   - Firebase/Messaging
@@ -318,6 +319,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 54d0e4fd768b5b0b9069936b04745dec23bf4bed
+PODFILE CHECKSUM: 239aa6a03de2d57938b12559255d9a06ee2b3104
 
 COCOAPODS: 1.7.4
