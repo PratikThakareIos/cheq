@@ -115,11 +115,15 @@ class QuestionViewController: UIViewController {
         default: break
         }
         
-        if AppData.shared.completingDetailsForLending {
-            AppConfig.shared.removeProgressNavBar(self)
-        } else {
+        if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
+        
+        if AppData.shared.completingDetailsForLending {
+            AppConfig.shared.removeProgressNavBar(self)
+        }
+        
+        
     }
     
     func updateKeyboardViews() {

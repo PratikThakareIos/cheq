@@ -82,12 +82,27 @@ class LoginViewController: RegistrationViewController {
             }.done { accounts in
                 AppConfig.shared.hideSpinner {
                     let financialAccounts: [FinancialAccountModel] = accounts
-                    if let _ = financialAccounts.first(where: { $0.disabled == true }) {
+                    if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account
-                        AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                        AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
+                        AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitutionId
+                        MoneySoftManager.shared.getInstitutions().done { institutions in
+                            AppData.shared.financialInstitutions = institutions
+                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId && String($0.providerInstitutionId) == AppData.shared.existingProviderInstitutionId })
+                            guard let selected = AppData.shared.selectedFinancialInstitution else {
+                                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                                return
+                            }
+                            
+                            AppData.shared.isOnboarding = false
+                            AppNav.shared.pushToDynamicForm(selected, viewController: self)
+                        }.catch { err in
+                            self.showError(err, completion: nil)
+                        }
                     } else {
                         // Load to dashboard
+                        AppData.shared.completingDetailsForLending = false 
                         self.navigateToDashboard()
                     }
                 }
@@ -151,7 +166,9 @@ extension LoginViewController {
             AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
         } else if viewModel.isSignup(URL.absoluteString) {
             
-            if isModal {
+            if isModal == false, let nav = self.navigationController {
+                nav.popViewController(animated: true)
+            } else if isModal {
                 AppNav.shared.dismiss(self)
             } else {
                 AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)

@@ -107,6 +107,11 @@ class AppData {
     var financialInstitutions: [FinancialInstitutionModel] = []
     var selectedFinancialInstitution: FinancialInstitutionModel?
     
+    // use for keeping the provider institution id to map which bank user selected
+    var existingProviderInstitutionId: String = ""
+    var existingFinancialInstitutionId: Int  = -1
+    
+    
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
 
     // employment flow related data
@@ -121,6 +126,11 @@ class AppData {
 
     // lending scenarios
     var completingDetailsForLending = false
+    
+    // is onboarding
+    var isOnboarding = false
+    
+    
     var completingOnDemandOther = false
 
     func saveOnfidoSDKToken(_ sdkToken: String) {

@@ -116,7 +116,7 @@ extension AuthenticatorViewModel {
     
     func signUpText()-> NSAttributedString {
         let text = NSMutableAttributedString(string: "Don't have an account? Sign up")
-        text.applyLinkTo("Sign up", link: links.login.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
+        text.applyLinkTo("Sign up", link: links.signup.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
         return text
     }
     

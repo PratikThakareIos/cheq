@@ -187,7 +187,7 @@
                                                 <rect key="frame" x="0.0" y="509.5" width="374" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="fzc-dw-KEb" id="r97-FF-pux"/>
                                                 </connections>

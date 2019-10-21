@@ -41,10 +41,12 @@ class MultipleChoiceViewController: UIViewController {
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         
+        if AppData.shared.isOnboarding {
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }
+        
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
-        } else {
-            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
     }
     
