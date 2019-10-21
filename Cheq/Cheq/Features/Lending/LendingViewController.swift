@@ -70,20 +70,24 @@ extension LendingViewController {
         }
     }
     
+    func showDeclineIfNeeded() {
+        guard self.declineExist(lendingOverview) == false else {
+            if let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason {
+                AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
+                AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
+            } else {
+                self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
+            }
+            return
+        }
+    }
+    
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.lendingOverview().done{ lendingOverview in
             AppConfig.shared.hideSpinner {
                 
-                guard self.declineExist(lendingOverview) == false else {
-                    if let declineDetails =  lendingOverview.decline, let declineReason = declineDetails.declineReason {
-                        AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
-                        AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
-                    } else {
-                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
-                    }
-                    return
-                }
+                showDeclineIfNeeded()
                 
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
@@ -113,8 +117,19 @@ extension LendingViewController {
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
+        let eligibleRequirements = lendingOverview.eligibleRequirement
+        
+        guard let hasBankAccountDetail = eligibleRequirements?.hasBankAccountDetail, let employerDetail = eligibleRequirements?.hasEmploymentDetail, self.kycHasCompleted() else { return false }
+        
         guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
         return true
+    }
+    
+    func kycHasCompleted(_ status: EligibleRequirement.KycStatus)-> Bool {
+        switch status {
+        case .createdApplicant, .inProcessing, .notStarted: return false
+        default: return true
+        }
     }
   
     @objc func button(_ notification: NSNotification) {
