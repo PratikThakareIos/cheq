@@ -42,21 +42,24 @@ class PreviewLoanViewController: CTableViewController {
     }
     
     @objc func confirm(_ notification: NSNotification) {
-        LoggingUtil.shared.cPrint("confirm loan")
-        AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.borrow().done { _ in
-            AppConfig.shared.hideSpinner {
-                // return to LendingViewController and load
-                // backend should tell LendingViewController to show successfully borrow screen
-                self.showMessage("Processed successfully ! :)") {
-                    AppNav.shared.dismiss(self)
+        showDecision("Do you accept all the Terms and Conditions?", confirmCb: {
+            LoggingUtil.shared.cPrint("confirm loan")
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.borrow().done { _ in
+                AppConfig.shared.hideSpinner {
+                    // return to LendingViewController and load
+                    // backend should tell LendingViewController to show successfully borrow screen
+                    self.showMessage("Processed successfully ! :)") {
+                        AppNav.shared.dismiss(self)
+                    }
                 }
+                }.catch { err in
+                    AppConfig.shared.hideSpinner {
+                        self.showError(err, completion: nil)
+                    }
             }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
-            }
-        }
+            
+        }, cancelCb: nil)
     }
 }
 

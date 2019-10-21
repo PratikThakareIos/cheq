@@ -45,6 +45,7 @@ target 'Cheq' do
   pod 'Crashlytics', '~> 3.14.0'
 
   # Firebase pods
+  pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Firebase/InAppMessagingDisplay'
