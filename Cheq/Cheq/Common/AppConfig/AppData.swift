@@ -70,6 +70,9 @@ class AppData {
     // instance of current application
     var application: UIApplication?
     
+    // remote config parameter cache time
+    var expirationDuration = TimeInterval(3600
+    
     // amount selected from loan setting
     var amountSelected = "0"
     var loanFee = 10 

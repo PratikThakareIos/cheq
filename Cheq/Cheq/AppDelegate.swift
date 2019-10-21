@@ -13,6 +13,7 @@ import FirebaseMessaging
 import Fabric
 import Crashlytics
 import FBSDKLoginKit
+import PromiseKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
@@ -43,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         FirebaseApp.configure()
         // Firebase Message delegate
         Messaging.messaging().delegate = self
+        // Setup Firebase remote config
+        setupRemoteConfig()
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -58,7 +61,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return true
     }
     
-   
+    func setupRemoteConfig()->Promise<Void> {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        return Promise<Void>() { resolver in
+            remoteConfig.fetch(withExpirationDuration: AppData.shared.expirationDuration) { (status, err) in
+                switch status {
+                case .success:
+                    LoggingUtil.shared.cPrint("remote config fetch success")
+                case .failure:
+                    LoggingUtil.shared.cPrint("remote config fetch failed")
+                case .noFetchYet:
+                    LoggingUtil.shared.cPrint("not yet fetched")
+                case .throttled:
+                    LoggingUtil.shared.cPrint("throttled")
+                }
+                resolver.fulfill(())
+            }
+        }
+    }
     
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {

@@ -52,6 +52,7 @@ target 'Cheq' do
   pod 'Firebase/Analytics'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
+  pod 'Firebase/RemoteConfig'
   
   # Onfido pod
   pod 'Onfido'

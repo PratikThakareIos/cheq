@@ -70,7 +70,7 @@ extension LendingViewController {
         }
     }
     
-    func showDeclineIfNeeded() {
+    func showDeclineIfNeeded(_ lendingOverview: GetLendingOverviewResponse) {
         guard self.declineExist(lendingOverview) == false else {
             if let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason {
                 AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
@@ -87,7 +87,7 @@ extension LendingViewController {
         CheqAPIManager.shared.lendingOverview().done{ lendingOverview in
             AppConfig.shared.hideSpinner {
                 
-                showDeclineIfNeeded()
+                self.showDeclineIfNeeded(lendingOverview)
                 
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
@@ -118,8 +118,8 @@ extension LendingViewController {
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
         let eligibleRequirements = lendingOverview.eligibleRequirement
-        
-        guard let hasBankAccountDetail = eligibleRequirements?.hasBankAccountDetail, let employerDetail = eligibleRequirements?.hasEmploymentDetail, self.kycHasCompleted() else { return false }
+        let kycStatus = eligibleRequirements?.kycStatus ?? .notStarted
+        guard let _ = eligibleRequirements?.hasBankAccountDetail, let _ = eligibleRequirements?.hasEmploymentDetail, self.kycHasCompleted(kycStatus) else { return false }
         
         guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
         return true

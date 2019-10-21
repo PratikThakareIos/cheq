@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
+		2A5755B6F07106CDDBF9E61F /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -370,7 +371,6 @@
 		4F180A75235D65010018507D /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808A7235D22460018507D /* CodableHelper.swift */; };
 		4F180A76235D65010018507D /* CProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4ACB23383A3B001F1BA2 /* CProgressView.swift */; };
 		4F180A79235D65010018507D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
-		4F180A7A235D65010018507D /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9664340F2341A5CC00934FB0 /* Pods_Cheq.framework */; };
 		4F180A7C235D65010018507D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4F180A7D235D65010018507D /* MessageBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB372355375D00E7B224 /* MessageBubbleTableViewCell.xib */; };
 		4F180A7E235D65010018507D /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
@@ -637,8 +637,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29AEB0EEDA0EADFB27E42A88 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
-		37C8092A4F9A98F572E5A3E8 /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
+		15FE3E27BCC52270FFEC9E7E /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
+		215BFD78CB8DB750C402D300 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
 		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -868,7 +868,6 @@
 		9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableNotificationIntroCoordinator.swift; sourceTree = "<group>"; };
 		9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityIntroCoordinator.swift; sourceTree = "<group>"; };
 		9660718D23003FA700F0D5CC /* CBATheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBATheme.swift; sourceTree = "<group>"; };
-		9664340F2341A5CC00934FB0 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966434CD2341A9AF00934FB0 /* Spending.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spending.storyboard; sourceTree = "<group>"; };
 		966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingOverviewViewController.swift; sourceTree = "<group>"; };
 		966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingOverviewViewModel.swift; sourceTree = "<group>"; };
@@ -952,7 +951,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F180A79235D65010018507D /* UserNotifications.framework in Frameworks */,
-				4F180A7A235D65010018507D /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,6 +960,7 @@
 			files = (
 				4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
+				2A5755B6F07106CDDBF9E61F /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,8 +980,8 @@
 			children = (
 				6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */,
 				FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */,
-				37C8092A4F9A98F572E5A3E8 /* Pods-Cheq.debug.xcconfig */,
-				29AEB0EEDA0EADFB27E42A88 /* Pods-Cheq.release.xcconfig */,
+				15FE3E27BCC52270FFEC9E7E /* Pods-Cheq.debug.xcconfig */,
+				215BFD78CB8DB750C402D300 /* Pods-Cheq.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1786,11 +1785,6 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9664340F2341A5CC00934FB0 /* Pods_Cheq.framework */,
-				4F0D6184233DA8A800AA819C /* Pods_Cheq.framework */,
-				4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */,
-				4F2E4ACE23388D9A001F1BA2 /* Pods_Cheq.framework */,
-				4FEDA467232B773A0042E4E2 /* Pods_Cheq.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
@@ -2448,14 +2442,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F180A9A235D65010018507D /* Build configuration list for PBXNativeTarget "CheqDevice" */;
 			buildPhases = (
-				4F180976235D65010018507D /* [CP] Check Pods Manifest.lock */,
 				4F180977235D65010018507D /* Sources */,
 				4F180A77235D65010018507D /* Frameworks */,
 				4F180A7B235D65010018507D /* Resources */,
 				4F180A93235D65010018507D /* Embed Frameworks */,
 				4F180A95235D65010018507D /* Embed App Extensions */,
-				4F180A96235D65010018507D /* [CP] Embed Pods Frameworks */,
-				4F180A97235D65010018507D /* [CP] Copy Pods Resources */,
 				4F180A98235D65010018507D /* Migrate Moneysoft Framework bundle */,
 				4F180A99235D65010018507D /* Fabrics Run Script */,
 			);
@@ -2749,62 +2740,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F180976235D65010018507D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Cheq-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F180A96235D65010018507D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F180A97235D65010018507D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F180A98235D65010018507D /* Migrate Moneysoft Framework bundle */ = {
@@ -3527,7 +3462,6 @@
 /* Begin XCBuildConfiguration section */
 		4F180A9B235D65010018507D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37C8092A4F9A98F572E5A3E8 /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3560,7 +3494,6 @@
 		};
 		4F180A9C235D65010018507D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29AEB0EEDA0EADFB27E42A88 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3710,7 +3643,7 @@
 		};
 		9676523022FAFD04001E43E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37C8092A4F9A98F572E5A3E8 /* Pods-Cheq.debug.xcconfig */;
+			baseConfigurationReference = 15FE3E27BCC52270FFEC9E7E /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3744,7 +3677,7 @@
 		};
 		9676523122FAFD04001E43E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29AEB0EEDA0EADFB27E42A88 /* Pods-Cheq.release.xcconfig */;
+			baseConfigurationReference = 215BFD78CB8DB750C402D300 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
