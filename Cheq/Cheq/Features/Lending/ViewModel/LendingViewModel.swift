@@ -37,6 +37,10 @@ extension LendingViewModel {
         }
     }
     
+    func addMessageBubble(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
+        LoggingUtil.shared.cPrint("lendingOverview")
+    }
+    
     func addCashoutButton (_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
         // cash out button
         let hasBankAccountDetail = lendingOverview.eligibleRequirement?.hasBankAccountDetail ?? false

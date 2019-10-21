@@ -18,7 +18,8 @@ enum links: String {
     case login = "http://login.cheq.com"
     case signup = "http://signup.cheq.com"
     case forgot = "http://forgot.cheq.com"
-    case resentCode = "http://resendCode.cheq.com"
+    case resendForgot = "http://resendCode.forgot.cheq.com"
+    case resendCode = "http://resendCode.cheq.com"
     case email = "http://email.cheq.com.au"
 }
 
@@ -85,6 +86,10 @@ class AuthenticatorViewModel: BaseViewModel {
         }
     }
     
+    func isForgotPassword(_ linkUrl: String)-> Bool {
+        return linkUrl == links.forgot.rawValue
+    }
+    
     func isLogin(_ linkUrl: String)-> Bool {
         return linkUrl == links.login.rawValue
     }
@@ -117,7 +122,7 @@ extension AuthenticatorViewModel {
     
     func forgotPasswordAttributedText()-> NSAttributedString {
         let text = NSMutableAttributedString(string: "Forgot your password?")
-        text.applyLinkTo("Forgot your password?", link: links.toc.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
+        text.applyLinkTo("Forgot your password?", link: links.forgot.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
         return text
     }
 }

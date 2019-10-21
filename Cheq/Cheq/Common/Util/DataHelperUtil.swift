@@ -14,6 +14,16 @@ class DataHelperUtil {
     static let shared = DataHelperUtil()
     private init() {}
     
+    func putResetPasswordRequest(_ code: String, newPassword: String)-> PutResetPasswordRequest {
+        let req = PutResetPasswordRequest(email: AppData.shared.forgotPasswordEmail, verificationCode: code, newPassword: newPassword)
+        return req
+    }
+    
+    func postForgotPasswordRequest()-> PostForgetPasswordRequest {
+        let req = PostForgetPasswordRequest(email: AppData.shared.forgotPasswordEmail)
+        return req
+    }
+    
     func retrieveUserDetailsKycReq()-> PutUserOnfidoKycRequest {
         let qVm = QuestionViewModel()
         qVm.loadSaved()

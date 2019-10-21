@@ -145,7 +145,7 @@ extension FirebaseAuthManager {
 
 //MARK: registration
 extension FirebaseAuthManager {
-
+    
     // register + retrive authToken
     func register(_ socialLogin: SocialLoginType, credentials:[LoginCredentialType: String])-> Promise<AuthUser> {
         switch socialLogin {

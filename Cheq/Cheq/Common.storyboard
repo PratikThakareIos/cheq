@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R0K-z7-uQD">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="867.5"/>
+                                        <rect key="frame" x="20" y="0.0" width="374" height="917.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="exO-mZ-WND">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="238"/>
@@ -174,12 +174,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-WA-lE3">
-                                                <rect key="frame" x="0.0" y="459.5" width="374" height="238"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-JK-xFN" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="717.5" width="374" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrR-JK-xFN" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="459.5" width="374" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -187,8 +183,17 @@
                                                     <outlet property="delegate" destination="fzc-dw-KEb" id="ENS-fM-ZmH"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tFo-d7-nyi" userLabel="NewPassword" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="509.5" width="374" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="fzc-dw-KEb" id="r97-FF-pux"/>
+                                                </connections>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmj-vZ-b6h" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="767.5" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="559.5" width="374" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Open mail app">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -197,8 +202,12 @@
                                                     <action selector="verify" destination="fzc-dw-KEb" eventType="touchUpInside" id="Jaz-HA-BPc"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-WA-lE3">
+                                                <rect key="frame" x="0.0" y="609.5" width="374" height="238"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Haven't received the code yet? Re-send code" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODo-Tm-rh8" customClass="CTextView" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="817.5" width="374" height="50"/>
+                                                <rect key="frame" x="0.0" y="867.5" width="374" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Mtm-Hq-Ycu"/>
@@ -237,6 +246,7 @@
                         <outlet property="confirmButton" destination="Pmj-vZ-b6h" id="Y8A-ZL-9zY"/>
                         <outlet property="footerText" destination="ODo-Tm-rh8" id="XxD-KO-2N5"/>
                         <outlet property="iconImage" destination="t8l-u3-TM8" id="ZtB-06-bXf"/>
+                        <outlet property="newPasswordField" destination="tFo-d7-nyi" id="Nx6-Zy-cXq"/>
                         <outlet property="scrollView" destination="aZq-gH-4WW" id="N9s-V8-0BH"/>
                         <outlet property="verificationInstructions" destination="B8R-bh-ExF" id="6cs-tH-rTN"/>
                         <outlet property="viewTitle" destination="Gyw-du-yl2" id="brO-FX-beh"/>

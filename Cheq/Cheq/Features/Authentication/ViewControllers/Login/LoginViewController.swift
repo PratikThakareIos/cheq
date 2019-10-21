@@ -33,6 +33,8 @@ class LoginViewController: RegistrationViewController {
     override func setupDelegate() {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.forgotPassword.delegate = self
+        self.signUpLinkText.delegate = self
     }
     
     override func setupUI() {
@@ -55,7 +57,7 @@ class LoginViewController: RegistrationViewController {
     
     func navigateToDashboard() {
         // go to dashboard board
-        AppNav.shared.initTabViewController()
+        let _ = AppNav.shared.initTabViewController()
     }
     
     @IBAction func login(_ sender: Any) {
@@ -120,6 +122,28 @@ class LoginViewController: RegistrationViewController {
                 }
             }
         }
+    }
+}
+
+extension LoginViewController {
+    override func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        
+        LoggingUtil.shared.cPrint(URL.absoluteString)
+        if viewModel.isForgotPassword(URL.absoluteString) {
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+        } else if viewModel.isSignup(URL.absoluteString) {
+            
+            if isModal {
+                AppNav.shared.dismiss(self)
+            } else {
+                AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)
+            }
+            
+        } else if UIApplication.shared.canOpenURL(URL) {
+            AppNav.shared.pushToInAppWeb(URL, viewController: self)
+        }
+        
+        return false
     }
 }
 

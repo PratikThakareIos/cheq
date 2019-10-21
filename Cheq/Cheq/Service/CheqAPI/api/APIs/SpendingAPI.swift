@@ -15,8 +15,8 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSpendingAllTransctions(completion: @escaping ((_ data: GetSpendingSpecificCategoryResponse?,_ error: Error?) -> Void)) {
-        getSpendingAllTransctionsWithRequestBuilder().execute { (response, error) -> Void in
+    open class func getSpendingAllTransactions(completion: @escaping ((_ data: GetSpendingSpecificCategoryResponse?,_ error: Error?) -> Void)) {
+        getSpendingAllTransactionsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -32,7 +32,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -42,7 +42,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -55,7 +55,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -65,7 +65,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -86,7 +86,7 @@ open class SpendingAPI {
 
      - returns: RequestBuilder<GetSpendingSpecificCategoryResponse> 
      */
-    open class func getSpendingAllTransctionsWithRequestBuilder() -> RequestBuilder<GetSpendingSpecificCategoryResponse> {
+    open class func getSpendingAllTransactionsWithRequestBuilder() -> RequestBuilder<GetSpendingSpecificCategoryResponse> {
         let path = "/v1/Spending/transactions"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -170,7 +170,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -180,7 +180,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -265,7 +265,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -275,7 +275,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -360,7 +360,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -370,7 +370,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -455,7 +455,7 @@ open class SpendingAPI {
      - examples: [{contentType=application/json, example={
   "recentTransactions" : [ {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -465,7 +465,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "amount" : 9.301444243932576,
+    "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
@@ -553,7 +553,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -563,7 +563,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -576,7 +576,7 @@ open class SpendingAPI {
     "date" : "date",
     "transactions" : [ {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
@@ -586,7 +586,7 @@ open class SpendingAPI {
       "merchantLogoUrl" : "merchantLogoUrl"
     }, {
       "date" : "date",
-      "amount" : 9.301444243932576,
+      "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",

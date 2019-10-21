@@ -183,7 +183,9 @@ extension RegistrationViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
-        if viewModel.isLogin(URL.absoluteString) {
+        if viewModel.isForgotPassword(URL.absoluteString) {
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+        } else if viewModel.isLogin(URL.absoluteString) {
             AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
         } else if viewModel.isSignup(URL.absoluteString) {
             AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)
