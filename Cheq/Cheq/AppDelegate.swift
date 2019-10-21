@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Setup Firebase remote config
         setupRemoteConfig()
         
+        
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -57,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //        self.setupInitDevController()
 //        self.setupLogController()
 //        self.setupQuestionController()
-
         return true
     }
     
@@ -67,17 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
         return Promise<Void>() { resolver in
-            remoteConfig.fetch(withExpirationDuration: AppData.shared.expirationDuration) { (status, err) in
+            remoteConfig.fetchAndActivate { (status, err) in
                 switch status {
-                case .success:
-                    LoggingUtil.shared.cPrint("remote config fetch success")
-                case .failure:
-                    LoggingUtil.shared.cPrint("remote config fetch failed")
-                case .noFetchYet:
-                    LoggingUtil.shared.cPrint("not yet fetched")
-                case .throttled:
-                    LoggingUtil.shared.cPrint("throttled")
+                case .error:
+                    LoggingUtil.shared.cPrint("error during fetchAndActivate")
+                default: break
                 }
+                
+                let value = remoteConfig.configValue(forKey: "FinancialInstitutions", source: RemoteConfigSource.default)
+                
                 resolver.fulfill(())
             }
         }

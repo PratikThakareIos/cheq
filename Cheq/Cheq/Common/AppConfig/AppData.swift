@@ -71,7 +71,7 @@ class AppData {
     var application: UIApplication?
     
     // remote config parameter cache time
-    var expirationDuration = TimeInterval(3600
+    var expirationDuration = TimeInterval(3600)
     
     // amount selected from loan setting
     var amountSelected = "0"
