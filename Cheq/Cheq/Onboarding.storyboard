@@ -348,26 +348,26 @@
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-1v-boE">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="228"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="203"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-Vm-YGt">
-                                        <rect key="frame" x="0.0" y="248" width="374" height="77"/>
+                                        <rect key="frame" x="0.0" y="223" width="374" height="77"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-nL-CNQ" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="345" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="320" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent an email to you at xuwei@cheq.com.au. It has a link that'll activate your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr0-4f-QWX" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="385.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="360.5" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="446.5" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="421.5" width="374" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Open mail app">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,7 +377,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="496.5" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="471.5" width="374" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -386,8 +386,18 @@
                                             <action selector="secondaryButton:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="rC8-RO-8Bn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="521.5" width="374" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refresh" destination="Snq-uQ-PGm" eventType="touchUpInside" id="y1C-qP-wv2"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="9qF-TC-j4t">
-                                        <rect key="frame" x="0.0" y="546.5" width="374" height="227.5"/>
+                                        <rect key="frame" x="0.0" y="571.5" width="374" height="202.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -410,6 +420,7 @@
                         <outlet property="caption" destination="pr0-4f-QWX" id="jMa-gl-chF"/>
                         <outlet property="confirmButton" destination="nw7-VH-tgm" id="Q8H-1l-gwi"/>
                         <outlet property="imageViiew" destination="rXm-Vm-YGt" id="qX0-Tz-a7j"/>
+                        <outlet property="refreshButton" destination="P2L-Kh-v1Q" id="2XN-ID-0sR"/>
                         <outlet property="secondaryButton" destination="5BD-RF-Mk8" id="9Fi-vQ-38g"/>
                         <outlet property="titleLabel" destination="PZz-nL-CNQ" id="4Z1-Cx-kZT"/>
                     </connections>

@@ -102,6 +102,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         }
     }
     
+    @objc func handleSwitch(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle login")
+        let dict = notification.userInfo?[NotificationUserInfoKey.vcInfo.rawValue] as? Dictionary<String, Any>
+        let storyname = dict?[NotificationUserInfoKey.storyboardName.rawValue] as? String ?? ""
+        let storyId = dict?[NotificationUserInfoKey.storyboardId.rawValue] as? String ?? ""
+        guard storyname.isEmpty == false, storyId.isEmpty == false  else {
+            LoggingUtil.shared.cPrint("err")
+            return
+        }
+        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: true)
+    }
+    
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
@@ -197,6 +209,8 @@ extension AppDelegate {
     func registerNotificationObservers() {
         // Event for programmatically logging out and returning to Registration screen
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSwitch(notification:)), name: NSNotification.Name(UINotificationEvent.switchRoot.rawValue), object: nil)
     }
     
     // trigger the first initiation of AppConfig singleton

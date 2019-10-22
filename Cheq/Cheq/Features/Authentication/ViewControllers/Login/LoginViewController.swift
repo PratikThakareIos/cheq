@@ -58,7 +58,10 @@ class LoginViewController: RegistrationViewController {
     
     func navigateToDashboard() {
         // go to dashboard board
-        let _ = AppNav.shared.initTabViewController()
+        var vcInfo = [String: String]()
+        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
+        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
+        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
     }
     
     @IBAction func login(_ sender: Any) {
