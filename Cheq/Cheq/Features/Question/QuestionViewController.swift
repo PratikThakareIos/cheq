@@ -55,7 +55,7 @@ class QuestionViewController: UIViewController {
         setupKeyboardHandling()
         setupDelegate()
         setupUI()
-//        prePopulateEntry()
+        prePopulateEntry()
         setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
@@ -135,37 +135,47 @@ class QuestionViewController: UIViewController {
     func prePopulateEntry() {
         viewModel.loadSaved()
         switch viewModel.coordinator.type {
-        case .legalName:
-            self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
-            self.textField1.keyboardType = .namePhonePad
-            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)
-            self.textField2.keyboardType = .namePhonePad
-        case .dateOfBirth:
-            self.textField1.text = viewModel.fieldValue(QuestionField.dateOfBirth)
-            self.textField1.keyboardType = .default
-        case .contactDetails:
-            self.textField1.text = viewModel.fieldValue(QuestionField.contactDetails)
-            self.textField1.keyboardType = .namePhonePad
-        case .residentialAddress:
-            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
-            self.searchTextField.keyboardType = .default
-        case .companyName:
-            self.searchTextField.text = AppData.shared.completingOnDemandOther ? "" : viewModel.fieldValue(QuestionField.employerName)
-            self.searchTextField.keyboardType = .default
         case .companyAddress:
             self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
             self.searchTextField.keyboardType = .default
-        case .maritalStatus:
-            self.textField1.text = viewModel.fieldValue(QuestionField.maritalStatus)
-            self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
-            self.textField1.keyboardType = .default
-            self.textField2.keyboardType = .default
-        case .bankAccount:
-            self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
-            self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
-            self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
+        default: break
         }
     }
+    
+//    func prePopulateEntry() {
+//        viewModel.loadSaved()
+//        switch viewModel.coordinator.type {
+//        case .legalName:
+//            self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
+//            self.textField1.keyboardType = .namePhonePad
+//            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)
+//            self.textField2.keyboardType = .namePhonePad
+//        case .dateOfBirth:
+//            self.textField1.text = viewModel.fieldValue(QuestionField.dateOfBirth)
+//            self.textField1.keyboardType = .default
+//        case .contactDetails:
+//            self.textField1.text = viewModel.fieldValue(QuestionField.contactDetails)
+//            self.textField1.keyboardType = .namePhonePad
+//        case .residentialAddress:
+//            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
+//            self.searchTextField.keyboardType = .default
+//        case .companyName:
+//            self.searchTextField.text = AppData.shared.completingOnDemandOther ? "" : viewModel.fieldValue(QuestionField.employerName)
+//            self.searchTextField.keyboardType = .default
+//        case .companyAddress:
+//            self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+//            self.searchTextField.keyboardType = .default
+//        case .maritalStatus:
+//            self.textField1.text = viewModel.fieldValue(QuestionField.maritalStatus)
+//            self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
+//            self.textField1.keyboardType = .default
+//            self.textField2.keyboardType = .default
+//        case .bankAccount:
+//            self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
+//            self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
+//            self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
+//        }
+//    }
 
     @IBAction func next(_ sender: Any) {
         
@@ -185,7 +195,6 @@ class QuestionViewController: UIViewController {
                 return
             }
             
-           
             AppData.shared.updateProgressAfterCompleting(.legalName)
             AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
             
@@ -253,11 +262,21 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.employerAddress.rawValue, value: searchTextField.text ?? "")
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
-            if AppData.shared.completingDetailsForLending {
-                AppData.shared.completingDetailsForLending = false
-                AppNav.shared.dismissModal(self)
-            } else {
-                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            AppConfig.shared.showSpinner()
+            let req = DataHelperUtil.shared.putUserEmployerRequest()
+            CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+                AppConfig.shared.hideSpinner {
+                    if AppData.shared.completingDetailsForLending {
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.dismissModal(self)
+                    } else {
+                        AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                    }
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
             }
         case .maritalStatus:
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
@@ -272,7 +291,11 @@ class QuestionViewController: UIViewController {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.updateDirectDebitBankAccount().done { authUser in
                 AppConfig.shared.hideSpinner {
-                    AppNav.shared.dismissModal(self)
+                    if self.isModal {
+                        AppNav.shared.dismissModal(self)
+                    } else {
+                        AppNav.shared.dismiss(self)
+                    }
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -482,7 +505,7 @@ extension QuestionViewController{
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                     }.catch {err in
-                        LoggingUtil.shared.cPrint(err)
+                            LoggingUtil.shared.cPrint(err)
                 }
             }
         }

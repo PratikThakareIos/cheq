@@ -126,6 +126,7 @@ class AppData {
     var selectedEmployer: Int = 0
     var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
+    var selectedEmployerAddressString: String = ""
 
     // lending scenarios
     var completingDetailsForLending = false

@@ -28,6 +28,7 @@ enum UINotificationEvent: String {
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"
+    case showError = "showError"
 }
 
 enum NotificationUserInfoKey: String {
@@ -37,4 +38,5 @@ enum NotificationUserInfoKey: String {
     case vcInfo = "vcInfo"
     case storyboardName = "storyboardName"
     case storyboardId = "storyboardId"
+    case err = "err"
 }

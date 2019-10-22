@@ -53,6 +53,11 @@ class MultipleChoiceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        
+        if AppData.shared.completingDetailsForLending {
+            showCloseButton()
+        }
+        
         if selectedChoice == nil {
             self.updateChoices()
         }
@@ -129,7 +134,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             qVm.loadSaved()
             let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
             let noFixedAddress = (empType == .onDemand) ? true : false
-            let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: vm.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+            let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: MultipleChoiceViewModel.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
 
             AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in

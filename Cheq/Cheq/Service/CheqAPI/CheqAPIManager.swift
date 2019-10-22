@@ -186,6 +186,7 @@ class CheqAPIManager {
                         }
                         
                         if let error = err {
+                            
                             resolver.reject(error); return
                         }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
@@ -237,6 +238,24 @@ class CheqAPIManager {
                         resolver.reject(err)
                     }
                 })
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
+    func putKycCheck()->Promise<Void> {
+        
+        return Promise<Void>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let oauthToken = authUser.authToken() ?? ""
+                UsersAPI.putKycCheckCheckWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (resp, err) in
+                    if err != nil {
+                        resolver.reject(CheqAPIManagerError.unableToPerformKYCNow)
+                        return
+                    }
+                    resolver.fulfill(())
+                }
             }.catch { err in
                 resolver.reject(err)
             }

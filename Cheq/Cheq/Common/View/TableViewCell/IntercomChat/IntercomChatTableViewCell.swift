@@ -32,4 +32,10 @@ class IntercomChatTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear
     }
+    
+    override open var intrinsicContentSize: CGSize {
+        get {
+            return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultTextFieldHeight)
+        }
+    }
 }

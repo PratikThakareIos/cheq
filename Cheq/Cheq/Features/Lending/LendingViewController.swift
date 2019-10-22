@@ -45,6 +45,8 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.button(_:)), name: NSNotification.Name(UINotificationEvent.buttonClicked.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
     }
 
     
@@ -83,38 +85,47 @@ extension LendingViewController {
         }
     }
     
+    @objc func showErr(_ notification: NSNotification) {
+        if let err = notification.userInfo?[NotificationUserInfoKey.err.rawValue] as? Error {
+            showError(err, completion: nil)
+        }
+    }
+    
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.lendingOverview().done{ lendingOverview in
-            AppConfig.shared.hideSpinner {
+        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+        CheqAPIManager.shared.retrieveUserDetailsKyc(req).then { response->Promise<GetLendingOverviewResponse> in
+                return CheqAPIManager.shared.lendingOverview()
+            }.done{ lendingOverview in
+                AppConfig.shared.hideSpinner {
                 
-                self.showDeclineIfNeeded(lendingOverview)
-                
-                self.viewModel.sections.removeAll()
-                var section = TableSectionViewModel()
-                LoggingUtil.shared.cPrint("build view model here...")
-                
-                guard let vm = self.viewModel as?  LendingViewModel else { return }
-                // intercom chat
-                section.rows.append(IntercomChatTableViewCellViewModel())
-                    vm.addLoanSetting(lendingOverview, section: &section)
-                    vm.addCashoutButton(lendingOverview, section: &section)
-                    vm.addMessageBubble(lendingOverview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                    vm.completeDetails(lendingOverview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                    // actvity
-                    vm.activityList(lendingOverview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                self.viewModel.addSection(section)
-                self.registerCells()
-                self.tableView.reloadData()
-            }
+                    self.showDeclineIfNeeded(lendingOverview)
+                    
+                    self.viewModel.sections.removeAll()
+                    var section = TableSectionViewModel()
+                    LoggingUtil.shared.cPrint("build view model here...")
+                    
+                    guard let vm = self.viewModel as?  LendingViewModel else { return }
+                    // intercom chat
+                    section.rows.append(IntercomChatTableViewCellViewModel())
+                        vm.addLoanSetting(lendingOverview, section: &section)
+                        vm.addCashoutButton(lendingOverview, section: &section)
+    //                    vm.addMessageBubble(lendingOverview, section: &section)
+                    section.rows.append(SpacerTableViewCellViewModel())
+                        vm.completeDetails(lendingOverview, section: &section)
+                    section.rows.append(SpacerTableViewCellViewModel())
+                        // actvity
+                        vm.activityList(lendingOverview, section: &section)
+                    section.rows.append(SpacerTableViewCellViewModel())
+                    self.viewModel.addSection(section)
+                    self.registerCells()
+                    self.tableView.reloadData()
+                }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err, completion: nil)
                 }
-        }
+            }
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
@@ -128,7 +139,7 @@ extension LendingViewController {
     
     func kycHasCompleted(_ status: EligibleRequirement.KycStatus)-> Bool {
         switch status {
-        case .createdApplicant, .inProcessing, .notStarted: return false
+        case .createdApplicant, .inProcessing, .notStarted, .blocked: return false
         default: return true
         }
     }
