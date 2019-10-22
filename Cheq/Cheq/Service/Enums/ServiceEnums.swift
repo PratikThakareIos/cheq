@@ -17,6 +17,11 @@ enum CKeychainError: Error {
     case unableToStore
 }
 
+enum RemoteConfigError: Error {
+    case unableToFetchAndActivateRemoteConfig
+    case unableToFetchInstitutions
+}
+
 enum ValidationError: Error {
     case allFieldsMustBeFilled
     case invalidMobileFormat
@@ -96,6 +101,17 @@ enum AuthManagerError: Error {
     case unableToUpdatePassword
     case unableToSendPasswordResetLink
     case unknown
+}
+
+extension RemoteConfigError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToFetchAndActivateRemoteConfig:
+            return NSLocalizedString("Unable to fetch and activate remote config, please try again later.", comment: "")
+        case .unableToFetchInstitutions:
+            return NSLocalizedString("Unable to fetch institutions.", comment: "")
+        }
+    }
 }
 
 extension CheqAPIManagerError_Spending: LocalizedError {

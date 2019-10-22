@@ -55,7 +55,7 @@ class QuestionViewController: UIViewController {
         setupKeyboardHandling()
         setupDelegate()
         setupUI()
-        prePopulateEntry()
+//        prePopulateEntry()
         setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()

@@ -61,23 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         return true
     }
     
-    func setupRemoteConfig()->Promise<Void> {
-        let remoteConfig = RemoteConfig.remoteConfig()
-        let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 0
-        remoteConfig.configSettings = settings
-        return Promise<Void>() { resolver in
-            remoteConfig.fetchAndActivate { (status, err) in
-                switch status {
-                case .error:
-                    LoggingUtil.shared.cPrint("error during fetchAndActivate")
-                default: break
-                }
-                
-                let value = remoteConfig.configValue(forKey: "FinancialInstitutions", source: RemoteConfigSource.default)
-                
-                resolver.fulfill(())
-            }
+    func setupRemoteConfig() {
+        let remote = RemoteConfigManager.shared
+        remote.bankLogos().done { _ in
+            LoggingUtil.shared.cPrint("bankLogos")
+        }.catch { err in
+            LoggingUtil.shared.cPrint(err)
         }
     }
     

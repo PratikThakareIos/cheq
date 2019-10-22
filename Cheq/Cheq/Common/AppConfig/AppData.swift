@@ -107,6 +107,9 @@ class AppData {
     var financialInstitutions: [FinancialInstitutionModel] = []
     var selectedFinancialInstitution: FinancialInstitutionModel?
     
+    // bank logo mapping from remote config
+    var remoteBankMapping = [RemoteBank]()
+    
     // use for keeping the provider institution id to map which bank user selected
     var existingProviderInstitutionId: String = ""
     var existingFinancialInstitutionId: Int  = -1
