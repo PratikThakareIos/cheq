@@ -114,6 +114,8 @@ extension FirebaseAuthManager {
             self.setUser(authUser)
         }.then { authUser in
             IntercomManager.shared.loginIntercom()
+        }.then { authUser in
+            CheqAPIManager.shared.getUserDetails()
         }
     }
 

@@ -13,6 +13,7 @@ enum NotificationEvent: String {
     case fcmToken = "fcm"
     case dismissKeyboard = "dismissKeyboard"
     case logout = "logout"
+    case login = "login"
     case deleteBackward = "delete"
     case appBecomeActive = "appBecomeActive"
     case appBecomeIdle = "appBecomeIdle"
@@ -26,10 +27,16 @@ enum UINotificationEvent: String {
     case lendingOverview = "lendingOverview"
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
+    case switchRoot = "switchRoot"
+    case showError = "showError"
 }
 
 enum NotificationUserInfoKey: String {
     case token = "token"
     case cell = "cell"
-    case button = "button" 
+    case button = "button"
+    case vcInfo = "vcInfo"
+    case storyboardName = "storyboardName"
+    case storyboardId = "storyboardId"
+    case err = "err"
 }

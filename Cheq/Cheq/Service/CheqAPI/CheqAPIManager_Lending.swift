@@ -111,7 +111,11 @@ extension CheqAPIManager {
                     
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
-                        resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails); return }
+                        
+                        resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
+                        return
+                        
+                    }
                     resolver.fulfill(authUser)
                 }
             }.catch { err in

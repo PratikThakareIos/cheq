@@ -99,7 +99,7 @@ extension MultipleChoiceViewModel {
 }
 
 extension MultipleChoiceViewModel {
-    func cheqAPIEmploymentType(_ type: EmploymentType)-> PutUserEmployerRequest.EmploymentType {
+    static func cheqAPIEmploymentType(_ type: EmploymentType)-> PutUserEmployerRequest.EmploymentType {
         switch type {
         case .fulltime:
             return PutUserEmployerRequest.EmploymentType.fulltime

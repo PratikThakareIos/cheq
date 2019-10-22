@@ -13,6 +13,7 @@ import FirebaseMessaging
 import Fabric
 import Crashlytics
 import FBSDKLoginKit
+import PromiseKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
@@ -43,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         FirebaseApp.configure()
         // Firebase Message delegate
         Messaging.messaging().delegate = self
+        // Setup Firebase remote config
+        setupRemoteConfig()
+        
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -54,11 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //        self.setupInitDevController()
 //        self.setupLogController()
 //        self.setupQuestionController()
-
         return true
     }
     
-   
+    func setupRemoteConfig() {
+        let remote = RemoteConfigManager.shared
+        remote.bankLogos().done { _ in
+            LoggingUtil.shared.cPrint("bankLogos")
+        }.catch { err in
+            LoggingUtil.shared.cPrint(err)
+        }
+    }
     
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
@@ -90,6 +100,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         }.catch { err in
             self.handleNotLoggedIn()
         }
+    }
+    
+    @objc func handleSwitch(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle login")
+        let dict = notification.userInfo?[NotificationUserInfoKey.vcInfo.rawValue] as? Dictionary<String, Any>
+        let storyname = dict?[NotificationUserInfoKey.storyboardName.rawValue] as? String ?? ""
+        let storyId = dict?[NotificationUserInfoKey.storyboardId.rawValue] as? String ?? ""
+        guard storyname.isEmpty == false, storyId.isEmpty == false  else {
+            LoggingUtil.shared.cPrint("err")
+            return
+        }
+        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: true)
     }
     
     @objc func handleLogout(notification: NSNotification) {
@@ -187,6 +209,8 @@ extension AppDelegate {
     func registerNotificationObservers() {
         // Event for programmatically logging out and returning to Registration screen
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSwitch(notification:)), name: NSNotification.Name(UINotificationEvent.switchRoot.rawValue), object: nil)
     }
     
     // trigger the first initiation of AppConfig singleton

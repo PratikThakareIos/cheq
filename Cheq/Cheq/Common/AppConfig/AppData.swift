@@ -70,6 +70,9 @@ class AppData {
     // instance of current application
     var application: UIApplication?
     
+    // remote config parameter cache time
+    var expirationDuration = TimeInterval(3600)
+    
     // amount selected from loan setting
     var amountSelected = "0"
     var loanFee = 10 
@@ -104,6 +107,14 @@ class AppData {
     var financialInstitutions: [FinancialInstitutionModel] = []
     var selectedFinancialInstitution: FinancialInstitutionModel?
     
+    // bank logo mapping from remote config
+    var remoteBankMapping = [RemoteBank]()
+    
+    // use for keeping the provider institution id to map which bank user selected
+    var existingProviderInstitutionId: String = ""
+    var existingFinancialInstitutionId: Int  = -1
+    
+    
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
 
     // employment flow related data
@@ -115,9 +126,15 @@ class AppData {
     var selectedEmployer: Int = 0
     var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
+    var selectedEmployerAddressString: String = ""
 
     // lending scenarios
     var completingDetailsForLending = false
+    
+    // is onboarding
+    var isOnboarding = false
+    
+    
     var completingOnDemandOther = false
 
     func saveOnfidoSDKToken(_ sdkToken: String) {

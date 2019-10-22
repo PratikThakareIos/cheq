@@ -18,7 +18,8 @@ class IntroductionViewController: UIViewController {
     @IBOutlet weak var titleLabel: CLabel!
     @IBOutlet weak var caption: CLabel!
     @IBOutlet weak var confirmButton: CButton!
-    @IBOutlet weak var secondaryButton: CButton! 
+    @IBOutlet weak var secondaryButton: CButton!
+    @IBOutlet weak var refreshButton: CButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +37,25 @@ class IntroductionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     
+    @IBAction func refresh() {
+//        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", object: "")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setupUI() {
+        
+        let declineReasons = IntroductionViewModel.declineReasons()
+        if declineReasons.contains(self.viewModel.coordinator.type) {
+            self.refreshButton.isHidden = false
+        } else {
+            self.refreshButton.isHidden = true
+        }
+        
         hideBackButton()
 
-        if self.viewModel.coordinator.type == .employmentTypeDeclined {
-            showCloseButton()
-        }
+//        if self.viewModel.coordinator.type == .employmentTypeDeclined {
+//            showCloseButton()
+//        }
 
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
@@ -60,6 +74,7 @@ class IntroductionViewController: UIViewController {
         self.confirmButton.setTitle(viewModel.confirmButtonTitle(), for: .normal)
         self.secondaryButton.setTitle(viewModel.nextButtonTitle(), for: .normal)
         self.secondaryButton.setType(.alternate)
+        self.refreshButton.setType(.alternate)
     }
     
     @IBAction func confirm(_ sender: Any) {

@@ -45,6 +45,16 @@ class DataHelperUtil {
         return req 
     }
     
+    func putUserEmployerRequest()->PutUserEmployerRequest {
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
+        let putReqEmploymentType = MultipleChoiceViewModel.cheqAPIEmploymentType(employmentType)
+        let noFixedAddress = employmentType == .onDemand ? true : false
+        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: qVm.fieldValue(QuestionField.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+        return req
+    }
+    
     func postPushNotificationRequest()-> PostPushNotificationRequest {
         let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
         let apnsToken = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
@@ -77,7 +87,7 @@ class DataHelperUtil {
 
     func postFinancialTransactionsRequest(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
         let postFinancialTransactionsRequest = transactions.map {
-            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.description, type: convertTransactionType($0.type), source: "")
+            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name, type: convertTransactionType($0.type), source: "")
         }
 
         return postFinancialTransactionsRequest

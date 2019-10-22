@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import MobileSDK
 
 class LoginViewController: RegistrationViewController {
 
@@ -57,7 +58,10 @@ class LoginViewController: RegistrationViewController {
     
     func navigateToDashboard() {
         // go to dashboard board
-        let _ = AppNav.shared.initTabViewController()
+        var vcInfo = [String: String]()
+        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
+        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
+        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
     }
     
     @IBAction func login(_ sender: Any) {
@@ -70,27 +74,59 @@ class LoginViewController: RegistrationViewController {
         
         AppConfig.shared.showSpinner()
         
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
         // whenever we successfully login, we post notification token
-        viewModel.login(emailTextField.text ?? "", password: passwordTextField.text ?? "").done { authUser in
-            AppConfig.shared.hideSpinner {
-                LoggingUtil.shared.cPrint(authUser)
-                // Load to dashboard
-                self.navigateToDashboard()
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                
-                // special case, if getUserDetails fails, then we go through onboarding process again
-                // even if you have login with firebase account
-                switch err {
-                case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
-                    self.beginOnboarding()
-                default:
-                    self.showError(err, completion: {
-                        self.passwordTextField.text = ""
-                    })
+        viewModel.login(email, password: password).then { authUser in
+                MoneySoftManager.shared.login(authUser.msCredential)
+            }.then { authModel->Promise<[FinancialAccountModel]> in
+                return MoneySoftManager.shared.getAccounts()
+            }.done { accounts in
+                AppConfig.shared.hideSpinner {
+                    let financialAccounts: [FinancialAccountModel] = accounts
+                    if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
+                        // when we have disabled linked acccount, we need to get user
+                        // to dynamic form view and link their bank account
+                        AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
+                        AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitutionId
+                        MoneySoftManager.shared.getInstitutions().done { institutions in
+                            AppData.shared.financialInstitutions = institutions
+                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId && String($0.providerInstitutionId) == AppData.shared.existingProviderInstitutionId })
+                            guard let selected = AppData.shared.selectedFinancialInstitution else {
+                                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                                return
+                            }
+                            
+                            AppData.shared.isOnboarding = false
+                            AppNav.shared.pushToDynamicForm(selected, viewController: self)
+                        }.catch { err in
+                            self.showError(err, completion: nil)
+                        }
+                    } else {
+                        // Load to dashboard
+                        AppData.shared.completingDetailsForLending = false 
+                        self.navigateToDashboard()
+                    }
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    // handle err
+                    self.handleLoginErr(err)
                 }
             }
+    }
+    
+    func handleLoginErr(_ err: Error) {
+        // special case, if getUserDetails fails, then we go through onboarding process again
+        // even if you have login with firebase account
+        switch err {
+        case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
+            self.beginOnboarding()
+        default:
+            self.showError(err, completion: {
+                self.passwordTextField.text = ""
+            })
         }
     }
     
@@ -133,7 +169,9 @@ extension LoginViewController {
             AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
         } else if viewModel.isSignup(URL.absoluteString) {
             
-            if isModal {
+            if isModal == false, let nav = self.navigationController {
+                nav.popViewController(animated: true)
+            } else if isModal {
                 AppNav.shared.dismiss(self)
             } else {
                 AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)

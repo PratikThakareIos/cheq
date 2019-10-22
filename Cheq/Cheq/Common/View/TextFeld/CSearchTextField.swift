@@ -56,7 +56,7 @@ class CSearchTextField: SearchTextField {
             self.text = searchItem.title
         }
         
-        self.minCharactersNumberToStartFiltering = 3
+        self.minCharactersNumberToStartFiltering = 0
         
         self.typingStoppedDelay = AppConfig.shared.activeTheme.quickAnimationDuration
     }

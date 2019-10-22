@@ -172,9 +172,7 @@ extension PasscodeViewController: UITextFieldDelegate {
             case .confirm:
                 let _ = CKeychain.shared.setValue(CKey.passcodeLock.rawValue, value: viewModel.passcode)
                 let _ = CKeychain.shared.setValue(CKey.confirmPasscodeLock.rawValue, value: viewModel.passcode)
-                self.showMessage("Passcode successfully updated!") {
-                    AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-                }
+                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
             }
         }
     }

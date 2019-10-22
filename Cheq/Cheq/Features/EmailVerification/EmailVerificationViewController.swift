@@ -31,10 +31,6 @@ class EmailVerificationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
-        self.sendVerificationCode()
-        if self.viewModel.type == .passwordReset {
-            showCloseButton()
-        }
     }
     
     func sendVerificationCode() {
@@ -53,6 +49,15 @@ class EmailVerificationViewController: UIViewController {
     }
     
     func setupUI() {
+        
+        if self.viewModel.type == .email {
+            self.sendVerificationCode()
+        }
+        
+        if self.viewModel.type == .passwordReset {
+            showCloseButton()
+        }
+        
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         iconImage.image = viewModel.image
         codeTextField.placeholder = viewModel.codeFieldPlaceHolder

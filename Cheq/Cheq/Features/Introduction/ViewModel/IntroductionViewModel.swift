@@ -72,6 +72,10 @@ class IntroductionViewModel: BaseViewModel {
         return coordinator.title
     }
     
+    static func declineReasons()->[IntroductionType] {
+        return [.employmentTypeDeclined, .creditAssessment, .hasWriteOff, .identityConflict, .jointAccount, .kycFailed, .monthlyPayCycle, .noPayCycle]
+    }
+    
     static func introTypeFromDeclineReason(_ type: DeclineDetail.DeclineReason)-> IntroductionType? {
         switch type {
         case ._none: return nil

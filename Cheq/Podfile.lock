@@ -38,6 +38,13 @@ PODS:
   - Firebase/Messaging (6.9.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.1.4)
+  - Firebase/RemoteConfig (6.9.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 4.4.1)
+  - FirebaseABTesting (3.1.2):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.1)
+    - Protobuf (>= 3.9.2, ~> 3.9)
   - FirebaseAnalytics (6.1.2):
     - FirebaseCore (~> 6.3)
     - FirebaseInstanceID (~> 4.2)
@@ -87,6 +94,14 @@ PODS:
     - GoogleUtilities/Reachability (~> 6.2)
     - GoogleUtilities/UserDefaults (~> 6.2)
     - Protobuf (~> 3.1)
+  - FirebaseRemoteConfig (4.4.2):
+    - FirebaseABTesting (~> 3.1)
+    - FirebaseAnalyticsInterop (~> 1.4)
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - "GoogleUtilities/NSData+zlib (~> 6.2)"
+    - Protobuf (>= 3.9.2, ~> 3.9)
   - FirebaseUI/Auth (8.1.0):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
@@ -185,6 +200,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/InAppMessagingDisplay
   - Firebase/Messaging
+  - Firebase/RemoteConfig
   - FirebaseUI/Auth
   - FirebaseUI/Facebook
   - FMDB
@@ -223,6 +239,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
+    - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
     - FirebaseAuth
@@ -234,6 +251,7 @@ SPEC REPOS:
     - FirebaseInAppMessagingDisplay
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseRemoteConfig
     - FirebaseUI
     - FMDB
     - GoogleAppMeasurement
@@ -277,6 +295,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 0d2d450fe9447e204fa6e912e0df76dd36693699
   FBSDKLoginKit: 4127e8260b96e0e4cc8ba0c10c95ee63941aa24a
   Firebase: 2d750c54cda57d5a6ae31212cfe5cc813c6be7e4
+  FirebaseABTesting: 0d10f3cdc3fa00f3f175b5b56c1003c8e888299f
   FirebaseAnalytics: 5d9ccbf46ed25d3ec9304d263f85bddf1e93e2d2
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseAuth: e7f86c2dfc57281cd01f7da5e4b40e01e4510a4a
@@ -288,6 +307,7 @@ SPEC CHECKSUMS:
   FirebaseInAppMessagingDisplay: 66267552890939d394a961ee4cac5cdfd41f17bb
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
   FirebaseMessaging: b22b949cc45c14da01e60404dd7bffc78956380c
+  FirebaseRemoteConfig: 03efa57106f9b6f7afe36658de4a9c67c803d3a8
   FirebaseUI: 41e06c5f7f6e34a8f430862d67637e36e4aa696c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
@@ -319,6 +339,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 239aa6a03de2d57938b12559255d9a06ee2b3104
+PODFILE CHECKSUM: 0e8bee82ef4386ef753765aa067b1e514bb7648e
 
 COCOAPODS: 1.7.4

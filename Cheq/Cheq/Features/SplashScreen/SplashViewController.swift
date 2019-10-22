@@ -28,6 +28,7 @@ class SplashViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        benefitsCollectionView.snapToCell(self.view)
     }
     
     func setupDelegate() {

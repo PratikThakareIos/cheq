@@ -15,8 +15,12 @@ class LendingViewModel: BaseTableVCViewModel {
     override init() {
     }
     
+    func isKycStatusSuccess(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
+        return kycStatus == EligibleRequirement.KycStatus.success
+    }
+    
     func isKycStatusPending(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
-        if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant || kycStatus == EligibleRequirement.KycStatus.inProcessing {
+        if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant || kycStatus == EligibleRequirement.KycStatus.inProcessing || kycStatus == EligibleRequirement.KycStatus.blocked {
             return true
         } else {
             return false
@@ -38,7 +42,12 @@ extension LendingViewModel {
     }
     
     func addMessageBubble(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
-        LoggingUtil.shared.cPrint("lendingOverview")
+        
+        if lendingOverview.loanSetting?.maximumAmount == 0 {
+            LoggingUtil.shared.cPrint("limit reach message")
+            let messageBubble = MessageBubbleTableViewCellViewModel()
+            section.rows.append(messageBubble)
+        }
     }
     
     func addCashoutButton (_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
@@ -107,18 +116,24 @@ extension LendingViewModel {
             completeDetailsForKyc.completionState = hasBankDetails ? .pending : .inactive
             completeDetailsForKyc.expanded = hasBankDetails ? true : false
             completeDetailsViewModels.append(completeDetailsForKyc)
-            
-            section.rows.append(top)
-            let completedProgressViewModel = CompletionProgressTableViewCellViewModel()
-            completedProgressViewModel.mode = .monetary
-            completedProgressViewModel.completedItem = completed
-            completedProgressViewModel.totalItem = 3
-            completedProgressViewModel.progress = Float(completed) / Float(3)
-            section.rows.append(completedProgressViewModel)
-            section.rows.append(contentsOf: completeDetailsViewModels)
-            let bottom = BottomTableViewCellViewModel()
-            section.rows.append(bottom)
+        } else {
+            let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
+            completeDetailsForKyc.type = .verifyYourDetails
+            completeDetailsForKyc.completionState = .inactive
+            completeDetailsForKyc.expanded = hasBankDetails ? true : false
+            completeDetailsViewModels.append(completeDetailsForKyc)
         }
+        
+        section.rows.append(top)
+        let completedProgressViewModel = CompletionProgressTableViewCellViewModel()
+        completedProgressViewModel.mode = .monetary
+        completedProgressViewModel.completedItem = completed
+        completedProgressViewModel.totalItem = 3
+        completedProgressViewModel.progress = Float(completed) / Float(3)
+        section.rows.append(completedProgressViewModel)
+        section.rows.append(contentsOf: completeDetailsViewModels)
+        let bottom = BottomTableViewCellViewModel()
+        section.rows.append(bottom)
     }
 }
 

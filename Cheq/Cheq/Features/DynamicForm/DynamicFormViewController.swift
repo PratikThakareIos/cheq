@@ -29,7 +29,11 @@ class DynamicFormViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
-        AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        self.questionTitle.text = self.viewModel.coordinator.viewTitle
+        self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+        if AppData.shared.isOnboarding {
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,6 +128,7 @@ class DynamicFormViewController: UIViewController {
         AppConfig.shared.showSpinner()
         viewModel.coordinator.submitForm().done { success in
             AppConfig.shared.hideSpinner {
+                AppData.shared.isOnboarding = false 
                 AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController(), from: self)
             }
         }.catch { err in

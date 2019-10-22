@@ -235,8 +235,17 @@ extension AppNav {
             .with(responseHandler: { results in
                 // Callback when flow ends
                 // for KYC, we dismiss the introductionViewController after KYC flow ended
-                guard AppData.shared.completingDetailsForLending else { return }
-                viewController.dismiss(animated: true, completion: nil)
+                CheqAPIManager.shared.putKycCheck().done {
+                    LoggingUtil.shared.cPrint("kyc checked")
+                    guard AppData.shared.completingDetailsForLending else { return }
+                    viewController.dismiss(animated: true, completion:nil)
+                }.catch{ err in
+                    let error = err
+                    guard AppData.shared.completingDetailsForLending else { return }
+                    viewController.dismiss(animated: true, completion: {
+                        NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
+                    })
+                }
             })
         
         do {

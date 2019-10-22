@@ -49,7 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
                     <connections>
-                        <outlet property="tableView" destination="cJz-X1-sMR" id="edT-hL-57N"/>
+                        <outlet property="tableView" destination="cJz-X1-sMR" id="OJO-YR-sgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1Y-bb-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>

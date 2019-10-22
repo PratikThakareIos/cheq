@@ -153,6 +153,7 @@ extension RegistrationViewController: UITextFieldDelegate {
 extension RegistrationViewController {
     
     func beginOnboarding() {
+        AppData.shared.isOnboarding = true 
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
                 self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
