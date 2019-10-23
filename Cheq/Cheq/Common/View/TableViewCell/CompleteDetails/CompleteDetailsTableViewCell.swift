@@ -24,6 +24,11 @@ class CompleteDetailsTableViewCell: CTableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
+        if vm.completionState == .pending {
+            NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
+        }
     }
 
     override func setupConfig() {
@@ -39,10 +44,5 @@ class CompleteDetailsTableViewCell: CTableViewCell {
 
     @IBAction func expand(_ sender: Any) {
         LoggingUtil.shared.cPrint("expand")
-        guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
-        if vm.completionState == .pending {
-             NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
-        }
-       
     }
 }

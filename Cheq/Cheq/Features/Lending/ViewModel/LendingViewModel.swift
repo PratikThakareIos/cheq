@@ -113,7 +113,7 @@ extension LendingViewModel {
             
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
             completeDetailsForKyc.type = .verifyYourDetails
-            completeDetailsForKyc.completionState = hasBankDetails ? .pending : .inactive
+            completeDetailsForKyc.completionState = hasBankDetails && isKycStatusPending(kycStatus) ? .pending : .inactive
             completeDetailsForKyc.expanded = hasBankDetails ? true : false
             completeDetailsViewModels.append(completeDetailsForKyc)
         } else {

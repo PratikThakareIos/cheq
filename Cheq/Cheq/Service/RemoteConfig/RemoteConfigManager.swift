@@ -40,21 +40,21 @@ class RemoteConfigManager {
     func bankLogos()->Promise<[String: String]> {
        
         return Promise<[String: String]>() { resolver in
-            
-            var logoMapping = [String: String]()
-            self.fetchAndActivate().done { _ in
-                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstitutions.rawValue)
-                do {
-//                    let arr = try JSONSerialization.jsonObject(with: banks.dataValue, options: .allowFragments) as! [String:String]
-//
-//                    LoggingUtil.shared.cPrint(arr)
-                }
-                catch let error {
-                    resolver.reject(error)
-                }
-            }.catch { err in
-                resolver.reject(RemoteConfigError.unableToFetchInstitutions)
-            }
+            resolver.fulfill([String : String]())
+//            var logoMapping = [String: String]()
+//            self.fetchAndActivate().done { _ in
+//                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstitutions.rawValue)
+//                do {
+////                    let arr = try JSONSerialization.jsonObject(with: banks.dataValue, options: .allowFragments) as! [String:String]
+////
+////                    LoggingUtil.shared.cPrint(arr)
+//                }
+//                catch let error {
+//                    resolver.reject(error)
+//                }
+//            }.catch { err in
+//                resolver.reject(RemoteConfigError.unableToFetchInstitutions)
+//            }
             
             
         }
