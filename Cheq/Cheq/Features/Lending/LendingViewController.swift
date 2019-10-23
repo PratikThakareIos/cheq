@@ -11,6 +11,8 @@ import PromiseKit
 import PullToRefreshKit
 
 class LendingViewController: CTableViewController {
+    
+    @IBOutlet weak var logout: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class LendingViewController: CTableViewController {
 
     func setupUI() {
         hideBackTitle()
+        addLogoutNavButton()
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
@@ -47,16 +50,6 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.button(_:)), name: NSNotification.Name(UINotificationEvent.buttonClicked.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
-    }
-
-    
-}
-
-extension LendingViewController {
-    @IBAction func logout(_ sender: Any)  {
-        showDecision("Confirm logging out?", confirmCb: {
-             NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
-        }, cancelCb: nil)
     }
 }
 
@@ -99,34 +92,40 @@ extension LendingViewController {
         }
     }
     
+    func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
+        
+        self.showDeclineIfNeeded(lendingOverview)
+        
+        if self.viewModel.sections.count > 0 {
+            self.viewModel.sections.removeAll()
+        }
+        
+        var section = TableSectionViewModel()
+        LoggingUtil.shared.cPrint("build view model here...")
+        
+        guard let vm = self.viewModel as?  LendingViewModel else { return }
+        // intercom chat
+        section.rows.append(IntercomChatTableViewCellViewModel())
+        vm.addLoanSetting(lendingOverview, section: &section)
+        vm.addCashoutButton(lendingOverview, section: &section)
+        vm.addMessageBubble(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        vm.completeDetails(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        // actvity
+        vm.activityList(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        self.viewModel.addSection(section)
+        self.tableView.reloadData()
+    }
+    
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
             CheqAPIManager.shared.lendingOverview()
-            .done{ lendingOverview in
-
+            .done{ overview in
                 AppConfig.shared.hideSpinner {
 //                    let lendingOverview = TestUtil.shared.testLendingOverview()
-                    self.showDeclineIfNeeded(lendingOverview)
-                    
-                    self.viewModel.sections.removeAll()
-                    var section = TableSectionViewModel()
-                    LoggingUtil.shared.cPrint("build view model here...")
-                    
-                    guard let vm = self.viewModel as?  LendingViewModel else { return }
-                    // intercom chat
-                    section.rows.append(IntercomChatTableViewCellViewModel())
-                        vm.addLoanSetting(lendingOverview, section: &section)
-                        vm.addCashoutButton(lendingOverview, section: &section)
-                        vm.addMessageBubble(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                        vm.completeDetails(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                        // actvity
-                    vm.activityList(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                    self.viewModel.addSection(section)
-                    self.registerCells()
-                    self.tableView.reloadData()
+                   self.renderLending(overview)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {

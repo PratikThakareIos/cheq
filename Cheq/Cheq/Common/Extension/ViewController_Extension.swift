@@ -26,6 +26,12 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
     }
     
+    func addLogoutNavButton() {
+        let nav = self.navigationItem
+        let logoutButton = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(logout))
+        nav.setRightBarButton(logoutButton, animated: true)
+    }
+    
     func hideBackTitle() {
         self.navigationItem.hidesBackButton = false
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)

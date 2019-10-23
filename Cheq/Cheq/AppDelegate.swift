@@ -111,7 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             LoggingUtil.shared.cPrint("err")
             return
         }
-        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: true)
+        
+        // nav is embeded inside the viewcontrollers of tabbar
+        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
     
     @objc func handleLogout(notification: NSNotification) {
@@ -280,7 +282,7 @@ extension AppDelegate {
     
     func setupInitDevController () {
         self.setupServicesForDev()
-        let vc = AppNav.shared.initTabViewController()
+        let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.lending.rawValue, embedInNav: true)
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

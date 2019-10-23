@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
                                 <rect key="frame" x="10" y="88" width="394" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -47,13 +47,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5BY-ug-oG6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YSa-H9-hGi">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="UNn-oh-fjz">
-                            <connections>
-                                <action selector="logout:" destination="Gh5-ns-Z4N" id="BnR-mQ-Pnx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="cJz-X1-sMR" id="OJO-YR-sgh"/>
                     </connections>

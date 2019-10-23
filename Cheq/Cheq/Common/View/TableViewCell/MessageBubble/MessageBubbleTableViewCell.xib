@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBq-Xc-2Kg" userLabel="ContainerView">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="88.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="90.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="the-Sd-Lc2">
-                                <rect key="frame" x="20" y="10" width="390" height="68.5"/>
+                                <rect key="frame" x="20" y="10.5" width="390" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notificationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yta-4E-StG">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -32,7 +32,10 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have used up your maximum cash out amount. Come back again later after you check-in for work." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIY-cH-2hk" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="0.0" width="350" height="61"/>
+                                        <rect key="frame" x="40" y="0.0" width="350" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="bqo-Jh-eOb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
