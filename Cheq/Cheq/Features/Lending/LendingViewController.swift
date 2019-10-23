@@ -11,8 +11,6 @@ import PromiseKit
 import PullToRefreshKit
 
 class LendingViewController: CTableViewController {
-    
-    @IBOutlet weak var logout: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()

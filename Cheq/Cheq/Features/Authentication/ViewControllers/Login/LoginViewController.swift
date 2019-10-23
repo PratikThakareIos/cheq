@@ -78,8 +78,14 @@ class LoginViewController: RegistrationViewController {
         let password = passwordTextField.text ?? ""
         
         // whenever we successfully login, we post notification token
-        viewModel.login(email, password: password).then { authUser in
-                MoneySoftManager.shared.login(authUser.msCredential)
+        viewModel.login(email, password: password).then { authUser->Promise<GetUserKycResponse> in
+                let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+                return CheqAPIManager.shared.retrieveUserDetailsKyc(req)
+            }.then { kycResponse->Promise<AuthUser> in
+                AppData.shared.saveOnfidoSDKToken(kycResponse.sdkToken ?? "")
+                return AuthConfig.shared.activeManager.getCurrentUser()
+            }.then { authUser in
+                return MoneySoftManager.shared.login(authUser.msCredential)
             }.then { authModel->Promise<[FinancialAccountModel]> in
                 return MoneySoftManager.shared.getAccounts()
             }.done { accounts in
