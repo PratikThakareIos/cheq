@@ -83,8 +83,8 @@ class CPopupDialog {
         let defaultButtonAppearance = DefaultButton.appearance()
         // Default button
         defaultButtonAppearance.titleFont      = AppConfig.shared.activeTheme.mediumFont
-        defaultButtonAppearance.titleColor     = AppConfig.shared.activeTheme.textBackgroundColor
-        defaultButtonAppearance.buttonColor    = AppConfig.shared.activeTheme.primaryColor
+        defaultButtonAppearance.titleColor     = AppConfig.shared.activeTheme.primaryColor
+        defaultButtonAppearance.buttonColor    = .clear
         defaultButtonAppearance.separatorColor = AppConfig.shared.activeTheme.primaryColor
         
         let containerAppearance = PopupDialogContainerView.appearance()

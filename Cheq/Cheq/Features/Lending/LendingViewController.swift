@@ -52,6 +52,14 @@ class LendingViewController: CTableViewController {
     
 }
 
+extension LendingViewController {
+    @IBAction func logout(_ sender: Any)  {
+        showDecision("Confirm logging out?", confirmCb: {
+             NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+        }, cancelCb: nil)
+    }
+}
+
 // observable handlers
 extension LendingViewController {
     
@@ -93,12 +101,11 @@ extension LendingViewController {
     
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-        CheqAPIManager.shared.retrieveUserDetailsKyc(req).then { response->Promise<GetLendingOverviewResponse> in
-                return CheqAPIManager.shared.lendingOverview()
-            }.done{ lendingOverview in
+            CheqAPIManager.shared.lendingOverview()
+            .done{ lendingOverview in
+
                 AppConfig.shared.hideSpinner {
-                
+//                    let lendingOverview = TestUtil.shared.testLendingOverview()
                     self.showDeclineIfNeeded(lendingOverview)
                     
                     self.viewModel.sections.removeAll()
@@ -110,12 +117,12 @@ extension LendingViewController {
                     section.rows.append(IntercomChatTableViewCellViewModel())
                         vm.addLoanSetting(lendingOverview, section: &section)
                         vm.addCashoutButton(lendingOverview, section: &section)
-    //                    vm.addMessageBubble(lendingOverview, section: &section)
+                        vm.addMessageBubble(lendingOverview, section: &section)
                     section.rows.append(SpacerTableViewCellViewModel())
                         vm.completeDetails(lendingOverview, section: &section)
                     section.rows.append(SpacerTableViewCellViewModel())
                         // actvity
-                        vm.activityList(lendingOverview, section: &section)
+                    vm.activityList(lendingOverview, section: &section)
                     section.rows.append(SpacerTableViewCellViewModel())
                     self.viewModel.addSection(section)
                     self.registerCells()
@@ -123,7 +130,9 @@ extension LendingViewController {
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
+                    self.showError(err) {
+                        NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", object: "")
+                    }
                 }
             }
     }
@@ -131,7 +140,7 @@ extension LendingViewController {
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
         let eligibleRequirements = lendingOverview.eligibleRequirement
         let kycStatus = eligibleRequirements?.kycStatus ?? .notStarted
-        guard let _ = eligibleRequirements?.hasBankAccountDetail, let _ = eligibleRequirements?.hasEmploymentDetail, self.kycHasCompleted(kycStatus) else { return false }
+        guard eligibleRequirements?.hasBankAccountDetail == true, eligibleRequirements?.hasEmploymentDetail == true, self.kycHasCompleted(kycStatus) else { return false }
         
         guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
         return true

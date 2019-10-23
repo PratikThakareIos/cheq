@@ -37,7 +37,6 @@
                             <constraint firstAttribute="bottom" secondItem="Wvv-xB-DmD" secondAttribute="bottom" id="BOL-f1-zZ7"/>
                             <constraint firstItem="Wvv-xB-DmD" firstAttribute="top" secondItem="MHI-F3-60D" secondAttribute="top" id="KhA-ti-ZGg"/>
                             <constraint firstAttribute="trailing" secondItem="Wvv-xB-DmD" secondAttribute="trailing" id="Khb-bd-jhm"/>
-                            <constraint firstAttribute="height" constant="52.5" id="YFH-x4-Fjg"/>
                         </constraints>
                     </view>
                 </subviews>

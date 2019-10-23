@@ -47,7 +47,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5BY-ug-oG6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
+                    <navigationItem key="navigationItem" id="YSa-H9-hGi">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="UNn-oh-fjz">
+                            <connections>
+                                <action selector="logout:" destination="Gh5-ns-Z4N" id="BnR-mQ-Pnx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cJz-X1-sMR" id="OJO-YR-sgh"/>
                     </connections>
