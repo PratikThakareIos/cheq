@@ -63,7 +63,8 @@ extension CheqAPIManager {
                 let token = authUser.authToken() ?? ""
                 LendingAPI.getLendingWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (lendingOverview, err) in
                     if let error = err {
-                        resolver.reject(error); return
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview); return
                     }
                     guard let response = lendingOverview?.body else {
                         resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview); return
