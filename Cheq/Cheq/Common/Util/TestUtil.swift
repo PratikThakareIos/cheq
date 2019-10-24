@@ -171,7 +171,7 @@ class TestUtil {
         var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
         for _ in 0..<10 {
-            let loanActivity = LoanActivity(amount: randomAmount(), date: DateUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
+            let loanActivity = LoanActivity(amount: randomAmount(), date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
             loanActivities.append(loanActivity)
         }
         return loanActivities
@@ -193,7 +193,7 @@ class TestUtil {
     func testLoanPreview()->GetLoanPreviewResponse {
         let amount = Double(AppData.shared.amountSelected)
         let fee = Double(AppData.shared.loanFee)
-        let formatter = DateUtil.shared.defaultDateFormatter()
+        let formatter = FormatterUtil.shared.defaultDateFormatter()
         let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement())
         return loanPreview
     }
@@ -208,7 +208,7 @@ class TestUtil {
         // ignore decline for now 
         let decline = DeclineViewTestUtil.shared.generateDeclineDetails(DeclineDetail.DeclineReason.creditAssessment)
         
-        let repaymentDate = DateUtil.shared.userFriendlyDateFormatter().string(from: 7.days.later)
+        let repaymentDate = FormatterUtil.shared.userFriendlyDateFormatter().string(from: 7.days.later)
     
         let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5, repaymentDate: repaymentDate)
     

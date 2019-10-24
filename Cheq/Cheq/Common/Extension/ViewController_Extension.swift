@@ -28,7 +28,7 @@ extension UIViewController {
     
     func addLogoutNavButton() {
         let nav = self.navigationItem
-        let logoutButton = UIBarButtonItem(title: "logout", style: .plain, target: self, action: #selector(logout))
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         nav.setRightBarButton(logoutButton, animated: true)
     }
     

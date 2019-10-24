@@ -185,9 +185,9 @@ class CheqAPIManager {
                             return
                         }
                         
-                        if let error = err {
-                            
-                            resolver.reject(error); return
+                        if err != nil {
+                            resolver.reject(CheqAPIManagerError.errorFromGetUserDetails)
+                            return
                         }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                         var updatedAuthUser = authUser

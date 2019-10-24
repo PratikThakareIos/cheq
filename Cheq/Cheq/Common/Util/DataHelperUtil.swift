@@ -38,7 +38,7 @@ class DataHelperUtil {
     
     func postLoanRequest()->PostLoanRequest {
         let amount = Int(AppData.shared.amountSelected) ?? 0
-        let fee = 5 * (amount / 100) // should get back from backend
+        let fee = Int(AppData.shared.loanFee) // should get back from backend
         let hasAccepted = AppData.shared.acceptedAgreement
         
         let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted)

@@ -40,6 +40,7 @@ enum CheqAPIManagerError: Error, Equatable {
     case unableToParseResponse
     case invalidInput
     case onboardingRequiredFromGetUserDetails
+    case errorFromGetUserDetails
 }
 
 enum CheqAPIManagerError_Spending: Error {
@@ -155,6 +156,8 @@ extension CheqAPIManagerError: LocalizedError {
             return NSLocalizedString("Unable to perform KYC operation now", comment: "")
         case .onboardingRequiredFromGetUserDetails:
             return NSLocalizedString("Onboarding process required", comment: "")
+        case .errorFromGetUserDetails:
+            return NSLocalizedString("Error from get user details", comment: "")
         }
     }
 }

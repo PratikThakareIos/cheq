@@ -250,7 +250,7 @@
 		4FD83624235EBB280069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4FD83625235EBB280069EB30 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
 		4FD83626235EBB280069EB30 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
-		4FD83627235EBB280069EB30 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FD83627235EBB280069EB30 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4FD83628235EBB280069EB30 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4FD83629235EBB280069EB30 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
 		4FD8362A235EBB280069EB30 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
@@ -534,7 +534,7 @@
 		4FD83756235FEE770069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4FD83757235FEE770069EB30 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
 		4FD83758235FEE770069EB30 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
-		4FD83759235FEE770069EB30 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FD83759235FEE770069EB30 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4FD8375A235FEE770069EB30 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4FD8375B235FEE770069EB30 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
 		4FD8375C235FEE770069EB30 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
@@ -819,7 +819,7 @@
 		4FD83884235FEEEC0069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4FD83885235FEEEC0069EB30 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
 		4FD83886235FEEEC0069EB30 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
-		4FD83887235FEEEC0069EB30 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FD83887235FEEEC0069EB30 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4FD83888235FEEEC0069EB30 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4FD83889235FEEEC0069EB30 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
 		4FD8388A235FEEEC0069EB30 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
@@ -1058,7 +1058,7 @@
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
-		4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* DateUtil.swift */; };
+		4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
 		9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
 		9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
@@ -1460,7 +1460,7 @@
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
-		4FEF9839234D51DC00E37421 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		4FEF9839234D51DC00E37421 /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -2560,7 +2560,7 @@
 				4F09109B231F981E00AA7F7D /* NotificationUtil.swift */,
 				4FD7C12E2327299400AC7A67 /* ViewUtil.swift */,
 				964F7BDF23332A9800338227 /* StringUtil.swift */,
-				4FEF9839234D51DC00E37421 /* DateUtil.swift */,
+				4FEF9839234D51DC00E37421 /* FormatterUtil.swift */,
 				4F2E4B94233AED51001F1BA2 /* DataHelperUtil.swift */,
 				4F0D63AF23431EFD00AA819C /* TestUtil.swift */,
 				4F80FCE0235989C6009C8F83 /* DeclineViewTestUtil.swift */,
@@ -3986,7 +3986,7 @@
 				4FD83624235EBB280069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD83625235EBB280069EB30 /* FBEnums.swift in Sources */,
 				4FD83626235EBB280069EB30 /* WebViewController.swift in Sources */,
-				4FD83627235EBB280069EB30 /* DateUtil.swift in Sources */,
+				4FD83627235EBB280069EB30 /* FormatterUtil.swift in Sources */,
 				4FD83628235EBB280069EB30 /* CollectionViewProtocol.swift in Sources */,
 				4FD83629235EBB280069EB30 /* PostLoanRequest.swift in Sources */,
 				4FD8362A235EBB280069EB30 /* SpendingOverviewViewModel.swift in Sources */,
@@ -4251,7 +4251,7 @@
 				4FD83756235FEE770069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD83757235FEE770069EB30 /* FBEnums.swift in Sources */,
 				4FD83758235FEE770069EB30 /* WebViewController.swift in Sources */,
-				4FD83759235FEE770069EB30 /* DateUtil.swift in Sources */,
+				4FD83759235FEE770069EB30 /* FormatterUtil.swift in Sources */,
 				4FD8375A235FEE770069EB30 /* CollectionViewProtocol.swift in Sources */,
 				4FD8375B235FEE770069EB30 /* PostLoanRequest.swift in Sources */,
 				4FD8375C235FEE770069EB30 /* SpendingOverviewViewModel.swift in Sources */,
@@ -4516,7 +4516,7 @@
 				4FD83884235FEEEC0069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD83885235FEEEC0069EB30 /* FBEnums.swift in Sources */,
 				4FD83886235FEEEC0069EB30 /* WebViewController.swift in Sources */,
-				4FD83887235FEEEC0069EB30 /* DateUtil.swift in Sources */,
+				4FD83887235FEEEC0069EB30 /* FormatterUtil.swift in Sources */,
 				4FD83888235FEEEC0069EB30 /* CollectionViewProtocol.swift in Sources */,
 				4FD83889235FEEEC0069EB30 /* PostLoanRequest.swift in Sources */,
 				4FD8388A235FEEEC0069EB30 /* SpendingOverviewViewModel.swift in Sources */,
@@ -4781,7 +4781,7 @@
 				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
-				4FEF983A234D51DC00E37421 /* DateUtil.swift in Sources */,
+				4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				4F18091F235D22460018507D /* PostLoanRequest.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */,

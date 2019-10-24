@@ -16,6 +16,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     @IBOutlet weak var draggableText: CLabel!
     @IBOutlet weak var footerText: CLabel!
     @IBOutlet weak var containerView: UIView!
+    var draggableOrigin: CGPoint = CGPoint.zero
     var draggableCenter: CGPoint = CGPoint.zero
     
     override func awakeFromNib() {
@@ -23,12 +24,17 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         // Initialization code
         self.viewModel = SwipeToConfirmTableViewCellViewModel()
         self.setupConfig()
+        self.registerObservables()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func registerObservables() {
+        NotificationCenter.default.addObserver(self, selector: #selector(swipeReset(_:)), name: NSNotification.Name(UINotificationEvent.swipeReset.rawValue), object: nil)
     }
     
     override func setupConfig() {
@@ -48,6 +54,15 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(drag(_:)))
         self.draggable.addGestureRecognizer(panGestureRecognizer)
         self.draggableCenter = draggable.center
+        self.draggableOrigin = draggable.center
+    }
+    
+    @objc func swipeReset(_ notification: NSNotification) {
+        UIView.animate(withDuration: 0.5) {
+            self.draggable.center = self.draggableOrigin
+            self.backgroundText.alpha = 1.0
+            AppData.shared.acceptedAgreement = false
+        }
     }
     
     @objc func drag(_ gestureRecognizer : UIPanGestureRecognizer) {

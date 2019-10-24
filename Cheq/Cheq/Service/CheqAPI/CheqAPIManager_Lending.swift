@@ -20,6 +20,7 @@ extension CheqAPIManager {
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
                         resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                        NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
                         return
                     }
                     
@@ -28,6 +29,7 @@ extension CheqAPIManager {
             }.catch { err in
                 LoggingUtil.shared.cPrint(err)
                 resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
             }
         }
     }

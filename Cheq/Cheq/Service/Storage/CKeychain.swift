@@ -102,7 +102,7 @@ class CKeychain {
         // work activity log
         let _ = CKeychain.shared.setValue(CKey.vDotLog.rawValue, value: "")
         // active date
-        let formatter = DateUtil.shared.defaultDateFormatter()
+        let formatter = FormatterUtil.shared.defaultDateFormatter()
         let _ = CKeychain.shared.setValue(CKey.activeTime.rawValue, value: formatter.string(from: 100.years.earlier))
         
         // clear the passcode data
