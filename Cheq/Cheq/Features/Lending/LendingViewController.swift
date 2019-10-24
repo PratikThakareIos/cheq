@@ -135,11 +135,21 @@ extension LendingViewController {
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
-        let eligibleRequirements = lendingOverview.eligibleRequirement
-        let kycStatus = eligibleRequirements?.kycStatus ?? .notStarted
-        guard eligibleRequirements?.hasBankAccountDetail == true, eligibleRequirements?.hasEmploymentDetail == true, self.kycHasCompleted(kycStatus) else { return false }
+        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
+        let viewModel = self.viewModel as! LendingViewModel
         
-        guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
+        let kycSuceeded = viewModel.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
+        let kycFailed = viewModel.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
+        
+        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
+        let kycCompleted = kycSuceeded || kycFailed
+        
+        guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
+        
+        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }
+        
+        guard reason != ._none else { return false }
+        
         return true
     }
     

@@ -19,6 +19,10 @@ class LendingViewModel: BaseTableVCViewModel {
         return kycStatus == EligibleRequirement.KycStatus.success
     }
     
+    func isKycStatusFailed(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
+        return kycStatus == EligibleRequirement.KycStatus.failed
+    }
+    
     func isKycStatusPending(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
         if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant || kycStatus == EligibleRequirement.KycStatus.inProcessing || kycStatus == EligibleRequirement.KycStatus.blocked {
             return true
@@ -68,16 +72,20 @@ extension LendingViewModel {
 extension LendingViewModel {
     
     func completeDetails (_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
-        
+        guard let eligibleRequirement = lendingOverview.eligibleRequirement else { return }
         // complete details
         let top = TopTableViewCellViewModel()
         var completed = 0
         var completeDetailsViewModels = [TableViewCellViewModelProtocol]()
-        let eligibleRequirement = lendingOverview.eligibleRequirement
-        let hasEmploymentDetail = eligibleRequirement?.hasEmploymentDetail ?? false
-        let hasBankDetails = eligibleRequirement?.hasBankAccountDetail ?? false
+        let hasEmploymentDetail = eligibleRequirement.hasEmploymentDetail ?? false
+        let hasBankDetails = eligibleRequirement.hasBankAccountDetail ?? false
+        let kycStatus = eligibleRequirement.kycStatus ?? .notStarted
+        let kycCompleted = isKycStatusSuccess(kycStatus) || isKycStatusFailed(kycStatus)
+        if hasEmploymentDetail == true, hasBankDetails == true, kycCompleted {
+            return
+        }
         
-        if eligibleRequirement?.hasEmploymentDetail ?? false {
+        if eligibleRequirement.hasEmploymentDetail ?? false {
             completed = completed + 1
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
             completeDetailsForWork.type = .workDetails
@@ -108,7 +116,6 @@ extension LendingViewModel {
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         }
         
-        let kycStatus: EligibleRequirement.KycStatus = eligibleRequirement?.kycStatus ?? EligibleRequirement.KycStatus.notStarted
         if self.isKycStatusPending(kycStatus) {
             
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
@@ -119,7 +126,7 @@ extension LendingViewModel {
         } else {
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
             completeDetailsForKyc.type = .verifyYourDetails
-            completeDetailsForKyc.completionState = .inactive
+            completeDetailsForKyc.completionState = isKycStatusSuccess(kycStatus) ? .inactive : .pending
             completeDetailsForKyc.expanded = hasBankDetails ? true : false
             completeDetailsViewModels.append(completeDetailsForKyc)
         }

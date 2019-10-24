@@ -81,6 +81,13 @@ extension UIViewController {
         cPopup.present(self)
     }
     
+    func showImageMessage(_ msg: String, image: String, completion: (()->Void)?) {
+        let cPopup = CPopupDialog(.congrats, image: "success", messageBody: msg, button: .ok) {
+            if let cb = completion { cb() }
+        }
+        cPopup.present(self)
+    }
+    
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
         let message = msg

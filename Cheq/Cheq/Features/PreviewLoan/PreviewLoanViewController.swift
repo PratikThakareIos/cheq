@@ -49,9 +49,10 @@ class PreviewLoanViewController: CTableViewController {
                 AppConfig.shared.hideSpinner {
                     // return to LendingViewController and load
                     // backend should tell LendingViewController to show successfully borrow screen
-                    self.showMessage("Processed successfully ! :)") {
+                    let amount = Int(AppData.shared.amountSelected) ?? 0
+                    self.showImageMessage("Cash out success! $\(amount) will be transferred to your account shortly", image: "success", completion: {
                         AppNav.shared.dismiss(self)
-                    }
+                    })
                 }
                 }.catch { err in
                     AppConfig.shared.hideSpinner {

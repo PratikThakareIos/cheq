@@ -473,11 +473,9 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedEmployer = itemPosition
-            let employer: GetEmployerPlaceResponse = AppData.shared.employerList[AppData.shared.selectedEmployer]
-            VDotManager.shared.markedLocation = CLLocation(latitude: employer.latitude ?? 0.0
-                , longitude: employer.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
         }
         searchTextField.userStoppedTypingHandler = {
@@ -496,6 +494,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.isUserInteractionEnabled = false
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
             let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
@@ -509,7 +508,7 @@ extension QuestionViewController{
                     // keep the address list 
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
-                    }.catch {err in
+                }.catch {err in
                             LoggingUtil.shared.cPrint(err)
                 }
             }
