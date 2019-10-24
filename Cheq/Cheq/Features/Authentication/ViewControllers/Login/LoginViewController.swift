@@ -79,7 +79,7 @@ class LoginViewController: RegistrationViewController {
         
         // whenever we successfully login, we post notification token
         viewModel.login(email, password: password).then { authUser in
-                MoneySoftManager.shared.login(authUser.msCredential)
+                return MoneySoftManager.shared.login(authUser.msCredential)
             }.then { authModel->Promise<[FinancialAccountModel]> in
                 return MoneySoftManager.shared.getAccounts()
             }.done { accounts in
@@ -131,14 +131,50 @@ class LoginViewController: RegistrationViewController {
     }
     
     override func continueWithLoggedInFB(_ token: String) {
-        viewModel.registerWithFBAccessToken(token).done { [weak self] authUser in
-            guard let self = self else { return }
-            self.navigateToDashboard()
+        AppConfig.shared.showSpinner()
+        viewModel.fetchProfileWithFBAccessToken().then { ()->Promise<AuthUser> in
+            self.viewModel.registerWithFBAccessToken(token)
+            }.then { authUser in
+                AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+            }.then{ authUser in
+                AuthConfig.shared.activeManager.setUser(authUser)
+            }.then { authUser in
+                CheqAPIManager.shared.getUserDetails()
+            }.done { authUser in
+                AppConfig.shared.hideSpinner {
+                    guard authUser.email.isEmpty == false, let msUsername = authUser.msCredential[.msUsername], msUsername.isEmpty == false, let msPassword = authUser.msCredential[.msPassword], msPassword.isEmpty == false else {
+                        self.beginOnboarding()
+                        return
+                    }
+                    self.navigateToDashboard()
+                }
             }.catch { [weak self] err in
                 guard let self = self else { return }
-                self.showError(err, completion: nil)
-        }
+                AppConfig.shared.hideSpinner {
+                    switch err {
+                        case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
+                            self.beginOnboarding()
+                        default:
+                            self.showError(err, completion: nil)
+                    }
+                }
+            }
     }
+    
+//    override func continueWithLoggedInFB(_ token: String) {
+//        viewModel.registerWithFBAccessToken(token).then { [weak self] authUser in
+//            guard let self = self else { return }
+//                CheqAPIManager.shared.getUserDetails().done { authUser in
+//                    self.navigateToDashboard()
+//                }.catch { err in
+//                    self.beginOnboarding()
+//                }
+//            }.catch { [weak self] err in
+//                guard let self = self else { return }
+//                self.showError(err, completion: nil)
+//
+//            }
+//    }
     
     @IBAction override func loginWithFacebook(_ sender: Any) {
         if AccessToken.isCurrentAccessTokenActive {

@@ -8,22 +8,26 @@
 
 import UIKit
 
-class DateUtil {
+class FormatterUtil {
     
     static let defaultFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     static let userFriendlyFormat = "ddd, DD MM"
     
-    static let shared = DateUtil()
+    static let shared = FormatterUtil()
     
     func userFriendlyDateFormatter()-> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateUtil.userFriendlyFormat
+        dateFormatter.dateFormat = FormatterUtil.userFriendlyFormat
         return dateFormatter
     }
     
     func defaultDateFormatter()-> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = DateUtil.defaultFormat
+        dateFormatter.dateFormat = FormatterUtil.defaultFormat
         return dateFormatter
+    }
+    
+    func currencyFormat(_ amount: Double)-> String {
+        return String(format: "%.2f", amount)
     }
 }

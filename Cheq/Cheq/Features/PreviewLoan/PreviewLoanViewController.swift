@@ -44,31 +44,38 @@ class PreviewLoanViewController: CTableViewController {
     @objc func confirm(_ notification: NSNotification) {
         showDecision("Do you accept all the Terms and Conditions?", confirmCb: {
             LoggingUtil.shared.cPrint("confirm loan")
+            AppData.shared.acceptedAgreement = true
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.borrow().done { _ in
                 AppConfig.shared.hideSpinner {
                     // return to LendingViewController and load
                     // backend should tell LendingViewController to show successfully borrow screen
-                    self.showMessage("Processed successfully ! :)") {
+                    let amount = Int(AppData.shared.amountSelected) ?? 0
+                    self.showImageMessage("Cash out success! $\(amount) will be transferred to your account shortly", image: "success", completion: {
                         AppNav.shared.dismiss(self)
-                    }
+                    })
                 }
                 }.catch { err in
                     AppConfig.shared.hideSpinner {
-                        self.showError(err, completion: nil)
+                        self.showError(err) {
+                            NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+                        }
                     }
             }
             
-        }, cancelCb: nil)
+        }, cancelCb: {
+            NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+        })
     }
 }
 
 extension PreviewLoanViewController {
     
     @objc func previewLoan(_ notification: NSNotification) {
-
+        
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.loanPreview().done{ loanPreview in
+            AppData.shared.loanFee = loanPreview.fee ?? 0.0
             AppConfig.shared.hideSpinner {
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()

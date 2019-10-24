@@ -26,6 +26,12 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
     }
     
+    func addLogoutNavButton() {
+        let nav = self.navigationItem
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        nav.setRightBarButton(logoutButton, animated: true)
+    }
+    
     func hideBackTitle() {
         self.navigationItem.hidesBackButton = false
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -72,6 +78,13 @@ extension UIViewController {
         }, cancel: {
             if let cb = cancelCb { cb() }
         })
+        cPopup.present(self)
+    }
+    
+    func showImageMessage(_ msg: String, image: String, completion: (()->Void)?) {
+        let cPopup = CPopupDialog(.congrats, image: "success", messageBody: msg, button: .ok) {
+            if let cb = completion { cb() }
+        }
         cPopup.present(self)
     }
     

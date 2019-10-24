@@ -60,6 +60,6 @@ class AgreementItemTableViewCell: CTableViewCell {
             
         }
         self.setNeedsLayout()
-    NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
     }
 }

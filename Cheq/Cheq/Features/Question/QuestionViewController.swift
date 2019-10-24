@@ -263,6 +263,8 @@ class QuestionViewController: UIViewController {
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
             AppConfig.shared.showSpinner()
+            let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
+            saveEmployerAddress(employerAddress)
             let req = DataHelperUtil.shared.putUserEmployerRequest()
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppConfig.shared.hideSpinner {
@@ -319,8 +321,11 @@ extension QuestionViewController {
     func saveEmployerAddress(_ address: GetEmployerPlaceResponse) {
         self.viewModel.save(QuestionField.employerAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.employerPostcode.rawValue, value: address.postCode ?? "")
-        self.viewModel.save(QuestionField.employerLatitude.rawValue, value: String(address.latitude ?? 0))
-        self.viewModel.save(QuestionField.employerLongitude.rawValue, value: String(address.longitude ?? 0))
+        let latitude = address.latitude ?? 0.0
+        let longitude = address.longitude ?? 0.0
+        self.viewModel.save(QuestionField.employerLatitude.rawValue, value: String(latitude))
+        self.viewModel.save(QuestionField.employerLongitude.rawValue, value: String(longitude))
+        VDotManager.shared.markedLocation = CLLocation(latitude: latitude, longitude: longitude)
     }
     
     func inputsFromTextFields(textFields: [UITextField])-> [String: Any] {
@@ -468,11 +473,9 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedEmployer = itemPosition
-            let employer: GetEmployerPlaceResponse = AppData.shared.employerList[AppData.shared.selectedEmployer]
-            VDotManager.shared.markedLocation = CLLocation(latitude: employer.latitude ?? 0.0
-                , longitude: employer.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
         }
         searchTextField.userStoppedTypingHandler = {
@@ -491,6 +494,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.isUserInteractionEnabled = false
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
             let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
@@ -504,7 +508,7 @@ extension QuestionViewController{
                     // keep the address list 
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
-                    }.catch {err in
+                }.catch {err in
                             LoggingUtil.shared.cPrint(err)
                 }
             }

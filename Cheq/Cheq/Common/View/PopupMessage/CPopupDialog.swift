@@ -13,6 +13,7 @@ enum CPopupDialogTitle: String {
     case decision = "Are you sure?"
     case message = "Message"
     case error = "Error"
+    case congrats = "Congradulations!"
 }
 
 enum CPopupDialogButton: String {
@@ -24,16 +25,32 @@ class CPopupDialog {
 
     let messageTitle: String
     let messageBody: String
+    var imageName: String = ""
     let buttonTitle: String
     let cancelButtonTitle: String
     var popup: PopupDialog
+    
+    init(_ messageTitle: CPopupDialogTitle, image: String, messageBody: String, button: CPopupDialogButton, completion: @escaping ()->Void) {
+        self.messageTitle = messageTitle.rawValue
+        self.imageName = image
+        self.messageBody = messageBody
+        self.buttonTitle = button.rawValue
+        self.cancelButtonTitle = ""
+        self.popup = PopupDialog(title: self.messageTitle, message: self.messageBody, image: UIImage(named: image), buttonAlignment: .horizontal, transitionStyle: .fadeIn, preferredWidth: UIScreen.main.bounds.size.width, tapGestureDismissal: true, panGestureDismissal: false, hideStatusBar: false, completion: nil)
+        setupUI(&popup)
+        // Create buttons
+        let buttonOne = CancelButton(title: self.buttonTitle) {
+            completion()
+        }
+        popup.addButton(buttonOne)
+    }
     
     init(_ messageTitle: CPopupDialogTitle, messageBody: String, button: CPopupDialogButton, cancelButton: CPopupDialogButton, confirm: @escaping ()->Void, cancel: @escaping ()-> Void) {
         self.messageTitle = messageTitle.rawValue
         self.messageBody = messageBody
         self.buttonTitle = button.rawValue
         self.cancelButtonTitle = cancelButton.rawValue
-        self.popup = PopupDialog(title: self.messageTitle, message: self.messageBody, image: nil, buttonAlignment: .horizontal, transitionStyle: .bounceUp, preferredWidth: UIScreen.main.bounds.size.width * 0.8, tapGestureDismissal: true, panGestureDismissal: false, hideStatusBar: false, completion: nil)
+        self.popup = PopupDialog(title: self.messageTitle, message: self.messageBody, image: nil, buttonAlignment: .horizontal, transitionStyle: .fadeIn, preferredWidth: UIScreen.main.bounds.size.width * 0.8, tapGestureDismissal: true, panGestureDismissal: false, hideStatusBar: false, completion: nil)
         setupUI(&popup)
         // Create buttons
         let confirmButton = DefaultButton(title: self.buttonTitle) {
@@ -83,8 +100,8 @@ class CPopupDialog {
         let defaultButtonAppearance = DefaultButton.appearance()
         // Default button
         defaultButtonAppearance.titleFont      = AppConfig.shared.activeTheme.mediumFont
-        defaultButtonAppearance.titleColor     = AppConfig.shared.activeTheme.textBackgroundColor
-        defaultButtonAppearance.buttonColor    = AppConfig.shared.activeTheme.primaryColor
+        defaultButtonAppearance.titleColor     = AppConfig.shared.activeTheme.primaryColor
+        defaultButtonAppearance.buttonColor    = .clear
         defaultButtonAppearance.separatorColor = AppConfig.shared.activeTheme.primaryColor
         
         let containerAppearance = PopupDialogContainerView.appearance()

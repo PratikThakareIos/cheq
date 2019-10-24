@@ -15,7 +15,8 @@ class DynamicFormViewController: UIViewController {
     @IBOutlet weak var sectionTitle: CLabel!
     @IBOutlet weak var questionTitle: CLabel! 
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var scrollView: UIScrollView! 
+    @IBOutlet weak var scrollView: UIScrollView!
+    var built = false
     
     var viewModel = DynamicFormViewModel()
     var form:[DynamicFormInput] = []
@@ -39,6 +40,7 @@ class DynamicFormViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        if built { return }
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
             AppConfig.shared.hideSpinner {
@@ -46,6 +48,7 @@ class DynamicFormViewController: UIViewController {
                     let view = self.buildInputSubview(input)
                     self.stackView.addArrangedSubview(view)
                 }
+                self.built = true
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {

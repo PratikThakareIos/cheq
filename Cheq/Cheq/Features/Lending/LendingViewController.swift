@@ -29,6 +29,7 @@ class LendingViewController: CTableViewController {
 
     func setupUI() {
         hideBackTitle()
+        addLogoutNavButton()
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
@@ -48,8 +49,6 @@ class LendingViewController: CTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
     }
-
-    
 }
 
 // observable handlers
@@ -91,49 +90,66 @@ extension LendingViewController {
         }
     }
     
+    func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
+        
+        self.showDeclineIfNeeded(lendingOverview)
+        
+        if self.viewModel.sections.count > 0 {
+            self.viewModel.sections.removeAll()
+        }
+        
+        var section = TableSectionViewModel()
+        LoggingUtil.shared.cPrint("build view model here...")
+        
+        guard let vm = self.viewModel as?  LendingViewModel else { return }
+        // intercom chat
+        section.rows.append(IntercomChatTableViewCellViewModel())
+        vm.addLoanSetting(lendingOverview, section: &section)
+        vm.addCashoutButton(lendingOverview, section: &section)
+        vm.addMessageBubble(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        vm.completeDetails(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        // actvity
+        vm.activityList(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        self.viewModel.addSection(section)
+        self.tableView.reloadData()
+    }
+    
     @objc func lendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-        CheqAPIManager.shared.retrieveUserDetailsKyc(req).then { response->Promise<GetLendingOverviewResponse> in
-                return CheqAPIManager.shared.lendingOverview()
-            }.done{ lendingOverview in
+            CheqAPIManager.shared.lendingOverview()
+            .done{ overview in
                 AppConfig.shared.hideSpinner {
-                
-                    self.showDeclineIfNeeded(lendingOverview)
-                    
-                    self.viewModel.sections.removeAll()
-                    var section = TableSectionViewModel()
-                    LoggingUtil.shared.cPrint("build view model here...")
-                    
-                    guard let vm = self.viewModel as?  LendingViewModel else { return }
-                    // intercom chat
-                    section.rows.append(IntercomChatTableViewCellViewModel())
-                        vm.addLoanSetting(lendingOverview, section: &section)
-                        vm.addCashoutButton(lendingOverview, section: &section)
-    //                    vm.addMessageBubble(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                        vm.completeDetails(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                        // actvity
-                        vm.activityList(lendingOverview, section: &section)
-                    section.rows.append(SpacerTableViewCellViewModel())
-                    self.viewModel.addSection(section)
-                    self.registerCells()
-                    self.tableView.reloadData()
+//                    let lendingOverview = TestUtil.shared.testLendingOverview()
+                   self.renderLending(overview)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
+                    self.showError(err) {
+                        NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", object: "")
+                    }
                 }
             }
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
-        let eligibleRequirements = lendingOverview.eligibleRequirement
-        let kycStatus = eligibleRequirements?.kycStatus ?? .notStarted
-        guard let _ = eligibleRequirements?.hasBankAccountDetail, let _ = eligibleRequirements?.hasEmploymentDetail, self.kycHasCompleted(kycStatus) else { return false }
+        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
+        let viewModel = self.viewModel as! LendingViewModel
         
-        guard let declineDetails = lendingOverview.decline, let _ = declineDetails.declineReason else { return false }
+        let kycSuceeded = viewModel.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
+        let kycFailed = viewModel.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
+        
+        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
+        let kycCompleted = kycSuceeded || kycFailed
+        
+        guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
+        
+        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }
+        
+        guard reason != ._none else { return false }
+        
         return true
     }
     

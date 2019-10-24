@@ -215,7 +215,8 @@ extension AppNav {
 // MARK: KYC
 extension AppNav {
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
-        guard AppData.shared.onfidoSdkToken.isEmpty == false else {
+        let sdkToken = AppData.shared.loadOnfidoSDKToken()
+        guard sdkToken.isEmpty == false else {
             viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
@@ -233,18 +234,33 @@ extension AppNav {
         
         let onfidoFlow = OnfidoFlow(withConfiguration: config)
             .with(responseHandler: { results in
-                // Callback when flow ends
-                // for KYC, we dismiss the introductionViewController after KYC flow ended
-                CheqAPIManager.shared.putKycCheck().done {
-                    LoggingUtil.shared.cPrint("kyc checked")
-                    guard AppData.shared.completingDetailsForLending else { return }
-                    viewController.dismiss(animated: true, completion:nil)
-                }.catch{ err in
-                    let error = err
-                    guard AppData.shared.completingDetailsForLending else { return }
-                    viewController.dismiss(animated: true, completion: {
-                        NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
-                    })
+                switch results {
+                case .success(_):
+                    CheqAPIManager.shared.putKycCheck().done {
+                        LoggingUtil.shared.cPrint("kyc checked")
+                        guard AppData.shared.completingDetailsForLending else { return }
+                        viewController.dismiss(animated: true, completion:nil)
+                        }.catch{ err in
+                            let error = err
+                            guard AppData.shared.completingDetailsForLending else { return }
+                            viewController.dismiss(animated: true, completion: {
+                                NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
+                            })
+                    }
+                    
+                case let OnfidoResponse.error(err):
+                    switch err {
+                    case OnfidoFlowError.cameraPermission:
+                        LoggingUtil.shared.cPrint("cameraPermission")
+                    case OnfidoFlowError.failedToWriteToDisk:
+                        LoggingUtil.shared.cPrint("failedToWriteToDisk")
+                    case OnfidoFlowError.microphonePermission:
+                        LoggingUtil.shared.cPrint("microphonePermission")
+                    case OnfidoFlowError.upload(_):
+                        LoggingUtil.shared.cPrint("upload")
+                    default: LoggingUtil.shared.cPrint(err)
+                    }
+                default: break
                 }
             })
         

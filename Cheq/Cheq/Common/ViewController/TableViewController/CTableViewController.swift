@@ -19,6 +19,7 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.estimatedRowHeight = 1
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.separatorStyle = .none
+        self.registerCells()
     }
     
     func setupDelegate() {
@@ -41,16 +42,10 @@ extension CTableViewController {
 
 extension CTableViewController {
     func registerCells() {
-        
-        var registered = [String: Bool]()
-        for section: TableSectionViewModel in self.viewModel.sections {
-            for vm: TableViewCellViewModelProtocol in section.rows {
-                if registered[vm.identifier] == nil {
-                    let nib = UINib(nibName: vm.identifier, bundle: nil)
-                    self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
-                    registered[vm.identifier] = true
-                }
-            }
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
+        for vm: TableViewCellViewModelProtocol in cellModels {
+            let nib = UINib(nibName: vm.identifier, bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
         }
     }
 }

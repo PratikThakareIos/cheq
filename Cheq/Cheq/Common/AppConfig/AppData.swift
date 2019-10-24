@@ -75,7 +75,7 @@ class AppData {
     
     // amount selected from loan setting
     var amountSelected = "0"
-    var loanFee = 10 
+    var loanFee = 0.0
     var acceptedAgreement: Bool = false 
     
     // forgot password email

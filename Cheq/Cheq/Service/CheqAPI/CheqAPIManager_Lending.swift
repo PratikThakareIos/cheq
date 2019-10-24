@@ -20,6 +20,7 @@ extension CheqAPIManager {
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
                         resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                        NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
                         return
                     }
                     
@@ -28,6 +29,7 @@ extension CheqAPIManager {
             }.catch { err in
                 LoggingUtil.shared.cPrint(err)
                 resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
             }
         }
     }
@@ -63,7 +65,8 @@ extension CheqAPIManager {
                 let token = authUser.authToken() ?? ""
                 LendingAPI.getLendingWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (lendingOverview, err) in
                     if let error = err {
-                        resolver.reject(error); return
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview); return
                     }
                     guard let response = lendingOverview?.body else {
                         resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview); return
