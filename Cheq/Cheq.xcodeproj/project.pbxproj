@@ -1052,6 +1052,7 @@
 		4FD8399E236265E20069EB30 /* RemoteConfigManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8399D236265E20069EB30 /* RemoteConfigManagerIntegrationTests.swift */; };
 		4FD839A823626F080069EB30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD839A723626F080069EB30 /* GoogleService-Info.plist */; };
 		4FD839A923626F080069EB30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD839A723626F080069EB30 /* GoogleService-Info.plist */; };
+		4FD839AB2362AFFC0069EB30 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */; };
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
@@ -1455,6 +1456,7 @@
 		4FD83983235FF1310069EB30 /* MoneySoftProd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftProd.swift; sourceTree = "<group>"; };
 		4FD8399D236265E20069EB30 /* RemoteConfigManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4FD839A723626F080069EB30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
@@ -1575,6 +1577,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD839AB2362AFFC0069EB30 /* Pods_Cheq.framework in Frameworks */,
 				4FD836F5235EBB280069EB30 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2490,6 +2493,7 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,

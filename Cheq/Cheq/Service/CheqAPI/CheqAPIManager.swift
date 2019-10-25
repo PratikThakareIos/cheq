@@ -163,7 +163,8 @@ class CheqAPIManager {
                     
                     
                     if let error = err { resolver.reject(error); return }
-                    guard let _ = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    guard response?.statusCode > 209, response?.statusCode < 200 else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    
                     resolver.fulfill(authUser)
                 }
             }.catch { err in

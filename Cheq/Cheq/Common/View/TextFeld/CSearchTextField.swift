@@ -45,7 +45,7 @@ class CSearchTextField: SearchTextField {
         self.comparisonOptions = [.caseInsensitive]
         
         // Set the max number of results. By default it's not limited
-        self.maxNumberOfResults = 20
+        self.maxNumberOfResults = 30
         
         // You can also limit the max height of the results list
         self.maxResultsListHeight = Int(UIScreen.main.bounds.size.height / 3)

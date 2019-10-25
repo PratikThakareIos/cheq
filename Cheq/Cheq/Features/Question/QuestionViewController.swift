@@ -136,7 +136,9 @@ class QuestionViewController: UIViewController {
         viewModel.loadSaved()
         switch viewModel.coordinator.type {
         case .companyAddress:
-            self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+            if AppData.shared.employerList.count > 0 {
+                self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+            }
             self.searchTextField.keyboardType = .default
         default: break
         }
@@ -259,6 +261,12 @@ class QuestionViewController: UIViewController {
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
         case .companyAddress:
+            
+            guard AppData.shared.employerAddressList.count > 0 else {
+                showMessage("Please select address by autocomplete", completion: nil)
+                return
+            }
+            
             self.viewModel.save(QuestionField.employerAddress.rawValue, value: searchTextField.text ?? "")
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
@@ -455,6 +463,12 @@ extension QuestionViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
+        if self.viewModel.coordinator.type == .companyAddress, employmentType == .fulltime {
+            return false
+        }
         return true
     }
 }
@@ -494,7 +508,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
-        searchTextField.isUserInteractionEnabled = false
+        searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
             let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
@@ -519,6 +533,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedResidentialAddress = itemPosition
             self.searchTextField.text = item[itemPosition].title
