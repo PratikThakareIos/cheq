@@ -77,10 +77,11 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
 
-    func nextViewController()->UIViewController {
-        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
-        let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.lending.rawValue)
-        return vc
+    func nextViewController(){
+        var vcInfo = [String: String]()
+        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
+        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
+        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
     }
 }
 

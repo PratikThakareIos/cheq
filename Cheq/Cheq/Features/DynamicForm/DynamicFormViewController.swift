@@ -132,7 +132,7 @@ class DynamicFormViewController: UIViewController {
         viewModel.coordinator.submitForm().done { success in
             AppConfig.shared.hideSpinner {
                 AppData.shared.isOnboarding = false 
-                AppNav.shared.pushToViewController(self.viewModel.coordinator.nextViewController(), from: self)
+                self.viewModel.coordinator.nextViewController()
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {

@@ -45,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Firebase Message delegate
         Messaging.messaging().delegate = self
         // Setup Firebase remote config
-        setupRemoteConfig()
-        
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -54,21 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
-//        self.setupInitDevController2()
         self.setupInitialViewController()
+//        self.setupInitDevController2()
 //        self.setupInitDevController()
 //        self.setupLogController()
 //        self.setupQuestionController()
         return true
-    }
-    
-    func setupRemoteConfig() {
-        let remote = RemoteConfigManager.shared
-        remote.remoteBanks().done { _ in
-            LoggingUtil.shared.cPrint("bankLogos")
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err)
-        }
     }
     
     // do not use this in AppDelegate as UIApplication.shared is not ready
@@ -223,6 +212,7 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+        let _ = RemoteConfigManager.shared
     }
     
     func setupServicesForDev() {
@@ -231,6 +221,7 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+        let _ = RemoteConfigManager.shared
 //        let _ = VDotManager.shared
 //        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }

@@ -45,7 +45,7 @@ class QuestionViewController: UIViewController {
             hideBackButton()
         }
         
-        if AppData.shared.completingDetailsForLending, self.viewModel.coordinator.type == .legalName {
+        if AppData.shared.completingDetailsForLending {
             showCloseButton()
         }
     }
@@ -98,6 +98,7 @@ class QuestionViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+       
         self.hideBackTitle()
         self.showNormalTextFields()
         self.showCheckbox()
@@ -134,14 +135,14 @@ class QuestionViewController: UIViewController {
     
     func prePopulateEntry() {
         viewModel.loadSaved()
-        switch viewModel.coordinator.type {
-        case .companyAddress:
-            if AppData.shared.employerList.count > 0 {
-                self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-            }
-            self.searchTextField.keyboardType = .default
-        default: break
-        }
+//        switch viewModel.coordinator.type {
+//        case .companyAddress:
+//            if AppData.shared.employerList.count > 0 {
+//                self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+//            }
+//            self.searchTextField.keyboardType = .default
+//        default: break
+//        }
     }
     
 //    func prePopulateEntry() {
@@ -262,11 +263,10 @@ class QuestionViewController: UIViewController {
             }
         case .companyAddress:
             
-            guard AppData.shared.employerAddressList.count > 0 else {
-                showMessage("Please select address by autocomplete", completion: nil)
+            if let err = self.validateCompanyAddressLookup() {
+                showError(err, completion: nil)
                 return
             }
-            
             self.viewModel.save(QuestionField.employerAddress.rawValue, value: searchTextField.text ?? "")
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
@@ -344,6 +344,20 @@ extension QuestionViewController {
             }
         }
         return results
+    }
+    
+    func validateCompanyAddressLookup()->ValidationError? {
+        guard AppData.shared.employerAddressList.count > 0 else {
+            self.searchTextField.text = ""
+            return ValidationError.autoCompleteIsMandatory
+        }
+        
+        let autoCompleteMatch = AppData.shared.employerAddressList.filter { $0.address == searchTextField.text }
+        guard autoCompleteMatch.count == 1 else {
+            self.searchTextField.text = ""
+            return ValidationError.autoCompleteIsMandatory
+        }
+        return nil
     }
     
     func validateInput()->Error? {
@@ -471,6 +485,15 @@ extension QuestionViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//       
+//        if textField == self.searchTextField, self.viewModel.coordinator.type == .companyAddress {
+//            LoggingUtil.shared.cPrint("searchTextField - textFieldDidEndEditing")
+//        }
+//        
+//        textField.resignFirstResponder()
+//    }
 }
 
 // MARK: UIViewControllerProtocol
@@ -523,7 +546,7 @@ extension QuestionViewController{
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                 }.catch {err in
-                            LoggingUtil.shared.cPrint(err)
+                    LoggingUtil.shared.cPrint(err)
                 }
             }
         }

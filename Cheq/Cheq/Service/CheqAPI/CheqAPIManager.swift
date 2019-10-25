@@ -13,6 +13,28 @@ import DateToolsSwift
 class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {
+//        var credentials = [LoginCredentialType: String]()
+//        credentials[.email] = TestUtil.shared.randomEmail()
+//        credentials[.password] = TestUtil.shared.testPass()
+//
+//        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials)
+//            .then { authUser in
+//                return AuthConfig.shared.activeManager.login(credentials)
+//            }.then { authUser->Promise<Void> in
+//                CheqAPIManager.shared.requestEmailVerificationCode()
+//            }.then { ()->Promise<AuthUser> in
+//                let req = PutUserSingupVerificationCodeRequest(code: "111111")
+//                return CheqAPIManager.shared.validateEmailVerificationCode(req)
+//            }.then { authUser->Promise<AuthUser> in
+//                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+//            }.then { authUser->Promise<AuthUser> in
+//                let req = TestUtil.shared.putUserDetailsReq()
+//                return CheqAPIManager.shared.putUserDetails(req)
+//            }.done { authUser in
+//                LoggingUtil.shared.cPrint(authUser)
+//            }.catch { err in
+//                LoggingUtil.shared.cPrint(err)
+//            }
     }
     
     func resetPassword(_ code: String, newPassword: String)->Promise<Void> {
@@ -163,7 +185,8 @@ class CheqAPIManager {
                     
                     
                     if let error = err { resolver.reject(error); return }
-                    guard response?.statusCode > 209, response?.statusCode < 200 else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    let statusCode = response?.statusCode ?? 0
+                    guard statusCode >= 200, statusCode < 209 else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                     
                     resolver.fulfill(authUser)
                 }

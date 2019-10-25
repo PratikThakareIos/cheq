@@ -15,5 +15,5 @@ protocol DynamicFormViewModelCoordinator {
     
     func loadForm() -> Promise<[DynamicFormInput]>
     func submitForm()->Promise<Bool>
-    func nextViewController()->UIViewController
+    func nextViewController()
 }
