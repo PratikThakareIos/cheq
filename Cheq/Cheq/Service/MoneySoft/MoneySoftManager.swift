@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import MobileSDK
 import PromiseKit
+import FirebaseRemoteConfig
 
 class MoneySoftManager {
     static let shared = MoneySoftManager()
@@ -21,7 +22,7 @@ class MoneySoftManager {
 //    let bgTaskConfig = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: 60)
     
     private init() {
-        MoneysoftApi.configure(MoneySoft.config)
+        MoneysoftApi.configure(MoneySoft.config())
         self.msApi = MoneysoftApi()
     }
     
@@ -31,7 +32,7 @@ class MoneySoftManager {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let loginModel = self.buildLoginModel(authUser.msCredential)
-                try self.msApi.notifications().handleNotification(data: data, config: MoneySoft.bgTaskConfig, login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { resp in
+                try self.msApi.notifications().handleNotification(data: data, config: MoneySoft.bgTaskConfig(), login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { resp in
                     resolver.fulfill(true)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)

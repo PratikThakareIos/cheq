@@ -12,7 +12,14 @@ import MobileSDK
 struct MoneySoft {
     static let API_BASE_URL = "https://api.beta.moneysoft.com.au"
     static let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
-    static let config = MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: 600)
+    static func config()-> MoneysoftApiConfiguration {
+        let timeout = RemoteConfigManager.shared.remoteNumberValue(RemoteConfigParameters.transactionBoardingTimeoutMins.rawValue)?.intValue ?? 10
+        
+        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: timeout * 60)
+    }
     
-    static let bgTaskConfig = MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: 60)
+    static func bgTaskConfig()-> MoneysoftApiConfiguration {
+        let timeout = RemoteConfigManager.shared.remoteNumberValue(RemoteConfigParameters.transactionSyncTimeoutMins.rawValue)?.intValue ?? 10
+        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: timeout * 60)
+    }
 }

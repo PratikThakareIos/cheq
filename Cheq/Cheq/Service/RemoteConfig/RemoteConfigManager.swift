@@ -14,6 +14,9 @@ import PromiseKit
 
 enum RemoteConfigParameters: String, CaseIterable {
     case financialInstitutions = "FinancialInstitutions"
+    case appVersionNumber = "AppVersionNumber"
+    case transactionSyncTimeoutMins = "TxnSyncTimeoutMins"
+    case transactionBoardingTimeoutMins = "TxnOnBoardingTimeoutMins"
 }
 
 class RemoteConfigManager {
@@ -21,7 +24,6 @@ class RemoteConfigManager {
     let remoteConfig = RemoteConfig.remoteConfig()
     private init() {
         let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 3600
         remoteConfig.configSettings = settings
     }
     
@@ -36,6 +38,11 @@ class RemoteConfigManager {
                 resolver.fulfill(())
             })
         }
+    }
+    
+    func remoteNumberValue(_ key: String)-> NSNumber? {
+        let remoteConfigValue = remoteConfig.configValue(forKey: key)
+        return remoteConfigValue.numberValue
     }
     
     func remoteBanks()->Promise<RemoteBankList> {
@@ -55,7 +62,7 @@ class RemoteConfigManager {
                     resolver.reject(error)
                 }
             }.catch { err in
-                resolver.reject(RemoteConfigError.unableToFetchInstitutions)
+                resolver.reject(RemoteConfigError.unableToFetchAndActivateRemoteConfig)
             }
         }
     }

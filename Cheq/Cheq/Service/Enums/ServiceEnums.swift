@@ -20,6 +20,7 @@ enum CKeychainError: Error {
 enum RemoteConfigError: Error {
     case unableToFetchAndActivateRemoteConfig
     case unableToFetchInstitutions
+    case unableToFetchRemoteConfigValue
 }
 
 enum ValidationError: Error {
@@ -111,6 +112,8 @@ extension RemoteConfigError: LocalizedError {
             return NSLocalizedString("Unable to fetch and activate remote config, please try again later.", comment: "")
         case .unableToFetchInstitutions:
             return NSLocalizedString("Unable to fetch institutions.", comment: "")
+        case .unableToFetchRemoteConfigValue:
+            return NSLocalizedString("Unable to fetch remote config values.", comment: "")
         }
     }
 }
