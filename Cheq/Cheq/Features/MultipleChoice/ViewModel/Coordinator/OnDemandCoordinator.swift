@@ -28,11 +28,11 @@ struct OnDemandCoordinator: MultipleChoiceViewModelCoordinator {
     
     func choices() -> Promise<[ChoiceModel]> {
         return Promise<[ChoiceModel]>() { resolver in
-            let uberEats = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.uberEats.rawValue, caption: nil, image: nil, ref : nil)
-            let deliveroo = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.deliveroo.rawValue, caption: nil, image: nil, ref : nil)
-            let menulog = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.menulog.rawValue, caption: nil, image: nil, ref : nil)
-            let uber = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.uber.rawValue, caption: nil, image: nil, ref : nil)
-            let other = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.other.rawValue, caption: nil, image: nil, ref : nil)
+            let uberEats = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.uberEats.rawValue, caption: nil, image: nil, ordering: 0, ref : nil)
+            let deliveroo = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.deliveroo.rawValue, caption: nil, image: nil, ordering: 1, ref : nil)
+            let menulog = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.menulog.rawValue, caption: nil, image: nil, ordering: 2, ref : nil)
+            let uber = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.uber.rawValue, caption: nil, image: nil, ordering: 3, ref : nil)
+            let other = ChoiceModel(type: .choiceWithIcon, title: OnDemandType.other.rawValue, caption: nil, image: nil, ordering: 4, ref : nil)
             let result = [uberEats, deliveroo, menulog, uber, other]
             resolver.fulfill(result)
         }

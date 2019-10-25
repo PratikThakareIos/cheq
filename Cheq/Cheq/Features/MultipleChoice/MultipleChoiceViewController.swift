@@ -9,6 +9,7 @@
 import UIKit
 import MobileSDK
 import Onfido
+import SDWebImage
 
 class MultipleChoiceViewController: UIViewController {
 
@@ -222,7 +223,8 @@ extension MultipleChoiceViewController {
         cell.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
         if let imageName = choice.image {
             cell.iconImageView.isHidden = false
-            cell.iconImageView.image = UIImage(named: imageName)
+            let imageUrl = URL(string: imageName)
+            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: .refreshCached, progress: nil, completed: nil)
         } else {
             cell.iconImageView.isHidden = true
         }

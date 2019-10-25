@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     func setupRemoteConfig() {
         let remote = RemoteConfigManager.shared
-        remote.bankLogos().done { _ in
+        remote.remoteBanks().done { _ in
             LoggingUtil.shared.cPrint("bankLogos")
         }.catch { err in
             LoggingUtil.shared.cPrint(err)

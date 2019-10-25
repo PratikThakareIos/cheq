@@ -29,7 +29,7 @@ class StateCoordinator: MultipleChoiceViewModelCoordinator {
 extension StateCoordinator {
     func stateToChoiceModel(_ state: PutUserOnfidoKycRequest.State)-> ChoiceModel {
         let cState = StateCoordinator.convertStateToCState(state)
-        return ChoiceModel(type: .choiceWithIcon, title: cState.rawValue, caption: "", image: nil, ref : nil)
+        return ChoiceModel(type: .choiceWithIcon, title: cState.rawValue, caption: "", image: nil, ordering: 0, ref : nil)
             
     }
     

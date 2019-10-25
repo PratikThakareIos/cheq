@@ -26,7 +26,9 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
         return Promise<[ChoiceModel]>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<AuthenticationModel> in
                 return MoneySoftManager.shared.login(authUser.msCredential)
-            }.then { success->Promise<[FinancialInstitutionModel]> in
+            }.then { success->Promise<RemoteBankList> in
+                return RemoteConfigManager.shared.remoteBanks()
+            }.then { remoteBankList->Promise<[FinancialInstitutionModel]> in
                 MoneySoftManager.shared.getInstitutions()
             }.then { institutions->Promise<Bool> in
                 AppData.shared.financialInstitutions = institutions
@@ -36,13 +38,21 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
                 let institutions = AppData.shared.financialInstitutions
                 return Promise<[ChoiceModel]>() { res in
                     var result = [ChoiceModel]()
+                    
+                    
+                    
                     for institution:FinancialInstitutionModel in institutions {
                         LoggingUtil.shared.cPrint(institution.image())
-                        let choice = ChoiceModel(type: .choiceWithIcon, title: institution.name ?? institution.alias ?? "", caption: nil, image: nil, ref: institution)
-                        result.append(choice)
+                        let institutionName = institution.name ?? ""
+                        let mapping = AppData.shared.remoteBankMapping
+                        if let remoteBank = mapping[institutionName] {
+                            
+                            let choice = ChoiceModel(type: .choiceWithIcon, title: institution.name ?? institution.alias ?? "", caption: nil, image: remoteBank.logoUrl, ordering: remoteBank.order, ref: institution)
+                            result.append(choice)
+                        }
                     }
-
-//                    self.shiftPrioritisedBanks(self.prioritisedBanks, choices: &result)
+                    
+                    result = result.sorted(by: { $0.ordering <= $1.ordering })
                     res.fulfill(result)
                 }
             }.done { choiceList in

@@ -30,15 +30,15 @@ extension AgeRangeCoordinator {
     func ageRangeToChoiceModel(_ ageRange: PutUserDetailRequest.AgeRange)-> ChoiceModel {
         switch ageRange {
         case .from18To24:
-            return ChoiceModel(type: .choiceWithIcon, title: "Aged 18 to 24", caption: "", image: nil, ref: nil)
+            return ChoiceModel(type: .choiceWithIcon, title: "Aged 18 to 24", caption: "", image: nil, ordering: 0, ref: nil)
         case .from25To34:
-            return ChoiceModel(type: .choiceWithIcon, title: "Aged 25 to 34", caption: "", image: nil, ref: nil)
+            return ChoiceModel(type: .choiceWithIcon, title: "Aged 25 to 34", caption: "", image: nil, ordering: 0, ref: nil)
         case .from35To54:
-            return ChoiceModel(type: .choiceWithIcon, title: "Aged 35 to 54", caption: "", image: nil, ref: nil)
+            return ChoiceModel(type: .choiceWithIcon, title: "Aged 35 to 54", caption: "", image: nil, ordering: 0, ref: nil)
         case .from55To64:
-            return ChoiceModel(type: .choiceWithIcon, title: "Aged 55 to 64", caption: "", image: nil, ref: nil)
+            return ChoiceModel(type: .choiceWithIcon, title: "Aged 55 to 64", caption: "", image: nil, ordering: 0, ref: nil)
         case .over65:
-            return ChoiceModel(type: .choiceWithIcon, title: "Aged 65 and over", caption: "", image: nil, ref: nil)
+            return ChoiceModel(type: .choiceWithIcon, title: "Aged 65 and over", caption: "", image: nil, ordering: 0, ref: nil)
         }
     }
     

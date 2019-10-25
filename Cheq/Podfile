@@ -22,6 +22,7 @@ target 'Cheq' do
   pod 'UDatePicker', '~> 1.1.1'
   pod 'SearchTextField', '~> 1.2.0'
   pod 'PullToRefreshKit'
+  pod 'SDWebImage', '~> 5.0'
   
   # intercom
   pod 'Intercom', '~> 5.4.1'
