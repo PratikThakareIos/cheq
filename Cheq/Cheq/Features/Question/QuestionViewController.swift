@@ -45,7 +45,7 @@ class QuestionViewController: UIViewController {
             hideBackButton()
         }
         
-        if AppData.shared.completingDetailsForLending {
+        if AppData.shared.completingDetailsForLending == true {
             showCloseButton()
         }
     }

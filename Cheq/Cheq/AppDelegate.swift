@@ -102,12 +102,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             return
         }
         
+        AppData.shared.completingDetailsForLending = false 
         // nav is embeded inside the viewcontrollers of tabbar
         window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
     
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
+        AppData.shared.completingDetailsForLending = false 
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
     
