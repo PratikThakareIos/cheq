@@ -408,6 +408,10 @@
 		4F231AF923641DED00874D07 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AF723641DED00874D07 /* String_Extension.swift */; };
 		4F231AFA23641DED00874D07 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AF723641DED00874D07 /* String_Extension.swift */; };
 		4F231AFB23641DED00874D07 /* String_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AF723641DED00874D07 /* String_Extension.swift */; };
+		4F231AFD2364740700874D07 /* Error_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AFC2364740700874D07 /* Error_Extension.swift */; };
+		4F231AFE2364740700874D07 /* Error_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AFC2364740700874D07 /* Error_Extension.swift */; };
+		4F231AFF2364740700874D07 /* Error_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AFC2364740700874D07 /* Error_Extension.swift */; };
+		4F231B002364740700874D07 /* Error_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231AFC2364740700874D07 /* Error_Extension.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1377,6 +1381,7 @@
 		4F231AF52363E26E00874D07 /* CheqDeviceProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDeviceProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F231AF62363E26E00874D07 /* CheqDevice copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CheqDevice copy-Info.plist"; path = "/Users/xuwei/Documents/dev/cheq.ios/Cheq/CheqDevice copy-Info.plist"; sourceTree = "<absolute>"; };
 		4F231AF723641DED00874D07 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
+		4F231AFC2364740700874D07 /* Error_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error_Extension.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -1704,6 +1709,7 @@
 				96F9FFD92352DD530041001F /* UIView_Extension.swift */,
 				9680CEAF2354B4B3009CF66E /* TableView_Extension.swift */,
 				4F231AF723641DED00874D07 /* String_Extension.swift */,
+				4F231AFC2364740700874D07 /* Error_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -3919,6 +3925,7 @@
 			files = (
 				4F2319CD2363E26E00874D07 /* AppConfig.swift in Sources */,
 				4F2319CE2363E26E00874D07 /* CompletionProgressTableViewCell.swift in Sources */,
+				4F231B002364740700874D07 /* Error_Extension.swift in Sources */,
 				4F2319CF2363E26E00874D07 /* BudgetingAPI.swift in Sources */,
 				4F2319D02363E26E00874D07 /* LendingAPI.swift in Sources */,
 				4F2319D12363E26E00874D07 /* CompanyAddressCoordinator.swift in Sources */,
@@ -4185,6 +4192,7 @@
 			files = (
 				4FD83724235FEE770069EB30 /* AppConfig.swift in Sources */,
 				4FD83725235FEE770069EB30 /* CompletionProgressTableViewCell.swift in Sources */,
+				4F231AFE2364740700874D07 /* Error_Extension.swift in Sources */,
 				4FD83726235FEE770069EB30 /* BudgetingAPI.swift in Sources */,
 				4FD83727235FEE770069EB30 /* LendingAPI.swift in Sources */,
 				4FD83728235FEE770069EB30 /* CompanyAddressCoordinator.swift in Sources */,
@@ -4451,6 +4459,7 @@
 			files = (
 				4FD839AF23631ABA0069EB30 /* AppConfig.swift in Sources */,
 				4FD839B023631ABA0069EB30 /* CompletionProgressTableViewCell.swift in Sources */,
+				4F231AFF2364740700874D07 /* Error_Extension.swift in Sources */,
 				4FD839B123631ABA0069EB30 /* BudgetingAPI.swift in Sources */,
 				4FD839B223631ABA0069EB30 /* LendingAPI.swift in Sources */,
 				4FD839B323631ABA0069EB30 /* CompanyAddressCoordinator.swift in Sources */,
@@ -4717,6 +4726,7 @@
 			files = (
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
 				96F9FFB32352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */,
+				4F231AFD2364740700874D07 /* Error_Extension.swift in Sources */,
 				4F1808EF235D22460018507D /* BudgetingAPI.swift in Sources */,
 				4F1808E7235D22460018507D /* LendingAPI.swift in Sources */,
 				4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,

@@ -209,10 +209,16 @@ class CheqAPIManager {
                             return
                         }
                         
-                        if err != nil {
-                            resolver.reject(CheqAPIManagerError.errorFromGetUserDetails)
-                            return
+                        if let code = err?.code() {
+                            if code == 400 {
+                                resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                                return
+                            } else {
+                                resolver.reject(CheqAPIManagerError.errorFromGetUserDetails)
+                                return
+                            }
                         }
+
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                         var updatedAuthUser = authUser
                         updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
