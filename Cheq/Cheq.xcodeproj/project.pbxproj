@@ -3418,9 +3418,9 @@
 			projectRoot = "";
 			targets = (
 				9676520F22FAFD01001E43E0 /* Cheq */,
+				4FD839AC23631ABA0069EB30 /* CheqDevice */,
 				9676522522FAFD04001E43E0 /* CheqTests */,
 				4FD83721235FEE770069EB30 /* CheqProd */,
-				4FD839AC23631ABA0069EB30 /* CheqDevice */,
 				4F2319CA2363E26E00874D07 /* CheqDeviceProd */,
 			);
 		};
