@@ -48,7 +48,9 @@ extension UIViewController {
     }
 
     @objc func closeButton() {
-        AppNav.shared.dismissModal(self, completion: nil)
+        AppNav.shared.dismissModal(self) {
+             NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+        }
     }
     
     @objc func back() {
