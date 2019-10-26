@@ -18,4 +18,14 @@ extension Error {
         }
         return nil
     }
+    
+    func message()->String? {
+        if let error = self as? ErrorResponse {
+            switch error {
+            case .error(_, let data, let err):
+                return ""
+            }
+        }
+        return nil
+    }
 }

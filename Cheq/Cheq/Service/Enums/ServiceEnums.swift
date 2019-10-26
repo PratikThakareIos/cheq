@@ -106,6 +106,53 @@ enum AuthManagerError: Error {
     case unknown
 }
 
+extension MoneySoftManagerError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .require2FAVerificationCode:
+            return NSLocalizedString("Require 2FA verification code", comment: "")
+        case .unknown:
+            return NSLocalizedString("Server error has occurred", comment: "")
+        case .errorFromHandleNotification:
+            return NSLocalizedString("Error from handling notification", comment: "")
+        case .requireMFA:
+            return NSLocalizedString("Require multi-factor authentication", comment: "")
+        case .unableToForceUnlinkAllAccounts:
+            return NSLocalizedString("Unable to force unlink all accounts", comment: "")
+        case .unableToGetAccounts:
+            return NSLocalizedString("Unable to get accounts", comment: "")
+        case .unableToLinkAccounts:
+            return NSLocalizedString("Unable to link accounts", comment: "")
+        case .unableToRefreshAccounts:
+            return NSLocalizedString("Unable to refresh accounts", comment: "")
+        case .unableToUpdateTransactions:
+            return NSLocalizedString("Unable to update transactions", comment: "")
+        case .unableToLoginWithCredential:
+            return NSLocalizedString("Unable to login with credential", comment: "")
+        case .unableToUnlinkAccounts:
+            return NSLocalizedString("Unable to unlink accounts", comment: "")
+        case .unableToRetreiveLinkableAccounts:
+            return NSLocalizedString("Unable to retrieve linkable accounts", comment: "")
+        case .unableToRegisterNotificationToken:
+            return NSLocalizedString("Unable to register notification token", comment: "")
+        case .unableToRetrieveUserProfile:
+            return NSLocalizedString("Unable to retrieve user profile", comment: "")
+        case .unableToUpdateDisabledAccountCredentials:
+            return NSLocalizedString("Unable to update dsialed account credentials", comment: "")
+        case .unableToRetrieveFinancialInstitutions:
+            return NSLocalizedString("Unable to retrieve financial institutions", comment: "")
+        case .unableToRetrieveFinancialInstitutionSignInForm:
+            return NSLocalizedString("Unable to retrieve financial institution sign-in form", comment: "")
+        case .unableToRefreshTransactions:
+            return NSLocalizedString("Unable to refresh transactions", comment: "")
+        case .unableToLoginWithBankCredentials:
+            return NSLocalizedString("Unable to login with bank credentials", comment: "")
+        case .unableToRetrieveMoneySoftCredential:
+            return NSLocalizedString("Unable to retrieve money soft credentials", comment: "")
+        }
+    }
+}
+
 extension RemoteConfigError: LocalizedError {
     public var errorDescription: String? {
         switch self {

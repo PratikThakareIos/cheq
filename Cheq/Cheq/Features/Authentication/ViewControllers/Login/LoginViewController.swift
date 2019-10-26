@@ -84,6 +84,13 @@ class LoginViewController: RegistrationViewController {
                 return MoneySoftManager.shared.getAccounts()
             }.done { accounts in
                 AppConfig.shared.hideSpinner {
+                    
+                    guard accounts.isEmpty == false else {
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                        return
+                    }
+                    
                     let financialAccounts: [FinancialAccountModel] = accounts
                     if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
