@@ -84,6 +84,7 @@ class EmailVerificationViewController: UIViewController {
                 self.codeTextField.text = ""
                 self.newPasswordField.text = ""
             }
+            return
         }
         
         AppConfig.shared.showSpinner()
@@ -106,6 +107,7 @@ class EmailVerificationViewController: UIViewController {
             showError(err) {
                 self.codeTextField.text = ""
             }
+            return 
         }
         
         // TODO : verify code api call

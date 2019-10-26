@@ -159,6 +159,7 @@ extension PasscodeViewController: UITextFieldDelegate {
                 } else {
                     showError(error) { }
                 }
+                return 
             }
             
             // navigate depending on scenario

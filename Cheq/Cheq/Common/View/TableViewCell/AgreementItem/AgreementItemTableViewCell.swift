@@ -33,7 +33,8 @@ class AgreementItemTableViewCell: CTableViewCell {
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
         self.agreementTitle.text = vm.title
         self.agreementTitle.font = AppConfig.shared.activeTheme.mediumFont
-        self.agreementContent.text = vm.message
+        // html content
+        self.agreementContent.attributedText = vm.message.htmlToAttributedString
         if vm.expanded {
             self.readMore.setTitle(vm.readLessTitle, for: .normal)
         } else {
