@@ -160,7 +160,7 @@ extension RegistrationViewController {
                 return
             }
             
-            if activeUser.type == .socialLoginEmail {
+            if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
                 self.toEmailVerification()
             } else {
                 // for Facebook emails

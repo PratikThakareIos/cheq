@@ -246,7 +246,7 @@ extension AuthManagerError: LocalizedError {
         case .invalidRegistrationFields:
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
-        return NSLocalizedString("Invalid login fields", comment: "")
+        return NSLocalizedString("Invalid login", comment: "")
         case .invalidFinancialInstitutionSelected:
         return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:

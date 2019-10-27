@@ -221,13 +221,13 @@ extension MultipleChoiceViewController {
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithImageCell
         cell.choiceTitleLabel.text = choice.title
         cell.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
-        if let imageName = choice.image {
+        if let imageName = choice.image, imageName.isEmpty == false {
             cell.iconImageView.isHidden = false
             let imageUrl = URL(string: imageName)
-            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: .progressiveLoad, progress: nil, completed: nil)
-            cell.iconImageView.sd_setHighlightedImage(with: imageUrl, options: .progressiveLoad) { (image, err, cacheType, url) in
+            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            }
+            })
+            
             if var view: UIView = cell.iconImageView {
                 ViewUtil.shared.circularMask(&view)
             }

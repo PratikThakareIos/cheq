@@ -103,7 +103,7 @@ extension UIViewController {
         
         var message = ""
         // Prepare the popup assets
-        if let errMessage = err.message() {
+        if let errMessage = err.message(), errMessage.isEmpty != false  {
             message = errMessage
         } else {
             message = err.localizedDescription

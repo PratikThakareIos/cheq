@@ -154,6 +154,9 @@ extension PasscodeViewController: UITextFieldDelegate {
             if let error = viewModel.validate() {
                 if error == .lockedOut {
                     showMessage(error.localizedDescription) {
+                        // we don't let user reset passcode for now
+                        // they get log out if they contiune to get passcode wrong
+                        // TODO: add passcode update when we have user setting screen
                         NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
                     }
                 } else {

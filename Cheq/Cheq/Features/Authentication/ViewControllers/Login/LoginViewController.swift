@@ -131,7 +131,8 @@ class LoginViewController: RegistrationViewController {
         case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
             self.beginOnboarding()
         default:
-            self.showError(err, completion: {
+            LoggingUtil.shared.cPrint(err)
+            self.showError(AuthManagerError.invalidLoginFields, completion: {
                 self.passwordTextField.text = ""
             })
         }
