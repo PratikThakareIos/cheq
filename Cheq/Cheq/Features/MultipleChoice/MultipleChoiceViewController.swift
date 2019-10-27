@@ -133,16 +133,24 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let qVm = QuestionViewModel()
             // load saved data, questionViewModel and multipleChoiceViewModel save to same map
             qVm.loadSaved()
-            let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
-            let noFixedAddress = (empType == .onDemand) ? true : false
-            let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: MultipleChoiceViewModel.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+//            let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
+//            let noFixedAddress = (empType == .onDemand) ? true : false
+//            let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: MultipleChoiceViewModel.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+            let req = DataHelperUtil.shared.putUserEmployerRequest()
 
             AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+            
+            if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+                AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                return
+            }
+            
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppData.shared.updateProgressAfterCompleting(.onDemand)
-                if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
-                    AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                if AppData.shared.completingDetailsForLending, self.isModal {
+                    AppNav.shared.dismissModal(self)
                 } else {
+                    AppData.shared.updateProgressAfterCompleting(.onDemand)
                     AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                 }
             }.catch { err in

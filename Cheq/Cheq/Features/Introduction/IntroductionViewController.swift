@@ -31,6 +31,9 @@ class IntroductionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        if AppData.shared.completingDetailsForLending {
+            showCloseButton()
+        }
     }
     
     func registerObservables() {

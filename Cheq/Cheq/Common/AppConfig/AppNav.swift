@@ -282,12 +282,16 @@ extension AppNav {
     func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
         presentVc.dismiss(animated: true) {
-            if let cb = completion { cb() }
+            if let cb = completion {
+                NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+                cb()
+            }
         }
     }
     
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
+            NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
             nav.popViewController(animated: true)
             return
         }

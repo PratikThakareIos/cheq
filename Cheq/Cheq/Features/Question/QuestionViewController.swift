@@ -257,7 +257,18 @@ class QuestionViewController: UIViewController {
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
                 AppData.shared.completingDetailsForLending = false
                 AppData.shared.completingOnDemandOther = false
-                AppNav.shared.dismissModal(self)
+                let req = DataHelperUtil.shared.putUserEmployerRequest()
+                AppConfig.shared.showSpinner()
+                CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+                    AppConfig.shared.hideSpinner {
+                        AppNav.shared.dismissModal(self)
+                    }
+                }.catch { err in
+                    AppConfig.shared.hideSpinner {
+                        self.showError(err) { }
+                    }
+                }
+                
             } else {
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
