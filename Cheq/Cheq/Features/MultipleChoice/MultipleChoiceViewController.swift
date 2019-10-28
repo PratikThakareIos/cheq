@@ -131,15 +131,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             vm.save(QuestionField.employerName.rawValue, value: choice.title)
             vm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
             let qVm = QuestionViewModel()
-            // load saved data, questionViewModel and multipleChoiceViewModel save to same map
             qVm.loadSaved()
-//            let empType = EmploymentType(fromRawValue: qVm.fieldValue(.employerType))
-//            let noFixedAddress = (empType == .onDemand) ? true : false
-//            let req = PutUserEmployerRequest(employerName: qVm.fieldValue(.employerName), employmentType: MultipleChoiceViewModel.cheqAPIEmploymentType(empType), address: qVm.fieldValue(.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
             let req = DataHelperUtil.shared.putUserEmployerRequest()
-
             AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
-            
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
                 return

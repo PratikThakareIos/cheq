@@ -15,11 +15,11 @@ struct MoneySoft {
     static func config()-> MoneysoftApiConfiguration {
         let timeout = RemoteConfigManager.shared.remoteNumberValue(RemoteConfigParameters.transactionBoardingTimeoutMins.rawValue)?.intValue ?? 10
         
-        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: timeout * 60)
+        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: timeout * 600)
     }
     
     static func bgTaskConfig()-> MoneysoftApiConfiguration {
         let timeout = RemoteConfigManager.shared.remoteNumberValue(RemoteConfigParameters.transactionSyncTimeoutMins.rawValue)?.intValue ?? 10
-        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: timeout * 60)
+        return MoneysoftApiConfiguration.init(apiUrl: MoneySoft.API_BASE_URL, apiReferrer: MoneySoft.API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: timeout * 600)
     }
 }

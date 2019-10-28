@@ -22,7 +22,7 @@ extension Error {
     func message()->String? {
         if let error = self as? ErrorResponse {
             switch error {
-            case .error(_, let data, let err):
+            case .error(_, let _, let err):
                 return err.localizedDescription
             }
         }
