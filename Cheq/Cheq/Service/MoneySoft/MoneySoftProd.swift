@@ -11,7 +11,7 @@ import MobileSDK
 
 struct MoneySoft {
     static let API_BASE_URL = "https://api.moneysoft.com.au"
-    static let API_REFERRER = "https://cheq.moneysoft.com.au"
+    static let API_REFERRER = "https://pfm.cheq.moneysoft.com.au"
     static func config()-> MoneysoftApiConfiguration {
         let timeout = RemoteConfigManager.shared.remoteNumberValue(RemoteConfigParameters.transactionBoardingTimeoutMins.rawValue)?.intValue ?? 10
         

@@ -280,7 +280,7 @@ extension AuthManagerError: LocalizedError {
         case .unknown:
         return NSLocalizedString("An error has occurred", comment: "")
         case .unableToRequestEmailVerificationCode:
-        return NSLocalizedString("An error has occurred", comment: "")
+        return NSLocalizedString("An error has occurred, please ensure email is valid", comment: "")
         case .unableToVerifyEmailVerificationCode:
         return NSLocalizedString("Unable to validate verification code", comment: "")
         case .unableToRequestPasswordResetEmail:

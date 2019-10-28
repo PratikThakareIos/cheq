@@ -78,7 +78,7 @@ class LoginViewController: RegistrationViewController {
         let password = passwordTextField.text ?? ""
         
         // whenever we successfully login, we post notification token
-        viewModel.login(email, password: password).then { authUser in
+        viewModel.login(email, password: password).then { authUser->Promise<AuthenticationModel> in
                 return MoneySoftManager.shared.login(authUser.msCredential)
             }.then { authModel->Promise<[FinancialAccountModel]> in
                 return MoneySoftManager.shared.getAccounts()

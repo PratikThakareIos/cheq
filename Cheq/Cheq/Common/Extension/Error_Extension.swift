@@ -23,7 +23,7 @@ extension Error {
         if let error = self as? ErrorResponse {
             switch error {
             case .error(_, let data, let err):
-                return ""
+                return err.localizedDescription
             }
         }
         return nil

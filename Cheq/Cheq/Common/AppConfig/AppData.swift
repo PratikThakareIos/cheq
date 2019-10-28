@@ -90,7 +90,7 @@ class AppData {
     let fbAppSecret = "cbe55b8da36d66d01237a9fa1ed276c5"
 
     // Bluedot API Key
-    var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
+//    var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
 
     // KYC 
     var onfidoSdkToken: String = ""
