@@ -68,6 +68,7 @@ enum MoneySoftManagerError: Error {
     case unableToRetrieveFinancialInstitutions
     case unableToRetrieveFinancialInstitutionSignInForm
     case unableToRetreiveLinkableAccounts
+    case unableToUpdateAccountCredentials
     case unableToLinkAccounts
     case unableToUpdateTransactions
     case unableToRefreshTransactions
@@ -116,7 +117,7 @@ extension MoneySoftManagerError: LocalizedError {
         case .errorFromHandleNotification:
             return NSLocalizedString("Error from handling notification", comment: "")
         case .requireMFA:
-            return NSLocalizedString("Require multi-factor authentication", comment: "")
+            return NSLocalizedString("Due to technical limitations, we do not support bank accounts that have 2FA enabled. We do not recommend you disable your 2FA. This is a limitation with Cheq, not your Bank.", comment: "")
         case .unableToForceUnlinkAllAccounts:
             return NSLocalizedString("Unable to force unlink all accounts", comment: "")
         case .unableToGetAccounts:
@@ -133,6 +134,8 @@ extension MoneySoftManagerError: LocalizedError {
             return NSLocalizedString("Unable to unlink accounts", comment: "")
         case .unableToRetreiveLinkableAccounts:
             return NSLocalizedString("Unable to retrieve linkable accounts", comment: "")
+        case .unableToUpdateAccountCredentials:
+            return NSLocalizedString("Unable to update account credentials", comment: "")
         case .unableToRegisterNotificationToken:
             return NSLocalizedString("Unable to register notification token", comment: "")
         case .unableToRetrieveUserProfile:

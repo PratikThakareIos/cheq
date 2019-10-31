@@ -24,9 +24,7 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
     func financialInstitutions()-> Promise<[ChoiceModel]> {
 
         return Promise<[ChoiceModel]>() { resolver in
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<AuthenticationModel> in
-                return MoneySoftManager.shared.login(authUser.msCredential)
-            }.then { success->Promise<RemoteBankList> in
+            AuthConfig.shared.activeManager.getCurrentUser().then {  authUser->Promise<RemoteBankList> in
                 return RemoteConfigManager.shared.remoteBanks()
             }.then { remoteBankList->Promise<[FinancialInstitutionModel]> in
                 MoneySoftManager.shared.getInstitutions()

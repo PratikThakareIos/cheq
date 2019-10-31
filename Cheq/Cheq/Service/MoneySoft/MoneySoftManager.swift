@@ -33,7 +33,7 @@ class MoneySoftManager {
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let loginModel = self.buildLoginModel(authUser.msCredential)
                 try self.msApi.notifications().handleNotification(data: data, config: MoneySoft.bgTaskConfig(), login: loginModel, listener: ApiListener<ApiResponseModel>(successHandler: { resp in
-                    resolver.fulfill(true)
+                     resolver.fulfill(true)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
                     resolver.reject(MoneySoftManagerError.errorFromHandleNotification)
@@ -186,7 +186,6 @@ extension MoneySoftManager {
         }
     }
     
-
     func linkableAccounts(_ credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
             do {

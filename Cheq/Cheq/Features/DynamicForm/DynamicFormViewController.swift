@@ -64,6 +64,7 @@ class DynamicFormViewController: UIViewController {
         case .text:
             let textField = CTextField(frame: CGRect.zero)
             textField.placeholder = input.title
+            textField.autocapitalizationType = .none
             return textField
         case .password:
             let passwordTextField = CTextField(frame: CGRect.zero)
@@ -125,9 +126,8 @@ class DynamicFormViewController: UIViewController {
         AppData.shared.financialSignInForm = form
         self.submitForm()
     }
-    
+
     func submitForm() {
-        
         AppConfig.shared.showSpinner()
         viewModel.coordinator.submitForm().done { success in
             AppConfig.shared.hideSpinner {

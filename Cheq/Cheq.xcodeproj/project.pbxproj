@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
-		12ADA011DEC12F075A2BB5B0 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */; };
-		2A5755B6F07106CDDBF9E61F /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -700,7 +698,6 @@
 		4F231D6B2366812700874D07 /* MoneySoftProd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD83983235FF1310069EB30 /* MoneySoftProd.swift */; };
 		4F231D6C2366815100874D07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD839A723626F080069EB30 /* GoogleService-Info.plist */; };
 		4F231D6D2366A48500874D07 /* APIs-prod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8397B235FEF9F0069EB30 /* APIs-prod.swift */; };
-		4F231D6E2366B65A00874D07 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -767,6 +764,7 @@
 		4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E3231DF241005FA0C1 /* MoneySoftUtil.swift */; };
 		4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
 		4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */; };
+		4FBDD8D92367AB7900EDB1E9 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F09112F2320EA6C00AA7F7D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12B2327272F00AC7A67 /* UICollectionView_Extension.swift */; };
 		4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12E2327299400AC7A67 /* ViewUtil.swift */; };
 		4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
@@ -1169,7 +1167,6 @@
 		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
 		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
-		D281CB8B3753AB44FCE4E3CD /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1252,6 +1249,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4FBDD8D92367AB7900EDB1E9 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1614,7 +1612,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD83AB223631ABA0069EB30 /* Pods_Cheq.framework in Frameworks */,
-				4F231D6E2366B65A00874D07 /* MobileSDK.framework in Frameworks */,
 				4FD83AB323631ABA0069EB30 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1625,9 +1622,6 @@
 			files = (
 				4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
-				2A5755B6F07106CDDBF9E61F /* Pods_Cheq.framework in Frameworks */,
-				D281CB8B3753AB44FCE4E3CD /* Pods_Cheq.framework in Frameworks */,
-				12ADA011DEC12F075A2BB5B0 /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

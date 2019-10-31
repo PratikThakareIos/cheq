@@ -97,18 +97,22 @@ class LoginViewController: RegistrationViewController {
                         // to dynamic form view and link their bank account
                         AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
                         AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitutionId
+                        AppData.shared.disabledAccount = disabledAccount
+                        
                         MoneySoftManager.shared.getInstitutions().done { institutions in
                             AppData.shared.financialInstitutions = institutions
-                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId && String($0.providerInstitutionId) == AppData.shared.existingProviderInstitutionId })
+                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
                             guard let selected = AppData.shared.selectedFinancialInstitution else {
                                 AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                                 return
                             }
                             
                             AppData.shared.isOnboarding = false
+                            AppData.shared.migratingToNewDevice = true
                             AppNav.shared.pushToDynamicForm(selected, viewController: self)
                         }.catch { err in
                             self.showError(err, completion: nil)
+                            return
                         }
                     } else {
                         // Load to dashboard

@@ -64,7 +64,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
         case .bankDetils: return "Enter your bank details"
         case .workDetails: return "Working details"
         case .verifyYourDetails:
-            let header = (self.completionState == CompleteDetailsState.inprogress) ?  "Verify your identity" : "Verifying your identity..."
+            let header = (self.completionState == CompleteDetailsState.inprogress) ?  "Verifying your identity..." : "Verify your identity"
             return header
 
         }
@@ -75,7 +75,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
         case .bankDetils: return "Link your banking details to ensure you're eligible for same day pay."
         case .workDetails: return "Complete your employment details to ensure you're eligible for same day pay."
         case .verifyYourDetails:
-            let details = (self.completionState == CompleteDetailsState.inprogress) ?  "Complete your details for identity verification." : "This usually takes less than 2 minutes, but can take up to 48 hours."
+            let details = (self.completionState == CompleteDetailsState.inprogress) ? "This usually takes less than 2 minutes, but can take up to 48 hours." : "Complete your details for identity verification."
             return details
         }
     }

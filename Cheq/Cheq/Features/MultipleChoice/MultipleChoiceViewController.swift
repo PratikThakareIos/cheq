@@ -226,13 +226,12 @@ extension MultipleChoiceViewController {
         if let imageName = choice.image, imageName.isEmpty == false {
             cell.iconImageView.isHidden = false
             let imageUrl = URL(string: imageName)
-            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            })
-            
             if var view: UIView = cell.iconImageView {
                 ViewUtil.shared.circularMask(&view)
             }
+            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
+                cell.iconImageView.setNeedsLayout()
+            })
         } else {
             cell.iconImageView.isHidden = true
         }

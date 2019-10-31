@@ -18,7 +18,7 @@ class LoggingUtil {
     
     // we will turn off this for prod use
     func cPrint(_ msg: Any...) {
-        print("")
+        print(msg)
     }
     
     func cWriteToFile(_ file: String, newText: String) {

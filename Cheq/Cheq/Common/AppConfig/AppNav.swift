@@ -244,7 +244,9 @@ extension AppNav {
                         viewController.dismiss(animated: true, completion:nil)
                         }.catch{ err in
                             let error = err
-                            guard AppData.shared.completingDetailsForLending else { return }
+                            guard AppData.shared.completingDetailsForLending else {
+                                return
+                            }
                             viewController.dismiss(animated: true, completion: {
                                 NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
                             })

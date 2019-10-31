@@ -113,6 +113,7 @@ class AppData {
     // use for keeping the provider institution id to map which bank user selected
     var existingProviderInstitutionId: String = ""
     var existingFinancialInstitutionId: Int  = -1
+    var disabledAccount: FinancialAccountModel! 
     
     
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
@@ -130,6 +131,9 @@ class AppData {
 
     // lending scenarios
     var completingDetailsForLending = false
+    
+    // migration of accounts on new device scenario
+    var migratingToNewDevice = false 
     
     // is onboarding
     var isOnboarding = false
