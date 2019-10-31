@@ -197,6 +197,16 @@ extension AppDelegate {
     }
 }
 
+// MARK: disable third party keyboard
+extension AppDelegate {
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        if extensionPointIdentifier == UIApplication.ExtensionPointIdentifier.keyboard {
+            return false
+        }
+        return true
+    }
+}
+
 // MARK: Segment
 extension AppDelegate {
     
