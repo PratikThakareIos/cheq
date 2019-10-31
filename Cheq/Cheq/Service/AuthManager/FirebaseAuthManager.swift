@@ -197,11 +197,11 @@ extension FirebaseAuthManager {
                 let fcm = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
                 LoggingUtil.shared.cPrint("apns \(apns)")
                 LoggingUtil.shared.cPrint("fcm \(fcm)")
-                MoneySoftManager.shared.login(authUser.msCredential).then { authModel->Promise<Bool> in
+               
+                let req = DataHelperUtil.shared.postPushNotificationRequest()
+                CheqAPIManager.shared.postNotificationToken(req)
+                .then { success->Promise<Bool> in
                     return MoneySoftManager.shared.postNotificationToken()
-                }.then { success->Promise<Bool> in
-                    let req = DataHelperUtil.shared.postPushNotificationRequest()
-                    return CheqAPIManager.shared.postNotificationToken(req)
                 }.done { success in
                     resolver.fulfill(authUser)
                 }.catch { err in

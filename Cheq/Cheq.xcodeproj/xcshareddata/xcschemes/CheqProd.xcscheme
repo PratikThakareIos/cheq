@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4FD83721235FEE770069EB30"
+               BlueprintIdentifier = "4F231C382366752500874D07"
                BuildableName = "CheqProd.app"
                BlueprintName = "CheqProd"
                ReferencedContainer = "container:Cheq.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4FD83721235FEE770069EB30"
+            BlueprintIdentifier = "4F231C382366752500874D07"
             BuildableName = "CheqProd.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">
@@ -55,12 +55,18 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4FD83721235FEE770069EB30"
+            BlueprintIdentifier = "4F231C382366752500874D07"
             BuildableName = "CheqProd.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-FIRDebugEnabled"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -74,7 +80,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4FD83721235FEE770069EB30"
+            BlueprintIdentifier = "4F231C382366752500874D07"
             BuildableName = "CheqProd.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">

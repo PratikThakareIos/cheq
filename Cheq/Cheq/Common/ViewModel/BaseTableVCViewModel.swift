@@ -17,4 +17,8 @@ class BaseTableVCViewModel {
     func addSection(_ section: TableSectionViewModel) {
         self.sections.append(section)
     }
+    
+    func insertSection(_ section: TableSectionViewModel, index: Int) {
+        self.sections.insert(section, at: index)
+    }
 }

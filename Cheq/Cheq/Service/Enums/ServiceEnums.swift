@@ -20,6 +20,7 @@ enum CKeychainError: Error {
 enum RemoteConfigError: Error {
     case unableToFetchAndActivateRemoteConfig
     case unableToFetchInstitutions
+    case unableToFetchRemoteConfigValue
 }
 
 enum ValidationError: Error {
@@ -32,6 +33,7 @@ enum ValidationError: Error {
     case onlyAlphabetCharactersIsAllowed
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
+    case autoCompleteIsMandatory
 }
 
 enum CheqAPIManagerError: Error, Equatable {
@@ -66,6 +68,7 @@ enum MoneySoftManagerError: Error {
     case unableToRetrieveFinancialInstitutions
     case unableToRetrieveFinancialInstitutionSignInForm
     case unableToRetreiveLinkableAccounts
+    case unableToUpdateAccountCredentials
     case unableToLinkAccounts
     case unableToUpdateTransactions
     case unableToRefreshTransactions
@@ -104,6 +107,55 @@ enum AuthManagerError: Error {
     case unknown
 }
 
+extension MoneySoftManagerError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .require2FAVerificationCode:
+            return NSLocalizedString("Require 2FA verification code", comment: "")
+        case .unknown:
+            return NSLocalizedString("Server error has occurred", comment: "")
+        case .errorFromHandleNotification:
+            return NSLocalizedString("Error from handling notification", comment: "")
+        case .requireMFA:
+            return NSLocalizedString("Due to technical limitations, we do not support bank accounts that have 2FA enabled. We do not recommend you disable your 2FA. This is a limitation with Cheq, not your Bank.", comment: "")
+        case .unableToForceUnlinkAllAccounts:
+            return NSLocalizedString("Unable to force unlink all accounts", comment: "")
+        case .unableToGetAccounts:
+            return NSLocalizedString("Unable to get accounts", comment: "")
+        case .unableToLinkAccounts:
+            return NSLocalizedString("Unable to link accounts", comment: "")
+        case .unableToRefreshAccounts:
+            return NSLocalizedString("Unable to refresh accounts", comment: "")
+        case .unableToUpdateTransactions:
+            return NSLocalizedString("Unable to update transactions", comment: "")
+        case .unableToLoginWithCredential:
+            return NSLocalizedString("Unable to login with credential", comment: "")
+        case .unableToUnlinkAccounts:
+            return NSLocalizedString("Unable to unlink accounts", comment: "")
+        case .unableToRetreiveLinkableAccounts:
+            return NSLocalizedString("Unable to retrieve linkable accounts", comment: "")
+        case .unableToUpdateAccountCredentials:
+            return NSLocalizedString("Unable to update account credentials", comment: "")
+        case .unableToRegisterNotificationToken:
+            return NSLocalizedString("Unable to register notification token", comment: "")
+        case .unableToRetrieveUserProfile:
+            return NSLocalizedString("Unable to retrieve user profile", comment: "")
+        case .unableToUpdateDisabledAccountCredentials:
+            return NSLocalizedString("Unable to update dsialed account credentials", comment: "")
+        case .unableToRetrieveFinancialInstitutions:
+            return NSLocalizedString("Unable to retrieve financial institutions", comment: "")
+        case .unableToRetrieveFinancialInstitutionSignInForm:
+            return NSLocalizedString("Unable to retrieve financial institution sign-in form", comment: "")
+        case .unableToRefreshTransactions:
+            return NSLocalizedString("Unable to refresh transactions", comment: "")
+        case .unableToLoginWithBankCredentials:
+            return NSLocalizedString("Unable to login with bank credentials", comment: "")
+        case .unableToRetrieveMoneySoftCredential:
+            return NSLocalizedString("Unable to retrieve money soft credentials", comment: "")
+        }
+    }
+}
+
 extension RemoteConfigError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -111,6 +163,8 @@ extension RemoteConfigError: LocalizedError {
             return NSLocalizedString("Unable to fetch and activate remote config, please try again later.", comment: "")
         case .unableToFetchInstitutions:
             return NSLocalizedString("Unable to fetch institutions.", comment: "")
+        case .unableToFetchRemoteConfigValue:
+            return NSLocalizedString("Unable to fetch remote config values.", comment: "")
         }
     }
 }
@@ -183,6 +237,8 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Only alphabet characters is allowed", comment: "")
         case .onlyNumericCharactersIsAllowed:
             return NSLocalizedString("Only numeric characteres is allowed", comment: "")
+        case .autoCompleteIsMandatory:
+            return NSLocalizedString("Input by autocomplete is mandatory", comment: "")
         }
     }
 }
@@ -193,7 +249,7 @@ extension AuthManagerError: LocalizedError {
         case .invalidRegistrationFields:
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
-        return NSLocalizedString("Invalid login fields", comment: "")
+        return NSLocalizedString("Invalid login", comment: "")
         case .invalidFinancialInstitutionSelected:
         return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:
@@ -227,7 +283,7 @@ extension AuthManagerError: LocalizedError {
         case .unknown:
         return NSLocalizedString("An error has occurred", comment: "")
         case .unableToRequestEmailVerificationCode:
-        return NSLocalizedString("An error has occurred", comment: "")
+        return NSLocalizedString("An error has occurred, please ensure email is valid", comment: "")
         case .unableToVerifyEmailVerificationCode:
         return NSLocalizedString("Unable to validate verification code", comment: "")
         case .unableToRequestPasswordResetEmail:

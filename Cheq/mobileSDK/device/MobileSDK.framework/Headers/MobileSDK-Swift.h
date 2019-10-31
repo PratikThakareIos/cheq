@@ -370,6 +370,7 @@ SWIFT_CLASS("_TtC9MobileSDK25FinancialAccountLinkModel")
 
 
 
+@class FinancialInstitutionModel;
 @class NSDictionary;
 
 SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
@@ -392,6 +393,7 @@ SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
 @property (nonatomic) BOOL isInBudget;
 @property (nonatomic) enum AssetCategory assetCategory;
 @property (nonatomic) enum AssetType assetType;
+@property (nonatomic, strong) FinancialInstitutionModel * _Nullable financialInstitution;
 - (nonnull instancetype)initWithFinancialAccountId:(NSInteger)financialAccountId providerAccountId:(NSString * _Nullable)providerAccountId financialInstitutionId:(NSInteger)financialInstitutionId providerInstitutionId:(NSString * _Nullable)providerInstitutionId name:(NSString * _Nonnull)name nickname:(NSString * _Nullable)nickname number:(NSString * _Nonnull)number balance:(double)balance type:(enum AccountType)type created:(NSDate * _Nonnull)created lastRefresh:(NSDate * _Nullable)lastRefresh providerContainerId:(NSString * _Nullable)providerContainerId OBJC_DESIGNATED_INITIALIZER;
 /// Initialises a <code>FinancialAccountModel</code> through deserialisation.
 /// <ul>
@@ -410,7 +412,6 @@ SWIFT_CLASS("_TtC9MobileSDK21FinancialAccountModel")
 
 
 
-@class FinancialInstitutionModel;
 @class InstitutionCredentialsFormModel;
 @class FinancialServiceModel;
 @class MFAVerificationModel;

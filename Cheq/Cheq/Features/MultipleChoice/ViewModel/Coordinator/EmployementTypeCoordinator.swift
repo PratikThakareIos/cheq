@@ -29,12 +29,12 @@ struct EmployementTypeCoordinator: MultipleChoiceViewModelCoordinator {
     
     func choices() -> Promise<[ChoiceModel]> {
         return Promise<[ChoiceModel]>() { resolver in
-            let fullTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.fulltime.rawValue, caption: "Full time description and example", image: nil, ref : nil)
-            let onDemand = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.onDemand.rawValue, caption: "On demand description", image: nil, ref : nil)
-            let contractual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.contract.rawValue, caption: "Contractors", image: nil, ref : nil)
-            let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "Casual employment", image: nil, ref : nil)
-            let selfEmployed = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.selfEmployed.rawValue, caption: "Self employed", image: nil, ref : nil)
-            let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "Part time", image: nil, ref : nil)
+            let fullTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.fulltime.rawValue, caption: "Full time description and example", image: nil, ordering: 0, ref : nil)
+            let onDemand = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.onDemand.rawValue, caption: "On demand description", image: nil,  ordering: 0, ref : nil)
+            let contractual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.contract.rawValue, caption: "Contractors", image: nil,  ordering: 0, ref : nil)
+            let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "Casual employment", image: nil,  ordering: 0, ref : nil)
+            let selfEmployed = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.selfEmployed.rawValue, caption: "Self employed", image: nil,  ordering: 0, ref : nil)
+            let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "Part time", image: nil,  ordering: 0, ref : nil)
             let result = [fullTime, onDemand, contractual, casual, partTime, selfEmployed]
             resolver.fulfill(result)
         }

@@ -19,9 +19,6 @@ class AppNav {
         // Event for programmatically for app becoming active
         // Check if we need to show the passcode screen if passcode is setup
         NotificationCenter.default.addObserver(self, selector: #selector(showPasscodeIfNeeded(notification:)), name: NSNotification.Name(NotificationEvent.appBecomeActive.rawValue), object: nil)
-        
-        // Timer to check app has been idle
-//        timer = Timer.scheduledTimer(timeInterval: TimeInterval(appLastActiveTimestampCheckInterval), target: self, selector: #selector(showPasscodeIfNeeded(notification:)), userInfo: nil, repeats: true)
     }
     
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
@@ -39,6 +36,11 @@ class AppNav {
             return true
         }
         return false
+    }
+    
+    func emptyPasscode() {
+        let _ = CKeychain.shared.setValue(CKey.passcodeLock.rawValue, value: "")
+        let _ = CKeychain.shared.setValue(CKey.confirmPasscodeLock.rawValue, value: "")
     }
     
     func passcodeExist()-> Bool {
@@ -242,7 +244,9 @@ extension AppNav {
                         viewController.dismiss(animated: true, completion:nil)
                         }.catch{ err in
                             let error = err
-                            guard AppData.shared.completingDetailsForLending else { return }
+                            guard AppData.shared.completingDetailsForLending else {
+                                return
+                            }
                             viewController.dismiss(animated: true, completion: {
                                 NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
                             })
@@ -268,6 +272,7 @@ extension AppNav {
             let onfidoRun = try onfidoFlow.run()
             viewController.present(onfidoRun, animated: true) { }
         } catch let err {
+            LoggingUtil.shared.cPrint(err)
             viewController.showError(err, completion: nil)
         }
     }
@@ -279,12 +284,16 @@ extension AppNav {
     func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
         presentVc.dismiss(animated: true) {
-            if let cb = completion { cb() }
+            if let cb = completion {
+                NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+                cb()
+            }
         }
     }
     
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
+            NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
             nav.popViewController(animated: true)
             return
         }

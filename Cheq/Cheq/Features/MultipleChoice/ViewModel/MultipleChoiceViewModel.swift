@@ -29,13 +29,15 @@ struct ChoiceModel: Equatable {
     let title: String
     let caption: String?
     let image: String?
+    let ordering: Int
     var ref: Any? = nil
     
     static func == (lhs: ChoiceModel, rhs: ChoiceModel) -> Bool {
         return lhs.type == rhs.type &&
                 lhs.title == rhs.title &&
                 lhs.caption == rhs.caption &&
-                lhs.image == rhs.image
+                lhs.image == rhs.image &&
+                lhs.ordering == rhs.ordering
     }
 }
 

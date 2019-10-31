@@ -48,7 +48,7 @@ extension UIViewController {
     }
 
     @objc func closeButton() {
-        AppNav.shared.dismissModal(self, completion: nil)
+        AppNav.shared.dismissModal(self) { }
     }
     
     @objc func back() {
@@ -98,8 +98,15 @@ extension UIViewController {
     }
     
     func showError(_ err: Error, completion: (()->Void)?) {
+        
+        var message = ""
         // Prepare the popup assets
-        let message = err.localizedDescription
+        if let errMessage = err.message(), errMessage.isEmpty != false  {
+            message = errMessage
+        } else {
+            message = err.localizedDescription
+        }
+        
         let cPopup = CPopupDialog(.error, messageBody: message, button: .ok, completion: {
             if let cb = completion { cb() }
         })

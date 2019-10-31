@@ -11,8 +11,13 @@ import Firebase
 import FirebaseRemoteConfig
 import PromiseKit
 
+
 enum RemoteConfigParameters: String, CaseIterable {
     case financialInstitutions = "FinancialInstitutions"
+    case financialInstituitonsWithDemo = "FinancialInstitutionsWithDemoBank"
+    case appVersionNumber = "AppVersionNumber"
+    case transactionSyncTimeoutMins = "TxnSyncTimeoutMins"
+    case transactionBoardingTimeoutMins = "TxnOnBoardingTimeoutMins"
 }
 
 class RemoteConfigManager {
@@ -20,7 +25,6 @@ class RemoteConfigManager {
     let remoteConfig = RemoteConfig.remoteConfig()
     private init() {
         let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 3600
         remoteConfig.configSettings = settings
     }
     
@@ -37,26 +41,30 @@ class RemoteConfigManager {
         }
     }
     
-    func bankLogos()->Promise<[String: String]> {
+    func remoteNumberValue(_ key: String)-> NSNumber? {
+        let remoteConfigValue = remoteConfig.configValue(forKey: key)
+        return remoteConfigValue.numberValue
+    }
+    
+    func remoteBanks()->Promise<RemoteBankList> {
        
-        return Promise<[String: String]>() { resolver in
-            resolver.fulfill([String : String]())
-//            var logoMapping = [String: String]()
-//            self.fetchAndActivate().done { _ in
-//                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstitutions.rawValue)
-//                do {
-////                    let arr = try JSONSerialization.jsonObject(with: banks.dataValue, options: .allowFragments) as! [String:String]
-////
-////                    LoggingUtil.shared.cPrint(arr)
-//                }
-//                catch let error {
-//                    resolver.reject(error)
-//                }
-//            }.catch { err in
-//                resolver.reject(RemoteConfigError.unableToFetchInstitutions)
-//            }
-            
-            
+        return Promise<RemoteBankList>() { resolver in
+            self.fetchAndActivate().done { _ in
+                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstituitonsWithDemo.rawValue)
+                let decoder = JSONDecoder()
+                do {
+                    let remoteBanks = try decoder.decode([RemoteBank].self, from: banks.dataValue)
+                    LoggingUtil.shared.cPrint(remoteBanks)
+                    let remoteBankList = RemoteBankList(banks: remoteBanks)
+                    AppData.shared.remoteBankMapping = remoteBankList.mapping()
+                    resolver.fulfill(remoteBankList)
+                }
+                catch let error {
+                    resolver.reject(error)
+                }
+            }.catch { err in
+                resolver.reject(RemoteConfigError.unableToFetchAndActivateRemoteConfig)
+            }
         }
     }
     

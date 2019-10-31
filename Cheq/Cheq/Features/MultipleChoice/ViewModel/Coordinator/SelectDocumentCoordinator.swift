@@ -36,6 +36,6 @@ class SelectDocumentCoordinator: MultipleChoiceViewModelCoordinator {
 
 extension SelectDocumentCoordinator {
     func selectDocToChoiceModel(_ type: KycDocType)->ChoiceModel {
-        return ChoiceModel(type: .choiceWithCaption, title: type.rawValue, caption: "", image: nil, ref: type)
+        return ChoiceModel(type: .choiceWithCaption, title: type.rawValue, caption: "", image: nil, ordering: 0, ref: type)
     }
 }

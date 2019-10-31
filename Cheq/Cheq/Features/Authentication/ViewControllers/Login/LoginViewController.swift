@@ -78,30 +78,41 @@ class LoginViewController: RegistrationViewController {
         let password = passwordTextField.text ?? ""
         
         // whenever we successfully login, we post notification token
-        viewModel.login(email, password: password).then { authUser in
+        viewModel.login(email, password: password).then { authUser->Promise<AuthenticationModel> in
                 return MoneySoftManager.shared.login(authUser.msCredential)
             }.then { authModel->Promise<[FinancialAccountModel]> in
                 return MoneySoftManager.shared.getAccounts()
             }.done { accounts in
                 AppConfig.shared.hideSpinner {
+                    
+                    guard accounts.isEmpty == false else {
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                        return
+                    }
+                    
                     let financialAccounts: [FinancialAccountModel] = accounts
                     if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account
                         AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
                         AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitutionId
+                        AppData.shared.disabledAccount = disabledAccount
+                        
                         MoneySoftManager.shared.getInstitutions().done { institutions in
                             AppData.shared.financialInstitutions = institutions
-                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId && String($0.providerInstitutionId) == AppData.shared.existingProviderInstitutionId })
+                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
                             guard let selected = AppData.shared.selectedFinancialInstitution else {
                                 AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                                 return
                             }
                             
                             AppData.shared.isOnboarding = false
+                            AppData.shared.migratingToNewDevice = true
                             AppNav.shared.pushToDynamicForm(selected, viewController: self)
                         }.catch { err in
                             self.showError(err, completion: nil)
+                            return
                         }
                     } else {
                         // Load to dashboard
@@ -124,7 +135,8 @@ class LoginViewController: RegistrationViewController {
         case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
             self.beginOnboarding()
         default:
-            self.showError(err, completion: {
+            LoggingUtil.shared.cPrint(err)
+            self.showError(AuthManagerError.invalidLoginFields, completion: {
                 self.passwordTextField.text = ""
             })
         }

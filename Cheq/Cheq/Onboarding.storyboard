@@ -989,26 +989,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BHv-qI-fIh">
-                                        <rect key="frame" x="20" y="20" width="374" height="195"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="172"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-mB-7tg">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="16"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZX-em-p9k" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="59" width="374" height="36"/>
+                                                <rect key="frame" x="0.0" y="36" width="374" height="36"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHs-zT-7EN" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="115" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="92" width="374" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgH-Bf-JCp" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="165" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="142" width="374" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Send email">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

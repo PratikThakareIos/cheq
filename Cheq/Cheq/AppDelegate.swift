@@ -45,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // Firebase Message delegate
         Messaging.messaging().delegate = self
         // Setup Firebase remote config
-        setupRemoteConfig()
-        
         
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -55,19 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.registerNotificationObservers()
         self.setupServices()
         self.setupInitialViewController()
+//        self.setupInitDevController2()
 //        self.setupInitDevController()
 //        self.setupLogController()
 //        self.setupQuestionController()
         return true
-    }
-    
-    func setupRemoteConfig() {
-        let remote = RemoteConfigManager.shared
-        remote.bankLogos().done { _ in
-            LoggingUtil.shared.cPrint("bankLogos")
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err)
-        }
     }
     
     // do not use this in AppDelegate as UIApplication.shared is not ready
@@ -112,12 +102,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
             return
         }
         
+        AppData.shared.completingDetailsForLending = false 
         // nav is embeded inside the viewcontrollers of tabbar
         window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
     
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
+        AppData.shared.completingDetailsForLending = false 
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
     
@@ -205,6 +197,16 @@ extension AppDelegate {
     }
 }
 
+// MARK: disable third party keyboard
+extension AppDelegate {
+    func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplication.ExtensionPointIdentifier) -> Bool {
+        if extensionPointIdentifier == UIApplication.ExtensionPointIdentifier.keyboard {
+            return false
+        }
+        return true
+    }
+}
+
 // MARK: Segment
 extension AppDelegate {
     
@@ -222,6 +224,7 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+        let _ = RemoteConfigManager.shared
     }
     
     func setupServicesForDev() {
@@ -230,6 +233,7 @@ extension AppDelegate {
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
+        let _ = RemoteConfigManager.shared
 //        let _ = VDotManager.shared
 //        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
@@ -277,6 +281,14 @@ extension AppDelegate {
         let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
         vc.viewModel.coordinator = BankAccountCoordinator()
         window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupInitDevController2 () {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(.employee) as! IntroductionViewController
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
     

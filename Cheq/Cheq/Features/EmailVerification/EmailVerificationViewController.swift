@@ -84,6 +84,7 @@ class EmailVerificationViewController: UIViewController {
                 self.codeTextField.text = ""
                 self.newPasswordField.text = ""
             }
+            return
         }
         
         AppConfig.shared.showSpinner()
@@ -106,6 +107,7 @@ class EmailVerificationViewController: UIViewController {
             showError(err) {
                 self.codeTextField.text = ""
             }
+            return 
         }
         
         // TODO : verify code api call
@@ -115,6 +117,7 @@ class EmailVerificationViewController: UIViewController {
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
+                
                 AppConfig.shared.hideSpinner {
                     self.handleSuccessVerification()
                 }

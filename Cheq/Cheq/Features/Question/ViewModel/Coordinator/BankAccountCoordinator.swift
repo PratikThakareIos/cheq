@@ -17,7 +17,7 @@ class BankAccountCoordinator: QuestionCoordinatorProtocol {
     func placeHolder(_ index: Int) -> String {
         switch index {
         case 0:
-            return "Bank name"
+            return "Account name"
         case 1:
             return "BSB"
         case 2:

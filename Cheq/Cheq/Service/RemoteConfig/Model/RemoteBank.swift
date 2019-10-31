@@ -8,14 +8,32 @@
 
 import UIKit
 
-struct RemoteBankList: Codable {
+struct RemoteBankList {
     var banks: [RemoteBank]
+    
+    func mapping()-> [String: RemoteBank] {
+        var mapping = [String: RemoteBank]()
+        for bank: RemoteBank in self.banks {
+            mapping[bank.name] = bank
+        }
+        return mapping
+    }
 }
 
 struct RemoteBank: Codable {
-    var FinancialInstitutionId: Int
-    var Name: String
-    var Alias: String
-    var LogoUrl: String
-    var Order: Int 
+    var financialInstitutionId: Int
+    var name: String
+    var alias: String?
+    var logoUrl: String
+    var order: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case financialInstitutionId = "FinancialInstitutionId"
+        case name = "Name"
+        case alias = "Alias"
+        case logoUrl = "LogoUrl"
+        case order = "Order"
+    }
+    
+    
 }

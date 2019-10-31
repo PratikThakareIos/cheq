@@ -90,7 +90,7 @@ class AppData {
     let fbAppSecret = "cbe55b8da36d66d01237a9fa1ed276c5"
 
     // Bluedot API Key
-    var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
+//    var blueDotApiToken: String =  "7b9b43d0-d39d-11e9-82e5-0ad12f17ff82"
 
     // KYC 
     var onfidoSdkToken: String = ""
@@ -108,11 +108,12 @@ class AppData {
     var selectedFinancialInstitution: FinancialInstitutionModel?
     
     // bank logo mapping from remote config
-    var remoteBankMapping = [RemoteBank]()
+    var remoteBankMapping = [String: RemoteBank]()
     
     // use for keeping the provider institution id to map which bank user selected
     var existingProviderInstitutionId: String = ""
     var existingFinancialInstitutionId: Int  = -1
+    var disabledAccount: FinancialAccountModel! 
     
     
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
@@ -130,6 +131,9 @@ class AppData {
 
     // lending scenarios
     var completingDetailsForLending = false
+    
+    // migration of accounts on new device scenario
+    var migratingToNewDevice = false 
     
     // is onboarding
     var isOnboarding = false
