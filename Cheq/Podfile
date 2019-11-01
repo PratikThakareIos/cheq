@@ -6,6 +6,14 @@ target 'Cheq' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  pre_install do |installer|
+    installer.analysis_result.specifications.each do |s|
+      if s.name == 'Alamofire' || s.name == 'CocoaLumberjack'
+        s.swift_version = '4.0'
+      end
+    end
+  end
 
   # Pods for Cheq
   pod 'SwiftKeychainWrapper'
@@ -38,7 +46,7 @@ target 'Cheq' do
   pod 'REValidation'
   pod 'Obfuscator'
   pod 'SQLCipher'
-  pod 'sqlite3'
+  pod 'sqlite3', '<= 3.27.2'
   pod 'OpenSSL-Universal'
   
   #Fabrics + Crashlytics
