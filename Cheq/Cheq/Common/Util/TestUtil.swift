@@ -154,6 +154,10 @@ class TestUtil {
         return Double.random(in: -100...100)
     }
     
+    func randomBillAmount()->Double {
+        return Double.random(in: -1000...1000)
+    }
+    
     func randomDate()-> Date {
         let random = Int.random(in: 0...30)
         return random.days.earlier
@@ -196,6 +200,95 @@ class TestUtil {
         let formatter = FormatterUtil.shared.defaultDateFormatter()
         let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement())
         return loanPreview
+    }
+    
+    fileprivate func categoryAmountStateCode(_ code: GetUpcomingBillResponse.CategoryCode)->CategoryAmountStatResponse.CategoryCode {
+        let categoryAmountStateCode = CategoryAmountStatResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
+        return categoryAmountStateCode
+    }
+    
+    fileprivate func slimTransactionCategoryCode(_ code: GetUpcomingBillResponse.CategoryCode)->SlimTransactionResponse.CategoryCode {
+        let slimTransactionCategoryCode = SlimTransactionResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
+        return slimTransactionCategoryCode
+    }
+    
+    fileprivate func randomCategoryCode()->GetUpcomingBillResponse.CategoryCode {
+        let categoryCodes: [GetUpcomingBillResponse.CategoryCode] = [.benefits, .bills, .employmentIncome, .entertainment, .financialServices, .fitness, .groceries, .health, .household, .ondemandIncome, .otherDeposit, .others, .restaurantsAndCafes, .secondaryIncome, .shopping, .tobaccoAndAlcohol, .transport, .travel, .workAndEducation]
+        return categoryCodes.randomElement() ?? .bills
+    }
+    
+    fileprivate func randomRecurringFrequency()->GetUpcomingBillResponse.RecurringFrequency {
+        let recurringFreqencyTypes: [GetUpcomingBillResponse.RecurringFrequency] = [.bimonthly, .fortnightly, .halfYearly, .monthly, .quarterly, .weekly, .yearly]
+        return recurringFreqencyTypes.randomElement() ?? .weekly
+    }
+    
+    fileprivate func upcomingBillResponses()-> [GetUpcomingBillResponse] {
+        var result = [GetUpcomingBillResponse]()
+        for _ in 1...20 {
+            let code = randomCategoryCode()
+            let getUpcomingBillResponse = GetUpcomingBillResponse(_description: TestUtil.shared.randomString(100), merchant: TestUtil.shared.randomString(30), merchantLogoUrl: "", amount: TestUtil.shared.randomBillAmount(), dueDate: FormatterUtil.shared.simpleDateFormatter().string(from: 5.days.later), daysToDueDate: 5, recurringFrequency: randomRecurringFrequency(), categoryCode: code, categoryTitle: code.rawValue)
+            result.append(getUpcomingBillResponse)
+        }
+        return result
+    }
+    
+    func topCategoriesAmount()->[CategoryAmountStatResponse] {
+        let range = 1...20
+        var result = [CategoryAmountStatResponse]()
+        var randomAmount: [Double] = []
+        var totalAmount: Double = 0.0
+        for _ in range {
+            randomAmount.append(TestUtil.shared.randomBillAmount())
+        }
+        
+        totalAmount = randomAmount.reduce(0, +)
+        
+        
+        for k in range {
+            let code = categoryAmountStateCode(randomCategoryCode())
+            let categoryAmountStateResponse = CategoryAmountStatResponse(categoryId: Int.random(in: 1...10000), categoryTitle: code.rawValue, categoryCode: code, categoryAmount: randomAmount.first, totalAmount: totalAmount)
+            result.append(categoryAmountStateResponse)
+        }
+        return result
+    }
+    
+    func randomRemoteBank()-> RemoteBank {
+        var remoteBanks = [RemoteBank]()
+        let commnWealthBank = RemoteBank(financialInstitutionId: 236, name: "Commonwealth Bank", alias: "CBA", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/236-www-commbank-com-au.png", order: 1)
+        remoteBanks.append(commnWealthBank)
+        let westpac = RemoteBank(financialInstitutionId: 237, name: "Westpac", alias: "WBC", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/237-www-westpac-com-au.png", order: 2)
+        remoteBanks.append(westpac)
+        let anz = RemoteBank(financialInstitutionId: 240, name: "ANZ", alias: "ANZ", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/240-www-anz-com-au.png", order: 3)
+        remoteBanks.append(anz)
+        let nab = RemoteBank(financialInstitutionId: 238, name: "NAB", alias: "NAB", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/238-www-nab-com-au.png", order: 4)
+        remoteBanks.append(nab)
+        let stGeorge = RemoteBank(financialInstitutionId: 239, name: "St.George Bank", alias: "SGB STG", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/239-www-stgeorge-com-au.png", order: 5)
+        remoteBanks.append(stGeorge)
+        let bankWest = RemoteBank(financialInstitutionId: 247, name: "BankWest", alias: "BWA", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/247-www-bankwest-com-au.png", order: 6)
+        remoteBanks.append(bankWest)
+        return remoteBanks.randomElement() ?? commnWealthBank
+    }
+    
+    func randomTransactions()->[SlimTransactionResponse] {
+        var transactions = [SlimTransactionResponse]()
+        for _ in 1...500 {
+            let code = self.slimTransactionCategoryCode(self.randomCategoryCode())
+            let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: TestUtil.shared.randomDate())
+            let randomBank = TestUtil.shared.randomRemoteBank()
+            let slimTransactionResponse = SlimTransactionResponse(_description: TestUtil.shared.randomString(100), amount: TestUtil.shared.randomAmount(), date: dateString, categoryTitle: code.rawValue, categoryCode: code, merchant: TestUtil.shared.randomString(30), merchantLogoUrl: "", financialAccountName: randomBank.name, financialInstitutionLogoUrl: randomBank.logoUrl)
+            transactions.append(slimTransactionResponse)
+        }
+        return transactions
+    }
+    
+    func testSpendingOverview()->GetSpendingOverviewResponse {
+        let startDate = FormatterUtil.shared.simpleDateFormatter().string(from: 5.days.later)
+        let endDate = FormatterUtil.shared.simpleDateFormatter().string(from: 10.days.later)
+        let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
+        let upcomingBillResponses = self.upcomingBillResponses()
+        
+        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(), recentTransactions: self.randomTransactions())
+        return spendingOverview
     }
     
     func testLendingOverview()->GetLendingOverviewResponse {

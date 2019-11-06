@@ -12,6 +12,14 @@ import PullToRefreshKit
 
 class LendingViewController: CTableViewController {
 
+    override func registerCells() {
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
+        for vm: TableViewCellViewModelProtocol in cellModels {
+            let nib = UINib(nibName: vm.identifier, bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = LendingViewModel()
@@ -91,30 +99,10 @@ extension LendingViewController {
     }
     
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
-        
         self.showDeclineIfNeeded(lendingOverview)
-        
-        if self.viewModel.sections.count > 0 {
-            self.viewModel.sections.removeAll()
-        }
-        
-        var section = TableSectionViewModel()
         LoggingUtil.shared.cPrint("build view model here...")
-        
         guard let vm = self.viewModel as?  LendingViewModel else { return }
-        // intercom chat
-        section.rows.append(IntercomChatTableViewCellViewModel())
-        vm.addLoanSetting(lendingOverview, section: &section)
-        vm.addCashoutButton(lendingOverview, section: &section)
-        vm.addMessageBubble(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
-        vm.completeDetails(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
-        // actvity
-        vm.activityList(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
-        self.viewModel.addSection(section)
-        self.tableView.reloadData()
+        vm.render(lendingOverview)
     }
     
     @objc func lendingOverview(_ notification: NSNotification) {

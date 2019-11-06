@@ -33,20 +33,17 @@ extension CTableViewController {
     // handle notification to trigger reload of table
     @objc func reloadTableLayout(_ notification: NSNotification) {
         let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
+//        self.tableView.beginUpdates()
+//        self.tableView.endUpdates()
+        self.tableView.reloadData()
     }
     
     
 }
 
 extension CTableViewController {
-    func registerCells() {
-        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
-        for vm: TableViewCellViewModelProtocol in cellModels {
-            let nib = UINib(nibName: vm.identifier, bundle: nil)
-            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
-        }
+    @objc func registerCells() {
+        // to be override by subclasses
     }
 }
 

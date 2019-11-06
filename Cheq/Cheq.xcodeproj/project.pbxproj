@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
+		1C3289C98E8AB7F80152A650 /* Pods_CheqDeviceProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */; };
 		4B7D365FFBFE403E03B57513 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
@@ -151,7 +152,6 @@
 		4F2319EB2363E26E00874D07 /* ChartCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524622FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift */; };
 		4F2319EC2363E26E00874D07 /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
 		4F2319ED2363E26E00874D07 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
-		4F2319EE2363E26E00874D07 /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
 		4F2319EF2363E26E00874D07 /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */; };
 		4F2319F02363E26E00874D07 /* CompleteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */; };
 		4F2319F12363E26E00874D07 /* CBarViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069222FE709A00173743 /* CBarViewFormatter.swift */; };
@@ -174,7 +174,7 @@
 		4F231A022363E26E00874D07 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4F231A032363E26E00874D07 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4F231A042363E26E00874D07 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
-		4F231A052363E26E00874D07 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
+		4F231A052363E26E00874D07 /* SpendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingViewModel.swift */; };
 		4F231A062363E26E00874D07 /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C1235D22460018507D /* BorrowOverview.swift */; };
 		4F231A072363E26E00874D07 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089B235D22460018507D /* APIHelper.swift */; };
 		4F231A082363E26E00874D07 /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */; };
@@ -376,7 +376,6 @@
 		4F231AD12363E26E00874D07 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
 		4F231AD32363E26E00874D07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4F231AD42363E26E00874D07 /* MessageBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB372355375D00E7B224 /* MessageBubbleTableViewCell.xib */; };
-		4F231AD52363E26E00874D07 /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
 		4F231AD62363E26E00874D07 /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFD42352DB060041001F /* TopTableViewCell.xib */; };
 		4F231AD72363E26E00874D07 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */; };
 		4F231AD82363E26E00874D07 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
@@ -510,7 +509,6 @@
 		4FBDDA33236BC68700EDB1E9 /* ChartCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524622FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift */; };
 		4FBDDA34236BC68700EDB1E9 /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
 		4FBDDA35236BC68700EDB1E9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
-		4FBDDA36236BC68700EDB1E9 /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
 		4FBDDA37236BC68700EDB1E9 /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */; };
 		4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */; };
 		4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069222FE709A00173743 /* CBarViewFormatter.swift */; };
@@ -533,7 +531,7 @@
 		4FBDDA4A236BC68700EDB1E9 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4FBDDA4B236BC68700EDB1E9 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4FBDDA4C236BC68700EDB1E9 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
-		4FBDDA4D236BC68700EDB1E9 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
+		4FBDDA4D236BC68700EDB1E9 /* SpendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingViewModel.swift */; };
 		4FBDDA4E236BC68700EDB1E9 /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C1235D22460018507D /* BorrowOverview.swift */; };
 		4FBDDA4F236BC68700EDB1E9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089B235D22460018507D /* APIHelper.swift */; };
 		4FBDDA50236BC68700EDB1E9 /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */; };
@@ -737,13 +735,11 @@
 		4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
 		4FBDDB1D236BC68700EDB1E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB372355375D00E7B224 /* MessageBubbleTableViewCell.xib */; };
-		4FBDDB1F236BC68700EDB1E9 /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
 		4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFD42352DB060041001F /* TopTableViewCell.xib */; };
 		4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */; };
 		4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
 		4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964FA992235287D100B07AD7 /* AmountSelectTableViewCell.xib */; };
 		4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */; };
-		4FBDDB25236BC68700EDB1E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFC12352C4DE0041001F /* CompleteDetailsTableViewCell.xib */; };
 		4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD7C1EB2329E14400AC7A67 /* Common.storyboard */; };
 		4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFB22352BF5E0041001F /* CompletionProgressTableViewCell.xib */; };
@@ -762,6 +758,35 @@
 		4FBDDB36236BC68700EDB1E9 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F57BAF923222A8D00B95C06 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4FBDDB41236BC69C00EDB1E9 /* MoneySoftProd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD83983235FF1310069EB30 /* MoneySoftProd.swift */; };
 		4FBDDB42236BC6A600EDB1E9 /* APIs-prod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8397B235FEF9F0069EB30 /* APIs-prod.swift */; };
+		4FD22880237231EE00045662 /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2287F237231EE00045662 /* SpendingViewController.swift */; };
+		4FD22881237231EE00045662 /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2287F237231EE00045662 /* SpendingViewController.swift */; };
+		4FD22882237231EE00045662 /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2287F237231EE00045662 /* SpendingViewController.swift */; };
+		4FD22883237231EE00045662 /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2287F237231EE00045662 /* SpendingViewController.swift */; };
+		4FD2288A2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */; };
+		4FD2288B2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */; };
+		4FD2288C2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */; };
+		4FD2288D2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */; };
+		4FD2288E2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */; };
+		4FD2288F2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */; };
+		4FD228902372689C00045662 /* SpendingCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */; };
+		4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */; };
+		4FD22893237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */; };
+		4FD22894237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */; };
+		4FD22895237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */; };
+		4FD22896237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */; };
+		4FD2289823726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */; };
+		4FD2289923726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */; };
+		4FD2289A23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */; };
+		4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */; };
+		4FD2289E2372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */; };
+		4FD2289F2372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */; };
+		4FD228A02372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */; };
+		4FD228A12372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */; };
+		4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */; };
+		4FD228A32372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */; };
+		4FD228A42372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */; };
+		4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */; };
+		4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD839A723626F080069EB30 /* GoogleService-Info.plist */; };
 		4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12B2327272F00AC7A67 /* UICollectionView_Extension.swift */; };
 		4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12E2327299400AC7A67 /* ViewUtil.swift */; };
 		4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
@@ -809,7 +834,6 @@
 		4FD839CD23631ABA0069EB30 /* ChartCollectionViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676524622FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift */; };
 		4FD839CE23631ABA0069EB30 /* LendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71612346B52400AA819C /* LendingViewController.swift */; };
 		4FD839CF23631ABA0069EB30 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808DE235D22460018507D /* Configuration.swift */; };
-		4FD839D023631ABA0069EB30 /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
 		4FD839D123631ABA0069EB30 /* PostFinancialTransactionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808AE235D22460018507D /* PostFinancialTransactionRequest.swift */; };
 		4FD839D223631ABA0069EB30 /* CompleteDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFC02352C4DE0041001F /* CompleteDetailsTableViewCell.swift */; };
 		4FD839D323631ABA0069EB30 /* CBarViewFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069222FE709A00173743 /* CBarViewFormatter.swift */; };
@@ -832,7 +856,7 @@
 		4FD839E423631ABA0069EB30 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		4FD839E523631ABA0069EB30 /* CollectionViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */; };
 		4FD839E623631ABA0069EB30 /* PostLoanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808BD235D22460018507D /* PostLoanRequest.swift */; };
-		4FD839E723631ABA0069EB30 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
+		4FD839E723631ABA0069EB30 /* SpendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingViewModel.swift */; };
 		4FD839E823631ABA0069EB30 /* BorrowOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808C1235D22460018507D /* BorrowOverview.swift */; };
 		4FD839E923631ABA0069EB30 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18089B235D22460018507D /* APIHelper.swift */; };
 		4FD839EA23631ABA0069EB30 /* GetRecurringBillResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1808CF235D22460018507D /* GetRecurringBillResponse.swift */; };
@@ -1037,7 +1061,6 @@
 		4FD83AB323631ABA0069EB30 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
 		4FD83AB823631ABA0069EB30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4FD83AB923631ABA0069EB30 /* MessageBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB372355375D00E7B224 /* MessageBubbleTableViewCell.xib */; };
-		4FD83ABA23631ABA0069EB30 /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
 		4FD83ABB23631ABA0069EB30 /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFD42352DB060041001F /* TopTableViewCell.xib */; };
 		4FD83ABC23631ABA0069EB30 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A71523534EDE0082C2A3 /* HeaderTableViewCell.xib */; };
 		4FD83ABD23631ABA0069EB30 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
@@ -1063,6 +1086,7 @@
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
+		52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */; };
 		9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
 		9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
 		9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
@@ -1093,9 +1117,7 @@
 		9654D493234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */; };
 		9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */; };
 		9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9660718D23003FA700F0D5CC /* CBATheme.swift */; };
-		966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966434CD2341A9AF00934FB0 /* Spending.storyboard */; };
-		966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */; };
-		966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */; };
+		966434D62341AA8F00934FB0 /* SpendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434D52341AA8F00934FB0 /* SpendingViewModel.swift */; };
 		966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966434DB2341C66E00934FB0 /* CheqAPIManager_Spending.swift */; };
 		966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A19E122FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift */; };
 		966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A19E522FEA95600A6E444 /* GridCoordinatorViewModel.swift */; };
@@ -1163,6 +1185,7 @@
 		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
 		C066E23CECAC66AF1214F359 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */; };
+		CE109B1A2251682FA41A722D /* Pods_CheqDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1263,6 +1286,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
+		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1446,6 +1471,13 @@
 		4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		4FB479E9231DF8F0005FA0C1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4FBDDB3F236BC68700EDB1E9 /* CheqProd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqProd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FD2287F237231EE00045662 /* SpendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendingViewController.swift; sourceTree = "<group>"; };
+		4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCardTableViewCell.swift; sourceTree = "<group>"; };
+		4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpendingCardTableViewCell.xib; sourceTree = "<group>"; };
+		4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCardTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBillsTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBillsTableViewCell.swift; sourceTree = "<group>"; };
+		4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingBillsTableViewCell.xib; sourceTree = "<group>"; };
 		4FD7C12B2327272F00AC7A67 /* UICollectionView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView_Extension.swift; sourceTree = "<group>"; };
 		4FD7C12E2327299400AC7A67 /* ViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		4FD7C1332328752C00AC7A67 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -1470,8 +1502,10 @@
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
 		4FEF9839234D51DC00E37421 /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
+		5A1551DCA3AAC9FC2A8383D8 /* Pods-CheqDevice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDevice.debug.xcconfig"; path = "Target Support Files/Pods-CheqDevice/Pods-CheqDevice.debug.xcconfig"; sourceTree = "<group>"; };
 		6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDeviceProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -1502,9 +1536,7 @@
 		9654D492234EACE300847389 /* EnableNotificationIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableNotificationIntroCoordinator.swift; sourceTree = "<group>"; };
 		9654D495234EACFC00847389 /* VerifyIdentityIntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityIntroCoordinator.swift; sourceTree = "<group>"; };
 		9660718D23003FA700F0D5CC /* CBATheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBATheme.swift; sourceTree = "<group>"; };
-		966434CD2341A9AF00934FB0 /* Spending.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spending.storyboard; sourceTree = "<group>"; };
-		966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingOverviewViewController.swift; sourceTree = "<group>"; };
-		966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingOverviewViewModel.swift; sourceTree = "<group>"; };
+		966434D52341AA8F00934FB0 /* SpendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingViewModel.swift; sourceTree = "<group>"; };
 		966434DB2341C66E00934FB0 /* CheqAPIManager_Spending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Spending.swift; sourceTree = "<group>"; };
 		966A19E122FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCoordinatorViewModel.swift; sourceTree = "<group>"; };
 		966A19E522FEA95600A6E444 /* GridCoordinatorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCoordinatorViewModel.swift; sourceTree = "<group>"; };
@@ -1575,9 +1607,14 @@
 		96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
+		A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDevice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.debug.xcconfig"; sourceTree = "<group>"; };
+		DC181122A9C743594BB006A7 /* Pods-CheqDevice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDevice.release.xcconfig"; path = "Target Support Files/Pods-CheqDevice/Pods-CheqDevice.release.xcconfig"; sourceTree = "<group>"; };
+		E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.release.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.release.xcconfig"; sourceTree = "<group>"; };
 		E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
+		F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1587,6 +1624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F231AD12363E26E00874D07 /* UserNotifications.framework in Frameworks */,
+				1C3289C98E8AB7F80152A650 /* Pods_CheqDeviceProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1595,6 +1633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
+				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1603,6 +1642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD83AB323631ABA0069EB30 /* UserNotifications.framework in Frameworks */,
+				CE109B1A2251682FA41A722D /* Pods_CheqDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,6 +1675,12 @@
 				FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */,
 				CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */,
 				E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */,
+				D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */,
+				E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */,
+				5A1551DCA3AAC9FC2A8383D8 /* Pods-CheqDevice.debug.xcconfig */,
+				DC181122A9C743594BB006A7 /* Pods-CheqDevice.release.xcconfig */,
+				15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */,
+				3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2396,6 +2442,42 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		4FD228842372681500045662 /* UpcomingBills */ = {
+			isa = PBXGroup;
+			children = (
+				4FD228852372683300045662 /* ViewModel */,
+				4FD2289C2372789E00045662 /* UpcomingBillsTableViewCell.swift */,
+				4FD2289D2372789E00045662 /* UpcomingBillsTableViewCell.xib */,
+			);
+			path = UpcomingBills;
+			sourceTree = "<group>";
+		};
+		4FD228852372683300045662 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FD2289723726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FD228862372687900045662 /* SpendingCard */ = {
+			isa = PBXGroup;
+			children = (
+				4FD228872372688100045662 /* ViewModel */,
+				4FD228882372689C00045662 /* SpendingCardTableViewCell.swift */,
+				4FD228892372689C00045662 /* SpendingCardTableViewCell.xib */,
+			);
+			path = SpendingCard;
+			sourceTree = "<group>";
+		};
+		4FD228872372688100045662 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FD22892237268B300045662 /* SpendingCardTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FD7C12A2327270900AC7A67 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2524,6 +2606,9 @@
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
 				D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */,
+				F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */,
+				A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */,
+				72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2660,6 +2745,8 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
+				4FD228862372687900045662 /* SpendingCard */,
+				4FD228842372681500045662 /* UpcomingBills */,
 				4FB1CDE92356C0E800E7B224 /* Spacer */,
 				4FB1CC5123554B5F00E7B224 /* SwipeToConfirm */,
 				4FB1CB1B2354395E00E7B224 /* AgreementItem */,
@@ -2730,7 +2817,7 @@
 			isa = PBXGroup;
 			children = (
 				966434D12341AA3400934FB0 /* ViewModel */,
-				966434D22341AA4E00934FB0 /* SpendingOverviewViewController.swift */,
+				4FD2287F237231EE00045662 /* SpendingViewController.swift */,
 			);
 			path = SpendingOverview;
 			sourceTree = "<group>";
@@ -2738,7 +2825,7 @@
 		966434D12341AA3400934FB0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				966434D52341AA8F00934FB0 /* SpendingOverviewViewModel.swift */,
+				966434D52341AA8F00934FB0 /* SpendingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2785,7 +2872,6 @@
 				9676521922FAFD01001E43E0 /* MainBackup.storyboard */,
 				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
 				4FD7C1EB2329E14400AC7A67 /* Common.storyboard */,
-				966434CD2341A9AF00934FB0 /* Spending.storyboard */,
 				4F0D71672346B56100AA819C /* Main.storyboard */,
 			);
 			path = Cheq;
@@ -2815,13 +2901,13 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F0D63032342F49800AA819C /* Logger */,
 				4F180967235D39700018507D /* ForgotPassword */,
 				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
 				4F0D71762346F6BD00AA819C /* Passcode */,
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4F0D716A2346B99D00AA819C /* Account */,
 				4F0D715F2346B49600AA819C /* Lending */,
-				4F0D63032342F49800AA819C /* Logger */,
 				966434CC2341A96900934FB0 /* SpendingOverview */,
 				4F2E4B86233AECD1001F1BA2 /* Authentication */,
 				964F7BE223332E1D00338227 /* DynamicForm */,
@@ -3181,6 +3267,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F231AF22363E26E00874D07 /* Build configuration list for PBXNativeTarget "CheqDeviceProd" */;
 			buildPhases = (
+				4730A71EEFFAF8849ADEEDCB /* [CP] Check Pods Manifest.lock */,
 				4F2319CC2363E26E00874D07 /* Sources */,
 				4F231ACF2363E26E00874D07 /* Frameworks */,
 				4F231AD22363E26E00874D07 /* Resources */,
@@ -3188,6 +3275,8 @@
 				4F231AED2363E26E00874D07 /* Embed App Extensions */,
 				4F231AF02363E26E00874D07 /* Migrate Moneysoft Framework bundle */,
 				4F231AF12363E26E00874D07 /* Fabrics Run Script */,
+				2EF79F1DBA91E42F2AC53C21 /* [CP] Embed Pods Frameworks */,
+				D4B09F9BFAC57B9F7D882577 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3202,6 +3291,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FBDDB3C236BC68700EDB1E9 /* Build configuration list for PBXNativeTarget "CheqProd" */;
 			buildPhases = (
+				61F8850D3CC06407D99F8B29 /* [CP] Check Pods Manifest.lock */,
 				4FBDDA13236BC68700EDB1E9 /* Sources */,
 				4FBDDB18236BC68700EDB1E9 /* Frameworks */,
 				4FBDDB1C236BC68700EDB1E9 /* Resources */,
@@ -3209,6 +3299,8 @@
 				4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
+				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
+				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3223,6 +3315,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FD83AD723631ABA0069EB30 /* Build configuration list for PBXNativeTarget "CheqDevice" */;
 			buildPhases = (
+				DD248DB0F1297F56718A01C0 /* [CP] Check Pods Manifest.lock */,
 				4FD839AE23631ABA0069EB30 /* Sources */,
 				4FD83AB123631ABA0069EB30 /* Frameworks */,
 				4FD83AB723631ABA0069EB30 /* Resources */,
@@ -3230,6 +3323,8 @@
 				4FD83AD223631ABA0069EB30 /* Embed App Extensions */,
 				4FD83AD523631ABA0069EB30 /* Migrate Moneysoft Framework bundle */,
 				4FD83AD623631ABA0069EB30 /* Fabrics Run Script */,
+				A7C79C973085033E72768EFF /* [CP] Embed Pods Frameworks */,
+				E379FE1C10D48E44311BD1AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3437,7 +3532,6 @@
 			files = (
 				4F231AD32363E26E00874D07 /* LaunchScreen.storyboard in Resources */,
 				4F231AD42363E26E00874D07 /* MessageBubbleTableViewCell.xib in Resources */,
-				4F231AD52363E26E00874D07 /* Spending.storyboard in Resources */,
 				4F231AD62363E26E00874D07 /* TopTableViewCell.xib in Resources */,
 				4F231AD72363E26E00874D07 /* HeaderTableViewCell.xib in Resources */,
 				4F231AD82363E26E00874D07 /* CButtonTableViewCell.xib in Resources */,
@@ -3455,6 +3549,8 @@
 				4F231C372365CFC600874D07 /* GoogleService-Info.plist in Resources */,
 				4F231AE52363E26E00874D07 /* TransferCardTableViewCell.xib in Resources */,
 				4F231AE62363E26E00874D07 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FD228A42372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4FD228902372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4F231AE72363E26E00874D07 /* SpacerTableViewCell.xib in Resources */,
 				4F231AE82363E26E00874D07 /* Assets.xcassets in Resources */,
 				4F231AE92363E26E00874D07 /* MainBackup.storyboard in Resources */,
@@ -3468,24 +3564,25 @@
 			files = (
 				4FBDDB1D236BC68700EDB1E9 /* LaunchScreen.storyboard in Resources */,
 				4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */,
-				4FBDDB1F236BC68700EDB1E9 /* Spending.storyboard in Resources */,
 				4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */,
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
 				4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
-				4FBDDB25236BC68700EDB1E9 /* GoogleService-Info.plist in Resources */,
 				4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */,
 				4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FBDDB29236BC68700EDB1E9 /* HistoryItemTableViewCell.xib in Resources */,
 				4FBDDB2A236BC68700EDB1E9 /* AgreementItemTableViewCell.xib in Resources */,
+				4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
 				4FBDDB2C236BC68700EDB1E9 /* Cheq.plist in Resources */,
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
 				4FBDDB2E236BC68700EDB1E9 /* CheqDevice-Info.plist in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FBDDB31236BC68700EDB1E9 /* SpacerTableViewCell.xib in Resources */,
 				4FBDDB32236BC68700EDB1E9 /* Assets.xcassets in Resources */,
 				4FBDDB33236BC68700EDB1E9 /* MainBackup.storyboard in Resources */,
@@ -3499,7 +3596,6 @@
 			files = (
 				4FD83AB823631ABA0069EB30 /* LaunchScreen.storyboard in Resources */,
 				4FD83AB923631ABA0069EB30 /* MessageBubbleTableViewCell.xib in Resources */,
-				4FD83ABA23631ABA0069EB30 /* Spending.storyboard in Resources */,
 				4FD83ABB23631ABA0069EB30 /* TopTableViewCell.xib in Resources */,
 				4FD83ABC23631ABA0069EB30 /* HeaderTableViewCell.xib in Resources */,
 				4FD83ABD23631ABA0069EB30 /* CButtonTableViewCell.xib in Resources */,
@@ -3517,6 +3613,8 @@
 				4FD83AC923631ABA0069EB30 /* CheqDevice-Info.plist in Resources */,
 				4FD83ACA23631ABA0069EB30 /* TransferCardTableViewCell.xib in Resources */,
 				4FD83ACB23631ABA0069EB30 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FD228A32372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4FD2288F2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FD83ACC23631ABA0069EB30 /* SpacerTableViewCell.xib in Resources */,
 				4FD83ACD23631ABA0069EB30 /* Assets.xcassets in Resources */,
 				4FD83ACE23631ABA0069EB30 /* MainBackup.storyboard in Resources */,
@@ -3530,7 +3628,6 @@
 			files = (
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				4FB1CB3A2355375D00E7B224 /* MessageBubbleTableViewCell.xib in Resources */,
-				966434CE2341A9AF00934FB0 /* Spending.storyboard in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
@@ -3548,6 +3645,8 @@
 				4F180AA0235D655E0018507D /* CheqDevice-Info.plist in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4FD2288E2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FB1CDEF2356C11E00E7B224 /* SpacerTableViewCell.xib in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */,
@@ -3585,6 +3684,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2EF79F1DBA91E42F2AC53C21 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4730A71EEFFAF8849ADEEDCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheqDeviceProd-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F231AF02363E26E00874D07 /* Migrate Moneysoft Framework bundle */ = {
@@ -3757,6 +3912,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		61F8850D3CC06407D99F8B29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheqProd-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6A03056D4674FBA176565B9A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3774,6 +3951,40 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C79C973085033E72768EFF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3789,6 +4000,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cheq/Pods-Cheq-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4B09F9BFAC57B9F7D882577 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD248DB0F1297F56718A01C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheqDevice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E379FE1C10D48E44311BD1AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDevice/Pods-CheqDevice-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */ = {
@@ -3849,7 +4116,6 @@
 				4F2319EB2363E26E00874D07 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F2319EC2363E26E00874D07 /* LendingViewController.swift in Sources */,
 				4F2319ED2363E26E00874D07 /* Configuration.swift in Sources */,
-				4F2319EE2363E26E00874D07 /* SpendingOverviewViewController.swift in Sources */,
 				4F2319EF2363E26E00874D07 /* PostFinancialTransactionRequest.swift in Sources */,
 				4F2319F02363E26E00874D07 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F2319F12363E26E00874D07 /* CBarViewFormatter.swift in Sources */,
@@ -3859,6 +4125,7 @@
 				4F2319F52363E26E00874D07 /* NotificationUtil.swift in Sources */,
 				4F2319F62363E26E00874D07 /* CTextField.swift in Sources */,
 				4F2319F72363E26E00874D07 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4FD228A02372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */,
 				4F2319F82363E26E00874D07 /* Models.swift in Sources */,
 				4F2319F92363E26E00874D07 /* CarouselCollectionViewCell.swift in Sources */,
 				4F2319FA2363E26E00874D07 /* ViewController_Extension.swift in Sources */,
@@ -3872,7 +4139,7 @@
 				4F231A022363E26E00874D07 /* FormatterUtil.swift in Sources */,
 				4F231A032363E26E00874D07 /* CollectionViewProtocol.swift in Sources */,
 				4F231A042363E26E00874D07 /* PostLoanRequest.swift in Sources */,
-				4F231A052363E26E00874D07 /* SpendingOverviewViewModel.swift in Sources */,
+				4F231A052363E26E00874D07 /* SpendingViewModel.swift in Sources */,
 				4F231A062363E26E00874D07 /* BorrowOverview.swift in Sources */,
 				4F231A072363E26E00874D07 /* APIHelper.swift in Sources */,
 				4F231A082363E26E00874D07 /* GetRecurringBillResponse.swift in Sources */,
@@ -3892,6 +4159,7 @@
 				4F231A162363E26E00874D07 /* CChartModel.swift in Sources */,
 				4F231A172363E26E00874D07 /* AccountViewController.swift in Sources */,
 				4F231A182363E26E00874D07 /* SlimTransactionResponse.swift in Sources */,
+				4FD22895237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */,
 				4F231A192363E26E00874D07 /* SpendingOverviewCard.swift in Sources */,
 				4F231A1A2363E26E00874D07 /* RemoteBank.swift in Sources */,
 				4F231A1C2363E26E00874D07 /* GetUserResponse.swift in Sources */,
@@ -3918,6 +4186,7 @@
 				4F231A312363E26E00874D07 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4F231A322363E26E00874D07 /* RecurringBillsAPI.swift in Sources */,
 				4F231AFB23641DED00874D07 /* String_Extension.swift in Sources */,
+				4FD22882237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4F231A332363E26E00874D07 /* CToolbar.swift in Sources */,
 				4F231A342363E26E00874D07 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				4F231A352363E26E00874D07 /* IntroductionCoordinatorProtocol.swift in Sources */,
@@ -3956,12 +4225,14 @@
 				4F231A572363E26E00874D07 /* CPickerView.swift in Sources */,
 				4F231A582363E26E00874D07 /* VerificationViewModel.swift in Sources */,
 				4F231A592363E26E00874D07 /* AmountSelectTableViewCell.swift in Sources */,
+				4FD2289A23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4F231A5A2363E26E00874D07 /* HistoryItemTableViewCell.swift in Sources */,
 				4F231A5B2363E26E00874D07 /* PrimaryTheme.swift in Sources */,
 				4F231A5C2363E26E00874D07 /* CPasscodeTextField.swift in Sources */,
 				4F231A5D2363E26E00874D07 /* MultipleChoiceViewController.swift in Sources */,
 				4F231A5E2363E26E00874D07 /* MoneySoftUtil.swift in Sources */,
 				4F231A5F2363E26E00874D07 /* IntercomChatTableViewCellViewModel.swift in Sources */,
+				4FD2288C2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */,
 				4F231A602363E26E00874D07 /* Worksheet.swift in Sources */,
 				4F231A612363E26E00874D07 /* DynamicFormViewModelCoordinator.swift in Sources */,
 				4F231A622363E26E00874D07 /* BenefitCollectionViewCell.swift in Sources */,
@@ -4116,7 +4387,6 @@
 				4FBDDA33236BC68700EDB1E9 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4FBDDA34236BC68700EDB1E9 /* LendingViewController.swift in Sources */,
 				4FBDDA35236BC68700EDB1E9 /* Configuration.swift in Sources */,
-				4FBDDA36236BC68700EDB1E9 /* SpendingOverviewViewController.swift in Sources */,
 				4FBDDA37236BC68700EDB1E9 /* PostFinancialTransactionRequest.swift in Sources */,
 				4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
@@ -4126,6 +4396,7 @@
 				4FBDDA3D236BC68700EDB1E9 /* NotificationUtil.swift in Sources */,
 				4FBDDA3E236BC68700EDB1E9 /* CTextField.swift in Sources */,
 				4FBDDA3F236BC68700EDB1E9 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4FD228A12372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */,
 				4FBDDA40236BC68700EDB1E9 /* Models.swift in Sources */,
 				4FBDDA41236BC68700EDB1E9 /* CarouselCollectionViewCell.swift in Sources */,
 				4FBDDA42236BC68700EDB1E9 /* ViewController_Extension.swift in Sources */,
@@ -4139,7 +4410,7 @@
 				4FBDDA4A236BC68700EDB1E9 /* FormatterUtil.swift in Sources */,
 				4FBDDA4B236BC68700EDB1E9 /* CollectionViewProtocol.swift in Sources */,
 				4FBDDA4C236BC68700EDB1E9 /* PostLoanRequest.swift in Sources */,
-				4FBDDA4D236BC68700EDB1E9 /* SpendingOverviewViewModel.swift in Sources */,
+				4FBDDA4D236BC68700EDB1E9 /* SpendingViewModel.swift in Sources */,
 				4FBDDA4E236BC68700EDB1E9 /* BorrowOverview.swift in Sources */,
 				4FBDDA4F236BC68700EDB1E9 /* APIHelper.swift in Sources */,
 				4FBDDA50236BC68700EDB1E9 /* GetRecurringBillResponse.swift in Sources */,
@@ -4159,6 +4430,7 @@
 				4FBDDA5E236BC68700EDB1E9 /* CChartModel.swift in Sources */,
 				4FBDDA5F236BC68700EDB1E9 /* AccountViewController.swift in Sources */,
 				4FBDDA60236BC68700EDB1E9 /* SlimTransactionResponse.swift in Sources */,
+				4FD22896237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */,
 				4FBDDA61236BC68700EDB1E9 /* SpendingOverviewCard.swift in Sources */,
 				4FBDDA62236BC68700EDB1E9 /* RemoteBank.swift in Sources */,
 				4FBDDA64236BC68700EDB1E9 /* GetUserResponse.swift in Sources */,
@@ -4185,6 +4457,7 @@
 				4FBDDA79236BC68700EDB1E9 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4FBDDA7A236BC68700EDB1E9 /* RecurringBillsAPI.swift in Sources */,
 				4FBDDA7B236BC68700EDB1E9 /* String_Extension.swift in Sources */,
+				4FD22883237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4FBDDA7C236BC68700EDB1E9 /* CToolbar.swift in Sources */,
 				4FBDDA7D236BC68700EDB1E9 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				4FBDDA7E236BC68700EDB1E9 /* IntroductionCoordinatorProtocol.swift in Sources */,
@@ -4223,12 +4496,14 @@
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
+				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FBDDAA2236BC68700EDB1E9 /* HistoryItemTableViewCell.swift in Sources */,
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
 				4FBDDAA4236BC68700EDB1E9 /* CPasscodeTextField.swift in Sources */,
 				4FBDDAA5236BC68700EDB1E9 /* MultipleChoiceViewController.swift in Sources */,
 				4FBDDAA6236BC68700EDB1E9 /* MoneySoftUtil.swift in Sources */,
 				4FBDDAA7236BC68700EDB1E9 /* IntercomChatTableViewCellViewModel.swift in Sources */,
+				4FD2288D2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */,
 				4FBDDAA8236BC68700EDB1E9 /* Worksheet.swift in Sources */,
 				4FBDDAA9236BC68700EDB1E9 /* DynamicFormViewModelCoordinator.swift in Sources */,
 				4FBDDAAA236BC68700EDB1E9 /* BenefitCollectionViewCell.swift in Sources */,
@@ -4383,7 +4658,6 @@
 				4FD839CD23631ABA0069EB30 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4FD839CE23631ABA0069EB30 /* LendingViewController.swift in Sources */,
 				4FD839CF23631ABA0069EB30 /* Configuration.swift in Sources */,
-				4FD839D023631ABA0069EB30 /* SpendingOverviewViewController.swift in Sources */,
 				4FD839D123631ABA0069EB30 /* PostFinancialTransactionRequest.swift in Sources */,
 				4FD839D223631ABA0069EB30 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FD839D323631ABA0069EB30 /* CBarViewFormatter.swift in Sources */,
@@ -4393,6 +4667,7 @@
 				4FD839D723631ABA0069EB30 /* NotificationUtil.swift in Sources */,
 				4FD839D823631ABA0069EB30 /* CTextField.swift in Sources */,
 				4FD839D923631ABA0069EB30 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4FD2289F2372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */,
 				4FD839DA23631ABA0069EB30 /* Models.swift in Sources */,
 				4FD839DB23631ABA0069EB30 /* CarouselCollectionViewCell.swift in Sources */,
 				4FD839DC23631ABA0069EB30 /* ViewController_Extension.swift in Sources */,
@@ -4406,7 +4681,7 @@
 				4FD839E423631ABA0069EB30 /* FormatterUtil.swift in Sources */,
 				4FD839E523631ABA0069EB30 /* CollectionViewProtocol.swift in Sources */,
 				4FD839E623631ABA0069EB30 /* PostLoanRequest.swift in Sources */,
-				4FD839E723631ABA0069EB30 /* SpendingOverviewViewModel.swift in Sources */,
+				4FD839E723631ABA0069EB30 /* SpendingViewModel.swift in Sources */,
 				4FD839E823631ABA0069EB30 /* BorrowOverview.swift in Sources */,
 				4FD839E923631ABA0069EB30 /* APIHelper.swift in Sources */,
 				4FD839EA23631ABA0069EB30 /* GetRecurringBillResponse.swift in Sources */,
@@ -4426,6 +4701,7 @@
 				4FD839F823631ABA0069EB30 /* CChartModel.swift in Sources */,
 				4FD839F923631ABA0069EB30 /* AccountViewController.swift in Sources */,
 				4FD839FA23631ABA0069EB30 /* SlimTransactionResponse.swift in Sources */,
+				4FD22894237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */,
 				4FD839FB23631ABA0069EB30 /* SpendingOverviewCard.swift in Sources */,
 				4FD839FC23631ABA0069EB30 /* RemoteBank.swift in Sources */,
 				4FD839FD23631ABA0069EB30 /* APIs.swift in Sources */,
@@ -4452,6 +4728,7 @@
 				4FD83A1223631ABA0069EB30 /* TableView_Extension.swift in Sources */,
 				4FD83A1323631ABA0069EB30 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4FD83A1423631ABA0069EB30 /* RecurringBillsAPI.swift in Sources */,
+				4FD22881237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4F231AFA23641DED00874D07 /* String_Extension.swift in Sources */,
 				4FD83A1523631ABA0069EB30 /* CToolbar.swift in Sources */,
 				4FD83A1623631ABA0069EB30 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -4490,12 +4767,14 @@
 				4FD83A3723631ABA0069EB30 /* LoanSetting.swift in Sources */,
 				4FD83A3823631ABA0069EB30 /* TopTableViewCell.swift in Sources */,
 				4FD83A3923631ABA0069EB30 /* CPickerView.swift in Sources */,
+				4FD2289923726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FD83A3A23631ABA0069EB30 /* VerificationViewModel.swift in Sources */,
 				4FD83A3B23631ABA0069EB30 /* AmountSelectTableViewCell.swift in Sources */,
 				4FD83A3C23631ABA0069EB30 /* HistoryItemTableViewCell.swift in Sources */,
 				4FD83A3D23631ABA0069EB30 /* PrimaryTheme.swift in Sources */,
 				4FD83A3E23631ABA0069EB30 /* CPasscodeTextField.swift in Sources */,
 				4FD83A3F23631ABA0069EB30 /* MultipleChoiceViewController.swift in Sources */,
+				4FD2288B2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */,
 				4FD83A4023631ABA0069EB30 /* MoneySoftUtil.swift in Sources */,
 				4FD83A4123631ABA0069EB30 /* IntercomChatTableViewCellViewModel.swift in Sources */,
 				4FD83A4223631ABA0069EB30 /* Worksheet.swift in Sources */,
@@ -4650,7 +4929,6 @@
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				4F180961235D22470018507D /* Configuration.swift in Sources */,
-				966434D32341AA4E00934FB0 /* SpendingOverviewViewController.swift in Sources */,
 				4F180901235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */,
 				96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
@@ -4660,6 +4938,7 @@
 				4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */,
 				4F57BB0B2326005200B95C06 /* CTextField.swift in Sources */,
 				4FB1CB24235439D600E7B224 /* AgreementItemTableViewCellViewModel.swift in Sources */,
+				4FD2289E2372789E00045662 /* UpcomingBillsTableViewCell.swift in Sources */,
 				4F18095F235D22470018507D /* Models.swift in Sources */,
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
@@ -4673,7 +4952,7 @@
 				4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				4F18091F235D22460018507D /* PostLoanRequest.swift in Sources */,
-				966434D62341AA8F00934FB0 /* SpendingOverviewViewModel.swift in Sources */,
+				966434D62341AA8F00934FB0 /* SpendingViewModel.swift in Sources */,
 				4F180927235D22460018507D /* BorrowOverview.swift in Sources */,
 				4F1808DF235D22460018507D /* APIHelper.swift in Sources */,
 				4F180943235D22470018507D /* GetRecurringBillResponse.swift in Sources */,
@@ -4693,6 +4972,7 @@
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
 				4F0D71702346B9D900AA819C /* AccountViewController.swift in Sources */,
 				4F180929235D22460018507D /* SlimTransactionResponse.swift in Sources */,
+				4FD22893237268B300045662 /* SpendingCardTableViewCellViewModel.swift in Sources */,
 				4F180951235D22470018507D /* SpendingOverviewCard.swift in Sources */,
 				4F180BD8235E88140018507D /* RemoteBank.swift in Sources */,
 				4F1808F9235D22460018507D /* APIs.swift in Sources */,
@@ -4719,6 +4999,7 @@
 				9680CEB02354B4B3009CF66E /* TableView_Extension.swift in Sources */,
 				4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4F1808F3235D22460018507D /* RecurringBillsAPI.swift in Sources */,
+				4FD22880237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4F231AF823641DED00874D07 /* String_Extension.swift in Sources */,
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -4757,12 +5038,14 @@
 				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
+				4FD2289823726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,
+				4FD2288A2372689C00045662 /* SpendingCardTableViewCell.swift in Sources */,
 				96F9FFAB2352B28D0041001F /* IntercomChatTableViewCellViewModel.swift in Sources */,
 				4F18091D235D22460018507D /* Worksheet.swift in Sources */,
 				4F2E4AB723349445001F1BA2 /* DynamicFormViewModelCoordinator.swift in Sources */,
@@ -4926,6 +5209,7 @@
 /* Begin XCBuildConfiguration section */
 		4F231AF32363E26E00874D07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4959,6 +5243,7 @@
 		};
 		4F231AF42363E26E00874D07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4991,6 +5276,7 @@
 		};
 		4FBDDB3D236BC68700EDB1E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -5024,6 +5310,7 @@
 		};
 		4FBDDB3E236BC68700EDB1E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -5056,6 +5343,7 @@
 		};
 		4FD83AD823631ABA0069EB30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A1551DCA3AAC9FC2A8383D8 /* Pods-CheqDevice.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -5089,6 +5377,7 @@
 		};
 		4FD83AD923631ABA0069EB30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC181122A9C743594BB006A7 /* Pods-CheqDevice.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -12,6 +12,7 @@ class FormatterUtil {
     
     static let defaultFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     static let userFriendlyFormat = "ddd, DD MM"
+    static let simpleDate = "DD MMM"
     
     static let shared = FormatterUtil()
     
@@ -24,6 +25,12 @@ class FormatterUtil {
     func defaultDateFormatter()-> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = FormatterUtil.defaultFormat
+        return dateFormatter
+    }
+    
+    func simpleDateFormatter()-> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = FormatterUtil.simpleDate
         return dateFormatter
     }
     

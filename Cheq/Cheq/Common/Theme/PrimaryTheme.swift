@@ -50,6 +50,21 @@ extension PrimaryTheme {
             return [UIColor(red:0.64, green:0.95, blue:1, alpha:1), UIColor(red:0.42, green:0.89, blue:1, alpha:1)]
         }
     }
+    
+    // orange gradient for spending overview
+    var gradientSet4: [UIColor] {
+        get {
+            return [UIColor.init(hex: "E07843"), UIColor.init(hex:"BD004F")]
+        }
+    }
+    
+    // category spending amount bar gradient
+    var gradientSet5: [UIColor] {
+        get {
+            return [UIColor(red:0, green:0.64, blue:0.87, alpha:1),
+                    UIColor(red:0.06, green:0.89, blue:0.51, alpha:1)]
+        }
+    }
 
     // purple
     var primaryColor: UIColor {

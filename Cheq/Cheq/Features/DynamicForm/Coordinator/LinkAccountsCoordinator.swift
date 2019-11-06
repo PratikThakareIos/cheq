@@ -47,9 +47,10 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-                AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<Bool> in
-                return MoneySoftManager.shared.updateAccountCredentials(AppData.shared.disabledAccount, credentialFormModel: form)
-                }.then { success->Promise<[FinancialAccountModel]> in
+                    AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
+//                return MoneySoftManager.shared.updateAccountCredentials(AppData.shared.disabledAccount, credentialFormModel: form)
+                    return MoneySoftManager.shared.linkableAccounts(form)
+                }.then { linkableAccounts->Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.getAccounts()
                 }.then { fetchedAccounts-> Promise<Bool> in
                     AppData.shared.storedAccounts = fetchedAccounts

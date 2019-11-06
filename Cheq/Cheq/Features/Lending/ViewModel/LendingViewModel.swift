@@ -13,7 +13,32 @@ import MobileSDK
 class LendingViewModel: BaseTableVCViewModel {
     
     override init() {
+        super.init()
+        self.screenName = .lending
     }
+    
+    func render(_ lendingOverview: GetLendingOverviewResponse) {
+        
+        if self.sections.count > 0 {
+            self.sections.removeAll()
+        }
+        var section = TableSectionViewModel()
+        section.rows.append(IntercomChatTableViewCellViewModel())
+        self.addLoanSetting(lendingOverview, section: &section)
+        self.addCashoutButton(lendingOverview, section: &section)
+        self.addMessageBubble(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        self.completeDetails(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        // actvity
+        self.activityList(lendingOverview, section: &section)
+        section.rows.append(SpacerTableViewCellViewModel())
+        self.addSection(section)
+        
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+    }
+    
+    
     
     func isKycStatusSuccess(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
         return kycStatus == EligibleRequirement.KycStatus.success

@@ -33,6 +33,18 @@ extension DarkTheme {
             return [alternativeColor3, alternativeColor4]
         }
     }
+    
+    var gradientSet4: [UIColor] {
+        get {
+            return [alternativeColor3, alternativeColor4]
+        }
+    }
+    
+    var gradientSet5: [UIColor] {
+        get {
+            return [alternativeColor3, alternativeColor4]
+        }
+    }
 
     var primaryColor: UIColor {
         get { return UIColor(hex: "FFFFFF") }

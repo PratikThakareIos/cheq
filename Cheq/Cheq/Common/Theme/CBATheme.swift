@@ -43,4 +43,16 @@ struct CBATheme: AppThemeProtocol {
             return [primaryColor, alternativeColor4]
         }
     }
+    
+    var gradientSet4: [UIColor] {
+        get {
+            return [primaryColor, alternativeColor4]
+        }
+    }
+    
+    var gradientSet5: [UIColor] {
+        get {
+            return [primaryColor, alternativeColor4]
+        }
+    }
 }

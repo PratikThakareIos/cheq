@@ -8,7 +8,7 @@
 
 import UIKit
 
-// by adopting AppThemeProtocol protocol, we can create different ui themes for the app
+// by adopting AppThemeProtocol
 protocol AppThemeProtocol {
 
     //MARK: theme info
@@ -52,6 +52,11 @@ protocol AppThemeProtocol {
     var gradientSet1: [UIColor] { get }
     var gradientSet2: [UIColor] { get }
     var gradientSet3: [UIColor] { get }
+    
+    
+    var gradientSet4: [UIColor] { get }
+    var gradientSet5: [UIColor] { get }
+    
     func allBgColors()-> [UIColor]
 
     //MARK: animations

@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.setupInitialViewController()
 //        self.setupInitDevController2()
 //        self.setupInitDevController()
+//        self.setupSpendingViewController()
 //        self.setupLogController()
 //        self.setupQuestionController()
         return true
@@ -314,6 +315,13 @@ extension AppDelegate {
         vc.viewModel.type = .setup
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupSpendingViewController() {
+        self.setupServicesForDev()
+//        let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spending.rawValue, embedInNav: true)
+        window?.rootViewController = AppNav.shared.initTabViewController()
         window?.makeKeyAndVisible()
     }
 }

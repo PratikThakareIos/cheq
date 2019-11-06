@@ -34,6 +34,12 @@ extension CheqAPIManager {
 
     func spendingOverview()->Promise<GetSpendingOverviewResponse> {
         return Promise<GetSpendingOverviewResponse>() { resolver in
+            
+            // TODO: REMOVE LATER
+            let getSpendingOverviewResponse: GetSpendingOverviewResponse = TestUtil.shared.testSpendingOverview()
+            resolver.fulfill(getSpendingOverviewResponse)
+            
+            
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 SpendingAPI.getSpendingOverviewWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({

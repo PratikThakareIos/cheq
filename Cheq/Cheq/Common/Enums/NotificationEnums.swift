@@ -26,6 +26,7 @@ enum UINotificationEvent: String {
     case swipeConfirmation = "swipeConfirmation"
     case swipeReset = "swipeReset"
     case lendingOverview = "lendingOverview"
+    case spendingOverviuew = "spendingOverview"
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"

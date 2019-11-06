@@ -50,6 +50,12 @@ enum ScreenName: String {
     case notification = "Notification"
     case verifyIdentity = "Verify your identity"
     
+    // lending
+    case lending = "Lending"
+    
+    // spending
+    case spending = "Spending"
+    
     init(fromRawValue: String) {
         self = ScreenName(rawValue: fromRawValue) ?? .legalName
     }
