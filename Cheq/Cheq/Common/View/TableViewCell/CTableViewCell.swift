@@ -22,5 +22,6 @@ class CTableViewCell: UITableViewCell, CTableViewCellProtocol {
         // subclass needs to override
     }
 
+    var controller: Any? 
     var viewModel: TableViewCellViewModelProtocol?
 }

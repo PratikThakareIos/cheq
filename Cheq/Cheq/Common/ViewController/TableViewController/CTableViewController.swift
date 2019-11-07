@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     var viewModel: BaseTableVCViewModel = BaseTableVCViewModel()
@@ -33,8 +33,12 @@ extension CTableViewController {
     // handle notification to trigger reload of table
     @objc func reloadTableLayout(_ notification: NSNotification) {
         let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-//        self.tableView.beginUpdates()
-//        self.tableView.endUpdates()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
+    @objc func reloadTable(_ notification: NSNotification) {
+        let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
         self.tableView.reloadData()
     }
     
@@ -64,7 +68,24 @@ extension CTableViewController {
         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
         cell.viewModel = cellViewModel
+        cell.controller = self
         cell.setupConfig()
         return cell
+    }
+}
+
+extension CTableViewController {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // supporting upcomingBillsCollectionView
+        if collectionView.tag == UpcomingBillsTableViewCell.upcomingBillsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+            cell.backgroundColor = .red
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
 }

@@ -233,7 +233,7 @@ class TestUtil {
     }
     
     func topCategoriesAmount()->[CategoryAmountStatResponse] {
-        let range = 1...20
+        let range = 0..<5
         var result = [CategoryAmountStatResponse]()
         var randomAmount: [Double] = []
         var totalAmount: Double = 0.0
@@ -246,7 +246,7 @@ class TestUtil {
         
         for k in range {
             let code = categoryAmountStateCode(randomCategoryCode())
-            let categoryAmountStateResponse = CategoryAmountStatResponse(categoryId: Int.random(in: 1...10000), categoryTitle: code.rawValue, categoryCode: code, categoryAmount: randomAmount.first, totalAmount: totalAmount)
+            let categoryAmountStateResponse = CategoryAmountStatResponse(categoryId: Int.random(in: 1...10000), categoryTitle: code.rawValue, categoryCode: code, categoryAmount: randomAmount[k], totalAmount: totalAmount)
             result.append(categoryAmountStateResponse)
         }
         return result
@@ -271,7 +271,7 @@ class TestUtil {
     
     func randomTransactions()->[SlimTransactionResponse] {
         var transactions = [SlimTransactionResponse]()
-        for _ in 1...500 {
+        for _ in 0...4 {
             let code = self.slimTransactionCategoryCode(self.randomCategoryCode())
             let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: TestUtil.shared.randomDate())
             let randomBank = TestUtil.shared.randomRemoteBank()

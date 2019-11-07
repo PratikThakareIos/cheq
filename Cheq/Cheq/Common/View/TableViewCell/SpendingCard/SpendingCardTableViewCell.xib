@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-cC-Qif">
                         <rect key="frame" x="40" y="0.0" width="240" height="183.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H39-au-6pt">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H39-au-6pt">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="183.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-CI-CEP">
@@ -32,35 +32,55 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$1,225" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Rj-e99" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="40" width="240" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="240" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-xE-A7c" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60.5" width="240" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="240" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mK-81-U1Q" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="81" width="240" height="50"/>
+                                        <rect key="frame" x="0.0" y="111" width="240" height="2"/>
                                         <subviews>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Xh-KH-EuY">
-                                                <rect key="frame" x="10" y="24" width="220" height="3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="YOY-jw-JTq"/>
-                                                </constraints>
-                                            </progressView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G0h-A1-TIe">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="2"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d59-38-4Ju">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="2"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="S1n-89-xVv"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Xh-KH-EuY" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="30" y="0.0" width="180" height="3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="YOY-jw-JTq"/>
+                                                        </constraints>
+                                                    </progressView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bna-PP-408">
+                                                        <rect key="frame" x="220" y="0.0" width="20" height="2"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="11l-CE-i7x"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="6Xh-KH-EuY" firstAttribute="leading" secondItem="8mK-81-U1Q" secondAttribute="leading" constant="10" id="Ofo-JG-mwW"/>
-                                            <constraint firstItem="6Xh-KH-EuY" firstAttribute="centerY" secondItem="8mK-81-U1Q" secondAttribute="centerY" id="Sgz-eD-Kzo"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Xh-KH-EuY" secondAttribute="trailing" constant="10" id="ou1-qE-t6B"/>
+                                            <constraint firstAttribute="trailing" secondItem="G0h-A1-TIe" secondAttribute="trailing" id="Cdv-1z-gn2"/>
+                                            <constraint firstItem="G0h-A1-TIe" firstAttribute="leading" secondItem="8mK-81-U1Q" secondAttribute="leading" id="LNi-hg-xqr"/>
+                                            <constraint firstItem="G0h-A1-TIe" firstAttribute="top" secondItem="8mK-81-U1Q" secondAttribute="top" id="UNG-uV-OLZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="G0h-A1-TIe" secondAttribute="bottom" id="pfj-GA-ecj"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 days til payday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYm-0j-hQC" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="131" width="240" height="12.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5 days til payday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYm-0j-hQC" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123" width="240" height="10.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -94,6 +114,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="containerView" destination="8Bt-cC-Qif" id="mAh-9f-Dgx"/>
+                <outlet property="countDownLabel" destination="HYm-0j-hQC" id="2rI-cE-GTH"/>
+                <outlet property="headerLabel" destination="jRW-Rj-e99" id="kdf-3D-LaE"/>
+                <outlet property="progressBarView" destination="6Xh-KH-EuY" id="uwM-IO-q0i"/>
+                <outlet property="subHeaderLabel" destination="X5y-xE-A7c" id="jkK-SZ-L2I"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="177.45535714285714"/>
         </tableViewCell>

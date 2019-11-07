@@ -10,7 +10,11 @@ import UIKit
 
 class SpendingCardTableViewCell: CTableViewCell {
     
-    @IBOutlet weak var containerView: UIView! 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var progressBarView: CProgressView!
+    @IBOutlet weak var headerLabel: CLabel!
+    @IBOutlet weak var countDownLabel: CLabel!
+    @IBOutlet weak var subHeaderLabel: CLabel! 
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,8 +35,18 @@ class SpendingCardTableViewCell: CTableViewCell {
     }
     
     override func setupConfig() {
+        headerLabel.font = AppConfig.shared.activeTheme.extraLargeFont
+        headerLabel.textColor = AppConfig.shared.activeTheme.altTextColor
+        subHeaderLabel.font = AppConfig.shared.activeTheme.mediumFont
+        subHeaderLabel.textColor = AppConfig.shared.activeTheme.altTextColor
+        countDownLabel.font = AppConfig.shared.activeTheme.headerFont
+        countDownLabel.textColor = AppConfig.shared.activeTheme.altTextColor
+        
         let gradientSet = AppConfig.shared.activeTheme.gradientSet4
 //        ViewUtil.shared.applyViewGradient(self.contentView, startingColor: gradientSet.first ?? .white, endColor: gradientSet.last ?? .white)
+        self.containerView.backgroundColor = .red
+        AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: .red, applyShadow: true)
+        
     }
     
 }

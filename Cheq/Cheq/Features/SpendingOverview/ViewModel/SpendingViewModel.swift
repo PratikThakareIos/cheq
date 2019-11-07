@@ -18,27 +18,68 @@ class SpendingViewModel: BaseTableVCViewModel {
     
     func render(_ spendingOverview: GetSpendingOverviewResponse) {
         
+        
         if self.sections.count > 0 {
             self.sections.removeAll()
         }
+        
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        let spacer = SpacerTableViewCellViewModel()
         let section = TableSectionViewModel()
         let spendingCard = SpendingCardTableViewCellViewModel()
-        section.rows.append(spendingCard)
-        let spacer = SpacerTableViewCellViewModel()
-        section.rows.append(spacer)
-        let upcomingBillsHeader = HeaderTableViewCellViewModel()
-        upcomingBillsHeader.title = "Upcoming bills"
-        upcomingBillsHeader.showViewAll = true
-        section.rows.append(upcomingBillsHeader)
-        section.rows.append(spacer)
-        let moneySpentHeader = HeaderTableViewCellViewModel()
-        moneySpentHeader.title = "Money spent"
-        moneySpentHeader.showViewAll = true
-        section.rows.append(moneySpentHeader)
-        section.rows.append(spacer)
+        if let overviewCard = spendingOverview.overviewCard {
+            spendingCard.data = overviewCard
+            section.rows.append(spendingCard)
+           
+            section.rows.append(spacer)
+        }
         
-        self.addSection(section)
+        if let upcomingBills = spendingOverview.upcomingBills {
+            let upcomingBillsHeader = HeaderTableViewCellViewModel()
+            upcomingBillsHeader.title = Header.upcomingBills.rawValue
+            upcomingBillsHeader.showViewAll = false
+            section.rows.append(upcomingBillsHeader)
+            section.rows.append(spacer)
+            let upcomingBillsCollection = UpcomingBillsTableViewCellViewModel()
+            upcomingBillsCollection.upcomingBills = upcomingBills
+            section.rows.append(upcomingBillsCollection)
+            section.rows.append(spacer)
+        }
         
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+        if let categoryAmountStatResponseList = spendingOverview.topCategoriesAmount {
+            let moneySpentHeader = HeaderTableViewCellViewModel()
+            moneySpentHeader.title = Header.moneySpent.rawValue
+            moneySpentHeader.showViewAll = true
+            section.rows.append(moneySpentHeader)
+            section.rows.append(spacer)
+            section.rows.append(top)
+            
+            for _ in categoryAmountStatResponseList {
+                section.rows.append(TransactionGroupTableViewCellViewModel())
+            }
+            section.rows.append(spacer)
+            section.rows.append(bottom)
+        }
+        
+        if let recentTransactionList = spendingOverview.recentTransactions {
+            let recentTransactionHeader = HeaderTableViewCellViewModel()
+            recentTransactionHeader.title = Header.recentActivity.rawValue
+            recentTransactionHeader.showViewAll = true
+            section.rows.append(recentTransactionHeader)
+            section.rows.append(spacer)
+            section.rows.append(top)
+            
+            for _ in recentTransactionList {
+                section.rows.append(TransactionGroupTableViewCellViewModel())
+            }
+            
+            section.rows.append(bottom)
+            section.rows.append(spacer)
+        }
+        
+        self.insertSection(section, index: 0)
+        
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 enum CProgressColorMode {
     case information
     case monetary
+    case gradientMonetary
 }
 
 class CProgressView: UIProgressView {
@@ -30,8 +31,18 @@ class CProgressView: UIProgressView {
     func setupConfig() {
         self.backgroundColor = .clear
         self.trackTintColor = AppConfig.shared.activeTheme.alternativeColor4
-        self.progressTintColor = (mode == .information) ? AppConfig.shared.activeTheme.alternativeColor3 : AppConfig.shared.activeTheme.monetaryColor
-        
+        switch mode {
+        case .information:
+            self.progressTintColor = AppConfig.shared.activeTheme.alternativeColor3
+        case .monetary:
+            self.progressTintColor = AppConfig.shared.activeTheme.monetaryColor
+        case .gradientMonetary:
+            let gradientImage = UIImage.gradientImage(with: self.frame,
+                                                      colors: [AppConfig.shared.activeTheme.alternativeColor3.cgColor, AppConfig.shared.activeTheme.monetaryColor.cgColor],
+                                                      locations: nil)
+            self.progressImage = gradientImage
+        }
+       
         AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
         layer.cornerRadius = 5.0
     }

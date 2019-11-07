@@ -9,16 +9,26 @@
 import UIKit
 
 class UpcomingBillsTableViewCell: CTableViewCell {
-
+    
+    static let upcomingBillsCollectionView = 1
+    @IBOutlet weak var containerView: UIView! 
+    @IBOutlet weak var collectionView: UICollectionView!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.viewModel = UpcomingBillsTableViewCellViewModel()
+        setupConfig()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    override func setupConfig() {
+        let vm = self.viewModel as! UpcomingBillsTableViewCellViewModel
+        self.collectionView.delegate = vm
+        self.collectionView.dataSource = vm
+        self.collectionView.reloadData()
+    }
 }

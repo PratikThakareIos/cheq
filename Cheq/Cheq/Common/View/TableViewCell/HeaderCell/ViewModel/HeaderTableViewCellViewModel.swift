@@ -8,8 +8,15 @@
 
 import UIKit
 
+enum Header: String {
+    case activity = "Activity'"
+    case recentActivity = "Recent Activity"
+    case upcomingBills = "Upcoming bill"
+    case moneySpent = "Money spent"
+}
+
 class HeaderTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "HeaderTableViewCell"
-    var title: String = "Activity"
+    var title: String = Header.activity.rawValue
     var showViewAll: Bool = false 
 }
