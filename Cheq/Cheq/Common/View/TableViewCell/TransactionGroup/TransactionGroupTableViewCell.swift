@@ -35,51 +35,11 @@ class TransactionGroupTableViewCell: CTableViewCell {
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
         self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue)
-        self.categoryIcon.image = UIImage.init(named: self.iconFromCategory(vm.data))
-    }
-    
-    func iconFromCategory(_ response: CategoryAmountStatResponse)-> String {
-        
-        let code: CategoryAmountStatResponse.CategoryCode = response.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
-        switch code {
-        case .benefits:
-            return LargeCategoryEmoji.benefits.rawValue
-        case .bills:
-            return LargeCategoryEmoji.billsUtilities.rawValue
-        case .employmentIncome:
-            return LargeCategoryEmoji.employmentIncome.rawValue
-        case .entertainment:
-            return LargeCategoryEmoji.entertainment.rawValue
-        case .financialServices:
-            return LargeCategoryEmoji.financialServices.rawValue
-        case .fitness:
-            return LargeCategoryEmoji.billsUtilities.rawValue
-        case .groceries:
-            return LargeCategoryEmoji.groceries.rawValue
-        case .health:
-            return LargeCategoryEmoji.health.rawValue
-        case .household:
-            return LargeCategoryEmoji.homeFamily.rawValue
-        case .ondemandIncome:
-            return LargeCategoryEmoji.ondemandIncome.rawValue
-        case .others:
-            return LargeCategoryEmoji.other.rawValue
-        case .otherDeposit:
-            return LargeCategoryEmoji.otherDeposits.rawValue
-        case .restaurantsAndCafes:
-            return LargeCategoryEmoji.restaurantsCafe.rawValue
-        case .shopping:
-            return LargeCategoryEmoji.shopping.rawValue
-        case .secondaryIncome:
-            return LargeCategoryEmoji.secondaryIncome.rawValue
-        case .tobaccoAndAlcohol:
-            return LargeCategoryEmoji.tobaccoAlcohol.rawValue
-        case .transport:
-            return LargeCategoryEmoji.transport.rawValue
-        case .travel:
-            return LargeCategoryEmoji.travel.rawValue
-        case .workAndEducation:
-            return LargeCategoryEmoji.work.rawValue
-        }
+        let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
+        let iconName = DataHelperUtil.shared.iconFromCategory(code)
+        self.categoryIcon.image = UIImage.init(named: iconName)
+        let amount = vm.data.categoryAmount ?? 0.0
+        let total = vm.data.totalAmount ?? 100.0
+        self.progressView.progress = Float(amount / total)
     }
 }

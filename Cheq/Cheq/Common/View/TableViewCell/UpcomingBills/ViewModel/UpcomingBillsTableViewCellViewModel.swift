@@ -24,7 +24,8 @@ class UpcomingBillsTableViewCellViewModel: NSObject, TableViewCellViewModelProto
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: upcomingBill.identifier, for: indexPath) as! UpcomingBillCollectionViewCell
         
         // popular data for cell
-        
+        cell.viewModel = upcomingBills[indexPath.row]
+        cell.setupUI()
         
         return cell
     }

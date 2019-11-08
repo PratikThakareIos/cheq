@@ -92,4 +92,52 @@ class DataHelperUtil {
 
         return postFinancialTransactionsRequest
     }
+    
+    func categoryAmountStateCode(_ code: GetUpcomingBillResponse.CategoryCode)->CategoryAmountStatResponse.CategoryCode {
+        let categoryAmountStateCode = CategoryAmountStatResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
+        return categoryAmountStateCode
+    }
+    
+    func iconFromCategory(_ code: CategoryAmountStatResponse.CategoryCode)-> String {
+        switch code {
+        case .benefits:
+            return LargeCategoryEmoji.benefits.rawValue
+        case .bills:
+            return LargeCategoryEmoji.billsUtilities.rawValue
+        case .employmentIncome:
+            return LargeCategoryEmoji.employmentIncome.rawValue
+        case .entertainment:
+            return LargeCategoryEmoji.entertainment.rawValue
+        case .financialServices:
+            return LargeCategoryEmoji.financialServices.rawValue
+        case .fitness:
+            return LargeCategoryEmoji.billsUtilities.rawValue
+        case .groceries:
+            return LargeCategoryEmoji.groceries.rawValue
+        case .health:
+            return LargeCategoryEmoji.health.rawValue
+        case .household:
+            return LargeCategoryEmoji.homeFamily.rawValue
+        case .ondemandIncome:
+            return LargeCategoryEmoji.ondemandIncome.rawValue
+        case .others:
+            return LargeCategoryEmoji.other.rawValue
+        case .otherDeposit:
+            return LargeCategoryEmoji.otherDeposits.rawValue
+        case .restaurantsAndCafes:
+            return LargeCategoryEmoji.restaurantsCafe.rawValue
+        case .shopping:
+            return LargeCategoryEmoji.shopping.rawValue
+        case .secondaryIncome:
+            return LargeCategoryEmoji.secondaryIncome.rawValue
+        case .tobaccoAndAlcohol:
+            return LargeCategoryEmoji.tobaccoAlcohol.rawValue
+        case .transport:
+            return LargeCategoryEmoji.transport.rawValue
+        case .travel:
+            return LargeCategoryEmoji.travel.rawValue
+        case .workAndEducation:
+            return LargeCategoryEmoji.work.rawValue
+        }
+    }
 }

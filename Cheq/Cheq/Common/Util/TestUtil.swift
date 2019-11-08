@@ -202,11 +202,6 @@ class TestUtil {
         return loanPreview
     }
     
-    fileprivate func categoryAmountStateCode(_ code: GetUpcomingBillResponse.CategoryCode)->CategoryAmountStatResponse.CategoryCode {
-        let categoryAmountStateCode = CategoryAmountStatResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
-        return categoryAmountStateCode
-    }
-    
     fileprivate func slimTransactionCategoryCode(_ code: GetUpcomingBillResponse.CategoryCode)->SlimTransactionResponse.CategoryCode {
         let slimTransactionCategoryCode = SlimTransactionResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
         return slimTransactionCategoryCode
@@ -245,7 +240,7 @@ class TestUtil {
         
         
         for k in range {
-            let code = categoryAmountStateCode(randomCategoryCode())
+            let code = DataHelperUtil.shared.categoryAmountStateCode(randomCategoryCode())
             let categoryAmountStateResponse = CategoryAmountStatResponse(categoryId: Int.random(in: 1...10000), categoryTitle: code.rawValue, categoryCode: code, categoryAmount: randomAmount[k], totalAmount: totalAmount)
             result.append(categoryAmountStateResponse)
         }

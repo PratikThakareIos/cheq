@@ -31,5 +31,13 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         self.remainingTimeLabel.textColor = AppConfig.shared.activeTheme.mediumGrayColor
         self.amountLabel.font = AppConfig.shared.activeTheme.mediumFont
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
+        let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
+        self.merchanLabel.text = vm.data.merchant
+        self.remainingTimeLabel.text = String("in \(vm.data.daysToDueDate ?? -1) days")
+        self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue)
+        
+        let categoryCode = DataHelperUtil.shared.categoryAmountStateCode(vm.data.categoryCode ?? GetUpcomingBillResponse.CategoryCode.others)
+        let iconName = DataHelperUtil.shared.iconFromCategory(categoryCode)
+        self.icon.image = UIImage.init(named: iconName)
     }
 }
