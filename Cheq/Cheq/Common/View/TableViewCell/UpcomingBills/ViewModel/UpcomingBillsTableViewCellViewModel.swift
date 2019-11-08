@@ -13,7 +13,7 @@ class UpcomingBillsTableViewCellViewModel: NSObject, TableViewCellViewModelProto
     var upcomingBills = [GetUpcomingBillResponse]()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return upcomingBills.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

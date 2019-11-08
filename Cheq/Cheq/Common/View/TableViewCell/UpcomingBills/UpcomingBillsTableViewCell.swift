@@ -26,6 +26,7 @@ class UpcomingBillsTableViewCell: CTableViewCell {
     }
     
     override func setupConfig() {
+        self.backgroundColor = .clear 
         let vm = self.viewModel as! UpcomingBillsTableViewCellViewModel
         self.collectionView.delegate = vm
         self.collectionView.dataSource = vm

@@ -10,11 +10,12 @@ import UIKit
 
 class SpendingCardTableViewCell: CTableViewCell {
     
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: CGradientView!
     @IBOutlet weak var progressBarView: CProgressView!
     @IBOutlet weak var headerLabel: CLabel!
     @IBOutlet weak var countDownLabel: CLabel!
-    @IBOutlet weak var subHeaderLabel: CLabel! 
+    @IBOutlet weak var subHeaderLabel: CLabel!
+    var gradient: CAGradientLayer = CAGradientLayer()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,18 +36,27 @@ class SpendingCardTableViewCell: CTableViewCell {
     }
     
     override func setupConfig() {
+        self.backgroundColor = .clear
         headerLabel.font = AppConfig.shared.activeTheme.extraLargeFont
         headerLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         subHeaderLabel.font = AppConfig.shared.activeTheme.mediumFont
         subHeaderLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         countDownLabel.font = AppConfig.shared.activeTheme.headerFont
         countDownLabel.textColor = AppConfig.shared.activeTheme.altTextColor
-        
         let gradientSet = AppConfig.shared.activeTheme.gradientSet4
-//        ViewUtil.shared.applyViewGradient(self.contentView, startingColor: gradientSet.first ?? .white, endColor: gradientSet.last ?? .white)
-        self.containerView.backgroundColor = .red
-        AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: .red, applyShadow: true)
+        containerView.startColor = gradientSet.first ?? .white
+        containerView.endColor = gradientSet.last ?? .white
+
+        AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
         
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let gradient = self.containerView.layer.sublayers?[0] as? CAGradientLayer {
+            gradient.frame = self.bounds
+        }
     }
     
 }

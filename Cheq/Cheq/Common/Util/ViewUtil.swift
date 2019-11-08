@@ -47,9 +47,9 @@ class ViewUtil {
         view.layer.addSublayer(gradient)
     }
     
-    func applyViewGradient(_ view:UIView, startingColor: UIColor, endColor: UIColor) {
+    func applyViewGradient(_ view:UIView, startingColor: UIColor, endColor: UIColor)->CAGradientLayer {
         let gradient = CAGradientLayer()
-        gradient.frame = view.frame
+        gradient.frame = view.bounds
         gradient.colors = [
             startingColor.cgColor,
             endColor.cgColor
@@ -58,5 +58,6 @@ class ViewUtil {
         gradient.startPoint = CGPoint(x: 1, y: 0)
         gradient.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradient, at: 0)
+        return gradient
     }
 }

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="183.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-cC-Qif">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-cC-Qif" customClass="CGradientView" customModule="Cheq" customModuleProvider="target">
                         <rect key="frame" x="40" y="0.0" width="240" height="183.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H39-au-6pt">
@@ -102,6 +102,14 @@
                             <constraint firstAttribute="bottom" secondItem="H39-au-6pt" secondAttribute="bottom" id="Vxi-98-BTd"/>
                             <constraint firstItem="H39-au-6pt" firstAttribute="leading" secondItem="8Bt-cC-Qif" secondAttribute="leading" id="sBy-Od-po7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="1" green="0.84644777199999999" blue="0.336507416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

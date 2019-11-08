@@ -65,9 +65,12 @@ protocol AppThemeProtocol {
     var quickAnimationDuration: TimeInterval { get }
     
     //MARK: common paddings
-    var smallPadding: Double { get }
-    var mediumPadding: Double { get }
-    var largePadding: Double { get }
+    var xsPadding: Double { get }
+    var sPadding: Double { get }
+    var mPadding: Double { get }
+    var lPadding: Double { get }
+    var xlPadding: Double { get }
+    var xxlPadding: Double { get }
 
     //MARK: styling logics
     var padding: CGFloat { get }
@@ -178,9 +181,12 @@ extension AppThemeProtocol {
         get { return 10.0 }
     }
     
-    var smallPadding: Double { get { return 10.0 } }
-    var mediumPadding: Double { get { return 20.0 } }
-    var largePadding: Double { get { return 40.0 } }
+    var xsPadding: Double { get { return 4.0 } }
+    var sPadding: Double { get { return 8.0 } }
+    var mPadding: Double { get { return 16.0 } }
+    var lPadding: Double { get { return 24.0 } }
+    var xlPadding: Double { get { return 32.0 } }
+    var xxlPadding: Double { get { return 40.0 }}
 
     var nonActiveAlpha: CGFloat { get { return 0.5 } }
 

@@ -407,6 +407,34 @@
 		4F231C362365CB3C00874D07 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F231C342365CB3C00874D07 /* LoggingUtil.swift */; };
 		4F231C372365CFC600874D07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD839A723626F080069EB30 /* GoogleService-Info.plist */; };
 		4F231D6A2366812600874D07 /* MoneySoftProd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD83983235FF1310069EB30 /* MoneySoftProd.swift */; };
+		4F2323D82374D52500BF3F21 /* CGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323D72374D52500BF3F21 /* CGradientView.swift */; };
+		4F2323D92374D52500BF3F21 /* CGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323D72374D52500BF3F21 /* CGradientView.swift */; };
+		4F2323DA2374D52500BF3F21 /* CGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323D72374D52500BF3F21 /* CGradientView.swift */; };
+		4F2323DB2374D52500BF3F21 /* CGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323D72374D52500BF3F21 /* CGradientView.swift */; };
+		4F2323DF2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */; };
+		4F2323E02374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */; };
+		4F2323E12374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */; };
+		4F2323E22374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */; };
+		4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */; };
+		4F2323E42374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */; };
+		4F2323E52374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */; };
+		4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */; };
+		4F2323E92374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */; };
+		4F2323EA2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */; };
+		4F2323EB2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */; };
+		4F2323EC2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */; };
+		4F2323EE2374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */; };
+		4F2323EF2374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */; };
+		4F2323F02374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */; };
+		4F2323F12374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */; };
+		4F2323F32374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */; };
+		4F2323F42374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */; };
+		4F2323F52374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */; };
+		4F2323F62374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */; };
+		4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
+		4F2323FA2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
+		4F2323FB2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
+		4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -803,6 +831,18 @@
 		4FD229052373E9FC00045662 /* Image_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD229032373E9FC00045662 /* Image_Extension.swift */; };
 		4FD229062373E9FC00045662 /* Image_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD229032373E9FC00045662 /* Image_Extension.swift */; };
 		4FD229072373E9FC00045662 /* Image_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD229032373E9FC00045662 /* Image_Extension.swift */; };
+		4FD2290B23743CF300045662 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2290923743CF300045662 /* TransactionTableViewCell.swift */; };
+		4FD2290C23743CF300045662 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2290923743CF300045662 /* TransactionTableViewCell.swift */; };
+		4FD2290D23743CF300045662 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2290923743CF300045662 /* TransactionTableViewCell.swift */; };
+		4FD2290E23743CF300045662 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2290923743CF300045662 /* TransactionTableViewCell.swift */; };
+		4FD2290F23743CF300045662 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */; };
+		4FD2291023743CF300045662 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */; };
+		4FD2291123743CF300045662 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */; };
+		4FD2291223743CF300045662 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */; };
+		4FD2291523743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */; };
+		4FD2291623743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */; };
+		4FD2291723743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */; };
+		4FD2291823743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */; };
 		4FD7C12C2327272F00AC7A67 /* UICollectionView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12B2327272F00AC7A67 /* UICollectionView_Extension.swift */; };
 		4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C12E2327299400AC7A67 /* ViewUtil.swift */; };
 		4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1332328752C00AC7A67 /* WebViewController.swift */; };
@@ -1420,6 +1460,13 @@
 		4F231AF723641DED00874D07 /* String_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Extension.swift; sourceTree = "<group>"; };
 		4F231AFC2364740700874D07 /* Error_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error_Extension.swift; sourceTree = "<group>"; };
 		4F231C342365CB3C00874D07 /* LoggingUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
+		4F2323D72374D52500BF3F21 /* CGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGradientView.swift; sourceTree = "<group>"; };
+		4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBillCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpcomingBillCollectionViewCell.xib; sourceTree = "<group>"; };
+		4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingBillCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Emoji.xcassets; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -1498,6 +1545,9 @@
 		4FD228F52373D7DF00045662 /* TransactionGroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionGroupTableViewCell.xib; sourceTree = "<group>"; };
 		4FD228FE2373D7FA00045662 /* TransactionGroupTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGroupTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4FD229032373E9FC00045662 /* Image_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image_Extension.swift; sourceTree = "<group>"; };
+		4FD2290923743CF300045662 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4FD7C12B2327272F00AC7A67 /* UICollectionView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView_Extension.swift; sourceTree = "<group>"; };
 		4FD7C12E2327299400AC7A67 /* ViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtil.swift; sourceTree = "<group>"; };
 		4FD7C1332328752C00AC7A67 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -2115,6 +2165,42 @@
 			path = Dev;
 			sourceTree = "<group>";
 		};
+		4F2323D62374CFFF00BF3F21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F2323D72374D52500BF3F21 /* CGradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F2323DC2374DC8E00BF3F21 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */,
+				4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */,
+				4F2323F72374DE8400BF3F21 /* UpcomingBillCollectionViewCell */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		4F2323E72374DD2600BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F2323E82374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F2323F72374DE8400BF3F21 /* UpcomingBillCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */,
+				4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */,
+				4F2323E72374DD2600BF3F21 /* ViewModel */,
+			);
+			path = UpcomingBillCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -2517,6 +2603,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4FD2290823743CD200045662 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				4FD2291323743CFE00045662 /* ViewModel */,
+				4FD2290923743CF300045662 /* TransactionTableViewCell.swift */,
+				4FD2290A23743CF300045662 /* TransactionTableViewCell.xib */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		4FD2291323743CFE00045662 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FD2291423743D1D00045662 /* TransactionTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FD7C12A2327270900AC7A67 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2785,6 +2889,7 @@
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
 				4FD228862372687900045662 /* SpendingCard */,
+				4FD2290823743CD200045662 /* Transaction */,
 				4FD228F22373D74700045662 /* TransactionGroup */,
 				4FD228842372681500045662 /* UpcomingBills */,
 				4FB1CDE92356C0E800E7B224 /* Spacer */,
@@ -2904,6 +3009,7 @@
 				9676523722FB0136001E43E0 /* Features */,
 				9676521322FAFD01001E43E0 /* AppDelegate.swift */,
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
+				4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */,
 				9676522122FAFD03001E43E0 /* Cheq.plist */,
 				4F180A9F235D655E0018507D /* CheqDevice-Info.plist */,
 				4F091091231F6C0200AA7F7D /* Cheq.entitlements */,
@@ -3084,6 +3190,8 @@
 		96A65E8022FDA1A300F1F7AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F2323D62374CFFF00BF3F21 /* View */,
+				4F2323DC2374DC8E00BF3F21 /* CollectionViewCell */,
 				964FA98F2352879100B07AD7 /* TableViewCell */,
 				4F0D713D2345761500AA819C /* PageControl */,
 				4F2E4BA0233B2168001F1BA2 /* PickerView */,
@@ -3583,6 +3691,7 @@
 				4F231ADE2363E26E00874D07 /* CompletionProgressTableViewCell.xib in Resources */,
 				4F231ADF2363E26E00874D07 /* HistoryItemTableViewCell.xib in Resources */,
 				4F231AE02363E26E00874D07 /* AgreementItemTableViewCell.xib in Resources */,
+				4FD2291123743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4F231AE12363E26E00874D07 /* BottomTableViewCell.xib in Resources */,
 				4F231AE22363E26E00874D07 /* Cheq.plist in Resources */,
 				4F231AE32363E26E00874D07 /* Main.storyboard in Resources */,
@@ -3590,7 +3699,9 @@
 				4F231C372365CFC600874D07 /* GoogleService-Info.plist in Resources */,
 				4F231AE52363E26E00874D07 /* TransferCardTableViewCell.xib in Resources */,
 				4F231AE62363E26E00874D07 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F2323FB2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A42372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4F2323E52374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228902372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4F231AE72363E26E00874D07 /* SpacerTableViewCell.xib in Resources */,
 				4F231AE82363E26E00874D07 /* Assets.xcassets in Resources */,
@@ -3616,6 +3727,7 @@
 				4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FBDDB29236BC68700EDB1E9 /* HistoryItemTableViewCell.xib in Resources */,
 				4FBDDB2A236BC68700EDB1E9 /* AgreementItemTableViewCell.xib in Resources */,
+				4FD2291223743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
 				4FBDDB2C236BC68700EDB1E9 /* Cheq.plist in Resources */,
@@ -3623,7 +3735,9 @@
 				4FBDDB2E236BC68700EDB1E9 /* CheqDevice-Info.plist in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FBDDB31236BC68700EDB1E9 /* SpacerTableViewCell.xib in Resources */,
 				4FBDDB32236BC68700EDB1E9 /* Assets.xcassets in Resources */,
@@ -3649,6 +3763,7 @@
 				4FD83AC223631ABA0069EB30 /* Common.storyboard in Resources */,
 				4FD83AC323631ABA0069EB30 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FD83AC423631ABA0069EB30 /* HistoryItemTableViewCell.xib in Resources */,
+				4FD2291023743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FD83AC523631ABA0069EB30 /* AgreementItemTableViewCell.xib in Resources */,
 				4FD83AC623631ABA0069EB30 /* BottomTableViewCell.xib in Resources */,
 				4FD83AC723631ABA0069EB30 /* Cheq.plist in Resources */,
@@ -3656,7 +3771,9 @@
 				4FD83AC923631ABA0069EB30 /* CheqDevice-Info.plist in Resources */,
 				4FD83ACA23631ABA0069EB30 /* TransferCardTableViewCell.xib in Resources */,
 				4FD83ACB23631ABA0069EB30 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F2323FA2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A32372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4F2323E42374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD2288F2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FD83ACC23631ABA0069EB30 /* SpacerTableViewCell.xib in Resources */,
 				4FD83ACD23631ABA0069EB30 /* Assets.xcassets in Resources */,
@@ -3682,6 +3799,7 @@
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
+				4FD2290F23743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FB1CB21235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */,
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
@@ -3689,7 +3807,9 @@
 				4F180AA0235D655E0018507D /* CheqDevice-Info.plist in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD2288E2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FB1CDEF2356C11E00E7B224 /* SpacerTableViewCell.xib in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
@@ -4158,6 +4278,7 @@
 				4F2319E92363E26E00874D07 /* CChartViewProtocol.swift in Sources */,
 				4F2319EA2363E26E00874D07 /* EmailVerificationViewController.swift in Sources */,
 				4F2319EB2363E26E00874D07 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F2323EB2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4F2319EC2363E26E00874D07 /* LendingViewController.swift in Sources */,
 				4F2319ED2363E26E00874D07 /* Configuration.swift in Sources */,
 				4F2319EF2363E26E00874D07 /* PostFinancialTransactionRequest.swift in Sources */,
@@ -4180,6 +4301,7 @@
 				4F2319FF2363E26E00874D07 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F231A002363E26E00874D07 /* FBEnums.swift in Sources */,
 				4F231A012363E26E00874D07 /* WebViewController.swift in Sources */,
+				4F2323E12374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4F231A022363E26E00874D07 /* FormatterUtil.swift in Sources */,
 				4F231A032363E26E00874D07 /* CollectionViewProtocol.swift in Sources */,
 				4F231A042363E26E00874D07 /* PostLoanRequest.swift in Sources */,
@@ -4192,6 +4314,7 @@
 				4F231A0B2363E26E00874D07 /* NSMutableAttributedString.swift in Sources */,
 				4F231A0C2363E26E00874D07 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F231A0D2363E26E00874D07 /* PostRecurringBillRequest.swift in Sources */,
+				4FD2291723743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */,
 				4F231A0E2363E26E00874D07 /* DataHelperUtil.swift in Sources */,
 				4F231A0F2363E26E00874D07 /* EmailVerificationViewModel.swift in Sources */,
 				4F231A102363E26E00874D07 /* EnableNotificationIntroCoordinator.swift in Sources */,
@@ -4248,6 +4371,7 @@
 				4F231A412363E26E00874D07 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4F231A422363E26E00874D07 /* PostPushNotificationRequest.swift in Sources */,
 				4F231A432363E26E00874D07 /* CategoryAmountStatResponse.swift in Sources */,
+				4FD2290D23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4F231A442363E26E00874D07 /* MultipleChoiceViewModel.swift in Sources */,
 				4F231A452363E26E00874D07 /* BottomTableViewCell.swift in Sources */,
 				4F231A462363E26E00874D07 /* CBarChartView.swift in Sources */,
@@ -4290,6 +4414,7 @@
 				4F231A672363E26E00874D07 /* ColorUtil.swift in Sources */,
 				4F231A682363E26E00874D07 /* CPieViewFormatter.swift in Sources */,
 				4F231A692363E26E00874D07 /* MobileNumberCoordinator.swift in Sources */,
+				4F2323DA2374D52500BF3F21 /* CGradientView.swift in Sources */,
 				4F231A6A2363E26E00874D07 /* CPasswordToggleButton.swift in Sources */,
 				4F231A6B2363E26E00874D07 /* IntroductionViewController.swift in Sources */,
 				4F231A6C2363E26E00874D07 /* TransferCardTableViewCellViewModel.swift in Sources */,
@@ -4374,6 +4499,7 @@
 				4F231AB92363E26E00874D07 /* AccountViewModel.swift in Sources */,
 				4F231ABA2363E26E00874D07 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4F231ABB2363E26E00874D07 /* HasWriteOffIntroCoordinator.swift in Sources */,
+				4F2323F52374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				4F231ABC2363E26E00874D07 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4F231ABD2363E26E00874D07 /* TopTableViewCellViewModel.swift in Sources */,
 				4F231ABE2363E26E00874D07 /* PutUserDetailRequest.swift in Sources */,
@@ -4382,6 +4508,7 @@
 				4F231AC12363E26E00874D07 /* MoneySoftManager.swift in Sources */,
 				4F231AC22363E26E00874D07 /* CTableViewController.swift in Sources */,
 				4F231AC32363E26E00874D07 /* CarouselCoordinatorViewModel.swift in Sources */,
+				4F2323F02374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */,
 				4F231AC42363E26E00874D07 /* CSwitchWithLabel.swift in Sources */,
 				4F231AC52363E26E00874D07 /* ResidentialAddressCoordinator.swift in Sources */,
 				4F231AC62363E26E00874D07 /* DynamicFormViewController.swift in Sources */,
@@ -4432,6 +4559,7 @@
 				4FBDDA31236BC68700EDB1E9 /* CChartViewProtocol.swift in Sources */,
 				4FBDDA32236BC68700EDB1E9 /* EmailVerificationViewController.swift in Sources */,
 				4FBDDA33236BC68700EDB1E9 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F2323EC2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4FBDDA34236BC68700EDB1E9 /* LendingViewController.swift in Sources */,
 				4FBDDA35236BC68700EDB1E9 /* Configuration.swift in Sources */,
 				4FBDDA37236BC68700EDB1E9 /* PostFinancialTransactionRequest.swift in Sources */,
@@ -4454,6 +4582,7 @@
 				4FBDDA47236BC68700EDB1E9 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FBDDA48236BC68700EDB1E9 /* FBEnums.swift in Sources */,
 				4FBDDA49236BC68700EDB1E9 /* WebViewController.swift in Sources */,
+				4F2323E22374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4FBDDA4A236BC68700EDB1E9 /* FormatterUtil.swift in Sources */,
 				4FBDDA4B236BC68700EDB1E9 /* CollectionViewProtocol.swift in Sources */,
 				4FBDDA4C236BC68700EDB1E9 /* PostLoanRequest.swift in Sources */,
@@ -4466,6 +4595,7 @@
 				4FBDDA53236BC68700EDB1E9 /* NSMutableAttributedString.swift in Sources */,
 				4FBDDA54236BC68700EDB1E9 /* EmployeeIntroCoordinator.swift in Sources */,
 				4FBDDA55236BC68700EDB1E9 /* PostRecurringBillRequest.swift in Sources */,
+				4FD2291823743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */,
 				4FBDDA56236BC68700EDB1E9 /* DataHelperUtil.swift in Sources */,
 				4FBDDA57236BC68700EDB1E9 /* EmailVerificationViewModel.swift in Sources */,
 				4FBDDA58236BC68700EDB1E9 /* EnableNotificationIntroCoordinator.swift in Sources */,
@@ -4522,6 +4652,7 @@
 				4FBDDA89236BC68700EDB1E9 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4FBDDA8A236BC68700EDB1E9 /* PostPushNotificationRequest.swift in Sources */,
 				4FBDDA8B236BC68700EDB1E9 /* CategoryAmountStatResponse.swift in Sources */,
+				4FD2290E23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4FBDDA8C236BC68700EDB1E9 /* MultipleChoiceViewModel.swift in Sources */,
 				4FBDDA8D236BC68700EDB1E9 /* BottomTableViewCell.swift in Sources */,
 				4FBDDA8E236BC68700EDB1E9 /* CBarChartView.swift in Sources */,
@@ -4564,6 +4695,7 @@
 				4FBDDAAF236BC68700EDB1E9 /* ColorUtil.swift in Sources */,
 				4FBDDAB0236BC68700EDB1E9 /* CPieViewFormatter.swift in Sources */,
 				4FBDDAB1236BC68700EDB1E9 /* MobileNumberCoordinator.swift in Sources */,
+				4F2323DB2374D52500BF3F21 /* CGradientView.swift in Sources */,
 				4FBDDAB2236BC68700EDB1E9 /* CPasswordToggleButton.swift in Sources */,
 				4FBDDAB3236BC68700EDB1E9 /* IntroductionViewController.swift in Sources */,
 				4FBDDAB4236BC68700EDB1E9 /* TransferCardTableViewCellViewModel.swift in Sources */,
@@ -4648,6 +4780,7 @@
 				4FBDDB02236BC68700EDB1E9 /* AccountViewModel.swift in Sources */,
 				4FBDDB03236BC68700EDB1E9 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4FBDDB04236BC68700EDB1E9 /* HasWriteOffIntroCoordinator.swift in Sources */,
+				4F2323F62374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				4FBDDB05236BC68700EDB1E9 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4FBDDB06236BC68700EDB1E9 /* TopTableViewCellViewModel.swift in Sources */,
 				4FBDDB07236BC68700EDB1E9 /* PutUserDetailRequest.swift in Sources */,
@@ -4656,6 +4789,7 @@
 				4FBDDB0A236BC68700EDB1E9 /* MoneySoftManager.swift in Sources */,
 				4FBDDB0B236BC68700EDB1E9 /* CTableViewController.swift in Sources */,
 				4FBDDB0C236BC68700EDB1E9 /* CarouselCoordinatorViewModel.swift in Sources */,
+				4F2323F12374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */,
 				4FBDDB0D236BC68700EDB1E9 /* CSwitchWithLabel.swift in Sources */,
 				4FBDDB0E236BC68700EDB1E9 /* ResidentialAddressCoordinator.swift in Sources */,
 				4FBDDB0F236BC68700EDB1E9 /* DynamicFormViewController.swift in Sources */,
@@ -4706,6 +4840,7 @@
 				4FD839CB23631ABA0069EB30 /* CChartViewProtocol.swift in Sources */,
 				4FD839CC23631ABA0069EB30 /* EmailVerificationViewController.swift in Sources */,
 				4FD839CD23631ABA0069EB30 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F2323EA2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4FD839CE23631ABA0069EB30 /* LendingViewController.swift in Sources */,
 				4FD839CF23631ABA0069EB30 /* Configuration.swift in Sources */,
 				4FD839D123631ABA0069EB30 /* PostFinancialTransactionRequest.swift in Sources */,
@@ -4728,6 +4863,7 @@
 				4FD839E123631ABA0069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD839E223631ABA0069EB30 /* FBEnums.swift in Sources */,
 				4FD839E323631ABA0069EB30 /* WebViewController.swift in Sources */,
+				4F2323E02374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4FD839E423631ABA0069EB30 /* FormatterUtil.swift in Sources */,
 				4FD839E523631ABA0069EB30 /* CollectionViewProtocol.swift in Sources */,
 				4FD839E623631ABA0069EB30 /* PostLoanRequest.swift in Sources */,
@@ -4740,6 +4876,7 @@
 				4FD839ED23631ABA0069EB30 /* NSMutableAttributedString.swift in Sources */,
 				4FD839EE23631ABA0069EB30 /* EmployeeIntroCoordinator.swift in Sources */,
 				4FD839EF23631ABA0069EB30 /* PostRecurringBillRequest.swift in Sources */,
+				4FD2291623743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */,
 				4FD839F023631ABA0069EB30 /* DataHelperUtil.swift in Sources */,
 				4FD839F123631ABA0069EB30 /* EmailVerificationViewModel.swift in Sources */,
 				4FD839F223631ABA0069EB30 /* EnableNotificationIntroCoordinator.swift in Sources */,
@@ -4796,6 +4933,7 @@
 				4FD83A2123631ABA0069EB30 /* SwipeToConfirmTableViewCell.swift in Sources */,
 				4FD83A2223631ABA0069EB30 /* QuestionViewModel.swift in Sources */,
 				4FD83A2323631ABA0069EB30 /* FinancialInstitutionCoordinator.swift in Sources */,
+				4FD2290C23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4FD83A2423631ABA0069EB30 /* PostPushNotificationRequest.swift in Sources */,
 				4FD83A2523631ABA0069EB30 /* CategoryAmountStatResponse.swift in Sources */,
 				4FD83A2623631ABA0069EB30 /* MultipleChoiceViewModel.swift in Sources */,
@@ -4838,6 +4976,7 @@
 				4FD83A4723631ABA0069EB30 /* AnalyticsViewController.swift in Sources */,
 				4FD83A4823631ABA0069EB30 /* CheqAPIManager.swift in Sources */,
 				4FD83A4923631ABA0069EB30 /* ColorUtil.swift in Sources */,
+				4F2323D92374D52500BF3F21 /* CGradientView.swift in Sources */,
 				4FD83A4A23631ABA0069EB30 /* CPieViewFormatter.swift in Sources */,
 				4FD83A4B23631ABA0069EB30 /* MobileNumberCoordinator.swift in Sources */,
 				4FD83A4C23631ABA0069EB30 /* CPasswordToggleButton.swift in Sources */,
@@ -4922,6 +5061,7 @@
 				4FD83A9B23631ABA0069EB30 /* AccountViewModel.swift in Sources */,
 				4FD83A9C23631ABA0069EB30 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4FD83A9D23631ABA0069EB30 /* HasWriteOffIntroCoordinator.swift in Sources */,
+				4F2323F42374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				4FD83A9E23631ABA0069EB30 /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				4FD83A9F23631ABA0069EB30 /* TopTableViewCellViewModel.swift in Sources */,
 				4FD83AA023631ABA0069EB30 /* PutUserDetailRequest.swift in Sources */,
@@ -4930,6 +5070,7 @@
 				4FD83AA323631ABA0069EB30 /* MoneySoftManager.swift in Sources */,
 				4FD83AA423631ABA0069EB30 /* CTableViewController.swift in Sources */,
 				4FD83AA523631ABA0069EB30 /* CarouselCoordinatorViewModel.swift in Sources */,
+				4F2323EF2374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */,
 				4FD83AA623631ABA0069EB30 /* CSwitchWithLabel.swift in Sources */,
 				4FD83AA723631ABA0069EB30 /* ResidentialAddressCoordinator.swift in Sources */,
 				4FD83AA823631ABA0069EB30 /* DynamicFormViewController.swift in Sources */,
@@ -4980,6 +5121,7 @@
 				96B0069022FE6D0A00173743 /* CChartViewProtocol.swift in Sources */,
 				4FD7C1F92329E16300AC7A67 /* EmailVerificationViewController.swift in Sources */,
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
+				4F2323E92374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				4F180961235D22470018507D /* Configuration.swift in Sources */,
 				4F180901235D22460018507D /* PostFinancialTransactionRequest.swift in Sources */,
@@ -5002,6 +5144,7 @@
 				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
+				4F2323DF2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				4F18091F235D22460018507D /* PostLoanRequest.swift in Sources */,
@@ -5014,6 +5157,7 @@
 				96A9F6D22327D1E800A05E25 /* NSMutableAttributedString.swift in Sources */,
 				9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
 				4F180907235D22460018507D /* PostRecurringBillRequest.swift in Sources */,
+				4FD2291523743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
 				4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */,
 				9654D493234EACE300847389 /* EnableNotificationIntroCoordinator.swift in Sources */,
@@ -5070,6 +5214,7 @@
 				4FAE364C232F4C9B0035E57E /* QuestionViewModel.swift in Sources */,
 				4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4F180959235D22470018507D /* PostPushNotificationRequest.swift in Sources */,
+				4FD2290B23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4F180931235D22460018507D /* CategoryAmountStatResponse.swift in Sources */,
 				4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */,
 				96F9FFCF2352DAE00041001F /* BottomTableViewCell.swift in Sources */,
@@ -5112,6 +5257,7 @@
 				4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */,
 				96A65E7D22FD4B9300F1F7AB /* ColorUtil.swift in Sources */,
 				96B0069522FE70B100173743 /* CPieViewFormatter.swift in Sources */,
+				4F2323D82374D52500BF3F21 /* CGradientView.swift in Sources */,
 				4F0D71512345AB4000AA819C /* MobileNumberCoordinator.swift in Sources */,
 				4FD7C1E62329E0C600AC7A67 /* CPasswordToggleButton.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
@@ -5196,6 +5342,7 @@
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,
 				4FB1CC5A23554CEC00E7B224 /* SwipeToConfirmTableViewCellViewModel.swift in Sources */,
 				4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
+				4F2323F32374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F1808FB235D22460018507D /* PutUserDetailRequest.swift in Sources */,
@@ -5204,6 +5351,7 @@
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,
+				4F2323EE2374DD8200BF3F21 /* CCollectionViewCell.swift in Sources */,
 				4F2E4AC22334A5BB001F1BA2 /* CSwitchWithLabel.swift in Sources */,
 				4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,

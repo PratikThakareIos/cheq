@@ -68,7 +68,6 @@ extension CTableViewController {
         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
         cell.viewModel = cellViewModel
-        cell.controller = self
         cell.setupConfig()
         return cell
     }

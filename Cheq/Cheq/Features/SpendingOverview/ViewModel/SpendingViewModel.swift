@@ -58,8 +58,8 @@ class SpendingViewModel: BaseTableVCViewModel {
             for _ in categoryAmountStatResponseList {
                 section.rows.append(TransactionGroupTableViewCellViewModel())
             }
-            section.rows.append(spacer)
             section.rows.append(bottom)
+            section.rows.append(spacer)
         }
         
         if let recentTransactionList = spendingOverview.recentTransactions {
