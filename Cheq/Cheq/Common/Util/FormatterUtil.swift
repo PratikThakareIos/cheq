@@ -34,7 +34,8 @@ class FormatterUtil {
         return dateFormatter
     }
     
-    func currencyFormat(_ amount: Double)-> String {
-        return String(format: "%.2f", amount)
+    func currencyFormat(_ amount: Double, symbol: String)-> String {
+        return String(format: "\(symbol)%.2f", amount)
     }
+    
 }

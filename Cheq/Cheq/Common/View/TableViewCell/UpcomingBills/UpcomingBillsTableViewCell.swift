@@ -16,8 +16,8 @@ class UpcomingBillsTableViewCell: CTableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         self.viewModel = UpcomingBillsTableViewCellViewModel()
+        self.collectionView.register(UINib(nibName: "UpcomingBillCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "UpcomingBillCollectionViewCell")
         setupConfig()
     }
 

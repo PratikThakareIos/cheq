@@ -10,5 +10,5 @@ import UIKit
 
 class TransactionGroupTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "TransactionGroupTableViewCell"
-    var categoryAmountStatResponse = CategoryAmountStatResponse(categoryId: 0, categoryTitle: "", categoryCode: .others, categoryAmount: 0.0, totalAmount: 0.0)
+    var data = CategoryAmountStatResponse(categoryId: 0, categoryTitle: "", categoryCode: .others, categoryAmount: 0.0, totalAmount: 0.0)
 }

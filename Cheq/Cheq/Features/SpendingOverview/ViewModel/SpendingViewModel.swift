@@ -35,15 +35,23 @@ class SpendingViewModel: BaseTableVCViewModel {
             section.rows.append(spacer)
         }
         
-        if let upcomingBills = spendingOverview.upcomingBills {
+        if let upcomingBillsResponse = spendingOverview.upcomingBills {
             let upcomingBillsHeader = HeaderTableViewCellViewModel()
             upcomingBillsHeader.title = Header.upcomingBills.rawValue
             upcomingBillsHeader.showViewAll = false
             section.rows.append(upcomingBillsHeader)
             section.rows.append(spacer)
             let upcomingBillsCollection = UpcomingBillsTableViewCellViewModel()
-            upcomingBillsCollection.upcomingBills = upcomingBills
+            for upcoming in upcomingBillsResponse {
+                let upcomingBill = UpcomingBillCollectionViewCellViewModel()
+                upcomingBill.data = upcoming
+                upcomingBillsCollection.upcomingBills.append(upcomingBill)
+            }
+
             section.rows.append(upcomingBillsCollection)
+            section.rows.append(spacer)
+            section.rows.append(InfoNoteTableViewCellViewModel())
+            section.rows.append(spacer)
             section.rows.append(spacer)
         }
         
@@ -55,11 +63,12 @@ class SpendingViewModel: BaseTableVCViewModel {
             section.rows.append(spacer)
             section.rows.append(top)
             
-            for _ in categoryAmountStatResponseList {
-                section.rows.append(TransactionGroupTableViewCellViewModel())
+            for categoryAmount in categoryAmountStatResponseList {
+                let transactionGroup = TransactionGroupTableViewCellViewModel()
+                transactionGroup.data = categoryAmount
+                section.rows.append(transactionGroup)
             }
             section.rows.append(bottom)
-            section.rows.append(spacer)
         }
         
         if let recentTransactionList = spendingOverview.recentTransactions {

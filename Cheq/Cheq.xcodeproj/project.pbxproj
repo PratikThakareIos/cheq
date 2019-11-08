@@ -435,6 +435,18 @@
 		4F2323FA2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
 		4F2323FB2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
 		4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */; };
+		4F2324012375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */; };
+		4F2324022375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */; };
+		4F2324032375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */; };
+		4F2324042375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */; };
+		4F2324052375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */; };
+		4F2324062375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */; };
+		4F2324072375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */; };
+		4F2324082375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */; };
+		4F23240A2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
+		4F23240B2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
+		4F23240C2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
+		4F23240D2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1467,6 +1479,9 @@
 		4F2323ED2374DD8200BF3F21 /* CCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F2323F22374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Emoji.xcassets; sourceTree = "<group>"; };
+		4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNoteTableViewCell.swift; sourceTree = "<group>"; };
+		4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoNoteTableViewCell.xib; sourceTree = "<group>"; };
+		4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNoteTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -2194,11 +2209,29 @@
 		4F2323F72374DE8400BF3F21 /* UpcomingBillCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4F2323E72374DD2600BF3F21 /* ViewModel */,
 				4F2323DD2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift */,
 				4F2323DE2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib */,
-				4F2323E72374DD2600BF3F21 /* ViewModel */,
 			);
 			path = UpcomingBillCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		4F2323FD2375090600BF3F21 /* InfoNote */ = {
+			isa = PBXGroup;
+			children = (
+				4F2323FE2375091300BF3F21 /* ViewModel */,
+				4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */,
+				4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */,
+			);
+			path = InfoNote;
+			sourceTree = "<group>";
+		};
+		4F2323FE2375091300BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
@@ -2888,6 +2921,7 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
+				4F2323FD2375090600BF3F21 /* InfoNote */,
 				4FD228862372687900045662 /* SpendingCard */,
 				4FD2290823743CD200045662 /* Transaction */,
 				4FD228F22373D74700045662 /* TransactionGroup */,
@@ -3679,6 +3713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F231AD32363E26E00874D07 /* LaunchScreen.storyboard in Resources */,
+				4F2324072375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4F231AD42363E26E00874D07 /* MessageBubbleTableViewCell.xib in Resources */,
 				4F231AD62363E26E00874D07 /* TopTableViewCell.xib in Resources */,
 				4F231AD72363E26E00874D07 /* HeaderTableViewCell.xib in Resources */,
@@ -3715,6 +3750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1D236BC68700EDB1E9 /* LaunchScreen.storyboard in Resources */,
+				4F2324082375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */,
 				4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */,
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
@@ -3751,6 +3787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FD83AB823631ABA0069EB30 /* LaunchScreen.storyboard in Resources */,
+				4F2324062375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FD83AB923631ABA0069EB30 /* MessageBubbleTableViewCell.xib in Resources */,
 				4FD83ABB23631ABA0069EB30 /* TopTableViewCell.xib in Resources */,
 				4FD83ABC23631ABA0069EB30 /* HeaderTableViewCell.xib in Resources */,
@@ -3787,6 +3824,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
+				4F2324052375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FB1CB3A2355375D00E7B224 /* MessageBubbleTableViewCell.xib in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
@@ -4338,6 +4376,7 @@
 				4F231A212363E26E00874D07 /* Extensions.swift in Sources */,
 				4F231A222363E26E00874D07 /* DynamicFormViewModel.swift in Sources */,
 				4F231A232363E26E00874D07 /* GetUserEmployerResponse.swift in Sources */,
+				4F23240C2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				4F231A242363E26E00874D07 /* BankAccountCoordinator.swift in Sources */,
 				4F231A252363E26E00874D07 /* SpacerTableViewCell.swift in Sources */,
 				4F231A262363E26E00874D07 /* GetUserBudgetResponse.swift in Sources */,
@@ -4388,6 +4427,7 @@
 				4F231A512363E26E00874D07 /* CommonEnums.swift in Sources */,
 				4F231A522363E26E00874D07 /* MonthAmountStatResponse.swift in Sources */,
 				4F231A532363E26E00874D07 /* GetAddressResponse.swift in Sources */,
+				4F2324032375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F231A542363E26E00874D07 /* SplashViewController.swift in Sources */,
 				4F231A552363E26E00874D07 /* LoanSetting.swift in Sources */,
 				4F231A562363E26E00874D07 /* TopTableViewCell.swift in Sources */,
@@ -4619,6 +4659,7 @@
 				4FBDDA69236BC68700EDB1E9 /* Extensions.swift in Sources */,
 				4FBDDA6A236BC68700EDB1E9 /* DynamicFormViewModel.swift in Sources */,
 				4FBDDA6B236BC68700EDB1E9 /* GetUserEmployerResponse.swift in Sources */,
+				4F23240D2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				4FBDDA6C236BC68700EDB1E9 /* BankAccountCoordinator.swift in Sources */,
 				4FBDDA6D236BC68700EDB1E9 /* SpacerTableViewCell.swift in Sources */,
 				4FBDDA6E236BC68700EDB1E9 /* GetUserBudgetResponse.swift in Sources */,
@@ -4669,6 +4710,7 @@
 				4FBDDA99236BC68700EDB1E9 /* CommonEnums.swift in Sources */,
 				4FBDDA9A236BC68700EDB1E9 /* MonthAmountStatResponse.swift in Sources */,
 				4FBDDA9B236BC68700EDB1E9 /* GetAddressResponse.swift in Sources */,
+				4F2324042375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4FBDDA9C236BC68700EDB1E9 /* SplashViewController.swift in Sources */,
 				4FBDDA9D236BC68700EDB1E9 /* LoanSetting.swift in Sources */,
 				4FBDDA9E236BC68700EDB1E9 /* TopTableViewCell.swift in Sources */,
@@ -4900,6 +4942,7 @@
 				4FD83A0223631ABA0069EB30 /* ViewUtil.swift in Sources */,
 				4FD83A0323631ABA0069EB30 /* Extensions.swift in Sources */,
 				4FD83A0423631ABA0069EB30 /* DynamicFormViewModel.swift in Sources */,
+				4F23240B2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				4FD83A0523631ABA0069EB30 /* GetUserEmployerResponse.swift in Sources */,
 				4FD83A0623631ABA0069EB30 /* BankAccountCoordinator.swift in Sources */,
 				4FD83A0723631ABA0069EB30 /* SpacerTableViewCell.swift in Sources */,
@@ -4950,6 +4993,7 @@
 				4FD83A3123631ABA0069EB30 /* GetLendingOverviewResponse.swift in Sources */,
 				4FD83A3223631ABA0069EB30 /* PasscodeViewModel.swift in Sources */,
 				4FD83A3323631ABA0069EB30 /* CommonEnums.swift in Sources */,
+				4F2324022375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4FD83A3423631ABA0069EB30 /* MonthAmountStatResponse.swift in Sources */,
 				4FD83A3523631ABA0069EB30 /* GetAddressResponse.swift in Sources */,
 				4FD83A3623631ABA0069EB30 /* SplashViewController.swift in Sources */,
@@ -5181,6 +5225,7 @@
 				4FD7C12F2327299400AC7A67 /* ViewUtil.swift in Sources */,
 				4F18095B235D22470018507D /* Extensions.swift in Sources */,
 				964F7BEE2333513200338227 /* DynamicFormViewModel.swift in Sources */,
+				4F23240A2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				4F180933235D22460018507D /* GetUserEmployerResponse.swift in Sources */,
 				96F9FFF523533AC20041001F /* BankAccountCoordinator.swift in Sources */,
 				4FB1CDED2356C11E00E7B224 /* SpacerTableViewCell.swift in Sources */,
@@ -5231,6 +5276,7 @@
 				4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
 				4F18092D235D22460018507D /* MonthAmountStatResponse.swift in Sources */,
+				4F2324012375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F180941235D22470018507D /* GetAddressResponse.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
 				4F180937235D22460018507D /* LoanSetting.swift in Sources */,

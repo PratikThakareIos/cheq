@@ -8,6 +8,55 @@
 
 import Foundation
 
+enum CurrencySymbol: String {
+    case dollar = "$" 
+}
+
+enum LargeCategoryEmoji: String {
+    case benefits = "large/benefits"
+    case billsUtilities = "large/billsUtilities"
+    case employmentIncome = "large/employmentIncome"
+    case entertainment = "large/entertainment"
+    case financialServices = "large/financialServices"
+    case fitness = "large/fitness"
+    case groceries = "large/groceries"
+    case health = "large/health"
+    case homeFamily = "large/homeFamily"
+    case ondemandIncome = "large/ondemandIncome"
+    case other = "large/other"
+    case otherDeposits = "large/otherDeposit"
+    case restaurantsCafe = "large/restaurantsCafe"
+    case secondaryIncome = "large/secondaryIncome"
+    case shopping = "large/shopping"
+    case tobaccoAlcohol = "large/tobaccoAlcohol"
+    case transport = "large/transport"
+    case travel = "large/travel"
+    case work = "large/work"
+}
+
+enum MediumCategoryEmoji: String {
+    case benefits = "medium/benefits"
+    case billsUtilities = "medium/billsUtilities"
+    case employmentIncome = "medium/employmentIncome"
+    case entertainment = "medium/entertainment"
+    case financialServices = "medium/financialServices"
+    case fitness = "medium/fitness"
+    case groceries = "medium/groceries"
+    case health = "medium/health"
+    case homeFamily = "medium/homeFamily"
+    case ondemandIncome = "medium/ondemandIncome"
+    case other = "medium/other"
+    case otherDeposits = "medium/otherDeposit"
+    case restaurantsCafe = "medium/restaurantsCafe"
+    case secondaryIncome = "medium/secondaryIncome"
+    case shopping = "medium/shopping"
+    case tobaccoAlcohol = "medium/tobaccoAlcohol"
+    case transport = "medium/transport"
+    case travel = "medium/travel"
+    case work = "medium/work"
+}
+
+
 enum CountryCode: String {
     case AU = "AU"
 }
