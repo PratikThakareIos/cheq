@@ -10,4 +10,5 @@ import UIKit
 
 class TransactionTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "TransactionTableViewCell"
+    var data: SlimTransactionResponse = SlimTransactionResponse(_description: "", amount: 0.0, date: "", categoryTitle: "", categoryCode: .others, merchant: "", merchantLogoUrl: "", financialAccountName: "", financialInstitutionLogoUrl: "")
 }

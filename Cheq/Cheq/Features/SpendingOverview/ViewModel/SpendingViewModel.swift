@@ -79,8 +79,10 @@ class SpendingViewModel: BaseTableVCViewModel {
             section.rows.append(spacer)
             section.rows.append(top)
             
-            for _ in recentTransactionList {
-                section.rows.append(TransactionGroupTableViewCellViewModel())
+            for transaction: SlimTransactionResponse in recentTransactionList {
+                let recentTransaction = TransactionTableViewCellViewModel()
+                recentTransaction.data = transaction
+                section.rows.append(recentTransaction)
             }
             
             section.rows.append(bottom)

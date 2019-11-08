@@ -98,6 +98,11 @@ class DataHelperUtil {
         return categoryAmountStateCode
     }
     
+    func categoryAmountStateCodeFromTransaction(_ code: SlimTransactionResponse.CategoryCode)->CategoryAmountStatResponse.CategoryCode {
+        let categoryAmountStateCode = CategoryAmountStatResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
+        return categoryAmountStateCode
+    }
+    
     func iconFromCategory(_ code: CategoryAmountStatResponse.CategoryCode)-> String {
         switch code {
         case .benefits:

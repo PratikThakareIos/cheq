@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFc-ez-Ahm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-UG-M3q">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lim-gl-8ub">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="10.5"/>
@@ -69,7 +69,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNQ-h7-yHS">
-                                        <rect key="frame" x="0.0" y="26.5" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="320" height="30"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-EH-LtX" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="12" width="280" height="6"/>
@@ -88,12 +88,15 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="H0r-Yx-cU4"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mCa-UG-M3q" secondAttribute="bottom" id="0Io-4d-tSc"/>
-                            <constraint firstAttribute="height" constant="56" id="I9L-Lq-qPO"/>
+                            <constraint firstAttribute="height" constant="60" id="E0N-gg-Sv0"/>
                             <constraint firstItem="mCa-UG-M3q" firstAttribute="leading" secondItem="EFc-ez-Ahm" secondAttribute="leading" id="huL-gI-Lbp"/>
                             <constraint firstItem="mCa-UG-M3q" firstAttribute="top" secondItem="EFc-ez-Ahm" secondAttribute="top" id="v05-z0-CwC"/>
                             <constraint firstAttribute="trailing" secondItem="mCa-UG-M3q" secondAttribute="trailing" id="v0n-30-vX2"/>
