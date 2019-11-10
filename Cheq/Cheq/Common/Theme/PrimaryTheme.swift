@@ -124,16 +124,21 @@ extension PrimaryTheme {
 
 //MARK: fonts
 extension PrimaryTheme {
+    
+    var smallFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 10.0) }
+    }
+    
     var defaultFont: UIFont {
-         get { return UIFont(name: "Montserrat Bold", size: 12.0) ?? UIFont.systemFont(ofSize: 12.0) }
+         get { return UIFont.systemFont(ofSize: 12.0) }
     }
 
     var mediumFont: UIFont {
-        get { return UIFont(name: "Montserrat Bold", size: 15.0) ?? UIFont.systemFont(ofSize: 15.0) }
+        get { return UIFont.systemFont(ofSize: 15.0) }
     }
 
     var headerFont: UIFont {
-        get { return UIFont(name: "Montserrat Bold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0) }
+        get { return UIFont.systemFont(ofSize: 20.0) }
     }
 }
 

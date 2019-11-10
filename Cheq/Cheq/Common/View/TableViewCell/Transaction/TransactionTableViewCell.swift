@@ -35,6 +35,7 @@ class TransactionTableViewCell: CTableViewCell {
         self.transactionTitle.text = vm.data._description
         self.transactionAmount.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue)
         self.transactionDate.text = vm.data.date
+        self.transactionDate.font = AppConfig.shared.activeTheme.defaultFont
         self.transactionDate.textColor = AppConfig.shared.activeTheme.lightGrayColor
     }
     

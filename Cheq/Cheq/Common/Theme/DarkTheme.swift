@@ -97,6 +97,11 @@ extension DarkTheme {
 
 //MARK: fonts
 extension DarkTheme {
+    
+    var smallFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 10.0)}
+    }
+    
     var defaultFont: UIFont {
         get { return UIFont.systemFont(ofSize: 12.0)}
     }

@@ -56,3 +56,21 @@ struct CBATheme: AppThemeProtocol {
         }
     }
 }
+
+extension CBATheme {
+    var smallFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 10.0)}
+    }
+    
+    var defaultFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 12.0)}
+    }
+    
+    var mediumFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 15.0)}
+    }
+    
+    var headerFont: UIFont {
+        get { return UIFont.systemFont(ofSize: 20.0)}
+    }
+}

@@ -15,6 +15,7 @@ protocol AppThemeProtocol {
     var themeTitle: String { get }
 
     //MARK: fonts
+    var smallFont: UIFont { get }
     var defaultFont: UIFont { get }
     var mediumFont: UIFont { get }
     var headerFont: UIFont { get }

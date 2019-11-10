@@ -23,18 +23,34 @@ class SpendingViewModel: BaseTableVCViewModel {
             self.sections.removeAll()
         }
         
-        let top = TopTableViewCellViewModel()
-        let bottom = BottomTableViewCellViewModel()
+        var section = TableSectionViewModel()
+        spendingCard(spendingOverview, section: &section)
+        upcomingBills(spendingOverview, section: &section)
+        categoryAmounts(spendingOverview, section: &section)
+        recentTransactionList(spendingOverview, section: &section)
+        self.insertSection(section, index: 0)
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
+    }
+}
+
+// MARK: spending card
+extension SpendingViewModel {
+    func spendingCard(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
         let spacer = SpacerTableViewCellViewModel()
-        let section = TableSectionViewModel()
         let spendingCard = SpendingCardTableViewCellViewModel()
         if let overviewCard = spendingOverview.overviewCard {
             spendingCard.data = overviewCard
             section.rows.append(spendingCard)
-           
+            
             section.rows.append(spacer)
         }
-        
+    }
+}
+
+// MARK: upcoming bills
+extension SpendingViewModel {
+    func upcomingBills(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
+        let spacer = SpacerTableViewCellViewModel()
         if let upcomingBillsResponse = spendingOverview.upcomingBills {
             let upcomingBillsHeader = HeaderTableViewCellViewModel()
             upcomingBillsHeader.title = Header.upcomingBills.rawValue
@@ -47,7 +63,7 @@ class SpendingViewModel: BaseTableVCViewModel {
                 upcomingBill.data = upcoming
                 upcomingBillsCollection.upcomingBills.append(upcomingBill)
             }
-
+            
             section.rows.append(upcomingBillsCollection)
             section.rows.append(spacer)
             section.rows.append(InfoNoteTableViewCellViewModel())
@@ -55,6 +71,16 @@ class SpendingViewModel: BaseTableVCViewModel {
             section.rows.append(spacer)
         }
         
+        
+    }
+}
+
+// MARK: category amount
+extension SpendingViewModel {
+    func categoryAmounts(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        let spacer = SpacerTableViewCellViewModel()
         if let categoryAmountStatResponseList = spendingOverview.topCategoriesAmount {
             let moneySpentHeader = HeaderTableViewCellViewModel()
             moneySpentHeader.title = Header.moneySpent.rawValue
@@ -70,6 +96,16 @@ class SpendingViewModel: BaseTableVCViewModel {
             }
             section.rows.append(bottom)
         }
+    }
+}
+
+//MARK: recent transaction list
+extension SpendingViewModel {
+    func recentTransactionList(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
+        
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        let spacer = SpacerTableViewCellViewModel()
         
         if let recentTransactionList = spendingOverview.recentTransactions {
             let recentTransactionHeader = HeaderTableViewCellViewModel()
@@ -79,18 +115,21 @@ class SpendingViewModel: BaseTableVCViewModel {
             section.rows.append(spacer)
             section.rows.append(top)
             
+            var index = 0
             for transaction: SlimTransactionResponse in recentTransactionList {
                 let recentTransaction = TransactionTableViewCellViewModel()
                 recentTransaction.data = transaction
                 section.rows.append(recentTransaction)
+                if index < recentTransactionList.count - 1 {
+                    section.rows.append(LineSeparatorTableViewCellViewModel())
+                }
+                index = index + 1
             }
             
             section.rows.append(bottom)
             section.rows.append(spacer)
         }
-        
-        self.insertSection(section, index: 0)
-        
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }
+
+

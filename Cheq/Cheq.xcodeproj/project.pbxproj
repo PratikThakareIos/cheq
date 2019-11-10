@@ -447,6 +447,18 @@
 		4F23240B2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
 		4F23240C2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
 		4F23240D2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */; };
+		4F2324112378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
+		4F2324122378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
+		4F2324132378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
+		4F2324142378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
+		4F2324152378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */; };
+		4F2324162378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */; };
+		4F2324172378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */; };
+		4F2324182378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */; };
+		4F23241B237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
+		4F23241C237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
+		4F23241D237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
+		4F23241E237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1482,6 +1494,9 @@
 		4F2323FF2375093C00BF3F21 /* InfoNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNoteTableViewCell.swift; sourceTree = "<group>"; };
 		4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoNoteTableViewCell.xib; sourceTree = "<group>"; };
 		4F2324092375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoNoteTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSeparatorTableViewCell.swift; sourceTree = "<group>"; };
+		4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineSeparatorTableViewCell.xib; sourceTree = "<group>"; };
+		4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSeparatorTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -2234,6 +2249,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4F23240E2378005600BF3F21 /* lineSeparator */ = {
+			isa = PBXGroup;
+			children = (
+				4F2324192378026A00BF3F21 /* ViewModel */,
+				4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */,
+				4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */,
+			);
+			path = lineSeparator;
+			sourceTree = "<group>";
+		};
+		4F2324192378026A00BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -2921,6 +2954,7 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
+				4F23240E2378005600BF3F21 /* lineSeparator */,
 				4F2323FD2375090600BF3F21 /* InfoNote */,
 				4FD228862372687900045662 /* SpendingCard */,
 				4FD2290823743CD200045662 /* Transaction */,
@@ -3726,6 +3760,7 @@
 				4F231ADE2363E26E00874D07 /* CompletionProgressTableViewCell.xib in Resources */,
 				4F231ADF2363E26E00874D07 /* HistoryItemTableViewCell.xib in Resources */,
 				4F231AE02363E26E00874D07 /* AgreementItemTableViewCell.xib in Resources */,
+				4F2324172378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */,
 				4FD2291123743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4F231AE12363E26E00874D07 /* BottomTableViewCell.xib in Resources */,
 				4F231AE22363E26E00874D07 /* Cheq.plist in Resources */,
@@ -3763,6 +3798,7 @@
 				4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FBDDB29236BC68700EDB1E9 /* HistoryItemTableViewCell.xib in Resources */,
 				4FBDDB2A236BC68700EDB1E9 /* AgreementItemTableViewCell.xib in Resources */,
+				4F2324182378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */,
 				4FD2291223743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
@@ -3800,6 +3836,7 @@
 				4FD83AC223631ABA0069EB30 /* Common.storyboard in Resources */,
 				4FD83AC323631ABA0069EB30 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FD83AC423631ABA0069EB30 /* HistoryItemTableViewCell.xib in Resources */,
+				4F2324162378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */,
 				4FD2291023743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FD83AC523631ABA0069EB30 /* AgreementItemTableViewCell.xib in Resources */,
 				4FD83AC623631ABA0069EB30 /* BottomTableViewCell.xib in Resources */,
@@ -3837,6 +3874,7 @@
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
+				4F2324152378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */,
 				4FD2290F23743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FB1CB21235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */,
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
@@ -4284,6 +4322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2324132378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */,
 				4F2319CD2363E26E00874D07 /* AppConfig.swift in Sources */,
 				4F2319CE2363E26E00874D07 /* CompletionProgressTableViewCell.swift in Sources */,
 				4F231B002364740700874D07 /* Error_Extension.swift in Sources */,
@@ -4399,6 +4438,7 @@
 				4F231A352363E26E00874D07 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				4F231A372363E26E00874D07 /* ServiceEnums.swift in Sources */,
 				4F231A382363E26E00874D07 /* FirebaseAPI.swift in Sources */,
+				4F23241D237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4F231A392363E26E00874D07 /* AppDelegate.swift in Sources */,
 				4F231A3A2363E26E00874D07 /* PostForgetPasswordRequest.swift in Sources */,
 				4F231A3B2363E26E00874D07 /* MessageBubbleTableViewCell.swift in Sources */,
@@ -4567,6 +4607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2324142378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */,
 				4FBDDA14236BC68700EDB1E9 /* AppConfig.swift in Sources */,
 				4FBDDA15236BC68700EDB1E9 /* CompletionProgressTableViewCell.swift in Sources */,
 				4FBDDA16236BC68700EDB1E9 /* Error_Extension.swift in Sources */,
@@ -4682,6 +4723,7 @@
 				4FBDDA7E236BC68700EDB1E9 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				4FBDDA7F236BC68700EDB1E9 /* ServiceEnums.swift in Sources */,
 				4FBDDA80236BC68700EDB1E9 /* FirebaseAPI.swift in Sources */,
+				4F23241E237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4FBDDA81236BC68700EDB1E9 /* AppDelegate.swift in Sources */,
 				4FBDDA82236BC68700EDB1E9 /* PostForgetPasswordRequest.swift in Sources */,
 				4FBDDA83236BC68700EDB1E9 /* MessageBubbleTableViewCell.swift in Sources */,
@@ -4850,6 +4892,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2324122378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */,
 				4FD839AF23631ABA0069EB30 /* AppConfig.swift in Sources */,
 				4FD839B023631ABA0069EB30 /* CompletionProgressTableViewCell.swift in Sources */,
 				4F231AFF2364740700874D07 /* Error_Extension.swift in Sources */,
@@ -4965,6 +5008,7 @@
 				4FD83A1623631ABA0069EB30 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				4FD83A1723631ABA0069EB30 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				4FD83A1823631ABA0069EB30 /* MoneySoftDev.swift in Sources */,
+				4F23241C237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4FD83A1923631ABA0069EB30 /* ServiceEnums.swift in Sources */,
 				4FD83A1A23631ABA0069EB30 /* FirebaseAPI.swift in Sources */,
 				4FD83A1B23631ABA0069EB30 /* AppDelegate.swift in Sources */,
@@ -5133,6 +5177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2324112378007D00BF3F21 /* LineSeparatorTableViewCell.swift in Sources */,
 				96B0068A22FE69AB00173743 /* AppConfig.swift in Sources */,
 				96F9FFB32352BF5E0041001F /* CompletionProgressTableViewCell.swift in Sources */,
 				4F231AFD2364740700874D07 /* Error_Extension.swift in Sources */,
@@ -5248,6 +5293,7 @@
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
+				4F23241B237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4F1808ED235D22460018507D /* FirebaseAPI.swift in Sources */,
 				9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */,
 				4F18093D235D22460018507D /* PostForgetPasswordRequest.swift in Sources */,
