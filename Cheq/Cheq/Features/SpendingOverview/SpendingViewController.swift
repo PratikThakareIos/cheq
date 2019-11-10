@@ -47,6 +47,8 @@ class SpendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(spendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.spendingOverviuew.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
+        
+        
     }
 }
 
@@ -61,22 +63,19 @@ extension SpendingViewController {
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
-        
-        let testSpendingOverview = TestUtil.shared.testSpendingOverview()
-        self.renderSpending(testSpendingOverview)
-//        AppConfig.shared.showSpinner()
-//        CheqAPIManager.shared.spendingOverview()
-//            .done{ overview in
-//                AppConfig.shared.hideSpinner {
-//                    //                    let lendingOverview = TestUtil.shared.testLendingOverview()
-//                    self.renderSpending(overview)
-//                }
-//            }.catch { err in
-//                AppConfig.shared.hideSpinner {
-//                    self.showError(err) {
-//                        NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", object: "")
-//                    }
-//                }
-//        }
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.spendingOverview()
+            .done{ overview in
+                AppConfig.shared.hideSpinner {
+                    //                    let lendingOverview = TestUtil.shared.testLendingOverview()
+                    self.renderSpending(overview)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                        NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", object: "")
+                    }
+                }
+        }
     }
 }

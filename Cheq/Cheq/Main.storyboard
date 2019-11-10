@@ -30,7 +30,7 @@
             <objects>
                 <viewController storyboardIdentifier="LendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gh5-ns-Z4N" customClass="LendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="37o-pU-Tpf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
@@ -62,7 +62,7 @@
             <objects>
                 <viewController storyboardIdentifier="SpendingOverviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rfb-1r-f6T" customClass="SpendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Te9-v8-WYa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4v8-16-xQv">
@@ -87,6 +87,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riN-J7-zbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1148" y="891"/>
+        </scene>
+        <!--Spending Categories View Controller-->
+        <scene sceneID="zBw-eP-TYP">
+            <objects>
+                <viewController storyboardIdentifier="SpendingCategoriesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="B7y-Ac-d2y" customClass="SpendingCategoriesViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p8r-za-xkG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-cD-oQt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.84644777199999999" blue="0.336507416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yxG-sv-qxQ" firstAttribute="bottom" secondItem="CLp-cD-oQt" secondAttribute="bottom" id="1PJ-v9-fgp"/>
+                            <constraint firstItem="CLp-cD-oQt" firstAttribute="leading" secondItem="yxG-sv-qxQ" secondAttribute="leading" id="8aM-xO-VDK"/>
+                            <constraint firstItem="yxG-sv-qxQ" firstAttribute="trailing" secondItem="CLp-cD-oQt" secondAttribute="trailing" id="AIX-3X-oed"/>
+                            <constraint firstItem="CLp-cD-oQt" firstAttribute="top" secondItem="yxG-sv-qxQ" secondAttribute="top" id="wid-Wm-kWe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yxG-sv-qxQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="CLp-cD-oQt" id="sQB-Ui-hXz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUi-Ml-N9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2110" y="891"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="IHW-jZ-1gG">
@@ -113,6 +143,7 @@
                     <tabBarItem key="tabBarItem" title="Cashout" image="financeIcon" selectedImage="tab-lend" id="eMQ-MP-TEQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wGs-fp-jRe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -131,6 +162,7 @@
                     <tabBarItem key="tabBarItem" title="Spending" image="analyticsIcon" selectedImage="tab-overview" id="QDd-tr-hz7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QYS-f0-J5J">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -149,6 +181,7 @@
                     <tabBarItem key="tabBarItem" title="Account" image="profileIcon" id="5Ts-ET-dEX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUn-52-blZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

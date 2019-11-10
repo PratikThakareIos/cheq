@@ -28,10 +28,12 @@ enum UINotificationEvent: String {
     case swipeReset = "swipeReset"
     case lendingOverview = "lendingOverview"
     case spendingOverviuew = "spendingOverview"
+    case spendingCategories = "spendingCategories"
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"
     case showError = "showError"
+    case viewAll = "viewAll"
 }
 
 enum NotificationUserInfoKey: String {

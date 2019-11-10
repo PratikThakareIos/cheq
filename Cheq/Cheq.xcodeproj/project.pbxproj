@@ -459,6 +459,14 @@
 		4F23241C237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
 		4F23241D237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
 		4F23241E237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */; };
+		4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */; };
+		4F2324222378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */; };
+		4F2324232378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */; };
+		4F2324242378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */; };
+		4F2324272378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */; };
+		4F2324282378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */; };
+		4F2324292378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */; };
+		4F23242A2378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1497,6 +1505,8 @@
 		4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineSeparatorTableViewCell.xib; sourceTree = "<group>"; };
 		4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSeparatorTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoriesViewController.swift; sourceTree = "<group>"; };
+		4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategoriesViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -2263,6 +2273,23 @@
 			isa = PBXGroup;
 			children = (
 				4F23241A237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F23241F2378B08000BF3F21 /* SpendingCategories */ = {
+			isa = PBXGroup;
+			children = (
+				4F2324252378B0C400BF3F21 /* ViewModel */,
+				4F2324202378B0B100BF3F21 /* SpendingCategoriesViewController.swift */,
+			);
+			path = SpendingCategories;
+			sourceTree = "<group>";
+		};
+		4F2324252378B0C400BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F2324262378B0E100BF3F21 /* SpendingCategoriesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3115,6 +3142,8 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				966434CC2341A96900934FB0 /* SpendingOverview */,
+				4F23241F2378B08000BF3F21 /* SpendingCategories */,
 				4F0D63032342F49800AA819C /* Logger */,
 				4F180967235D39700018507D /* ForgotPassword */,
 				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
@@ -3122,7 +3151,6 @@
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4F0D716A2346B99D00AA819C /* Account */,
 				4F0D715F2346B49600AA819C /* Lending */,
-				966434CC2341A96900934FB0 /* SpendingOverview */,
 				4F2E4B86233AECD1001F1BA2 /* Authentication */,
 				964F7BE223332E1D00338227 /* DynamicForm */,
 				4F0B0667233057F800986E35 /* MultipleChoice */,
@@ -4477,6 +4505,7 @@
 				4FD2289A23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4F231A5A2363E26E00874D07 /* HistoryItemTableViewCell.swift in Sources */,
 				4F231A5B2363E26E00874D07 /* PrimaryTheme.swift in Sources */,
+				4F2324232378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				4F231A5C2363E26E00874D07 /* CPasscodeTextField.swift in Sources */,
 				4F231A5D2363E26E00874D07 /* MultipleChoiceViewController.swift in Sources */,
 				4F231A5E2363E26E00874D07 /* MoneySoftUtil.swift in Sources */,
@@ -4539,6 +4568,7 @@
 				4F231A922363E26E00874D07 /* GetLoanPreviewResponse.swift in Sources */,
 				4F231A932363E26E00874D07 /* RegistrationViewController.swift in Sources */,
 				4F231C312365CACB00874D07 /* APIs-prod.swift in Sources */,
+				4F2324292378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4F231A942363E26E00874D07 /* PutUserOnfidoKycRequest.swift in Sources */,
 				4F231A952363E26E00874D07 /* PutBankAccountRequest.swift in Sources */,
 				4F231D6A2366812600874D07 /* MoneySoftProd.swift in Sources */,
@@ -4762,6 +4792,7 @@
 				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FBDDAA2236BC68700EDB1E9 /* HistoryItemTableViewCell.swift in Sources */,
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
+				4F2324242378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				4FBDDAA4236BC68700EDB1E9 /* CPasscodeTextField.swift in Sources */,
 				4FBDDAA5236BC68700EDB1E9 /* MultipleChoiceViewController.swift in Sources */,
 				4FBDDAA6236BC68700EDB1E9 /* MoneySoftUtil.swift in Sources */,
@@ -4824,6 +4855,7 @@
 				4FBDDADA236BC68700EDB1E9 /* GetLoanPreviewResponse.swift in Sources */,
 				4FBDDADB236BC68700EDB1E9 /* RegistrationViewController.swift in Sources */,
 				4FBDDADC236BC68700EDB1E9 /* PutUserOnfidoKycRequest.swift in Sources */,
+				4F23242A2378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4FBDDADD236BC68700EDB1E9 /* PutBankAccountRequest.swift in Sources */,
 				4FBDDADE236BC68700EDB1E9 /* CTextView.swift in Sources */,
 				4FBDDB41236BC69C00EDB1E9 /* MoneySoftProd.swift in Sources */,
@@ -5047,6 +5079,7 @@
 				4FD2289923726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FD83A3A23631ABA0069EB30 /* VerificationViewModel.swift in Sources */,
 				4FD83A3B23631ABA0069EB30 /* AmountSelectTableViewCell.swift in Sources */,
+				4F2324222378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				4FD83A3C23631ABA0069EB30 /* HistoryItemTableViewCell.swift in Sources */,
 				4FD83A3D23631ABA0069EB30 /* PrimaryTheme.swift in Sources */,
 				4FD83A3E23631ABA0069EB30 /* CPasscodeTextField.swift in Sources */,
@@ -5109,6 +5142,7 @@
 				4FD83A7323631ABA0069EB30 /* CButtonTableViewCell.swift in Sources */,
 				4FD83A7423631ABA0069EB30 /* GetLoanPreviewResponse.swift in Sources */,
 				4FD83A7523631ABA0069EB30 /* RegistrationViewController.swift in Sources */,
+				4F2324282378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4FD83A7623631ABA0069EB30 /* PutUserOnfidoKycRequest.swift in Sources */,
 				4FD83A7723631ABA0069EB30 /* PutBankAccountRequest.swift in Sources */,
 				4FD83A7823631ABA0069EB30 /* CTextView.swift in Sources */,
@@ -5332,6 +5366,7 @@
 				4FD2289823726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
+				4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
@@ -5394,6 +5429,7 @@
 				4F180923235D22460018507D /* GetLoanPreviewResponse.swift in Sources */,
 				4F2E4B90233AECD1001F1BA2 /* RegistrationViewController.swift in Sources */,
 				4F180913235D22460018507D /* PutUserOnfidoKycRequest.swift in Sources */,
+				4F2324272378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4F180947235D22470018507D /* PutBankAccountRequest.swift in Sources */,
 				96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */,
 				4F180939235D22460018507D /* FinancialAccountSlim.swift in Sources */,

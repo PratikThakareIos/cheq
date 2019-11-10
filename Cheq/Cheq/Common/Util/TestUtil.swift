@@ -227,8 +227,8 @@ class TestUtil {
         return result
     }
     
-    func topCategoriesAmount()->[CategoryAmountStatResponse] {
-        let range = 0..<5
+    func topCategoriesAmount(_ numOfItems: Int)->[CategoryAmountStatResponse] {
+        let range = 0..<numOfItems
         var result = [CategoryAmountStatResponse]()
         var randomAmount: [Double] = []
         var totalAmount: Double = 0.0
@@ -276,13 +276,30 @@ class TestUtil {
         return transactions
     }
     
+    func testMonthAmountStatResponse()->[MonthAmountStatResponse] {
+        
+        var result = [MonthAmountStatResponse]()
+        let months = ["Jun", "Jul", "Aug", "Sep"]
+        for i in 0...3 {
+            let monthAmountStatResponse = MonthAmountStatResponse(amount: randomAmount(), month: months[i])
+            result.append(monthAmountStatResponse)
+        }
+        return result
+    }
+    
+    func testSpendingCategories()->GetSpendingCategoryResponse {
+        let monthAmountStats = testMonthAmountStatResponse()
+        let response = GetSpendingCategoryResponse(monthAmountStats: monthAmountStats, categoryAmountStats: topCategoriesAmount(19))
+        return response
+    }
+    
     func testSpendingOverview()->GetSpendingOverviewResponse {
         let startDate = FormatterUtil.shared.simpleDateFormatter().string(from: 5.days.later)
         let endDate = FormatterUtil.shared.simpleDateFormatter().string(from: 10.days.later)
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
         
-        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(), recentTransactions: self.randomTransactions())
+        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions())
         return spendingOverview
     }
     

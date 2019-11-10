@@ -11,45 +11,17 @@ import PromiseKit
 
 extension CheqAPIManager {
 
-//    func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
-//        return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
-//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-//                let token = authUser.authToken() ?? ""
-//                SpendingAPI.getSpendingAllTransctionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingTransactionsResponse, err) in
-//                    if let error = err {
-//                        resolver.reject(error); return
-//                    }
-//
-//                    guard let response = spendingTransactionsResponse?.body else {
-//                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveTransactions); return
-//                    }
-//
-//                    resolver.fulfill(response)
-//                })
-//            }.catch { err in
-//                resolver.reject(err)
-//            }
-//        }
-//    }
-
-    func spendingOverview()->Promise<GetSpendingOverviewResponse> {
-        return Promise<GetSpendingOverviewResponse>() { resolver in
-            
-            // TODO: REMOVE LATER
-            let getSpendingOverviewResponse: GetSpendingOverviewResponse = TestUtil.shared.testSpendingOverview()
-            resolver.fulfill(getSpendingOverviewResponse)
-            
-            
+    func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
+        return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
-                SpendingAPI.getSpendingOverviewWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({
-                    (spendingOverviewResponse, err) in
+                SpendingAPI.getSpendingAllTransactionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingTransactionsResponse, err) in
                     if let error = err {
                         resolver.reject(error); return
                     }
 
-                    guard let response = spendingOverviewResponse?.body else {
-                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview); return
+                    guard let response = spendingTransactionsResponse?.body else {
+                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveTransactions); return
                     }
 
                     resolver.fulfill(response)
@@ -57,6 +29,63 @@ extension CheqAPIManager {
             }.catch { err in
                 resolver.reject(err)
             }
+        }
+    }
+    
+    func spendingCategories()->Promise<GetSpendingCategoryResponse> {
+        return Promise<GetSpendingCategoryResponse>() { resolver in
+            
+            // TODO: REMOVE LATER
+            let spendingCategoriesResponse: GetSpendingCategoryResponse = TestUtil.shared.testSpendingCategories()
+            resolver.fulfill(spendingCategoriesResponse)
+            return
+            
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                SpendingAPI.getSpendingCategoryStatsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingCategoriesResponse, err) in
+//                    if let error = err {
+//                        resolver.reject(error); return
+//                    }
+//
+//                    guard let response = spendingCategoriesResponse?.body else {
+//                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview)
+//                        return
+//                    }
+//
+//                    resolver.fulfill(response)
+//                })
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+        }
+    }
+
+    func spendingOverview()->Promise<GetSpendingOverviewResponse> {
+        return Promise<GetSpendingOverviewResponse>() { resolver in
+            
+            // TODO: REMOVE LATER
+            let getSpendingOverviewResponse: GetSpendingOverviewResponse = TestUtil.shared.testSpendingOverview()
+            resolver.fulfill(getSpendingOverviewResponse)
+            return
+            
+        
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                SpendingAPI.getSpendingOverviewWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({
+//                    (spendingOverviewResponse, err) in
+//                    if let error = err {
+//                        resolver.reject(error); return
+//                    }
+//
+//                    guard let response = spendingOverviewResponse?.body else {
+//                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview); return
+//                    }
+//
+//                    resolver.fulfill(response)
+//                })
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
         }
     }
 }

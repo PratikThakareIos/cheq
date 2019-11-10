@@ -9,7 +9,7 @@
 import UIKit
 
 class HeaderTableViewCell: CTableViewCell {
-
+    
     @IBOutlet weak var headerTitle: CLabel!
     @IBOutlet weak var viewAllButton: UIButton!
 
@@ -35,9 +35,11 @@ class HeaderTableViewCell: CTableViewCell {
         self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.lightGrayColor, for: .normal)
         self.viewAllButton.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
         self.viewAllButton.isHidden = !vm.showViewAll
+        self.tag = vm.tag
     }
 
     @IBAction func viewAll(_ sender: Any) {
         LoggingUtil.shared.cPrint("view all")
+        NotificationUtil.shared.notify(UINotificationEvent.viewAll.rawValue, key: "viewAll", object: self)
     }
 }

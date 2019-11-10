@@ -29,6 +29,7 @@ class SpendingViewModel: BaseTableVCViewModel {
         categoryAmounts(spendingOverview, section: &section)
         recentTransactionList(spendingOverview, section: &section)
         self.insertSection(section, index: 0)
+
         NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }
@@ -41,7 +42,6 @@ extension SpendingViewModel {
         if let overviewCard = spendingOverview.overviewCard {
             spendingCard.data = overviewCard
             section.rows.append(spendingCard)
-            
             section.rows.append(spacer)
         }
     }
