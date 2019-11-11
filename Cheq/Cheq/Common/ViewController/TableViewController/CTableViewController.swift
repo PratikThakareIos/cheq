@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     var viewModel: BaseTableVCViewModel = BaseTableVCViewModel()
@@ -73,18 +73,18 @@ extension CTableViewController {
     }
 }
 
-extension CTableViewController {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // supporting upcomingBillsCollectionView
-        if collectionView.tag == UpcomingBillsTableViewCell.upcomingBillsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            cell.backgroundColor = .red
-            return cell
-        }
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-}
+//extension CTableViewController {
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        // supporting upcomingBillsCollectionView
+//        if collectionView.tag == UpcomingBillsTableViewCell.upcomingBillsCollectionView {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+//            cell.backgroundColor = .red
+//            return cell
+//        }
+//        return UICollectionViewCell()
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 10
+//    }
+//}

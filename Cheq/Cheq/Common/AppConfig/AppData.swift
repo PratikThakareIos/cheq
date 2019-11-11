@@ -55,7 +55,7 @@ enum ScreenName: String {
     
     // spending
     case spending = "Spending"
-    case spendingCategories = "SpendingCategories"
+    case spendingCategories = "Money Spent"
     case spendingTransactions = "SpendingTransactions"
     
     init(fromRawValue: String) {

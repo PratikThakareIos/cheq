@@ -10,6 +10,14 @@ import UIKit
 
 class SpendingCategoriesViewController: CTableViewController {
     
+    override func registerCells() {
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),  HeaderTableViewCellViewModel(), UpcomingBillsTableViewCellViewModel(), InfoNoteTableViewCellViewModel(), TransactionGroupTableViewCellViewModel(), TransactionTableViewCellViewModel(), LineSeparatorTableViewCellViewModel(), SpendingCardTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel()]
+        for vm: TableViewCellViewModelProtocol in cellModels {
+            let nib = UINib(nibName: vm.identifier, bundle: nil)
+            self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingCategoriesViewModel()
@@ -27,6 +35,7 @@ class SpendingCategoriesViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
+        self.title = ScreenName.spendingCategories.rawValue
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {

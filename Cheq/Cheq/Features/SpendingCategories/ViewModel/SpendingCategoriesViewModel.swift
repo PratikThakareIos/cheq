@@ -23,6 +23,8 @@ class SpendingCategoriesViewModel: BaseTableVCViewModel {
         }
         var section = TableSectionViewModel()
         categoryAmounts(spendingCategories, section: &section)
+        self.sections = [section]
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }
 
@@ -39,7 +41,5 @@ extension SpendingCategoriesViewModel {
             }
             section.rows.append(bottom)
         }
-        
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }
