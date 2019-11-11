@@ -11,9 +11,9 @@ import Foundation
 import Charts
 
 struct ChartModelUtil {
-    static func fakeBarChartModel()-> [CChartModel] {
+    static func fakeBarChartModel(_ numOfItems: Int)-> [CChartModel] {
         let fakeData = CChartModel(title: "Comm Bank", type: .bar, dataSet: ["0" : 467.0, "1": 812.0, "2": 634.0, "3": 712.0])
-        return Array(repeating:fakeData, count: 4)
+        return Array(repeating:fakeData, count: numOfItems)
     }
 
     static func fakePieChartModel() -> [CChartModel] {

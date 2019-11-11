@@ -610,6 +610,18 @@
 		4F2325852378D10000BF3F21 /* NameConflictCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325822378D10000BF3F21 /* NameConflictCoordinator.swift */; };
 		4F2325862378D10000BF3F21 /* NameConflictCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325822378D10000BF3F21 /* NameConflictCoordinator.swift */; };
 		4F2325882378D8DE00BF3F21 /* Cheq.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9676522122FAFD03001E43E0 /* Cheq.plist */; };
+		4F23258D2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */; };
+		4F23258E2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */; };
+		4F23258F2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */; };
+		4F2325902379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */; };
+		4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */; };
+		4F2325922379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */; };
+		4F2325932379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */; };
+		4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */; };
+		4F232596237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
+		4F232597237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
+		4F232598237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
+		4F232599237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1518,6 +1530,9 @@
 		4F2324702378C26C00BF3F21 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F2324712378C26C00BF3F21 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F2325822378D10000BF3F21 /* NameConflictCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameConflictCoordinator.swift; sourceTree = "<group>"; };
+		4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
+		4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartTableViewCell.xib; sourceTree = "<group>"; };
+		4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -2179,14 +2194,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		4F23240E2378005600BF3F21 /* lineSeparator */ = {
+		4F23240E2378005600BF3F21 /* LineSeparator */ = {
 			isa = PBXGroup;
 			children = (
 				4F2324192378026A00BF3F21 /* ViewModel */,
 				4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */,
 				4F2324102378007D00BF3F21 /* LineSeparatorTableViewCell.xib */,
 			);
-			path = lineSeparator;
+			path = LineSeparator;
 			sourceTree = "<group>";
 		};
 		4F2324192378026A00BF3F21 /* ViewModel */ = {
@@ -2303,6 +2318,24 @@
 				4F23246D2378C26C00BF3F21 /* PostPushNotificationRequest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4F2325892379060900BF3F21 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				4F23258A2379061A00BF3F21 /* ViewModel */,
+				4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */,
+				4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		4F23258A2379061A00BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F2E49F6233440BE001F1BA2 /* Coordinator */ = {
@@ -2992,7 +3025,8 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
-				4F23240E2378005600BF3F21 /* lineSeparator */,
+				4F2325892379060900BF3F21 /* BarChart */,
+				4F23240E2378005600BF3F21 /* LineSeparator */,
 				4F2323FD2375090600BF3F21 /* InfoNote */,
 				4FD228862372687900045662 /* SpendingCard */,
 				4FD2290823743CD200045662 /* Transaction */,
@@ -3795,6 +3829,7 @@
 				4F231AD92363E26E00874D07 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FC2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F231ADA2363E26E00874D07 /* Onboarding.storyboard in Resources */,
+				4F2325932379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4F231ADC2363E26E00874D07 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F231ADD2363E26E00874D07 /* Common.storyboard in Resources */,
 				4F231ADE2363E26E00874D07 /* CompletionProgressTableViewCell.xib in Resources */,
@@ -3832,6 +3867,7 @@
 				4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
+				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */,
 				4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */,
@@ -3869,6 +3905,7 @@
 				4FD83ABE23631ABA0069EB30 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FB2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FD83ABF23631ABA0069EB30 /* Onboarding.storyboard in Resources */,
+				4F2325922379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4FD83AC023631ABA0069EB30 /* GoogleService-Info.plist in Resources */,
 				4FD83AC123631ABA0069EB30 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FD83AC223631ABA0069EB30 /* Common.storyboard in Resources */,
@@ -3906,6 +3943,7 @@
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FA2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
+				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
@@ -4474,6 +4512,7 @@
 				4F2325502378C26C00BF3F21 /* GetUserBudgetResponse.swift in Sources */,
 				4F2325682378C26C00BF3F21 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4F231A372363E26E00874D07 /* ServiceEnums.swift in Sources */,
+				4F23258F2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */,
 				4F23241D237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4F231A392363E26E00874D07 /* AppDelegate.swift in Sources */,
 				4F231A3B2363E26E00874D07 /* MessageBubbleTableViewCell.swift in Sources */,
@@ -4496,6 +4535,7 @@
 				4F231A4E2363E26E00874D07 /* NotificationEnums.swift in Sources */,
 				4F231A502363E26E00874D07 /* PasscodeViewModel.swift in Sources */,
 				4F231A512363E26E00874D07 /* CommonEnums.swift in Sources */,
+				4F232598237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */,
 				4F2325602378C26C00BF3F21 /* SpendingOverviewCard.swift in Sources */,
 				4F2324032375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324742378C26C00BF3F21 /* APIHelper.swift in Sources */,
@@ -4764,6 +4804,7 @@
 				4F2325512378C26C00BF3F21 /* GetUserBudgetResponse.swift in Sources */,
 				4F2325692378C26C00BF3F21 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4FBDDA7F236BC68700EDB1E9 /* ServiceEnums.swift in Sources */,
+				4F2325902379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */,
 				4F23241E237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4FBDDA81236BC68700EDB1E9 /* AppDelegate.swift in Sources */,
 				4FBDDA83236BC68700EDB1E9 /* MessageBubbleTableViewCell.swift in Sources */,
@@ -4786,6 +4827,7 @@
 				4FBDDA96236BC68700EDB1E9 /* NotificationEnums.swift in Sources */,
 				4FBDDA98236BC68700EDB1E9 /* PasscodeViewModel.swift in Sources */,
 				4FBDDA99236BC68700EDB1E9 /* CommonEnums.swift in Sources */,
+				4F232599237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */,
 				4F2325612378C26C00BF3F21 /* SpendingOverviewCard.swift in Sources */,
 				4F2324042375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324752378C26C00BF3F21 /* APIHelper.swift in Sources */,
@@ -5054,6 +5096,7 @@
 				4F23254F2378C26C00BF3F21 /* GetUserBudgetResponse.swift in Sources */,
 				4F2325672378C26C00BF3F21 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				4FD83A1823631ABA0069EB30 /* MoneySoftDev.swift in Sources */,
+				4F23258E2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */,
 				4F23241C237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				4FD83A1923631ABA0069EB30 /* ServiceEnums.swift in Sources */,
 				4FD83A1B23631ABA0069EB30 /* AppDelegate.swift in Sources */,
@@ -5076,6 +5119,7 @@
 				4FD83A2E23631ABA0069EB30 /* AgeRangeCoordinator.swift in Sources */,
 				4FD83A3023631ABA0069EB30 /* NotificationEnums.swift in Sources */,
 				4FD83A3223631ABA0069EB30 /* PasscodeViewModel.swift in Sources */,
+				4F232597237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */,
 				4F23255F2378C26C00BF3F21 /* SpendingOverviewCard.swift in Sources */,
 				4FD83A3323631ABA0069EB30 /* CommonEnums.swift in Sources */,
 				4F2324732378C26C00BF3F21 /* APIHelper.swift in Sources */,
@@ -5344,6 +5388,7 @@
 				4F23254E2378C26C00BF3F21 /* GetUserBudgetResponse.swift in Sources */,
 				4F2325662378C26C00BF3F21 /* GetSpendingSpecificCategoryResponse.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
+				4F23258D2379068A00BF3F21 /* BarChartTableViewCell.swift in Sources */,
 				4F23241B237803E100BF3F21 /* LineSeparatorTableViewCellViewModel.swift in Sources */,
 				9676521422FAFD01001E43E0 /* AppDelegate.swift in Sources */,
 				4FB1CB382355375D00E7B224 /* MessageBubbleTableViewCell.swift in Sources */,
@@ -5366,6 +5411,7 @@
 				4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */,
 				4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
 				96B0069822FE72A700173743 /* CommonEnums.swift in Sources */,
+				4F232596237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */,
 				4F23255E2378C26C00BF3F21 /* SpendingOverviewCard.swift in Sources */,
 				4F2324012375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324722378C26C00BF3F21 /* APIHelper.swift in Sources */,

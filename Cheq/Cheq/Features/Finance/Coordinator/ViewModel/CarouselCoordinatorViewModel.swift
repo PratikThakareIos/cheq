@@ -18,7 +18,7 @@ class CarouselCoordinatorViewModel: BaseViewModel {
 
     // load data for carousel
     override func load(_ complete: @escaping () -> Void) {
-        self.barChartModels = ChartModelUtil.fakeBarChartModel()
+        self.barChartModels = ChartModelUtil.fakeBarChartModel(4)
         complete()
     }
 }

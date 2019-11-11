@@ -150,6 +150,10 @@ class TestUtil {
         return "Australia"
     }
     
+    func randomPositiveAmount()->Double {
+        return Double.random(in: 0...1000)
+    }
+    
     func randomAmount()->Double {
         return Double.random(in: -100...100)
     }
@@ -281,7 +285,7 @@ class TestUtil {
         var result = [MonthAmountStatResponse]()
         let months = ["Jun", "Jul", "Aug", "Sep"]
         for i in 0...3 {
-            let monthAmountStatResponse = MonthAmountStatResponse(amount: randomAmount(), month: months[i])
+            let monthAmountStatResponse = MonthAmountStatResponse(amount: randomPositiveAmount(), month: months[i])
             result.append(monthAmountStatResponse)
         }
         return result

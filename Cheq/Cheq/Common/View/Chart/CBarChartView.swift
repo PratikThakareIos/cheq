@@ -38,19 +38,21 @@ extension CBarChartView: CChartViewProtocol {
         self.legend.font = sharedAppConfig.activeTheme.defaultFont
         self.legend.verticalAlignment = .top
         self.xAxis.valueFormatter = CBarChartFormatter()
-        self.xAxis.labelPosition =  .bottom
+        self.xAxis.labelPosition =  .bottomInside
         self.pinchZoomEnabled = false
         self.doubleTapToZoomEnabled = false
     }
 
     func loadData(_ chartModel: CChartModel) {
         guard chartModel.type == .bar else { return }
-        let entries: [ChartDataEntry] = chartModel.dataSet.map { (arg: (key: String, value: Any)) -> ChartDataEntry in
-            let (key, value) = arg
-            let k = Double(key)!
+        let entries: [ChartDataEntry] = chartModel.dataSet.enumerated().map { (offset: Int, element: (key: String, value: Any)) -> ChartDataEntry in
+            let (_, value) = element
+            //            let k = Double(key)!
+            let k = Double(offset)
             let v = value as! Double
             return BarChartDataEntry(x: k, y: v)
         }
+        
         let dataSet = BarChartDataSet(entries: entries, label: chartModel.title)
         dataSet.setColor(sharedAppConfig.activeTheme.textBackgroundColor.withAlphaComponent(sharedAppConfig.activeTheme.nonActiveAlpha))
         dataSet.highlightColor = sharedAppConfig.activeTheme.textBackgroundColor
