@@ -18,10 +18,7 @@ class LendingViewModel: BaseTableVCViewModel {
     }
     
     func render(_ lendingOverview: GetLendingOverviewResponse) {
-        
-        if self.sections.count > 0 {
-            self.sections.removeAll()
-        }
+    
         var section = TableSectionViewModel()
         section.rows.append(IntercomChatTableViewCellViewModel())
         self.addLoanSetting(lendingOverview, section: &section)
@@ -33,9 +30,9 @@ class LendingViewModel: BaseTableVCViewModel {
         // actvity
         self.activityList(lendingOverview, section: &section)
         section.rows.append(SpacerTableViewCellViewModel())
-        self.addSection(section)
+        self.sections = [section]
         
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
     
     

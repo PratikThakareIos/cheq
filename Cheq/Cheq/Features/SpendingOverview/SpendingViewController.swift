@@ -30,7 +30,9 @@ class SpendingViewController: CTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
-        NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
+        if let vm = self.viewModel as? SpendingViewModel, vm.sections.count == 0 {
+            NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
+        }
     }
     
     func setupUI() {
@@ -48,7 +50,7 @@ class SpendingViewController: CTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(viewAll(_:)), name: NSNotification.Name(UINotificationEvent.viewAll.rawValue), object: nil)
     }
 }
 
@@ -72,10 +74,31 @@ extension SpendingViewController {
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err) {
-                        NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", object: "")
-                    }
+                    self.showError(err) { }
                 }
         }
     }
+}
+
+// MARK: handling view all
+extension SpendingViewController {
+    @objc func viewAll(_ notification: NSNotification) {
+        
+        guard let headerTableViewCell = notification.userInfo?["viewAll"] as? HeaderTableViewCell else { return }
+        var vc = UIViewController()
+        if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
+            vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spendingCategories.rawValue, embedInNav: false)
+        } else if headerTableViewCell.tag == HeaderTableViewCellTag.recentTransactions.rawValue {
+            // show transaction list screen
+        }
+        
+        CheqAPIManager.shared.spendingCategories().done { spendingCategories in
+            AppNav.shared.pushToViewController(vc, from: self)
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(err) { }
+            }
+        }
+    }
+    
 }

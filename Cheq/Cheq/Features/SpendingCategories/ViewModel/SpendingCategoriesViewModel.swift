@@ -18,16 +18,28 @@ class SpendingCategoriesViewModel: BaseTableVCViewModel {
     func render(_ spendingCategories: GetSpendingCategoryResponse) {
         
         
-//        if self.sections.count > 0 {
-//            self.sections.removeAll()
-//        }
-//
-//        var section = TableSectionViewModel()
-//        spendingCard(spendingOverview, section: &section)
-//        upcomingBills(spendingOverview, section: &section)
-//        categoryAmounts(spendingOverview, section: &section)
-//        recentTransactionList(spendingOverview, section: &section)
-//        self.insertSection(section, index: 0)
-//        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
+        if self.sections.count > 0 {
+            self.sections.removeAll()
+        }
+        var section = TableSectionViewModel()
+        categoryAmounts(spendingCategories, section: &section)
+    }
+}
+
+extension SpendingCategoriesViewModel {
+    func categoryAmounts(_ spendingCategories: GetSpendingCategoryResponse, section: inout TableSectionViewModel) {
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        if let categoryAmountStatResponseList = spendingCategories.categoryAmountStats {
+            section.rows.append(top)
+            for categoryAmount in categoryAmountStatResponseList {
+                let transactionGroup = TransactionGroupTableViewCellViewModel()
+                transactionGroup.data = categoryAmount
+                section.rows.append(transactionGroup)
+            }
+            section.rows.append(bottom)
+        }
+        
+        NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }

@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionGroupTableViewCell" customModule="Cheq" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TransactionGroupTableViewCell" rowHeight="54" id="KGk-i7-Jjw" customClass="TransactionGroupTableViewCell" customModule="Cheq" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TransactionGroupTableViewCell" rowHeight="67" id="KGk-i7-Jjw" customClass="TransactionGroupTableViewCell" customModule="Cheq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="55.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFc-ez-Ahm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-UG-M3q">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lim-gl-8ub">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="10.5"/>
@@ -69,10 +69,10 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNQ-h7-yHS">
-                                        <rect key="frame" x="0.0" y="30.5" width="320" height="30"/>
+                                        <rect key="frame" x="0.0" y="40.5" width="320" height="20"/>
                                         <subviews>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="X8h-EH-LtX" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="12" width="280" height="6"/>
+                                                <rect key="frame" x="20" y="7" width="280" height="6"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="u3n-zR-aDy"/>
                                                 </constraints>
@@ -82,21 +82,25 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="X8h-EH-LtX" secondAttribute="trailing" constant="20" id="E8x-Sx-5Sq"/>
                                             <constraint firstItem="X8h-EH-LtX" firstAttribute="leading" secondItem="tNQ-h7-yHS" secondAttribute="leading" constant="20" id="Wm8-RX-RWQ"/>
-                                            <constraint firstAttribute="height" constant="30" id="gJS-Bv-OJQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="gJS-Bv-OJQ"/>
                                             <constraint firstItem="X8h-EH-LtX" firstAttribute="centerY" secondItem="tNQ-h7-yHS" secondAttribute="centerY" id="n02-OM-2Tn"/>
                                             <constraint firstItem="X8h-EH-LtX" firstAttribute="centerX" secondItem="tNQ-h7-yHS" secondAttribute="centerX" id="nHd-7l-HGb"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-Zz-OgM">
+                                        <rect key="frame" x="0.0" y="60.5" width="320" height="10"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="e1o-NE-jU7"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="H0r-Yx-cU4"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mCa-UG-M3q" secondAttribute="bottom" id="0Io-4d-tSc"/>
-                            <constraint firstAttribute="height" constant="60" id="E0N-gg-Sv0"/>
+                            <constraint firstAttribute="height" constant="70" id="E0N-gg-Sv0"/>
                             <constraint firstItem="mCa-UG-M3q" firstAttribute="leading" secondItem="EFc-ez-Ahm" secondAttribute="leading" id="huL-gI-Lbp"/>
                             <constraint firstItem="mCa-UG-M3q" firstAttribute="top" secondItem="EFc-ez-Ahm" secondAttribute="top" id="v05-z0-CwC"/>
                             <constraint firstAttribute="trailing" secondItem="mCa-UG-M3q" secondAttribute="trailing" id="v0n-30-vX2"/>
@@ -118,7 +122,7 @@
                 <outlet property="containerView" destination="EFc-ez-Ahm" id="Xq6-a5-IbS"/>
                 <outlet property="progressView" destination="X8h-EH-LtX" id="yRr-go-Pfy"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="89.732142857142847"/>
+            <point key="canvasLocation" x="137.68115942028987" y="94.084821428571431"/>
         </tableViewCell>
     </objects>
     <resources>
