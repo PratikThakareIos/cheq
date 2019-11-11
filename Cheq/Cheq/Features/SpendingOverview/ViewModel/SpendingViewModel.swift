@@ -84,6 +84,7 @@ extension SpendingViewModel {
         if let categoryAmountStatResponseList = spendingOverview.topCategoriesAmount {
             let moneySpentHeader = HeaderTableViewCellViewModel()
             moneySpentHeader.title = Header.moneySpent.rawValue
+            moneySpentHeader.tag = HeaderTableViewCellTag.moneySpent.rawValue
             moneySpentHeader.showViewAll = true
             section.rows.append(moneySpentHeader)
             section.rows.append(spacer)
@@ -109,6 +110,7 @@ extension SpendingViewModel {
         
         if let recentTransactionList = spendingOverview.recentTransactions {
             let recentTransactionHeader = HeaderTableViewCellViewModel()
+            recentTransactionHeader.tag = HeaderTableViewCellTag.recentTransactions.rawValue
             recentTransactionHeader.title = Header.recentActivity.rawValue
             recentTransactionHeader.showViewAll = true
             section.rows.append(recentTransactionHeader)

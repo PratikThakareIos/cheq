@@ -628,6 +628,40 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
+    open class func getSpendingStatus(completion: @escaping ((_ data: GetSpendingStatusResponse?,_ error: Error?) -> Void)) {
+        getSpendingStatusWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Spending/status
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "transactionStatus" : "Received"
+}}]
+
+     - returns: RequestBuilder<GetSpendingStatusResponse> 
+     */
+    open class func getSpendingStatusWithRequestBuilder() -> RequestBuilder<GetSpendingStatusResponse> {
+        let path = "/v1/Spending/status"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetSpendingStatusResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
     open class func getUpcomingBills(completion: @escaping ((_ data: [GetUpcomingBillResponse]?,_ error: Error?) -> Void)) {
         getUpcomingBillsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)

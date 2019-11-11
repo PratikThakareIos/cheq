@@ -14,11 +14,11 @@ public struct UserBudget: Codable {
     public var _id: Int?
     public var categoryTitle: String?
     public var categoryCode: String?
-    public var estimatedBudget: Int?
+    public var estimatedBudget: Double?
     public var actualSpending: Int?
     public var hide: Bool?
 
-    public init(_id: Int?, categoryTitle: String?, categoryCode: String?, estimatedBudget: Int?, actualSpending: Int?, hide: Bool?) {
+    public init(_id: Int?, categoryTitle: String?, categoryCode: String?, estimatedBudget: Double?, actualSpending: Int?, hide: Bool?) {
         self._id = _id
         self.categoryTitle = categoryTitle
         self.categoryCode = categoryCode

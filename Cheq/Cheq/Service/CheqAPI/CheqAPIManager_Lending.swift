@@ -86,7 +86,7 @@ extension CheqAPIManager {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
-                LendingAPI.resolveIdentityConflictWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                LendingAPI.resolveNameConflictWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
                         resolver.reject(CheqAPIManagerError_Lending.unableToResolveNameConflict)
@@ -109,7 +109,7 @@ extension CheqAPIManager {
                 let qvm = QuestionViewModel()
                 qvm.loadSaved()
                 let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
-                let putBankAccountRequest = PutBankAccountRequest(bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
+                let putBankAccountRequest = PutBankAccountRequest(accountName: qvm.fieldValue(.accountName), bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     
                     if let error = err {

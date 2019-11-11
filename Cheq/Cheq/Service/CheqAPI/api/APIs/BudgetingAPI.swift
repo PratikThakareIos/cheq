@@ -96,14 +96,14 @@ open class BudgetingAPI {
   "userBudgets" : [ {
     "hide" : true,
     "categoryTitle" : "categoryTitle",
-    "estimatedBudget" : 5,
+    "estimatedBudget" : 5.962133916683182,
     "id" : 1,
     "categoryCode" : "categoryCode",
     "actualSpending" : 5
   }, {
     "hide" : true,
     "categoryTitle" : "categoryTitle",
-    "estimatedBudget" : 5,
+    "estimatedBudget" : 5.962133916683182,
     "id" : 1,
     "categoryCode" : "categoryCode",
     "actualSpending" : 5

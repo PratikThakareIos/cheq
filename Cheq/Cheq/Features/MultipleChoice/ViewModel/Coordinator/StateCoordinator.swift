@@ -54,26 +54,26 @@ extension StateCoordinator {
         }
     }
     
-    static func convertCStateToPutUserState(_ cState: cState)-> PutUserDetailRequest.State {
-        switch cState {
-        case .cNSW:
-            return .nsw
-        case .cVIC:
-            return .vic
-        case .cQLD:
-            return .qld
-        case .cWA:
-            return .wa
-        case .cSA:
-            return .sa
-        case .cACT:
-            return .act
-        case .cTAS:
-            return .tas
-        case .cNT:
-            return .nt
-        }
-    }
+//    static func convertCStateToPutUserState(_ cState: cState)-> PutUserDetailRequest.State {
+//        switch cState {
+//        case .cNSW:
+//            return .nsw
+//        case .cVIC:
+//            return .vic
+//        case .cQLD:
+//            return .qld
+//        case .cWA:
+//            return .wa
+//        case .cSA:
+//            return .sa
+//        case .cACT:
+//            return .act
+//        case .cTAS:
+//            return .tas
+//        case .cNT:
+//            return .nt
+//        }
+//    }
     
     static func convertCStateToState(_ cState: cState)-> PutUserOnfidoKycRequest.State {
         switch cState {

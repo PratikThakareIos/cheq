@@ -17,6 +17,9 @@ enum IntroEmoji: String {
     case verifyIdentity = "verifyIdentity"
     case cry = "cry"
     case speedy = "speedy"
+    case nameNotMatch = "nameNotMatch"
+    case needMoreInfo = "needMoreInfo"
+    case transferFailed = "transferFailed"
 }
 
 enum IntroButtonTitle: String {
@@ -41,11 +44,12 @@ enum IntroductionType: String {
     case employmentTypeDeclined = "Our eligibility criteria"
     case hasWriteOff = "Has write off"
     case noPayCycle = "No pay cycle"
-    case identityConflict = "Name does not match"
+    case identityConflict = "Identity does not match"
     case jointAccount = "Joint account is not eligible"
     case kycFailed = "KYC failed"
     case monthlyPayCycle = "Monthly pay cycle is not eligible"
     case creditAssessment = "Credit assessment didn't pass"
+    case hasNameConflict = "Name does not match"
 }
 
 class IntroductionViewModel: BaseViewModel {
@@ -87,6 +91,7 @@ class IntroductionViewModel: BaseViewModel {
         case .kycFailed: return .kycFailed
         case .monthlyPayCycle: return .monthlyPayCycle
         case .noPayCycle: return .noPayCycle
+        case .hasNameConflict: return .hasNameConflict
         }
     }
 
@@ -120,6 +125,8 @@ class IntroductionViewModel: BaseViewModel {
             return MonthlyPayCycleIntroCoordinator()
         case .creditAssessment:
             return CreditAssessmentIntroCoordinator()
+        case .hasNameConflict:
+            return NameConflictCoordinator()
         }
     }
 }

@@ -64,7 +64,7 @@ class TestUtil {
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
-        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), ageRange: testUtil.testAgeRange(), mobile: testUtil.testMobile(), state: testUtil.testPutUserState())
+        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile())
         return req
     }
     
@@ -114,9 +114,9 @@ class TestUtil {
         return 25.years.earlier
     }
     
-    func testAgeRange()-> PutUserDetailRequest.AgeRange {
-        return .from25To34
-    }
+//    func testAgeRange()-> PutUserDetailRequest.AgeRange {
+//        return .from25To34
+//    }
     
     func dobFormatStyle()->String {
         return "dd/MM/yyyy"
@@ -142,9 +142,9 @@ class TestUtil {
         return .nsw
     }
     
-    func testPutUserState()-> PutUserDetailRequest.State {
-        return .nsw
-    }
+//    func testPutUserState()-> PutUserDetailRequest.State {
+//        return .nsw
+//    }
     
     func testCountry()-> String {
         return "Australia"

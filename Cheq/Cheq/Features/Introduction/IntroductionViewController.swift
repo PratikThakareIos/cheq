@@ -124,7 +124,22 @@ class IntroductionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
+            
+        case .hasNameConflict:
+            LoggingUtil.shared.cPrint("Confirm and change")
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppNav.shared.dismissModal(self)
+                }
+                }.catch { err in
+                    AppConfig.shared.hideSpinner {
+                        self.showError(err, completion: nil)
+                    }
+            }
         }
+        
+        
     }
 
     @IBAction func secondaryButton(_ sender: Any) {
@@ -143,7 +158,7 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
-        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict:
+        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict:
             LoggingUtil.shared.cPrint("Chat with us")
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         }

@@ -11,32 +11,16 @@ import Foundation
 
 public struct FinancialAccountSlim: Codable {
 
-    public enum AccountType: String, Codable { 
-        case unknown = "UNKNOWN"
-        case bank = "BANK"
-        case creditCard = "CREDIT_CARD"
-        case loan = "LOAN"
-        case investment = "INVESTMENT"
-        case mortgage = "MORTGAGE"
-        case asset = "ASSET"
-        case liability = "LIABILITY"
-        case bills = "BILLS"
-        case insurance = "INSURANCE"
-        case loyalty = "LOYALTY"
-    }
-    public enum AssetType: String, Codable { 
-        case unknown = "UNKNOWN"
-        case asset = "ASSET"
-        case liability = "LIABILITY"
-    }
+    public var financialInstitutionName: String?
     public var financialAccountId: Int?
     public var name: String?
     public var nickname: String?
     public var number: String?
-    public var accountType: AccountType?
-    public var assetType: AssetType?
+    public var accountType: String?
+    public var assetType: String?
 
-    public init(financialAccountId: Int?, name: String?, nickname: String?, number: String?, accountType: AccountType?, assetType: AssetType?) {
+    public init(financialInstitutionName: String?, financialAccountId: Int?, name: String?, nickname: String?, number: String?, accountType: String?, assetType: String?) {
+        self.financialInstitutionName = financialInstitutionName
         self.financialAccountId = financialAccountId
         self.name = name
         self.nickname = nickname

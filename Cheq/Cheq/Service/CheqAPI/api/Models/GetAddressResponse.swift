@@ -22,14 +22,16 @@ public struct GetAddressResponse: Codable {
         case nt = "NT"
     }
     public var address: String?
+    public var suburb: String?
     public var latitude: Double?
     public var longitude: Double?
     public var postCode: String?
     public var state: State?
     public var country: String?
 
-    public init(address: String?, latitude: Double?, longitude: Double?, postCode: String?, state: State?, country: String?) {
+    public init(address: String?, suburb: String?, latitude: Double?, longitude: Double?, postCode: String?, state: State?, country: String?) {
         self.address = address
+        self.suburb = suburb
         self.latitude = latitude
         self.longitude = longitude
         self.postCode = postCode

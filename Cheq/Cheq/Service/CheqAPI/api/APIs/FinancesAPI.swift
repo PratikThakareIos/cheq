@@ -70,18 +70,20 @@ open class FinancesAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
   "number" : "number",
-  "accountType" : "UNKNOWN",
+  "accountType" : "accountType",
   "name" : "name",
   "nickname" : "nickname",
+  "financialInstitutionName" : "financialInstitutionName",
   "financialAccountId" : 0,
-  "assetType" : "UNKNOWN"
+  "assetType" : "assetType"
 }, {
   "number" : "number",
-  "accountType" : "UNKNOWN",
+  "accountType" : "accountType",
   "name" : "name",
   "nickname" : "nickname",
+  "financialInstitutionName" : "financialInstitutionName",
   "financialAccountId" : 0,
-  "assetType" : "UNKNOWN"
+  "assetType" : "assetType"
 } ]}]
 
      - returns: RequestBuilder<[FinancialAccountSlim]> 

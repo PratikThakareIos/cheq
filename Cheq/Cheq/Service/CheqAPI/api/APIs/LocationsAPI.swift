@@ -32,6 +32,7 @@ open class LocationsAPI {
   "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
+  "suburb" : "suburb",
   "postCode" : "postCode",
   "state" : "NSW",
   "longitude" : 6.027456183070403
@@ -39,6 +40,7 @@ open class LocationsAPI {
   "country" : "country",
   "address" : "address",
   "latitude" : 0.8008281904610115,
+  "suburb" : "suburb",
   "postCode" : "postCode",
   "state" : "NSW",
   "longitude" : 6.027456183070403
@@ -85,6 +87,7 @@ open class LocationsAPI {
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "name" : "name",
+  "suburb" : "suburb",
   "postCode" : "postCode",
   "state" : "NSW",
   "longitude" : 6.027456183070403
@@ -93,6 +96,7 @@ open class LocationsAPI {
   "address" : "address",
   "latitude" : 0.8008281904610115,
   "name" : "name",
+  "suburb" : "suburb",
   "postCode" : "postCode",
   "state" : "NSW",
   "longitude" : 6.027456183070403

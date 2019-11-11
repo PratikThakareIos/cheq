@@ -12,14 +12,10 @@ import Foundation
 public struct Worksheet: Codable {
 
     public var atWork: Bool?
-    public var latitude: Double?
-    public var longitude: Double?
     public var dateTime: Date?
 
-    public init(atWork: Bool?, latitude: Double?, longitude: Double?, dateTime: Date?) {
+    public init(atWork: Bool?, dateTime: Date?) {
         self.atWork = atWork
-        self.latitude = latitude
-        self.longitude = longitude
         self.dateTime = dateTime
     }
 

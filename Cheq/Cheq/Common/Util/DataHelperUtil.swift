@@ -32,7 +32,8 @@ class DataHelperUtil {
         let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
         let cStateString = qVm.fieldValue(.residentialState)
         let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
-        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), state: state)
+        
+        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: state)
         return req 
     }
     

@@ -199,7 +199,8 @@ class QuestionViewController: UIViewController {
             }
             
             AppData.shared.updateProgressAfterCompleting(.legalName)
-            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
+//            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
+            AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
@@ -213,8 +214,28 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
         case .contactDetails:
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
-            AppData.shared.updateProgressAfterCompleting(.contactDetails)
-            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+//            AppData.shared.updateProgressAfterCompleting(.contactDetails)
+//            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+            
+            let qVm = QuestionViewModel()
+            qVm.loadSaved()
+            let putUserDetailsReq = qVm.putUserDetailsRequest()
+            AppConfig.shared.showSpinner()
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                return CheqAPIManager.shared.putUser(authUser)
+                }.then { authUser in
+                    return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
+                }.done { authUser in
+                    AppConfig.shared.hideSpinner {
+                        AppData.shared.updateProgressAfterCompleting(.contactDetails)
+                        AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                    }
+                }.catch { err in
+                    AppConfig.shared.hideSpinner {
+                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                        }
+                    }
+            }
         case .residentialAddress:
             self.viewModel.save(QuestionField.residentialAddress.rawValue, value: searchTextField.text ?? "")
             

@@ -20,6 +20,7 @@ public struct DeclineDetail: Codable {
         case monthlyPayCycle = "MonthlyPayCycle"
         case noPayCycle = "NoPayCycle"
         case hasWriteOff = "HasWriteOff"
+        case hasNameConflict = "HasNameConflict"
         case identityConflict = "IdentityConflict"
     }
     public var declineReason: DeclineReason?

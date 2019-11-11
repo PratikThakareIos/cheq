@@ -13,6 +13,44 @@ import Alamofire
 open class LendingAPI {
     /**
 
+     - parameter request: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func createUserForAssemblyDemo(request: CreateUserForAssemblyDemo? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        createUserForAssemblyDemoWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Lending/users/assembly/users
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter request: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func createUserForAssemblyDemoWithRequestBuilder(request: CreateUserForAssemblyDemo? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/users/assembly/users"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
      - parameter amount: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -121,6 +159,82 @@ open class LendingAPI {
         let requestBuilder: RequestBuilder<GetLendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func pathAssemblyUserKycForAssemblyDemo(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        pathAssemblyUserKycForAssemblyDemoWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Lending/users/assembly/users/kyc
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func pathAssemblyUserKycForAssemblyDemoWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Lending/users/assembly/users/kyc"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter amount: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postAssemblyItem(amount: Double? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postAssemblyItemWithRequestBuilder(amount: amount).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Lending/users/assembly/items
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter amount: (query)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postAssemblyItemWithRequestBuilder(amount: Double? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/users/assembly/items"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "Amount": amount
+        ])
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -241,8 +355,8 @@ open class LendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func resolveIdentityConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        resolveIdentityConflictWithRequestBuilder().execute { (response, error) -> Void in
+    open class func resolveNameConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        resolveNameConflictWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -253,15 +367,15 @@ open class LendingAPI {
 
 
     /**
-     - PUT /v1/Lending/identityconflict/resolve
+     - PUT /v1/Lending/nameconflict/resolve
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
 
      - returns: RequestBuilder<Void> 
      */
-    open class func resolveIdentityConflictWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Lending/identityconflict/resolve"
+    open class func resolveNameConflictWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Lending/nameconflict/resolve"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         

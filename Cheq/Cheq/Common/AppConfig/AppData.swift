@@ -165,13 +165,13 @@ class AppData {
             
         // about me
         case .legalName:
-            AppData.shared.progress = CProgress(aboutMe: 0.25, employmentDetails: 0.0, linkingBank: 0.0)
-        case .dateOfBirth, .ageRange:
             AppData.shared.progress = CProgress(aboutMe: 0.5, employmentDetails: 0.0, linkingBank: 0.0)
+//        case .dateOfBirth, .ageRange:
+//            AppData.shared.progress = CProgress(aboutMe: 0.5, employmentDetails: 0.0, linkingBank: 0.0)
         case .contactDetails:
-            AppData.shared.progress = CProgress(aboutMe: 0.75, employmentDetails: 0.0, linkingBank: 0.0)
-        case .residentialAddress, .state:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
+//        case .residentialAddress, .state:
+//            AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
 //        case .maritalStatus:
 //            AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.0, linkingBank: 0.0)
         case .employmentType:

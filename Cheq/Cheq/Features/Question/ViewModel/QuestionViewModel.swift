@@ -31,6 +31,7 @@ enum QuestionField: String {
     case contactDetails = "mobile"
     case residentialAddress = "residentialAddress"
     case residentialPostcode = "residentialPostcode"
+    case residentialSuburb = "residentialSuburb"
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
 
@@ -55,6 +56,7 @@ enum QuestionField: String {
 
     // bank details
     case bankName = "bankName"
+    case accountName = "accountName"
     case bankBSB = "bankBSB"
     case bankAccNo = "bankAccNo"
     case bankIsJoint = "isJointAccount"
@@ -114,7 +116,7 @@ class QuestionViewModel: BaseViewModel {
 extension QuestionViewModel {
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), ageRange: self.ageRange(), mobile: self.fieldValue(.contactDetails), state: self.putUserResidentialState())
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails))
         return putUserDetailsReq
     }
     
@@ -123,13 +125,13 @@ extension QuestionViewModel {
         return dob
     }
 
-    func ageRange()-> PutUserDetailRequest.AgeRange {
-        return convertAgeRange(self.fieldValue(.ageRange))
-    }
-    
-    func convertAgeRange(_ ageRange: String)-> PutUserDetailRequest.AgeRange {
-        return AgeRangeCoordinator.ageRangeToPutUserDetailsReqAgeRange(ageRange)
-    }
+//    func ageRange()-> PutUserDetailRequest.AgeRange {
+//        return convertAgeRange(self.fieldValue(.ageRange))
+//    }
+//    
+//    func convertAgeRange(_ ageRange: String)-> PutUserDetailRequest.AgeRange {
+//        return AgeRangeCoordinator.ageRangeToPutUserDetailsReqAgeRange(ageRange)
+//    }
     
     func numOfDependent()->String {
         return self.fieldValue(.dependents)
@@ -150,11 +152,11 @@ extension QuestionViewModel {
         return StateCoordinator.convertCStateToState(localEnum)
     }
     
-    func putUserResidentialState()-> PutUserDetailRequest.State {
-        let state = self.fieldValue(.residentialState)
-        let localEnum = cState(fromRawValue: state)
-        return StateCoordinator.convertCStateToPutUserState(localEnum)
-    }
+//    func putUserResidentialState()-> PutUserDetailRequest.State {
+//        let state = self.fieldValue(.residentialState)
+//        let localEnum = cState(fromRawValue: state)
+//        return StateCoordinator.convertCStateToPutUserState(localEnum)
+//    }
 }
 
 extension QuestionViewModel {
