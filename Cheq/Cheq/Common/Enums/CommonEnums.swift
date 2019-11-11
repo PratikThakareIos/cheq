@@ -9,7 +9,7 @@
 import Foundation
 
 enum CurrencySymbol: String {
-    case dollar = "$" 
+    case dollar = "$"
 }
 
 enum LargeCategoryEmoji: String {

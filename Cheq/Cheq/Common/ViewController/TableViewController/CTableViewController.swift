@@ -71,6 +71,12 @@ extension CTableViewController {
         cell.setupConfig()
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellViewModel: TableViewCellViewModelProtocol = self.viewModel.sections[indexPath.section].rows[indexPath.row]
+        let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
+//        cell.animate()
+    }
 }
 
 //extension CTableViewController {

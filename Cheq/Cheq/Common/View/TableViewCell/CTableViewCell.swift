@@ -21,6 +21,11 @@ class CTableViewCell: UITableViewCell, CTableViewCellProtocol {
     func setupConfig() {
         // subclass needs to override
     }
+    
+    func animate() {
+        // subclass can override to put in animation
+        // this gets call when "cellWillDisplay" is triggered in UITableviewdelegate
+    }
 
     var viewModel: TableViewCellViewModelProtocol?
 }

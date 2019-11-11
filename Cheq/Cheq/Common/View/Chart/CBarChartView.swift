@@ -45,13 +45,16 @@ extension CBarChartView: CChartViewProtocol {
 
     func loadData(_ chartModel: CChartModel) {
         guard chartModel.type == .bar else { return }
-        let entries: [ChartDataEntry] = chartModel.dataSet.enumerated().map { (offset: Int, element: (key: String, value: Any)) -> ChartDataEntry in
-            let (_, value) = element
-            //            let k = Double(key)!
-            let k = Double(offset)
-            let v = value as! Double
+        
+        var entries: [ChartDataEntry] = chartModel.dataSet.enumerated().map { (offset: Int, element: (key: String, value: Any)) -> ChartDataEntry in
+            let (key, value) = element
+            let month = Month(rawValue: element.key)
+            let k = Double(CChartModel.monthToInt(month ?? Month.Jan))
+            let v = element.value as! Double
             return BarChartDataEntry(x: k, y: v)
         }
+        
+        entries = entries.sorted(by: { $0.x < $1.x })
         
         let dataSet = BarChartDataSet(entries: entries, label: chartModel.title)
         dataSet.setColor(sharedAppConfig.activeTheme.textBackgroundColor.withAlphaComponent(sharedAppConfig.activeTheme.nonActiveAlpha))

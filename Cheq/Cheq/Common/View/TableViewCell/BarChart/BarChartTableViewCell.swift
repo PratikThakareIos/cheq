@@ -41,4 +41,8 @@ class BarChartTableViewCell: CTableViewCell {
         self.barView.loadData(vm.chartModel())
     }
     
+    override func animate() {
+        self.barView.animate(yAxisDuration: sharedAppConfig.activeTheme.mediumAnimationDuration, easingOption: .easeInOutBounce)
+    }
+    
 }
