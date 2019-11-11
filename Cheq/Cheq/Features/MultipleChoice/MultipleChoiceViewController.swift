@@ -229,8 +229,8 @@ extension MultipleChoiceViewController {
             if var view: UIView = cell.iconImageView {
                 ViewUtil.shared.circularMask(&view)
             }
-            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-                cell.iconImageView.setNeedsLayout()
+            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [.fromCacheOnly], progress: nil, completed: { (image, error, cacheType, imageURL) in
+                self.tableView.reloadRows(at: [indexPath], with: .none)
             })
         } else {
             cell.iconImageView.isHidden = true

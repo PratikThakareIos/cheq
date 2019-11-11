@@ -214,7 +214,7 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
         case .contactDetails:
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
-//            AppData.shared.updateProgressAfterCompleting(.contactDetails)
+            AppData.shared.updateProgressAfterCompleting(.contactDetails)
 //            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
             
             let qVm = QuestionViewModel()

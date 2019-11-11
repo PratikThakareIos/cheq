@@ -33,9 +33,9 @@ class BankAccountCoordinator: QuestionCoordinatorProtocol {
     var numOfCheckBox: Int = 1
 
     func validateInput(_ inputs: [String : Any]) -> ValidationError? {
-        // bank name
-        guard let bankName = inputs[self.placeHolder(0)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        guard StringUtil.shared.isAlphaOnly(bankName) else { return  ValidationError.invalidNameFormat }
+        // account name
+        guard let accountName = inputs[self.placeHolder(0)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isAlphaOnly(accountName) else { return  ValidationError.invalidNameFormat }
         
         // bsb
         guard let bsb = inputs[self.placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }

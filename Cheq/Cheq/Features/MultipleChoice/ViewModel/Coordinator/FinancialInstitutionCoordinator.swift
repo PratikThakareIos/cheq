@@ -12,7 +12,6 @@ import MobileSDK
 
 struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
     
-    let prioritisedBanks = ["Commonwealth Bank", "ANZ", "National Australia Bank", "Westpac"]
     var sectionTitle = Section.bankDetails.rawValue
     var questionTitle = "Choose your bank"
     var coordinatorType: MultipleChoiceQuestionType = .financialInstitutions
@@ -63,14 +62,4 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
         }
     }
     
-}
-
-extension FinancialInstitutionCoordinator {
-    func shiftPrioritisedBanks(_ names: [String], choices: inout [ChoiceModel]) {
-        for choice in choices {
-            if names.contains(choice.title) == true {
-                choices.bringToFront(item: choice)
-            }
-        }
-    }
 }
