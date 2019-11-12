@@ -269,9 +269,9 @@ class TestUtil {
         return remoteBanks.randomElement() ?? commnWealthBank
     }
     
-    func randomTransactions()->[SlimTransactionResponse] {
+    func randomTransactions(_ numberOfItems: Int)->[SlimTransactionResponse] {
         var transactions = [SlimTransactionResponse]()
-        for _ in 0...4 {
+        for _ in 0..<numberOfItems {
             let code = self.slimTransactionCategoryCode(self.randomCategoryCode())
             let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: TestUtil.shared.randomDate())
             let randomBank = TestUtil.shared.randomRemoteBank()
@@ -295,6 +295,22 @@ class TestUtil {
         return result
     }
     
+    func testDailTransactions()->[DailyTransactionsResponse] {
+        var transactions = [DailyTransactionsResponse]()
+        for _ in 0...20 {
+            let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: randomDate())
+            let transaction = DailyTransactionsResponse(date: dateString, transactions: randomTransactions(20))
+            transactions.append(transaction)
+        }
+        return transactions
+    }
+    
+    func testSpendingCategoryById()->GetSpendingSpecificCategoryResponse {
+        let monthAmountStats = testMonthAmountStatResponse()
+        let response = GetSpendingSpecificCategoryResponse(monthAmountStats: monthAmountStats, dailyTransactions: testDailTransactions())
+        return response
+    }
+    
     func testSpendingCategories()->GetSpendingCategoryResponse {
         let monthAmountStats = testMonthAmountStatResponse()
         let response = GetSpendingCategoryResponse(monthAmountStats: monthAmountStats, categoryAmountStats: topCategoriesAmount(19))
@@ -307,7 +323,7 @@ class TestUtil {
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
         
-        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions())
+        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
     }
     

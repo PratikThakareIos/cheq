@@ -37,6 +37,7 @@ class SpendingViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
+        self.title = ScreenName.spending.rawValue
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {
@@ -51,6 +52,9 @@ class SpendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(viewAll(_:)), name: NSNotification.Name(UINotificationEvent.viewAll.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(categoryById(_:))
+            , name: NSNotification.Name(UINotificationEvent.selectedCategoryById.rawValue), object: nil)
     }
 }
 
@@ -82,6 +86,7 @@ extension SpendingViewController {
 
 // MARK: handling view all
 extension SpendingViewController {
+    
     @objc func viewAll(_ notification: NSNotification) {
         
         guard let headerTableViewCell = notification.userInfo?["viewAll"] as? HeaderTableViewCell else { return }

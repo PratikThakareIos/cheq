@@ -78,8 +78,6 @@ extension SpendingViewModel {
 // MARK: category amount
 extension SpendingViewModel {
     func categoryAmounts(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
-        let top = TopTableViewCellViewModel()
-        let bottom = BottomTableViewCellViewModel()
         let spacer = SpacerTableViewCellViewModel()
         if let categoryAmountStatResponseList = spendingOverview.topCategoriesAmount {
             let moneySpentHeader = HeaderTableViewCellViewModel()
@@ -88,14 +86,7 @@ extension SpendingViewModel {
             moneySpentHeader.showViewAll = true
             section.rows.append(moneySpentHeader)
             section.rows.append(spacer)
-            section.rows.append(top)
-            
-            for categoryAmount in categoryAmountStatResponseList {
-                let transactionGroup = TransactionGroupTableViewCellViewModel()
-                transactionGroup.data = categoryAmount
-                section.rows.append(transactionGroup)
-            }
-            section.rows.append(bottom)
+            categoryAmountsList(categoryAmountStatResponseList, section: &section)
         }
     }
 }
@@ -103,11 +94,8 @@ extension SpendingViewModel {
 //MARK: recent transaction list
 extension SpendingViewModel {
     func recentTransactionList(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
-        
-        let top = TopTableViewCellViewModel()
-        let bottom = BottomTableViewCellViewModel()
+    
         let spacer = SpacerTableViewCellViewModel()
-        
         if let recentTransactionList = spendingOverview.recentTransactions {
             let recentTransactionHeader = HeaderTableViewCellViewModel()
             recentTransactionHeader.tag = HeaderTableViewCellTag.recentTransactions.rawValue
@@ -115,20 +103,7 @@ extension SpendingViewModel {
             recentTransactionHeader.showViewAll = true
             section.rows.append(recentTransactionHeader)
             section.rows.append(spacer)
-            section.rows.append(top)
-            
-            var index = 0
-            for transaction: SlimTransactionResponse in recentTransactionList {
-                let recentTransaction = TransactionTableViewCellViewModel()
-                recentTransaction.data = transaction
-                section.rows.append(recentTransaction)
-                if index < recentTransactionList.count - 1 {
-                    section.rows.append(LineSeparatorTableViewCellViewModel())
-                }
-                index = index + 1
-            }
-            
-            section.rows.append(bottom)
+            transactionList(recentTransactionList, section: &section)
             section.rows.append(spacer)
         }
     }

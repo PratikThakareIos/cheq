@@ -48,6 +48,7 @@ enum CheqAPIManagerError: Error, Equatable {
 enum CheqAPIManagerError_Spending: Error {
     case unableToRetrieveOverview
     case unableToRetrieveCategories
+    case unableToRetrieveCategoryById
     case unableToRetrieveTransactions
     
 }
@@ -179,6 +180,8 @@ extension CheqAPIManagerError_Spending: LocalizedError {
             return NSLocalizedString("Unable to retrieve spending categories, please try again later.", comment: "")
         case .unableToRetrieveTransactions:
             return NSLocalizedString("Unable to retrieve transactions, please try again later.", comment: "")
+        case .unableToRetrieveCategoryById:
+            return NSLocalizedString("Unable to retrieve spending by category by id, please try again later", comment: "")
         }
     }
 }

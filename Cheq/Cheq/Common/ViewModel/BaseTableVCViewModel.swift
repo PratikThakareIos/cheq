@@ -22,3 +22,44 @@ class BaseTableVCViewModel {
         self.sections.insert(section, at: index)
     }
 }
+
+// common rendering methods
+extension BaseTableVCViewModel {
+    func categoryMonthlyStats(_ monthAmountStatus: [MonthAmountStatResponse]?, section: inout TableSectionViewModel) {
+        let barChart = BarChartTableViewCellViewModel()
+        let spacer = SpacerTableViewCellViewModel()
+        barChart.data = monthAmountStatus ?? []
+        section.rows.append(barChart)
+        section.rows.append(spacer)
+    }
+    
+    func transactionList(_ transactionList: [SlimTransactionResponse], section: inout TableSectionViewModel) {
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        var index = 0
+        section.rows.append(top)
+        for transaction: SlimTransactionResponse in transactionList {
+            let recentTransaction = TransactionTableViewCellViewModel()
+            recentTransaction.data = transaction
+            section.rows.append(recentTransaction)
+            if index < transactionList.count - 1 {
+                section.rows.append(LineSeparatorTableViewCellViewModel())
+            }
+            index = index + 1
+        }
+        
+        section.rows.append(bottom)
+    }
+    
+    func categoryAmountsList(_ categories: [CategoryAmountStatResponse], section: inout TableSectionViewModel) {
+        let top = TopTableViewCellViewModel()
+        let bottom = BottomTableViewCellViewModel()
+        section.rows.append(top)
+        for categoryAmount in categories {
+            let transactionGroup = TransactionGroupTableViewCellViewModel()
+            transactionGroup.data = categoryAmount
+            section.rows.append(transactionGroup)
+        }
+        section.rows.append(bottom)
+    }
+}

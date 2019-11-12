@@ -21,6 +21,9 @@ class TransactionGroupTableViewCell: CTableViewCell {
         super.awakeFromNib()
         // Initialization codes
         self.viewModel = TransactionGroupTableViewCellViewModel()
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showCategory))
+        tapRecognizer.numberOfTapsRequired = 1
+        self.containerView.addGestureRecognizer(tapRecognizer)
         setupConfig()
     }
 
@@ -42,5 +45,10 @@ class TransactionGroupTableViewCell: CTableViewCell {
         let amount = vm.data.categoryAmount ?? 0.0
         let total = vm.data.totalAmount ?? 100.0
         self.progressView.progress = Float(amount / total)
+    }
+    
+    @objc func showCategory() {
+        let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
+        NotificationUtil.shared.notify(UINotificationEvent.selectedCategoryById.rawValue, key: "id", value: String(vm.data.categoryId ?? 0))
     }
 }

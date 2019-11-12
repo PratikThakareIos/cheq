@@ -10,6 +10,29 @@ import UIKit
 import PromiseKit 
 
 extension CheqAPIManager {
+    
+    func spendingCategoryById(_ id: Int)->Promise<GetSpendingSpecificCategoryResponse> {
+        return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
+            
+            let spendingSpecificCategoryResponse = TestUtil.shared.testSpendingCategoryById()
+            resolver.fulfill(spendingSpecificCategoryResponse)
+            
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                SpendingAPI.getSpendingSpecificCategoryStatsWithRequestBuilder(_id: id).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (getSpendingSpecificCategoryResponse, err) in
+//                    if let error = err {
+//                        resolver.reject(error); return
+//                    }
+//                    guard let response = getSpendingSpecificCategoryResponse?.body else {
+//                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveCategoryById); return
+//                    }
+//                    resolver.fulfill(response)
+//                })
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+        }
+    }
 
     func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
         return Promise<GetSpendingSpecificCategoryResponse>() { resolver in

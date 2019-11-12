@@ -12,6 +12,7 @@ class UpcomingBillsTableViewCellViewModel: NSObject, TableViewCellViewModelProto
     var identifier = "UpcomingBillsTableViewCell"
 
     var upcomingBills = [UpcomingBillCollectionViewCellViewModel]()
+    var cellHeight = AppConfig.shared.screenHeight() * 0.3
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return upcomingBills.count

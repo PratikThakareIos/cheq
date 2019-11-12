@@ -54,8 +54,9 @@ enum ScreenName: String {
     case lending = "Lending"
     
     // spending
-    case spending = "Spending"
+    case spending = "Overview"
     case spendingCategories = "Money Spent"
+    case spendingCategoryById = "Spending Category"
     case spendingTransactions = "SpendingTransactions"
     
     init(fromRawValue: String) {
@@ -136,6 +137,9 @@ class AppData {
     var selectedEmployerAddress: Int = 0 
     var selectedResidentialAddress: Int = 0
     var selectedEmployerAddressString: String = ""
+    
+    // spending scenarios
+    var selectedCategoryId: Int = 0
 
     // lending scenarios
     var completingDetailsForLending = false

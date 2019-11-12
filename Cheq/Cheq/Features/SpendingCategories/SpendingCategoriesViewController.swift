@@ -48,6 +48,9 @@ class SpendingCategoriesViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(spendingCategories(_:)), name: NSNotification.Name(UINotificationEvent.spendingCategories.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(categoryById(_:))
+            , name: NSNotification.Name(UINotificationEvent.selectedCategoryById.rawValue), object: nil)
     }
 }
 

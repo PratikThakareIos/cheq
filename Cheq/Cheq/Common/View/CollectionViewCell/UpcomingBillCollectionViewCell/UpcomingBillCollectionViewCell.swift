@@ -15,6 +15,7 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
     @IBOutlet weak var remainingTimeLabel: CLabel!
     @IBOutlet weak var amountLabel: CLabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var collectionViewCellHeight: NSLayoutConstraint! 
     
     override func awakeFromNib() {
         super.awakeFromNib()

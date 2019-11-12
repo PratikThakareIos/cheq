@@ -22,7 +22,7 @@ class SpendingCategoriesViewModel: BaseTableVCViewModel {
             self.sections.removeAll()
         }
         var section = TableSectionViewModel()
-        categoryMonthlyStats(spendingCategories, section: &section)
+        categoryMonthlyStats(spendingCategories.monthAmountStats, section: &section)
         categoryAmounts(spendingCategories, section: &section)
         self.sections = [section]
         NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
@@ -30,15 +30,6 @@ class SpendingCategoriesViewModel: BaseTableVCViewModel {
 }
 
 extension SpendingCategoriesViewModel {
-    
-    func categoryMonthlyStats(_ spendingCategories: GetSpendingCategoryResponse, section: inout TableSectionViewModel) {
-        let monthAmountStats = spendingCategories.monthAmountStats
-        let barChart = BarChartTableViewCellViewModel()
-        let spacer = SpacerTableViewCellViewModel()
-        barChart.data = monthAmountStats ?? []
-        section.rows.append(barChart)
-        section.rows.append(spacer)
-    }
     
     func categoryAmounts(_ spendingCategories: GetSpendingCategoryResponse, section: inout TableSectionViewModel) {
         let top = TopTableViewCellViewModel()

@@ -14,7 +14,8 @@ class TransactionTableViewCell: CTableViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var transactionTitle: CLabel!
     @IBOutlet weak var transactionDate: CLabel!
-    @IBOutlet weak var transactionAmount: CLabel! 
+    @IBOutlet weak var transactionAmount: CLabel!
+    @IBOutlet weak var iconImageSpacing: NSLayoutConstraint! 
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,7 @@ class TransactionTableViewCell: CTableViewCell {
         self.transactionDate.text = vm.data.date
         self.transactionDate.font = AppConfig.shared.activeTheme.defaultFont
         self.transactionDate.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        self.iconImageSpacing.constant = CGFloat(AppConfig.shared.activeTheme.xxlPadding)
     }
     
 }
