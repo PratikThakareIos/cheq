@@ -15,6 +15,7 @@ class TransactionGroupTableViewCell: CTableViewCell {
     @IBOutlet weak var categoryIcon: UIImageView!
     @IBOutlet weak var progressView: CProgressView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,7 @@ class TransactionGroupTableViewCell: CTableViewCell {
         self.progressView.setupConfig()
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
-        self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue)
+        self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
         let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
         let iconName = DataHelperUtil.shared.iconFromCategory(code)
         self.categoryIcon.image = UIImage.init(named: iconName)

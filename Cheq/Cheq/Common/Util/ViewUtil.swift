@@ -8,13 +8,22 @@
 
 import UIKit
 
+enum radiusBy {
+    case height
+    case width
+}
+
 class ViewUtil {
     static let shared = ViewUtil()
     private init() {}
     
-    func circularMask(_ view: inout UIView) {
+    func circularMask(_ view: inout UIView, radiusBy: radiusBy) {
         view.layer.masksToBounds = false
-        view.layer.cornerRadius = view.frame.height / 2
+        if radiusBy == .height {
+            view.layer.cornerRadius = view.frame.height / 2
+        } else {
+            view.layer.cornerRadius = view.frame.width / 2
+        }
         view.clipsToBounds = true
     }
 

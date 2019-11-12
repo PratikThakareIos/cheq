@@ -34,7 +34,7 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
         self.merchanLabel.text = vm.data.merchant
         self.remainingTimeLabel.text = String("in \(vm.data.daysToDueDate ?? -1) days")
-        self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue)
+        self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
         
         let categoryCode = DataHelperUtil.shared.categoryAmountStateCode(vm.data.categoryCode ?? GetUpcomingBillResponse.CategoryCode.others)
         let iconName = DataHelperUtil.shared.iconFromCategory(categoryCode)

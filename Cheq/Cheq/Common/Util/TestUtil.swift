@@ -9,6 +9,7 @@
 import UIKit
 import MobileSDK
 import PromiseKit
+import DateToolsSwift
 
 class TestUtil {
     static let shared = TestUtil()
@@ -283,7 +284,10 @@ class TestUtil {
     func testMonthAmountStatResponse()->[MonthAmountStatResponse] {
         
         var result = [MonthAmountStatResponse]()
-        let months = ["Jun", "Jul", "Aug", "Sep"]
+        let months = [ FormatterUtil.shared.monthFromDate(2.months.earlier),
+                       FormatterUtil.shared.monthFromDate(1.months.earlier),
+                       FormatterUtil.shared.monthFromDate(Date()),
+                       FormatterUtil.shared.monthFromDate(1.months.later)]
         for i in 0...3 {
             let monthAmountStatResponse = MonthAmountStatResponse(amount: randomPositiveAmount(), month: months[i])
             result.append(monthAmountStatResponse)

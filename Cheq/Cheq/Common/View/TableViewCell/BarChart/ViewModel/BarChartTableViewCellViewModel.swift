@@ -7,17 +7,50 @@
 //
 
 import UIKit
+import DateToolsSwift
 
 class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "BarChartTableViewCell"
     var data: [MonthAmountStatResponse] = []
+    var referenceAmount: Double = 0.0
     
-    
-    func chartModel()->CChartModel {
-        var barData: [String: Any] = [:]
+    func barViewModel()->[BarViewModel] {
+        self.referenceAmount = findLargest()
+        var barList = [BarViewModel]()
         for monthAmountStat in data {
-            barData[monthAmountStat.month ?? ""] = monthAmountStat.amount ?? 0.0
+            let bar = BarViewModel()
+            bar.barBackground = AppConfig.shared.activeTheme.backgroundColor
+            bar.barTintStartColor = AppConfig.shared.activeTheme.gradientSet4.first ?? .red
+            bar.barTintEndColor = AppConfig.shared.activeTheme.gradientSet4.last ?? .red
+            bar.amount = monthAmountStat.amount ?? 0.0
+            bar.label = monthAmountStat.month ?? ""
+            bar.progress = CGFloat(bar.amount / self.referenceAmount)
+            
+            let now = Date()
+            let month = Month(rawValue: monthAmountStat.month ?? Month.Jan.rawValue) ?? Month.Jan
+            if now.month == FormatterUtil.monthToInt(month) {
+                bar.barViewState = .active
+            }
+            barList.append(bar)
         }
-        return CChartModel(title: "", type: .bar, dataSet: barData)
+        return barList
+    }
+    
+    func calculateSum()->Double {
+        var total = 0.0
+        for monthAmountStat in self.data {
+            let amount = monthAmountStat.amount ?? 0.0
+            total = total + amount
+        }
+        return total
+    }
+    
+    func findLargest()->Double {
+        var largest = 0.0
+        for monthAmountStat in self.data {
+            let amount = monthAmountStat.amount ?? 0.0
+            largest = largest > amount ? largest : amount
+        }
+        return largest
     }
 }

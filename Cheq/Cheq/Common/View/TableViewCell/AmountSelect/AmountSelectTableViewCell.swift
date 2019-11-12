@@ -34,8 +34,8 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     override func setupConfig() {
         self.backgroundColor = .clear
-        ViewUtil.shared.circularMask(&self.controlView)
-        ViewUtil.shared.circularMask(&self.infoView)
+        ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
+        ViewUtil.shared.circularMask(&self.infoView, radiusBy: .height)
         ViewUtil.shared.applyBorder(&self.infoView, borderSize: 20.0, color: AppConfig.shared.activeTheme.backgroundColor)
 
         // loan amount

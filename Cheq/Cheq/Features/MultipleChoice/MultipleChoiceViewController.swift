@@ -227,7 +227,7 @@ extension MultipleChoiceViewController {
             cell.iconImageView.isHidden = false
             let imageUrl = URL(string: imageName)
             if var view: UIView = cell.iconImageView {
-                ViewUtil.shared.circularMask(&view)
+                ViewUtil.shared.circularMask(&view, radiusBy: .height)
             }
             cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [.fromCacheOnly], progress: nil, completed: { (image, error, cacheType, imageURL) in
                 self.tableView.reloadRows(at: [indexPath], with: .none)

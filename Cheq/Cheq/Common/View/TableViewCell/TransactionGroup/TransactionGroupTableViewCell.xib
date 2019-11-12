@@ -27,9 +27,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lim-gl-8ub">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="10.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="Lbi-G8-bLg"/>
-                                        </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-dR-5rD">
                                         <rect key="frame" x="0.0" y="10.5" width="320" height="30"/>
@@ -90,11 +87,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaw-Zz-OgM">
                                         <rect key="frame" x="0.0" y="60.5" width="320" height="10"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="e1o-NE-jU7"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="aaw-Zz-OgM" firstAttribute="height" secondItem="Lim-gl-8ub" secondAttribute="height" id="XlY-io-HFJ"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.47492731030000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -120,6 +117,7 @@
                 <outlet property="categoryIcon" destination="rSy-ca-xqz" id="HZm-jh-nDm"/>
                 <outlet property="categoryTitle" destination="KKk-te-ayG" id="YhP-el-UX0"/>
                 <outlet property="containerView" destination="EFc-ez-Ahm" id="Xq6-a5-IbS"/>
+                <outlet property="heightConstraint" destination="E0N-gg-Sv0" id="SzJ-oe-n4v"/>
                 <outlet property="progressView" destination="X8h-EH-LtX" id="yRr-go-Pfy"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="94.084821428571431"/>

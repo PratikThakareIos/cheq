@@ -43,6 +43,15 @@ class AppConfig {
 
 // MARK: Linking to Setting Screen
 extension AppConfig {
+    
+    func screenHeight()->CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    func screenWidth()->CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
     func toAppSetting() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }

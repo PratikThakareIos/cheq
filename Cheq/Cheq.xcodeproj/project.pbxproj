@@ -622,6 +622,22 @@
 		4F232597237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
 		4F232598237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
 		4F232599237906A500BF3F21 /* BarChartTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */; };
+		4F23259E2379323000BF3F21 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23259D2379323000BF3F21 /* BarView.xib */; };
+		4F23259F2379323000BF3F21 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23259D2379323000BF3F21 /* BarView.xib */; };
+		4F2325A02379323000BF3F21 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23259D2379323000BF3F21 /* BarView.xib */; };
+		4F2325A12379323000BF3F21 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F23259D2379323000BF3F21 /* BarView.xib */; };
+		4F2325A32379324000BF3F21 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A22379324000BF3F21 /* BarView.swift */; };
+		4F2325A42379324000BF3F21 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A22379324000BF3F21 /* BarView.swift */; };
+		4F2325A52379324000BF3F21 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A22379324000BF3F21 /* BarView.swift */; };
+		4F2325A62379324000BF3F21 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A22379324000BF3F21 /* BarView.swift */; };
+		4F2325A92379375D00BF3F21 /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A82379375D00BF3F21 /* BarViewModel.swift */; };
+		4F2325AA2379375D00BF3F21 /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A82379375D00BF3F21 /* BarViewModel.swift */; };
+		4F2325AB2379375D00BF3F21 /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A82379375D00BF3F21 /* BarViewModel.swift */; };
+		4F2325AC2379375D00BF3F21 /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325A82379375D00BF3F21 /* BarViewModel.swift */; };
+		4F2325B4237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */; };
+		4F2325B5237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */; };
+		4F2325B6237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */; };
+		4F2325B7237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */; };
 		4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */; };
 		4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E48A32331CC48001F1BA2 /* AppNav.swift */; };
 		4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */; };
@@ -1533,6 +1549,10 @@
 		4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarChartTableViewCell.xib; sourceTree = "<group>"; };
 		4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F23259D2379323000BF3F21 /* BarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
+		4F2325A22379324000BF3F21 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		4F2325A82379375D00BF3F21 /* BarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewModel.swift; sourceTree = "<group>"; };
+		4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint_Extension.swift; sourceTree = "<group>"; };
 		4F2E2BA0231EA57400C75B09 /* LoggingUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUtil.swift; sourceTree = "<group>"; };
 		4F2E48A32331CC48001F1BA2 /* AppNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNav.swift; sourceTree = "<group>"; };
 		4F2E49F7233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialInstitutionCoordinator.swift; sourceTree = "<group>"; };
@@ -1886,6 +1906,7 @@
 				4F231AF723641DED00874D07 /* String_Extension.swift */,
 				4F231AFC2364740700874D07 /* Error_Extension.swift */,
 				4FD229032373E9FC00045662 /* Image_Extension.swift */,
+				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2323,6 +2344,7 @@
 		4F2325892379060900BF3F21 /* BarChart */ = {
 			isa = PBXGroup;
 			children = (
+				4F23259C2379320C00BF3F21 /* BarView */,
 				4F23258A2379061A00BF3F21 /* ViewModel */,
 				4F23258B2379068A00BF3F21 /* BarChartTableViewCell.swift */,
 				4F23258C2379068A00BF3F21 /* BarChartTableViewCell.xib */,
@@ -2334,6 +2356,24 @@
 			isa = PBXGroup;
 			children = (
 				4F232595237906A500BF3F21 /* BarChartTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F23259C2379320C00BF3F21 /* BarView */ = {
+			isa = PBXGroup;
+			children = (
+				4F2325A72379374800BF3F21 /* ViewModel */,
+				4F2325A22379324000BF3F21 /* BarView.swift */,
+				4F23259D2379323000BF3F21 /* BarView.xib */,
+			);
+			path = BarView;
+			sourceTree = "<group>";
+		};
+		4F2325A72379374800BF3F21 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F2325A82379375D00BF3F21 /* BarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3832,6 +3872,7 @@
 				4F2325932379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4F231ADC2363E26E00874D07 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F231ADD2363E26E00874D07 /* Common.storyboard in Resources */,
+				4F2325A02379323000BF3F21 /* BarView.xib in Resources */,
 				4F231ADE2363E26E00874D07 /* CompletionProgressTableViewCell.xib in Resources */,
 				4F231ADF2363E26E00874D07 /* HistoryItemTableViewCell.xib in Resources */,
 				4F231AE02363E26E00874D07 /* AgreementItemTableViewCell.xib in Resources */,
@@ -3870,6 +3911,7 @@
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */,
+				4F2325A12379323000BF3F21 /* BarView.xib in Resources */,
 				4FBDDB28236BC68700EDB1E9 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FBDDB29236BC68700EDB1E9 /* HistoryItemTableViewCell.xib in Resources */,
 				4FBDDB2A236BC68700EDB1E9 /* AgreementItemTableViewCell.xib in Resources */,
@@ -3908,6 +3950,7 @@
 				4F2325922379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				4FD83AC023631ABA0069EB30 /* GoogleService-Info.plist in Resources */,
 				4FD83AC123631ABA0069EB30 /* CompleteDetailsTableViewCell.xib in Resources */,
+				4F23259F2379323000BF3F21 /* BarView.xib in Resources */,
 				4FD83AC223631ABA0069EB30 /* Common.storyboard in Resources */,
 				4FD83AC323631ABA0069EB30 /* CompletionProgressTableViewCell.xib in Resources */,
 				4FD83AC423631ABA0069EB30 /* HistoryItemTableViewCell.xib in Resources */,
@@ -3946,6 +3989,7 @@
 				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
+				4F23259E2379323000BF3F21 /* BarView.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
@@ -4518,6 +4562,7 @@
 				4F231A3B2363E26E00874D07 /* MessageBubbleTableViewCell.swift in Sources */,
 				4F2324A42378C26C00BF3F21 /* JSONEncodableEncoding.swift in Sources */,
 				4F231A3C2363E26E00874D07 /* CKeychain.swift in Sources */,
+				4F2325A52379324000BF3F21 /* BarView.swift in Sources */,
 				4F231A3D2363E26E00874D07 /* TableViewCellViewModelProtocol.swift in Sources */,
 				4F231A3E2363E26E00874D07 /* CPageControl.swift in Sources */,
 				4F231A3F2363E26E00874D07 /* SwipeToConfirmTableViewCell.swift in Sources */,
@@ -4540,6 +4585,7 @@
 				4F2324032375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324742378C26C00BF3F21 /* APIHelper.swift in Sources */,
 				4F231A542363E26E00874D07 /* SplashViewController.swift in Sources */,
+				4F2325B6237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4F231A562363E26E00874D07 /* TopTableViewCell.swift in Sources */,
 				4F2324A02378C26C00BF3F21 /* CodableHelper.swift in Sources */,
 				4F231A572363E26E00874D07 /* CPickerView.swift in Sources */,
@@ -4675,6 +4721,7 @@
 				4F231AC52363E26E00874D07 /* ResidentialAddressCoordinator.swift in Sources */,
 				4F231AC62363E26E00874D07 /* DynamicFormViewController.swift in Sources */,
 				4F231AC72363E26E00874D07 /* VerifyIdentityIntroCoordinator.swift in Sources */,
+				4F2325AB2379375D00BF3F21 /* BarViewModel.swift in Sources */,
 				4F231AC82363E26E00874D07 /* HeaderTableViewCellViewModel.swift in Sources */,
 				4F2325002378C26C00BF3F21 /* GetLoanPreviewResponse.swift in Sources */,
 				4F231ACA2363E26E00874D07 /* DarkTheme.swift in Sources */,
@@ -4810,6 +4857,7 @@
 				4FBDDA83236BC68700EDB1E9 /* MessageBubbleTableViewCell.swift in Sources */,
 				4F2324A52378C26C00BF3F21 /* JSONEncodableEncoding.swift in Sources */,
 				4FBDDA84236BC68700EDB1E9 /* CKeychain.swift in Sources */,
+				4F2325A62379324000BF3F21 /* BarView.swift in Sources */,
 				4FBDDA85236BC68700EDB1E9 /* TableViewCellViewModelProtocol.swift in Sources */,
 				4FBDDA86236BC68700EDB1E9 /* CPageControl.swift in Sources */,
 				4FBDDA87236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.swift in Sources */,
@@ -4832,6 +4880,7 @@
 				4F2324042375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324752378C26C00BF3F21 /* APIHelper.swift in Sources */,
 				4FBDDA9C236BC68700EDB1E9 /* SplashViewController.swift in Sources */,
+				4F2325B7237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4FBDDA9E236BC68700EDB1E9 /* TopTableViewCell.swift in Sources */,
 				4F2324A12378C26C00BF3F21 /* CodableHelper.swift in Sources */,
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
@@ -4967,6 +5016,7 @@
 				4FBDDB0E236BC68700EDB1E9 /* ResidentialAddressCoordinator.swift in Sources */,
 				4FBDDB0F236BC68700EDB1E9 /* DynamicFormViewController.swift in Sources */,
 				4FBDDB10236BC68700EDB1E9 /* VerifyIdentityIntroCoordinator.swift in Sources */,
+				4F2325AC2379375D00BF3F21 /* BarViewModel.swift in Sources */,
 				4FBDDB11236BC68700EDB1E9 /* HeaderTableViewCellViewModel.swift in Sources */,
 				4F2325012378C26C00BF3F21 /* GetLoanPreviewResponse.swift in Sources */,
 				4FBDDB13236BC68700EDB1E9 /* DarkTheme.swift in Sources */,
@@ -5102,6 +5152,7 @@
 				4FD83A1B23631ABA0069EB30 /* AppDelegate.swift in Sources */,
 				4F2324A32378C26C00BF3F21 /* JSONEncodableEncoding.swift in Sources */,
 				4FD83A1D23631ABA0069EB30 /* MessageBubbleTableViewCell.swift in Sources */,
+				4F2325A42379324000BF3F21 /* BarView.swift in Sources */,
 				4FD83A1E23631ABA0069EB30 /* CKeychain.swift in Sources */,
 				4FD83A1F23631ABA0069EB30 /* TableViewCellViewModelProtocol.swift in Sources */,
 				4FD83A2023631ABA0069EB30 /* CPageControl.swift in Sources */,
@@ -5124,6 +5175,7 @@
 				4FD83A3323631ABA0069EB30 /* CommonEnums.swift in Sources */,
 				4F2324732378C26C00BF3F21 /* APIHelper.swift in Sources */,
 				4F2324022375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
+				4F2325B5237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4FD83A3623631ABA0069EB30 /* SplashViewController.swift in Sources */,
 				4F23249F2378C26C00BF3F21 /* CodableHelper.swift in Sources */,
 				4FD83A3823631ABA0069EB30 /* TopTableViewCell.swift in Sources */,
@@ -5259,6 +5311,7 @@
 				4FD83AA723631ABA0069EB30 /* ResidentialAddressCoordinator.swift in Sources */,
 				4FD83AA823631ABA0069EB30 /* DynamicFormViewController.swift in Sources */,
 				4FD83AA923631ABA0069EB30 /* VerifyIdentityIntroCoordinator.swift in Sources */,
+				4F2325AA2379375D00BF3F21 /* BarViewModel.swift in Sources */,
 				4FD83AAA23631ABA0069EB30 /* HeaderTableViewCellViewModel.swift in Sources */,
 				4F2324FF2378C26C00BF3F21 /* GetLoanPreviewResponse.swift in Sources */,
 				4FD83AAC23631ABA0069EB30 /* DarkTheme.swift in Sources */,
@@ -5394,6 +5447,7 @@
 				4FB1CB382355375D00E7B224 /* MessageBubbleTableViewCell.swift in Sources */,
 				4F2324A22378C26C00BF3F21 /* JSONEncodableEncoding.swift in Sources */,
 				96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */,
+				4F2325A32379324000BF3F21 /* BarView.swift in Sources */,
 				964FA99C2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift in Sources */,
 				4F0D713F2345761500AA819C /* CPageControl.swift in Sources */,
 				4FB1CC5423554CCD00E7B224 /* SwipeToConfirmTableViewCell.swift in Sources */,
@@ -5416,6 +5470,7 @@
 				4F2324012375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4F2324722378C26C00BF3F21 /* APIHelper.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
+				4F2325B4237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F23249E2378C26C00BF3F21 /* CodableHelper.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
@@ -5551,6 +5606,7 @@
 				4F0D71542345AB8500AA819C /* ResidentialAddressCoordinator.swift in Sources */,
 				964F7BE723332F7C00338227 /* DynamicFormViewController.swift in Sources */,
 				9654D496234EACFD00847389 /* VerifyIdentityIntroCoordinator.swift in Sources */,
+				4F2325A92379375D00BF3F21 /* BarViewModel.swift in Sources */,
 				9600A71C23534F630082C2A3 /* HeaderTableViewCellViewModel.swift in Sources */,
 				4F2324FE2378C26C00BF3F21 /* GetLoanPreviewResponse.swift in Sources */,
 				9695E36E230016C60037A49D /* DarkTheme.swift in Sources */,
