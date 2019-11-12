@@ -13,6 +13,7 @@ class InfoNoteTableViewCell: CTableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var infoIcon: UIImageView! 
     @IBOutlet weak var informationNoteLabel: CLabel!
+    @IBOutlet weak var infoIconSpacing: NSLayoutConstraint! 
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,7 @@ class InfoNoteTableViewCell: CTableViewCell {
         self.containerView.backgroundColor = .clear 
         informationNoteLabel.font = AppConfig.shared.activeTheme.defaultFont
         informationNoteLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        infoIconSpacing.constant = CGFloat(AppConfig.shared.activeTheme.xxlPadding)
     }
     
 }

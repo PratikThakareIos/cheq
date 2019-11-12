@@ -18,6 +18,11 @@ class CProgressView: UIProgressView {
     
     var mode: CProgressColorMode = .information
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupConfig()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConfig()
@@ -49,7 +54,7 @@ class CProgressView: UIProgressView {
     
     override open var intrinsicContentSize: CGSize {
         get {
-            return CGSize(width: UIScreen.main.bounds.size.width * 0.2 , height: AppConfig.shared.activeTheme.defaultProgressBarHeight)
+            return CGSize(width: AppConfig.shared.screenWidth() * 0.2 , height: AppConfig.shared.activeTheme.defaultProgressBarHeight)
         }
     }
 }

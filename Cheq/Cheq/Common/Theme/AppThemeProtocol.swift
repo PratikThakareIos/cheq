@@ -95,11 +95,11 @@ protocol AppThemeProtocol {
 // MARK: Styling logics 
 extension AppThemeProtocol {
 
-    var defaultCornerRadius: CGFloat { get { return 20.0 } }
-    var defaultButtonHeight: CGFloat { get { return 56.0 }}
-    var defaultTextFieldHeight: CGFloat { get { return 56.0 }}
-    var defaultProgressBarHeight: CGFloat { get { return 6.0 }}
-    var popoverMenuLabelHeight: CGFloat { get { return 40.0 } }
+    var defaultCornerRadius: CGFloat { get { return AppConfig.shared.screenHeight() * 0.025 } }
+    var defaultButtonHeight: CGFloat { get { return AppConfig.shared.screenHeight() * 0.07 }}
+    var defaultTextFieldHeight: CGFloat { get { return AppConfig.shared.screenHeight() * 0.07 }}
+    var defaultProgressBarHeight: CGFloat { get { return AppConfig.shared.screenHeight() * 0.01 }}
+    var popoverMenuLabelHeight: CGFloat { get { return AppConfig.shared.screenHeight() * 0.05 } }
     var popoverMenuToScreenWidthRatio: CGFloat { get { return 0.5 } }
 
     func roundRectButton(_ button: inout UIButton) {

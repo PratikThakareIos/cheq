@@ -25,25 +25,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="183.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-CI-CEP">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="45.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="VeK-qV-cbD"/>
-                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$1,225" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Rj-e99" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="240" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="240" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-xE-A7c" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="80.5" width="240" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="86" width="240" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mK-81-U1Q" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="111" width="240" height="2"/>
+                                        <rect key="frame" x="0.0" y="116.5" width="240" height="2"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G0h-A1-TIe">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="2"/>
@@ -80,18 +77,18 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="5 days til payday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYm-0j-hQC" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="123" width="240" height="10.5"/>
+                                        <rect key="frame" x="0.0" y="128.5" width="240" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ub0-JZ-8Kb">
-                                        <rect key="frame" x="0.0" y="143.5" width="240" height="40"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="240" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="yLW-CI-CEP" firstAttribute="height" secondItem="Ub0-JZ-8Kb" secondAttribute="height" id="FST-n8-NlF"/>
+                                    <constraint firstItem="yLW-CI-CEP" firstAttribute="height" secondItem="Ub0-JZ-8Kb" secondAttribute="height" id="2tL-m2-lZb"/>
                                 </constraints>
                             </stackView>
                         </subviews>

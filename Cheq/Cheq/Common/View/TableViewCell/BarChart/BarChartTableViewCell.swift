@@ -42,12 +42,4 @@ class BarChartTableViewCell: CTableViewCell {
             barView.setupConfig()
         }
     }
-    
-//    override func animate() {
-//        for bar in self.horizontalStackView.arrangedSubviews {
-//            let barView: BarView = bar as! BarView
-//            barView.animate()
-//        }
-//    }
-    
 }

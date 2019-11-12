@@ -41,12 +41,4 @@ class BarView: UIView {
         self.progress.constant = self.viewModel.progress * barHeight
         self.progressBarWidth.constant = self.viewModel.barWidth
     }
-    
-//    func animate() {
-//        LoggingUtil.shared.cPrint("animate bar view here")
-//        self.progress.constant = 0.0
-//        UIView.animate(withDuration: AppConfig.shared.activeTheme.quickAnimationDuration) {
-//            self.progress.constant = self.viewModel.progress * self.barHeight
-//        }
-//    }
 }
