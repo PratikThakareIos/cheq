@@ -139,7 +139,7 @@ class AppData {
     var selectedEmployerAddressString: String = ""
     
     // spending scenarios
-    var selectedCategoryId: Int = 0
+    var selectedCategory: CategoryAmountStatResponse? = nil
 
     // lending scenarios
     var completingDetailsForLending = false

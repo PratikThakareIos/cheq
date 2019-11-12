@@ -49,6 +49,6 @@ class TransactionGroupTableViewCell: CTableViewCell {
     
     @objc func showCategory() {
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
-        NotificationUtil.shared.notify(UINotificationEvent.selectedCategoryById.rawValue, key: "id", value: String(vm.data.categoryId ?? 0))
+        NotificationUtil.shared.notify(UINotificationEvent.selectedCategoryById.rawValue, key: NotificationUserInfoKey.category.rawValue, object: vm.data)
     }
 }

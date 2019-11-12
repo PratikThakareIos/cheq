@@ -43,9 +43,8 @@ extension CTableViewController {
     }
     
     @objc func categoryById(_ notification: NSNotification) {
-        guard let categoryId = notification.userInfo?["id"] as? String else { return }
-        guard let id = Int(categoryId) else { return }
-        AppData.shared.selectedCategoryId = id
+        guard let category = notification.userInfo?[NotificationUserInfoKey.category.rawValue] as? CategoryAmountStatResponse else { return }
+        AppData.shared.selectedCategory = category
         // app nav to category id
         let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spendingCategoryById.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(vc, from: self)

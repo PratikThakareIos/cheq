@@ -11,9 +11,9 @@ import UIKit
 class FormatterUtil {
     
     static let defaultFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-    static let userFriendlyFormat = "ddd, DD MM"
+    static let userFriendlyFormat = "dd MMM, yyyy"
     static let monthOnly = "MMM"
-    static let simpleDate = "DD MMM"
+    static let simpleDate = "dd MMM"
     
     static let shared = FormatterUtil()
     

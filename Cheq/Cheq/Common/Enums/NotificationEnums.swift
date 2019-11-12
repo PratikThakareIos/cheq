@@ -46,4 +46,5 @@ enum NotificationUserInfoKey: String {
     case storyboardName = "storyboardName"
     case storyboardId = "storyboardId"
     case err = "err"
+    case category = "category"
 }

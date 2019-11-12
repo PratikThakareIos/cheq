@@ -11,7 +11,7 @@ import UIKit
 class SpendingSpecificCategoryViewController: CTableViewController {
 
     override func registerCells() {
-        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),  HeaderTableViewCellViewModel(), TransactionTableViewCellViewModel(), BarChartTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel()]
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),  HeaderTableViewCellViewModel(), TransactionTableViewCellViewModel(), LineSeparatorTableViewCellViewModel(), BarChartTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel()]
         for vm: TableViewCellViewModelProtocol in cellModels {
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
@@ -35,7 +35,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
-        self.title = ScreenName.spendingCategories.rawValue
+        self.title = ScreenName.spendingCategoryById.rawValue
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {
@@ -61,7 +61,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     @objc func loadCategoryTransactions(_ notification: NSNotification) {
         LoggingUtil.shared.cPrint("loadCategoryTransactions")
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.spendingCategoryById(AppData.shared.selectedCategoryId).done { specificCategory in
+        CheqAPIManager.shared.spendingCategoryById(AppData.shared.selectedCategory?.categoryId ?? 0).done { specificCategory in
             AppConfig.shared.hideSpinner {
                 self.renderSpecificCategory(specificCategory)
             }
