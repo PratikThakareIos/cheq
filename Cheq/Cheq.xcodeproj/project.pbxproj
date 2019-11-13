@@ -1214,6 +1214,14 @@
 		4FDDC337237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */; };
 		4FDDC338237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */; };
 		4FDDC339237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */; };
+		4FDDC34B237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */; };
+		4FDDC34C237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */; };
+		4FDDC34D237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */; };
+		4FDDC34E237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */; };
+		4FDDC351237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
+		4FDDC352237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
+		4FDDC353237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
+		4FDDC354237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
@@ -1663,6 +1671,8 @@
 		4FD83ADA23631ABA0069EB30 /* CheqDevice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDevice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDDC330237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSpecificCategoryViewController.swift; sourceTree = "<group>"; };
 		4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSpecificCategoryViewModel.swift; sourceTree = "<group>"; };
+		4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewController.swift; sourceTree = "<group>"; };
+		4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewModel.swift; sourceTree = "<group>"; };
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
@@ -2936,6 +2946,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4FDDC349237BA11B00C3846E /* SpendingTransactions */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC34F237BA17A00C3846E /* ViewModel */,
+				4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */,
+			);
+			path = SpendingTransactions;
+			sourceTree = "<group>";
+		};
+		4FDDC34F237BA17A00C3846E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FEDA4FD232EF7640042E4E2 /* CheqAPIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -3255,6 +3282,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4FDDC349237BA11B00C3846E /* SpendingTransactions */,
 				4F2325BC237A5AAB00BF3F21 /* SpendingSpecificCategory */,
 				966434CC2341A96900934FB0 /* SpendingOverview */,
 				4F23241F2378B08000BF3F21 /* SpendingCategories */,
@@ -4527,6 +4555,7 @@
 				4F2319FD2363E26E00874D07 /* KycFailedIntroCoordinator.swift in Sources */,
 				4F2319FF2363E26E00874D07 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F2324782378C26C00BF3F21 /* AlamofireImplementations.swift in Sources */,
+				4FDDC353237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
 				4F231A002363E26E00874D07 /* FBEnums.swift in Sources */,
 				4F231A012363E26E00874D07 /* WebViewController.swift in Sources */,
 				4F2323E12374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
@@ -4690,6 +4719,7 @@
 				4F231A902363E26E00874D07 /* DispatchUtil.swift in Sources */,
 				4F231A912363E26E00874D07 /* CButtonTableViewCell.swift in Sources */,
 				4F2324EC2378C26C00BF3F21 /* GetUserDetailResponse.swift in Sources */,
+				4FDDC34D237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */,
 				4F231A932363E26E00874D07 /* RegistrationViewController.swift in Sources */,
 				4F2324292378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4F2324942378C26C00BF3F21 /* BudgetingAPI.swift in Sources */,
@@ -4824,6 +4854,7 @@
 				4FBDDA45236BC68700EDB1E9 /* KycFailedIntroCoordinator.swift in Sources */,
 				4FBDDA47236BC68700EDB1E9 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F2324792378C26C00BF3F21 /* AlamofireImplementations.swift in Sources */,
+				4FDDC354237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
 				4FBDDA48236BC68700EDB1E9 /* FBEnums.swift in Sources */,
 				4FBDDA49236BC68700EDB1E9 /* WebViewController.swift in Sources */,
 				4F2323E22374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
@@ -4987,6 +5018,7 @@
 				4FBDDAD9236BC68700EDB1E9 /* CButtonTableViewCell.swift in Sources */,
 				4FBDDADB236BC68700EDB1E9 /* RegistrationViewController.swift in Sources */,
 				4F2324ED2378C26C00BF3F21 /* GetUserDetailResponse.swift in Sources */,
+				4FDDC34E237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */,
 				4F23242A2378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4FBDDADE236BC68700EDB1E9 /* CTextView.swift in Sources */,
 				4F2324952378C26C00BF3F21 /* BudgetingAPI.swift in Sources */,
@@ -5121,6 +5153,7 @@
 				4FD839DF23631ABA0069EB30 /* KycFailedIntroCoordinator.swift in Sources */,
 				4FD839E123631ABA0069EB30 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F2324772378C26C00BF3F21 /* AlamofireImplementations.swift in Sources */,
+				4FDDC352237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
 				4FD839E223631ABA0069EB30 /* FBEnums.swift in Sources */,
 				4FD839E323631ABA0069EB30 /* WebViewController.swift in Sources */,
 				4F2323E02374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
@@ -5284,6 +5317,7 @@
 				4FD83A7223631ABA0069EB30 /* DispatchUtil.swift in Sources */,
 				4FD83A7323631ABA0069EB30 /* CButtonTableViewCell.swift in Sources */,
 				4F2324EB2378C26C00BF3F21 /* GetUserDetailResponse.swift in Sources */,
+				4FDDC34C237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */,
 				4FD83A7523631ABA0069EB30 /* RegistrationViewController.swift in Sources */,
 				4F2324282378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				4F2324932378C26C00BF3F21 /* BudgetingAPI.swift in Sources */,
@@ -5418,6 +5452,7 @@
 				4F80FCD823597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
 				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F2324762378C26C00BF3F21 /* AlamofireImplementations.swift in Sources */,
+				4FDDC351237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
 				4FD7C1E92329E0D600AC7A67 /* FBEnums.swift in Sources */,
 				4FD7C1342328752C00AC7A67 /* WebViewController.swift in Sources */,
 				4F2323DF2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
@@ -5581,6 +5616,7 @@
 				9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */,
 				4F2E4B90233AECD1001F1BA2 /* RegistrationViewController.swift in Sources */,
 				4F2324EA2378C26C00BF3F21 /* GetUserDetailResponse.swift in Sources */,
+				4FDDC34B237BA17100C3846E /* SpendingTransactionsViewController.swift in Sources */,
 				4F2324272378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */,
 				4F2324922378C26C00BF3F21 /* BudgetingAPI.swift in Sources */,

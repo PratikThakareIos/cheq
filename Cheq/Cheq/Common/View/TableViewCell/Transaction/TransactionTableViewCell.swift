@@ -15,7 +15,7 @@ class TransactionTableViewCell: CTableViewCell {
     @IBOutlet weak var transactionTitle: CLabel!
     @IBOutlet weak var transactionDate: CLabel!
     @IBOutlet weak var transactionAmount: CLabel!
-    @IBOutlet weak var iconImageSpacing: NSLayoutConstraint! 
+    @IBOutlet weak var iconImageContainer: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,12 +33,12 @@ class TransactionTableViewCell: CTableViewCell {
         let code = DataHelperUtil.shared.categoryAmountStateCodeFromTransaction(vm.data.categoryCode ?? SlimTransactionResponse.CategoryCode.others)
         let imageIcon = DataHelperUtil.shared.iconFromCategory(code)
         self.iconImage.image = UIImage.init(named: imageIcon)
+        self.iconImageContainer.isHidden = vm.hideIcon
         self.transactionTitle.text = vm.data._description
         self.transactionAmount.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
         self.transactionDate.text = vm.data.date
         self.transactionDate.font = AppConfig.shared.activeTheme.defaultFont
         self.transactionDate.textColor = AppConfig.shared.activeTheme.lightGrayColor
-        self.iconImageSpacing.constant = CGFloat(AppConfig.shared.activeTheme.xxlPadding)
     }
     
 }

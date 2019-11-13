@@ -1,31 +1,26 @@
 //
-//  SpendingSpecificCategoryViewModel.swift
+//  SpendingTransactionsViewModel.swift
 //  Cheq
 //
-//  Created by Xuwei Liang on 12/11/19.
+//  Created by Xuwei Liang on 13/11/19.
 //  Copyright © 2019 Cheq. All rights reserved.
 //
 
 import UIKit
 
-class SpendingSpecificCategoryViewModel: BaseTableVCViewModel {
+class SpendingTransactionsViewModel: BaseTableVCViewModel {
     
     override init() {
         super.init()
-        self.screenName = .spending
+        self.screenName = .spendingTransactions
     }
     
-    func render(_ spendingSpecificCategoryResponse: GetSpendingSpecificCategoryResponse) {
-        
-        
-        if self.sections.count > 0 {
-            self.sections.removeAll()
-        }
+    func render(_ transactionsResponse: GetSpendingSpecificCategoryResponse) {
         
         let spacer = SpacerTableViewCellViewModel()
         var section = TableSectionViewModel()
-        categoryMonthlyStats(spendingSpecificCategoryResponse.monthAmountStats, section: &section)
-        for dailyTransaction: DailyTransactionsResponse in spendingSpecificCategoryResponse.dailyTransactions ?? [] {
+        categoryMonthlyStats(transactionsResponse.monthAmountStats, section: &section)
+        for dailyTransaction: DailyTransactionsResponse in transactionsResponse.dailyTransactions ?? [] {
             let header = HeaderTableViewCellViewModel()
             header.showViewAll = false
             header.title = dailyTransaction.date ?? ""

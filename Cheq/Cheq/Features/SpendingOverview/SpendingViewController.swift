@@ -90,20 +90,11 @@ extension SpendingViewController {
     @objc func viewAll(_ notification: NSNotification) {
         
         guard let headerTableViewCell = notification.userInfo?["viewAll"] as? HeaderTableViewCell else { return }
-        var vc = UIViewController()
         if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
-            vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spendingCategories.rawValue, embedInNav: false)
+            AppNav.shared.pushToSpendingVC(.categories, viewController: self)
         } else if headerTableViewCell.tag == HeaderTableViewCellTag.recentTransactions.rawValue {
             // show transaction list screen
-        }
-        
-        CheqAPIManager.shared.spendingCategories().done { spendingCategories in
-            AppNav.shared.pushToViewController(vc, from: self)
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err) { }
-            }
+            AppNav.shared.pushToSpendingVC(.transactions, viewController: self)
         }
     }
-    
 }

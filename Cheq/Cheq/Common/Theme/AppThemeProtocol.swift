@@ -66,12 +66,12 @@ protocol AppThemeProtocol {
     var quickAnimationDuration: TimeInterval { get }
     
     //MARK: common paddings
-    var xsPadding: Double { get }
-    var sPadding: Double { get }
-    var mPadding: Double { get }
-    var lPadding: Double { get }
-    var xlPadding: Double { get }
-    var xxlPadding: Double { get }
+    var xsPadding: CGFloat { get }
+    var sPadding: CGFloat { get }
+    var mPadding: CGFloat { get }
+    var lPadding: CGFloat { get }
+    var xlPadding: CGFloat { get }
+    var xxlPadding: CGFloat { get }
 
     //MARK: styling logics
     var padding: CGFloat { get }
@@ -182,12 +182,12 @@ extension AppThemeProtocol {
         get { return 10.0 }
     }
     
-    var xsPadding: Double { get { return 4.0 } }
-    var sPadding: Double { get { return 8.0 } }
-    var mPadding: Double { get { return 16.0 } }
-    var lPadding: Double { get { return 24.0 } }
-    var xlPadding: Double { get { return 32.0 } }
-    var xxlPadding: Double { get { return 40.0 }}
+    var xsPadding: CGFloat { get { return 4.0 } }
+    var sPadding: CGFloat { get { return 8.0 } }
+    var mPadding: CGFloat { get { return 16.0 } }
+    var lPadding: CGFloat { get { return 24.0 } }
+    var xlPadding: CGFloat { get { return 32.0 } }
+    var xxlPadding: CGFloat { get { return 40.0 }}
 
     var nonActiveAlpha: CGFloat { get { return 0.5 } }
 

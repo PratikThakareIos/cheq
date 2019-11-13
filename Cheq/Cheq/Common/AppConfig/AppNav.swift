@@ -90,6 +90,25 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    func pushToSpendingVC(_ spendingVCType: SpendingVCType, viewController: UIViewController) {
+        guard let nav = viewController.navigationController else { return }
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        switch spendingVCType {
+        case .overview:
+            let vc: SpendingViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.spending.rawValue) as! SpendingViewController
+            nav.pushViewController(vc, animated: true)
+        case .categories:
+            let vc: SpendingCategoriesViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.spendingCategories.rawValue) as! SpendingCategoriesViewController
+            nav.pushViewController(vc, animated: true)
+        case .specificCategory:
+            let vc: SpendingSpecificCategoryViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.spendingCategoryById.rawValue) as! SpendingSpecificCategoryViewController
+            nav.pushViewController(vc, animated: true)
+        case .transactions:
+            let vc: SpendingTransactionsViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.spendingTransactions.rawValue) as! SpendingTransactionsViewController
+            nav.pushViewController(vc, animated: true)
+        }
+    }
+    
     func pushToInAppWeb(_ url: URL, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)

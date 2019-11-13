@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUi-Ml-N9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="891"/>
+            <point key="canvasLocation" x="2033" y="891"/>
         </scene>
         <!--Spending Specific Category View Controller-->
         <scene sceneID="wsi-pt-W4C">
@@ -147,6 +147,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Is-W9-got" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2846" y="891"/>
+        </scene>
+        <!--Spending Transactions View Controller-->
+        <scene sceneID="9LD-IM-Yo0">
+            <objects>
+                <viewController storyboardIdentifier="SpendingTransactionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yht-S6-uiE" customClass="SpendingTransactionsViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RLn-Ak-MqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-xe-GeL">
+                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.63236449148043339" green="0.67304159685283449" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e5p-xe-GeL" firstAttribute="top" secondItem="wnu-hK-Ecx" secondAttribute="top" id="0ca-xP-Sog"/>
+                            <constraint firstItem="wnu-hK-Ecx" firstAttribute="bottom" secondItem="e5p-xe-GeL" secondAttribute="bottom" id="Bc9-m7-bMC"/>
+                            <constraint firstItem="wnu-hK-Ecx" firstAttribute="trailing" secondItem="e5p-xe-GeL" secondAttribute="trailing" constant="10" id="Bjb-Nm-VgK"/>
+                            <constraint firstItem="e5p-xe-GeL" firstAttribute="leading" secondItem="wnu-hK-Ecx" secondAttribute="leading" constant="10" id="oLH-rG-bhj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wnu-hK-Ecx"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="e5p-xe-GeL" id="5zn-iS-OBo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uc7-zy-hWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3681" y="891"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="IHW-jZ-1gG">

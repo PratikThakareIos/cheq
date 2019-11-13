@@ -36,22 +36,27 @@ extension CheqAPIManager {
 
     func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
         return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
-            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-                let token = authUser.authToken() ?? ""
-                SpendingAPI.getSpendingAllTransactionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingTransactionsResponse, err) in
-                    if let error = err {
-                        resolver.reject(error); return
-                    }
-
-                    guard let response = spendingTransactionsResponse?.body else {
-                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveTransactions); return
-                    }
-
-                    resolver.fulfill(response)
-                })
-            }.catch { err in
-                resolver.reject(err)
-            }
+            
+            let spendingTransactions: GetSpendingSpecificCategoryResponse = TestUtil.shared.testSpendingCategoryById()
+            resolver.fulfill(spendingTransactions)
+            return
+            
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//                SpendingAPI.getSpendingAllTransactionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingTransactionsResponse, err) in
+//                    if let error = err {
+//                        resolver.reject(error); return
+//                    }
+//
+//                    guard let response = spendingTransactionsResponse?.body else {
+//                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveTransactions); return
+//                    }
+//
+//                    resolver.fulfill(response)
+//                })
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
         }
     }
     

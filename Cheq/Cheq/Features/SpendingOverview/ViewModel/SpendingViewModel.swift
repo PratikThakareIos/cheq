@@ -9,6 +9,13 @@
 import UIKit
 import PromiseKit
 
+enum SpendingVCType {
+    case overview
+    case categories
+    case specificCategory
+    case transactions
+}
+
 class SpendingViewModel: BaseTableVCViewModel {
     
     override init() {
@@ -17,7 +24,6 @@ class SpendingViewModel: BaseTableVCViewModel {
     }
     
     func render(_ spendingOverview: GetSpendingOverviewResponse) {
-        
         
         if self.sections.count > 0 {
             self.sections.removeAll()
@@ -103,7 +109,7 @@ extension SpendingViewModel {
             recentTransactionHeader.showViewAll = true
             section.rows.append(recentTransactionHeader)
             section.rows.append(spacer)
-            transactionList(recentTransactionList, section: &section)
+            transactionList(recentTransactionList, hideIcon: false, section: &section)
             section.rows.append(spacer)
         }
     }

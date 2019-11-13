@@ -29,6 +29,7 @@ enum UINotificationEvent: String {
     case lendingOverview = "lendingOverview"
     case spendingOverviuew = "spendingOverview"
     case spendingCategories = "spendingCategories"
+    case spendingTransactions = "spendingTransactions"
     case selectedCategoryById = "selectedCategoryById"
     case loadCategoryById = "loadCategoryById"
     case previewLoan = "previewLoan" 

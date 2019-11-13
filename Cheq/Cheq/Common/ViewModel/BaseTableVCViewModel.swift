@@ -33,7 +33,7 @@ extension BaseTableVCViewModel {
         section.rows.append(spacer)
     }
     
-    func transactionList(_ transactionList: [SlimTransactionResponse], section: inout TableSectionViewModel) {
+    func transactionList(_ transactionList: [SlimTransactionResponse], hideIcon: Bool, section: inout TableSectionViewModel) {
         let top = TopTableViewCellViewModel()
         let bottom = BottomTableViewCellViewModel()
         var index = 0
@@ -41,6 +41,7 @@ extension BaseTableVCViewModel {
         for transaction: SlimTransactionResponse in transactionList {
             let recentTransaction = TransactionTableViewCellViewModel()
             recentTransaction.data = transaction
+            recentTransaction.hideIcon = hideIcon
             section.rows.append(recentTransaction)
             if index < transactionList.count - 1 {
                 section.rows.append(LineSeparatorTableViewCellViewModel())
