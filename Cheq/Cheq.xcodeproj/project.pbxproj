@@ -1222,6 +1222,10 @@
 		4FDDC352237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
 		4FDDC353237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
 		4FDDC354237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
+		4FDDC359237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
+		4FDDC35A237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
+		4FDDC35B237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
+		4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
@@ -1673,6 +1677,7 @@
 		4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSpecificCategoryViewModel.swift; sourceTree = "<group>"; };
 		4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewController.swift; sourceTree = "<group>"; };
 		4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewModel.swift; sourceTree = "<group>"; };
+		4FDDC358237BAF4E00C3846E /* CNavStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavStackView.swift; sourceTree = "<group>"; };
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
@@ -2963,6 +2968,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4FDDC356237BAEF600C3846E /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC358237BAF4E00C3846E /* CNavStackView.swift */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
 		4FEDA4FD232EF7640042E4E2 /* CheqAPIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -3428,6 +3441,7 @@
 		96A65E8022FDA1A300F1F7AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FDDC356237BAEF600C3846E /* NavigationBar */,
 				4F2323D62374CFFF00BF3F21 /* View */,
 				4F2323DC2374DC8E00BF3F21 /* CollectionViewCell */,
 				964FA98F2352879100B07AD7 /* TableViewCell */,
@@ -4537,6 +4551,7 @@
 				4F2319EC2363E26E00874D07 /* LendingViewController.swift in Sources */,
 				4F2319F02363E26E00874D07 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F2319F12363E26E00874D07 /* CBarViewFormatter.swift in Sources */,
+				4FDDC35B237BAF4E00C3846E /* CNavStackView.swift in Sources */,
 				4F2319F22363E26E00874D07 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F2319F32363E26E00874D07 /* CButton.swift in Sources */,
 				4F2325702378C26C00BF3F21 /* PostPushNotificationRequest.swift in Sources */,
@@ -4836,6 +4851,7 @@
 				4FBDDA34236BC68700EDB1E9 /* LendingViewController.swift in Sources */,
 				4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
+				4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */,
 				4FBDDA3A236BC68700EDB1E9 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FBDDA3B236BC68700EDB1E9 /* CButton.swift in Sources */,
 				4F2325712378C26C00BF3F21 /* PostPushNotificationRequest.swift in Sources */,
@@ -5135,6 +5151,7 @@
 				4FD839CE23631ABA0069EB30 /* LendingViewController.swift in Sources */,
 				4FD839D223631ABA0069EB30 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FD839D323631ABA0069EB30 /* CBarViewFormatter.swift in Sources */,
+				4FDDC35A237BAF4E00C3846E /* CNavStackView.swift in Sources */,
 				4FD839D423631ABA0069EB30 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FD839D523631ABA0069EB30 /* CButton.swift in Sources */,
 				4F23256F2378C26C00BF3F21 /* PostPushNotificationRequest.swift in Sources */,
@@ -5434,6 +5451,7 @@
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
+				4FDDC359237BAF4E00C3846E /* CNavStackView.swift in Sources */,
 				9654D48D234EA9D700847389 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F57BB0F2326013100B95C06 /* CButton.swift in Sources */,
 				4F23256E2378C26C00BF3F21 /* PostPushNotificationRequest.swift in Sources */,

@@ -35,11 +35,34 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
-        self.title = ScreenName.spendingCategoryById.rawValue
+//        self.title = ScreenName.spendingCategoryById.rawValue
+        setupSpecificCategoryNavTitle()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.spendingCategories.rawValue, key: "", value: "")
+        }
+    }
+    
+    func setupSpecificCategoryNavTitle() {
+        
+        if let selectedCategory = AppData.shared.selectedCategory {
+            let navStackView = CNavStackView()
+            let iconName = DataHelperUtil.shared.iconFromCategory(selectedCategory.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others)
+            let categoryIcon = UIImage(named: iconName)
+            let categoryIconImageView = UIImageView(image: categoryIcon)
+            navStackView.subViews.append(categoryIconImageView)
+            let categoryLabel = CLabel()
+            categoryLabel.text = selectedCategory.categoryTitle
+            categoryLabel.font = AppConfig.shared.activeTheme.headerFont
+            navStackView.addArrangedSubview(categoryIconImageView)
+            navStackView.addArrangedSubview(categoryLabel)
+            self.navigationItem.titleView = navStackView
+//            let testView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+//            testView.backgroundColor = .cyan
+//            self.navigationItem.titleView = testView
+        } else {
+            self.title = ScreenName.spendingCategoryById.rawValue
         }
     }
     
