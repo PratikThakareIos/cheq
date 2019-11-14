@@ -1226,6 +1226,22 @@
 		4FDDC35A237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
 		4FDDC35B237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
 		4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC358237BAF4E00C3846E /* CNavStackView.swift */; };
+		4FDDC35F237CC8BD00C3846E /* CPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC35E237CC8BD00C3846E /* CPopupView.swift */; };
+		4FDDC360237CC8BD00C3846E /* CPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC35E237CC8BD00C3846E /* CPopupView.swift */; };
+		4FDDC361237CC8BD00C3846E /* CPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC35E237CC8BD00C3846E /* CPopupView.swift */; };
+		4FDDC362237CC8BD00C3846E /* CPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC35E237CC8BD00C3846E /* CPopupView.swift */; };
+		4FDDC367237CD1F800C3846E /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC365237CD1F800C3846E /* TransactionModal.swift */; };
+		4FDDC368237CD1F800C3846E /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC365237CD1F800C3846E /* TransactionModal.swift */; };
+		4FDDC369237CD1F800C3846E /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC365237CD1F800C3846E /* TransactionModal.swift */; };
+		4FDDC36A237CD1F800C3846E /* TransactionModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC365237CD1F800C3846E /* TransactionModal.swift */; };
+		4FDDC370237CD21800C3846E /* TransactionModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */; };
+		4FDDC371237CD21800C3846E /* TransactionModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */; };
+		4FDDC372237CD21800C3846E /* TransactionModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */; };
+		4FDDC373237CD21800C3846E /* TransactionModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */; };
+		4FDDC375237CD95D00C3846E /* TransactionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDC374237CD95D00C3846E /* TransactionModal.xib */; };
+		4FDDC376237CD95D00C3846E /* TransactionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDC374237CD95D00C3846E /* TransactionModal.xib */; };
+		4FDDC377237CD95D00C3846E /* TransactionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDC374237CD95D00C3846E /* TransactionModal.xib */; };
+		4FDDC378237CD95D00C3846E /* TransactionModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDC374237CD95D00C3846E /* TransactionModal.xib */; };
 		4FEDA34E232B4D110042E4E2 /* CFacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */; };
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
@@ -1678,6 +1694,10 @@
 		4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewController.swift; sourceTree = "<group>"; };
 		4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewModel.swift; sourceTree = "<group>"; };
 		4FDDC358237BAF4E00C3846E /* CNavStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNavStackView.swift; sourceTree = "<group>"; };
+		4FDDC35E237CC8BD00C3846E /* CPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupView.swift; sourceTree = "<group>"; };
+		4FDDC365237CD1F800C3846E /* TransactionModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModal.swift; sourceTree = "<group>"; };
+		4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModalViewModel.swift; sourceTree = "<group>"; };
+		4FDDC374237CD95D00C3846E /* TransactionModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionModal.xib; sourceTree = "<group>"; };
 		4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFacebookButton.swift; sourceTree = "<group>"; };
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
@@ -2976,6 +2996,32 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		4FDDC35D237CC89F00C3846E /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC35E237CC8BD00C3846E /* CPopupView.swift */,
+			);
+			path = PopupView;
+			sourceTree = "<group>";
+		};
+		4FDDC363237CD1AB00C3846E /* TransactionModal */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC364237CD1B800C3846E /* ViewModel */,
+				4FDDC365237CD1F800C3846E /* TransactionModal.swift */,
+				4FDDC374237CD95D00C3846E /* TransactionModal.xib */,
+			);
+			path = TransactionModal;
+			sourceTree = "<group>";
+		};
+		4FDDC364237CD1B800C3846E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDC36F237CD21800C3846E /* TransactionModalViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4FEDA4FD232EF7640042E4E2 /* CheqAPIManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -3441,6 +3487,7 @@
 		96A65E8022FDA1A300F1F7AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FDDC363237CD1AB00C3846E /* TransactionModal */,
 				4FDDC356237BAEF600C3846E /* NavigationBar */,
 				4F2323D62374CFFF00BF3F21 /* View */,
 				4F2323DC2374DC8E00BF3F21 /* CollectionViewCell */,
@@ -3454,6 +3501,7 @@
 				4FD7C12A2327270900AC7A67 /* CollectionView */,
 				4F57BB0D2326011C00B95C06 /* Button */,
 				4F57BB092326002000B95C06 /* TextFeld */,
+				4FDDC35D237CC89F00C3846E /* PopupView */,
 				4F57BB002325EE1C00B95C06 /* PopupMessage */,
 				96A65E8122FDA1AE00F1F7AB /* Chart */,
 			);
@@ -3954,6 +4002,7 @@
 				4F231C372365CFC600874D07 /* GoogleService-Info.plist in Resources */,
 				4F231AE52363E26E00874D07 /* TransferCardTableViewCell.xib in Resources */,
 				4F231AE62363E26E00874D07 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FDDC377237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FB2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A42372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E52374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -3993,6 +4042,7 @@
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FDDC378237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -4032,6 +4082,7 @@
 				4FD83AC923631ABA0069EB30 /* CheqDevice-Info.plist in Resources */,
 				4FD83ACA23631ABA0069EB30 /* TransferCardTableViewCell.xib in Resources */,
 				4FD83ACB23631ABA0069EB30 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FDDC376237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FA2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A32372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E42374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -4071,6 +4122,7 @@
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4FDDC375237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -4517,6 +4569,7 @@
 				4F2325182378C26C00BF3F21 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F23252C2378C26C00BF3F21 /* LoanSetting.swift in Sources */,
 				4F2319D12363E26E00874D07 /* CompanyAddressCoordinator.swift in Sources */,
+				4FDDC361237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4F2324E02378C26C00BF3F21 /* GetSpendingStatusResponse.swift in Sources */,
 				4F2325342378C26C00BF3F21 /* GetSpendingCategoryResponse.swift in Sources */,
 				4F2319D22363E26E00874D07 /* CSearchTextField.swift in Sources */,
@@ -4622,6 +4675,7 @@
 				4F231A302363E26E00874D07 /* TableView_Extension.swift in Sources */,
 				4F231A312363E26E00874D07 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4F231AFB23641DED00874D07 /* String_Extension.swift in Sources */,
+				4FDDC372237CD21800C3846E /* TransactionModalViewModel.swift in Sources */,
 				4FD22882237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4F231A332363E26E00874D07 /* CToolbar.swift in Sources */,
 				4F231A342363E26E00874D07 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -4724,6 +4778,7 @@
 				4F231A852363E26E00874D07 /* FinanceViewModel.swift in Sources */,
 				4F231A862363E26E00874D07 /* GridCoordinatorViewModel.swift in Sources */,
 				4F231A872363E26E00874D07 /* DateOfBirthCoordinator.swift in Sources */,
+				4FDDC369237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4F231A892363E26E00874D07 /* DeclineViewTestUtil.swift in Sources */,
 				4F231A8A2363E26E00874D07 /* LinkAccountsCoordinator.swift in Sources */,
 				4F231A8B2363E26E00874D07 /* IntercomManager.swift in Sources */,
@@ -4817,6 +4872,7 @@
 				4F2325192378C26C00BF3F21 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F23252D2378C26C00BF3F21 /* LoanSetting.swift in Sources */,
 				4FBDDA19236BC68700EDB1E9 /* CompanyAddressCoordinator.swift in Sources */,
+				4FDDC362237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4F2324E12378C26C00BF3F21 /* GetSpendingStatusResponse.swift in Sources */,
 				4F2325352378C26C00BF3F21 /* GetSpendingCategoryResponse.swift in Sources */,
 				4FBDDA1A236BC68700EDB1E9 /* CSearchTextField.swift in Sources */,
@@ -4922,6 +4978,7 @@
 				4FBDDA78236BC68700EDB1E9 /* TableView_Extension.swift in Sources */,
 				4FBDDA79236BC68700EDB1E9 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4FBDDA7B236BC68700EDB1E9 /* String_Extension.swift in Sources */,
+				4FDDC373237CD21800C3846E /* TransactionModalViewModel.swift in Sources */,
 				4FD22883237231EE00045662 /* SpendingViewController.swift in Sources */,
 				4FBDDA7C236BC68700EDB1E9 /* CToolbar.swift in Sources */,
 				4FBDDA7D236BC68700EDB1E9 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -5024,6 +5081,7 @@
 				4FBDDACE236BC68700EDB1E9 /* GridCoordinatorViewModel.swift in Sources */,
 				4FBDDACF236BC68700EDB1E9 /* DateOfBirthCoordinator.swift in Sources */,
 				4FBDDAD1236BC68700EDB1E9 /* DeclineViewTestUtil.swift in Sources */,
+				4FDDC36A237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4FBDDAD2236BC68700EDB1E9 /* LinkAccountsCoordinator.swift in Sources */,
 				4FBDDAD3236BC68700EDB1E9 /* IntercomManager.swift in Sources */,
 				4FBDDAD5236BC68700EDB1E9 /* CarouselCollectionViewCoordinator.swift in Sources */,
@@ -5117,6 +5175,7 @@
 				4F2325172378C26C00BF3F21 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F23252B2378C26C00BF3F21 /* LoanSetting.swift in Sources */,
 				4FD839B323631ABA0069EB30 /* CompanyAddressCoordinator.swift in Sources */,
+				4FDDC360237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4F2324DF2378C26C00BF3F21 /* GetSpendingStatusResponse.swift in Sources */,
 				4F2325332378C26C00BF3F21 /* GetSpendingCategoryResponse.swift in Sources */,
 				4FD839B423631ABA0069EB30 /* CSearchTextField.swift in Sources */,
@@ -5222,6 +5281,7 @@
 				4FD83A1223631ABA0069EB30 /* TableView_Extension.swift in Sources */,
 				4FD83A1323631ABA0069EB30 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4FD22881237231EE00045662 /* SpendingViewController.swift in Sources */,
+				4FDDC371237CD21800C3846E /* TransactionModalViewModel.swift in Sources */,
 				4F231AFA23641DED00874D07 /* String_Extension.swift in Sources */,
 				4FD83A1523631ABA0069EB30 /* CToolbar.swift in Sources */,
 				4FD83A1623631ABA0069EB30 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -5324,6 +5384,7 @@
 				4FD83A6723631ABA0069EB30 /* FinanceViewModel.swift in Sources */,
 				4FD83A6823631ABA0069EB30 /* GridCoordinatorViewModel.swift in Sources */,
 				4FD83A6923631ABA0069EB30 /* DateOfBirthCoordinator.swift in Sources */,
+				4FDDC368237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4FD83A6B23631ABA0069EB30 /* DeclineViewTestUtil.swift in Sources */,
 				4FD83A6C23631ABA0069EB30 /* LinkAccountsCoordinator.swift in Sources */,
 				4FD83A6D23631ABA0069EB30 /* IntercomManager.swift in Sources */,
@@ -5417,6 +5478,7 @@
 				4F2325162378C26C00BF3F21 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F23252A2378C26C00BF3F21 /* LoanSetting.swift in Sources */,
 				4F0D715D2345ABBA00AA819C /* CompanyAddressCoordinator.swift in Sources */,
+				4FDDC35F237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4F2324DE2378C26C00BF3F21 /* GetSpendingStatusResponse.swift in Sources */,
 				4F2325322378C26C00BF3F21 /* GetSpendingCategoryResponse.swift in Sources */,
 				4FAE3656232F79CC0035E57E /* CSearchTextField.swift in Sources */,
@@ -5522,6 +5584,7 @@
 				9680CEB02354B4B3009CF66E /* TableView_Extension.swift in Sources */,
 				4FB1CB192353C8E400E7B224 /* HistoryItemTableViewCellViewModel.swift in Sources */,
 				4FD22880237231EE00045662 /* SpendingViewController.swift in Sources */,
+				4FDDC370237CD21800C3846E /* TransactionModalViewModel.swift in Sources */,
 				4F231AF823641DED00874D07 /* String_Extension.swift in Sources */,
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
@@ -5624,6 +5687,7 @@
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
+				4FDDC367237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
 				4F80FAD72357C565009C8F83 /* IntercomManager.swift in Sources */,
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,

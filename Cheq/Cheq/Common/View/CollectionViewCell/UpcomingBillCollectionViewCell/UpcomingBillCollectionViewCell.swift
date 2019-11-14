@@ -38,7 +38,7 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
         
         let categoryCode = DataHelperUtil.shared.categoryAmountStateCode(vm.data.categoryCode ?? GetUpcomingBillResponse.CategoryCode.others)
-        let iconName = DataHelperUtil.shared.iconFromCategory(categoryCode)
+        let iconName = DataHelperUtil.shared.iconFromCategory(categoryCode, largeIcon: true)
         self.icon.image = UIImage.init(named: iconName)
     }
 }

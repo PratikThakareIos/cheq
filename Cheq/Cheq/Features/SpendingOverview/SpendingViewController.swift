@@ -55,9 +55,13 @@ class SpendingViewController: CTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(categoryById(_:))
             , name: NSNotification.Name(UINotificationEvent.selectedCategoryById.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+            , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
 }
 
+//MARK: notification handlers
 extension SpendingViewController {
     
     func renderSpending(_ spendingOverview: GetSpendingOverviewResponse) {
@@ -82,14 +86,10 @@ extension SpendingViewController {
                 }
         }
     }
-}
-
-// MARK: handling view all
-extension SpendingViewController {
     
     @objc func viewAll(_ notification: NSNotification) {
         
-        guard let headerTableViewCell = notification.userInfo?["viewAll"] as? HeaderTableViewCell else { return }
+        guard let headerTableViewCell = notification.userInfo?[NotificationUserInfoKey.viewAll.rawValue] as? HeaderTableViewCell else { return }
         if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
             AppNav.shared.pushToSpendingVC(.categories, viewController: self)
         } else if headerTableViewCell.tag == HeaderTableViewCellTag.recentTransactions.rawValue {

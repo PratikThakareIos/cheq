@@ -48,7 +48,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
         
         if let selectedCategory = AppData.shared.selectedCategory {
             let navStackView = CNavStackView()
-            let iconName = DataHelperUtil.shared.iconFromCategory(selectedCategory.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others)
+            let iconName = DataHelperUtil.shared.iconFromCategory(selectedCategory.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others, largeIcon: true)
             let categoryIcon = UIImage(named: iconName)
             let categoryIconImageView = UIImageView(image: categoryIcon)
             navStackView.subViews.append(categoryIconImageView)
@@ -71,6 +71,9 @@ class SpendingSpecificCategoryViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(loadCategoryTransactions(_:)), name: NSNotification.Name(UINotificationEvent.loadCategoryById.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+            , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
     
     func renderSpecificCategory(_ spendingCategory: GetSpendingSpecificCategoryResponse) {

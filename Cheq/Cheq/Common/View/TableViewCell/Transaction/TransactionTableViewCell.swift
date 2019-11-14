@@ -21,7 +21,14 @@ class TransactionTableViewCell: CTableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.viewModel = TransactionTableViewCellViewModel()
+        setupTapEvent()
         setupConfig()
+    }
+    
+    func setupTapEvent() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showTransaction))
+        tapRecognizer.numberOfTapsRequired = 1
+        self.containerView.addGestureRecognizer(tapRecognizer)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +38,7 @@ class TransactionTableViewCell: CTableViewCell {
     override func setupConfig() {
         let vm = self.viewModel as! TransactionTableViewCellViewModel
         let code = DataHelperUtil.shared.categoryAmountStateCodeFromTransaction(vm.data.categoryCode ?? SlimTransactionResponse.CategoryCode.others)
-        let imageIcon = DataHelperUtil.shared.iconFromCategory(code)
+        let imageIcon = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)
         self.iconImage.image = UIImage.init(named: imageIcon)
         self.iconImageContainer.isHidden = vm.hideIcon
         self.transactionTitle.text = vm.data._description
@@ -41,4 +48,7 @@ class TransactionTableViewCell: CTableViewCell {
         self.transactionDate.textColor = AppConfig.shared.activeTheme.lightGrayColor
     }
     
+    @objc func showTransaction() {
+        NotificationUtil.shared.notify(UINotificationEvent.showTransaction.rawValue, key: NotificationUserInfoKey.transaction.rawValue, object: self)
+    }
 }

@@ -300,6 +300,10 @@ extension AppNav {
 // MARK: smart dimiss
 extension AppNav {
     
+    func rootViewController()-> UIViewController {
+        return UIApplication.shared.keyWindow!.rootViewController ?? UIViewController()
+    }
+    
     func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
         presentVc.dismiss(animated: true) {

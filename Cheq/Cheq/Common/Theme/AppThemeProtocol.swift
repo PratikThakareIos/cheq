@@ -10,6 +10,9 @@ import UIKit
 
 // by adopting AppThemeProtocol
 protocol AppThemeProtocol {
+    
+    var darkBlurEffectView: UIVisualEffectView { get }
+    var lightBlurEffectView: UIVisualEffectView { get }
 
     //MARK: theme info
     var themeTitle: String { get }
@@ -251,5 +254,13 @@ extension AppThemeProtocol {
     
     var lightestGrayColor: UIColor {
         get { return UIColor(hex: "999999") }
+    }
+    
+    var darkBlurEffectView: UIVisualEffectView {
+        get { return UIVisualEffectView(effect: UIBlurEffect(style: .dark)) }
+    }
+    
+    var lightBlurEffectView: UIVisualEffectView {
+        get { return UIVisualEffectView(effect: UIBlurEffect(style: .light)) }
     }
 }

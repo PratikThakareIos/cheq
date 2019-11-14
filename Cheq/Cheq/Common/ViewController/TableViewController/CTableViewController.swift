@@ -49,6 +49,18 @@ extension CTableViewController {
         let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spendingCategoryById.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(vc, from: self)
     }
+    
+    @objc func showTransaction(_ notification: NSNotification) {
+        LoggingUtil.shared.cPrint("showTransaction")
+        guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
+        guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
+    
+        let transactionModal: TransactionModal = UIView.fromNib()
+        transactionModal.viewModel.data = transactionViewModel.data
+        transactionModal.setupUI()
+        let popupView = CPopupView(transactionModal)
+        popupView.show()
+    }
 }
 
 extension CTableViewController {
@@ -77,29 +89,4 @@ extension CTableViewController {
         cell.setupConfig()
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let cellViewModel: TableViewCellViewModelProtocol = self.viewModel.sections[indexPath.section].rows[indexPath.row]
-//        let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
-//        cell.alpha = 0.0
-//        UIView.animate(withDuration: AppConfig.shared.activeTheme.mediumAnimationDuration) {
-//            cell.alpha = 1.0
-//        }
-//    }
 }
-
-//extension CTableViewController {
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        // supporting upcomingBillsCollectionView
-//        if collectionView.tag == UpcomingBillsTableViewCell.upcomingBillsCollectionView {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-//            cell.backgroundColor = .red
-//            return cell
-//        }
-//        return UICollectionViewCell()
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 10
-//    }
-//}

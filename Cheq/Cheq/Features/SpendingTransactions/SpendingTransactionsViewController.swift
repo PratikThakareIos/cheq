@@ -48,6 +48,9 @@ class SpendingTransactionsViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(loadTransactions(_:)), name: NSNotification.Name(UINotificationEvent.spendingTransactions.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+            , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
     
     func renderTransactions(_ transactions: GetSpendingSpecificCategoryResponse) {

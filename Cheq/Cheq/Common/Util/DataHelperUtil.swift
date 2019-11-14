@@ -104,46 +104,46 @@ class DataHelperUtil {
         return categoryAmountStateCode
     }
     
-    func iconFromCategory(_ code: CategoryAmountStatResponse.CategoryCode)-> String {
+    func iconFromCategory(_ code: CategoryAmountStatResponse.CategoryCode, largeIcon: Bool)-> String {
         switch code {
         case .benefits:
-            return LargeCategoryEmoji.benefits.rawValue
+            return largeIcon ? LargeCategoryEmoji.benefits.rawValue : MediumCategoryEmoji.benefits.rawValue
         case .bills:
-            return LargeCategoryEmoji.billsUtilities.rawValue
+            return largeIcon ? LargeCategoryEmoji.billsUtilities.rawValue : MediumCategoryEmoji.billsUtilities.rawValue
         case .employmentIncome:
-            return LargeCategoryEmoji.employmentIncome.rawValue
+            return largeIcon ? LargeCategoryEmoji.employmentIncome.rawValue : MediumCategoryEmoji.employmentIncome.rawValue
         case .entertainment:
-            return LargeCategoryEmoji.entertainment.rawValue
+            return largeIcon ? LargeCategoryEmoji.entertainment.rawValue : MediumCategoryEmoji.entertainment.rawValue
         case .financialServices:
-            return LargeCategoryEmoji.financialServices.rawValue
+            return largeIcon ? LargeCategoryEmoji.financialServices.rawValue : MediumCategoryEmoji.financialServices.rawValue
         case .fitness:
-            return LargeCategoryEmoji.billsUtilities.rawValue
+            return largeIcon ? LargeCategoryEmoji.fitness.rawValue : MediumCategoryEmoji.fitness.rawValue
         case .groceries:
-            return LargeCategoryEmoji.groceries.rawValue
+            return largeIcon ? LargeCategoryEmoji.groceries.rawValue : MediumCategoryEmoji.groceries.rawValue
         case .health:
-            return LargeCategoryEmoji.health.rawValue
+            return largeIcon ? LargeCategoryEmoji.health.rawValue : MediumCategoryEmoji.health.rawValue
         case .household:
-            return LargeCategoryEmoji.homeFamily.rawValue
+            return largeIcon ? LargeCategoryEmoji.homeFamily.rawValue : MediumCategoryEmoji.homeFamily.rawValue
         case .ondemandIncome:
-            return LargeCategoryEmoji.ondemandIncome.rawValue
+            return largeIcon ? LargeCategoryEmoji.ondemandIncome.rawValue : MediumCategoryEmoji.ondemandIncome.rawValue
         case .others:
-            return LargeCategoryEmoji.other.rawValue
+            return largeIcon ? LargeCategoryEmoji.other.rawValue : MediumCategoryEmoji.ondemandIncome.rawValue
         case .otherDeposit:
-            return LargeCategoryEmoji.otherDeposits.rawValue
+            return largeIcon ? LargeCategoryEmoji.otherDeposits.rawValue : MediumCategoryEmoji.otherDeposits.rawValue
         case .restaurantsAndCafes:
-            return LargeCategoryEmoji.restaurantsCafe.rawValue
+            return largeIcon ? LargeCategoryEmoji.restaurantsCafe.rawValue : MediumCategoryEmoji.restaurantsCafe.rawValue
         case .shopping:
-            return LargeCategoryEmoji.shopping.rawValue
+            return largeIcon ? LargeCategoryEmoji.shopping.rawValue : MediumCategoryEmoji.shopping.rawValue
         case .secondaryIncome:
-            return LargeCategoryEmoji.secondaryIncome.rawValue
+            return largeIcon ? LargeCategoryEmoji.secondaryIncome.rawValue : MediumCategoryEmoji.secondaryIncome.rawValue
         case .tobaccoAndAlcohol:
-            return LargeCategoryEmoji.tobaccoAlcohol.rawValue
+            return largeIcon ? LargeCategoryEmoji.tobaccoAlcohol.rawValue : MediumCategoryEmoji.tobaccoAlcohol.rawValue
         case .transport:
-            return LargeCategoryEmoji.transport.rawValue
+            return largeIcon ? LargeCategoryEmoji.transport.rawValue : MediumCategoryEmoji.transport.rawValue
         case .travel:
-            return LargeCategoryEmoji.travel.rawValue
+            return largeIcon ? LargeCategoryEmoji.travel.rawValue : MediumCategoryEmoji.travel.rawValue
         case .workAndEducation:
-            return LargeCategoryEmoji.work.rawValue
+            return largeIcon ? LargeCategoryEmoji.work.rawValue : MediumCategoryEmoji.work.rawValue
         }
     }
 }

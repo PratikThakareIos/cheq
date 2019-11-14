@@ -21,10 +21,14 @@ class TransactionGroupTableViewCell: CTableViewCell {
         super.awakeFromNib()
         // Initialization codes
         self.viewModel = TransactionGroupTableViewCellViewModel()
+        setupTapEvent()
+        setupConfig()
+    }
+    
+    func setupTapEvent() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showCategory))
         tapRecognizer.numberOfTapsRequired = 1
         self.containerView.addGestureRecognizer(tapRecognizer)
-        setupConfig()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,7 +44,7 @@ class TransactionGroupTableViewCell: CTableViewCell {
         self.categoryTitle.text = vm.data.categoryTitle
         self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
         let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
-        let iconName = DataHelperUtil.shared.iconFromCategory(code)
+        let iconName = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)
         self.categoryIcon.image = UIImage.init(named: iconName)
         let amount = vm.data.categoryAmount ?? 0.0
         let total = vm.data.totalAmount ?? 100.0

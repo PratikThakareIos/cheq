@@ -5,7 +5,7 @@ workspace 'Cheq'
 def swift4_pods
   pre_install do |installer|
     installer.analysis_result.specifications.each do |s|
-      if s.name == 'Alamofire' || s.name == 'CocoaLumberjack'
+      if s.name == 'Alamofire' || s.name == 'CocoaLumberjack' || s.name == 'SwiftEntryKit'
         s.swift_version = '4.0'
       end
     end
@@ -29,6 +29,7 @@ def shared_pods
   pod 'SearchTextField', '~> 1.2.0'
   pod 'PullToRefreshKit'
   pod 'SDWebImage', '~> 5.0'
+  pod 'SwiftEntryKit', '1.1.0'
   
   # intercom
   pod 'Intercom', '~> 5.4.1'

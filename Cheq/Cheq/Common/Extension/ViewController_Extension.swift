@@ -112,6 +112,10 @@ extension UIViewController {
         })
         cPopup.present(self)
     }
+    
+    func slideUpCustomView(_ view: UIView, completion: (@escaping ()->Void)) {
+       
+    }
 }
 
 // MARK: Setup Idle handling
@@ -200,7 +204,7 @@ extension UIViewController: UIViewControllerProtocol  {
 
 // MARK: Navigation Helper
 extension UIViewController {
-    
+
     var isRootViewControllerUnderNav: Bool {
         guard let nav = self.navigationController else { return false }
         if self == nav.viewControllers[0] {
