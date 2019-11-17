@@ -90,16 +90,7 @@ target 'CheqProd' do
   shared_pods
 end
 
-target 'CheqDevice' do
-  project 'Cheq.xcodeproj'
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  
-  swift4_pods
-  shared_pods
-end
-
-target 'CheqDeviceProd' do
+target 'CheqDemo' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
