@@ -59,6 +59,7 @@ extension CTableViewController {
         transactionModal.viewModel.data = transactionViewModel.data
         transactionModal.setupUI()
         let popupView = CPopupView(transactionModal)
+        
         popupView.show()
     }
 }

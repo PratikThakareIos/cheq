@@ -50,6 +50,7 @@ enum IntroductionType: String {
     case monthlyPayCycle = "Monthly pay cycle is not eligible"
     case creditAssessment = "Credit assessment didn't pass"
     case hasNameConflict = "Name does not match"
+    case hasReachedCapacity = "Has reached capacity"
 }
 
 class IntroductionViewModel: BaseViewModel {
@@ -92,6 +93,7 @@ class IntroductionViewModel: BaseViewModel {
         case .monthlyPayCycle: return .monthlyPayCycle
         case .noPayCycle: return .noPayCycle
         case .hasNameConflict: return .hasNameConflict
+        case .reachedCapacity: return .hasReachedCapacity
         }
     }
 
@@ -127,6 +129,8 @@ class IntroductionViewModel: BaseViewModel {
             return CreditAssessmentIntroCoordinator()
         case .hasNameConflict:
             return NameConflictCoordinator()
+        case .hasReachedCapacity:
+            return HasReachedCapacityCoordinator()
         }
     }
 }

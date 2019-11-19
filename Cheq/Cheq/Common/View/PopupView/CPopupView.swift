@@ -17,6 +17,12 @@ class CPopupView {
         self.customView = customView
     }
     
+    class func dismiss() {
+        if SwiftEntryKit.isCurrentlyDisplaying {
+            SwiftEntryKit.dismiss()
+        }
+    }
+    
     func show() {
         
         if SwiftEntryKit.isCurrentlyDisplaying { return }
@@ -28,6 +34,7 @@ class CPopupView {
         attributes.position = .bottom
         attributes.popBehavior = .animated(animation: .translation)
         attributes.entryInteraction = .dismiss
+        attributes.screenInteraction = .dismiss
         attributes.windowLevel = .normal
         attributes.scroll = .disabled
         attributes.entryBackground = .clear

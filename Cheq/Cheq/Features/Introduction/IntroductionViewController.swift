@@ -124,7 +124,9 @@ class IntroductionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
-            
+        case .hasReachedCapacity:
+            //TODO
+            break
         case .hasNameConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
             AppConfig.shared.showSpinner()
@@ -132,14 +134,13 @@ class IntroductionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     AppNav.shared.dismissModal(self)
                 }
-                }.catch { err in
-                    AppConfig.shared.hideSpinner {
-                        self.showError(err, completion: nil)
-                    }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
             }
+       
         }
-        
-        
     }
 
     @IBAction func secondaryButton(_ sender: Any) {
@@ -158,7 +159,7 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
-        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict:
+        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict, .hasReachedCapacity:
             LoggingUtil.shared.cPrint("Chat with us")
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         }

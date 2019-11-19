@@ -16,11 +16,13 @@ public struct LoanActivity: Codable {
         case repayment = "Repayment"
     }
     public var amount: Double?
+    public var fee: Double?
     public var date: String?
     public var type: ModelType?
 
-    public init(amount: Double?, date: String?, type: ModelType?) {
+    public init(amount: Double?, fee: Double?, date: String?, type: ModelType?) {
         self.amount = amount
+        self.fee = fee
         self.date = date
         self.type = type
     }

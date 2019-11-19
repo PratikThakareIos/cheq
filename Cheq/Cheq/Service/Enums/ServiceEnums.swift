@@ -45,6 +45,11 @@ enum CheqAPIManagerError: Error, Equatable {
     case errorFromGetUserDetails
 }
 
+enum CheqAPIManagerError_Budget: Error {
+    case unableToRetrieveBudgets
+    case unableToPutBudgets
+}
+
 enum CheqAPIManagerError_Spending: Error {
     case unableToRetrieveOverview
     case unableToRetrieveCategories
@@ -167,6 +172,17 @@ extension RemoteConfigError: LocalizedError {
             return NSLocalizedString("Unable to fetch institutions.", comment: "")
         case .unableToFetchRemoteConfigValue:
             return NSLocalizedString("Unable to fetch remote config values.", comment: "")
+        }
+    }
+}
+
+extension CheqAPIManagerError_Budget: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveBudgets:
+            return NSLocalizedString("Unable to retrieve budget overview", comment: "")
+        case .unableToPutBudgets:
+            return NSLocalizedString("Unable to put budgets", comment: "")
         }
     }
 }

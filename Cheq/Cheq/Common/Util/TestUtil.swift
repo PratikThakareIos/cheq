@@ -159,6 +159,10 @@ class TestUtil {
         return Double.random(in: -100...100)
     }
     
+    func randomIntAmount()->Int {
+        return Int.random(in: -100...100)
+    }
+    
     func randomBillAmount()->Double {
         return Double.random(in: -1000...1000)
     }
@@ -180,7 +184,7 @@ class TestUtil {
         var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
         for _ in 0..<10 {
-            let loanActivity = LoanActivity(amount: randomAmount(), date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
+            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
             loanActivities.append(loanActivity)
         }
         return loanActivities
@@ -203,7 +207,7 @@ class TestUtil {
         let amount = Double(AppData.shared.amountSelected)
         let fee = Double(AppData.shared.loanFee)
         let formatter = FormatterUtil.shared.defaultDateFormatter()
-        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement())
+        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn: "1234567890")
         return loanPreview
     }
     
@@ -325,6 +329,26 @@ class TestUtil {
         
         let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
+    }
+    
+    
+    func testGetBudgets()->GetUserBudgetResponse {
+        let startDate = 7.days.later
+        let startDateString = FormatterUtil.shared.simpleDateFormatter().string(from: startDate)
+        return GetUserBudgetResponse(startDate: startDateString, recurringFrequency: "", requireSetupProcess: true, totalBudget: 1000.0, totalSpending: 900.0, userBudgets: TestUtil.shared.testUserBudgets())
+    }
+    
+    
+    
+    func testUserBudgets()->[UserBudget] {
+        var results = [UserBudget]()
+        for _ in 0...20 {
+            let randomCategory = randomCategoryCode()
+            let code = DataHelperUtil.shared.categoryAmountStateCode(randomCategory)
+            let userBudget = UserBudget(_id: Int.random(in: 0...10000), categoryTitle: code.rawValue, categoryCode: code.rawValue, estimatedBudget: randomAmount(), actualSpending: randomIntAmount(), hide: true)
+            results.append(userBudget)
+        }
+        return results
     }
     
     func testLendingOverview()->GetLendingOverviewResponse {
