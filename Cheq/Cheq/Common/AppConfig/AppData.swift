@@ -59,6 +59,9 @@ enum ScreenName: String {
     case spendingCategoryById = "Spending Category"
     case spendingTransactions = "All Transactions"
     
+    // account
+    case accountInfo = "Account" 
+    
     init(fromRawValue: String) {
         self = ScreenName(rawValue: fromRawValue) ?? .legalName
     }

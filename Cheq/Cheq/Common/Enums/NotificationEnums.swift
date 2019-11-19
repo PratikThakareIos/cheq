@@ -31,6 +31,7 @@ enum UINotificationEvent: String {
     case spendingCategories = "spendingCategories"
     case spendingTransactions = "spendingTransactions"
     case selectedCategoryById = "selectedCategoryById"
+    case accountInfo = "accountInfo"
     case loadCategoryById = "loadCategoryById"
     case previewLoan = "previewLoan" 
     case intercom = "intercom"

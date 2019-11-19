@@ -21,6 +21,12 @@ class BaseTableVCViewModel {
     func insertSection(_ section: TableSectionViewModel, index: Int) {
         self.sections.insert(section, at: index)
     }
+    
+    func clearSectionIfNeeded() {
+        if self.sections.count > 0 {
+            self.sections.removeAll()
+        }
+    }
 }
 
 // common rendering methods

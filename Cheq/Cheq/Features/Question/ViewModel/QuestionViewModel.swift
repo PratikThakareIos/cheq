@@ -105,6 +105,16 @@ class QuestionViewModel: BaseViewModel {
     
     func loadSaved() {
         self.savedAnswer = UserDefaults.standard.value(forKey: self.viewModelKey()) as? [String : String] ?? [:]
+        
+        #if DEMO
+        self.savedAnswer[QuestionField.firstname.rawValue] = "John"
+        self.savedAnswer[QuestionField.lastname.rawValue] = "Smith"
+        self.savedAnswer[QuestionField.contactDetails.rawValue] = "0411223344"
+        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        if email.isEmpty {
+            let _ = CKeychain.shared.setValue(CKey.loggedInEmail.rawValue, value: "john.smith@cheq.com.au")
+        }
+        #endif
     }
     
     func fieldValue(_ questionField: QuestionField)-> String {
