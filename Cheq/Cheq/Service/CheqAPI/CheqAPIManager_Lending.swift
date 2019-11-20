@@ -60,7 +60,13 @@ extension CheqAPIManager {
     }
     
     func lendingOverview()->Promise<GetLendingOverviewResponse> {
+        
+        
         return Promise<GetLendingOverviewResponse>() { resolver in
+            #if DEMO
+            let lendingOverview = TestUtil.shared.testLendingOverview()
+            resolver.fulfill(lendingOverview)
+            #else
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 LendingAPI.getLendingWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (lendingOverview, err) in
@@ -79,6 +85,7 @@ extension CheqAPIManager {
                 LoggingUtil.shared.cPrint(err)
                 resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview)
             }
+            #endif
         }
     }
     

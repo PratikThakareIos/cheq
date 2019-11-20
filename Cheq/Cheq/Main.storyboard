@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="tableView" destination="cJz-X1-sMR" id="OJO-YR-sgh"/>
+                        <outlet property="tableView" destination="cJz-X1-sMR" id="HSH-sE-Rxm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1Y-bb-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -302,10 +302,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="analyticsIcon" width="30" height="30"/>
-        <image name="financeIcon" width="30" height="30"/>
-        <image name="profileIcon" width="30" height="30"/>
         <image name="tab-lend" width="20" height="25"/>
         <image name="tab-overview" width="25" height="25"/>
+        <image name="tab-profile" width="24" height="25"/>
     </resources>
 </document>

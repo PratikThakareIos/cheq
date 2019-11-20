@@ -18,7 +18,7 @@ class LendingViewModel: BaseTableVCViewModel {
     }
     
     func render(_ lendingOverview: GetLendingOverviewResponse) {
-    
+        clearSectionIfNeeded()
         var section = TableSectionViewModel()
         section.rows.append(IntercomChatTableViewCellViewModel())
         self.addLoanSetting(lendingOverview, section: &section)
