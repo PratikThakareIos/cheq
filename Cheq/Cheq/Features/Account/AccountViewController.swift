@@ -11,7 +11,7 @@ import UIKit
 class AccountViewController: CTableViewController {
     
     override func registerCells() {
-        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel(), AvatarTableViewCellViewModel(), AccountInfoTableViewCellViewModel()]
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel(), AvatarTableViewCellViewModel(), AccountInfoTableViewCellViewModel(), LinkTableViewCellViewModel(), InfoNoteTableViewCellViewModel()]
         for vm: TableViewCellViewModelProtocol in cellModels {
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
@@ -47,6 +47,10 @@ class AccountViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(accountInfo(_:)), name: NSNotification.Name(UINotificationEvent.accountInfo.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openWebLink(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
 }
 

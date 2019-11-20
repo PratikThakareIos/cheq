@@ -42,6 +42,9 @@ protocol AppThemeProtocol {
     // monetary color
     var monetaryColor: UIColor { get }
     
+    // error color
+    var errorColor: UIColor { get }
+    
     // gray scale system color
     var lightGrayScaleColor: UIColor { get }
     var lightGrayBorderColor: UIColor { get }
@@ -237,6 +240,11 @@ extension AppThemeProtocol {
 
      var lightGrayBorderColor: UIColor {
         get { return UIColor(hex: "E0E0E0") }
+    }
+    
+    // error color
+    var errorColor: UIColor {
+        get { return UIColor(hex: "F20441") }
     }
     
     // gray system color

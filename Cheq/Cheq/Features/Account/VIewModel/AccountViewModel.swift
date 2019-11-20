@@ -12,6 +12,10 @@ enum AccountInfo: String {
     case fullname = "Full name"
     case email = "Email"
     case mobile = "Mobile"
+    case helpAndSupport = "Help & Support"
+    case privacyPolicy = "Policy"
+    case termsAndConditions = "Terms of Use"
+    case logout = "Log out"
 }
 
 class AccountViewModel: BaseTableVCViewModel {
@@ -51,6 +55,40 @@ class AccountViewModel: BaseTableVCViewModel {
         mobile.subHeader = AccountInfo.mobile.rawValue
         mobile.information = mb
         section.rows.append(mobile)
+        section.rows.append(spacer)
+        
+        let helpAndSupport = LinkTableViewCellViewModel()
+        helpAndSupport.header = AccountInfo.helpAndSupport.rawValue
+        helpAndSupport.link = .helpAndSupport
+        section.rows.append(helpAndSupport)
+        section.rows.append(spacer)
+        
+        let privacyPolicy = LinkTableViewCellViewModel()
+        privacyPolicy.header = AccountInfo.privacyPolicy.rawValue
+        privacyPolicy.link = .privacy
+        section.rows.append(privacyPolicy)
+        section.rows.append(spacer)
+        
+        let termsAndConditions = LinkTableViewCellViewModel()
+        termsAndConditions.header = AccountInfo.termsAndConditions.rawValue
+        termsAndConditions.link = .toc
+        section.rows.append(termsAndConditions)
+        section.rows.append(spacer)
+        
+        let logout = LinkTableViewCellViewModel()
+        logout.header = AccountInfo.logout.rawValue
+        logout.link = .logout
+        logout.linkColor = AppConfig.shared.activeTheme.errorColor
+        logout.showDisclosureIcon = false
+        section.rows.append(logout)
+        section.rows.append(spacer)
+        
+        let version = InfoNoteTableViewCellViewModel()
+        let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        version.data = "Version \(ver)"
+        version.showIcon = false
+        version.textAlignment = .center
+        section.rows.append(version)
         section.rows.append(spacer)
         
         self.sections = [section]

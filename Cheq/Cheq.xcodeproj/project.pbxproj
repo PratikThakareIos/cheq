@@ -1680,14 +1680,6 @@
 			path = Link;
 			sourceTree = "<group>";
 		};
-		4F01F8962384998000268423 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				4F01F89A238499A600268423 /* ViewModel */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
 		4F01F8982384999800268423 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1700,13 +1692,6 @@
 			isa = PBXGroup;
 			children = (
 				4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		4F01F89A238499A600268423 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2913,8 +2898,6 @@
 		964FA98F2352879100B07AD7 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4F01F8962384998000268423 /* Button */,
-				4F01F8952384997000268423 /* Link */,
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
@@ -2922,6 +2905,7 @@
 				4F01F89B238499F600268423 /* Avatar */,
 				4F2325892379060900BF3F21 /* BarChart */,
 				4F23240E2378005600BF3F21 /* LineSeparator */,
+				4F01F8952384997000268423 /* Link */,
 				4F2323FD2375090600BF3F21 /* InfoNote */,
 				4FD228862372687900045662 /* SpendingCard */,
 				4FD2290823743CD200045662 /* Transaction */,

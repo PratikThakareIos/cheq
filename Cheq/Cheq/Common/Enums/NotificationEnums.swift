@@ -38,6 +38,7 @@ enum UINotificationEvent: String {
     case switchRoot = "switchRoot"
     case showError = "showError"
     case showTransaction = "showTransaction"
+    case openLink = "openLink" 
     case viewAll = "viewAll"
 }
 
@@ -52,4 +53,5 @@ enum NotificationUserInfoKey: String {
     case category = "category"
     case viewAll = "viewAll"
     case transaction = "transaction"
+    case link = "link"
 }

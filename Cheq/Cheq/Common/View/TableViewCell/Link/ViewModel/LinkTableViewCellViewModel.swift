@@ -8,6 +8,10 @@
 
 import UIKit
 
-class LinkTableViewCellViewModel: NSObject {
-
+class LinkTableViewCellViewModel: TableViewCellViewModelProtocol {
+    var identifier: String = "LinkTableViewCell"
+    var header: String = AccountInfo.privacyPolicy.rawValue
+    var link: links = .privacy
+    var showDisclosureIcon: Bool = true
+    var linkColor = AppConfig.shared.activeTheme.textColor
 }
