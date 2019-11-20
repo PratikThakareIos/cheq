@@ -484,6 +484,33 @@
 		4F01F88F238260D500268423 /* HasReachedCapacityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F88E238260D500268423 /* HasReachedCapacityCoordinator.swift */; };
 		4F01F890238260D500268423 /* HasReachedCapacityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F88E238260D500268423 /* HasReachedCapacityCoordinator.swift */; };
 		4F01F891238260D500268423 /* HasReachedCapacityCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F88E238260D500268423 /* HasReachedCapacityCoordinator.swift */; };
+		4F01F89E23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F89D23849AA300268423 /* AvatarTableViewCellViewModel.swift */; };
+		4F01F89F23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F89D23849AA300268423 /* AvatarTableViewCellViewModel.swift */; };
+		4F01F8A023849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F89D23849AA300268423 /* AvatarTableViewCellViewModel.swift */; };
+		4F01F8A323849AFC00268423 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A123849AFC00268423 /* AvatarTableViewCell.swift */; };
+		4F01F8A423849AFC00268423 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A123849AFC00268423 /* AvatarTableViewCell.swift */; };
+		4F01F8A523849AFC00268423 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A123849AFC00268423 /* AvatarTableViewCell.swift */; };
+		4F01F8A623849AFC00268423 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8A223849AFC00268423 /* AvatarTableViewCell.xib */; };
+		4F01F8A723849AFC00268423 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8A223849AFC00268423 /* AvatarTableViewCell.xib */; };
+		4F01F8A823849AFC00268423 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8A223849AFC00268423 /* AvatarTableViewCell.xib */; };
+		4F01F8AA2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A92384A12A00268423 /* AccountInfoTableViewCellViewModel.swift */; };
+		4F01F8AB2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A92384A12A00268423 /* AccountInfoTableViewCellViewModel.swift */; };
+		4F01F8AC2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8A92384A12A00268423 /* AccountInfoTableViewCellViewModel.swift */; };
+		4F01F8AF2384A14800268423 /* AccountInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8AD2384A14800268423 /* AccountInfoTableViewCell.swift */; };
+		4F01F8B02384A14800268423 /* AccountInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8AD2384A14800268423 /* AccountInfoTableViewCell.swift */; };
+		4F01F8B12384A14800268423 /* AccountInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8AD2384A14800268423 /* AccountInfoTableViewCell.swift */; };
+		4F01F8B22384A14800268423 /* AccountInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8AE2384A14800268423 /* AccountInfoTableViewCell.xib */; };
+		4F01F8B32384A14800268423 /* AccountInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8AE2384A14800268423 /* AccountInfoTableViewCell.xib */; };
+		4F01F8B42384A14800268423 /* AccountInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8AE2384A14800268423 /* AccountInfoTableViewCell.xib */; };
+		4F01F8B72384A81000268423 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8B52384A81000268423 /* LinkTableViewCell.swift */; };
+		4F01F8B82384A81000268423 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8B52384A81000268423 /* LinkTableViewCell.swift */; };
+		4F01F8B92384A81000268423 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8B52384A81000268423 /* LinkTableViewCell.swift */; };
+		4F01F8BA2384A81000268423 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8B62384A81000268423 /* LinkTableViewCell.xib */; };
+		4F01F8BB2384A81000268423 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8B62384A81000268423 /* LinkTableViewCell.xib */; };
+		4F01F8BC2384A81000268423 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F01F8B62384A81000268423 /* LinkTableViewCell.xib */; };
+		4F01F8BE2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
+		4F01F8BF2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
+		4F01F8C02384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -1172,6 +1199,15 @@
 		4F01F7C323825F8200268423 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4F01F7C423825F8200268423 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4F01F88E238260D500268423 /* HasReachedCapacityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasReachedCapacityCoordinator.swift; sourceTree = "<group>"; };
+		4F01F89D23849AA300268423 /* AvatarTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F01F8A123849AFC00268423 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		4F01F8A223849AFC00268423 /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
+		4F01F8A92384A12A00268423 /* AccountInfoTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		4F01F8AD2384A14800268423 /* AccountInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoTableViewCell.swift; sourceTree = "<group>"; };
+		4F01F8AE2384A14800268423 /* AccountInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountInfoTableViewCell.xib; sourceTree = "<group>"; };
+		4F01F8B52384A81000268423 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		4F01F8B62384A81000268423 /* LinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTableViewCell.xib; sourceTree = "<group>"; };
+		4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1622,6 +1658,60 @@
 				4F01F7C023825F8200268423 /* PostPushNotificationRequest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4F01F8932384992600268423 /* AccountInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8982384999800268423 /* ViewModel */,
+				4F01F8AD2384A14800268423 /* AccountInfoTableViewCell.swift */,
+				4F01F8AE2384A14800268423 /* AccountInfoTableViewCell.xib */,
+			);
+			path = AccountInfo;
+			sourceTree = "<group>";
+		};
+		4F01F8952384997000268423 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8992384999F00268423 /* ViewModel */,
+				4F01F8B52384A81000268423 /* LinkTableViewCell.swift */,
+				4F01F8B62384A81000268423 /* LinkTableViewCell.xib */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		4F01F8982384999800268423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8A92384A12A00268423 /* AccountInfoTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F01F8992384999F00268423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F01F89B238499F600268423 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F89C23849A6400268423 /* ViewModel */,
+				4F01F8A123849AFC00268423 /* AvatarTableViewCell.swift */,
+				4F01F8A223849AFC00268423 /* AvatarTableViewCell.xib */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
+		4F01F89C23849A6400268423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F89D23849AA300268423 /* AvatarTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F05DBBD231DD5AC00C3B9BF /* Model */ = {
@@ -2811,8 +2901,11 @@
 				96F9FF9E2352B0120041001F /* CTableViewCell.swift */,
 				964FA99E2352967800B07AD7 /* TableSectionViewModel.swift */,
 				964FA99B2352965E00B07AD7 /* TableViewCellViewModelProtocol.swift */,
+				4F01F8932384992600268423 /* AccountInfo */,
+				4F01F89B238499F600268423 /* Avatar */,
 				4F2325892379060900BF3F21 /* BarChart */,
 				4F23240E2378005600BF3F21 /* LineSeparator */,
+				4F01F8952384997000268423 /* Link */,
 				4F2323FD2375090600BF3F21 /* InfoNote */,
 				4FD228862372687900045662 /* SpendingCard */,
 				4FD2290823743CD200045662 /* Transaction */,
@@ -3589,6 +3682,7 @@
 				4F01F74E237E6A5B00268423 /* LaunchScreen.storyboard in Resources */,
 				4F01F74F237E6A5B00268423 /* InfoNoteTableViewCell.xib in Resources */,
 				4F01F750237E6A5B00268423 /* MessageBubbleTableViewCell.xib in Resources */,
+				4F01F8BC2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4F01F751237E6A5B00268423 /* TopTableViewCell.xib in Resources */,
 				4F01F752237E6A5B00268423 /* HeaderTableViewCell.xib in Resources */,
 				4F01F753237E6A5B00268423 /* CButtonTableViewCell.xib in Resources */,
@@ -3609,7 +3703,9 @@
 				4F01F762237E6A5B00268423 /* Cheq.plist in Resources */,
 				4F01F763237E6A5B00268423 /* Main.storyboard in Resources */,
 				4F01F764237E6A5B00268423 /* TransferCardTableViewCell.xib in Resources */,
+				4F01F8B42384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4F01F765237E6A5B00268423 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F01F8A823849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4F01F766237E6A5B00268423 /* TransactionModal.xib in Resources */,
 				4F01F767237E6A5B00268423 /* Emoji.xcassets in Resources */,
 				4F01F768237E6A5B00268423 /* UpcomingBillsTableViewCell.xib in Resources */,
@@ -3629,6 +3725,7 @@
 				4FBDDB1D236BC68700EDB1E9 /* LaunchScreen.storyboard in Resources */,
 				4F2324082375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */,
+				4F01F8BB2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */,
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
@@ -3649,7 +3746,9 @@
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
+				4F01F8B32384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F01F8A723849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4FDDC378237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
@@ -3669,6 +3768,7 @@
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				4F2324052375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FB1CB3A2355375D00E7B224 /* MessageBubbleTableViewCell.xib in Resources */,
+				4F01F8BA2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
@@ -3689,7 +3789,9 @@
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
+				4F01F8B22384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
+				4F01F8A623849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4FDDC375237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
@@ -4073,6 +4175,7 @@
 				4F01F647237E6A5B00268423 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4F01F648237E6A5B00268423 /* LendingViewController.swift in Sources */,
 				4F01F80923825F8300268423 /* GetUserKycResponse.swift in Sources */,
+				4F01F8B12384A14800268423 /* AccountInfoTableViewCell.swift in Sources */,
 				4F01F649237E6A5B00268423 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F01F64A237E6A5B00268423 /* CBarViewFormatter.swift in Sources */,
 				4F01F83323825F8300268423 /* GetSpendingOverviewResponse.swift in Sources */,
@@ -4100,6 +4203,7 @@
 				4F01F661237E6A5B00268423 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4F01F662237E6A5B00268423 /* FormatterUtil.swift in Sources */,
 				4F01F663237E6A5B00268423 /* CollectionViewProtocol.swift in Sources */,
+				4F01F8A023849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */,
 				4F01F665237E6A5B00268423 /* SpendingSpecificCategoryViewController.swift in Sources */,
 				4F01F666237E6A5B00268423 /* SpendingViewModel.swift in Sources */,
 				4F01F667237E6A5B00268423 /* FinanceViewController.swift in Sources */,
@@ -4186,6 +4290,7 @@
 				4F01F6B7237E6A5B00268423 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4F01F82123825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				4F01F6B8237E6A5B00268423 /* TopTableViewCell.swift in Sources */,
+				4F01F8AC2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
 				4F01F7F123825F8300268423 /* PutUserDetailRequest.swift in Sources */,
 				4F01F6B9237E6A5B00268423 /* SpendingSpecificCategoryViewModel.swift in Sources */,
 				4F01F6BB237E6A5B00268423 /* CPickerView.swift in Sources */,
@@ -4232,6 +4337,7 @@
 				4F01F77E23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */,
 				4F01F6DA237E6A5B00268423 /* IntroductionViewController.swift in Sources */,
 				4F01F6DB237E6A5B00268423 /* TransferCardTableViewCellViewModel.swift in Sources */,
+				4F01F8A523849AFC00268423 /* AvatarTableViewCell.swift in Sources */,
 				4F01F6DC237E6A5B00268423 /* MessageBubbleTableViewCellViewModel.swift in Sources */,
 				4F01F6DD237E6A5B00268423 /* CheqAPIManager_Spending.swift in Sources */,
 				4F01F83923825F8300268423 /* SlimTransactionResponse.swift in Sources */,
@@ -4251,6 +4357,7 @@
 				4F01F85A23825F8300268423 /* GetUserResponse.swift in Sources */,
 				4F01F6F2237E6A5B00268423 /* CSwitch.swift in Sources */,
 				4F01F6F4237E6A5B00268423 /* FinanceViewModel.swift in Sources */,
+				4F01F8C02384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */,
 				4F01F6F6237E6A5B00268423 /* GridCoordinatorViewModel.swift in Sources */,
 				4F01F6F7237E6A5B00268423 /* DateOfBirthCoordinator.swift in Sources */,
 				4F01F6F8237E6A5B00268423 /* DeclineViewTestUtil.swift in Sources */,
@@ -4306,6 +4413,7 @@
 				4F01F72B237E6A5B00268423 /* LoggingUtil.swift in Sources */,
 				4F01F72C237E6A5B00268423 /* JointAccountIntroCoordinator.swift in Sources */,
 				4F01F72D237E6A5B00268423 /* AgreementItemTableViewCell.swift in Sources */,
+				4F01F8B92384A81000268423 /* LinkTableViewCell.swift in Sources */,
 				4F01F82723825F8300268423 /* Worksheet.swift in Sources */,
 				4F01F72E237E6A5B00268423 /* StateCoordinator.swift in Sources */,
 				4F01F84E23825F8300268423 /* LoanSetting.swift in Sources */,
@@ -4377,6 +4485,7 @@
 				4F2323EC2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4FBDDA34236BC68700EDB1E9 /* LendingViewController.swift in Sources */,
 				4F01F80823825F8300268423 /* GetUserKycResponse.swift in Sources */,
+				4F01F8B02384A14800268423 /* AccountInfoTableViewCell.swift in Sources */,
 				4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
 				4F01F83223825F8300268423 /* GetSpendingOverviewResponse.swift in Sources */,
@@ -4404,6 +4513,7 @@
 				4F2323E22374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4FBDDA4A236BC68700EDB1E9 /* FormatterUtil.swift in Sources */,
 				4FBDDA4B236BC68700EDB1E9 /* CollectionViewProtocol.swift in Sources */,
+				4F01F89F23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */,
 				4FDDC334237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift in Sources */,
 				4FBDDA4D236BC68700EDB1E9 /* SpendingViewModel.swift in Sources */,
 				4FBDDA52236BC68700EDB1E9 /* FinanceViewController.swift in Sources */,
@@ -4490,6 +4600,7 @@
 				4F2325B7237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4F01F82023825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				4FBDDA9E236BC68700EDB1E9 /* TopTableViewCell.swift in Sources */,
+				4F01F8AB2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
 				4F01F7F023825F8300268423 /* PutUserDetailRequest.swift in Sources */,
 				4FDDC339237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */,
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
@@ -4536,6 +4647,7 @@
 				4F01F77D23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */,
 				4FBDDAB3236BC68700EDB1E9 /* IntroductionViewController.swift in Sources */,
 				4FBDDAB4236BC68700EDB1E9 /* TransferCardTableViewCellViewModel.swift in Sources */,
+				4F01F8A423849AFC00268423 /* AvatarTableViewCell.swift in Sources */,
 				4FBDDAB5236BC68700EDB1E9 /* MessageBubbleTableViewCellViewModel.swift in Sources */,
 				4FBDDAB7236BC68700EDB1E9 /* CheqAPIManager_Spending.swift in Sources */,
 				4F01F83823825F8300268423 /* SlimTransactionResponse.swift in Sources */,
@@ -4555,6 +4667,7 @@
 				4F01F85923825F8300268423 /* GetUserResponse.swift in Sources */,
 				4FBDDACB236BC68700EDB1E9 /* CSwitch.swift in Sources */,
 				4FBDDACD236BC68700EDB1E9 /* FinanceViewModel.swift in Sources */,
+				4F01F8BF2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */,
 				4FBDDACE236BC68700EDB1E9 /* GridCoordinatorViewModel.swift in Sources */,
 				4FBDDACF236BC68700EDB1E9 /* DateOfBirthCoordinator.swift in Sources */,
 				4FBDDAD1236BC68700EDB1E9 /* DeclineViewTestUtil.swift in Sources */,
@@ -4610,6 +4723,7 @@
 				4FBDDAFD236BC68700EDB1E9 /* LoggingUtil.swift in Sources */,
 				4FBDDAFE236BC68700EDB1E9 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FBDDAFF236BC68700EDB1E9 /* AgreementItemTableViewCell.swift in Sources */,
+				4F01F8B82384A81000268423 /* LinkTableViewCell.swift in Sources */,
 				4F01F82623825F8300268423 /* Worksheet.swift in Sources */,
 				4FBDDB01236BC68700EDB1E9 /* StateCoordinator.swift in Sources */,
 				4F01F84D23825F8300268423 /* LoanSetting.swift in Sources */,
@@ -4681,6 +4795,7 @@
 				4F2323E92374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				4F01F80723825F8300268423 /* GetUserKycResponse.swift in Sources */,
+				4F01F8AF2384A14800268423 /* AccountInfoTableViewCell.swift in Sources */,
 				96F9FFC22352C4DE0041001F /* CompleteDetailsTableViewCell.swift in Sources */,
 				96B0069322FE709A00173743 /* CBarViewFormatter.swift in Sources */,
 				4F01F83123825F8300268423 /* GetSpendingOverviewResponse.swift in Sources */,
@@ -4708,6 +4823,7 @@
 				4F2323DF2374DD2200BF3F21 /* UpcomingBillCollectionViewCell.swift in Sources */,
 				4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
+				4F01F89E23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */,
 				4FDDC331237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingViewModel.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
@@ -4794,6 +4910,7 @@
 				4F2325B4237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				4F01F81F23825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
+				4F01F8AA2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
 				4F01F7EF23825F8300268423 /* PutUserDetailRequest.swift in Sources */,
 				4FDDC336237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */,
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
@@ -4840,6 +4957,7 @@
 				4F01F77C23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */,
 				4FD7C1F52329E16300AC7A67 /* IntroductionViewController.swift in Sources */,
 				9680CEAD2354A786009CF66E /* TransferCardTableViewCellViewModel.swift in Sources */,
+				4F01F8A323849AFC00268423 /* AvatarTableViewCell.swift in Sources */,
 				4FB1CB3D235539D200E7B224 /* MessageBubbleTableViewCellViewModel.swift in Sources */,
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
 				4F01F83723825F8300268423 /* SlimTransactionResponse.swift in Sources */,
@@ -4859,6 +4977,7 @@
 				4F01F85823825F8300268423 /* GetUserResponse.swift in Sources */,
 				4F2E4ABE23349C79001F1BA2 /* CSwitch.swift in Sources */,
 				9676525222FB07A1001E43E0 /* FinanceViewModel.swift in Sources */,
+				4F01F8BE2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */,
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
@@ -4914,6 +5033,7 @@
 				4F2E2BA1231EA57400C75B09 /* LoggingUtil.swift in Sources */,
 				4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
+				4F01F8B72384A81000268423 /* LinkTableViewCell.swift in Sources */,
 				4F01F82523825F8300268423 /* Worksheet.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				4F01F84C23825F8300268423 /* LoanSetting.swift in Sources */,

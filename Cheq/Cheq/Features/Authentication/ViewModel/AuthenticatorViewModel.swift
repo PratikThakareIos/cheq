@@ -15,12 +15,14 @@ enum links: String {
     case privacy = "https://cheq.com.au/privacy-policy"
     
     // internal screens
-    case login = "http://login.cheq.com"
-    case signup = "http://signup.cheq.com"
-    case forgot = "http://forgot.cheq.com"
-    case resendForgot = "http://resendCode.forgot.cheq.com"
-    case resendCode = "http://resendCode.cheq.com"
-    case email = "http://email.cheq.com.au"
+    case logout = "http://app.logout.cheq.com.au"
+    case login = "http://app.login.cheq.com.au"
+    case signup = "http://app.signup.cheq.com.au"
+    case forgot = "http://app.forgot.cheq.com.au"
+    case resendForgot = "http://app.resendCode.forgot.cheq.com.au"
+    case resendCode = "http://app.resendCode.cheq.com.au"
+    case email = "http://app.email.cheq.com.au"
+    case helpAndSupport = "http://app.helpAndSupport.cheq.com.au"
 }
 
 class AuthenticatorViewModel: BaseViewModel {

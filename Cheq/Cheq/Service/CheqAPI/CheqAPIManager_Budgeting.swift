@@ -57,7 +57,7 @@ extension CheqAPIManager {
                         resolver.reject(CheqAPIManagerError_Budget.unableToPutBudgets)
                     }
                     
-                    resolver.fulfill(response)
+                    resolver.fulfill(())
                 })
             }.catch { err in
                 resolver.reject(err)

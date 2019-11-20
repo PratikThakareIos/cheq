@@ -34,6 +34,7 @@ enum MainStoryboardId: String {
     case spendingTransactions = "SpendingTransactionsViewController"
     case budget = "BudgetViewController"
     case preview = "PreviewLoanViewController"
+    case account = "AccountViewController" 
 }
 
 enum CommonStoryboardId: String {

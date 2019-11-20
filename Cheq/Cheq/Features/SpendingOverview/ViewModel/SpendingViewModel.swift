@@ -25,10 +25,7 @@ class SpendingViewModel: BaseTableVCViewModel {
     
     func render(_ spendingOverview: GetSpendingOverviewResponse) {
         
-        if self.sections.count > 0 {
-            self.sections.removeAll()
-        }
-        
+        clearSectionIfNeeded()
         var section = TableSectionViewModel()
         spendingCard(spendingOverview, section: &section)
         upcomingBills(spendingOverview, section: &section)

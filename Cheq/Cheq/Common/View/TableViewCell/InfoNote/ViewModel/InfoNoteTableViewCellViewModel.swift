@@ -15,4 +15,6 @@ enum infoNote: String {
 class InfoNoteTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "InfoNoteTableViewCell"
     var data: String = infoNote.predictionOnly.rawValue
+    var showIcon: Bool = true
+    var textAlignment: NSTextAlignment = .natural
 }
