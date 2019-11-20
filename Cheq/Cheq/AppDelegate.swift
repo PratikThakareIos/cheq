@@ -55,9 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //        self.setupInitialViewController()
 //        self.setupInitDevController2()
 //        self.setupInitDevController()
-        self.setupSpendingViewController()
+//        self.setupSpendingViewController()
 //        self.setupLogController()
 //        self.setupQuestionController()
+        self.setupSplashController()
         return true
     }
     
@@ -118,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if !AppConfig.shared.isFirstInstall() {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue, embedInNav: true)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
         }
         self.window?.makeKeyAndVisible()
     }
@@ -282,6 +283,14 @@ extension AppDelegate {
         let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
         vc.viewModel.coordinator = BankAccountCoordinator()
         window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupSplashController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: false)
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
     

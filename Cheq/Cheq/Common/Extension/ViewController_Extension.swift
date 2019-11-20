@@ -16,6 +16,12 @@ protocol UIViewControllerProtocol {
 
 // MARK: Hide navigation bar back button title
 extension UIViewController {
+    
+    func transparentStatusBar(_ navBar: inout UINavigationBar) {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+    }
 
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))

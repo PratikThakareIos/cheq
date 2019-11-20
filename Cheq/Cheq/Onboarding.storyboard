@@ -989,26 +989,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BHv-qI-fIh">
-                                        <rect key="frame" x="20" y="20" width="374" height="172"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="195"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-mB-7tg">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="39"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZX-em-p9k" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="36" width="374" height="36"/>
+                                                <rect key="frame" x="0.0" y="59" width="374" height="36"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHs-zT-7EN" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="92" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="115" width="374" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgH-Bf-JCp" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="142" width="374" height="30"/>
+                                                <rect key="frame" x="0.0" y="165" width="374" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Send email">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1048,6 +1048,87 @@
             </objects>
             <point key="canvasLocation" x="-797" y="638"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8db-Aj-JNf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udJ-eb-wQT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QBk-TO-hIS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3M-9n-bCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="-771"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="a84-Dl-cEI">
+            <objects>
+                <viewController storyboardIdentifier="CSplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BRv-Rt-HMq" customClass="CSplashViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6T7-ir-Tc3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bpU-FF-zpp"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Q4-gX-JKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-1888"/>
+        </scene>
+        <!--Splash Page View Controller-->
+        <scene sceneID="ACw-aF-q5U">
+            <objects>
+                <viewController storyboardIdentifier="CSplashPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VMU-ii-Pw4" customClass="CSplashPageViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DnH-C0-xrj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UIz-Lk-mab">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qec-ul-sVS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash/budgetImage" translatesAutoresizingMaskIntoConstraints="NO" id="npo-jk-fjJ">
+                                        <rect key="frame" x="0.0" y="107" width="414" height="460"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="splash/budgetText" translatesAutoresizingMaskIntoConstraints="NO" id="gEe-TK-s5E">
+                                        <rect key="frame" x="0.0" y="577" width="414" height="134"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jkd-3Q-nwr">
+                                        <rect key="frame" x="0.0" y="721" width="414" height="97"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jkd-3Q-nwr" firstAttribute="height" secondItem="Qec-ul-sVS" secondAttribute="height" id="tMd-ux-1mi"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90862613916397095" green="0.72157925367355347" blue="0.3806835412979126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qNP-WN-m4B" firstAttribute="trailing" secondItem="UIz-Lk-mab" secondAttribute="trailing" id="DTj-K5-MlO"/>
+                            <constraint firstItem="UIz-Lk-mab" firstAttribute="top" secondItem="qNP-WN-m4B" secondAttribute="top" id="HFK-01-sYm"/>
+                            <constraint firstItem="UIz-Lk-mab" firstAttribute="leading" secondItem="qNP-WN-m4B" secondAttribute="leading" id="fZ5-Bw-MQ5"/>
+                            <constraint firstItem="qNP-WN-m4B" firstAttribute="bottom" secondItem="UIz-Lk-mab" secondAttribute="bottom" id="p4n-x4-LKG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qNP-WN-m4B"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="splashImage" destination="npo-jk-fjJ" id="Esc-Xg-HqJ"/>
+                        <outlet property="splashText" destination="gEe-TK-s5E" id="ejK-Je-6ed"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHk-bo-t2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="-1888"/>
+        </scene>
     </scenes>
     <resources>
         <image name="appLogo" width="27" height="39"/>
@@ -1057,5 +1138,7 @@
         <image name="location" width="80" height="79"/>
         <image name="next-arrow" width="25" height="24"/>
         <image name="showPassword" width="24" height="24"/>
+        <image name="splash/budgetImage" width="311" height="460"/>
+        <image name="splash/budgetText" width="257" height="134"/>
     </resources>
 </document>

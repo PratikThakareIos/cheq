@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftSpinner
+import SVProgressHUD
 import UserNotifications
 import PromiseKit
 import DateToolsSwift
@@ -122,28 +122,30 @@ extension AppConfig {
         guard self.isShowingSpinner == false else { return }
         NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
         self.isShowingSpinner = true
-        SwiftSpinner.setTitleFont(activeTheme.headerFont)
-        SwiftSpinner.shared.outerColor = activeTheme.alternativeColor3
-        SwiftSpinner.shared.innerColor = activeTheme.alternativeColor3
-        SwiftSpinner.setTitleColor(activeTheme.altTextColor)
-        SwiftSpinner.setAnimationDelay(activeTheme.quickAnimationDuration)
-        SwiftSpinner.show("Loading", animated: true)
+        SVProgressHUD.setFont(AppConfig.shared.activeTheme.headerFont)
+        SVProgressHUD.setForegroundColor(AppConfig.shared.activeTheme.textBackgroundColor)
+        SVProgressHUD.setBorderColor(.clear)
+        SVProgressHUD.setDefaultMaskType(.custom)
+        SVProgressHUD.setBackgroundColor(.clear)
+        SVProgressHUD.show(withStatus: "Loading")
     }
     
     func hideSpinner()->Promise<Void> {
         return Promise<Void>() { resolver in
             guard self.isShowingSpinner == true else { resolver.fulfill(()); return }
             self.isShowingSpinner = false
-            SwiftSpinner.hide {
+            SVProgressHUD.dismiss(completion: {
                 resolver.fulfill(())
-            }
+            })
         }
     }
     
     func hideSpinner(completion: @escaping ()->Void) {
         guard self.isShowingSpinner == true else { completion(); return }
         self.isShowingSpinner = false
-        SwiftSpinner.hide(completion)
+        SVProgressHUD.dismiss {
+            completion()
+        }
     }
 }
 

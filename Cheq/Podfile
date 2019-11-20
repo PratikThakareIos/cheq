@@ -18,7 +18,7 @@ def shared_pods
   pod 'Charts', '~> 3.3'
   pod 'NavigationDropdownMenu'
   pod 'Hex'
-  pod 'SwiftSpinner'
+  pod 'SVProgressHUD'
   pod 'PopOverMenu'
   pod 'Alamofire'
   pod 'PromiseKit'
@@ -30,6 +30,7 @@ def shared_pods
   pod 'PullToRefreshKit'
   pod 'SDWebImage', '~> 5.0'
   pod 'SwiftEntryKit', '1.1.0'
+  pod 'Parchment'
   
   # intercom
   pod 'Intercom', '~> 5.4.1'
@@ -37,19 +38,7 @@ def shared_pods
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK', '15.0.0'
   
-  # Pod dependency from MoneySoft
-  
-  pod 'Mantle'
-  pod 'PromisesObjC'
-  pod 'FMDB'
-  pod 'REValidation'
-  pod 'Obfuscator'
-  pod 'SQLCipher'
-  pod 'sqlite3'
-  pod 'CocoaLumberjack', '<= 3.4.2'
-  pod 'OpenSSL-Universal'
-  pod 'Alamofire'
-  
+  # Pod dependency from MoneySoft  
   pod 'Mantle'
   pod 'PromisesObjC'
   pod 'FMDB'

@@ -54,6 +54,11 @@ protocol AppThemeProtocol {
     var mediumGrayColor: UIColor { get }
     var lightGrayColor: UIColor { get }
     var lightestGrayColor: UIColor { get }
+    
+    //MARK: splash
+    var splashBgColor1: UIColor { get }
+    var splashBgColor2: UIColor { get }
+    var splashBgColor3: UIColor { get }
 
     //MARK: gradients
     var gradientSet1: [UIColor] { get }
@@ -220,6 +225,18 @@ extension AppThemeProtocol {
     var gridCellToScreenRatio: CGFloat { get { return 0.35 } }
     var carouselCellWidthToScreenRatio: CGFloat { get { return 0.6 } }
     var carouselCellHeightToScreenRatio: CGFloat { get { return 0.25 } }
+    
+    var splashBgColor1: UIColor {
+        get { return UIColor(hex: "fdd251")}
+    }
+    
+    var splashBgColor2: UIColor {
+        get { return UIColor(hex: "37c785")}
+    }
+    
+    var splashBgColor3: UIColor {
+        get { return UIColor(hex: "2cb4f6")}
+    }
     
     var facebookColor: UIColor {
         get { return UIColor(hex: "3B5998")}

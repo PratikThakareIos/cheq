@@ -18,6 +18,7 @@ struct AutoLayoutUtil {
 
     static func pinToSuperview(_ view: UIView, height: CGFloat, alignment: VeriticalAlignment) {
         guard let superview = view.superview else { return }
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         switch alignment {
         case .top:
@@ -53,6 +54,7 @@ struct AutoLayoutUtil {
 
     static func pinToSuperview(_ view: UIView, padding: CGFloat) {
         guard let superview = view.superview else { return }
+        
         view.translatesAutoresizingMaskIntoConstraints = false 
         let top = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: superview, attribute: .top, multiplier: 1.0, constant: padding)
         let left = NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: superview, attribute: .left, multiplier: 1.0, constant: padding)
