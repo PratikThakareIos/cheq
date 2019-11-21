@@ -384,6 +384,32 @@ class TestUtil {
         }
     }
     
+    func autoSetupRegisteredCheqAccount()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            var loginCredentials = [LoginCredentialType: String]()
+            loginCredentials[.email] = TestUtil.shared.randomEmail()
+            loginCredentials[.password] = TestUtil.shared.randomPassword()
+            AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: loginCredentials).then { authUser->Promise<Void> in
+                return CheqAPIManager.shared.requestEmailVerificationCode()
+            }.then { ()->Promise<AuthUser> in
+                let verificationCode = TestUtil.shared.emailVerificationCode()
+                let req = PutUserSingupVerificationCodeRequest(code: verificationCode)
+                return CheqAPIManager.shared.validateEmailVerificationCode(req)
+            }.then { authUser->Promise<AuthUser> in
+                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+            }.then { authUser->Promise<AuthUser> in
+                return CheqAPIManager.shared.putUser(authUser)
+            }.then { authUser->Promise<AuthUser> in
+                let userDetails = TestUtil.shared.putUserDetailsReq()
+                return CheqAPIManager.shared.putUserDetails(userDetails)
+            }.done { authUser in
+                resolver.fulfill(authUser)
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
 //            let testBank = "St.George Bank"

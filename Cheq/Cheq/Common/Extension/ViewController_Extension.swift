@@ -38,6 +38,11 @@ extension UIViewController {
         nav.setRightBarButton(logoutButton, animated: true)
     }
     
+    func hideNavBar() {
+        guard let nav = self.navigationController else { return }
+        nav.setNavigationBarHidden(true, animated: false)
+    }
+    
     func hideBackTitle() {
         self.navigationItem.hidesBackButton = false
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -258,5 +263,23 @@ extension UIViewController {
             }
             
         }, cancelCb: nil)
+    }
+}
+
+//demo helper method for DEMO only
+extension UIViewController {
+    @objc func autoSetupForAuthToken() {
+        #if DEMO
+        AppConfig.shared.showSpinner()
+        TestUtil.shared.autoSetupRegisteredCheqAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                self.showMessage("initial setup done!", completion: nil)
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
+        #endif
     }
 }

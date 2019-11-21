@@ -49,19 +49,6 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending == true {
             showCloseButton()
         }
-        
-        #if DEMO
-        AppConfig.shared.showSpinner()
-        TestUtil.shared.autoSetupAccount().done { authUser in
-            AppConfig.shared.hideSpinner {
-                self.showMessage("initial setup done!", completion: nil)
-            }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
-            }
-        }
-        #endif
     }
     
     override func viewDidLoad() {

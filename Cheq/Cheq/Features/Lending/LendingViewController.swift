@@ -23,10 +23,12 @@ class LendingViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = LendingViewModel()
+        hideNavBar()
         setupKeyboardHandling()
         setupUI()
         setupDelegate()
         registerObservables()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
