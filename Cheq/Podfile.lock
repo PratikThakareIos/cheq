@@ -156,7 +156,6 @@ PODS:
   - OpenSSL-Universal (1.0.2.18):
     - OpenSSL-Universal/Static (= 1.0.2.18)
   - OpenSSL-Universal/Static (1.0.2.18)
-  - Parchment (1.7.0)
   - PopOverMenu (2.5.4)
   - PopupDialog (1.0.0):
     - DynamicBlurView (~> 3.0.1)
@@ -218,7 +217,6 @@ DEPENDENCIES:
   - Obfuscator
   - Onfido
   - OpenSSL-Universal
-  - Parchment
   - PopOverMenu
   - PopupDialog (~> 1.0.0)
   - PromiseKit
@@ -277,7 +275,6 @@ SPEC REPOS:
     - Obfuscator
     - Onfido
     - OpenSSL-Universal
-    - Parchment
     - PopOverMenu
     - PopupDialog
     - PromiseKit
@@ -337,7 +334,6 @@ SPEC CHECKSUMS:
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
   Onfido: 00352714aa11b4c598e73532b9a90e58b935602d
   OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
-  Parchment: cae686f73685d16742cec9c19239b7578a15f0f5
   PopOverMenu: 0a5cbb60b38fa86f5fd8a703e51fa1b51d181215
   PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2
   PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
@@ -357,6 +353,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: f46d7a2a738a182d75beb4c6254a299b5b476b9b
+PODFILE CHECKSUM: 283a6d4fd799b14c33d2df8798cb39196421c8e0
 
 COCOAPODS: 1.7.4

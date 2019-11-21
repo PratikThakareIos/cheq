@@ -126,8 +126,9 @@ extension AppConfig {
         SVProgressHUD.setForegroundColor(AppConfig.shared.activeTheme.textBackgroundColor)
         SVProgressHUD.setBorderColor(.clear)
         SVProgressHUD.setDefaultMaskType(.custom)
+        SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setBackgroundColor(.clear)
-        SVProgressHUD.show(withStatus: "Loading")
+        SVProgressHUD.show(withStatus: "")
     }
     
     func hideSpinner()->Promise<Void> {

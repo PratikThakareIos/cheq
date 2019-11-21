@@ -30,7 +30,6 @@ def shared_pods
   pod 'PullToRefreshKit'
   pod 'SDWebImage', '~> 5.0'
   pod 'SwiftEntryKit', '1.1.0'
-  pod 'Parchment'
   
   # intercom
   pod 'Intercom', '~> 5.4.1'

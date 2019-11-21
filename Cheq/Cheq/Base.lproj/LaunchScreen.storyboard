@@ -58,6 +58,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="portrait" width="16" height="16"/>
+        <image name="portrait" width="107" height="117"/>
     </resources>
 </document>

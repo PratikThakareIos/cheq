@@ -29,7 +29,7 @@ class CButton: UIButton {
     
     override open var intrinsicContentSize: CGSize {
         get {
-            return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultButtonHeight)
+            return CGSize(width: super.intrinsicContentSize.width * 1.25, height: AppConfig.shared.activeTheme.defaultButtonHeight)
         }
     }
     
