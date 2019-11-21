@@ -505,9 +505,6 @@
 		4F01F8BE2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
 		4F01F8BF2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
 		4F01F8C02384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
-		4F01F8CD2384EA7600268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F8CF2384EE4300268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F8D02384EE5200268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F01F8DD2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
 		4F01F8DE2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
 		4F01F8DF2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
@@ -520,6 +517,12 @@
 		4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
 		4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
 		4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8EF238751D500268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F01F8F1238751FD00268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F01F8F22387520A00268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F01F8F32387520A00268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F01F8F52387521900268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F01F8F62387521900268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -534,7 +537,6 @@
 		4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B066C2330588E00986E35 /* MultipleChoiceViewModel.swift */; };
 		4F0B0671233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B0670233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift */; };
 		4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B0673233066EE00986E35 /* CMultipleChoiceWithImageCell.swift */; };
-		4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */; };
 		4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D63042342F4B300AA819C /* LogViewController.swift */; };
 		4F0D63B023431EFD00AA819C /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D63AF23431EFD00AA819C /* TestUtil.swift */; };
 		4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9676522122FAFD03001E43E0 /* Cheq.plist */; };
@@ -1078,6 +1080,39 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F01F8F0238751D600268423 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F01F8EF238751D500268423 /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F01F8F42387520C00268423 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F01F8F32387520A00268423 /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F01F8F72387521B00268423 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F01F8F62387521900268423 /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4F091086231F28D900AA7F7D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1493,8 +1528,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01F8CD2384EA7600268423 /* MobileSDK.framework in Frameworks */,
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
+				4F01F8F52387521900268423 /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1503,7 +1538,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01F8CF2384EE4300268423 /* MobileSDK.framework in Frameworks */,
+				4F01F8F22387520A00268423 /* MobileSDK.framework in Frameworks */,
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
@@ -1513,8 +1548,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01F8D02384EE5200268423 /* MobileSDK.framework in Frameworks */,
-				4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */,
+				4F01F8F1238751FD00268423 /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
@@ -3450,6 +3484,7 @@
 				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
 				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 				4F01F775237E6A5B00268423 /* Fabrics Run Script */,
+				4F01F8F72387521B00268423 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3473,6 +3508,7 @@
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
+				4F01F8F42387520C00268423 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3496,6 +3532,7 @@
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
+				4F01F8F0238751D600268423 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

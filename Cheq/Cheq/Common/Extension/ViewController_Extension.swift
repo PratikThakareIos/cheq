@@ -268,17 +268,15 @@ extension UIViewController {
     }
 }
 
-//demo helper method for DEMO only
+//demo helper method for Development/DEMO only
 extension UIViewController {
     @objc func autoSetupForAuthTokenIfNotLoggedIn() {
-        #if DEMO
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.getCurrentUser().done { _ in
             AppConfig.shared.hideSpinner { }
         }.catch { err in
             self.autoSetup()
         }
-        #endif
     }
     
     func autoSetup() {

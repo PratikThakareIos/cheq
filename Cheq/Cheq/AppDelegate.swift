@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         #if DEMO
             self.setupSpendingViewController()
         #else
-            self.setupInitialViewController()
+            self.setupIntroDevController()
         #endif
 
 //        self.setupInitDevController()
@@ -301,6 +301,15 @@ extension AppDelegate {
     func setupInitDevController2 () {
         self.setupServicesForDev()
         let vc = AppNav.shared.initViewController(.employee) as! IntroductionViewController
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func setupIntroDevController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.intro.rawValue, embedInNav: false) as! IntroductionViewController
+        vc.viewModel.coordinator = SetupBankIntroCoordinator()
         let nav = UINavigationController(rootViewController: vc)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()

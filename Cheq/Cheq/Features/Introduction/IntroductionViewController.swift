@@ -34,6 +34,8 @@ class IntroductionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
         }
+        
+        autoSetupForAuthTokenIfNotLoggedIn()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
