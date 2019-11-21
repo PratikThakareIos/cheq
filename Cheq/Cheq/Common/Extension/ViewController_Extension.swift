@@ -14,6 +14,8 @@ protocol UIViewControllerProtocol {
     func baseScrollView()-> UIScrollView?
 }
 
+
+
 // MARK: Hide navigation bar back button title
 extension UIViewController {
     
@@ -268,9 +270,18 @@ extension UIViewController {
 
 //demo helper method for DEMO only
 extension UIViewController {
-    @objc func autoSetupForAuthToken() {
+    @objc func autoSetupForAuthTokenIfNotLoggedIn() {
         #if DEMO
         AppConfig.shared.showSpinner()
+        AuthConfig.shared.activeManager.getCurrentUser().done { _ in
+            AppConfig.shared.hideSpinner { }
+        }.catch { err in
+            self.autoSetup()
+        }
+        #endif
+    }
+    
+    func autoSetup() {
         TestUtil.shared.autoSetupRegisteredCheqAccount().done { authUser in
             AppConfig.shared.hideSpinner {
                 self.showMessage("initial setup done!", completion: nil)
@@ -280,6 +291,12 @@ extension UIViewController {
                     self.showError(err, completion: nil)
                 }
         }
-        #endif
+    }
+}
+
+// MARK: Clear observables
+extension UIViewController {
+    @objc func removeObservables() {
+        NotificationCenter.default.removeObserver(self)
     }
 }

@@ -22,6 +22,10 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.registerCells()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func setupDelegate() {
         guard self.tableView != nil else { return }
         self.tableView.delegate = self

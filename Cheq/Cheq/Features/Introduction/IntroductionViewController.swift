@@ -24,16 +24,21 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardHandling()
-        registerObservables()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func registerObservables() {

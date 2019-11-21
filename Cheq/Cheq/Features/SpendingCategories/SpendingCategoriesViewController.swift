@@ -24,13 +24,18 @@ class SpendingCategoriesViewController: CTableViewController {
         self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
-        registerObservables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.spendingCategories.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func setupUI() {

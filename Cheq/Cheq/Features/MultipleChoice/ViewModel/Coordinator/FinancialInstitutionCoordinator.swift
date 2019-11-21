@@ -37,9 +37,7 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
                 let institutions = AppData.shared.financialInstitutions
                 return Promise<[ChoiceModel]>() { res in
                     var result = [ChoiceModel]()
-                    
-                    
-                    
+
                     for institution:FinancialInstitutionModel in institutions {
                         LoggingUtil.shared.cPrint(institution.image())
                         let institutionName = institution.name ?? ""

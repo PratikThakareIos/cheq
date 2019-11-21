@@ -27,14 +27,18 @@ class LendingViewController: CTableViewController {
         setupKeyboardHandling()
         setupUI()
         setupDelegate()
-        registerObservables()
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
 
     func setupUI() {

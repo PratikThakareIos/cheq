@@ -49,8 +49,6 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending == true {
             showCloseButton()
         }
-        
-        autoSetupForAuthToken()
     }
     
     override func viewDidLoad() {

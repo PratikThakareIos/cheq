@@ -24,15 +24,20 @@ class AccountViewController: CTableViewController {
         self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
-        registerObservables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         if let vm = self.viewModel as? AccountViewModel, vm.sections.count == 0 {
             NotificationUtil.shared.notify(UINotificationEvent.accountInfo.rawValue, key: "", value: "")
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func setupUI() {

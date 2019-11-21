@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.registerNotificationObservers()
         self.setupServices()
         #if DEMO
-            self.setupInitDevController()
+            self.setupSpendingViewController()
         #else
             self.setupInitialViewController()
         #endif
