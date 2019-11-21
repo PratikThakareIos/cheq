@@ -517,6 +517,9 @@
 		4F01F8E62385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
 		4F01F8E72385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
 		4F01F8E82385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
+		4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -1184,6 +1187,7 @@
 		4F01F8DC2385100900268423 /* CSplashPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashPageViewController.swift; sourceTree = "<group>"; };
 		4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashPageViewModel.swift; sourceTree = "<group>"; };
 		4F01F8E52385176F00268423 /* CSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashViewController.swift; sourceTree = "<group>"; };
+		4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextFieldItem.swift; sourceTree = "<group>"; };
 		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -2310,6 +2314,7 @@
 			children = (
 				4F57BB0A2326005200B95C06 /* CTextField.swift */,
 				4FAE3655232F79CC0035E57E /* CSearchTextField.swift */,
+				4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */,
 				4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */,
 			);
 			path = TextFeld;
@@ -4377,6 +4382,7 @@
 				4F01F709237E6A5B00268423 /* LogViewController.swift in Sources */,
 				4F01F70B237E6A5B00268423 /* EmployementTypeCoordinator.swift in Sources */,
 				4F01F70D237E6A5B00268423 /* MoneySoftUser.swift in Sources */,
+				4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4F01F70E237E6A5B00268423 /* QuestionPickerViewCoordinator.swift in Sources */,
 				4F01F70F237E6A5B00268423 /* BaseViewModel.swift in Sources */,
 				4F01F711237E6A5B00268423 /* AppNav.swift in Sources */,
@@ -4690,6 +4696,7 @@
 				4FBDDAE0236BC68700EDB1E9 /* SplashViewModel.swift in Sources */,
 				4FBDDAE2236BC68700EDB1E9 /* LogViewController.swift in Sources */,
 				4FBDDAE3236BC68700EDB1E9 /* EmployementTypeCoordinator.swift in Sources */,
+				4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4FBDDAE4236BC68700EDB1E9 /* MoneySoftUser.swift in Sources */,
 				4FBDDAE6236BC68700EDB1E9 /* QuestionPickerViewCoordinator.swift in Sources */,
 				4FBDDAE7236BC68700EDB1E9 /* BaseViewModel.swift in Sources */,
@@ -5003,6 +5010,7 @@
 				4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */,
 				4F2E4A012334426F001F1BA2 /* EmployementTypeCoordinator.swift in Sources */,
 				4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */,
+				4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */,
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
 				4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */,

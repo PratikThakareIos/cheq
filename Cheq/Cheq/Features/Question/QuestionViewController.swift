@@ -12,6 +12,7 @@ import PromiseKit
 import UDatePicker
 import UserNotifications
 import CoreLocation
+import SearchTextField
 
 class QuestionViewController: UIViewController {
 
@@ -48,6 +49,19 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending == true {
             showCloseButton()
         }
+        
+        #if DEMO
+        AppConfig.shared.showSpinner()
+        TestUtil.shared.autoSetupAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                self.showMessage("initial setup done!", completion: nil)
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
+        }
+        #endif
     }
     
     override func viewDidLoad() {
@@ -215,8 +229,6 @@ class QuestionViewController: UIViewController {
         case .contactDetails:
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
-//            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
-            
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
@@ -272,7 +284,6 @@ class QuestionViewController: UIViewController {
             }
             self.viewModel.save(QuestionField.employerName.rawValue, value: searchTextField.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.companyName)
-
 
             // check if we are onboarding or completing details for lending
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
@@ -517,15 +528,6 @@ extension QuestionViewController: UITextFieldDelegate {
         }
         return true
     }
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//       
-//        if textField == self.searchTextField, self.viewModel.coordinator.type == .companyAddress {
-//            LoggingUtil.shared.cPrint("searchTextField - textFieldDidEndEditing")
-//        }
-//        
-//        textField.resignFirstResponder()
-//    }
 }
 
 // MARK: UIViewControllerProtocol
@@ -547,11 +549,18 @@ extension QuestionViewController{
             AppData.shared.selectedEmployer = itemPosition
             self.searchTextField.text = item[itemPosition].title
         }
+        
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
                     AppData.shared.employerList = addressList
-                    self.searchTextField.filterStrings(addressList.map{ $0.name ?? "" })
+                    
+                    var items = [CSearchTextFieldItem]()
+                    for address in addressList {
+                        let textFieldItem = CSearchTextFieldItem(title: address.name ?? "", subtitle: address.address ?? "")
+                        items.append(textFieldItem)
+                    }
+                    self.searchTextField.filterItems(items)
                     }.catch {err in
                         LoggingUtil.shared.cPrint(err)
                 }

@@ -52,9 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
-        self.setupInitialViewController()
+//        self.setupInitialViewController()
 //        self.setupInitDevController2()
-//        self.setupInitDevController()
+        self.setupInitDevController()
 //        self.setupSpendingViewController()
 //        self.setupLogController()
 //        self.setupQuestionController()
@@ -304,8 +304,10 @@ extension AppDelegate {
     
     func setupInitDevController () {
         self.setupServicesForDev()
-        let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.lending.rawValue, embedInNav: true)
-        window?.rootViewController = vc
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
+        vc.viewModel.coordinator = CompanyNameCoordinator()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
 

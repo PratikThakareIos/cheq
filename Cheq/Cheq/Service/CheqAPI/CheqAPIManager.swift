@@ -146,10 +146,12 @@ class CheqAPIManager {
         return Promise<[GetEmployerPlaceResponse]>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
+                LoggingUtil.shared.cPrint("query : \(query)")
                 LocationsAPI.getAutocompleteWorkAddressWithRequestBuilder(query: query).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     if let error = err { resolver.reject(error); return }
                     guard let resp: [GetEmployerPlaceResponse] = response?.body else {
                         resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    resp.forEach({ LoggingUtil.shared.cPrint($0.address) })
                     resolver.fulfill(resp)
                 }
             }.catch { err in
