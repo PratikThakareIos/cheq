@@ -49,6 +49,8 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending == true {
             showCloseButton()
         }
+        
+        autoSetupForAuthToken()
     }
     
     override func viewDidLoad() {
@@ -136,14 +138,20 @@ class QuestionViewController: UIViewController {
     
     func prePopulateEntry() {
         viewModel.loadSaved()
-//        switch viewModel.coordinator.type {
-//        case .companyAddress:
-//            if AppData.shared.employerList.count > 0 {
-//                self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-//            }
-//            self.searchTextField.keyboardType = .default
-//        default: break
-//        }
+        switch viewModel.coordinator.type {
+        case .companyAddress:
+            self.searchTextField.text = ""
+            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
+                let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
+                let employerName = employer.name ?? ""
+                let employerAddress = employer.address ?? ""
+                if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
+                    self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+                }
+            }
+            self.searchTextField.keyboardType = .default
+        default: break
+        }
     }
     
 //    func prePopulateEntry() {
@@ -265,7 +273,7 @@ class QuestionViewController: UIViewController {
             }
             break
         case .companyName:
-            if AppData.shared.employerList.count > 0 {
+            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
                 let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
                 self.viewModel.save(QuestionField.employerAddress.rawValue, value: employer.address ?? "")
             }
@@ -541,6 +549,9 @@ extension QuestionViewController{
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
                     AppData.shared.employerList = addressList
+                    if addressList.isEmpty {
+                        AppData.shared.selectedEmployer = -1
+                    }
                     
                     var items = [CSearchTextFieldItem]()
                     for address in addressList {
