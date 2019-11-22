@@ -50,8 +50,8 @@ class SpendingCardTableViewCell: CTableViewCell {
         nextPayCycleLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         
         let gradientSet = AppConfig.shared.activeTheme.gradientSet4
-        containerView.startColor = gradientSet.first ?? .white
-        containerView.endColor = gradientSet.last ?? .white
+        containerView.startColor = gradientSet.first ?? AppConfig.shared.activeTheme.lightGrayScaleColor
+        containerView.endColor = gradientSet.last ?? AppConfig.shared.activeTheme.lightGrayScaleColor
 
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
         

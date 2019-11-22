@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         #else
             self.setupIntroDevController()
         #endif
-
+//        self.setupIntroDevController()
 //        self.setupInitDevController()
  
 //        self.setupLogController()

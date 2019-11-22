@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum BankLogo: String {
+    case placeholder = "bankPlaceholder"
+}
+
 enum IntroEmoji: String {
     case email = "email"
     case work = "work"
