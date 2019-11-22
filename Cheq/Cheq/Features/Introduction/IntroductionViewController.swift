@@ -23,7 +23,6 @@ class IntroductionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupUI()
     }
     
@@ -44,6 +43,7 @@ class IntroductionViewController: UIViewController {
     }
     
     func registerObservables() {
+        setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     

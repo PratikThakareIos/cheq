@@ -14,7 +14,6 @@ class PreviewLoanViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = PreviewLoanViewModel()
-        setupKeyboardHandling()
         setupUI()
         setupDelegate()
     }
@@ -39,6 +38,8 @@ class PreviewLoanViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(confirm(_:)), name: NSNotification.Name(UINotificationEvent.swipeConfirmation.rawValue), object: nil)
         

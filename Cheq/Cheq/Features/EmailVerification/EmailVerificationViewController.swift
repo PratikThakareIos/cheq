@@ -23,7 +23,6 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegates()
         setupUI()
     }

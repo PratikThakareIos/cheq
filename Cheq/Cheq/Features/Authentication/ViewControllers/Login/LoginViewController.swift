@@ -20,14 +20,18 @@ class LoginViewController: RegistrationViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegate()
         setupUI()
+    }
+    
+    override func addObservables() {
+        setupKeyboardHandling()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        removeObservables()
         
     }
     

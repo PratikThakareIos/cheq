@@ -21,7 +21,6 @@ class SpendingCategoriesViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingCategoriesViewModel()
-        self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
     }
@@ -49,6 +48,8 @@ class SpendingCategoriesViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(spendingCategories(_:)), name: NSNotification.Name(UINotificationEvent.spendingCategories.rawValue), object: nil)
         

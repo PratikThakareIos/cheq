@@ -21,7 +21,6 @@ class AccountViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AccountViewModel()
-        self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
     }
@@ -48,6 +47,8 @@ class AccountViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(accountInfo(_:)), name: NSNotification.Name(UINotificationEvent.accountInfo.rawValue), object: nil)
         

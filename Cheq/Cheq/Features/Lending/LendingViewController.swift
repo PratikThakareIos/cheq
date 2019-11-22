@@ -24,7 +24,6 @@ class LendingViewController: CTableViewController {
         super.viewDidLoad()
         self.viewModel = LendingViewModel()
         hideNavBar()
-        setupKeyboardHandling()
         setupUI()
         setupDelegate()
     }
@@ -49,6 +48,8 @@ class LendingViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         

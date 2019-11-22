@@ -22,7 +22,6 @@ class PasscodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegates()
         setupUI()
     }

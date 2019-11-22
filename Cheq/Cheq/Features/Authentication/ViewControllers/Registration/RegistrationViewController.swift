@@ -30,7 +30,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
+        
         setupDelegate()
         setupUI()
     }
@@ -39,6 +39,15 @@ class RegistrationViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         hideBackTitle()
+    }
+    
+    func addObservables() {
+        setupKeyboardHandling()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
 
     func setupDelegate() {

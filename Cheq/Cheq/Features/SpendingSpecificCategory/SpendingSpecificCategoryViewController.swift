@@ -21,7 +21,6 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingSpecificCategoryViewModel()
-        self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
     }
@@ -72,6 +71,8 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadCategoryTransactions(_:)), name: NSNotification.Name(UINotificationEvent.loadCategoryById.rawValue), object: nil)
         
