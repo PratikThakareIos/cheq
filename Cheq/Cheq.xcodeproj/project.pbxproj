@@ -1139,7 +1139,7 @@
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F01F615237E68EB00268423 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		4F01F615237E68EB00268423 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = mobileSDK/MobileSDK.framework; sourceTree = "<group>"; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Budgeting.swift; sourceTree = "<group>"; };
 		4F01F78023825F8200268423 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -1223,7 +1223,6 @@
 		4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashPageViewModel.swift; sourceTree = "<group>"; };
 		4F01F8E52385176F00268423 /* CSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashViewController.swift; sourceTree = "<group>"; };
 		4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextFieldItem.swift; sourceTree = "<group>"; };
-		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1815,14 +1814,6 @@
 				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		4F09112B2320EA6C00AA7F7D /* mobileSDK */ = {
-			isa = PBXGroup;
-			children = (
-				4F01F615237E68EB00268423 /* MobileSDK.framework */,
-			);
-			path = mobileSDK;
 			sourceTree = "<group>";
 		};
 		4F09123823221F9D00AA7F7D /* BlueDot */ = {
@@ -2789,8 +2780,8 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F01F615237E68EB00268423 /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
-				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
 				D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */,
@@ -3032,7 +3023,6 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
-				4F09112B2320EA6C00AA7F7D /* mobileSDK */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				9676521122FAFD01001E43E0 /* Products */,
@@ -3482,9 +3472,9 @@
 				4F01F771237E6A5B00268423 /* Embed App Extensions */,
 				4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */,
 				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
-				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 				4F01F775237E6A5B00268423 /* Fabrics Run Script */,
 				4F01F8F72387521B00268423 /* Embed Frameworks */,
+				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3506,9 +3496,9 @@
 				4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */,
 				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
-				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
 				4F01F8F42387520C00268423 /* Embed Frameworks */,
+				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3530,9 +3520,9 @@
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
-				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
 				4F01F8F0238751D600268423 /* Embed Frameworks */,
+				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3959,7 +3949,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4F01F775237E6A5B00268423 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3996,7 +3986,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4F57BB1823263BEE00B95C06 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4033,7 +4023,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5169,8 +5159,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/MobileSDK.framework/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5216,8 +5206,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/MobileSDK.framework/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5262,7 +5252,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
 				);
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5296,7 +5285,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
 				);
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5447,7 +5435,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -5494,7 +5481,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
 					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (

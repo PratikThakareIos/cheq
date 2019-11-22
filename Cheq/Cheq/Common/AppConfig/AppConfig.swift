@@ -63,7 +63,7 @@ extension AppConfig {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().isTranslucent = true
-        let attributes = [NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerFont]
+        let attributes = [NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont]
         UINavigationBar.appearance().titleTextAttributes = attributes
     }
     

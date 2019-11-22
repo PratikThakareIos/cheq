@@ -40,7 +40,7 @@ class SpendingCardTableViewCell: CTableViewCell {
     
     override func setupConfig() {
         self.backgroundColor = .clear
-        headerLabel.font = AppConfig.shared.activeTheme.extraLargeFont
+        headerLabel.font = AppConfig.shared.activeTheme.extraLargeBoldFont
         headerLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         subHeaderLabel.font = AppConfig.shared.activeTheme.defaultFont
         subHeaderLabel.textColor = AppConfig.shared.activeTheme.altTextColor

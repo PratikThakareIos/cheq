@@ -23,6 +23,20 @@ protocol AppThemeProtocol {
     var mediumFont: UIFont { get }
     var headerFont: UIFont { get }
     var extraLargeFont: UIFont { get }
+    
+    // MARK: medium fonts
+    var smallMediumFont: UIFont { get }
+    var defaultMediumFont: UIFont { get }
+    var mediumMediumFont: UIFont { get }
+    var headerMediumFont: UIFont { get }
+    var extraLargeMediumFont: UIFont { get }
+    
+    // MARK: bold fonts
+    var smallBoldFont: UIFont { get }
+    var defaultBoldFont: UIFont { get }
+    var mediumBoldFont: UIFont { get }
+    var headerBoldFont: UIFont { get }
+    var extraLargeBoldFont: UIFont { get }
 
     //MARK: colors
     var barStyle: UIBarStyle { get }
@@ -202,22 +216,28 @@ extension AppThemeProtocol {
 
     var nonActiveAlpha: CGFloat { get { return 0.5 } }
 
-    var defaultFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 12.0)}
-    }
-
-    var mediumFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 15.0)}
-    }
-
-    var headerFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 20.0)}
-    }
+    // MARK: regular fonts
+    var smallFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0) } }
+    var defaultFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0) } }
+    var mediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0) } }
+    var headerFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0) } }
+    var extraLargeFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0) } }
     
-    var extraLargeFont: UIFont {
-        get { return UIFont.systemFont(ofSize: 36.0)}
-    }
-
+    // MARK: medium fonts
+    var smallMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
+    var defaultMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
+    var mediumMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .medium) } }
+    var headerMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
+    var extraLargeMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .medium) } }
+    
+    // MARK: bold fonts
+    var smallBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
+    var defaultBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
+    var mediumBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .bold) } }
+    var headerBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .bold) } }
+    var extraLargeBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
+    
+    
     var longAnimationDuration: TimeInterval { return 1.0 }
     var mediumAnimationDuration: TimeInterval { return 0.5 }
     var quickAnimationDuration: TimeInterval { return 0.25}

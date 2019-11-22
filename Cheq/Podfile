@@ -2,6 +2,8 @@
 platform :ios, '12.0'
 workspace 'Cheq'
 
+project = Xcodeproj::Project.open "Cheq.xcodeproj" # CUSTOM_PROJECT_NAME
+
 def swift4_pods
   pre_install do |installer|
     installer.analysis_result.specifications.each do |s|
@@ -70,7 +72,6 @@ target 'Cheq' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
 
@@ -85,7 +86,6 @@ target 'CheqProd' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
 end
@@ -94,7 +94,6 @@ target 'CheqDemo' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
 end
