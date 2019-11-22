@@ -16,6 +16,7 @@ class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     func barViewModel()->[BarViewModel] {
         self.referenceAmount = findLargest()
+        guard self.referenceAmount > 0.0 else { return [] }
         var barList = [BarViewModel]()
         for monthAmountStat in data {
             let bar = BarViewModel()

@@ -31,7 +31,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.detailsSection.backgroundColor = .clear
         guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
         self.header.text = vm.headerText()
-        self.header.font = AppConfig.shared.activeTheme.mediumFont
+        self.header.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.detailsText.text = vm.detailsText()
         self.detailsSection.isHidden = !vm.expanded
         self.icon.image = UIImage(named: vm.imageIcon())

@@ -30,7 +30,7 @@ class CompletionProgressTableViewCell: CTableViewCell {
 
     override func setupConfig() {
         let vm = self.viewModel as! CompletionProgressTableViewCellViewModel
-        self.completionTitle.font = AppConfig.shared.activeTheme.mediumFont
+        self.completionTitle.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.completionTitle.text = vm.header
         self.completionProgress.font = AppConfig.shared.activeTheme.defaultFont
         self.completionProgress.text = String(describing: "\(vm.completedItem) of \(vm.totalItem)")

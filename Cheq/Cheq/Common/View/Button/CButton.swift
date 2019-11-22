@@ -35,7 +35,7 @@ class CButton: UIButton {
     
     func setupConfig() {
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
-        self.titleLabel?.font = AppConfig.shared.activeTheme.mediumFont
+        self.titleLabel?.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         var button = self as UIButton
         AppConfig.shared.activeTheme.roundRectButton(&button)

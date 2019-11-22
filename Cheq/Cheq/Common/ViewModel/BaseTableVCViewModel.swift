@@ -32,9 +32,10 @@ class BaseTableVCViewModel {
 // common rendering methods
 extension BaseTableVCViewModel {
     func categoryMonthlyStats(_ monthAmountStatus: [MonthAmountStatResponse]?, section: inout TableSectionViewModel) {
+        guard let stats = monthAmountStatus, stats.count > 0 else { return }
         let barChart = BarChartTableViewCellViewModel()
         let spacer = SpacerTableViewCellViewModel()
-        barChart.data = monthAmountStatus ?? []
+        barChart.data = stats
         section.rows.append(barChart)
         section.rows.append(spacer)
     }
