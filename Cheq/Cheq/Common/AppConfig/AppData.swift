@@ -85,6 +85,9 @@ class AppData {
     // remote config parameter cache time
     var expirationDuration = TimeInterval(3600)
     
+    // spending overview status
+    var spendingOverviewReady = false 
+    
     // amount selected from loan setting
     var amountSelected = "0"
     var loanFee = 0.0
