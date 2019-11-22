@@ -58,7 +58,7 @@ class PasscodeViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.title = self.viewModel.type.rawValue
-        self.instructionLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.instructionLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.instructionLabel.text = self.viewModel.instructions()
         // keep a list so we can shift as user types the focus
         self.digits = [digit1, digit2, digit3, digit4]

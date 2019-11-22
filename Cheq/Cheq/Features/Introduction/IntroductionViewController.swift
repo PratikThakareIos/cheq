@@ -68,7 +68,7 @@ class IntroductionViewController: UIViewController {
 //        }
 
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleLabel.text = self.viewModel.coordinator.type.rawValue
         self.caption.font = AppConfig.shared.activeTheme.mediumFont
         self.caption.text = self.viewModel.caption()

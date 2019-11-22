@@ -41,7 +41,7 @@ class LoginViewController: RegistrationViewController {
     override func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.orText.font = AppConfig.shared.activeTheme.mediumFont
-        self.titleText.font = AppConfig.shared.activeTheme.headerFont
+        self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.signUpLinkText.font = AppConfig.shared.activeTheme.mediumFont
         self.signUpLinkText.attributedText = viewModel.signUpText()
         self.forgotPassword.attributedText = viewModel.forgotPasswordAttributedText()

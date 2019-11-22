@@ -59,7 +59,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
             navStackView.subViews.append(categoryIconImageView)
             let categoryLabel = CLabel()
             categoryLabel.text = selectedCategory.categoryTitle
-            categoryLabel.font = AppConfig.shared.activeTheme.headerFont
+            categoryLabel.font = AppConfig.shared.activeTheme.headerBoldFont
             navStackView.addArrangedSubview(categoryIconImageView)
             navStackView.addArrangedSubview(categoryLabel)
             self.navigationItem.titleView = navStackView

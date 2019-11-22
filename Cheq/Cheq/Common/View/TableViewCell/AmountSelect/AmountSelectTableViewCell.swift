@@ -41,7 +41,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         // loan amount
         self.infoView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
-        self.loanAmount.font = AppConfig.shared.activeTheme.headerFont
+        self.loanAmount.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
         self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultFont
         self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.darkGrayColor

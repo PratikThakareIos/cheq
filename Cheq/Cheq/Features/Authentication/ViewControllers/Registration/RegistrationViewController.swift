@@ -51,7 +51,7 @@ class RegistrationViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.orText.font = AppConfig.shared.activeTheme.mediumFont
-        self.titleText.font = AppConfig.shared.activeTheme.headerFont
+        self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loginLinkText.font = AppConfig.shared.activeTheme.mediumFont
         self.loginLinkText.attributedText = viewModel.loginInText()
         self.footerText.attributedText = viewModel.conditionsAttributedText()

@@ -104,7 +104,7 @@ class QuestionViewController: UIViewController {
         self.showNormalTextFields()
         self.showCheckbox()
         self.populatePlaceHolderNormalTextField()
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
         // special case for address look up
         switch self.viewModel.coordinator.type {
