@@ -145,6 +145,8 @@ class QuestionViewController: UIViewController {
                 let employerAddress = employer.address ?? ""
                 if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
                     self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+                    AppData.shared.employerAddressList = AppData.shared.employerList
+                    AppData.shared.selectedEmployerAddress = AppData.shared.selectedEmployer
                 }
             }
             self.searchTextField.keyboardType = .default
@@ -383,17 +385,19 @@ extension QuestionViewController {
     }
     
     func validateCompanyAddressLookup()->ValidationError? {
-        guard AppData.shared.employerAddressList.count > 0 else {
+        guard AppData.shared.employerAddressList.count > 0 || AppData.shared.employerList.count > 0 else {
             self.searchTextField.text = ""
             return ValidationError.autoCompleteIsMandatory
         }
         
         let autoCompleteMatch = AppData.shared.employerAddressList.filter { $0.address == searchTextField.text }
-        guard autoCompleteMatch.count == 1 else {
+        let autoCompleteMatch2 = AppData.shared.employerList.filter { $0.address == searchTextField.text }
+        if autoCompleteMatch.count == 1 || autoCompleteMatch2.count == 1 {
+            return nil
+        } else {
             self.searchTextField.text = ""
             return ValidationError.autoCompleteIsMandatory
         }
-        return nil
     }
     
     func validateInput()->Error? {
@@ -546,11 +550,12 @@ extension QuestionViewController{
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
-                    AppData.shared.employerList = addressList
+                    
                     if addressList.isEmpty {
                         AppData.shared.selectedEmployer = -1
+                        return
                     }
-                    
+                    AppData.shared.employerList = addressList
                     var items = [CSearchTextFieldItem]()
                     for address in addressList {
                         let textFieldItem = CSearchTextFieldItem(title: address.name ?? "", subtitle: address.address ?? "")

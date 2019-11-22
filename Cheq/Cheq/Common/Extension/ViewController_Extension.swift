@@ -147,6 +147,8 @@ extension UIViewController {
     }
     
     func setupKeyboardHandling() {
+        
+        self.view.endEditing(true)
 
         // Event for programmatically dismissing the keyboard anywhere
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard(notification:)), name: NSNotification.Name(NotificationEvent.dismissKeyboard.rawValue), object: nil)

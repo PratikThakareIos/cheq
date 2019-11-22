@@ -22,6 +22,11 @@ class StringUtil {
         return !string.isEmpty && string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
     
+    func isAlphaNumericOnly(_ string: String)-> Bool {
+        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ.- 0123456789")
+        return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
+    }
+    
     func isAlphaOnly(_ string: String)-> Bool {
         let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ.- ")
         return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
