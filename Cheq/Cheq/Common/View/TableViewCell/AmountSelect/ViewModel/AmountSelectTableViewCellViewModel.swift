@@ -14,8 +14,8 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
 
     var minusEnabled = true
     var plusEnabled = true
-    // index at 1 is in the middle
-    var selectedAmountIndex = 1
+    // index starts on 0
+    var selectedAmountIndex = 0
     var availableToWithdraw: [String] = ["100", "200", "300"]
     
     
@@ -28,7 +28,11 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
     }
     
     func currentSelectedAmount()-> String {
-        return availableToWithdraw[selectedAmountIndex]
+        if selectedAmountIndex >= 0, selectedAmountIndex < availableToWithdraw.count  {
+            return availableToWithdraw[selectedAmountIndex]
+        } else {
+            return availableToWithdraw[0]
+        }
     }
     
     func plus() {

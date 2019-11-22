@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         #if DEMO
             self.setupSpendingViewController()
         #else
-            self.setupIntroDevController()
+            self.setupInitialViewController()
         #endif
 //        self.setupIntroDevController()
 //        self.setupInitDevController()

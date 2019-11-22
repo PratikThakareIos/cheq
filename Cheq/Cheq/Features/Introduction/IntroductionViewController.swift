@@ -34,7 +34,7 @@ class IntroductionViewController: UIViewController {
             showCloseButton()
         }
         
-        autoSetupForAuthTokenIfNotLoggedIn()
+//        autoSetupForAuthTokenIfNotLoggedIn()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
