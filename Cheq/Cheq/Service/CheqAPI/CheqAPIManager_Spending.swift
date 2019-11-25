@@ -11,6 +11,26 @@ import PromiseKit
 
 extension CheqAPIManager {
     
+    func spendingStatus()->Promise<GetSpendingStatusResponse> {
+        return Promise<GetSpendingStatusResponse>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                SpendingAPI.getSpendingStatusWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (getSpendingStatusResponse, err) in
+                    if let error = err {
+                        resolver.reject(error)
+                    }
+                    
+                    guard let response = getSpendingStatusResponse?.body else {
+                        resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveSpendingStatus); return
+                    }
+                    resolver.fulfill(response)
+                })
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func spendingCategoryById(_ id: Int)->Promise<GetSpendingSpecificCategoryResponse> {
         return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
             #if DEMO

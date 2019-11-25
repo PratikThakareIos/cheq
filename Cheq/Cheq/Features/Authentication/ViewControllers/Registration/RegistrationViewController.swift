@@ -30,7 +30,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
+        
         setupDelegate()
         setupUI()
     }
@@ -39,6 +39,15 @@ class RegistrationViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         hideBackTitle()
+    }
+    
+    func addObservables() {
+        setupKeyboardHandling()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
 
     func setupDelegate() {
@@ -51,7 +60,7 @@ class RegistrationViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.orText.font = AppConfig.shared.activeTheme.mediumFont
-        self.titleText.font = AppConfig.shared.activeTheme.headerFont
+        self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loginLinkText.font = AppConfig.shared.activeTheme.mediumFont
         self.loginLinkText.attributedText = viewModel.loginInText()
         self.footerText.attributedText = viewModel.conditionsAttributedText()

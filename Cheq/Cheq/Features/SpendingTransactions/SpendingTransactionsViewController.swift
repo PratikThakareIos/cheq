@@ -21,16 +21,20 @@ class SpendingTransactionsViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingTransactionsViewModel()
-        self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
-        registerObservables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.spendingTransactions.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func setupUI() {
@@ -44,6 +48,8 @@ class SpendingTransactionsViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadTransactions(_:)), name: NSNotification.Name(UINotificationEvent.spendingTransactions.rawValue), object: nil)
         

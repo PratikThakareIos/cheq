@@ -14,8 +14,16 @@ protocol UIViewControllerProtocol {
     func baseScrollView()-> UIScrollView?
 }
 
+
+
 // MARK: Hide navigation bar back button title
 extension UIViewController {
+    
+    func transparentStatusBar(_ navBar: inout UINavigationBar) {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+    }
 
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
@@ -30,6 +38,11 @@ extension UIViewController {
         let nav = self.navigationItem
         let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         nav.setRightBarButton(logoutButton, animated: true)
+    }
+    
+    func hideNavBar() {
+        guard let nav = self.navigationController else { return }
+        nav.setNavigationBarHidden(true, animated: false)
     }
     
     func hideBackTitle() {
@@ -134,6 +147,8 @@ extension UIViewController {
     }
     
     func setupKeyboardHandling() {
+        
+        self.view.endEditing(true)
 
         // Event for programmatically dismissing the keyboard anywhere
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard(notification:)), name: NSNotification.Name(NotificationEvent.dismissKeyboard.rawValue), object: nil)
@@ -252,5 +267,47 @@ extension UIViewController {
             }
             
         }, cancelCb: nil)
+    }
+}
+
+//demo helper method for Development/DEMO only
+extension UIViewController {
+    @objc func autoSetupForAuthTokenIfNotLoggedIn() {
+        AppConfig.shared.showSpinner()
+        AuthConfig.shared.activeManager.getCurrentUser().done { _ in
+            AppConfig.shared.hideSpinner { }
+        }.catch { err in
+            self.autoSetup()
+        }
+    }
+    
+    func autoSetup() {
+        TestUtil.shared.autoSetupRegisteredCheqAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                self.showMessage("initial setup done!", completion: nil)
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
+    }
+}
+
+// MARK: Clear observables
+extension UIViewController {
+    @objc func removeObservables() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//MARK: reload table without tableview scrolling
+extension UIViewController {
+    func reloadTableView(_ tableView: UITableView) {
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
+        
     }
 }

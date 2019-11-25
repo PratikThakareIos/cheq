@@ -41,7 +41,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         // loan amount
         self.infoView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
-        self.loanAmount.font = AppConfig.shared.activeTheme.headerFont
+        self.loanAmount.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
         self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultFont
         self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.darkGrayColor
@@ -71,9 +71,9 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.increaseLoanAmouontButton.isEnabled = amountSelectViewModel.plusEnabled
         let amount: String = amountSelectViewModel.currentSelectedAmount()
         AppData.shared.amountSelected = amount 
-        let loanAmount = String("$\(amount)")
+        let loanAmount = String("\(CurrencySymbol.dollar.rawValue)\(amount)")
         let attributedString = NSMutableAttributedString(string: loanAmount)
-        attributedString.applyHighlight(amount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeFont)
+        attributedString.applyHighlight(loanAmount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeBoldFont)
         self.loanAmount.attributedText = attributedString
     }
 }

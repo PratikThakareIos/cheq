@@ -30,7 +30,7 @@ class HeaderTableViewCell: CTableViewCell {
         // customise UI
         let vm = self.viewModel as! HeaderTableViewCellViewModel
         self.backgroundColor = .clear
-        self.headerTitle.font = AppConfig.shared.activeTheme.mediumFont
+        self.headerTitle.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.headerTitle.text = vm.title
         self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.linksColor, for: .normal)
         self.viewAllButton.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont

@@ -23,16 +23,21 @@ class LendingViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = LendingViewModel()
-        setupKeyboardHandling()
+        hideNavBar()
         setupUI()
         setupDelegate()
-        registerObservables()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
 
     func setupUI() {
@@ -43,6 +48,8 @@ class LendingViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         

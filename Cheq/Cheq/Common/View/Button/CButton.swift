@@ -29,13 +29,13 @@ class CButton: UIButton {
     
     override open var intrinsicContentSize: CGSize {
         get {
-            return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultButtonHeight)
+            return CGSize(width: super.intrinsicContentSize.width * 1.25, height: AppConfig.shared.activeTheme.defaultButtonHeight)
         }
     }
     
     func setupConfig() {
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
-        self.titleLabel?.font = AppConfig.shared.activeTheme.mediumFont
+        self.titleLabel?.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         var button = self as UIButton
         AppConfig.shared.activeTheme.roundRectButton(&button)

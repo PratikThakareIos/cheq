@@ -27,10 +27,10 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
     override func setupUI() {
         self.contentView.backgroundColor = .clear
         self.backgroundColor = AppConfig.shared.activeTheme.textBackgroundColor
-        self.merchanLabel.font = AppConfig.shared.activeTheme.mediumFont
+        self.merchanLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.remainingTimeLabel.font = AppConfig.shared.activeTheme.defaultFont
-        self.remainingTimeLabel.textColor = AppConfig.shared.activeTheme.mediumGrayColor
-        self.amountLabel.font = AppConfig.shared.activeTheme.mediumFont
+        self.remainingTimeLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        self.amountLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
         let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
         self.merchanLabel.text = vm.data.merchant

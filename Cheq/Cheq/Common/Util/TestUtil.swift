@@ -384,10 +384,36 @@ class TestUtil {
         }
     }
     
+    func autoSetupRegisteredCheqAccount()->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            var loginCredentials = [LoginCredentialType: String]()
+            loginCredentials[.email] = TestUtil.shared.randomEmail()
+            loginCredentials[.password] = TestUtil.shared.randomPassword()
+            AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: loginCredentials).then { authUser->Promise<Void> in
+                return CheqAPIManager.shared.requestEmailVerificationCode()
+            }.then { ()->Promise<AuthUser> in
+                let verificationCode = TestUtil.shared.emailVerificationCode()
+                let req = PutUserSingupVerificationCodeRequest(code: verificationCode)
+                return CheqAPIManager.shared.validateEmailVerificationCode(req)
+            }.then { authUser->Promise<AuthUser> in
+                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+            }.then { authUser->Promise<AuthUser> in
+                return CheqAPIManager.shared.putUser(authUser)
+            }.then { authUser->Promise<AuthUser> in
+                let userDetails = TestUtil.shared.putUserDetailsReq()
+                return CheqAPIManager.shared.putUserDetails(userDetails)
+            }.done { authUser in
+                resolver.fulfill(authUser)
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-            let testBank = "St.George Bank"
-            var storedAccounts = [FinancialAccountModel]()
+//            let testBank = "St.George Bank"
+//            var storedAccounts = [FinancialAccountModel]()
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = TestUtil.shared.randomEmail()
             loginCredentials[.password] = TestUtil.shared.randomPassword()
@@ -404,69 +430,73 @@ class TestUtil {
             }.then { authUser->Promise<AuthUser> in
                 let userDetails = TestUtil.shared.putUserDetailsReq()
                 return CheqAPIManager.shared.putUserDetails(userDetails)
-            }.then { authUser->Promise<AuthUser> in
-                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
-            }.then { authUser->Promise<AuthenticationModel> in
-                LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
-                let msCredential = authUser.msCredential
-                return MoneySoftManager.shared.login(msCredential)
-            }.then { msAuthModel-> Promise<UserProfileModel> in
-                return MoneySoftManager.shared.getProfile()
-            }.then { profile->Promise<[FinancialInstitutionModel]> in
-                return MoneySoftManager.shared.getInstitutions()
-            }.then { institutions-> Promise<Bool> in
-                AppData.shared.financialInstitutions = institutions
-                let postReq = DataHelperUtil.shared.postFinancialInstitutionsRequest(institutions)
-                return CheqAPIManager.shared.postBanks(postReq)
-            }.then { success->Promise<InstitutionCredentialsFormModel> in
-                let institutions = AppData.shared.financialInstitutions
-                let banks: [FinancialInstitutionModel] = institutions
-                banks.forEach {
-                    let name = $0.name ?? ""
-                    LoggingUtil.shared.cPrint(name)
-                }
-                let selected = banks.first(where: { $0.name == testBank})
-                LoggingUtil.shared.cPrint(selected?.name ?? "")
-                return MoneySoftManager.shared.getBankSignInForm(selected!)
-            }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
-                var form = signInForm
-                MoneySoftUtil.shared.fillFormWithStGeorgeAccount(&form)
-                LoggingUtil.shared.cPrint(form)
-                return MoneySoftManager.shared.linkableAccounts(form)
-            }.then { linkableAccounts in
-                return MoneySoftManager.shared.linkAccounts(linkableAccounts)
-            }.then { linkedAccounts in
-                return MoneySoftManager.shared.getAccounts()
-            }.then { fetchedAccounts  -> Promise<Bool> in
-                storedAccounts = fetchedAccounts
-                let postFinancialAccountReq = DataHelperUtil.shared.postFinancialAccountsReq(fetchedAccounts)
-                return CheqAPIManager.shared.postAccounts(postFinancialAccountReq)
-            }.then { succcess -> Promise<[FinancialAccountModel]> in
-                let refreshOptions = RefreshAccountOptions()
-                refreshOptions.includeTransactions = true
-                let enabledAccounts = storedAccounts.filter{ $0.disabled == false}
-                return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
-            }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
-                storedAccounts = refreshedAccounts
-                let transactionFilter = TransactionFilter()
-                transactionFilter.fromDate = 90.days.earlier
-                transactionFilter.toDate = Date() 
-                transactionFilter.count = 1000
-                transactionFilter.offset = 0
-                return MoneySoftManager.shared.getTransactions(transactionFilter)
-            }.then { transactions->Promise<Bool> in
-                AppData.shared.financialTransactions = transactions
-                let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsReq(transactions)
-                return CheqAPIManager.shared.postTransactions(postFinancialTransactionsReq)
-            }.then { success->Promise<AuthUser> in
-                return AuthConfig.shared.activeManager.getCurrentUser()
-            }.then { authUser->Promise<AuthUser> in
-                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
                 resolver.fulfill(authUser)
             }.catch { err in
                 resolver.reject(err)
             }
+                
+                
+//            .then { authUser->Promise<AuthUser> in
+//                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
+//            }.then { authUser->Promise<AuthenticationModel> in
+//                LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
+//                let msCredential = authUser.msCredential
+//                return MoneySoftManager.shared.login(msCredential)
+//            }.then { msAuthModel-> Promise<UserProfileModel> in
+//                return MoneySoftManager.shared.getProfile()
+//            }.then { profile->Promise<[FinancialInstitutionModel]> in
+//                return MoneySoftManager.shared.getInstitutions()
+//            }.then { institutions-> Promise<Bool> in
+//                AppData.shared.financialInstitutions = institutions
+//                let postReq = DataHelperUtil.shared.postFinancialInstitutionsRequest(institutions)
+//                return CheqAPIManager.shared.postBanks(postReq)
+//            }.then { success->Promise<InstitutionCredentialsFormModel> in
+//                let institutions = AppData.shared.financialInstitutions
+//                let banks: [FinancialInstitutionModel] = institutions
+//                banks.forEach {
+//                    let name = $0.name ?? ""
+//                    LoggingUtil.shared.cPrint(name)
+//                }
+//                let selected = banks.first(where: { $0.name == testBank})
+//                LoggingUtil.shared.cPrint(selected?.name ?? "")
+//                return MoneySoftManager.shared.getBankSignInForm(selected!)
+//            }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
+//                var form = signInForm
+//                MoneySoftUtil.shared.fillFormWithStGeorgeAccount(&form)
+//                LoggingUtil.shared.cPrint(form)
+//                return MoneySoftManager.shared.linkableAccounts(form)
+//            }.then { linkableAccounts in
+//                return MoneySoftManager.shared.linkAccounts(linkableAccounts)
+//            }.then { linkedAccounts in
+//                return MoneySoftManager.shared.getAccounts()
+//            }.then { fetchedAccounts  -> Promise<Bool> in
+//                storedAccounts = fetchedAccounts
+//                let postFinancialAccountReq = DataHelperUtil.shared.postFinancialAccountsReq(fetchedAccounts)
+//                return CheqAPIManager.shared.postAccounts(postFinancialAccountReq)
+//            }.then { succcess -> Promise<[FinancialAccountModel]> in
+//                let refreshOptions = RefreshAccountOptions()
+//                refreshOptions.includeTransactions = true
+//                let enabledAccounts = storedAccounts.filter{ $0.disabled == false}
+//                return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
+//            }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
+//                storedAccounts = refreshedAccounts
+//                let transactionFilter = TransactionFilter()
+//                transactionFilter.fromDate = 90.days.earlier
+//                transactionFilter.toDate = Date()
+//                transactionFilter.count = 1000
+//                transactionFilter.offset = 0
+//                return MoneySoftManager.shared.getTransactions(transactionFilter)
+//            }.then { transactions->Promise<Bool> in
+//                AppData.shared.financialTransactions = transactions
+//                let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsReq(transactions)
+//                return CheqAPIManager.shared.postTransactions(postFinancialTransactionsReq)
+//            }.then { success->Promise<AuthUser> in
+//                return AuthConfig.shared.activeManager.getCurrentUser()
+//            }.then { authUser->Promise<AuthUser> in
+//                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+//            }
+            
         }
     }
 }

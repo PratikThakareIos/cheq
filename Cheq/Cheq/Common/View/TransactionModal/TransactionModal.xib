@@ -12,61 +12,75 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionModal" customModule="Cheq" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TransactionModal" customModule="Cheq" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="420" height="390"/>
+            <rect key="frame" x="0.0" y="0.0" width="445" height="436"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udV-HI-L6y">
-                    <rect key="frame" x="16" y="84" width="388" height="272"/>
+                    <rect key="frame" x="16" y="84" width="413" height="302"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VHH-Ss-nlM">
-                            <rect key="frame" x="0.0" y="0.0" width="388" height="272"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VHH-Ss-nlM">
+                            <rect key="frame" x="20" y="0.0" width="373" height="302"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewf-aL-Q6P" userLabel="spacer">
-                                    <rect key="frame" x="0.0" y="0.0" width="388" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="373" height="16"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="48" id="2Xb-d7-AE9"/>
+                                        <constraint firstAttribute="height" constant="16" id="2Xb-d7-AE9"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEL-M9-s8n" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="58" width="388" height="27"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Domino's Pizza" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEL-M9-s8n" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="32" width="373" height="37"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqL-k4-xWl" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="95" width="388" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Wednesday, 2 Sep 2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FqL-k4-xWl" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="85" width="373" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-lL-ru1" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="125.5" width="388" height="20.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7S8-Lw-RzA">
+                                    <rect key="frame" x="0.0" y="121.5" width="373" height="8"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="8" id="Kcq-0h-Mdf"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="753" text="$12.54" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nu-lL-ru1" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="145.5" width="373" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-s6-rHq">
+                                    <rect key="frame" x="0.0" y="182" width="373" height="8"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="8" id="OaQ-Bo-5xw"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiA-7L-CZx" userLabel="categoryName">
-                                    <rect key="frame" x="0.0" y="156" width="388" height="24"/>
+                                    <rect key="frame" x="0.0" y="206" width="373" height="24"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-xs-EKe">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grz-Md-CxA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="147.5" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medium/benefits" translatesAutoresizingMaskIntoConstraints="NO" id="IDv-Jj-2gr">
-                                                    <rect key="frame" x="157.5" y="0.0" width="24" height="24"/>
+                                                    <rect key="frame" x="162" y="0.0" width="0.0" height="24"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQt-ab-934" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                    <rect key="frame" x="191.5" y="0.0" width="39" height="24"/>
+                                                    <rect key="frame" x="172" y="0.0" width="39" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D61-nj-HbR">
-                                                    <rect key="frame" x="240.5" y="0.0" width="147.5" height="24"/>
+                                                    <rect key="frame" x="221" y="0.0" width="152" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -84,17 +98,17 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGM-V4-enp" userLabel="financialInstitution">
-                                    <rect key="frame" x="0.0" y="190" width="388" height="24"/>
+                                    <rect key="frame" x="0.0" y="246" width="373" height="24"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qrr-GC-fOk">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0i-v2-vQb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="86" height="24"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="78.5" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-uG-gMa">
-                                                    <rect key="frame" x="96" y="0.0" width="24" height="24"/>
+                                                    <rect key="frame" x="88.5" y="0.0" width="24" height="24"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="ELY-jx-vwW"/>
@@ -103,13 +117,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Commonwealth Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02b-Hd-vo6" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                    <rect key="frame" x="130" y="0.0" width="162" height="24"/>
+                                                    <rect key="frame" x="122.5" y="0.0" width="162" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rM-3P-p6a">
-                                                    <rect key="frame" x="302" y="0.0" width="86" height="24"/>
+                                                    <rect key="frame" x="294.5" y="0.0" width="78.5" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -127,7 +141,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AI-UU-6uS" userLabel="spacer2">
-                                    <rect key="frame" x="0.0" y="224" width="388" height="48"/>
+                                    <rect key="frame" x="0.0" y="286" width="373" height="16"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -140,13 +154,13 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="VHH-Ss-nlM" firstAttribute="top" secondItem="udV-HI-L6y" secondAttribute="top" id="08l-qc-Vkz"/>
-                        <constraint firstAttribute="trailing" secondItem="VHH-Ss-nlM" secondAttribute="trailing" id="5qt-tk-IYW"/>
-                        <constraint firstItem="VHH-Ss-nlM" firstAttribute="leading" secondItem="udV-HI-L6y" secondAttribute="leading" id="XpZ-FI-kdN"/>
+                        <constraint firstAttribute="trailing" secondItem="VHH-Ss-nlM" secondAttribute="trailing" constant="20" id="5qt-tk-IYW"/>
+                        <constraint firstItem="VHH-Ss-nlM" firstAttribute="leading" secondItem="udV-HI-L6y" secondAttribute="leading" constant="20" id="XpZ-FI-kdN"/>
                         <constraint firstAttribute="bottom" secondItem="VHH-Ss-nlM" secondAttribute="bottom" id="lin-h7-wb1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4t-ZI-Ztq">
-                    <rect key="frame" x="186" y="60" width="48" height="48"/>
+                    <rect key="frame" x="198.5" y="60" width="48" height="48"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="large/benefits" translatesAutoresizingMaskIntoConstraints="NO" id="N1X-RW-ppc">
                             <rect key="frame" x="8" y="8" width="32" height="32"/>
@@ -165,7 +179,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="udV-HI-L6y" secondAttribute="trailing" constant="16" id="9vK-Cw-1Iy"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="udV-HI-L6y" secondAttribute="bottom" id="EHg-IE-HT9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="udV-HI-L6y" secondAttribute="bottom" constant="16" id="EHg-IE-HT9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="h4t-ZI-Ztq" secondAttribute="top" constant="-16" id="XzK-bp-JBG"/>
                 <constraint firstItem="h4t-ZI-Ztq" firstAttribute="centerX" secondItem="udV-HI-L6y" secondAttribute="centerX" id="iac-Ej-Ybn"/>
                 <constraint firstItem="udV-HI-L6y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="nWp-Wj-bD4"/>
@@ -187,7 +201,7 @@
                 <outlet property="transactionDateLabel" destination="FqL-k4-xWl" id="jb7-ke-VgG"/>
                 <outlet property="transactionDescriptionLabel" destination="sEL-M9-s8n" id="s3G-gK-0to"/>
             </connections>
-            <point key="canvasLocation" x="215.94202898550725" y="-50.223214285714285"/>
+            <point key="canvasLocation" x="234.05797101449278" y="-34.821428571428569"/>
         </view>
     </objects>
     <resources>

@@ -34,6 +34,7 @@ class CSearchTextField: SearchTextField {
         
         // Modify current theme properties
         self.theme.font = AppConfig.shared.activeTheme.defaultFont
+        self.theme.subtitleFontColor = AppConfig.shared.activeTheme.mediumGrayColor
         self.theme.fontColor = AppConfig.shared.activeTheme.primaryColor
         self.theme.bgColor = AppConfig.shared.activeTheme.backgroundColor
         self.theme.borderColor = AppConfig.shared.activeTheme.primaryColor
@@ -45,7 +46,10 @@ class CSearchTextField: SearchTextField {
         self.comparisonOptions = [.caseInsensitive]
         
         // Set the max number of results. By default it's not limited
-        self.maxNumberOfResults = 30
+        self.maxNumberOfResults = 100
+        
+        // this is critical, so we don't filter out anything from dataSource
+        self.forceNoFiltering = true
         
         // You can also limit the max height of the results list
         self.maxResultsListHeight = Int(UIScreen.main.bounds.size.height / 3)
@@ -56,7 +60,7 @@ class CSearchTextField: SearchTextField {
             self.text = searchItem.title
         }
         
-        self.minCharactersNumberToStartFiltering = 0
+        self.minCharactersNumberToStartFiltering = 2
         
         self.typingStoppedDelay = AppConfig.shared.activeTheme.quickAnimationDuration
     }

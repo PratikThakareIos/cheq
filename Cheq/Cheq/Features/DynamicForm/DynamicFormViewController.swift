@@ -29,7 +29,7 @@ class DynamicFormViewController: UIViewController {
     
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         if AppData.shared.isOnboarding {
@@ -130,13 +130,31 @@ class DynamicFormViewController: UIViewController {
     func submitForm() {
         AppConfig.shared.showSpinner()
         viewModel.coordinator.submitForm().done { success in
-            AppConfig.shared.hideSpinner {
-                AppData.shared.isOnboarding = false 
-                self.viewModel.coordinator.nextViewController()
-            }
+            self.checkSpendingStatus()
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
+            }
+        }
+    }
+    
+    func checkSpendingStatus() {
+        if AppData.shared.spendingOverviewReady {
+            AppConfig.shared.hideSpinner {
+                AppData.shared.isOnboarding = false
+                self.viewModel.coordinator.nextViewController()
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                CheqAPIManager.shared.spendingStatus().done { getSpendingStatusResponse in
+                    AppData.shared.spendingOverviewReady = (getSpendingStatusResponse.transactionStatus == GetSpendingStatusResponse.TransactionStatus.ready) ? true : false
+                    self.checkSpendingStatus()
+                }.catch { err in
+                    LoggingUtil.shared.cPrint(err)
+                    AppConfig.shared.hideSpinner {
+                        self.showError(err, completion: nil)
+                    }
+                }
             }
         }
     }

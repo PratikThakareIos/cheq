@@ -50,18 +50,17 @@ class TransactionModal: UIView {
         let smallIconImage = DataHelperUtil.shared.iconFromCategory(code, largeIcon: false)
         categoryIconImageView.image = UIImage.init(named: iconImage)
         transactionDescriptionLabel.text = self.viewModel.data.merchant
-        transactionDescriptionLabel.font = AppConfig.shared.activeTheme.mediumFont
+        transactionDescriptionLabel.font = AppConfig.shared.activeTheme.mediumBoldFont
         transactionDescriptionLabel.textColor = AppConfig.shared.activeTheme.textColor
         transactionDateLabel.text = self.viewModel.data.date
         transactionDateLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
         transactionAmountLabel.text = FormatterUtil.shared.currencyFormat(self.viewModel.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
-        transactionAmountLabel.font = AppConfig.shared.activeTheme.headerFont
+        transactionAmountLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         categoryTitleImageIconView.image = UIImage.init(named: smallIconImage)
         categoryTitleLabel.text = self.viewModel.data.categoryTitle ?? ""
         let url = URL.init(string: self.viewModel.data.financialInstitutionLogoUrl ?? "")
         financialInstitutionImageIconView.sd_imageIndicator = SDWebImageActivityIndicator.gray;
-        financialInstitutionImageIconView.sd_setImage(with: url, completed: { (image, error, cacheType, imageURL) in
-            self.financialInstitutionImageIconView.image = image
+        financialInstitutionImageIconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
         })
     }
     

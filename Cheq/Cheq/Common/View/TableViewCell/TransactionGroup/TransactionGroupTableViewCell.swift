@@ -42,7 +42,9 @@ class TransactionGroupTableViewCell: CTableViewCell {
         self.progressView.setupConfig()
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
+        self.categoryTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
+        self.categoryAmount.font = AppConfig.shared.activeTheme.mediumMediumFont
         let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
         let iconName = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)
         self.categoryIcon.image = UIImage.init(named: iconName)

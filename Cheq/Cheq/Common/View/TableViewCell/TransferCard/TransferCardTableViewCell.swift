@@ -36,7 +36,7 @@ class TransferCardTableViewCell: CTableViewCell {
         AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: bgColor.withAlphaComponent(0.05), applyShadow: false)
         AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
         self.amountLabel.text = vm.transferAmount
-        self.amountLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.amountLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.feeLabel.text = vm.feeAmountText
         self.feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.feeLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor

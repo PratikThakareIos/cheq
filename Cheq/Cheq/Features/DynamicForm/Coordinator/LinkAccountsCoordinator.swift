@@ -48,7 +48,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
                     AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
-//                return MoneySoftManager.shared.updateAccountCredentials(AppData.shared.disabledAccount, credentialFormModel: form)
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts->Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.getAccounts()
@@ -56,12 +55,22 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                     AppData.shared.storedAccounts = fetchedAccounts
                     let postFinancialAccountsReq = DataHelperUtil.shared.postFinancialAccountsReq(AppData.shared.storedAccounts)
                     return CheqAPIManager.shared.postAccounts(postFinancialAccountsReq)
+                }.then { sucesss->Promise<Bool> in
+                    // if there is disableAccount, we try to update the status using updateAccountCredentials
+                    // which will update the credential in the PDV
+                    let fetchedAccounts = AppData.shared.storedAccounts
+                    let disabledAccounts = fetchedAccounts.filter{ $0.disabled == true}
+                    if disabledAccounts.count > 0, let disableAccount = disabledAccounts.first {
+                        return MoneySoftManager.shared.updateAccountCredentials(disableAccount, credentialFormModel: AppData.shared.financialSignInForm)
+                    } else {
+                        return Promise<Bool>() { res in
+                            res.fulfill(true)
+                        }
+                    }
                 }.then { success->Promise<[FinancialAccountModel]> in
                     let refreshOptions = RefreshAccountOptions()
                     refreshOptions.includeTransactions = true
-                    let fetchedAccounts = AppData.shared.storedAccounts
-                    let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
-                    return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
+                    return MoneySoftManager.shared.refreshAccounts(AppData.shared.storedAccounts, refreshOptions: refreshOptions)
                 }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
                     let transactionFilter = TransactionFilter()
                     transactionFilter.fromDate = 3.months.earlier
