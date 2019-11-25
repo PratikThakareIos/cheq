@@ -23,7 +23,6 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupUI()
     }
     
@@ -37,9 +36,15 @@ class DynamicFormViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        setupKeyboardHandling()
         if built { return }
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in

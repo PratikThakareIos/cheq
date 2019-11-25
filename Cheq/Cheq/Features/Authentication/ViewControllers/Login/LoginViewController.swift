@@ -31,8 +31,12 @@ class LoginViewController: RegistrationViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        addObservables()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         removeObservables()
-        
     }
     
     override func setupDelegate() {

@@ -39,6 +39,7 @@ class RegistrationViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         hideBackTitle()
+        addObservables()
     }
     
     func addObservables() {

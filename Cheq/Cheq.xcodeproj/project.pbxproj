@@ -633,6 +633,9 @@
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
 		4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
+		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
+		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -1291,6 +1294,7 @@
 		4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPickerView.swift; sourceTree = "<group>"; };
 		4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPickerViewCoordinator.swift; sourceTree = "<group>"; };
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
+		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F57BB012325EE4700B95C06 /* CPopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupDialog.swift; sourceTree = "<group>"; };
@@ -1787,6 +1791,7 @@
 				4F231AF723641DED00874D07 /* String_Extension.swift */,
 				4F231AFC2364740700874D07 /* Error_Extension.swift */,
 				4FD229032373E9FC00045662 /* Image_Extension.swift */,
+				4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */,
 				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
 			);
 			path = Extension;
@@ -3942,7 +3947,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
 		};
 		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3979,7 +3984,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
 		};
 		4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4016,7 +4021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4295,6 +4300,7 @@
 				4F01F6BB237E6A5B00268423 /* CPickerView.swift in Sources */,
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
+				4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				4F01F6BE237E6A5B00268423 /* AmountSelectTableViewCell.swift in Sources */,
 				4F01F6BF237E6A5B00268423 /* HistoryItemTableViewCell.swift in Sources */,
 				4F01F6C2237E6A5B00268423 /* SpendingCategoriesViewController.swift in Sources */,
@@ -4609,6 +4615,7 @@
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
+				4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FBDDAA2236BC68700EDB1E9 /* HistoryItemTableViewCell.swift in Sources */,
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
@@ -4923,6 +4930,7 @@
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				4FD2289823726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
+				4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
