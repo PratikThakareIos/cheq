@@ -1,9 +1,0 @@
-framework module PersonalDataVault
-{
-	umbrella header "PersonalDataVault.h"
-	export *
-	module *
-	{
-		export *
-	}
-}

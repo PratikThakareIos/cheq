@@ -26,7 +26,7 @@ class LinkTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! LinkTableViewCellViewModel
-        header.font = AppConfig.shared.activeTheme.mediumFont
+        header.font = AppConfig.shared.activeTheme.mediumBoldFont
         header.textColor = vm.linkColor
         header.text = vm.header
         if vm.showDisclosureIcon {

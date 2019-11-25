@@ -23,7 +23,7 @@ class ForgotPasswordViewController: UIViewController {
     func setupUI() {
         showCloseButton()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
     }
     
     @IBAction func sendEmail(_ sender: Any) {

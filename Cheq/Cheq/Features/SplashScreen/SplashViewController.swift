@@ -87,7 +87,7 @@ extension SplashViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.title.text = benefit.title
         cell.caption.text = benefit.caption
         cell.title.font =
-            AppConfig.shared.activeTheme.headerFont
+            AppConfig.shared.activeTheme.headerBoldFont
         cell.title.textColor = benefit.textColor
         cell.caption.font = AppConfig.shared.activeTheme.defaultFont
         cell.caption.textColor = benefit.textColor

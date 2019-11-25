@@ -2,6 +2,8 @@
 platform :ios, '12.0'
 workspace 'Cheq'
 
+project = Xcodeproj::Project.open "Cheq.xcodeproj" # CUSTOM_PROJECT_NAME
+
 def swift4_pods
   pre_install do |installer|
     installer.analysis_result.specifications.each do |s|
@@ -18,7 +20,7 @@ def shared_pods
   pod 'Charts', '~> 3.3'
   pod 'NavigationDropdownMenu'
   pod 'Hex'
-  pod 'SwiftSpinner'
+  pod 'SVProgressHUD'
   pod 'PopOverMenu'
   pod 'Alamofire'
   pod 'PromiseKit'
@@ -37,19 +39,7 @@ def shared_pods
   # Pod for BlueDot SDK
   pod 'BluedotPointSDK', '15.0.0'
   
-  # Pod dependency from MoneySoft
-  
-  pod 'Mantle'
-  pod 'PromisesObjC'
-  pod 'FMDB'
-  pod 'REValidation'
-  pod 'Obfuscator'
-  pod 'SQLCipher'
-  pod 'sqlite3'
-  pod 'CocoaLumberjack', '<= 3.4.2'
-  pod 'OpenSSL-Universal'
-  pod 'Alamofire'
-  
+  # Pod dependency from MoneySoft  
   pod 'Mantle'
   pod 'PromisesObjC'
   pod 'FMDB'
@@ -82,7 +72,6 @@ target 'Cheq' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
 
@@ -97,7 +86,6 @@ target 'CheqProd' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
 end
@@ -106,7 +94,53 @@ target 'CheqDemo' do
   project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
   swift4_pods
   shared_pods
+end
+
+post_install do |installer|
+  puts "---- Running Post-Pod script ----"
+  require 'find'
+  framework_paths = Array.new
+  
+  Find.find('./') do |path|
+    framework_paths << path if path =~ /.MobileSDK.framework$/
+  end
+  if framework_paths.length() > 0
+    framework_location = (framework_paths[0].sub! "MobileSDK.framework", "**").sub! "./", "$(PROJECT_DIR)/"
+    puts "FRAMEWORK is in: #{framework_location}"
+    
+    project.targets.each do |target|
+      target.build_configurations.each do |config|
+        puts "Modifying target = #{target.name} for #{config.name} configuration"
+        build_settings = config.build_settings
+        puts "Adding frameworks path"
+        
+        current_paths = Array.new
+        if build_settings.key?('FRAMEWORK_SEARCH_PATHS')
+          build_settings['FRAMEWORK_SEARCH_PATHS']
+        end
+        current_paths.push('$(inherited)') unless current_paths.include?('$(inherited)')
+        current_paths.push(framework_location) unless current_paths.include?(framework_location)
+        build_settings['FRAMEWORK_SEARCH_PATHS'] = current_paths
+        
+        included_paths = ""
+        if build_settings.key?("INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES")
+          included_paths = build_settings['INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES']
+        end
+        included_paths.concat(" *.framework") unless included_paths.include? "*.framework"
+        build_settings['INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES'] = included_paths
+        
+        excluded_paths = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj"
+        if build_settings.key?("EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES")
+          excluded_paths = build_settings['EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES']
+        end
+        excluded_paths.sub! " *.framework", ""
+        build_settings['EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES'] = excluded_paths
+      end
+    end
+    project.save()
+    else
+    warn "\n\n\n!!!!!\nYou have forgotten to copy 'MobileSDK.framework' into your project folder\n!!!!!\n\n\n"
+  end
 end

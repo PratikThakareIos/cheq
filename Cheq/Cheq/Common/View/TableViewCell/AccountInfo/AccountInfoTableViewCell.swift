@@ -28,7 +28,7 @@ class AccountInfoTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear 
         subHeader.textColor = AppConfig.shared.activeTheme.lightestGrayColor
-        information.font = AppConfig.shared.activeTheme.mediumFont
+        information.font = AppConfig.shared.activeTheme.mediumBoldFont
         information.textColor = AppConfig.shared.activeTheme.textColor
         let vm = self.viewModel as! AccountInfoTableViewCellViewModel
         subHeader.text = vm.subHeader

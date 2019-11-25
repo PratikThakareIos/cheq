@@ -22,6 +22,10 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.registerCells()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func setupDelegate() {
         guard self.tableView != nil else { return }
         self.tableView.delegate = self
@@ -39,7 +43,7 @@ extension CTableViewController {
     
     @objc func reloadTable(_ notification: NSNotification) {
         let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.reloadData()
+        reloadTableView(self.tableView)
     }
     
     @objc func categoryById(_ notification: NSNotification) {

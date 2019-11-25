@@ -23,20 +23,27 @@ class IntroductionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
-        registerObservables()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
         }
+        
+//        autoSetupForAuthTokenIfNotLoggedIn()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func registerObservables() {
+        setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     
@@ -61,7 +68,7 @@ class IntroductionViewController: UIViewController {
 //        }
 
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleLabel.text = self.viewModel.coordinator.type.rawValue
         self.caption.font = AppConfig.shared.activeTheme.mediumFont
         self.caption.text = self.viewModel.caption()

@@ -16,6 +16,8 @@ enum StoryboardName: String {
 
 enum OnboardingStoryboardId: String {
     case splash = "SplashViewController"
+    case cSplash = "CSplashViewController"
+    case cSplashPage = "CSplashPageViewController"
     case registration = "RegistrationViewController"
     case login = "LoginViewController"
     case forgot = "ForgotPasswordViewController"

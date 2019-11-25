@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
 		1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */; };
-		4F01F61A237E691900268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F61B237E691900268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F01F61C237E692500268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F61D237E692500268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -242,7 +238,6 @@
 		4F01F745237E6A5B00268423 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9695E36D230016C60037A49D /* DarkTheme.swift */; };
 		4F01F748237E6A5B00268423 /* CProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4ACB23383A3B001F1BA2 /* CProgressView.swift */; };
 		4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F091096231F6E7300AA7F7D /* UserNotifications.framework */; };
-		4F01F74C237E6A5B00268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F01F74E237E6A5B00268423 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */; };
 		4F01F74F237E6A5B00268423 /* InfoNoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2324002375093C00BF3F21 /* InfoNoteTableViewCell.xib */; };
 		4F01F750237E6A5B00268423 /* MessageBubbleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB1CB372355375D00E7B224 /* MessageBubbleTableViewCell.xib */; };
@@ -276,7 +271,6 @@
 		4F01F76C237E6A5B00268423 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9676521C22FAFD03001E43E0 /* Assets.xcassets */; };
 		4F01F76D237E6A5B00268423 /* MainBackup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9676521922FAFD01001E43E0 /* MainBackup.storyboard */; };
 		4F01F76E237E6A5B00268423 /* IntercomChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */; };
-		4F01F770237E6A5B00268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F01F77C23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */; };
 		4F01F77D23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */; };
 		4F01F77E23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */; };
@@ -511,6 +505,20 @@
 		4F01F8BE2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
 		4F01F8BF2384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
 		4F01F8C02384A84500268423 /* LinkTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */; };
+		4F01F8DD2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
+		4F01F8DE2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
+		4F01F8DF2385100900268423 /* CSplashPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8DC2385100900268423 /* CSplashPageViewController.swift */; };
+		4F01F8E22385137B00268423 /* CSplashPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */; };
+		4F01F8E32385137B00268423 /* CSplashPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */; };
+		4F01F8E42385137B00268423 /* CSplashPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */; };
+		4F01F8E62385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
+		4F01F8E72385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
+		4F01F8E82385176F00268423 /* CSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8E52385176F00268423 /* CSplashViewController.swift */; };
+		4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
+		4F01F8F52387521900268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F01F8F62387521900268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
 		4F05E7F5231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */; };
 		4F05E7F9231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */; };
@@ -525,7 +533,6 @@
 		4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B066C2330588E00986E35 /* MultipleChoiceViewModel.swift */; };
 		4F0B0671233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B0670233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift */; };
 		4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B0673233066EE00986E35 /* CMultipleChoiceWithImageCell.swift */; };
-		4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */; };
 		4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D63042342F4B300AA819C /* LogViewController.swift */; };
 		4F0D63B023431EFD00AA819C /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D63AF23431EFD00AA819C /* TestUtil.swift */; };
 		4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9676522122FAFD03001E43E0 /* Cheq.plist */; };
@@ -624,6 +631,8 @@
 		4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */; };
 		4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */; };
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
+		4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -948,6 +957,7 @@
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
 		52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */; };
+		91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */; };
 		9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
 		9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
 		9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
@@ -1045,7 +1055,6 @@
 		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
 		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
-		9C39F2FF594AC5DF474ACA21 /* Pods_Cheq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1059,17 +1068,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4F01F76F237E6A5B00268423 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4F01F770237E6A5B00268423 /* MobileSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4F01F771237E6A5B00268423 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1080,13 +1078,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F05DBBB231CF16300C3B9BF /* Embed Frameworks */ = {
+		4F01F8F72387521B00268423 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F01F61B237E691900268423 /* MobileSDK.framework in Embed Frameworks */,
+				4F01F8F62387521900268423 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1099,17 +1097,6 @@
 			files = (
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4FBDDB35236BC68700EDB1E9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4F01F61D237E692500268423 /* MobileSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */ = {
@@ -1128,7 +1115,7 @@
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F01F615237E68EB00268423 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		4F01F615237E68EB00268423 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = mobileSDK/MobileSDK.framework; sourceTree = "<group>"; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Budgeting.swift; sourceTree = "<group>"; };
 		4F01F78023825F8200268423 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -1208,7 +1195,10 @@
 		4F01F8B52384A81000268423 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		4F01F8B62384A81000268423 /* LinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTableViewCell.xib; sourceTree = "<group>"; };
 		4F01F8BD2384A84500268423 /* LinkTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
+		4F01F8DC2385100900268423 /* CSplashPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashPageViewController.swift; sourceTree = "<group>"; };
+		4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashPageViewModel.swift; sourceTree = "<group>"; };
+		4F01F8E52385176F00268423 /* CSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSplashViewController.swift; sourceTree = "<group>"; };
+		4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextFieldItem.swift; sourceTree = "<group>"; };
 		4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftUser.swift; sourceTree = "<group>"; };
 		4F05E7F4231DD9AE00C3B9BF /* FirebaseAuthManagerIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4F05E7F8231DDA0500C3B9BF /* MoneySoftManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManagerIntegrationTests.swift; sourceTree = "<group>"; };
@@ -1514,7 +1504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
-				4F01F74C237E6A5B00268423 /* MobileSDK.framework in Frameworks */,
+				4F01F8F52387521900268423 /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1523,8 +1513,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */,
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
-				4F01F61C237E692500268423 /* MobileSDK.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1533,10 +1523,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F0D6183233DA89E00AA819C /* Pods_Cheq.framework in Frameworks */,
+				4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
-				4F01F61A237E691900268423 /* MobileSDK.framework in Frameworks */,
-				9C39F2FF594AC5DF474ACA21 /* Pods_Cheq.framework in Frameworks */,
+				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1714,6 +1703,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4F01F8D12384EED300268423 /* CSplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8E02385135C00268423 /* ViewModel */,
+				4F01F8DC2385100900268423 /* CSplashPageViewController.swift */,
+				4F01F8E52385176F00268423 /* CSplashViewController.swift */,
+			);
+			path = CSplashScreen;
+			sourceTree = "<group>";
+		};
+		4F01F8E02385135C00268423 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F01F8E12385137B00268423 /* CSplashPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F05DBBD231DD5AC00C3B9BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1783,14 +1790,6 @@
 				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		4F09112B2320EA6C00AA7F7D /* mobileSDK */ = {
-			isa = PBXGroup;
-			children = (
-				4F01F615237E68EB00268423 /* MobileSDK.framework */,
-			);
-			path = mobileSDK;
 			sourceTree = "<group>";
 		};
 		4F09123823221F9D00AA7F7D /* BlueDot */ = {
@@ -2316,6 +2315,7 @@
 			children = (
 				4F57BB0A2326005200B95C06 /* CTextField.swift */,
 				4FAE3655232F79CC0035E57E /* CSearchTextField.swift */,
+				4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */,
 				4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */,
 			);
 			path = TextFeld;
@@ -2756,8 +2756,8 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F01F615237E68EB00268423 /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
-				4F05DBB8231CE34E00C3B9BF /* PersonalDataVault.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
 				D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */,
@@ -2999,7 +2999,6 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
-				4F09112B2320EA6C00AA7F7D /* mobileSDK */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				9676521122FAFD01001E43E0 /* Products */,
@@ -3067,6 +3066,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F01F8D12384EED300268423 /* CSplashScreen */,
 				4FDDC349237BA11B00C3846E /* SpendingTransactions */,
 				4F2325BC237A5AAB00BF3F21 /* SpendingSpecificCategory */,
 				966434CC2341A96900934FB0 /* SpendingOverview */,
@@ -3445,12 +3445,12 @@
 				4F01F620237E6A5B00268423 /* Sources */,
 				4F01F749237E6A5B00268423 /* Frameworks */,
 				4F01F74D237E6A5B00268423 /* Resources */,
-				4F01F76F237E6A5B00268423 /* Embed Frameworks */,
 				4F01F771237E6A5B00268423 /* Embed App Extensions */,
 				4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */,
 				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
-				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 				4F01F775237E6A5B00268423 /* Fabrics Run Script */,
+				4F01F8F72387521B00268423 /* Embed Frameworks */,
+				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3469,12 +3469,11 @@
 				4FBDDA13236BC68700EDB1E9 /* Sources */,
 				4FBDDB18236BC68700EDB1E9 /* Frameworks */,
 				4FBDDB1C236BC68700EDB1E9 /* Resources */,
-				4FBDDB35236BC68700EDB1E9 /* Embed Frameworks */,
 				4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */,
 				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
-				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
+				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3493,12 +3492,11 @@
 				9676520C22FAFD01001E43E0 /* Sources */,
 				9676520D22FAFD01001E43E0 /* Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
-				4F05DBBB231CF16300C3B9BF /* Embed Frameworks */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
-				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
+				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -3925,7 +3923,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4F01F775237E6A5B00268423 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3962,7 +3960,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4F57BB1823263BEE00B95C06 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3999,7 +3997,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\nprintf \"Moneysoft API framework found!\\n\"\nbundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\nif [[ -d $bundlePath ]]; then\nprintf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\nrm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nmv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\nfi\nfi\n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4288,6 +4286,7 @@
 				4F01F6B4237E6A5B00268423 /* InfoNoteTableViewCell.swift in Sources */,
 				4F01F6B6237E6A5B00268423 /* SplashViewController.swift in Sources */,
 				4F01F6B7237E6A5B00268423 /* NSLayoutConstraint_Extension.swift in Sources */,
+				4F01F8E82385176F00268423 /* CSplashViewController.swift in Sources */,
 				4F01F82123825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				4F01F6B8237E6A5B00268423 /* TopTableViewCell.swift in Sources */,
 				4F01F8AC2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
@@ -4347,6 +4346,7 @@
 				4F01F6E6237E6A5B00268423 /* PasscodeViewController.swift in Sources */,
 				4F01F6E8237E6A5B00268423 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				4F01F6E9237E6A5B00268423 /* HeaderTableViewCell.swift in Sources */,
+				4F01F8DF2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4F01F6EA237E6A5B00268423 /* LendingViewModel.swift in Sources */,
 				4F01F6EB237E6A5B00268423 /* AuthUser.swift in Sources */,
 				4F01F6EC237E6A5B00268423 /* VDotManager.swift in Sources */,
@@ -4361,6 +4361,7 @@
 				4F01F6F6237E6A5B00268423 /* GridCoordinatorViewModel.swift in Sources */,
 				4F01F6F7237E6A5B00268423 /* DateOfBirthCoordinator.swift in Sources */,
 				4F01F6F8237E6A5B00268423 /* DeclineViewTestUtil.swift in Sources */,
+				4F01F8E42385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4F01F82423825F8300268423 /* DailyTransactionsResponse.swift in Sources */,
 				4F01F6F9237E6A5B00268423 /* TransactionModal.swift in Sources */,
 				4F01F6FA237E6A5B00268423 /* LinkAccountsCoordinator.swift in Sources */,
@@ -4382,6 +4383,7 @@
 				4F01F709237E6A5B00268423 /* LogViewController.swift in Sources */,
 				4F01F70B237E6A5B00268423 /* EmployementTypeCoordinator.swift in Sources */,
 				4F01F70D237E6A5B00268423 /* MoneySoftUser.swift in Sources */,
+				4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4F01F70E237E6A5B00268423 /* QuestionPickerViewCoordinator.swift in Sources */,
 				4F01F70F237E6A5B00268423 /* BaseViewModel.swift in Sources */,
 				4F01F711237E6A5B00268423 /* AppNav.swift in Sources */,
@@ -4598,6 +4600,7 @@
 				4F2324042375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4FBDDA9C236BC68700EDB1E9 /* SplashViewController.swift in Sources */,
 				4F2325B7237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
+				4F01F8E72385176F00268423 /* CSplashViewController.swift in Sources */,
 				4F01F82023825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				4FBDDA9E236BC68700EDB1E9 /* TopTableViewCell.swift in Sources */,
 				4F01F8AB2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
@@ -4657,6 +4660,7 @@
 				4FBDDABC236BC68700EDB1E9 /* PasscodeViewController.swift in Sources */,
 				4FBDDABD236BC68700EDB1E9 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				4FBDDABF236BC68700EDB1E9 /* HeaderTableViewCell.swift in Sources */,
+				4F01F8DE2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4FBDDAC0236BC68700EDB1E9 /* LendingViewModel.swift in Sources */,
 				4FBDDAC1236BC68700EDB1E9 /* AuthUser.swift in Sources */,
 				4FBDDAC2236BC68700EDB1E9 /* VDotManager.swift in Sources */,
@@ -4671,6 +4675,7 @@
 				4FBDDACE236BC68700EDB1E9 /* GridCoordinatorViewModel.swift in Sources */,
 				4FBDDACF236BC68700EDB1E9 /* DateOfBirthCoordinator.swift in Sources */,
 				4FBDDAD1236BC68700EDB1E9 /* DeclineViewTestUtil.swift in Sources */,
+				4F01F8E32385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4F01F82323825F8300268423 /* DailyTransactionsResponse.swift in Sources */,
 				4FDDC36A237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4FBDDAD2236BC68700EDB1E9 /* LinkAccountsCoordinator.swift in Sources */,
@@ -4692,6 +4697,7 @@
 				4FBDDAE0236BC68700EDB1E9 /* SplashViewModel.swift in Sources */,
 				4FBDDAE2236BC68700EDB1E9 /* LogViewController.swift in Sources */,
 				4FBDDAE3236BC68700EDB1E9 /* EmployementTypeCoordinator.swift in Sources */,
+				4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4FBDDAE4236BC68700EDB1E9 /* MoneySoftUser.swift in Sources */,
 				4FBDDAE6236BC68700EDB1E9 /* QuestionPickerViewCoordinator.swift in Sources */,
 				4FBDDAE7236BC68700EDB1E9 /* BaseViewModel.swift in Sources */,
@@ -4908,6 +4914,7 @@
 				4F2324012375093C00BF3F21 /* InfoNoteTableViewCell.swift in Sources */,
 				4FB479EA231DF8F0005FA0C1 /* SplashViewController.swift in Sources */,
 				4F2325B4237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
+				4F01F8E62385176F00268423 /* CSplashViewController.swift in Sources */,
 				4F01F81F23825F8300268423 /* GetUserDetailResponse.swift in Sources */,
 				96F9FFD52352DB060041001F /* TopTableViewCell.swift in Sources */,
 				4F01F8AA2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
@@ -4967,6 +4974,7 @@
 				4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */,
 				4F80FCDB2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
+				4F01F8DD2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
 				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
@@ -4981,6 +4989,7 @@
 				966A19E622FEA95700A6E444 /* GridCoordinatorViewModel.swift in Sources */,
 				4F0D714E2345AB2700AA819C /* DateOfBirthCoordinator.swift in Sources */,
 				4F80FCE1235989C6009C8F83 /* DeclineViewTestUtil.swift in Sources */,
+				4F01F8E22385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4F01F82223825F8300268423 /* DailyTransactionsResponse.swift in Sources */,
 				4FDDC367237CD1F800C3846E /* TransactionModal.swift in Sources */,
 				4F2E4ABA2334952E001F1BA2 /* LinkAccountsCoordinator.swift in Sources */,
@@ -5002,6 +5011,7 @@
 				4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */,
 				4F2E4A012334426F001F1BA2 /* EmployementTypeCoordinator.swift in Sources */,
 				4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */,
+				4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */,
 				4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */,
 				9676524522FB064C001E43E0 /* BaseViewModel.swift in Sources */,
 				4F2E48A42331CC48001F1BA2 /* AppNav.swift in Sources */,
@@ -5114,18 +5124,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5139,6 +5147,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5162,18 +5171,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5187,6 +5194,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5209,19 +5217,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5244,19 +5251,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5396,18 +5402,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5421,6 +5425,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5444,18 +5449,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
-					"$(PROJECT_DIR)/mobileSDK",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5469,6 +5472,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5480,6 +5484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5494,13 +5499,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
-					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5524,13 +5528,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
-					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
-					"$(PROJECT_DIR)/mobileSDK/simulator",
+					"$(PROJECT_DIR)/mobileSDK/**",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

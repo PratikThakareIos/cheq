@@ -37,7 +37,7 @@ class MultipleChoiceViewController: UIViewController {
         // non-zero estimated row height to trigger automatically calculation of cell height based on auto layout on tableview
         self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
         self.tableView.backgroundColor = .clear
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
@@ -229,11 +229,10 @@ extension MultipleChoiceViewController {
             if var view: UIView = cell.iconImageView {
                 ViewUtil.shared.circularMask(&view, radiusBy: .height)
             }
-            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: nil, options: [.fromCacheOnly], progress: nil, completed: { (image, error, cacheType, imageURL) in
-                self.tableView.reloadRows(at: [indexPath], with: .none)
+            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
             })
         } else {
-            cell.iconImageView.isHidden = true
+            cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
         }
         cell.backgroundColor = .clear
         AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)

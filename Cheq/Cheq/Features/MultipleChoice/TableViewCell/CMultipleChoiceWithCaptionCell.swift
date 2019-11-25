@@ -31,7 +31,7 @@ class CMultipleChoiceWithCaptionCell: UITableViewCell {
     }
 
     func setupConfig() {
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.captionLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.backgroundColor = .white
         self.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

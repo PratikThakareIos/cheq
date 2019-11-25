@@ -13,28 +13,6 @@ import DateToolsSwift
 class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {
-//        var credentials = [LoginCredentialType: String]()
-//        credentials[.email] = TestUtil.shared.randomEmail()
-//        credentials[.password] = TestUtil.shared.testPass()
-//
-//        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials)
-//            .then { authUser in
-//                return AuthConfig.shared.activeManager.login(credentials)
-//            }.then { authUser->Promise<Void> in
-//                CheqAPIManager.shared.requestEmailVerificationCode()
-//            }.then { ()->Promise<AuthUser> in
-//                let req = PutUserSingupVerificationCodeRequest(code: "111111")
-//                return CheqAPIManager.shared.validateEmailVerificationCode(req)
-//            }.then { authUser->Promise<AuthUser> in
-//                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-//            }.then { authUser->Promise<AuthUser> in
-//                let req = TestUtil.shared.putUserDetailsReq()
-//                return CheqAPIManager.shared.putUserDetails(req)
-//            }.done { authUser in
-//                LoggingUtil.shared.cPrint(authUser)
-//            }.catch { err in
-//                LoggingUtil.shared.cPrint(err)
-//            }
     }
     
     func resetPassword(_ code: String, newPassword: String)->Promise<Void> {
@@ -146,10 +124,12 @@ class CheqAPIManager {
         return Promise<[GetEmployerPlaceResponse]>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
+                LoggingUtil.shared.cPrint("query : \(query)")
                 LocationsAPI.getAutocompleteWorkAddressWithRequestBuilder(query: query).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     if let error = err { resolver.reject(error); return }
                     guard let resp: [GetEmployerPlaceResponse] = response?.body else {
                         resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    resp.forEach({ LoggingUtil.shared.cPrint($0.address) })
                     resolver.fulfill(resp)
                 }
             }.catch { err in
