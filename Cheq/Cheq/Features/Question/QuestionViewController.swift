@@ -316,7 +316,7 @@ class QuestionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
                         AppData.shared.completingDetailsForLending = false
-                        AppNav.shared.dismissModal(self)
+                        AppNav.shared.dismissModal(self) { }
                     } else {
                         AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                     }

@@ -300,3 +300,14 @@ extension UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 }
+
+//MARK: reload table without tableview scrolling
+extension UIViewController {
+    func reloadTableView(_ tableView: UITableView) {
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
+        
+    }
+}

@@ -43,7 +43,7 @@ extension CTableViewController {
     
     @objc func reloadTable(_ notification: NSNotification) {
         let _ = notification.userInfo?[NotificationUserInfoKey.cell.rawValue]
-        self.tableView.reloadData()
+        reloadTableView(self.tableView)
     }
     
     @objc func categoryById(_ notification: NSNotification) {

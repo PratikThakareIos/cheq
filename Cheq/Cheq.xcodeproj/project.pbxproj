@@ -517,10 +517,6 @@
 		4F01F8EB238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
 		4F01F8EC238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
 		4F01F8ED238630A000268423 /* CSearchTextFieldItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */; };
-		4F01F8EF238751D500268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F01F8F1238751FD00268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F8F22387520A00268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F01F8F32387520A00268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F01F8F52387521900268423 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F01F8F62387521900268423 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F05DBBF231DD65000C3B9BF /* MoneySoftUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05DBBE231DD65000C3B9BF /* MoneySoftUser.swift */; };
@@ -635,6 +631,8 @@
 		4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */; };
 		4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */; };
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
+		4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -1080,28 +1078,6 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F01F8F0238751D600268423 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4F01F8EF238751D500268423 /* MobileSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4F01F8F42387520C00268423 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4F01F8F32387520A00268423 /* MobileSDK.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4F01F8F72387521B00268423 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1537,7 +1513,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01F8F22387520A00268423 /* MobileSDK.framework in Frameworks */,
+				4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */,
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
@@ -1547,7 +1523,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01F8F1238751FD00268423 /* MobileSDK.framework in Frameworks */,
+				4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
@@ -3497,7 +3473,6 @@
 				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
-				4F01F8F42387520C00268423 /* Embed Frameworks */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
@@ -3521,7 +3496,6 @@
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
-				4F01F8F0238751D600268423 /* Embed Frameworks */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
@@ -5510,6 +5484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
