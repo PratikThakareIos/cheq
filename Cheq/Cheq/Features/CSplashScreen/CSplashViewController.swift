@@ -115,13 +115,13 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     }
     
     func showStartButton() {
-        UIView.animate(withDuration: AppConfig.shared.activeTheme.mediumAnimationDuration) {
+        UIView.animate(withDuration: AppConfig.shared.activeTheme.quickAnimationDuration) {
             self.startButton.alpha = 1.0
         }
     }
     
     func hideStartButton() {
-        UIView.animate(withDuration: AppConfig.shared.activeTheme.mediumAnimationDuration) {
+        UIView.animate(withDuration: AppConfig.shared.activeTheme.quickAnimationDuration) {
             self.startButton.alpha = 0.0
         }
     }

@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 import Firebase
 import FirebaseMessaging
-import Fabric
+//import Fabric
 import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
@@ -226,7 +226,7 @@ extension AppDelegate {
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
         guard let _ = AppData.shared.application else { return }
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
@@ -235,7 +235,7 @@ extension AppDelegate {
     
     func setupServicesForDev() {
         guard let _ = AppData.shared.application else { return }
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared

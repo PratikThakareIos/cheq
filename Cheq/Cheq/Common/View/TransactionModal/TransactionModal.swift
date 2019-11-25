@@ -59,9 +59,12 @@ class TransactionModal: UIView {
         categoryTitleImageIconView.image = UIImage.init(named: smallIconImage)
         categoryTitleLabel.text = self.viewModel.data.categoryTitle ?? ""
         let url = URL.init(string: self.viewModel.data.financialInstitutionLogoUrl ?? "")
-        financialInstitutionImageIconView.sd_imageIndicator = SDWebImageActivityIndicator.gray;
-        financialInstitutionImageIconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-        })
+//        financialInstitutionImageIconView.sd_imageIndicator = SDWebImageActivityIndicator.gray;
+//        financialInstitutionImageIconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
+//        })
+        
+        financialInstitutionImageIconView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
+//        financialInstitutionImageIconView.setImageForURL(self.viewModel.data.financialInstitutionLogoUrl ?? "")
     }
     
     @objc func dismissAction() {
