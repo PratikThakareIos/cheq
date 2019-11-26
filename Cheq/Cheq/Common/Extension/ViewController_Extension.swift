@@ -148,9 +148,13 @@ extension UIViewController {
     
     func setupKeyboardHandling() {
         
+        let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(notification:)))
+        tapToDismiss.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapToDismiss)
+        
         self.view.endEditing(true)
         if let scrollView = self.baseScrollView() {
-            scrollView.contentInsetAdjustmentBehavior = .never
+            scrollView.contentInsetAdjustmentBehavior = .automatic
         }
 
         // Event for programmatically dismissing the keyboard anywhere

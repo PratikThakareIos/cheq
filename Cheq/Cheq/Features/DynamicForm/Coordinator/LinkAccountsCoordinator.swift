@@ -44,10 +44,25 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
     
+    func printForm(_ form: InstitutionCredentialsFormModel) {
+        LoggingUtil.shared.cPrint("form")
+        LoggingUtil.shared.cPrint("financial institution id - \(form.financialInstitutionId)")
+        LoggingUtil.shared.cPrint("provider institution id - \(form.providerInstitutionId)")
+        LoggingUtil.shared.cPrint("prompts - \(form.prompts.description)")
+        LoggingUtil.shared.cPrint("financial service id - \(form.financialServiceId)")
+    }
+    
+    func printAuthUser(_ authUser: AuthUser) {
+        LoggingUtil.shared.cPrint("authUser moneysoft username \(String(describing: authUser.msCredential[.msUsername]))")
+        LoggingUtil.shared.cPrint("authUser moneysoft password \(String(describing: authUser.msCredential[.msPassword]))")
+    }
+    
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
+            printForm(form)
                 AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountModel]> in
+                    self.printAuthUser(authUser)
                     return MoneySoftManager.shared.getAccounts()
                 }.then { fetchedAccounts-> Promise<Bool> in
                     AppData.shared.storedAccounts = fetchedAccounts
