@@ -58,13 +58,17 @@ class TransactionModal: UIView {
         transactionAmountLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         categoryTitleImageIconView.image = UIImage.init(named: smallIconImage)
         categoryTitleLabel.text = self.viewModel.data.categoryTitle ?? ""
-        let url = URL.init(string: self.viewModel.data.financialInstitutionLogoUrl ?? "")
-//        financialInstitutionImageIconView.sd_imageIndicator = SDWebImageActivityIndicator.gray;
-//        financialInstitutionImageIconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-//        })
+        financialInstitutionLabel.text = self.viewModel.data.financialAccountName
+        let remoteBankMapping = AppData.shared.remoteBankMapping
+        let bankName = AppData.shared.selectedFinancialInstitution?.name ?? ""
         
-        financialInstitutionImageIconView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
-//        financialInstitutionImageIconView.setImageForURL(self.viewModel.data.financialInstitutionLogoUrl ?? "")
+        if let remoteBank = remoteBankMapping[bankName], let url = URL.init(string: remoteBank.logoUrl) {
+            financialInstitutionImageIconView.sd_setImage(with: url, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
+                self.financialInstitutionImageIconView.image = image
+            })
+        } else {
+            financialInstitutionImageIconView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
+        }
     }
     
     @objc func dismissAction() {

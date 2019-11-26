@@ -233,7 +233,7 @@ extension MultipleChoiceViewController {
             
             // set placeholder first
             cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
-//            cell.iconImageView.setImageForURL(imageName)
+            cell.iconImageView.setImageForURL(imageName)
         } else {
             cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
         }

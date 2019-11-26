@@ -44,10 +44,26 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
     
+    func printForm(_ form: InstitutionCredentialsFormModel) {
+        LoggingUtil.shared.cPrint("form")
+        LoggingUtil.shared.cPrint("financial institution id - \(form.financialInstitutionId)")
+        LoggingUtil.shared.cPrint("provider institution id - \(form.providerInstitutionId)")
+        LoggingUtil.shared.cPrint("prompts - \(form.prompts.description)")
+        LoggingUtil.shared.cPrint("financial service id - \(form.financialServiceId)")
+    }
+    
+    func printAuthUser(_ authUser: AuthUser) {
+        LoggingUtil.shared.cPrint("authUser moneysoft username \(String(describing: authUser.msCredential[.msUsername]))")
+        LoggingUtil.shared.cPrint("authUser moneysoft password \(String(describing: authUser.msCredential[.msPassword]))")
+    }
+    
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-                AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountModel]> in
+            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
+            printForm(form)
+                AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountModel]> in
+                    self.printAuthUser(authUser)
                     return MoneySoftManager.shared.getAccounts()
                 }.then { fetchedAccounts-> Promise<Bool> in
                     AppData.shared.storedAccounts = fetchedAccounts
@@ -65,7 +81,10 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                             res.fulfill(true)
                         }
                     }
-                }.then { success->Promise<[FinancialAccountModel]> in
+                }.then { success-> Promise<[FinancialAccountModel]> in
+                    return MoneySoftManager.shared.getAccounts()
+                }.then { accounts->Promise<[FinancialAccountModel]> in
+                    AppData.shared.storedAccounts = accounts 
                     let refreshOptions = RefreshAccountOptions()
                     refreshOptions.includeTransactions = true
                     return MoneySoftManager.shared.refreshAccounts(AppData.shared.storedAccounts, refreshOptions: refreshOptions)
@@ -92,7 +111,8 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForOnboarding()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
+            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
+            AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.linkAccounts(linkableAccounts)

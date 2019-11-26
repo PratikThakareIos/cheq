@@ -36,9 +36,6 @@ def shared_pods
   # intercom
   pod 'Intercom', '~> 5.4.1'
   
-  # Pod for BlueDot SDK
-  pod 'BluedotPointSDK', '15.0.0'
-  
   # Pod dependency from MoneySoft  
   pod 'Mantle'
   pod 'PromisesObjC'
