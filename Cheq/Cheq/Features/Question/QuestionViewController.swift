@@ -39,8 +39,8 @@ class QuestionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         activeTimestamp()
+        setupKeyboardHandling()
         self.updateKeyboardViews()
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
@@ -51,9 +51,14 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegate()
         setupUI()
         prePopulateEntry()

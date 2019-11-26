@@ -50,7 +50,6 @@
 		4F01F656237E6A5B00268423 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676526122FB156E001E43E0 /* CarouselCollectionViewCell.swift */; };
 		4F01F657237E6A5B00268423 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB1223260EBA00B95C06 /* ViewController_Extension.swift */; };
 		4F01F658237E6A5B00268423 /* CompletionProgressTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */; };
-		4F01F65A237E6A5B00268423 /* BluedotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09123923221FB500AA7F7D /* BluedotManager.swift */; };
 		4F01F65B237E6A5B00268423 /* KycFailedIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */; };
 		4F01F65C237E6A5B00268423 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4F01F65E237E6A5B00268423 /* SpendingTransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDC350237BA19B00C3846E /* SpendingTransactionsViewModel.swift */; };
@@ -527,7 +526,6 @@
 		4F09109C231F981E00AA7F7D /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109B231F981E00AA7F7D /* NotificationUtil.swift */; };
 		4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09109F23208A2800AA7F7D /* NotificationEnums.swift */; };
 		4F0911212320B91000AA7F7D /* XCTestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0911202320B91000AA7F7D /* XCTestConfig.swift */; };
-		4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09123923221FB500AA7F7D /* BluedotManager.swift */; };
 		4F0B06652330452000986E35 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B06642330452000986E35 /* AppData.swift */; };
 		4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B06692330587700986E35 /* MultipleChoiceViewController.swift */; };
 		4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0B066C2330588E00986E35 /* MultipleChoiceViewModel.swift */; };
@@ -555,6 +553,7 @@
 		4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71782346F6E300AA819C /* PasscodeViewController.swift */; };
 		4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */; };
 		4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */; };
+		4F116557238D63AC000C5040 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F18096A235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */; };
 		4F18096D235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */; };
 		4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */; };
@@ -633,6 +632,9 @@
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
 		4F36DD81238B766900FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F36DD82238B767800FD74F9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
+		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
+		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
+		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -713,7 +715,6 @@
 		4FBDDA41236BC68700EDB1E9 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9676526122FB156E001E43E0 /* CarouselCollectionViewCell.swift */; };
 		4FBDDA42236BC68700EDB1E9 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB1223260EBA00B95C06 /* ViewController_Extension.swift */; };
 		4FBDDA43236BC68700EDB1E9 /* CompletionProgressTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB92352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift */; };
-		4FBDDA44236BC68700EDB1E9 /* BluedotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F09123923221FB500AA7F7D /* BluedotManager.swift */; };
 		4FBDDA45236BC68700EDB1E9 /* KycFailedIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCD723597F27009C8F83 /* KycFailedIntroCoordinator.swift */; };
 		4FBDDA47236BC68700EDB1E9 /* CreditAssessmentIntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCDD2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift */; };
 		4FBDDA48236BC68700EDB1E9 /* FBEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD7C1E82329E0D600AC7A67 /* FBEnums.swift */; };
@@ -1099,6 +1100,17 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F116558238D63AC000C5040 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F116557238D63AC000C5040 /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1209,7 +1221,6 @@
 		4F09109B231F981E00AA7F7D /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
 		4F09109F23208A2800AA7F7D /* NotificationEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEnums.swift; sourceTree = "<group>"; };
 		4F0911202320B91000AA7F7D /* XCTestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestConfig.swift; sourceTree = "<group>"; };
-		4F09123923221FB500AA7F7D /* BluedotManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluedotManager.swift; sourceTree = "<group>"; };
 		4F0B06642330452000986E35 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		4F0B06692330587700986E35 /* MultipleChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewController.swift; sourceTree = "<group>"; };
 		4F0B066C2330588E00986E35 /* MultipleChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewModel.swift; sourceTree = "<group>"; };
@@ -1291,6 +1302,7 @@
 		4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPickerView.swift; sourceTree = "<group>"; };
 		4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPickerViewCoordinator.swift; sourceTree = "<group>"; };
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
+		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F57BB012325EE4700B95C06 /* CPopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupDialog.swift; sourceTree = "<group>"; };
@@ -1787,17 +1799,10 @@
 				4F231AF723641DED00874D07 /* String_Extension.swift */,
 				4F231AFC2364740700874D07 /* Error_Extension.swift */,
 				4FD229032373E9FC00045662 /* Image_Extension.swift */,
+				4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */,
 				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		4F09123823221F9D00AA7F7D /* BlueDot */ = {
-			isa = PBXGroup;
-			children = (
-				4F09123923221FB500AA7F7D /* BluedotManager.swift */,
-			);
-			path = BlueDot;
 			sourceTree = "<group>";
 		};
 		4F0B0667233057F800986E35 /* MultipleChoice */ = {
@@ -3166,7 +3171,6 @@
 				4F573A91231CC929004616F5 /* CheqAPI */,
 				4FD7C201232A18D900AC7A67 /* OnfidoAPI */,
 				96BF5C832339889A0036F0EB /* VDot  */,
-				4F09123823221F9D00AA7F7D /* BlueDot */,
 				4F573A90231CC4C4004616F5 /* MoneySoft */,
 				96FADE95230EC96700AE6CBB /* Enums */,
 				96FADD29230E82C900AE6CBB /* AuthManager */,
@@ -3497,6 +3501,7 @@
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
+				4F116558238D63AC000C5040 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3942,7 +3947,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
 		};
 		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3979,7 +3984,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
 		};
 		4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4016,7 +4021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 163ab43a51b7d8d5148e4e3037bcc56508a40c64 35db49c77158bd9b3872bd742b46eafc81ea149829a4f267e483c7484bcb075a\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4192,7 +4197,6 @@
 				4F01F656237E6A5B00268423 /* CarouselCollectionViewCell.swift in Sources */,
 				4F01F657237E6A5B00268423 /* ViewController_Extension.swift in Sources */,
 				4F01F658237E6A5B00268423 /* CompletionProgressTableViewCellViewModel.swift in Sources */,
-				4F01F65A237E6A5B00268423 /* BluedotManager.swift in Sources */,
 				4F01F65B237E6A5B00268423 /* KycFailedIntroCoordinator.swift in Sources */,
 				4F01F65C237E6A5B00268423 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4F01F65E237E6A5B00268423 /* SpendingTransactionsViewModel.swift in Sources */,
@@ -4295,6 +4299,7 @@
 				4F01F6BB237E6A5B00268423 /* CPickerView.swift in Sources */,
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
+				4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				4F01F6BE237E6A5B00268423 /* AmountSelectTableViewCell.swift in Sources */,
 				4F01F6BF237E6A5B00268423 /* HistoryItemTableViewCell.swift in Sources */,
 				4F01F6C2237E6A5B00268423 /* SpendingCategoriesViewController.swift in Sources */,
@@ -4506,7 +4511,6 @@
 				4FBDDA41236BC68700EDB1E9 /* CarouselCollectionViewCell.swift in Sources */,
 				4FBDDA42236BC68700EDB1E9 /* ViewController_Extension.swift in Sources */,
 				4FBDDA43236BC68700EDB1E9 /* CompletionProgressTableViewCellViewModel.swift in Sources */,
-				4FBDDA44236BC68700EDB1E9 /* BluedotManager.swift in Sources */,
 				4FBDDA45236BC68700EDB1E9 /* KycFailedIntroCoordinator.swift in Sources */,
 				4FBDDA47236BC68700EDB1E9 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FDDC354237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
@@ -4609,6 +4613,7 @@
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
+				4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				4FBDDAA2236BC68700EDB1E9 /* HistoryItemTableViewCell.swift in Sources */,
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
@@ -4820,7 +4825,6 @@
 				9676526222FB156E001E43E0 /* CarouselCollectionViewCell.swift in Sources */,
 				4F57BB1323260EBA00B95C06 /* ViewController_Extension.swift in Sources */,
 				96F9FFBA2352C0E10041001F /* CompletionProgressTableViewCellViewModel.swift in Sources */,
-				4F09123A23221FB500AA7F7D /* BluedotManager.swift in Sources */,
 				4F80FCD823597F27009C8F83 /* KycFailedIntroCoordinator.swift in Sources */,
 				4F80FCDE2359809E009C8F83 /* CreditAssessmentIntroCoordinator.swift in Sources */,
 				4FDDC351237BA19B00C3846E /* SpendingTransactionsViewModel.swift in Sources */,
@@ -4923,6 +4927,7 @@
 				4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */,
 				4F0D71732346CD4900AA819C /* VerificationViewModel.swift in Sources */,
 				4FD2289823726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
+				4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
 				4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,

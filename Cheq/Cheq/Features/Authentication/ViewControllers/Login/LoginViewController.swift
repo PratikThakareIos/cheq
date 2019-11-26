@@ -31,8 +31,12 @@ class LoginViewController: RegistrationViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        addObservables()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         removeObservables()
-        
     }
     
     override func setupDelegate() {
@@ -96,6 +100,7 @@ class LoginViewController: RegistrationViewController {
                     }
                     
                     let financialAccounts: [FinancialAccountModel] = accounts
+                    
                     if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account
@@ -119,9 +124,19 @@ class LoginViewController: RegistrationViewController {
                             return
                         }
                     } else {
-                        // Load to dashboard
-                        AppData.shared.completingDetailsForLending = false 
-                        self.navigateToDashboard()
+                        AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitutionId ?? -1
+                        MoneySoftManager.shared.getInstitutions().done { institutions in
+                            AppData.shared.financialInstitutions = institutions
+                            AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
+                            // Load to dashboard
+                            AppData.shared.isOnboarding = false
+                            AppData.shared.migratingToNewDevice = false
+                            AppData.shared.completingDetailsForLending = false
+                            self.navigateToDashboard()
+                        }.catch { err in
+                            self.showError(err, completion: nil)
+                            return
+                        }
                     }
                 }
             }.catch { err in

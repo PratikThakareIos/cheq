@@ -39,6 +39,10 @@ class RegistrationViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         hideBackTitle()
+        addObservables()
+        
+        // reset this variable when we are back on sign up / login screen
+        AppData.shared.migratingToNewDevice = false
     }
     
     func addObservables() {
