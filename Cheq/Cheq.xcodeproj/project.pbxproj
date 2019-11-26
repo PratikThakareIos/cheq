@@ -633,6 +633,9 @@
 		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
+		4F449548238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
+		4F449549238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
+		4F44954A238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -1279,6 +1282,7 @@
 		4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPickerViewCoordinator.swift; sourceTree = "<group>"; };
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
 		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
+		4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F57BB012325EE4700B95C06 /* CPopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupDialog.swift; sourceTree = "<group>"; };
@@ -1492,6 +1496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F11656C238D7C40000C5040 /* MobileSDK.framework in Frameworks */,
+				4F44954A238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
 			);
@@ -1502,6 +1507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F11656B238D7C2E000C5040 /* MobileSDK.framework in Frameworks */,
+				4F449549238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
@@ -1512,6 +1518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F11656A238D7C1D000C5040 /* MobileSDK.framework in Frameworks */,
+				4F449548238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
@@ -2737,6 +2744,7 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */,
 				4F01F615237E68EB00268423 /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
@@ -5113,7 +5121,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5161,7 +5168,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5208,7 +5214,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5243,7 +5248,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5395,7 +5399,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5443,7 +5446,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mobileSDK/**",
-					"$(PROJECT_DIR)/mobileSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
