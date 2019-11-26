@@ -149,7 +149,7 @@ extension MoneySoftManagerError: LocalizedError {
         case .unableToRetrieveUserProfile:
             return NSLocalizedString("Unable to retrieve user profile", comment: "")
         case .unableToUpdateDisabledAccountCredentials:
-            return NSLocalizedString("Unable to update dsialed account credentials", comment: "")
+            return NSLocalizedString("Unable to update disabled account credentials", comment: "")
         case .unableToRetrieveFinancialInstitutions:
             return NSLocalizedString("Unable to retrieve financial institutions", comment: "")
         case .unableToRetrieveFinancialInstitutionSignInForm:

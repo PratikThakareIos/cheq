@@ -64,7 +64,7 @@ class TransactionModal: UIView {
 //        })
         
         financialInstitutionImageIconView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
-//        financialInstitutionImageIconView.setImageForURL(self.viewModel.data.financialInstitutionLogoUrl ?? "")
+        financialInstitutionImageIconView.setImageForURL(self.viewModel.data.financialInstitutionLogoUrl ?? "")
     }
     
     @objc func dismissAction() {
