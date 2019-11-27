@@ -60,7 +60,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
+            let userInitiatedQueue = DispatchQueue.global(qos: .background)
             printForm(form)
                 AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountModel]> in
                     self.printAuthUser(authUser)
@@ -111,7 +111,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForOnboarding()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            let userInitiatedQueue = DispatchQueue.global(qos: .userInitiated)
+            let userInitiatedQueue = DispatchQueue.global(qos: .background)
             AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in

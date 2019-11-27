@@ -8,7 +8,7 @@ def swift4_pods
   pre_install do |installer|
     installer.analysis_result.specifications.each do |s|
       if s.name == 'Alamofire' || s.name == 'CocoaLumberjack' || s.name == 'SwiftEntryKit'
-        s.swift_version = '4.0'
+        s.swift_version = '4.2'
       end
     end
   end
@@ -36,16 +36,17 @@ def shared_pods
   # intercom
   pod 'Intercom', '~> 5.4.1'
   
-  # Pod dependency from MoneySoft  
-  pod 'Mantle'
-  pod 'PromisesObjC'
-  pod 'FMDB'
-  pod 'CocoaLumberjack/Swift','<=3.4.2'
-  pod 'REValidation'
-  pod 'Obfuscator'
-  pod 'SQLCipher'
-  pod 'sqlite3', '<= 3.27.2'
-  pod 'OpenSSL-Universal'
+  # Pods for MobileSDKDemo
+	pod 'Mantle'
+	pod 'PromisesObjC'
+	pod 'FMDB'
+	pod 'REValidation'
+	# pod 'MIHCrypto'
+	pod 'Obfuscator'
+	pod 'SQLCipher'
+	pod 'sqlite3'
+	pod 'CocoaLumberjack', '<= 3.4.2'
+	pod 'OpenSSL-Universal'
   
   #Fabrics + Crashlytics
   pod 'Fabric', '~> 1.10.2'
@@ -66,7 +67,7 @@ def shared_pods
 end
 
 target 'Cheq' do
-  project 'Cheq.xcodeproj'
+  #project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   swift4_pods
@@ -80,7 +81,7 @@ target 'Cheq' do
 end
 
 target 'CheqProd' do
-  project 'Cheq.xcodeproj'
+  #project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   swift4_pods
@@ -88,7 +89,7 @@ target 'CheqProd' do
 end
 
 target 'CheqDemo' do
-  project 'Cheq.xcodeproj'
+  #project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   swift4_pods
