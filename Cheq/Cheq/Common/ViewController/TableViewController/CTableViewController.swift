@@ -77,6 +77,11 @@ extension CTableViewController {
             return
         }
         
+        if link == links.appSetting.rawValue {
+            AppNav.shared.pushToAppSetting()
+            return 
+        }
+        
         if link == links.helpAndSupport.rawValue {
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
             return

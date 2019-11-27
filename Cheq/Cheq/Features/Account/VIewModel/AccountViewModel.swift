@@ -15,6 +15,7 @@ enum AccountInfo: String {
     case helpAndSupport = "Help & Support"
     case privacyPolicy = "Policy"
     case termsAndConditions = "Terms of Use"
+    case appSetting = "Settings"
     case logout = "Log out"
 }
 
@@ -74,6 +75,12 @@ class AccountViewModel: BaseTableVCViewModel {
         termsAndConditions.link = .toc
         section.rows.append(termsAndConditions)
         section.rows.append(spacer)
+        
+//        let appSetting = LinkTableViewCellViewModel()
+//        appSetting.header = AccountInfo.appSetting.rawValue
+//        appSetting.link = .appSetting
+//        section.rows.append(appSetting)
+//        section.rows.append(spacer)
         
         let logout = LinkTableViewCellViewModel()
         logout.header = AccountInfo.logout.rawValue
