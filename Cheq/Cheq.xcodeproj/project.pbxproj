@@ -551,9 +551,6 @@
 		4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71782346F6E300AA819C /* PasscodeViewController.swift */; };
 		4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717B2346F6FA00AA819C /* PasscodeViewModel.swift */; };
 		4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D717E2347002A00AA819C /* CPasscodeTextField.swift */; };
-		4F11656A238D7C1D000C5040 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F11656B238D7C2E000C5040 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
-		4F11656C238D7C40000C5040 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F01F615237E68EB00268423 /* MobileSDK.framework */; };
 		4F18096A235D3ACB0018507D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180969235D3ACB0018507D /* ForgotPasswordViewController.swift */; };
 		4F18096D235D3AE00018507D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F18096C235D3AE00018507D /* ForgotPasswordViewModel.swift */; };
 		4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F180971235D53310018507D /* NewPasswordSetupViewModel.swift */; };
@@ -630,12 +627,16 @@
 		4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */; };
 		4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */; };
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
+		4F345B94238E08A4005DCFDB /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F345B96238E08C6005DCFDB /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F44955A238DFBA4000E9DAA /* MobileSDK.framework */; };
 		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
-		4F449548238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
-		4F449549238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
-		4F44954A238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */; };
+		4F449566238E04A3000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
+		4F449568238E0534000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
+		4F449569238E0534000E9DAA /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F44956A238E053A000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
+		4F44956B238E053A000E9DAA /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -1090,6 +1091,39 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F345B95238E08A4005DCFDB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F345B94238E08A4005DCFDB /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F449560238DFBAE000E9DAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F449569238E0534000E9DAA /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F449563238DFBB5000E9DAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F44956B238E053A000E9DAA /* MobileSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1106,7 +1140,6 @@
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F01F615237E68EB00268423 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = mobileSDK/MobileSDK.framework; sourceTree = "<group>"; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Budgeting.swift; sourceTree = "<group>"; };
 		4F01F78023825F8200268423 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
@@ -1282,7 +1315,8 @@
 		4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPickerViewCoordinator.swift; sourceTree = "<group>"; };
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
 		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
-		4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
+		4F44955A238DFBA4000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = /Users/xuwei/Documents/dev/cheq.ios/Cheq/dependencies/MobileSDK.framework; sourceTree = "<absolute>"; };
+		4F449564238E04A3000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F57BB012325EE4700B95C06 /* CPopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupDialog.swift; sourceTree = "<group>"; };
@@ -1495,9 +1529,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F11656C238D7C40000C5040 /* MobileSDK.framework in Frameworks */,
-				4F44954A238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
+				4F44956A238E053A000E9DAA /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1506,9 +1539,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F11656B238D7C2E000C5040 /* MobileSDK.framework in Frameworks */,
-				4F449549238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
+				4F449568238E0534000E9DAA /* MobileSDK.framework in Frameworks */,
+				4F449566238E04A3000E9DAA /* MobileSDK.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1517,8 +1550,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F11656A238D7C1D000C5040 /* MobileSDK.framework in Frameworks */,
-				4F449548238DEBA6000E9DAA /* PersonalDataVault.framework in Frameworks */,
+				4F345B96238E08C6005DCFDB /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
@@ -1969,6 +2001,7 @@
 			children = (
 				4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */,
 				4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */,
+				4F44955A238DFBA4000E9DAA /* MobileSDK.framework */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -2744,8 +2777,7 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F449547238DEBA6000E9DAA /* PersonalDataVault.framework */,
-				4F01F615237E68EB00268423 /* MobileSDK.framework */,
+				4F449564238E04A3000E9DAA /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
@@ -3437,6 +3469,7 @@
 				4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */,
 				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
 				4F01F775237E6A5B00268423 /* Fabrics Run Script */,
+				4F449563238DFBB5000E9DAA /* Embed Frameworks */,
 				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
@@ -3460,6 +3493,7 @@
 				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
 				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
+				4F449560238DFBAE000E9DAA /* Embed Frameworks */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
@@ -3480,10 +3514,12 @@
 				9676520D22FAFD01001E43E0 /* Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
-				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
+				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
+				4F345B95238E08A4005DCFDB /* Embed Frameworks */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
+				4F345B97238E1AD2005DCFDB /* upload dsym dev */,
 			);
 			buildRules = (
 			);
@@ -3930,6 +3966,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
+		};
+		4F345B97238E1AD2005DCFDB /* upload dsym dev */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "upload dsym dev";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/upload-symbols\" -gsp \"${PROJECT_DIR}/Cheq/Environment/Dev/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
 		};
 		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5120,7 +5174,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5167,7 +5221,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5213,7 +5267,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5247,7 +5301,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5393,12 +5447,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5421,6 +5476,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5445,7 +5501,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5468,6 +5524,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5489,7 +5546,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;
@@ -5518,7 +5575,7 @@
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/mobileSDK/**",
+					"$(PROJECT_DIR)/dependencies/**",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;

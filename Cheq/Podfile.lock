@@ -3,8 +3,11 @@ PODS:
   - Charts (3.3.0):
     - Charts/Core (= 3.3.0)
   - Charts/Core (3.3.0)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
   - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Swift (3.4.2):
+  - CocoaLumberjack/Extensions (3.4.2):
     - CocoaLumberjack/Default
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
@@ -195,7 +198,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Charts (~> 3.3)
-  - CocoaLumberjack/Swift (<= 3.4.2)
+  - CocoaLumberjack (<= 3.4.2)
   - Crashlytics (~> 3.14.0)
   - DateToolsSwift
   - Fabric (~> 1.10.2)
@@ -225,7 +228,7 @@ DEPENDENCIES:
   - SearchTextField (~> 1.2.0)
   - SnapshotTest
   - SQLCipher
-  - sqlite3 (<= 3.27.2)
+  - sqlite3
   - SVProgressHUD
   - SwiftEntryKit (= 1.1.0)
   - SwiftKeychainWrapper
@@ -349,6 +352,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 903c19d1f4b6c2157189aeda4de1f1c530f230f5
+PODFILE CHECKSUM: cfdf3e9dffcc96fbd9a8cb6719fb323150ebb026
 
 COCOAPODS: 1.7.4
