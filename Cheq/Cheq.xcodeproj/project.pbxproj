@@ -635,6 +635,9 @@
 		4F345BA3238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
 		4F345BA4238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
 		4F345BA5238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
+		4F345BAF239012E4005DCFDB /* UIApplication_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */; };
+		4F345BB0239012E4005DCFDB /* UIApplication_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */; };
+		4F345BB1239012E4005DCFDB /* UIApplication_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */; };
 		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
@@ -1322,6 +1325,7 @@
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
 		4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingToBankViewController.swift; sourceTree = "<group>"; };
 		4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingToBankViewModel.swift; sourceTree = "<group>"; };
+		4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication_Extension.swift; sourceTree = "<group>"; };
 		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
 		4F44955A238DFBA4000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = /Users/xuwei/Documents/dev/cheq.ios/Cheq/dependencies/MobileSDK.framework; sourceTree = "<absolute>"; };
 		4F449564238E04A3000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
@@ -1812,6 +1816,7 @@
 		4F091098231F7E8400AA7F7D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */,
 				4F091099231F7E9A00AA7F7D /* Data_Extension.swift */,
 				4F57BB1223260EBA00B95C06 /* ViewController_Extension.swift */,
 				96A9F6D12327D1E800A05E25 /* NSMutableAttributedString.swift */,
@@ -4351,6 +4356,7 @@
 				4F01F7D623825F8300268423 /* HealthCheckAPI.swift in Sources */,
 				4F01F82A23825F8300268423 /* PostLoanRequest.swift in Sources */,
 				4F01F86323825F8300268423 /* GetEmployerPlaceResponse.swift in Sources */,
+				4F345BB1239012E4005DCFDB /* UIApplication_Extension.swift in Sources */,
 				4F01F6C4237E6A5B00268423 /* CPasscodeTextField.swift in Sources */,
 				4F01F80323825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4F01F6C5237E6A5B00268423 /* MultipleChoiceViewController.swift in Sources */,
@@ -4667,6 +4673,7 @@
 				4F01F7D523825F8300268423 /* HealthCheckAPI.swift in Sources */,
 				4F01F82923825F8300268423 /* PostLoanRequest.swift in Sources */,
 				4F01F86223825F8300268423 /* GetEmployerPlaceResponse.swift in Sources */,
+				4F345BB0239012E4005DCFDB /* UIApplication_Extension.swift in Sources */,
 				4FBDDAA4236BC68700EDB1E9 /* CPasscodeTextField.swift in Sources */,
 				4F01F80223825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4FBDDAA5236BC68700EDB1E9 /* MultipleChoiceViewController.swift in Sources */,
@@ -4983,6 +4990,7 @@
 				4F01F7D423825F8300268423 /* HealthCheckAPI.swift in Sources */,
 				4F01F82823825F8300268423 /* PostLoanRequest.swift in Sources */,
 				4F01F86123825F8300268423 /* GetEmployerPlaceResponse.swift in Sources */,
+				4F345BAF239012E4005DCFDB /* UIApplication_Extension.swift in Sources */,
 				4F0D717F2347002A00AA819C /* CPasscodeTextField.swift in Sources */,
 				4F01F80123825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
