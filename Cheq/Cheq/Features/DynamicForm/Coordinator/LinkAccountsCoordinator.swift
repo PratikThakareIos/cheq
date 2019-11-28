@@ -111,8 +111,8 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForOnboarding()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            let linkingQueue = DispatchQueue(label: "linkingQueue", attributes: .concurrent)
-            AuthConfig.shared.activeManager.getCurrentUser().then(on: linkingQueue) { authUser->Promise<[FinancialAccountLinkModel]> in
+//            let concurrentQueue = DispatchQueue(label: "linkingQueue", attributes: .concurrent)
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.linkAccounts(linkableAccounts)

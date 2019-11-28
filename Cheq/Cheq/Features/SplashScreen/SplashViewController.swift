@@ -93,7 +93,7 @@ extension SplashViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.caption.textColor = benefit.textColor
         cell.bgView.backgroundColor = .clear
         cell.emoji.image = UIImage.init(named: benefit.imageName)
-        ViewUtil.shared.applyViewGradient(cell.contentView, startingColor: benefit.gradientColors[0], endColor: benefit.gradientColors[1])
+        let _ = ViewUtil.shared.applyViewGradient(cell.contentView, startingColor: benefit.gradientColors[0], endColor: benefit.gradientColors[1])
         AppConfig.shared.activeTheme.cardStyling(cell.contentView, addBorder: false)
     }
 }
