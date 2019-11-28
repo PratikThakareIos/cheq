@@ -26,6 +26,7 @@ class ConnectingToBankViewController: UIViewController {
         transparentView.backgroundColor = .clear
         let rootVc = AppNav.shared.rootViewController()
         rootVc.view.addSubview(transparentView)
+        rootVc.view.bringSubviewToFront(transparentView)
         AutoLayoutUtil.pinToSuperview(transparentView, padding: 0.0)
     }
     
