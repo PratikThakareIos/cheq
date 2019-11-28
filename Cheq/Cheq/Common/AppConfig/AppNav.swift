@@ -179,7 +179,7 @@ extension AppNav {
         let nav = UINavigationController(rootViewController: vc)
         viewController.present(nav, animated: true)
     }
-    
+
     func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController

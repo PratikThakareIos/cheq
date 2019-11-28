@@ -189,7 +189,7 @@ extension MoneySoftManager {
     func linkableAccounts(_ credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
             do {
-                try msApi.financial().getLinkableAccounts(credentials: credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                try self.msApi.financial().getLinkableAccounts(credentials: credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
                     
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
@@ -202,9 +202,10 @@ extension MoneySoftManager {
                     }
                     resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
                 }))
-            } catch { 
+            } catch {
                 resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
             }
+            
         }
     }
     

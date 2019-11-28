@@ -275,6 +275,10 @@ extension UIViewController {
             
         }, cancelCb: nil)
     }
+    
+    @objc func tapToDismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 //demo helper method for Development/DEMO only

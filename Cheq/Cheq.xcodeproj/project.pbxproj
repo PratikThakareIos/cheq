@@ -629,6 +629,12 @@
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
 		4F345B94238E08A4005DCFDB /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F345B96238E08C6005DCFDB /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F44955A238DFBA4000E9DAA /* MobileSDK.framework */; };
+		4F345B9F238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
+		4F345BA0238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
+		4F345BA1238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
+		4F345BA3238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
+		4F345BA4238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
+		4F345BA5238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */; };
 		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
@@ -1314,6 +1320,8 @@
 		4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPickerView.swift; sourceTree = "<group>"; };
 		4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPickerViewCoordinator.swift; sourceTree = "<group>"; };
 		4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CToolbar.swift; sourceTree = "<group>"; };
+		4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingToBankViewController.swift; sourceTree = "<group>"; };
+		4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingToBankViewModel.swift; sourceTree = "<group>"; };
 		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
 		4F44955A238DFBA4000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = /Users/xuwei/Documents/dev/cheq.ios/Cheq/dependencies/MobileSDK.framework; sourceTree = "<absolute>"; };
 		4F449564238E04A3000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
@@ -2290,6 +2298,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4F345B9C238F55C2005DCFDB /* ConnectingToBank */ = {
+			isa = PBXGroup;
+			children = (
+				4F345B9D238F55D8005DCFDB /* ViewModel */,
+				4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */,
+			);
+			path = ConnectingToBank;
+			sourceTree = "<group>";
+		};
+		4F345B9D238F55D8005DCFDB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F345BA2238F560E005DCFDB /* ConnectingToBankViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4F573A90231CC4C4004616F5 /* MoneySoft */ = {
 			isa = PBXGroup;
 			children = (
@@ -3087,6 +3112,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				4F345B9C238F55C2005DCFDB /* ConnectingToBank */,
 				4F01F8D12384EED300268423 /* CSplashScreen */,
 				4FDDC349237BA11B00C3846E /* SpendingTransactions */,
 				4F2325BC237A5AAB00BF3F21 /* SpendingSpecificCategory */,
@@ -3519,7 +3545,6 @@
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				4F345B95238E08A4005DCFDB /* Embed Frameworks */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
-				4F345B97238E1AD2005DCFDB /* upload dsym dev */,
 			);
 			buildRules = (
 			);
@@ -3967,24 +3992,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
 		};
-		4F345B97238E1AD2005DCFDB /* upload dsym dev */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "upload dsym dev";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/upload-symbols\" -gsp \"${PROJECT_DIR}/Cheq/Environment/Dev/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
-		};
 		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4308,6 +4315,7 @@
 				4F01F6A5237E6A5B00268423 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4F01F6A6237E6A5B00268423 /* TransactionTableViewCell.swift in Sources */,
 				4F01F6A8237E6A5B00268423 /* MultipleChoiceViewModel.swift in Sources */,
+				4F345BA5238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */,
 				4F01F6A9237E6A5B00268423 /* BottomTableViewCell.swift in Sources */,
 				4F01F6AA237E6A5B00268423 /* CBarChartView.swift in Sources */,
 				4F01F6AB237E6A5B00268423 /* TransferCardTableViewCell.swift in Sources */,
@@ -4347,6 +4355,7 @@
 				4F01F80323825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4F01F6C5237E6A5B00268423 /* MultipleChoiceViewController.swift in Sources */,
 				4F01F6C6237E6A5B00268423 /* MoneySoftUtil.swift in Sources */,
+				4F345BA1238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */,
 				4F01F87E23825F8300268423 /* UserBudgetUpdate.swift in Sources */,
 				4F01F6C7237E6A5B00268423 /* TransactionGroupTableViewCellViewModel.swift in Sources */,
 				4F01F7EB23825F8300268423 /* JSONEncodableEncoding.swift in Sources */,
@@ -4622,6 +4631,7 @@
 				4FBDDA89236BC68700EDB1E9 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4FD2290E23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4FBDDA8C236BC68700EDB1E9 /* MultipleChoiceViewModel.swift in Sources */,
+				4F345BA4238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */,
 				4FBDDA8D236BC68700EDB1E9 /* BottomTableViewCell.swift in Sources */,
 				4FBDDA8E236BC68700EDB1E9 /* CBarChartView.swift in Sources */,
 				4FBDDA91236BC68700EDB1E9 /* TransferCardTableViewCell.swift in Sources */,
@@ -4661,6 +4671,7 @@
 				4F01F80223825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4FBDDAA5236BC68700EDB1E9 /* MultipleChoiceViewController.swift in Sources */,
 				4FBDDAA6236BC68700EDB1E9 /* MoneySoftUtil.swift in Sources */,
+				4F345BA0238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */,
 				4F01F87D23825F8300268423 /* UserBudgetUpdate.swift in Sources */,
 				4FBDDAA7236BC68700EDB1E9 /* IntercomChatTableViewCellViewModel.swift in Sources */,
 				4F01F7EA23825F8300268423 /* JSONEncodableEncoding.swift in Sources */,
@@ -4936,6 +4947,7 @@
 				4F2E49F8233440F4001F1BA2 /* FinancialInstitutionCoordinator.swift in Sources */,
 				4FD2290B23743CF300045662 /* TransactionTableViewCell.swift in Sources */,
 				4F0B066D2330588E00986E35 /* MultipleChoiceViewModel.swift in Sources */,
+				4F345BA3238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */,
 				96F9FFCF2352DAE00041001F /* BottomTableViewCell.swift in Sources */,
 				96B0068C22FE6A9E00173743 /* CBarChartView.swift in Sources */,
 				9680CEA72354A74C009CF66E /* TransferCardTableViewCell.swift in Sources */,
@@ -4975,6 +4987,7 @@
 				4F01F80123825F8300268423 /* PostRecurringBillRequest.swift in Sources */,
 				4F0B066A2330587700986E35 /* MultipleChoiceViewController.swift in Sources */,
 				4FB479E4231DF241005FA0C1 /* MoneySoftUtil.swift in Sources */,
+				4F345B9F238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */,
 				4F01F87C23825F8300268423 /* UserBudgetUpdate.swift in Sources */,
 				4FD228FF2373D7FA00045662 /* TransactionGroupTableViewCellViewModel.swift in Sources */,
 				4F01F7E923825F8300268423 /* JSONEncodableEncoding.swift in Sources */,

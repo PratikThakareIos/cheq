@@ -133,32 +133,41 @@ class DynamicFormViewController: UIViewController {
     }
 
     func submitForm() {
-        AppConfig.shared.showSpinner()
-        viewModel.coordinator.submitForm().done { success in
-            self.checkSpendingStatus()
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
+        let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
+        self.present(connectingToBank, animated: true) { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.coordinator.submitForm().done { success in
+                self.checkSpendingStatus { result in
+                    // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
+                    self.dismiss(animated: true) {
+                        switch result {
+                        case .success(_):
+                            AppData.shared.isOnboarding = false
+                            self.viewModel.coordinator.nextViewController()
+                        case .failure(let err):
+                            self.showError(err, completion: nil)
+                        }
+                    }
+                }
+            }.catch { err in
+                self.dismiss(animated: true) {
+                    self.showError(err, completion: nil)
+                }
             }
         }
     }
     
-    func checkSpendingStatus() {
+    func checkSpendingStatus(_ completion: @escaping (Result<Bool>)->Void) {
         if AppData.shared.spendingOverviewReady {
-            AppConfig.shared.hideSpinner {
-                AppData.shared.isOnboarding = false
-                self.viewModel.coordinator.nextViewController()
-            }
+            completion(.success(true))
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                 CheqAPIManager.shared.spendingStatus().done { getSpendingStatusResponse in
                     AppData.shared.spendingOverviewReady = (getSpendingStatusResponse.transactionStatus == GetSpendingStatusResponse.TransactionStatus.ready) ? true : false
-                    self.checkSpendingStatus()
+                    self.checkSpendingStatus(completion)
                 }.catch { err in
                     LoggingUtil.shared.cPrint(err)
-                    AppConfig.shared.hideSpinner {
-                        self.showError(err, completion: nil)
-                    }
+                    completion(.failure(err))
                 }
             }
         }

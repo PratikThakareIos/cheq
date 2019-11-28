@@ -60,9 +60,9 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            let userInitiatedQueue = DispatchQueue.global(qos: .background)
+            let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
             printForm(form)
-                AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountModel]> in
+                AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountModel]> in
                     self.printAuthUser(authUser)
                     return MoneySoftManager.shared.getAccounts()
                 }.then { fetchedAccounts-> Promise<Bool> in
@@ -111,8 +111,8 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForOnboarding()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            let userInitiatedQueue = DispatchQueue.global(qos: .background)
-            AuthConfig.shared.activeManager.getCurrentUser().then(on: userInitiatedQueue, flags: .enforceQoS) { authUser->Promise<[FinancialAccountLinkModel]> in
+            let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
+            AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.linkAccounts(linkableAccounts)

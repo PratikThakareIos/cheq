@@ -23,6 +23,7 @@ enum links: String {
     case resendCode = "http://app.resendCode.cheq.com.au"
     case email = "http://app.email.cheq.com.au"
     case helpAndSupport = "http://app.helpAndSupport.cheq.com.au"
+    case appSetting = "http://app.setting.cheq.com.au"
 }
 
 class AuthenticatorViewModel: BaseViewModel {

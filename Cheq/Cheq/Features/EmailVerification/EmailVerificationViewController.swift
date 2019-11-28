@@ -29,7 +29,13 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupKeyboardHandling()
         activeTimestamp()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func sendVerificationCode() {
