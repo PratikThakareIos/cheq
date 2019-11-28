@@ -149,13 +149,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                 }
             }.catch { err in
                 self.showError(err) {
-
-                    // TODO: DEBUG CODE - REMOVE
-                    if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
-                        AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
-                    } else {
-                        AppNav.shared.dismissModal(self)
-                    }
+                    AppNav.shared.dismissModal(self)
                 }
             }
         case .financialInstitutions:
