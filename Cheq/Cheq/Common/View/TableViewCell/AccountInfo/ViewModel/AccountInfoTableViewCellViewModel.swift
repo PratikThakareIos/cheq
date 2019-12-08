@@ -17,7 +17,9 @@ class AccountInfoTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// Every viewModel implementing **TableViewCellViewModelProtocol** must declare this variable
     var identifier: String = "AccountInfoTableViewCell"
     
-    /// These are variables for driving the UI 
+    /// header of information 
     var subHeader: String = "Full name"
+    
+    /// actual value that subHeader is referring to
     var information: String = "Chris Bacon" 
 }

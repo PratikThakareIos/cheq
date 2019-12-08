@@ -2738,13 +2738,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Data_Extension.swift",
-      "line": 12,
-      "symbol": "Data.hexString",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Date_Extension.swift",
       "line": 12,
       "symbol": "Date.timeStamp()",
@@ -2829,13 +2822,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIApplication_Extension.swift",
-      "line": 12,
-      "symbol": "UIApplication.getTopViewController(base:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
       "line": 11,
       "symbol": "ViewSide",
@@ -2886,266 +2872,245 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 13,
-      "symbol": "UIViewControllerProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 14,
-      "symbol": "UIViewControllerProtocol.baseScrollView()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 22,
+      "line": 25,
       "symbol": "UIViewController.transparentStatusBar(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 28,
+      "line": 31,
       "symbol": "UIViewController.showLogoutButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 32,
+      "line": 35,
       "symbol": "UIViewController.showBackButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 37,
+      "line": 40,
       "symbol": "UIViewController.addLogoutNavButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 43,
+      "line": 46,
       "symbol": "UIViewController.hideNavBar()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 48,
+      "line": 51,
       "symbol": "UIViewController.hideBackTitle()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 53,
+      "line": 56,
       "symbol": "UIViewController.hideBackButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 58,
+      "line": 61,
       "symbol": "UIViewController.showCloseButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 63,
+      "line": 66,
       "symbol": "UIViewController.closeButton()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 67,
+      "line": 70,
       "symbol": "UIViewController.back()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 74,
+      "line": 77,
       "symbol": "UIViewController.intercom(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 86,
+      "line": 89,
       "symbol": "UIViewController.showDecision(_:confirmCb:cancelCb:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 97,
+      "line": 100,
       "symbol": "UIViewController.showImageMessage(_:image:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 104,
+      "line": 107,
       "symbol": "UIViewController.showMessage(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 113,
+      "line": 116,
       "symbol": "UIViewController.showError(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 129,
+      "line": 132,
       "symbol": "UIViewController.slideUpCustomView(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 136,
+      "line": 139,
       "symbol": "UIViewController.activeTimestamp()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 143,
+      "line": 146,
       "symbol": "UIViewController.scrollViewDidScroll(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 149,
+      "line": 152,
       "symbol": "UIViewController.setupKeyboardHandling()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 168,
+      "line": 171,
       "symbol": "UIViewController.keyboardWillShow(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 176,
+      "line": 179,
       "symbol": "UIViewController.keyboardWillHide(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 184,
+      "line": 187,
       "symbol": "UIViewController.keyboardWillHideWithoutScrollView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 190,
+      "line": 193,
       "symbol": "UIViewController.keyboardWillShowWithoutScrollView(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 198,
+      "line": 201,
       "symbol": "UIViewController.keyboardWillHideWithScrollView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 204,
+      "line": 207,
       "symbol": "UIViewController.keyboardWillShowWithScrollView(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 214,
+      "line": 217,
       "symbol": "UIViewController.dismissKeyboard(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 222,
-      "symbol": "UIViewController.baseScrollView()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 230,
+      "line": 233,
       "symbol": "UIViewController.isRootViewControllerUnderNav",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 239,
+      "line": 242,
       "symbol": "UIViewController.isModal",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 249,
+      "line": 252,
       "symbol": "UIViewController.showDatePicker(_:initialDate:picker:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 266,
+      "line": 269,
       "symbol": "UIViewController.logout()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 279,
+      "line": 282,
       "symbol": "UIViewController.tapToDismiss()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 286,
+      "line": 289,
       "symbol": "UIViewController.autoSetupForAuthTokenIfNotLoggedIn()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 295,
+      "line": 298,
       "symbol": "UIViewController.autoSetup()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 310,
+      "line": 313,
       "symbol": "UIViewController.removeObservables()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 317,
+      "line": 320,
       "symbol": "UIViewController.reloadTableView(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -9741,20 +9706,6 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
       "line": 30,
       "symbol": "CGradientView.setupUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/ViewController/TableViewController/CTableViewController.swift",
-      "line": 135,
-      "symbol": "CTableViewController.tableView(_:numberOfRowsInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/ViewController/TableViewController/CTableViewController.swift",
-      "line": 140,
-      "symbol": "CTableViewController.tableView(_:cellForRowAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
