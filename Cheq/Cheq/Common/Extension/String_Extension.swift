@@ -9,6 +9,8 @@
 import UIKit
 
 extension String {
+    
+    /// If string value is html, this method will convert the html into rendered NSAttributedString based on the html markup
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {
@@ -18,6 +20,7 @@ extension String {
         }
     }
     
+    /// converts html to String instead of NSAttributedString 
     var htmlToString: String {
         return htmlToAttributedString?.string ?? ""
     }

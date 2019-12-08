@@ -9,6 +9,8 @@
 import UIKit
 
 extension Error {
+    
+    /// extract the error code as int from this Error object. If it is **ErrorResponse**
     func code()->Int? {
         if let error = self as? ErrorResponse {
             switch error {
@@ -19,6 +21,8 @@ extension Error {
         return nil
     }
     
+    
+    /// extract the message from this Error. If it is **ErrorResponse** 
     func message()->String? {
         if let error = self as? ErrorResponse {
             switch error {
