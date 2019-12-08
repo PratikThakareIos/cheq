@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+all table view cells should implement **CTableViewCellProtocol**
+ */
 protocol CTableViewCellProtocol {
     func setupConfig()
 }

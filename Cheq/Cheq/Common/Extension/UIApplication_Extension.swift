@@ -9,6 +9,9 @@
 import UIKit
 
 extension UIApplication {
+    /**
+    extension of UIApplication, **getTopViewController** assist in retrieving the top view controller in view hierarchy
+    */
     class func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
         if let nav = base as? UINavigationController {
