@@ -4740,148 +4740,22 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 11,
-      "symbol": "CCollectionViewCellProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 12,
-      "symbol": "CCollectionViewCellProtocol.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CollectionViewCellViewModelProtocol.swift",
       "line": 15,
-      "symbol": "CCollectionViewCell",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 16,
-      "symbol": "CCollectionViewCell.setupUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 18,
-      "symbol": "CCollectionViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 22,
-      "symbol": "CCollectionViewCell.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CCollectionViewCell.swift",
-      "line": 26,
-      "symbol": "CCollectionViewCell.viewModel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CollectionViewCellViewModelProtocol.swift",
-      "line": 11,
-      "symbol": "CollectionViewCellViewModelProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/CollectionViewCellViewModelProtocol.swift",
-      "line": 12,
       "symbol": "CollectionViewCellViewModelProtocol.identifier",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 11,
-      "symbol": "UpcomingBillCollectionViewCell",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 13,
-      "symbol": "UpcomingBillCollectionViewCell.icon",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 14,
-      "symbol": "UpcomingBillCollectionViewCell.merchanLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/ViewModel/UpcomingBillCollectionViewCellViewModel.swift",
       "line": 15,
-      "symbol": "UpcomingBillCollectionViewCell.remainingTimeLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 16,
-      "symbol": "UpcomingBillCollectionViewCell.amountLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 17,
-      "symbol": "UpcomingBillCollectionViewCell.containerView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 18,
-      "symbol": "UpcomingBillCollectionViewCell.collectionViewCellHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 20,
-      "symbol": "UpcomingBillCollectionViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/UpcomingBillCollectionViewCell.swift",
-      "line": 27,
-      "symbol": "UpcomingBillCollectionViewCell.setupUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/ViewModel/UpcomingBillCollectionViewCellViewModel.swift",
-      "line": 11,
-      "symbol": "UpcomingBillCollectionViewCellViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/ViewModel/UpcomingBillCollectionViewCellViewModel.swift",
-      "line": 12,
       "symbol": "UpcomingBillCollectionViewCellViewModel.identifier",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/CollectionViewCell/UpcomingBillCollectionViewCell/ViewModel/UpcomingBillCollectionViewCellViewModel.swift",
-      "line": 13,
+      "line": 16,
       "symbol": "UpcomingBillCollectionViewCellViewModel.data",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -5532,22 +5406,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 19,
-      "symbol": "AgreementItemTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
       "line": 26,
       "symbol": "AgreementItemTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 31,
-      "symbol": "AgreementItemTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -5665,22 +5525,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/AmountSelectTableViewCell.swift",
-      "line": 22,
-      "symbol": "AmountSelectTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/AmountSelectTableViewCell.swift",
       "line": 29,
       "symbol": "AmountSelectTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/AmountSelectTableViewCell.swift",
-      "line": 35,
-      "symbol": "AmountSelectTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -5812,22 +5658,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Avatar/AvatarTableViewCell.swift",
-      "line": 16,
-      "symbol": "AvatarTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Avatar/AvatarTableViewCell.swift",
       "line": 22,
       "symbol": "AvatarTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Avatar/AvatarTableViewCell.swift",
-      "line": 26,
-      "symbol": "AvatarTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -5875,22 +5707,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/BarChart/BarChartTableViewCell.swift",
-      "line": 16,
-      "symbol": "BarChartTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/BarChart/BarChartTableViewCell.swift",
       "line": 25,
       "symbol": "BarChartTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/BarChart/BarChartTableViewCell.swift",
-      "line": 29,
-      "symbol": "BarChartTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6120,22 +5938,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Bottom/BottomTableViewCell.swift",
-      "line": 15,
-      "symbol": "BottomTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Bottom/BottomTableViewCell.swift",
       "line": 21,
       "symbol": "BottomTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Bottom/BottomTableViewCell.swift",
-      "line": 27,
-      "symbol": "BottomTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6165,20 +5969,6 @@
       "line": 13,
       "symbol": "CButtonTableViewCell.button",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CButtonCell/CButtonTableViewCell.swift",
-      "line": 15,
-      "symbol": "CButtonTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CButtonCell/CButtonTableViewCell.swift",
-      "line": 22,
-      "symbol": "CButtonTableViewCell.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -6245,41 +6035,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CTableViewCell.swift",
-      "line": 18,
-      "symbol": "CTableViewCell",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CTableViewCell.swift",
-      "line": 20,
-      "symbol": "CTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CTableViewCell.swift",
-      "line": 24,
-      "symbol": "CTableViewCell.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CTableViewCell.swift",
-      "line": 28,
-      "symbol": "CTableViewCell.animate()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CTableViewCell.swift",
-      "line": 33,
-      "symbol": "CTableViewCell.viewModel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompleteDetails/CompleteDetailsTableViewCell.swift",
       "line": 11,
       "symbol": "CompleteDetailsTableViewCell",
@@ -6330,22 +6085,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompleteDetails/CompleteDetailsTableViewCell.swift",
-      "line": 20,
-      "symbol": "CompleteDetailsTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompleteDetails/CompleteDetailsTableViewCell.swift",
       "line": 25,
       "symbol": "CompleteDetailsTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompleteDetails/CompleteDetailsTableViewCell.swift",
-      "line": 29,
-      "symbol": "CompleteDetailsTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6519,22 +6260,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompletionProgress/CompletionProgressTableViewCell.swift",
-      "line": 17,
-      "symbol": "CompletionProgressTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompletionProgress/CompletionProgressTableViewCell.swift",
       "line": 24,
       "symbol": "CompletionProgressTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/CompletionProgress/CompletionProgressTableViewCell.swift",
-      "line": 31,
-      "symbol": "CompletionProgressTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6610,22 +6337,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HeaderCell/HeaderTableViewCell.swift",
-      "line": 16,
-      "symbol": "HeaderTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HeaderCell/HeaderTableViewCell.swift",
       "line": 23,
       "symbol": "HeaderTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HeaderCell/HeaderTableViewCell.swift",
-      "line": 29,
-      "symbol": "HeaderTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6778,22 +6491,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HistoryItem/HistoryItemTableViewCell.swift",
-      "line": 22,
-      "symbol": "HistoryItemTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HistoryItem/HistoryItemTableViewCell.swift",
       "line": 29,
       "symbol": "HistoryItemTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/HistoryItem/HistoryItemTableViewCell.swift",
-      "line": 33,
-      "symbol": "HistoryItemTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6897,22 +6596,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/InfoNote/InfoNoteTableViewCell.swift",
-      "line": 19,
-      "symbol": "InfoNoteTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/InfoNote/InfoNoteTableViewCell.swift",
       "line": 26,
       "symbol": "InfoNoteTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/InfoNote/InfoNoteTableViewCell.swift",
-      "line": 30,
-      "symbol": "InfoNoteTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -6974,13 +6659,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/IntercomChat/IntercomChatTableViewCell.swift",
-      "line": 13,
-      "symbol": "IntercomChatTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/IntercomChat/IntercomChatTableViewCell.swift",
       "line": 21,
       "symbol": "IntercomChatTableViewCell.setSelected(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -6990,13 +6668,6 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/IntercomChat/IntercomChatTableViewCell.swift",
       "line": 27,
       "symbol": "IntercomChatTableViewCell.intercom()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/IntercomChat/IntercomChatTableViewCell.swift",
-      "line": 32,
-      "symbol": "IntercomChatTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7044,22 +6715,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/LineSeparator/LineSeparatorTableViewCell.swift",
-      "line": 16,
-      "symbol": "LineSeparatorTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/LineSeparator/LineSeparatorTableViewCell.swift",
       "line": 22,
       "symbol": "LineSeparatorTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/LineSeparator/LineSeparatorTableViewCell.swift",
-      "line": 26,
-      "symbol": "LineSeparatorTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7100,22 +6757,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Link/LinkTableViewCell.swift",
-      "line": 15,
-      "symbol": "LinkTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Link/LinkTableViewCell.swift",
       "line": 22,
       "symbol": "LinkTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Link/LinkTableViewCell.swift",
-      "line": 26,
-      "symbol": "LinkTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7205,22 +6848,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/MessageBubble/MessageBubbleTableViewCell.swift",
-      "line": 17,
-      "symbol": "MessageBubbleTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/MessageBubble/MessageBubbleTableViewCell.swift",
       "line": 24,
       "symbol": "MessageBubbleTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/MessageBubble/MessageBubbleTableViewCell.swift",
-      "line": 28,
-      "symbol": "MessageBubbleTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7268,22 +6897,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Spacer/SpacerTableViewCell.swift",
-      "line": 15,
-      "symbol": "SpacerTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Spacer/SpacerTableViewCell.swift",
       "line": 22,
       "symbol": "SpacerTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Spacer/SpacerTableViewCell.swift",
-      "line": 28,
-      "symbol": "SpacerTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7380,13 +6995,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SpendingCard/SpendingCardTableViewCell.swift",
-      "line": 25,
-      "symbol": "SpendingCardTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SpendingCard/SpendingCardTableViewCell.swift",
       "line": 31,
       "symbol": "SpendingCardTableViewCell.setSelected(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -7397,13 +7005,6 @@
       "line": 35,
       "symbol": "SpendingCardTableViewCell.intrinsicContentSize",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SpendingCard/SpendingCardTableViewCell.swift",
-      "line": 41,
-      "symbol": "SpendingCardTableViewCell.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -7499,13 +7100,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SwipeToConfirm/SwipeToConfirmTableViewCell.swift",
-      "line": 22,
-      "symbol": "SwipeToConfirmTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SwipeToConfirm/SwipeToConfirmTableViewCell.swift",
       "line": 30,
       "symbol": "SwipeToConfirmTableViewCell.setSelected(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -7515,13 +7109,6 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SwipeToConfirm/SwipeToConfirmTableViewCell.swift",
       "line": 36,
       "symbol": "SwipeToConfirmTableViewCell.registerObservables()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/SwipeToConfirm/SwipeToConfirmTableViewCell.swift",
-      "line": 40,
-      "symbol": "SwipeToConfirmTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7583,21 +7170,14 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TableSectionViewModel.swift",
-      "line": 11,
-      "symbol": "TableSectionViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TableSectionViewModel.swift",
-      "line": 12,
+      "line": 14,
       "symbol": "TableSectionViewModel.title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TableSectionViewModel.swift",
-      "line": 13,
+      "line": 15,
       "symbol": "TableSectionViewModel.rows",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -7632,22 +7212,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Top/TopTableViewCell.swift",
-      "line": 15,
-      "symbol": "TopTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Top/TopTableViewCell.swift",
       "line": 21,
       "symbol": "TopTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Top/TopTableViewCell.swift",
-      "line": 27,
-      "symbol": "TopTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7723,13 +7289,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Transaction/TransactionTableViewCell.swift",
-      "line": 21,
-      "symbol": "TransactionTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Transaction/TransactionTableViewCell.swift",
       "line": 29,
       "symbol": "TransactionTableViewCell.setupTapEvent()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -7739,13 +7298,6 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Transaction/TransactionTableViewCell.swift",
       "line": 35,
       "symbol": "TransactionTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/Transaction/TransactionTableViewCell.swift",
-      "line": 39,
-      "symbol": "TransactionTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7835,13 +7387,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransactionGroup/TransactionGroupTableViewCell.swift",
-      "line": 20,
-      "symbol": "TransactionGroupTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransactionGroup/TransactionGroupTableViewCell.swift",
       "line": 28,
       "symbol": "TransactionGroupTableViewCell.setupTapEvent()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -7851,13 +7396,6 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransactionGroup/TransactionGroupTableViewCell.swift",
       "line": 34,
       "symbol": "TransactionGroupTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransactionGroup/TransactionGroupTableViewCell.swift",
-      "line": 38,
-      "symbol": "TransactionGroupTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -7940,22 +7478,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransferCard/TransferCardTableViewCell.swift",
-      "line": 20,
-      "symbol": "TransferCardTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransferCard/TransferCardTableViewCell.swift",
       "line": 27,
       "symbol": "TransferCardTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/TransferCard/TransferCardTableViewCell.swift",
-      "line": 32,
-      "symbol": "TransferCardTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -8052,22 +7576,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/UpcomingBills/UpcomingBillsTableViewCell.swift",
-      "line": 18,
-      "symbol": "UpcomingBillsTableViewCell.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/UpcomingBills/UpcomingBillsTableViewCell.swift",
       "line": 25,
       "symbol": "UpcomingBillsTableViewCell.setSelected(_:animated:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/UpcomingBills/UpcomingBillsTableViewCell.swift",
-      "line": 29,
-      "symbol": "UpcomingBillsTableViewCell.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -8283,42 +7793,7 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 16,
-      "symbol": "CGradientView.startColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 17,
-      "symbol": "CGradientView.endColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 19,
-      "symbol": "CGradientView.layerClass",
-      "symbol_kind": "source.lang.swift.decl.var.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 23,
-      "symbol": "CGradientView.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 28,
-      "symbol": "CGradientView.prepareForInterfaceBuilder()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 33,
+      "line": 38,
       "symbol": "CGradientView.setupUI()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

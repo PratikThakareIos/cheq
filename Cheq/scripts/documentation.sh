@@ -1,1 +1,1 @@
-cd .. && jazzy --author 'Xuwei Liang' --min-acl internal -x -workspace,Cheq.xcworkspace,-scheme,Cheq
+cd .. && jazzy --author 'Xuwei Liang' --author_url 'mailto:xuwei@cheq.com.au' --min-acl internal -x -workspace,Cheq.xcworkspace,-scheme,Cheq

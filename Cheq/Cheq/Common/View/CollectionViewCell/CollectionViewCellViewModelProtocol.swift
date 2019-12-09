@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ CollectionViewCellViewModelProtocol also dictates that **identifier** variable must defined, so we know how to load up the view by identifier, this pattern is also applied for tableviewcells 
+ */
 protocol CollectionViewCellViewModelProtocol {
     var identifier: String { get }
 }
