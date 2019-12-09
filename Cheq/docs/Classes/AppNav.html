@@ -14,7 +14,7 @@
     <a title="AppNav Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (8% documented)</p>
+        <p><a href="../index.html"> Docs</a> (9% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1931,7 +1931,8 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>pushToViewController abstracts the logic to initialise a viewController by <strong>storyboardName</strong> and <strong>storyboardId</strong> and push it from a given viewController</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1940,6 +1941,37 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">storyboardId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>extract storyboardName String from <strong>StoryboardEnums</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>extract storyboardId String from <strong>OnboardingStoryboardId</strong>, <strong>MainStoryboardId</strong> and <strong>CommonStoryboardId</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1957,7 +1989,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a different flavor for <strong>pushToViewController</strong> where we simply provided the initialised viewController</p>
 
                       </div>
                       <div class="declaration">
@@ -1967,6 +1999,37 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">newVc</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newVc</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>intialised viewController as destination for current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>from</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>current existing source viewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1984,7 +2047,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method to open App&rsquo;s setting screen</p>
 
                       </div>
                       <div class="declaration">
@@ -2011,7 +2074,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method to open App&rsquo;s location setting screen. But <strong>App-Prefs:root</strong> is not allowed to be use officially by Apple</p>
 
                       </div>
                       <div class="declaration">
@@ -2049,7 +2112,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initialises a new <strong>QuestionViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -2059,6 +2122,25 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">questionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/QuestionType.html">QuestionType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>questionType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>QuestionType</strong> will drive the appearance of QuestionViewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2076,7 +2158,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initialise a new <strong>IntroductionViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -2086,6 +2168,25 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">introType</span><span class="p">:</span> <span class="kt"><a href="../Enums/IntroductionType.html">IntroductionType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>introType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>IntroductionType</strong> will drive how we initialise the viewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2103,7 +2204,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>After onboarding/login process, the app&rsquo;s main view controllers is embedded inside tabs. We use <strong>initTabViewController</strong> to initialise the parent tab view controller.</p>
 
                       </div>
                       <div class="declaration">
@@ -2130,7 +2231,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initViewController allows initialisation of viewController by <strong>StoryboardEnums</strong> and choose whether the viewController is embeded inside navigation controller or not with a boolean parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -2140,6 +2241,41 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">initViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">storyboardId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">embedInNav</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Storyboard name from <strong>StoryboardName</strong> enums rawValues</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>storyboard id rawValue from <strong>OnboardingStoryboardId</strong>, <strong>MainStoryboardId</strong>, <strong>CommonStoryboardId</strong> or from any future storyboard id group</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the initialised viewController</p>
                       </div>
                     </section>
                   </div>
@@ -2157,7 +2293,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>presents a viewController instantiate by storyboard name, storyboard id</p>
 
                       </div>
                       <div class="declaration">
@@ -2167,6 +2303,49 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">presentViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">storyboardName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">storyboardId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Storyboard name from <strong>StoryboardName</strong> enums rawValues</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storyboardId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>storyboard id rawValue from <strong>OnboardingStoryboardId</strong>, <strong>MainStoryboardId</strong>, <strong>CommonStoryboardId</strong> or from any future storyboard id group</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2184,7 +2363,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>present <strong>decline</strong> viewController is actually initialising <strong>IntroductionViewController</strong> based on provided <strong>declineReason</strong> enum. <strong>presentDeclineViewController</strong> is actually a special case for presenting <strong>IntroductionViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -2194,6 +2373,25 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">presentDeclineViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">declineReason</span><span class="p">:</span> <span class="kt"><a href="../Structs/DeclineDetail.html">DeclineDetail</a></span><span class="o">.</span><span class="kt">DeclineReason</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>declineReason</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>DeclineDetail.DeclineReason</strong> the enum mapping to the corresponding decline message.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2211,7 +2409,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>present a introduction view controller, this leverages on top of initialisation helper method</p>
 
                       </div>
                       <div class="declaration">
@@ -2221,6 +2419,37 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">presentIntroduction</span><span class="p">(</span><span class="n">_</span> <span class="nv">introductionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/IntroductionType.html">IntroductionType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>introductionType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>IntroductionType</strong> which determines which coordinator to use for driving the appearance and behaviour of the viewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>current source viewController for the navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2238,7 +2467,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Present the passcode lock viewController</p>
 
                       </div>
                       <div class="declaration">
@@ -2265,7 +2494,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Present a question view controller. Built on top of the initialisation helper method for <strong>QuestionViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -2292,7 +2521,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Present a multiple choice view controller. Built on top of the initialisation helper method for <strong>MultipleChoiceViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -2330,7 +2559,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to initiate KYC flow using the onfido SDK</p>
 
                       </div>
                       <div class="declaration">

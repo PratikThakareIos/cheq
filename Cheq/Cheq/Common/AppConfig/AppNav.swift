@@ -238,8 +238,8 @@ extension AppNav {
     /**
      initViewController allows initialisation of viewController by **StoryboardEnums** and choose whether the viewController is embeded inside navigation controller or not with a boolean parameter.
      - parameter storyboardName: Storyboard name from **StoryboardName** enums rawValues
-     - parameter storyboardId:
-     - parameter embedInNav:
+     - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
+     - returns: the initialised viewController
      */
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
@@ -252,6 +252,12 @@ extension AppNav {
         }
     }
     
+    /**
+     presents a viewController instantiate by storyboard name, storyboard id
+     - parameter storyboardName: Storyboard name from **StoryboardName** enums rawValues
+     - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
+     - parameter viewController:
+     */
     func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
@@ -259,6 +265,10 @@ extension AppNav {
         viewController.present(nav, animated: true)
     }
 
+    /**
+     present **decline** viewController is actually initialising **IntroductionViewController** based on provided **declineReason** enum. **presentDeclineViewController** is actually a special case for presenting **IntroductionViewController**
+     - parameter declineReason: **DeclineDetail.DeclineReason** the enum mapping to the corresponding decline message.
+     */
     func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
@@ -271,6 +281,11 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+     present a introduction view controller, this leverages on top of initialisation helper method
+     - parameter introductionType: **IntroductionType** which determines which coordinator to use for driving the appearance and behaviour of the viewController
+     - parameter viewController: current source viewController for the navigation action
+     */
     func presentIntroduction(_ introductionType: IntroductionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
@@ -282,6 +297,9 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+     Present the passcode lock viewController
+     */
     func presentPasscodeViewController() {
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
@@ -290,6 +308,11 @@ extension AppNav {
         currentRootVc.present(vc, animated: true, completion: nil)
     }
     
+    /**
+     Present a question view controller. Built on top of the initialisation helper method for **QuestionViewController**
+     - parameter questionType: QuestionType which drives the appearance of the **QuestionViewController**
+     - parameter viewController: the source viewController of the current navigation action
+     */
     func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
@@ -300,6 +323,11 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+    Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
+     - parameter multipleChoiceType: MultipleChoiceQuestionType which drives the appearance of the **MultipleChoiceViewController**
+     - parameter viewController: source viewController of the current navigation action
+    */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
@@ -314,14 +342,24 @@ extension AppNav {
 
 // MARK: KYC
 extension AppNav {
+    
+    /**
+     Helper method to initiate KYC flow using the onfido SDK
+     - parameter type: **KycDocType** can be driver's license or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
+     - parameter viewController: source viewController of the navigation action
+     */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
+        /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
         let sdkToken = AppData.shared.loadOnfidoSDKToken()
         guard sdkToken.isEmpty == false else {
+            
+            /// if the sdk token is empty, then the logic cannot continue
             viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
+        /// customising the appearance of Onfido SDK viewControllers to fit activeTheme
         let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
         let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let config = try! OnfidoConfig.builder()
@@ -332,9 +370,11 @@ extension AppNav {
             .withFaceStep(ofVariant: .photo(withConfiguration: nil))
             .build()
         
+        /// define the handling of the end of Onfido flow
         let onfidoFlow = OnfidoFlow(withConfiguration: config)
             .with(responseHandler: { results in
                 switch results {
+                /// successful case
                 case .success(_):
                     CheqAPIManager.shared.putKycCheck().done {
                         LoggingUtil.shared.cPrint("kyc checked")
@@ -350,6 +390,7 @@ extension AppNav {
                             })
                     }
                     
+                /// error case handling
                 case let OnfidoResponse.error(err):
                     switch err {
                     case OnfidoFlowError.cameraPermission:
@@ -366,6 +407,7 @@ extension AppNav {
                 }
             })
         
+        /// presenting onfido viewController to start the flow
         do {
             let onfidoRun = try onfidoFlow.run()
             viewController.present(onfidoRun, animated: true) { }
@@ -379,10 +421,19 @@ extension AppNav {
 // MARK: smart dimiss
 extension AppNav {
     
+    /**
+     Returns the current **rootViewController** if it exists
+     returns: rootviewController or dummy viewController to avoid returning nil
+     */
     func rootViewController()-> UIViewController {
         return UIApplication.shared.keyWindow!.rootViewController ?? UIViewController()
     }
     
+    /**
+     dismissModal abstracts the dismiss of currently presenting viewController from the given viewController as well as handling the dimissal of any keyboards on display
+     - parameter viewController: source viewController of current action 
+     - parameter completion: completion callback closure, it can be nil if we don't need it
+     */
     func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
         presentVc.dismiss(animated: true) {
@@ -393,6 +444,10 @@ extension AppNav {
         }
     }
     
+    /**
+     pop the current viewController from navigation controller
+     - parameter viewController: source viewController of current action
+     */
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
             NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")

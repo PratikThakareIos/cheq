@@ -568,351 +568,120 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 127,
-      "symbol": "AppData.financialTransactions",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 128,
-      "symbol": "AppData.financialInstitutionsUnused",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 129,
-      "symbol": "AppData.financialInstitutions",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 130,
-      "symbol": "AppData.selectedFinancialInstitution",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 137,
-      "symbol": "AppData.existingFinancialInstitutionId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 138,
-      "symbol": "AppData.disabledAccount",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 146,
-      "symbol": "AppData.onDemandType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 147,
-      "symbol": "AppData.employerList",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 148,
-      "symbol": "AppData.employerAddressList",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 149,
-      "symbol": "AppData.residentialAddressList",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 150,
-      "symbol": "AppData.selectedEmployer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 151,
-      "symbol": "AppData.selectedEmployerAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 152,
-      "symbol": "AppData.selectedResidentialAddress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 153,
-      "symbol": "AppData.selectedEmployerAddressString",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 13,
-      "symbol": "AppNav",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 14,
-      "symbol": "AppNav.minsToShowPasscode",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 15,
-      "symbol": "AppNav.appLastActiveTimestampCheckInterval",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 16,
-      "symbol": "AppNav.timer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 17,
-      "symbol": "AppNav.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 24,
-      "symbol": "AppNav.showPasscodeIfNeeded(notification:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 30,
-      "symbol": "AppNav.isTimeToShowPasscode()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 41,
-      "symbol": "AppNav.emptyPasscode()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 46,
-      "symbol": "AppNav.passcodeExist()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 51,
-      "symbol": "AppNav.pushToQuestionForm(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 63,
-      "symbol": "AppNav.pushToMultipleChoice(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 75,
-      "symbol": "AppNav.pushToDynamicForm(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 83,
-      "symbol": "AppNav.pushToIntroduction(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 93,
-      "symbol": "AppNav.pushToSpendingVC(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 112,
-      "symbol": "AppNav.pushToInAppWeb(_:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 120,
-      "symbol": "AppNav.pushToViewController(_:storyboardId:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 127,
+      "line": 176,
       "symbol": "AppNav.pushToViewController(_:from:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 132,
+      "line": 181,
       "symbol": "AppNav.pushToAppSetting()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 136,
+      "line": 185,
       "symbol": "AppNav.pushToAppLocationServices()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 143,
-      "symbol": "AppNav",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 145,
+      "line": 194,
       "symbol": "AppNav.initViewController(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 152,
+      "line": 201,
       "symbol": "AppNav.initViewController(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 159,
+      "line": 208,
       "symbol": "AppNav.initTabViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 165,
+      "line": 214,
       "symbol": "AppNav.initViewController(_:storyboardId:embedInNav:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 176,
+      "line": 225,
       "symbol": "AppNav.presentViewController(_:storyboardId:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 183,
+      "line": 232,
       "symbol": "AppNav.presentDeclineViewController(_:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 195,
+      "line": 244,
       "symbol": "AppNav.presentIntroduction(_:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 206,
+      "line": 255,
       "symbol": "AppNav.presentPasscodeViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 214,
+      "line": 263,
       "symbol": "AppNav.presentToQuestionForm(_:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 224,
+      "line": 273,
       "symbol": "AppNav.presentToMultipleChoice(_:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 237,
-      "symbol": "AppNav",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 238,
+      "line": 287,
       "symbol": "AppNav.navigateToKYCFlow(_:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 301,
-      "symbol": "AppNav",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 303,
+      "line": 352,
       "symbol": "AppNav.rootViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 307,
+      "line": 356,
       "symbol": "AppNav.dismissModal(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 317,
+      "line": 366,
       "symbol": "AppNav.dismiss(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
