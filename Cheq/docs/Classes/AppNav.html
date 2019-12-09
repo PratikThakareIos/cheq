@@ -14,7 +14,7 @@
     <a title="AppNav Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (6% documented)</p>
+        <p><a href="../index.html"> Docs</a> (8% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1376,7 +1376,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>AppNav is Singleton class which contains all our viewController intialisation and navigation logics. So we don&rsquo;t have adhoc code scatter everywhere. This class is the single place for viewController initialisation and navigation.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1395,7 +1395,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Minutes before passcode screen displays, when user is idle for 5 minutes without updating last active timestamp, then we display the passcode sceen lock</p>
 
                       </div>
                       <div class="declaration">
@@ -1422,7 +1422,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>For every 30 seconds, we check if idle time have expired <strong>minsToShowPasscode</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1449,7 +1449,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>timer instance for doing idle activity checks</p>
 
                       </div>
                       <div class="declaration">
@@ -1476,7 +1476,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Singleton instance of AppNav</p>
 
                       </div>
                       <div class="declaration">
@@ -1503,7 +1503,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the <strong>minsToShowPasscode</strong> threshold. If user has been idle for more than <strong>minsToShowPasscode</strong> threshold, then <strong>presentPasscodeViewController</strong> is called.</p>
 
                       </div>
                       <div class="declaration">
@@ -1531,7 +1531,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method used by <strong>showPasscodeIfNeeded</strong> which if user has been idle long enough to show passcode</p>
 
                       </div>
                       <div class="declaration">
@@ -1558,7 +1558,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method to clear passcode from keychain</p>
 
                       </div>
                       <div class="declaration">
@@ -1585,7 +1585,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>checks if passcode has been setup in keychain</p>
 
                       </div>
                       <div class="declaration">
@@ -1612,7 +1612,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>pushToQuestionForm abstract the logics to initialise a new <strong>QuestionViewController</strong> based on <strong>QuestionType</strong> and performs a navigation push from given ViewController</p>
 
                       </div>
                       <div class="declaration">
@@ -1622,6 +1622,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToQuestionForm</span><span class="p">(</span><span class="n">_</span> <span class="nv">questionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/QuestionType.html">QuestionType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>questionType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>QuestionType determines how <strong>QuestionViewController</strong> renders the to the corresponding screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the current source viewController for the navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1639,7 +1670,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>pushToMultipleChoice abstract the logics to initialise a new <strong>MultipleChoiceViewController</strong> based on <strong>MultipleChoiceQuestionType</strong> and performs a navigation push from given ViewController</p>
 
                       </div>
                       <div class="declaration">
@@ -1649,6 +1680,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToMultipleChoice</span><span class="p">(</span><span class="n">_</span> <span class="nv">multipleChoiceType</span><span class="p">:</span> <span class="kt"><a href="../Enums/MultipleChoiceQuestionType.html">MultipleChoiceQuestionType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multipleChoiceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>MultipleChoiceQuestionType determines how <strong>MultipleChoiceViewController</strong> renders the to the corresponding screen.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the current source viewController for the navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1666,7 +1728,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Dynamic form view UI is driven by <strong>FinancialInstitutionModel</strong>. Push to dynamic form view for linking bank account using MoneySoft SDK</p>
 
                       </div>
                       <div class="declaration">
@@ -1676,6 +1738,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToDynamicForm</span><span class="p">(</span><span class="n">_</span> <span class="nv">institutionModel</span><span class="p">:</span> <span class="kt">FinancialInstitutionModel</span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>institutionModel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>FinancialInstitutionModel is retrieved from selecting the destination bank/institution</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The source viewController for current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1693,7 +1786,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Introduction screen is a common UI pattern across the app. Use the same method to present same UI patterns across the app.</p>
 
                       </div>
                       <div class="declaration">
@@ -1703,6 +1796,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToIntroduction</span><span class="p">(</span><span class="n">_</span> <span class="nv">introductionType</span><span class="p">:</span> <span class="kt"><a href="../Enums/IntroductionType.html">IntroductionType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>introductionType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>IntroductionType drives the appearance for <strong>IntroductionViewController</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The source viewController for current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1720,7 +1844,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>SpendingViewController is reused for different scenarios of displaying spending data. Use <strong>SpendingVCType</strong> to drive how the UI on <strong>SpendingViewController</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1730,6 +1854,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">pushToSpendingVC</span><span class="p">(</span><span class="n">_</span> <span class="nv">spendingVCType</span><span class="p">:</span> <span class="kt"><a href="../Enums/SpendingVCType.html">SpendingVCType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>spendingVCType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>SpendingVCType</strong> supports scenarios for overview, categories list, specific category and transactions list</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The source viewController for current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1747,7 +1902,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>pushToInAppWeb opens a given URL using our own in-app webView
+parameter url: URL is the location we want to open with in-app webview
+parameter viewController: The source viewController for current navigation action</p>
 
                       </div>
                       <div class="declaration">
@@ -1774,8 +1931,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -2285,7 +2441,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-12-08)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">Xuwei Liang</a>. All rights reserved. (Last updated: 2019-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

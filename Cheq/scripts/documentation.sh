@@ -1,1 +1,1 @@
-cd .. && jazzy --min-acl internal -x -workspace,Cheq.xcworkspace,-scheme,Cheq
+cd .. && jazzy --author 'Xuwei Liang' --min-acl internal -x -workspace,Cheq.xcworkspace,-scheme,Cheq

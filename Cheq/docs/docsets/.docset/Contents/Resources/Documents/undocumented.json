@@ -302,773 +302,367 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 15,
-      "symbol": "sharedAppConfig",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
       "line": 18,
-      "symbol": "AppConfig",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 19,
-      "symbol": "AppConfig.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 25,
-      "symbol": "AppConfig.deinit",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 30,
-      "symbol": "AppConfig.apnsDeviceToken",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 31,
-      "symbol": "AppConfig.fcmToken",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 32,
-      "symbol": "AppConfig.themeTitles",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 33,
-      "symbol": "AppConfig.themes",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 34,
-      "symbol": "AppConfig.activeTheme",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 35,
-      "symbol": "AppConfig.currentActiveThemeIndex",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 36,
-      "symbol": "AppConfig.isShowingSpinner",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 37,
-      "symbol": "AppConfig.switchTheme(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 45,
-      "symbol": "AppConfig",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 47,
-      "symbol": "AppConfig.screenHeight()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 51,
-      "symbol": "AppConfig.screenWidth()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 55,
-      "symbol": "AppConfig.toAppSetting()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 59,
-      "symbol": "AppConfig.setupNavBarUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 70,
-      "symbol": "AppConfig.removeProgressNavBar(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 75,
-      "symbol": "AppConfig.progressNavBar(progress:viewController:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 98,
-      "symbol": "AppConfig",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 99,
-      "symbol": "AppConfig.installId()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 105,
-      "symbol": "AppConfig.isFirstInstall()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 111,
-      "symbol": "AppConfig.markFirstInstall()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 120,
-      "symbol": "AppConfig",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 121,
-      "symbol": "AppConfig.showSpinner()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 134,
-      "symbol": "AppConfig.hideSpinner()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 144,
-      "symbol": "AppConfig.hideSpinner(completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 155,
-      "symbol": "AppConfig",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 156,
-      "symbol": "AppConfig.updateFCMDeviceToken(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppConfig.swift",
-      "line": 162,
-      "symbol": "AppConfig.updateApnsDeviceToken(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 13,
-      "symbol": "ScreenName",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 16,
       "symbol": "ScreenName.splash",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 19,
+      "line": 21,
       "symbol": "ScreenName.registration",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "ScreenName.login",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 23,
+      "line": 25,
       "symbol": "ScreenName.legalName",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 24,
+      "line": 26,
       "symbol": "ScreenName.ageRange",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 25,
+      "line": 27,
       "symbol": "ScreenName.dateOfBirth",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 26,
+      "line": 28,
       "symbol": "ScreenName.contactDetails",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 27,
+      "line": 29,
       "symbol": "ScreenName.residentialAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "ScreenName.state",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 29,
+      "line": 31,
       "symbol": "ScreenName.maritalStatus",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 32,
+      "line": 34,
       "symbol": "ScreenName.kycSelectDoc",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 35,
+      "line": 37,
       "symbol": "ScreenName.employmentType",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 36,
+      "line": 38,
       "symbol": "ScreenName.onDemand",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 37,
+      "line": 39,
       "symbol": "ScreenName.companyName",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 38,
+      "line": 40,
       "symbol": "ScreenName.companyAddress",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 41,
+      "line": 43,
       "symbol": "ScreenName.financialInstitutions",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 42,
+      "line": 44,
       "symbol": "ScreenName.bankLogin",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 43,
+      "line": 45,
       "symbol": "ScreenName.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 46,
+      "line": 48,
       "symbol": "ScreenName.email",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 47,
+      "line": 49,
       "symbol": "ScreenName.employee",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 48,
+      "line": 50,
       "symbol": "ScreenName.setupBank",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 49,
+      "line": 51,
       "symbol": "ScreenName.enableLocation",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 50,
+      "line": 52,
       "symbol": "ScreenName.notification",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 51,
+      "line": 53,
       "symbol": "ScreenName.verifyIdentity",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 54,
+      "line": 56,
       "symbol": "ScreenName.lending",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 57,
+      "line": 59,
       "symbol": "ScreenName.spending",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 58,
+      "line": 60,
       "symbol": "ScreenName.spendingCategories",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 59,
+      "line": 61,
       "symbol": "ScreenName.spendingCategoryById",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 60,
+      "line": 62,
       "symbol": "ScreenName.spendingTransactions",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 63,
+      "line": 65,
       "symbol": "ScreenName.accountInfo",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 65,
+      "line": 67,
       "symbol": "ScreenName.init(fromRawValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 70,
-      "symbol": "CProgress",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 71,
+      "line": 74,
       "symbol": "CProgress.aboutMe",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 72,
+      "line": 75,
       "symbol": "CProgress.employmentDetails",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 73,
+      "line": 76,
       "symbol": "CProgress.linkingBank",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 77,
-      "symbol": "AppData",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 79,
+      "line": 84,
       "symbol": "AppData.shared",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 83,
-      "symbol": "AppData.application",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 86,
-      "symbol": "AppData.expirationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 89,
-      "symbol": "AppData.spendingOverviewReady",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 92,
-      "symbol": "AppData.amountSelected",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 93,
-      "symbol": "AppData.loanFee",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 94,
+      "line": 103,
       "symbol": "AppData.acceptedAgreement",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 97,
-      "symbol": "AppData.forgotPasswordEmail",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 100,
-      "symbol": "AppData.intercomAPIKey",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 101,
+      "line": 110,
       "symbol": "AppData.intercomAppId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 104,
-      "symbol": "AppData.fbAppId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 105,
+      "line": 114,
       "symbol": "AppData.fbAppSecret",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 111,
-      "symbol": "AppData.onfidoSdkToken",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 114,
-      "symbol": "AppData.declineDescription",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 116,
-      "symbol": "AppData.progress",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 119,
-      "symbol": "AppData.storedAccounts",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 120,
-      "symbol": "AppData.linkableAccounts",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 121,
+      "line": 127,
       "symbol": "AppData.financialTransactions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 122,
+      "line": 128,
       "symbol": "AppData.financialInstitutionsUnused",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 123,
+      "line": 129,
       "symbol": "AppData.financialInstitutions",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 124,
+      "line": 130,
       "symbol": "AppData.selectedFinancialInstitution",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 127,
-      "symbol": "AppData.remoteBankMapping",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 130,
-      "symbol": "AppData.existingProviderInstitutionId",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 131,
+      "line": 137,
       "symbol": "AppData.existingFinancialInstitutionId",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 132,
+      "line": 138,
       "symbol": "AppData.disabledAccount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 135,
-      "symbol": "AppData.financialSignInForm",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 138,
-      "symbol": "AppData.employmentType",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 139,
+      "line": 146,
       "symbol": "AppData.onDemandType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 140,
+      "line": 147,
       "symbol": "AppData.employerList",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 141,
+      "line": 148,
       "symbol": "AppData.employerAddressList",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 142,
+      "line": 149,
       "symbol": "AppData.residentialAddressList",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 143,
+      "line": 150,
       "symbol": "AppData.selectedEmployer",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 144,
+      "line": 151,
       "symbol": "AppData.selectedEmployerAddress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 145,
+      "line": 152,
       "symbol": "AppData.selectedResidentialAddress",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 146,
+      "line": 153,
       "symbol": "AppData.selectedEmployerAddressString",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 149,
-      "symbol": "AppData.selectedCategory",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 152,
-      "symbol": "AppData.completingDetailsForLending",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 155,
-      "symbol": "AppData.migratingToNewDevice",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 158,
-      "symbol": "AppData.isOnboarding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 161,
-      "symbol": "AppData.completingOnDemandOther",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 163,
-      "symbol": "AppData.saveOnfidoSDKToken(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 169,
-      "symbol": "AppData.loadOnfidoSDKToken()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppData.swift",
-      "line": 174,
-      "symbol": "AppData.updateProgressAfterCompleting(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -1324,34 +918,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 331,
-      "symbol": "AppNav",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 333,
-      "symbol": "AppNav.navigateToBankLinking()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 342,
-      "symbol": "AppNav.navigateToDashboard()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 350,
-      "symbol": "AppNav.navigateToConnecting()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
       "line": 11,
       "symbol": "ChartCollectionViewCellProtocol",
@@ -1451,1666 +1017,1239 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 11,
-      "symbol": "CurrencySymbol",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "CurrencySymbol.dollar",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 15,
-      "symbol": "LargeCategoryEmoji",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 16,
+      "line": 18,
       "symbol": "LargeCategoryEmoji.benefits",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 17,
+      "line": 19,
       "symbol": "LargeCategoryEmoji.billsUtilities",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 18,
+      "line": 20,
       "symbol": "LargeCategoryEmoji.employmentIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 19,
+      "line": 21,
       "symbol": "LargeCategoryEmoji.entertainment",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "LargeCategoryEmoji.financialServices",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 21,
+      "line": 23,
       "symbol": "LargeCategoryEmoji.fitness",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 22,
+      "line": 24,
       "symbol": "LargeCategoryEmoji.groceries",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 23,
+      "line": 25,
       "symbol": "LargeCategoryEmoji.health",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 24,
+      "line": 26,
       "symbol": "LargeCategoryEmoji.homeFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 25,
+      "line": 27,
       "symbol": "LargeCategoryEmoji.ondemandIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 26,
+      "line": 28,
       "symbol": "LargeCategoryEmoji.other",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 27,
+      "line": 29,
       "symbol": "LargeCategoryEmoji.otherDeposits",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 28,
+      "line": 30,
       "symbol": "LargeCategoryEmoji.restaurantsCafe",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 29,
+      "line": 31,
       "symbol": "LargeCategoryEmoji.secondaryIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 30,
+      "line": 32,
       "symbol": "LargeCategoryEmoji.shopping",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 31,
+      "line": 33,
       "symbol": "LargeCategoryEmoji.tobaccoAlcohol",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 32,
+      "line": 34,
       "symbol": "LargeCategoryEmoji.transport",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 33,
+      "line": 35,
       "symbol": "LargeCategoryEmoji.travel",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 34,
+      "line": 36,
       "symbol": "LargeCategoryEmoji.work",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 37,
-      "symbol": "MediumCategoryEmoji",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 38,
+      "line": 41,
       "symbol": "MediumCategoryEmoji.benefits",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 39,
+      "line": 42,
       "symbol": "MediumCategoryEmoji.billsUtilities",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 40,
+      "line": 43,
       "symbol": "MediumCategoryEmoji.employmentIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 41,
+      "line": 44,
       "symbol": "MediumCategoryEmoji.entertainment",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 42,
+      "line": 45,
       "symbol": "MediumCategoryEmoji.financialServices",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 43,
+      "line": 46,
       "symbol": "MediumCategoryEmoji.fitness",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 44,
+      "line": 47,
       "symbol": "MediumCategoryEmoji.groceries",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 45,
+      "line": 48,
       "symbol": "MediumCategoryEmoji.health",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 46,
+      "line": 49,
       "symbol": "MediumCategoryEmoji.homeFamily",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 47,
+      "line": 50,
       "symbol": "MediumCategoryEmoji.ondemandIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 48,
+      "line": 51,
       "symbol": "MediumCategoryEmoji.other",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 49,
+      "line": 52,
       "symbol": "MediumCategoryEmoji.otherDeposits",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 50,
+      "line": 53,
       "symbol": "MediumCategoryEmoji.restaurantsCafe",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 51,
+      "line": 54,
       "symbol": "MediumCategoryEmoji.secondaryIncome",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 52,
+      "line": 55,
       "symbol": "MediumCategoryEmoji.shopping",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 53,
+      "line": 56,
       "symbol": "MediumCategoryEmoji.tobaccoAlcohol",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 54,
+      "line": 57,
       "symbol": "MediumCategoryEmoji.transport",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 55,
+      "line": 58,
       "symbol": "MediumCategoryEmoji.travel",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 56,
+      "line": 59,
       "symbol": "MediumCategoryEmoji.work",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 60,
-      "symbol": "CountryCode",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 61,
+      "line": 64,
       "symbol": "CountryCode.AU",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 64,
+      "line": 67,
       "symbol": "CashDirection",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 65,
+      "line": 68,
       "symbol": "CashDirection.debit",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 66,
+      "line": 69,
       "symbol": "CashDirection.credit",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 69,
+      "line": 72,
       "symbol": "cAgeRange",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 70,
+      "line": 73,
       "symbol": "cAgeRange.age18to24",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 71,
+      "line": 74,
       "symbol": "cAgeRange.age25to34",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 72,
+      "line": 75,
       "symbol": "cAgeRange.age35to54",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 73,
+      "line": 76,
       "symbol": "cAgeRange.age55To64",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 74,
+      "line": 77,
       "symbol": "cAgeRange.over65",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 76,
+      "line": 79,
       "symbol": "cAgeRange.init(fromRawValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 81,
+      "line": 84,
       "symbol": "cState",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 82,
+      "line": 85,
       "symbol": "cState.cNSW",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 83,
+      "line": 86,
       "symbol": "cState.cACT",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 84,
+      "line": 87,
       "symbol": "cState.cQLD",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 85,
+      "line": 88,
       "symbol": "cState.cTAS",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 86,
+      "line": 89,
       "symbol": "cState.cNT",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 87,
+      "line": 90,
       "symbol": "cState.cSA",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 88,
+      "line": 91,
       "symbol": "cState.cVIC",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 89,
+      "line": 92,
       "symbol": "cState.cWA",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 91,
+      "line": 94,
       "symbol": "cState.init(fromRawValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 96,
+      "line": 99,
       "symbol": "Month",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 98,
+      "line": 101,
       "symbol": "Month.Jan",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 99,
+      "line": 102,
       "symbol": "Month.Feb",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 100,
+      "line": 103,
       "symbol": "Month.Mar",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 101,
+      "line": 104,
       "symbol": "Month.Apr",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 102,
+      "line": 105,
       "symbol": "Month.May",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 103,
+      "line": 106,
       "symbol": "Month.Jun",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 104,
+      "line": 107,
       "symbol": "Month.Jul",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 105,
+      "line": 108,
       "symbol": "Month.Aug",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 106,
+      "line": 109,
       "symbol": "Month.Sep",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 107,
+      "line": 110,
       "symbol": "Month.Oct",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 108,
+      "line": 111,
       "symbol": "Month.Nov",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 109,
+      "line": 112,
       "symbol": "Month.Dec",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 111,
+      "line": 114,
       "symbol": "Month.string",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 128,
+      "line": 131,
       "symbol": "Month.allStringValues",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 131,
+      "line": 134,
       "symbol": "FinancialPeriod",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 133,
+      "line": 136,
       "symbol": "FinancialPeriod.month",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 134,
+      "line": 137,
       "symbol": "FinancialPeriod.quarterly",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 135,
+      "line": 138,
       "symbol": "FinancialPeriod.annually",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 137,
+      "line": 140,
       "symbol": "FinancialPeriod.string",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
-      "line": 145,
+      "line": 148,
       "symbol": "FinancialPeriod.allStringValues",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 11,
-      "symbol": "fbPermissions",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 13,
-      "symbol": "fbIconImage",
-      "symbol_kind": "source.lang.swift.decl.var.global",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 15,
-      "symbol": "FBKey",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 16,
+      "line": 21,
       "symbol": "FBKey.firstname",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 17,
+      "line": 22,
       "symbol": "FBKey.lastname",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 18,
+      "line": 23,
       "symbol": "FBKey.email",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 19,
+      "line": 24,
       "symbol": "FBKey.userBirthday",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 20,
+      "line": 25,
       "symbol": "FBKey.birthday",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/FBEnums.swift",
-      "line": 21,
+      "line": 26,
       "symbol": "FBKey.publicProfile",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 11,
-      "symbol": "NotificationEvent",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 12,
+      "line": 15,
       "symbol": "NotificationEvent.apnsDeviceToken",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 13,
+      "line": 16,
       "symbol": "NotificationEvent.fcmToken",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 14,
+      "line": 17,
       "symbol": "NotificationEvent.dismissKeyboard",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 15,
+      "line": 18,
       "symbol": "NotificationEvent.logout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 16,
+      "line": 19,
       "symbol": "NotificationEvent.login",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 17,
+      "line": 20,
       "symbol": "NotificationEvent.deleteBackward",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 18,
+      "line": 21,
       "symbol": "NotificationEvent.appBecomeActive",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 19,
+      "line": 22,
       "symbol": "NotificationEvent.appBecomeIdle",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 22,
-      "symbol": "MoneySoftNotificationEvent",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 23,
-      "symbol": "MoneySoftNotificationEvent.linkableAccounts",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 24,
-      "symbol": "MoneySoftNotificationEvent.updateAccountCredentials",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 25,
-      "symbol": "MoneySoftNotificationEvent.linkableAccountsFinished",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 26,
-      "symbol": "MoneySoftNotificationEvent.updateAccountCredentialsFinished",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 27,
-      "symbol": "MoneySoftNotificationEvent.moneySoftError",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
       "line": 30,
-      "symbol": "MoneySoftNotificationUserInfoKey",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 31,
-      "symbol": "MoneySoftNotificationUserInfoKey.credentialForm",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 32,
-      "symbol": "MoneySoftNotificationUserInfoKey.financialAccount",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 33,
-      "symbol": "MoneySoftNotificationUserInfoKey.linkableAccounts",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 34,
-      "symbol": "MoneySoftNotificationUserInfoKey.error",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 37,
-      "symbol": "UINotificationEvent",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 38,
       "symbol": "UINotificationEvent.completeDetails",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 39,
+      "line": 31,
       "symbol": "UINotificationEvent.buttonClicked",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 40,
+      "line": 32,
       "symbol": "UINotificationEvent.reloadTableLayout",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 41,
+      "line": 33,
       "symbol": "UINotificationEvent.reloadTable",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 42,
+      "line": 34,
       "symbol": "UINotificationEvent.swipeConfirmation",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 43,
+      "line": 35,
       "symbol": "UINotificationEvent.swipeReset",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 44,
+      "line": 36,
       "symbol": "UINotificationEvent.lendingOverview",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 45,
+      "line": 37,
       "symbol": "UINotificationEvent.spendingOverviuew",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 46,
+      "line": 38,
       "symbol": "UINotificationEvent.spendingCategories",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 47,
+      "line": 39,
       "symbol": "UINotificationEvent.spendingTransactions",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 48,
+      "line": 40,
       "symbol": "UINotificationEvent.selectedCategoryById",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 49,
+      "line": 41,
       "symbol": "UINotificationEvent.accountInfo",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 50,
+      "line": 42,
       "symbol": "UINotificationEvent.loadCategoryById",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 51,
+      "line": 43,
       "symbol": "UINotificationEvent.previewLoan",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 52,
+      "line": 44,
       "symbol": "UINotificationEvent.intercom",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 53,
+      "line": 45,
       "symbol": "UINotificationEvent.switchRoot",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 54,
+      "line": 46,
       "symbol": "UINotificationEvent.showError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 55,
+      "line": 47,
       "symbol": "UINotificationEvent.showTransaction",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 56,
+      "line": 48,
       "symbol": "UINotificationEvent.openLink",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 57,
+      "line": 49,
       "symbol": "UINotificationEvent.viewAll",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 60,
-      "symbol": "NotificationUserInfoKey",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 61,
+      "line": 56,
       "symbol": "NotificationUserInfoKey.token",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 62,
+      "line": 57,
       "symbol": "NotificationUserInfoKey.cell",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 63,
+      "line": 58,
       "symbol": "NotificationUserInfoKey.button",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 64,
+      "line": 59,
       "symbol": "NotificationUserInfoKey.vcInfo",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 65,
+      "line": 60,
       "symbol": "NotificationUserInfoKey.storyboardName",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 66,
+      "line": 61,
       "symbol": "NotificationUserInfoKey.storyboardId",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 67,
-      "symbol": "NotificationUserInfoKey.introType",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 68,
+      "line": 62,
       "symbol": "NotificationUserInfoKey.err",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 69,
+      "line": 63,
       "symbol": "NotificationUserInfoKey.category",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 70,
+      "line": 64,
       "symbol": "NotificationUserInfoKey.viewAll",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 71,
+      "line": 65,
       "symbol": "NotificationUserInfoKey.transaction",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/NotificationEnums.swift",
-      "line": 72,
+      "line": 66,
       "symbol": "NotificationUserInfoKey.link",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 11,
-      "symbol": "StoryboardName",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 12,
+      "line": 15,
       "symbol": "StoryboardName.onboarding",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 13,
+      "line": 16,
       "symbol": "StoryboardName.main",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 14,
+      "line": 17,
       "symbol": "StoryboardName.common",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 17,
-      "symbol": "OnboardingStoryboardId",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 18,
+      "line": 24,
       "symbol": "OnboardingStoryboardId.splash",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 19,
+      "line": 25,
       "symbol": "OnboardingStoryboardId.cSplash",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 20,
+      "line": 26,
       "symbol": "OnboardingStoryboardId.cSplashPage",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 21,
+      "line": 27,
       "symbol": "OnboardingStoryboardId.registration",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 22,
+      "line": 28,
       "symbol": "OnboardingStoryboardId.login",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 23,
+      "line": 29,
       "symbol": "OnboardingStoryboardId.forgot",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 24,
+      "line": 30,
       "symbol": "OnboardingStoryboardId.question",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 25,
+      "line": 31,
       "symbol": "OnboardingStoryboardId.intro",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 26,
+      "line": 32,
       "symbol": "OnboardingStoryboardId.multipleChoice",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 27,
+      "line": 33,
       "symbol": "OnboardingStoryboardId.dynamic",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 30,
-      "symbol": "MainStoryboardId",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 31,
+      "line": 40,
       "symbol": "MainStoryboardId.tab",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 32,
+      "line": 41,
       "symbol": "MainStoryboardId.lending",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 33,
+      "line": 42,
       "symbol": "MainStoryboardId.spending",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 34,
+      "line": 43,
       "symbol": "MainStoryboardId.spendingCategories",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 35,
+      "line": 44,
       "symbol": "MainStoryboardId.spendingCategoryById",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 36,
+      "line": 45,
       "symbol": "MainStoryboardId.spendingTransactions",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 37,
+      "line": 46,
       "symbol": "MainStoryboardId.budget",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 38,
+      "line": 47,
       "symbol": "MainStoryboardId.preview",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 39,
+      "line": 48,
       "symbol": "MainStoryboardId.account",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 42,
-      "symbol": "CommonStoryboardId",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 43,
+      "line": 55,
       "symbol": "CommonStoryboardId.emailVerify",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 44,
+      "line": 56,
       "symbol": "CommonStoryboardId.web",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 45,
+      "line": 57,
       "symbol": "CommonStoryboardId.kyc",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 46,
+      "line": 58,
       "symbol": "CommonStoryboardId.account",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 47,
+      "line": 59,
       "symbol": "CommonStoryboardId.passcode",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/StoryboardEnums.swift",
-      "line": 48,
+      "line": 60,
       "symbol": "CommonStoryboardId.connecting",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Array_Extension.swift",
-      "line": 12,
-      "symbol": "Array.move(_:to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Array_Extension.swift",
-      "line": 18,
-      "symbol": "Array.bringToFront(item:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Array_Extension.swift",
-      "line": 22,
-      "symbol": "Array.sendToBack(item:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Array_Extension.swift",
-      "line": 28,
-      "symbol": "Array.move(at:to:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Date_Extension.swift",
-      "line": 12,
-      "symbol": "Date.timeStamp()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Error_Extension.swift",
-      "line": 12,
-      "symbol": "Error.code()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Error_Extension.swift",
-      "line": 22,
-      "symbol": "Error.message()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ImageView_Extension.swift",
-      "line": 12,
-      "symbol": "UIImageView.setImageForURL(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/Image_Extension.swift",
-      "line": 12,
-      "symbol": "UIImage.gradientImage(with:colors:locations:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/NSLayoutConstraint_Extension.swift",
-      "line": 13,
-      "symbol": "NSLayoutConstraint.setMultiplier(multiplier:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/NSMutableAttributedString.swift",
-      "line": 13,
-      "symbol": "NSMutableAttributedString.applyLinkTo(_:link:color:font:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/NSMutableAttributedString.swift",
-      "line": 23,
-      "symbol": "NSMutableAttributedString.applyHighlight(_:color:font:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/String_Extension.swift",
-      "line": 12,
-      "symbol": "String.htmlToAttributedString",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/String_Extension.swift",
-      "line": 21,
-      "symbol": "String.htmlToString",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/TableView_Extension.swift",
-      "line": 13,
-      "symbol": "UITableView.reloadWithoutScroll()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/TableView_Extension.swift",
-      "line": 21,
-      "symbol": "UITableView.addPullToRefreshAction(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 11,
-      "symbol": "ViewSide",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "ViewSide.Bottom",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "ViewSide.Left",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "ViewSide.Right",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "ViewSide.Top",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 16,
-      "symbol": "UIView.roundCorners(corners:radius:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/UIView_Extension.swift",
-      "line": 25,
-      "symbol": "UIView.fromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 25,
-      "symbol": "UIViewController.transparentStatusBar(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 31,
-      "symbol": "UIViewController.showLogoutButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 35,
-      "symbol": "UIViewController.showBackButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 40,
-      "symbol": "UIViewController.addLogoutNavButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 46,
-      "symbol": "UIViewController.hideNavBar()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 51,
-      "symbol": "UIViewController.hideBackTitle()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 56,
-      "symbol": "UIViewController.hideBackButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 61,
-      "symbol": "UIViewController.showCloseButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 66,
-      "symbol": "UIViewController.closeButton()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 70,
-      "symbol": "UIViewController.back()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 77,
-      "symbol": "UIViewController.intercom(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 89,
-      "symbol": "UIViewController.showDecision(_:confirmCb:cancelCb:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 100,
-      "symbol": "UIViewController.showImageMessage(_:image:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 107,
-      "symbol": "UIViewController.showMessage(_:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 116,
-      "symbol": "UIViewController.showError(_:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 132,
-      "symbol": "UIViewController.slideUpCustomView(_:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 139,
+      "line": 158,
       "symbol": "UIViewController.activeTimestamp()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 146,
+      "line": 165,
       "symbol": "UIViewController.scrollViewDidScroll(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 152,
+      "line": 171,
       "symbol": "UIViewController.setupKeyboardHandling()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 171,
+      "line": 190,
       "symbol": "UIViewController.keyboardWillShow(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 179,
+      "line": 198,
       "symbol": "UIViewController.keyboardWillHide(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 187,
+      "line": 206,
       "symbol": "UIViewController.keyboardWillHideWithoutScrollView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 193,
+      "line": 212,
       "symbol": "UIViewController.keyboardWillShowWithoutScrollView(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 201,
+      "line": 220,
       "symbol": "UIViewController.keyboardWillHideWithScrollView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 207,
+      "line": 226,
       "symbol": "UIViewController.keyboardWillShowWithScrollView(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 217,
+      "line": 236,
       "symbol": "UIViewController.dismissKeyboard(notification:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 233,
+      "line": 252,
       "symbol": "UIViewController.isRootViewControllerUnderNav",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 242,
+      "line": 261,
       "symbol": "UIViewController.isModal",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 252,
+      "line": 271,
       "symbol": "UIViewController.showDatePicker(_:initialDate:picker:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 269,
+      "line": 288,
       "symbol": "UIViewController.logout()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 282,
+      "line": 301,
       "symbol": "UIViewController.tapToDismiss()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 289,
+      "line": 308,
       "symbol": "UIViewController.autoSetupForAuthTokenIfNotLoggedIn()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 298,
+      "line": 317,
       "symbol": "UIViewController.autoSetup()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 313,
+      "line": 332,
       "symbol": "UIViewController.removeObservables()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Extension/ViewController_Extension.swift",
-      "line": 320,
+      "line": 339,
       "symbol": "UIViewController.reloadTableView(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -6735,13 +5874,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AccountInfo/ViewModel/AccountInfoTableViewCellViewModel.swift",
-      "line": 22,
-      "symbol": "AccountInfoTableViewCellViewModel.information",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
       "line": 11,
       "symbol": "AgreementItemTableViewCell",
@@ -10041,55 +9173,62 @@
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
       "line": 67,
+      "symbol": "LoginViewController.navigateToDashboard()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
+      "line": 75,
       "symbol": "LoginViewController.login(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 142,
+      "line": 150,
       "symbol": "LoginViewController.handleLoginErr(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 156,
+      "line": 164,
       "symbol": "LoginViewController.continueWithLoggedInFB(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 202,
+      "line": 210,
       "symbol": "LoginViewController.loginWithFacebook(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 223,
+      "line": 231,
       "symbol": "LoginViewController",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 224,
+      "line": 232,
       "symbol": "LoginViewController.textView(_:shouldInteractWith:in:interaction:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 248,
+      "line": 256,
       "symbol": "LoginViewController",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/Authentication/ViewControllers/Login/LoginViewController.swift",
-      "line": 249,
+      "line": 257,
       "symbol": "LoginViewController.baseScrollView()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -10747,56 +9886,56 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 13,
+      "line": 11,
       "symbol": "ConnectingToBankViewController",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 15,
+      "line": 13,
       "symbol": "ConnectingToBankViewController.titleLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 16,
+      "line": 14,
       "symbol": "ConnectingToBankViewController.descriptionLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 17,
+      "line": 15,
       "symbol": "ConnectingToBankViewController.image",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 18,
+      "line": 16,
       "symbol": "ConnectingToBankViewController.viewModel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 19,
+      "line": 17,
       "symbol": "ConnectingToBankViewController.transparentView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 21,
+      "line": 19,
       "symbol": "ConnectingToBankViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 27,
+      "line": 24,
       "symbol": "ConnectingToBankViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -10810,92 +9949,8 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 39,
-      "symbol": "ConnectingToBankViewController.close()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 43,
-      "symbol": "ConnectingToBankViewController.addObservables()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 49,
-      "symbol": "ConnectingToBankViewController.linkableAccountsFinished(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 54,
-      "symbol": "ConnectingToBankViewController.updateAccountCredentialsFinished(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 59,
-      "symbol": "ConnectingToBankViewController.setupTransparentView()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 68,
+      "line": 38,
       "symbol": "ConnectingToBankViewController.setupUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 76,
-      "symbol": "ConnectingToBankViewController.printForm(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 84,
-      "symbol": "ConnectingToBankViewController.printAuthUser(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 90,
-      "symbol": "ConnectingToBankViewController.continuingSubmitFormForMigration()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 117,
-      "symbol": "ConnectingToBankViewController.submitFormForMigration()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 137,
-      "symbol": "ConnectingToBankViewController.continuingSubmitFormForOnboarding()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 172,
-      "symbol": "ConnectingToBankViewController.submitForm()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 196,
-      "symbol": "ConnectingToBankViewController.checkSpendingStatus(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -10936,14 +9991,56 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
-      "line": 48,
+      "line": 47,
+      "symbol": "LinkAccountsCoordinator.printForm(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 55,
+      "symbol": "LinkAccountsCoordinator.printAuthUser(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 60,
+      "symbol": "LinkAccountsCoordinator.submitFormForMigration()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 111,
+      "symbol": "LinkAccountsCoordinator.submitFormForOnboarding()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 152,
+      "symbol": "LinkAccountsCoordinator.submitForm()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 160,
+      "symbol": "LinkAccountsCoordinator.nextViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
+      "line": 168,
       "symbol": "LinkAccountsCoordinator",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/LinkAccountsCoordinator.swift",
-      "line": 49,
+      "line": 169,
       "symbol": "LinkAccountsCoordinator.convertInstitutionCredentialPromptType(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -10973,6 +10070,20 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/Protocol/DynamicFormViewModelCoordinator.swift",
       "line": 16,
       "symbol": "DynamicFormViewModelCoordinator.loadForm()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/Protocol/DynamicFormViewModelCoordinator.swift",
+      "line": 17,
+      "symbol": "DynamicFormViewModelCoordinator.submitForm()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/Coordinator/Protocol/DynamicFormViewModelCoordinator.swift",
+      "line": 18,
+      "symbol": "DynamicFormViewModelCoordinator.nextViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -11106,6 +10217,13 @@
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/DynamicFormViewController.swift",
       "line": 135,
       "symbol": "DynamicFormViewController.submitForm()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/DynamicForm/DynamicFormViewController.swift",
+      "line": 160,
+      "symbol": "DynamicFormViewController.checkSpendingStatus(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -23746,196 +22864,175 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 24,
-      "symbol": "MoneySoftManager.addObservables()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 31,
-      "symbol": "MoneySoftManager.updateAccountCredentials(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 48,
-      "symbol": "MoneySoftManager.getLinkableAccounts(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 75,
+      "line": 25,
       "symbol": "MoneySoftManager.handleNotification(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 91,
+      "line": 41,
       "symbol": "MoneySoftManager.postNotificationToken()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 107,
+      "line": 57,
       "symbol": "MoneySoftManager.getProfile()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 123,
+      "line": 73,
       "symbol": "MoneySoftManager.logout()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 134,
+      "line": 84,
       "symbol": "MoneySoftManager.login(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 161,
+      "line": 111,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 163,
+      "line": 113,
       "symbol": "MoneySoftManager.getTransactions(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 183,
+      "line": 133,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 185,
+      "line": 135,
       "symbol": "MoneySoftManager.getAccounts()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 201,
+      "line": 151,
       "symbol": "MoneySoftManager.updateTransactions(_:options:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 217,
+      "line": 167,
       "symbol": "MoneySoftManager.refreshAccounts(_:refreshOptions:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 233,
+      "line": 183,
       "symbol": "MoneySoftManager.linkableAccounts(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 256,
+      "line": 206,
       "symbol": "MoneySoftManager.linkAccounts(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 272,
+      "line": 222,
       "symbol": "MoneySoftManager.getBankSignInForm(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 288,
+      "line": 238,
       "symbol": "MoneySoftManager.getInstitutions()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 310,
+      "line": 260,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 322,
+      "line": 272,
       "symbol": "MoneySoftManager.updateAccountCredentials(_:credentialFormModel:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 337,
+      "line": 287,
       "symbol": "MoneySoftManager.forceUnlinkAllAccounts()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 357,
+      "line": 307,
       "symbol": "MoneySoftManager.unlinkAccounts(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 375,
+      "line": 325,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 386,
+      "line": 336,
       "symbol": "MoneySoftManager.getUserDetails(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 404,
+      "line": 354,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 406,
+      "line": 356,
       "symbol": "MoneySoftManager.getLinkableAccounts(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 429,
+      "line": 379,
       "symbol": "MoneySoftManager",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Service/MoneySoft/MoneySoftManager.swift",
-      "line": 430,
+      "line": 380,
       "symbol": "MoneySoftManager.buildLoginModel(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

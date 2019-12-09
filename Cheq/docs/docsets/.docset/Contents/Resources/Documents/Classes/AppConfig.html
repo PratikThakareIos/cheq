@@ -14,7 +14,7 @@
     <a title="AppConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (6% documented)</p>
+        <p><a href="../index.html"> Docs</a> (8% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1376,7 +1376,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>AppConfig manages app global configurations including apns device token, fcm token, active themes and various global UI trigger methods for loading indicator and navigation bar behaviour for certain UI flow. Always refer styling attributes from <strong>AppConfig.shared.activeTheme</strong> instead of doing any hardcoding values</p>
 
           </section>
           <section class="section task-group-section">
@@ -1395,7 +1395,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Singleton instance of AppConfig</p>
 
                       </div>
                       <div class="declaration">
@@ -1422,7 +1422,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>we remove all observables when AppConfig deInit, this is actually not needed in new version of iOS</p>
 
                       </div>
                       <div class="declaration">
@@ -1449,7 +1449,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>apns device token is the notification register token from Apple</p>
 
                       </div>
                       <div class="declaration">
@@ -1476,7 +1476,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>fcm token is the notification register token from Firebase</p>
 
                       </div>
                       <div class="declaration">
@@ -1503,7 +1503,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>array which contains themes title, we are not using this if we don&rsquo;t want to create an menu for list of existing themes for users to choose from</p>
 
                       </div>
                       <div class="declaration">
@@ -1530,7 +1530,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>array of <strong>AppThemeProtocol</strong> , we don&rsquo;t use this unless when want to introduce theme switching in the app</p>
 
                       </div>
                       <div class="declaration">
@@ -1557,7 +1557,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>default theme is <strong>PrimaryTheme</strong> which follows <strong>AppThemeProtocol</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1584,7 +1584,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>index of current active theme</p>
 
                       </div>
                       <div class="declaration">
@@ -1611,7 +1611,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>boolean to indicate if spinner is currently showing, we can use this to avoid showing spinner multiple times</p>
 
                       </div>
                       <div class="declaration">
@@ -1638,7 +1638,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method to switch the app&rsquo;s current theme, but we don&rsquo;t need this atm, use it later.</p>
 
                       </div>
                       <div class="declaration">
@@ -1676,7 +1676,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method abstracting the retrieval of screen height</p>
 
                       </div>
                       <div class="declaration">
@@ -1703,7 +1703,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method abstracting the retrieval of screen width</p>
 
                       </div>
                       <div class="declaration">
@@ -1730,7 +1730,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method abstracting toe navigation to App setting</p>
 
                       </div>
                       <div class="declaration">
@@ -1757,7 +1757,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>setup the global appearance for Navigation bar</p>
 
                       </div>
                       <div class="declaration">
@@ -1784,7 +1784,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>remove global progress navigation bar which are used during onboarding flow</p>
 
                       </div>
                       <div class="declaration">
@@ -1811,7 +1811,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method for updating the progress bar on nav bar during onboarding</p>
 
                       </div>
                       <div class="declaration">
@@ -1849,7 +1849,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Method to retrieve an Id for which we store in <strong>UserDefaults</strong> to track if the app has been initiallly installed already. This determines whether we show user the Splash screens.</p>
 
                       </div>
                       <div class="declaration">
@@ -1876,7 +1876,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Method to check if we are first time runnning the app after installation</p>
 
                       </div>
                       <div class="declaration">
@@ -1903,7 +1903,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>this method is used by Splash screen, to marked the first installation so that we know that we have completed the first installation run</p>
 
                       </div>
                       <div class="declaration">
@@ -1941,7 +1941,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>use <strong>showSpinner</strong> when we want to display loading indicator, this abstracts the rest of the app from knowing how we implemented our loading indicator</p>
 
                       </div>
                       <div class="declaration">
@@ -1968,7 +1968,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>call hideSpinner after task is completed</p>
 
                       </div>
                       <div class="declaration">
@@ -1995,7 +1995,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>call hideSpinner after task is completed</p>
 
                       </div>
                       <div class="declaration">
@@ -2033,7 +2033,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method update fcmToken from notification</p>
 
                       </div>
                       <div class="declaration">
@@ -2061,7 +2061,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>method update apnsDeviceToken from notification</p>
 
                       </div>
                       <div class="declaration">
@@ -2081,7 +2081,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2019-12-08)</p>
+          <p>&copy; 2019 <a class="link" href="" target="_blank" rel="external">Xuwei Liang</a>. All rights reserved. (Last updated: 2019-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
