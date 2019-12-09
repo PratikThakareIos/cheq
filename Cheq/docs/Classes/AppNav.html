@@ -2505,6 +2505,37 @@ parameter viewController: The source viewController for current navigation actio
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>questionType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>QuestionType which drives the appearance of the <strong>QuestionViewController</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the source viewController of the current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -2531,6 +2562,37 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">presentToMultipleChoice</span><span class="p">(</span><span class="n">_</span> <span class="nv">multipleChoiceType</span><span class="p">:</span> <span class="kt"><a href="../Enums/MultipleChoiceQuestionType.html">MultipleChoiceQuestionType</a></span><span class="p">,</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>multipleChoiceType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>MultipleChoiceQuestionType which drives the appearance of the <strong>MultipleChoiceViewController</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source viewController of the current navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2570,6 +2632,37 @@ parameter viewController: The source viewController for current navigation actio
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>KycDocType</strong> can be driver&rsquo;s license or passport. <strong>navigateToKYCFlow</strong> takes in the user&rsquo;s decision on which document type is used for KYC flow.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source viewController of the navigation action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -2597,7 +2690,8 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the current <strong>rootViewController</strong> if it exists
+returns: rootviewController or dummy viewController to avoid returning nil</p>
 
                       </div>
                       <div class="declaration">
@@ -2624,7 +2718,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>dismissModal abstracts the dismiss of currently presenting viewController from the given viewController as well as handling the dimissal of any keyboards on display</p>
 
                       </div>
                       <div class="declaration">
@@ -2634,6 +2728,37 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismissModal</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source viewController of current action</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion callback closure, it can be nil if we don&rsquo;t need it</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -2651,7 +2776,7 @@ parameter viewController: The source viewController for current navigation actio
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>pop the current viewController from navigation controller</p>
 
                       </div>
                       <div class="declaration">
@@ -2661,6 +2786,25 @@ parameter viewController: The source viewController for current navigation actio
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismiss</span><span class="p">(</span><span class="n">_</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>source viewController of current action</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

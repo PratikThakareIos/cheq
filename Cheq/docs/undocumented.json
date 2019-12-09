@@ -568,27 +568,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 413,
-      "symbol": "AppNav.rootViewController()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 417,
-      "symbol": "AppNav.dismissModal(_:completion:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/AppConfig/AppNav.swift",
-      "line": 427,
-      "symbol": "AppNav.dismiss(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
       "line": 11,
       "symbol": "ChartCollectionViewCellProtocol",
@@ -4937,58 +4916,23 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 11,
-      "symbol": "CNavStackView",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 13,
-      "symbol": "CNavStackView.subViews",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 15,
+      "line": 19,
       "symbol": "CNavStackView.init(subViews:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 21,
-      "symbol": "CNavStackView.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 26,
+      "line": 31,
       "symbol": "CNavStackView.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 31,
+      "line": 36,
       "symbol": "CNavStackView.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 36,
-      "symbol": "CNavStackView.setupConfig()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/NavigationBar/CNavStackView.swift",
-      "line": 47,
-      "symbol": "CNavStackView.intrinsicContentSize",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -8338,176 +8282,43 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 13,
-      "symbol": "TransactionModal",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 15,
-      "symbol": "TransactionModal.viewModel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
       "line": 16,
-      "symbol": "TransactionModal.categoryIcon",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 17,
-      "symbol": "TransactionModal.contentContainer",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 18,
-      "symbol": "TransactionModal.categoryIconImageView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 19,
-      "symbol": "TransactionModal.transactionDescriptionLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 20,
-      "symbol": "TransactionModal.transactionDateLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 21,
-      "symbol": "TransactionModal.transactionAmountLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 22,
-      "symbol": "TransactionModal.categoryTitleLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 23,
-      "symbol": "TransactionModal.categoryTitleImageIconView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 24,
-      "symbol": "TransactionModal.financialInstitutionLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 25,
-      "symbol": "TransactionModal.financialInstitutionImageIconView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 28,
-      "symbol": "TransactionModal.awakeFromNib()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 34,
-      "symbol": "TransactionModal.setupTapToDismiss()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 40,
-      "symbol": "TransactionModal.setupUI()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/TransactionModal.swift",
-      "line": 74,
-      "symbol": "TransactionModal.dismissAction()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/ViewModel/TransactionModalViewModel.swift",
-      "line": 11,
-      "symbol": "TransactionModalViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TransactionModal/ViewModel/TransactionModalViewModel.swift",
-      "line": 12,
-      "symbol": "TransactionModalViewModel.data",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 11,
-      "symbol": "CGradientView",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 13,
       "symbol": "CGradientView.startColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 14,
+      "line": 17,
       "symbol": "CGradientView.endColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 16,
+      "line": 19,
       "symbol": "CGradientView.layerClass",
       "symbol_kind": "source.lang.swift.decl.var.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 20,
+      "line": 23,
       "symbol": "CGradientView.awakeFromNib()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 25,
+      "line": 28,
       "symbol": "CGradientView.prepareForInterfaceBuilder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/View/CGradientView.swift",
-      "line": 30,
+      "line": 33,
       "symbol": "CGradientView.setupUI()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
