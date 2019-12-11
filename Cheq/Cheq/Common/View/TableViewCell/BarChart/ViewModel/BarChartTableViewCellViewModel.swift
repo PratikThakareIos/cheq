@@ -9,12 +9,25 @@
 import UIKit
 import DateToolsSwift
 
+/**
+ ViewModel for **BarChartTableViewCell**
+ */
 class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
+    
+    /// re-use identifier for **BarChartTableViewCell**
     var identifier: String = "BarChartTableViewCell"
+    
+    /// data is array of **MonthAmountStatResponse**, each **MonthAmountStatResponse** represents a bar on the bar chart
     var data: [MonthAmountStatResponse] = []
+    
+    /// We use this amount as a reference as a divider for monthAmount. In the current implementation, the referenceAmount is the largest amount from **MonthAmountStatResponse** array.
     var referenceAmount: Double = 0.0
     
+    /**
+     barViewModel() returns Array of **BarViewModel** with calculated viewModels
+     */
     func barViewModel()->[BarViewModel] {
+        /// referenceAmount is largest instead of the total, so the bars are closer in height
         self.referenceAmount = findLargest()
         guard self.referenceAmount > 0.0 else { return [BarViewModel]() }
         var barList = [BarViewModel]()
@@ -38,6 +51,7 @@ class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
         return barList
     }
     
+    /// helper method to sum up all the month amount
     func calculateSum()->Double {
         var total = 0.0
         for monthAmountStat in self.data {
@@ -47,6 +61,7 @@ class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
         return total
     }
     
+    /// helper method to find the largest amount from **data**
     func findLargest()->Double {
         var largest = 1.0
         for monthAmountStat in self.data {

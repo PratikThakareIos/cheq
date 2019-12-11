@@ -8,11 +8,15 @@
 
 import UIKit
 
+/// Different barView state, active barView is for barView that belongs to current month. Non-active is for past barView.
 enum BarViewState {
     case active
     case nonActive
 }
 
+/**
+ BarViewModel is representation of a single bar on **BarChartTableViewCell**
+ */
 class BarViewModel {
     var amount: Double = 0.0
     var label: String = ""

@@ -8,7 +8,14 @@
 
 import UIKit
 
+/**
+ avatar image cell
+ */
 class AvatarTableViewCellViewModel: TableViewCellViewModelProtocol {
+    
+    /// identifier
     var identifier: String = "AvatarTableViewCell"
+    
+    /// name of the image, defaulted to **accountEmoji**
     var image = "accountEmoji"
 }

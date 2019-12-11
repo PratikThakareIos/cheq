@@ -8,16 +8,23 @@
 
 import UIKit
 
+/**
+ This is an implementation of bar chart which subclasses **CTableViewCell**
+ */
 class BarChartTableViewCell: CTableViewCell {
-    
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var horizontalStackView: UIStackView! 
 
+    /// containerView to stylize the background and margin
+    @IBOutlet weak var containerView: UIView!
+    
+    /// bars on the barChart is embeded inside horizontal stackview
+    @IBOutlet weak var horizontalStackView: UIStackView! 
+ 
+    /// called when initiaized from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear
         self.containerView.backgroundColor = .clear
-        // Initialization code
+        /// Initialization code
         self.viewModel = BarChartTableViewCellViewModel()
         setupConfig()
     }
@@ -26,6 +33,7 @@ class BarChartTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    /// Whenever data is updated, call **setupConfig** again to update the bar chart 
     override func setupConfig() {
         // rendering of data
         let vm = self.viewModel as! BarChartTableViewCellViewModel

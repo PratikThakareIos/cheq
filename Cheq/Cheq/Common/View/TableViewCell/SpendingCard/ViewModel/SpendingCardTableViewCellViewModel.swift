@@ -8,6 +8,7 @@
 
 import UIKit
 
+/***/
 class SpendingCardTableViewCellViewModel: TableViewCellViewModelProtocol{
     
     var identifier = "SpendingCardTableViewCell"

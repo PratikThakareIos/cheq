@@ -8,14 +8,22 @@
 
 import UIKit
 
+/**
+ LineSeparatorTableViewCell is used whenever we need a line separator
+ */
 class LineSeparatorTableViewCell: CTableViewCell {
     
+    /// line is a thin UIView
     @IBOutlet weak var lineView: UIView!
+    
+    /// constraint for the thickness of the line
     @IBOutlet weak var height: NSLayoutConstraint! 
     
+    /// called when initialised using **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        /// Initialization code
+        self.viewModel = LineSeparatorTableViewCellViewModel()
         setupConfig()
     }
 
@@ -23,8 +31,11 @@ class LineSeparatorTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    
+    /// setupConfig updates the UI according to the viewModel
     override func setupConfig() {
-        self.viewModel = LineSeparatorTableViewCellViewModel()
+        let viewModel = self.viewModel as! LineSeparatorTableViewCellViewModel
         self.lineView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
+        self.height.constant = viewModel.height
     }
 }

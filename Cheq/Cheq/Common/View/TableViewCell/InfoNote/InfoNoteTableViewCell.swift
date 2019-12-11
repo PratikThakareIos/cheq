@@ -8,14 +8,27 @@
 
 import UIKit
 
+/**
+ InfoNoteTableViewCell is simply a tableview cell that represents small gray colored text footnotes
+ */
 class InfoNoteTableViewCell: CTableViewCell {
     
+    /// ContainerView is the holding view, we update containerView for background color and margins
     @IBOutlet weak var containerView: UIView!
+    
+    /// Info icon image
     @IBOutlet weak var infoIcon: UIImageView!
+    
+    /// The view that holds the icon image
     @IBOutlet weak var infoIconContainer: UIView!
+    
+    /// Label of the info note
     @IBOutlet weak var informationNoteLabel: CLabel!
+    
+    /// Horizontal spacing constraint between label and icon
     @IBOutlet weak var infoIconSpacing: NSLayoutConstraint! 
 
+    /// Called when initialise from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +40,8 @@ class InfoNoteTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    
+    /// Call **setupConfig** when viewModel is updated 
     override func setupConfig() {
         self.backgroundColor = .clear
         self.containerView.backgroundColor = .clear 
