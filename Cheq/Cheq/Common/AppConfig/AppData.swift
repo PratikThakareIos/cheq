@@ -81,7 +81,7 @@ Singleton class for keeping track of data across the app so we avoid passing var
 */
 class AppData {
     
-    /// Singleton instance 
+    /// Singleton instance
     static let shared = AppData()
     
     /// we call **loadOnfidoSDKToken** which loads up any existing onfido sdk token we fetched from previous API call.
@@ -101,6 +101,8 @@ class AppData {
     
     /// loan fee and accepted  agreement boolean, we use this when we want to finalise lending
     var loanFee = 0.0
+    
+    /// this toggle is used to track if agreement has been accepted 
     var acceptedAgreement: Bool = false 
     
     /// forgot password email
