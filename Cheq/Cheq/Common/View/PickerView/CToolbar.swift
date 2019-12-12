@@ -8,13 +8,20 @@
 
 import UIKit
 
+/// Delegate callback for the handling viewController
 protocol CToolbarDelegate {
     func done(_ sender: Any)
 }
 
+/**
+ Custom CToolbar is part of the UI for maritalStatus question screen. MartialStatus question screen is currently taken out from **Onboarding** flow.
+ */
 class CToolbar: UIToolbar {
     
+    /// QuestionField specifies what question is the answer/UI mapping ifself to
     var field: QuestionField = .maritalStatus
+    
+    /// callback instance for **CToolbarDelegate** 
     var toolbarDelegate: CToolbarDelegate?
     
     init(_ field: QuestionField, delegate: CToolbarDelegate) {

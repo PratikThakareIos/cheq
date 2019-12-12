@@ -29,7 +29,7 @@ class TopTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
 
-    /// setupConfig stylize the cell, notice we don't rely on viewModel here. The viewModel is purely for consistency to be handle by **CTableViewController** 
+    /// setupConfig stylize the cell, notice we don't rely on viewModel here. The viewModel is purely for consistency to be handle by **CTableViewController**
     override func setupConfig() {
         self.backgroundColor = .clear
         self.topView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
