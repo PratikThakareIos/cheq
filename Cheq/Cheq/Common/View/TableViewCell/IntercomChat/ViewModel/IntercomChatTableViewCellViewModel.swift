@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ ViewModel for **IntercomChatTableViewCell** which is an icon to open **Intercom** support viewController
+ */
 class IntercomChatTableViewCellViewModel: TableViewCellViewModelProtocol {
+    
+    /// reuse identifier corresponding to **xib** 
     var identifier: String = "IntercomChatTableViewCell"
 }

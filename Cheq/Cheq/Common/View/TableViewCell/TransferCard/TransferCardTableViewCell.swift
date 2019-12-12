@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TransferCardTableViewCell: CTableViewCell {
 
     @IBOutlet weak var amountLabel: CLabel!

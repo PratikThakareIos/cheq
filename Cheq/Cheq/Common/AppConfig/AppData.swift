@@ -14,14 +14,14 @@ ScreenName enum is where we keep for names of screen that we want to track. Upda
  */
 enum ScreenName: String {
     
-    // Splash
+    /// Splash
     case splash = "splash"
     
-    // Registration
+    /// Registration
     case registration = "registration"
     case login = "login"
     
-    // about me
+    /// about me
     case legalName = "legalName"
     case ageRange = "Age Range"
     case dateOfBirth = "dateOfBirth"
@@ -30,21 +30,21 @@ enum ScreenName: String {
     case state = "state"
     case maritalStatus = "maritalStatus"
     
-    // kyc verification
+    /// kyc verification
     case kycSelectDoc = "kycSelectDoc"
     
-    // employment details
+    /// employment details
     case employmentType = "Employment type"
     case onDemand = "On Demand"
     case companyName = "companyName"
     case companyAddress = "companyAddress"
     
-    // bank details
+    /// bank details
     case financialInstitutions = "Financial Institutions"
     case bankLogin = "Link Accounts"
     case unknown = "unknown"
     
-    // intro screens 
+    /// intro screens
     case email = "Check your email"
     case employee = "Employee details"
     case setupBank = "Set up your bank"
@@ -52,10 +52,10 @@ enum ScreenName: String {
     case notification = "Notification"
     case verifyIdentity = "Verify your identity"
     
-    // lending
+    /// lending
     case lending = "Lending"
     
-    // spending
+    /// spending
     case spending = "Overview"
     case spendingCategories = "Money Spent"
     case spendingCategoryById = "Spending Category"
@@ -81,6 +81,7 @@ Singleton class for keeping track of data across the app so we avoid passing var
 */
 class AppData {
     
+    /// Singleton instance 
     static let shared = AppData()
     
     /// we call **loadOnfidoSDKToken** which loads up any existing onfido sdk token we fetched from previous API call.
