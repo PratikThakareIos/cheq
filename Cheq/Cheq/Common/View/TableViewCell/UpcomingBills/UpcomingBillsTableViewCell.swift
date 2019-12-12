@@ -8,13 +8,24 @@
 
 import UIKit
 
+/**
+ UpcomingBillsTableViewCell represents the horizontal scrolling list of upcoming bills
+ */
 class UpcomingBillsTableViewCell: CTableViewCell {
     
+    /// keeping a number for tagging use, but not necessarily needed
     static let upcomingBillsCollectionView = 1
-    @IBOutlet weak var containerView: UIView! 
+    
+    /// containerView
+    @IBOutlet weak var containerView: UIView!
+    
+    /// collectionView is used to implement the horizontal scroll
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    /// height constraint that determine collectionView height
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
    
+    /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         self.viewModel = UpcomingBillsTableViewCellViewModel()
@@ -26,6 +37,7 @@ class UpcomingBillsTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    /// call setupConfig after updated viewModel 
     override func setupConfig() {
         
         self.backgroundColor = .clear 

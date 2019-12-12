@@ -8,16 +8,33 @@
 
 import UIKit
 
+/**
+ TransactionTableViewCell is use for transaction representation on Spending screens
+ */
 class TransactionTableViewCell: CTableViewCell {
     
-    @IBOutlet weak var containerView: UIView! 
+    /// container view of contents
+    @IBOutlet weak var containerView: UIView!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var iconImage: UIImageView!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var transactionTitle: CLabel!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var transactionDate: CLabel!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var transactionAmount: CLabel!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var iconImageContainer: UIView!
+    
+    /// width constraint for **iconImageContainer**
     @IBOutlet weak var iconImageContainerWidth: NSLayoutConstraint! 
 
+    /// called when initialize from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +43,7 @@ class TransactionTableViewCell: CTableViewCell {
         setupConfig()
     }
     
+    /// **showTransaction** method is called when containerView is tapped
     func setupTapEvent() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showTransaction))
         tapRecognizer.numberOfTapsRequired = 1
@@ -36,6 +54,7 @@ class TransactionTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    /// setupConfig updates the UI accordingly to the viewModel
     override func setupConfig() {
         let vm = self.viewModel as! TransactionTableViewCellViewModel
         let code = DataHelperUtil.shared.categoryAmountStateCodeFromTransaction(vm.data.categoryCode ?? SlimTransactionResponse.CategoryCode.others)
@@ -53,6 +72,7 @@ class TransactionTableViewCell: CTableViewCell {
         self.setNeedsUpdateConstraints()
     }
     
+    /// showTransaction method doesn't directly presents the transaction details modal, it sends out the notification for
     @objc func showTransaction() {
         NotificationUtil.shared.notify(UINotificationEvent.showTransaction.rawValue, key: NotificationUserInfoKey.transaction.rawValue, object: self)
     }

@@ -8,8 +8,12 @@
 
 import UIKit
 
+/**
+ use **SpacerTableViewCell** to create spacing between cells 
+ */
 class SpacerTableViewCell: CTableViewCell {
     
+    /// cellHeight
     @IBOutlet weak var cellHeight: NSLayoutConstraint! 
 
     override func awakeFromNib() {
@@ -25,6 +29,7 @@ class SpacerTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
     
+    /// call **setupConfig** after viewModel is updated
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! SpacerTableViewCellViewModel
