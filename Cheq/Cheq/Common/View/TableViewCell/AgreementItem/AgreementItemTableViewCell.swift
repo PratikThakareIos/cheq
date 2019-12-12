@@ -8,14 +8,27 @@
 
 import UIKit
 
+/**
+ AgreementItemTableViewCell is used for displaying agreement items
+ */
 class AgreementItemTableViewCell: CTableViewCell {
 
-    @IBOutlet weak var agreementContentHeight: NSLayoutConstraint! 
+    /// refer to **xib** layout
+    @IBOutlet weak var agreementContentHeight: NSLayoutConstraint!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var agreementTitle: CLabel!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var agreementContent: CLabel!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var readMore: UIButton!
+    
+    /// refer to **xib** layout
     @IBOutlet weak var containerView: UIView!
     
+    /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +41,8 @@ class AgreementItemTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    /// called **setupConfig** whenever we want to have updated UI
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
@@ -45,6 +60,7 @@ class AgreementItemTableViewCell: CTableViewCell {
         AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
     }
     
+    /// action called when the **readMore** button is pressed for expand/compress
     @IBAction func readMore(_ sender: Any) {
         LoggingUtil.shared.cPrint("Read more")
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
@@ -61,6 +77,8 @@ class AgreementItemTableViewCell: CTableViewCell {
             
         }
         self.setNeedsLayout()
+        
+        /// send a notification for table view to reload
         NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
     }
 }

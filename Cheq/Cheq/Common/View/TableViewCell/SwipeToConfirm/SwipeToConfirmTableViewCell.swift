@@ -118,7 +118,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         }
     }
     
-    /// inside the **drag** callback method, **edgeDetection** is always called to avoid the draggable button to go outside our containerView for the drag area 
+    /// inside the **drag** callback method, **edgeDetection** is always called to avoid the draggable button to go outside our containerView for the drag area
     func edgeDetection(_ draggableView: UIView, draggableViewContainer: UIView) {
         let rightEdge = draggableView.center.x + draggableView.frame.size.width/2
         let leftEdge = draggableView.center.x - draggableView.frame.size.width/2

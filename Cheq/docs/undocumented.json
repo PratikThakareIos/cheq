@@ -5364,99 +5364,15 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 11,
-      "symbol": "AgreementItemTableViewCell",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 13,
-      "symbol": "AgreementItemTableViewCell.agreementContentHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 14,
-      "symbol": "AgreementItemTableViewCell.agreementTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 15,
-      "symbol": "AgreementItemTableViewCell.agreementContent",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 16,
-      "symbol": "AgreementItemTableViewCell.readMore",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 17,
-      "symbol": "AgreementItemTableViewCell.containerView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 26,
+      "line": 39,
       "symbol": "AgreementItemTableViewCell.setSelected(_:animated:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/AgreementItemTableViewCell.swift",
-      "line": 48,
-      "symbol": "AgreementItemTableViewCell.readMore(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 11,
-      "symbol": "AgreementItemTableViewCellViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 13,
-      "symbol": "AgreementItemTableViewCellViewModel.title",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 14,
-      "symbol": "AgreementItemTableViewCellViewModel.message",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 15,
-      "symbol": "AgreementItemTableViewCellViewModel.readMoreTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 16,
+      "line": 27,
       "symbol": "AgreementItemTableViewCellViewModel.readLessTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AgreementItem/ViewModel/AgreementItemTableViewCellViewModel.swift",
-      "line": 17,
-      "symbol": "AgreementItemTableViewCellViewModel.expanded",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -5546,77 +5462,70 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 11,
-      "symbol": "AmountSelectTableViewCellViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 15,
+      "line": 18,
       "symbol": "AmountSelectTableViewCellViewModel.minusEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 16,
+      "line": 19,
       "symbol": "AmountSelectTableViewCellViewModel.plusEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 18,
+      "line": 21,
       "symbol": "AmountSelectTableViewCellViewModel.selectedAmountIndex",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 19,
+      "line": 22,
       "symbol": "AmountSelectTableViewCellViewModel.availableToWithdraw",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 22,
+      "line": 25,
       "symbol": "AmountSelectTableViewCellViewModel.buildAvaialbleToWithDraw(low:limit:increment:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 30,
+      "line": 33,
       "symbol": "AmountSelectTableViewCellViewModel.currentSelectedAmount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 38,
+      "line": 41,
       "symbol": "AmountSelectTableViewCellViewModel.plus()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 49,
+      "line": 52,
       "symbol": "AmountSelectTableViewCellViewModel.minus()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 61,
+      "line": 64,
       "symbol": "AmountSelectTableViewCellViewModel.shouldDisablePlus()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/TableViewCell/AmountSelect/ViewModel/AmountSelectTableViewCellViewModel.swift",
-      "line": 65,
+      "line": 68,
       "symbol": "AmountSelectTableViewCellViewModel.shouldDisableMinus()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
