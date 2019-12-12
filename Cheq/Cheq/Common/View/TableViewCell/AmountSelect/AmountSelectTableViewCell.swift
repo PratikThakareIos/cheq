@@ -84,7 +84,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.updateControlButtons()
     }
 
-    /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this. 
+    /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         self.decreaseLoanAmouontButton.isEnabled = amountSelectViewModel.minusEnabled

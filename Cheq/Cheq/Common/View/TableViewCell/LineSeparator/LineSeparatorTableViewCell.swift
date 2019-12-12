@@ -26,7 +26,8 @@ class LineSeparatorTableViewCell: CTableViewCell {
         self.viewModel = LineSeparatorTableViewCellViewModel()
         setupConfig()
     }
-
+    
+   /// Override this method to add custom logic when cell is selected. Alternatively add tap gesture to trigger a method that applies custom logic.
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

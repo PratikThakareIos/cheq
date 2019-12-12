@@ -8,6 +8,8 @@
 
 import UIKit
 
+/**
+ */
 class CompletionProgressTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "CompletionProgressTableViewCell"
     var mode: CProgressColorMode = .information

@@ -11,15 +11,26 @@ import MobileSDK
 import PromiseKit
 import DateToolsSwift
 
+/**
+ TestUtil is a singleton class used across the app for generating **test data** for testing and development phases. Please note that data from **TestUtil** shouldn't be used for production. **TestUtil** encapsulates many test data generating methods thats useful during development phase.
+ */
 class TestUtil {
     static let shared = TestUtil()
     private init() {}
     
+    /// address suffix for test data use
     let addressSuffix = ["Magaret Street, Sydney NSW 2000", "York Street, Sydney NSW 2000"]
+    
+    /// array for generating random String
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+    
+    /// array of numbers for generating number combinations
     let numbers = "0123456789"
+    
+    /// array of email suffixes for random email
     let suffix = ["gmail.com", "hotmail.com", "facebook.com", "cheq.com.au"]
     
+    /// helper method for generating randomString 
     func randomString(_ length: Int)-> String {
         var result = ""
         for _ in 0..<length {
