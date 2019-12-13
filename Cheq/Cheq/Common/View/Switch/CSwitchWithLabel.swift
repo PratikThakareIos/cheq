@@ -8,7 +8,12 @@
 
 import UIKit
 
+/**
+ CSwitchWithLabel is a layout with **CSwitch** and **CLabel** next to it.
+ */
 class CSwitchWithLabel: UIStackView {
+    
+    /// adjustable
     let defaultSpacing: CGFloat = 4.0
     var titleLabel: String = ""
     var label: CLabel = CLabel(frame: CGRect.zero)

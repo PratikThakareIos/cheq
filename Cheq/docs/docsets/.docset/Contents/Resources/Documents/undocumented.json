@@ -4692,70 +4692,42 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 11,
-      "symbol": "CToolbarDelegate",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 12,
+      "line": 13,
       "symbol": "CToolbarDelegate.done(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 15,
-      "symbol": "CToolbar",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 17,
-      "symbol": "CToolbar.field",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 18,
-      "symbol": "CToolbar.toolbarDelegate",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 20,
+      "line": 27,
       "symbol": "CToolbar.init(_:delegate:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 27,
+      "line": 34,
       "symbol": "CToolbar.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 32,
+      "line": 39,
       "symbol": "CToolbar.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 37,
+      "line": 44,
       "symbol": "CToolbar.setupConfig()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/View/PickerView/CToolbar.swift",
-      "line": 50,
+      "line": 57,
       "symbol": "CToolbar.done(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
