@@ -8,21 +8,33 @@
 
 import PopupDialog
 
+/**
+ CPopupDialogTitle is enum of popup dialog titles. Use these rawValues instead of hardcoding.
+ */
 enum CPopupDialogTitle: String {
 
     case decision = "Are you sure?"
     case message = "Message"
     case error = "Error"
+    
+    /// When lending is sucessful, we show the congradulations dialog title
     case congrats = "Congradulations!"
 }
 
+/**
+ CPopupDialogButton enum keeps track of all the key button titles
+ */
 enum CPopupDialogButton: String {
     case ok = "OK"
     case cancel = "Cancel"
 }
 
+/**
+ CPopupDialog abstracts the logics for presenting a message/decision
+ */
 class CPopupDialog {
 
+    /// 
     let messageTitle: String
     let messageBody: String
     var imageName: String = ""

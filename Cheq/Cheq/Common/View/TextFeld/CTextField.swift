@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- **CTextField** encapsulates all the custom styling logics for **UITextField** across the app.
+ CTextField encapsulates all the custom styling logics for **UITextField** across the app.
  */
 class CTextField: UITextField {
 
