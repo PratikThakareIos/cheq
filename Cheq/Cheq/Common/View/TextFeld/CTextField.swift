@@ -8,18 +8,24 @@
 
 import UIKit
 
+/**
+ **CTextField** encapsulates all the custom styling logics for **UITextField** across the app.
+ */
 class CTextField: UITextField {
 
+    /// added setupConfig
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConfig()
     }
     
+    /// added setupConfig
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupConfig()
     }
     
+    /// setupConfig is the method that stylize for **CTextField**. Because we use round-cornered rectangle, side paddings is added to create spacing between text and side margins.
     func setupConfig() {
         UITextField.appearance().keyboardAppearance = .light
         self.font = AppConfig.shared.activeTheme.mediumFont
@@ -32,6 +38,7 @@ class CTextField: UITextField {
         self.rightViewMode = .always
     }
 
+    /// added intrinsic size definition, this can be override by autolayout constraints
     override open var intrinsicContentSize: CGSize {
         get {
             return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultTextFieldHeight)
@@ -40,12 +47,15 @@ class CTextField: UITextField {
 }
 
 extension CTextField {
+    
+        /// method dealing ith password visibility toggling 
         func togglePasswordVisibility() {
             self.isSecureTextEntry.toggle()
             if let existingText = text, isSecureTextEntry {
-                /* When toggling to secure text, all text will be purged if the user
+                /** When toggling to secure text, all text will be purged if the user
                  continues typing unless we intervene. This is prevented by first
-                 deleting the existing text and then recovering the original text. */
+                 deleting the existing text and then recovering the original text.
+                 */
                 deleteBackward()
 
                 if let textRange = textRange(from: beginningOfDocument, to: endOfDocument) {
@@ -53,8 +63,10 @@ extension CTextField {
                 }
             }
 
-            /* Reset the selected text range since the cursor can end up in the wrong
-             position after a toggle because the text might vary in width */
+            /**
+             Reset the selected text range since the cursor can end up in the wrong
+             position after a toggle because the text might vary in width
+             */
             if let existingSelectedTextRange = selectedTextRange {
                 selectedTextRange = nil
                 selectedTextRange = existingSelectedTextRange

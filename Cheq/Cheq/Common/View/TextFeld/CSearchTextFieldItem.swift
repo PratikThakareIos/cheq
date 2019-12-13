@@ -9,5 +9,6 @@
 import UIKit
 import SearchTextField
 
+/// Embed any custom logics/variables here for **CSearchTextFieldItem** which is a subclass of **SearchTextFieldItem** 
 class CSearchTextFieldItem: SearchTextFieldItem {
 }

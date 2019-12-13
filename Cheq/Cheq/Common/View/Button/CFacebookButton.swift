@@ -8,18 +8,24 @@
 
 import UIKit
 
+/**
+ CFacebookButton is not a common styling for **UIButton**. So it is separated from **CButton** logics.
+ */
 class CFacebookButton: CButton {
 
+    /// Added setupConfig
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConfig()
     }
     
+    /// Added setupConfig
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupConfig()
     }
 
+    /// Styling logics is encapsulated inside **setupConfig**
     override func setupConfig() {
         super.setupConfig()
         self.backgroundColor = .clear
