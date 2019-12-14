@@ -8,21 +8,36 @@
 
 import Foundation
 
+/**
+ LoggingUtil is a utility class to abstract the logics in logging to console and to file. When we release the app to production, we can disable the logging easily by altering the logic encapsulated inside **LoggingUtil** rather than change the logics everywhere else.
+ */
 class LoggingUtil {
     
+    /// File name to log fcm messages, we can turn this off before releasing to production
     let fcmMsgFile = "cLog.txt"
     
+    /// Singleton instance of **LoggingUtil**
     static let shared = LoggingUtil()
+    
+    /// private init to implement the Singleton pattern
     private init() {
     }
     
-    // we will turn off this for prod use
+    /// Encapsulating print to console logic, we turn off this for prod use
     func cPrint(_ msg: Any...) {
-        print(msg)
+        #if DEV
+            print(msg)
+        #endif
     }
     
+    /**
+     Helper method to write a file with new text.
+     - parameter file: target file's name to write against
+     - parameter newText: text to write onto targeted file
+    */
     func cWriteToFile(_ file: String, newText: String) {
         
+        /// create file if it doesn't exist
         createFileIfNeeded(file)
         let filename = self.getDocumentsDirectory().appendingPathComponent(file)
         do {
@@ -38,6 +53,10 @@ class LoggingUtil {
         }
     }
     
+    /**
+     Helper method to create a given file by its name if it's doens't already exist
+     - parameter file: filename to check against
+    */
     func createFileIfNeeded(_ file: String) {
         let filePath = getDocumentsDirectory().appendingPathComponent(file)
         do {
@@ -47,6 +66,11 @@ class LoggingUtil {
         }
     }
     
+    /**
+     Given a file name, print the app's path prefix to the file. This is a method use for debugging purpose.
+     - parameter file: filename
+     - Returns: location of file or error message
+     */
     func printLocationFile(_ file: String)-> String {
         let filePath = getDocumentsDirectory().appendingPathComponent(file)
         do {
@@ -59,6 +83,11 @@ class LoggingUtil {
         }
     }
     
+    
+    /**
+     This method encapsulates the logic to find the current documents path of the app
+     - Returns: URL of the directory path
+    */
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
