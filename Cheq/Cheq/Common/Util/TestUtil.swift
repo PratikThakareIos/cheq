@@ -15,22 +15,26 @@ import DateToolsSwift
  TestUtil is a singleton class used across the app for generating **test data** for testing and development phases. Please note that data from **TestUtil** shouldn't be used for production. **TestUtil** encapsulates many test data generating methods thats useful during development phase.
  */
 class TestUtil {
+    
+    /// Singleton instance
     static let shared = TestUtil()
+    
+    /// Private init to implement Singleton
     private init() {}
     
-    /// address suffix for test data use
+    /// Address suffix for test data use
     let addressSuffix = ["Magaret Street, Sydney NSW 2000", "York Street, Sydney NSW 2000"]
     
-    /// array for generating random String
+    /// Array for generating random String
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
     
-    /// array of numbers for generating number combinations
+    /// Array of numbers for generating number combinations
     let numbers = "0123456789"
     
-    /// array of email suffixes for random email
+    /// Array of email suffixes for random email
     let suffix = ["gmail.com", "hotmail.com", "facebook.com", "cheq.com.au"]
     
-    /// helper method for generating randomString 
+    /// Helper method for generating randomString of a given length
     func randomString(_ length: Int)-> String {
         var result = ""
         for _ in 0..<length {
@@ -39,40 +43,46 @@ class TestUtil {
         return result
     }
     
+    /// Helper method to generate random mobile phone number of a given length
     func randomPhone(_ length: Int)-> String {
         var result = ""
         for _ in 0..<length {
-            result.append(numbers.randomElement() ?? "a")
+            result.append(numbers.randomElement() ?? "0")
         }
         return result
     }
     
+    /// Helper method to generate a random residential address
     func randomAddress()-> String {
         let addrSuffix = addressSuffix.randomElement() ?? addressSuffix[0]
         let streetNum = randomPhone(3)
         return String("\(streetNum) \(addrSuffix)")
     }
     
+    /// Random email generator
     func randomEmail()-> String {
         let randomPrefix = randomString(10)
         let randomSuffix = "testcheq.com.au"
         return "\(randomPrefix)@\(randomSuffix)"
     }
     
+    /// If the test email is suffix is **testcheq.com.au**, then with a backend hack in development environment, the verification code will always be **111111**
     func emailVerificationCode()-> String {
         return "111111"
     }
     
+    /// Generating a random password
     func randomPassword()-> String {
         return randomString(12)
     }
     
+    /// Generate employer details **Put** request
     func putEmployerDetailsReq()-> PutUserEmployerRequest {
-        
         let employerReq = PutUserEmployerRequest(employerName: TestUtil.shared.testEmployerName(), employmentType: .fulltime, address: TestUtil.shared.testEmployeAddress(), noFixedAddress: false, latitude: -33.8653556, longitude: 151.205377, postCode: TestUtil.shared.testPostcode(), state: TestUtil.shared.testState().rawValue, country: TestUtil.shared.testCountry())
         return employerReq
     }
     
+    /// Helper method for **PUT** user details request
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
@@ -80,6 +90,7 @@ class TestUtil {
         return req
     }
     
+    /// Helper method for generating a list of **DynmaicFormInput** to test **DynamicFormViewController**
     func testDynamicInputs()->[DynamicFormInput] {
         let usernameInput = DynamicFormInput(type: .text, title: "Username")
         let password = DynamicFormInput(type: .password, title: "Password")
@@ -89,6 +100,7 @@ class TestUtil {
         return [usernameInput, password, checkBox, confirm, spacer]
     }
     
+    /// Helper to generate weak password 
     func weakPassword()-> String {
         return "12345678"
     }

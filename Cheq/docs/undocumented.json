@@ -3403,118 +3403,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 12,
-      "symbol": "DataHelperUtil",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 14,
-      "symbol": "DataHelperUtil.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 17,
-      "symbol": "DataHelperUtil.putResetPasswordRequest(_:newPassword:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 22,
-      "symbol": "DataHelperUtil.postForgotPasswordRequest()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 27,
-      "symbol": "DataHelperUtil.retrieveUserDetailsKycReq()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 40,
-      "symbol": "DataHelperUtil.postLoanRequest()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 49,
-      "symbol": "DataHelperUtil.putUserEmployerRequest()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 59,
-      "symbol": "DataHelperUtil.postPushNotificationRequest()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 66,
-      "symbol": "DataHelperUtil.postFinancialTransactionsReq(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 73,
-      "symbol": "DataHelperUtil.convertTransactionType(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 78,
-      "symbol": "DataHelperUtil.postFinancialAccountsReq(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 84,
-      "symbol": "DataHelperUtil.postFinancialInstitutionsRequest(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 89,
-      "symbol": "DataHelperUtil.postFinancialTransactionsRequest(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 97,
-      "symbol": "DataHelperUtil.categoryAmountStateCode(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 102,
-      "symbol": "DataHelperUtil.categoryAmountStateCodeFromTransaction(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DataHelperUtil.swift",
-      "line": 107,
-      "symbol": "DataHelperUtil.iconFromCategory(_:largeIcon:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DeclineViewTestUtil.swift",
       "line": 12,
       "symbol": "DeclineViewTestUtil",
@@ -3536,484 +3424,274 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 11,
-      "symbol": "FormatterUtil",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 13,
-      "symbol": "FormatterUtil.defaultFormat",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 14,
-      "symbol": "FormatterUtil.userFriendlyFormat",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 15,
-      "symbol": "FormatterUtil.monthOnly",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 16,
-      "symbol": "FormatterUtil.simpleDate",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 18,
-      "symbol": "FormatterUtil.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 20,
-      "symbol": "FormatterUtil.userFriendlyDateFormatter()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 26,
-      "symbol": "FormatterUtil.defaultDateFormatter()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 32,
-      "symbol": "FormatterUtil.simpleDateFormatter()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 38,
-      "symbol": "FormatterUtil.currencyFormat(_:symbol:roundDownToNearestDollar:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 47,
-      "symbol": "FormatterUtil.monthFromDate(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/FormatterUtil.swift",
-      "line": 53,
-      "symbol": "FormatterUtil.monthToInt(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 12,
-      "symbol": "StringUtil",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 13,
-      "symbol": "StringUtil.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 16,
-      "symbol": "StringUtil.decodeBase64(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 21,
-      "symbol": "StringUtil.isNumericOnly(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 25,
-      "symbol": "StringUtil.isAlphaNumericOnly(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 30,
-      "symbol": "StringUtil.isAlphaOnly(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 35,
-      "symbol": "StringUtil.isValidEmail(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/StringUtil.swift",
-      "line": 42,
-      "symbol": "StringUtil.isValidPassword(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 18,
-      "symbol": "TestUtil.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 42,
-      "symbol": "TestUtil.randomPhone(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 50,
-      "symbol": "TestUtil.randomAddress()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 56,
-      "symbol": "TestUtil.randomEmail()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 62,
-      "symbol": "TestUtil.emailVerificationCode()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 66,
-      "symbol": "TestUtil.randomPassword()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 70,
-      "symbol": "TestUtil.putEmployerDetailsReq()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 76,
-      "symbol": "TestUtil.putUserDetailsReq()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 83,
-      "symbol": "TestUtil.testDynamicInputs()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 92,
-      "symbol": "TestUtil.weakPassword()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 97,
+      "line": 109,
       "symbol": "TestUtil.validEmail()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 101,
+      "line": 113,
       "symbol": "TestUtil.testEmail()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 105,
+      "line": 117,
       "symbol": "TestUtil.testPass()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 109,
+      "line": 121,
       "symbol": "TestUtil.testAddress()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 113,
+      "line": 125,
       "symbol": "TestUtil.testMobile()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 117,
+      "line": 129,
       "symbol": "TestUtil.testFirstname()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 121,
+      "line": 133,
       "symbol": "TestUtil.testLastname()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 125,
+      "line": 137,
       "symbol": "TestUtil.testBirthday()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 133,
+      "line": 145,
       "symbol": "TestUtil.dobFormatStyle()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 137,
+      "line": 149,
       "symbol": "TestUtil.testEmployerName()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 141,
+      "line": 153,
       "symbol": "TestUtil.testEmploymentType()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 145,
+      "line": 157,
       "symbol": "TestUtil.testEmployeAddress()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 149,
+      "line": 161,
       "symbol": "TestUtil.testPostcode()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 153,
+      "line": 165,
       "symbol": "TestUtil.testState()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 161,
+      "line": 173,
       "symbol": "TestUtil.testCountry()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 165,
+      "line": 177,
       "symbol": "TestUtil.randomPositiveAmount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 169,
+      "line": 181,
       "symbol": "TestUtil.randomAmount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 173,
+      "line": 185,
       "symbol": "TestUtil.randomIntAmount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 177,
+      "line": 189,
       "symbol": "TestUtil.randomBillAmount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 181,
+      "line": 193,
       "symbol": "TestUtil.randomDate()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 186,
+      "line": 198,
       "symbol": "TestUtil.randomBool()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 190,
+      "line": 202,
       "symbol": "TestUtil.randomLoanActivityType()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 194,
+      "line": 206,
       "symbol": "TestUtil.testLoanActivities()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 204,
+      "line": 216,
       "symbol": "TestUtil.testLoanAgreement()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 217,
+      "line": 229,
       "symbol": "TestUtil.testLoanPreview()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 250,
+      "line": 262,
       "symbol": "TestUtil.topCategoriesAmount(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 270,
+      "line": 282,
       "symbol": "TestUtil.randomRemoteBank()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 287,
+      "line": 299,
       "symbol": "TestUtil.randomTransactions(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 299,
+      "line": 311,
       "symbol": "TestUtil.testMonthAmountStatResponse()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 313,
+      "line": 325,
       "symbol": "TestUtil.testDailTransactions()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 323,
+      "line": 335,
       "symbol": "TestUtil.testSpendingCategoryById()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 329,
+      "line": 341,
       "symbol": "TestUtil.testSpendingCategories()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 335,
+      "line": 347,
       "symbol": "TestUtil.testSpendingOverview()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 346,
+      "line": 358,
       "symbol": "TestUtil.testGetBudgets()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 354,
+      "line": 366,
       "symbol": "TestUtil.testUserBudgets()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 365,
+      "line": 377,
       "symbol": "TestUtil.testLendingOverview()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 383,
+      "line": 395,
       "symbol": "TestUtil.loginWithTestAccount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 398,
+      "line": 410,
       "symbol": "TestUtil.autoSetupRegisteredCheqAccount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 424,
+      "line": 436,
       "symbol": "TestUtil.autoSetupAccount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -4030,27 +3708,6 @@
       "line": 14,
       "symbol": "radiusBy.width",
       "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/ViewUtil.swift",
-      "line": 48,
-      "symbol": "ViewUtil.applyBorder(_:borderSize:color:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/ViewUtil.swift",
-      "line": 53,
-      "symbol": "ViewUtil.applyGradientBorder(_:borderSize:colors:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/ViewUtil.swift",
-      "line": 71,
-      "symbol": "ViewUtil.applyViewGradient(_:startingColor:endColor:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {

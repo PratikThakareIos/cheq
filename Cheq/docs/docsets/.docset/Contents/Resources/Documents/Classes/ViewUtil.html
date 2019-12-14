@@ -14,7 +14,7 @@
     <a title="ViewUtil Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (27% documented)</p>
+        <p><a href="../index.html"> Docs</a> (29% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1117,7 +1117,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method adds border to a given view&rsquo;s reference.</p>
 
                       </div>
                       <div class="declaration">
@@ -1127,6 +1127,49 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">applyBorder</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">borderSize</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>reference of UIView to get modified.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>borderSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>thickness of the border</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>color of the border size</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1144,7 +1187,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Applying gradient border to the given view with borderSize and a list of colors</p>
 
                       </div>
                       <div class="declaration">
@@ -1154,6 +1197,49 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">applyGradientBorder</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">borderSize</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">colors</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIColor</span><span class="p">])</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>reference of UIView to get modified.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>borderSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>thickness of the border</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>colors</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>colors use for building the gradient border</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1171,7 +1257,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Adding gradient background to the reference view.</p>
 
                       </div>
                       <div class="declaration">
@@ -1181,6 +1267,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">applyViewGradient</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">startingColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="nv">endColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CAGradientLayer</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>startingColor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>starting color of the gradient background, this is left and bottom position.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endColor</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>ending color of the gradient background, this is right and top position.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

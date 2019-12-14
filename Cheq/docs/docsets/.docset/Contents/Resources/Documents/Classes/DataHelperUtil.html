@@ -14,7 +14,7 @@
     <a title="DataHelperUtil Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (27% documented)</p>
+        <p><a href="../index.html"> Docs</a> (29% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1017,7 +1017,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>DataHelperUtil is a helper class to build request payload and perform data transformation for API calls. When we want to build a complicated request payload, we encapsulate the logics in this class. So that it&rsquo;s resuable later on. Some API request payload requires repeated data transformation logics.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1036,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Singleton instance of <strong>DateHelperUtil</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1063,7 +1063,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to create <strong>PUT</strong> request to reset password</p>
 
                       </div>
                       <div class="declaration">
@@ -1073,6 +1073,41 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putResetPasswordRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">newPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PutResetPasswordRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>code</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>email verification code</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newPassword</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new password inserted from the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Put request payload to tell backend to reset user&rsquo;s password</p>
                       </div>
                     </section>
                   </div>
@@ -1090,7 +1125,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to request password reset verification email</p>
 
                       </div>
                       <div class="declaration">
@@ -1100,6 +1135,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postForgotPasswordRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PostForgetPasswordRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Post request payload to trigger backend to send an password reset email</p>
                       </div>
                     </section>
                   </div>
@@ -1117,7 +1156,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to <strong>PUT</strong> user details for Onfido KYC validation</p>
 
                       </div>
                       <div class="declaration">
@@ -1127,6 +1166,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">retrieveUserDetailsKycReq</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PutUserOnfidoKycRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><strong>PUT</strong> request payload to put user defailts for Onfido KYC validation</p>
                       </div>
                     </section>
                   </div>
@@ -1144,7 +1187,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build a post requet payload for loan</p>
 
                       </div>
                       <div class="declaration">
@@ -1154,6 +1197,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postLoanRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PostLoanRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><strong>POST</strong> request payload to trigger a loan application in the backend</p>
                       </div>
                     </section>
                   </div>
@@ -1171,7 +1218,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build a put request payload for updating user employer</p>
 
                       </div>
                       <div class="declaration">
@@ -1181,6 +1228,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putUserEmployerRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PutUserEmployerRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><strong>PUT</strong> request payload to trigger a user&rsquo;s employer details</p>
                       </div>
                     </section>
                   </div>
@@ -1198,7 +1249,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build a post request payload containing the push notification tokens used by backend&rsquo;s purpose.</p>
 
                       </div>
                       <div class="declaration">
@@ -1208,6 +1259,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postPushNotificationRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PostPushNotificationRequest</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><strong>Post</strong> request payload containing the device&rsquo;s registered firebase notification token and apple&rsquo;s push notification token.</p>
                       </div>
                     </section>
                   </div>
@@ -1225,7 +1280,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build post a request payload containing the transactions retrieved from MoneySoft SDK.</p>
 
                       </div>
                       <div class="declaration">
@@ -1235,6 +1290,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postFinancialTransactionsReq</span><span class="p">(</span><span class="n">_</span> <span class="nv">transactions</span><span class="p">:</span> <span class="p">[</span><span class="kt">FinancialTransactionModel</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">PostFinancialTransactionRequest</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transactions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of <strong>FinancialTransactionModel</strong> from MoneySoft SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>list of transaction types that is use for posting back to Cheq backend</p>
                       </div>
                     </section>
                   </div>
@@ -1252,7 +1330,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method converting <strong>MobileSDK.TransactionType</strong> to String</p>
 
                       </div>
                       <div class="declaration">
@@ -1279,7 +1357,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build a post request payload with retrieved accounts from MoneySoft SDK.</p>
 
                       </div>
                       <div class="declaration">
@@ -1289,6 +1367,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postFinancialAccountsReq</span><span class="p">(</span><span class="n">_</span> <span class="nv">accounts</span><span class="p">:</span> <span class="p">[</span><span class="kt">FinancialAccountModel</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">PostFinancialAccountRequest</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accounts</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of <strong>FinancialAccountModel</strong> retrieved from MoneySoft SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>list of account types for posting to Cheq backend</p>
                       </div>
                     </section>
                   </div>
@@ -1306,7 +1407,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to build a post request payload with retrieved banks from MoneySoft SDK.</p>
 
                       </div>
                       <div class="declaration">
@@ -1317,32 +1418,28 @@
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4Cheq14DataHelperUtilC32postFinancialTransactionsRequestySayAA04Postf11TransactionH0VGXecACF"></a>
-                    <a name="//apple_ref/swift/Method/postFinancialTransactionsRequest(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4Cheq14DataHelperUtilC32postFinancialTransactionsRequestySayAA04Postf11TransactionH0VGXecACF">postFinancialTransactionsRequest(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>institutions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>list of <strong>FinancialInstitutionModel</strong> retreived from MoneySoft SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">postFinancialTransactionsRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">transactions</span><span class="p">:</span> <span class="p">[</span><span class="kt">FinancialTransactionModel</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">PostFinancialTransactionRequest</span><span class="p">]</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>list of institution types for positng to Cheq backend</p>
                       </div>
                     </section>
                   </div>
@@ -1360,7 +1457,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to convert <strong>GetUpcomingBillResponse.CategoryCode</strong> to <strong>CategoryAmountStatResponse.CategoryCode</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1370,6 +1467,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">categoryAmountStateCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">GetUpcomingBillResponse</span><span class="o">.</span><span class="kt">CategoryCode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CategoryAmountStatResponse</span><span class="o">.</span><span class="kt">CategoryCode</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>code</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>These code types are actually for same purpose, but the backend Swagger definition as of the time of documenting has not been consolidated yet.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1387,7 +1503,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to convert <strong>SlimTransactionResponse.CategoryCode</strong> to <strong>CategoryAmountStatResponse.CategoryCode</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1414,7 +1530,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to retrieve the corresponding Spending category icon by <strong>CategoryAmountStatResponse.CategoryCode</strong></p>
 
                       </div>
                       <div class="declaration">
