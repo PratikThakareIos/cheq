@@ -8,14 +8,26 @@
 
 import UIKit
 
+/**
+ Enum used by **AutoLayoutUtil** to determine how to align a given view to its superview.
+ */
 enum VeriticalAlignment {
     case top
     case centre
     case bottom
 }
 
+/**
+ Helper method for applying autolayout constraints for a given view and its superview. Use **AutoLayoutUtil** when we want to programmatically setup autolayout constraints.
+ */
 struct AutoLayoutUtil {
 
+    /**
+     This version of **pinToSuperview** takes a view with given height and pin its edge to its superview depending on the provided **VeriticalAlignment** configuration.
+     - parameter view: View to have autolayout constraints setup against its superview.
+     - parameter height: Given height for the view, this is useful when we know our view has a constant height calculated or defined.
+     - parameter alignment: VeriticalAlignment.top will have the view pin itself to the top, left, right margin of its superview. VeriticalAlignment.bottom will have the view pin itself to the bottom, left, right margin of its superview. VeriticalAlignment.center will align the view's vertical center to superview's vertical center and pin to left, right of the superview's margin.
+     */
     static func pinToSuperview(_ view: UIView, height: CGFloat, alignment: VeriticalAlignment) {
         guard let superview = view.superview else { return }
         
@@ -42,6 +54,12 @@ struct AutoLayoutUtil {
         }
     }
 
+    /**
+     This version of **pinToSuperview** will pin the given view to all margins of its superview with paddings. **horizontalPadding** and **verticalPadding** provided drives the spacing.
+     - parameter view: view to be added with autolayout constraints
+     - parameter horizontalPadding: this is the spacing between the left and right margins of view and its superview
+     - parameter verticalPadding: this is the spacing between the top and bottom margins of view and its superview
+     */
     static func pinToSuperview(_ view: UIView, horizontalPadding: CGFloat, verticalPadding: CGFloat) {
         guard let superview = view.superview else { return }
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +70,11 @@ struct AutoLayoutUtil {
         superview.addConstraints([top, left, right, bottom])
     }
 
+    /**
+     This version of **pinToSuperview** will pin the given view to all margins of its superview with a constant spacing on all sides.
+     - parameter view: view to have autolayout constraints added
+     - parameter padding: the constant padding on all sides between view and its superview 
+     */
     static func pinToSuperview(_ view: UIView, padding: CGFloat) {
         guard let superview = view.superview else { return }
         

@@ -14,7 +14,7 @@
     <a title="BaseTableVCViewModel Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (26% documented)</p>
+        <p><a href="../index.html"> Docs</a> (27% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1284,19 +1284,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>list of <strong>SlimTransactionResponse</strong></p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>transactionList</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>list of <strong>SlimTransactionResponse</strong></p>
+                                  <p>Array of <strong>SlimTransactionResponse</strong> from <strong>Spending</strong> API but could come from <strong>Lending</strong> screen as well.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1343,7 +1331,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>This method creates the viewModels to render the list of <q>Category Group</q> from a list of <strong>CategoryAmountStatResponse</strong> models.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -1352,6 +1341,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">categoryAmountsList</span><span class="p">(</span><span class="n">_</span> <span class="nv">categories</span><span class="p">:</span> <span class="p">[</span><span class="kt">CategoryAmountStatResponse</span><span class="p">],</span> <span class="nv">section</span><span class="p">:</span> <span class="k">inout</span> <span class="kt"><a href="../Classes/TableSectionViewModel.html">TableSectionViewModel</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categories</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array of <strong>CategoryAmountStatResponse</strong></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>section</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>reference of <strong>TableSectionViewModel</strong> to be updated</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

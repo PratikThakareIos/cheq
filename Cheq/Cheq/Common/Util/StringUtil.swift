@@ -9,6 +9,9 @@
 import UIKit
 import Foundation
 
+/**
+ String Utility class to encapsulate reusable helper methods for String class.
+ */
 class StringUtil {
     static let shared = StringUtil()
     private init() {}

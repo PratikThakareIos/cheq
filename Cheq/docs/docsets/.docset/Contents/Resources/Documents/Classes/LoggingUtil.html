@@ -14,7 +14,7 @@
     <a title="LoggingUtil Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (26% documented)</p>
+        <p><a href="../index.html"> Docs</a> (27% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1017,7 +1017,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>LoggingUtil is a utility class to abstract the logics in logging to console and to file. When we release the app to production, we can disable the logging easily by altering the logic encapsulated inside <strong>LoggingUtil</strong> rather than change the logics everywhere else.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1036,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>File name to log fcm messages, we can turn this off before releasing to production</p>
 
                       </div>
                       <div class="declaration">
@@ -1063,7 +1063,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Singleton instance of <strong>LoggingUtil</strong></p>
 
                       </div>
                       <div class="declaration">
@@ -1090,7 +1090,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Encapsulating print to console logic, we turn off this for prod use</p>
 
                       </div>
                       <div class="declaration">
@@ -1117,7 +1117,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to write a file with new text.</p>
 
                       </div>
                       <div class="declaration">
@@ -1127,6 +1127,37 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cWriteToFile</span><span class="p">(</span><span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">newText</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>target file&rsquo;s name to write against</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newText</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text to write onto targeted file</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1144,7 +1175,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Helper method to create a given file by its name if it&rsquo;s doens&rsquo;t already exist</p>
 
                       </div>
                       <div class="declaration">
@@ -1154,6 +1185,25 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createFileIfNeeded</span><span class="p">(</span><span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>filename to check against</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1171,7 +1221,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Given a file name, print the app&rsquo;s path prefix to the file. This is a method use for debugging purpose.</p>
 
                       </div>
                       <div class="declaration">
@@ -1181,6 +1231,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">printLocationFile</span><span class="p">(</span><span class="n">_</span> <span class="nv">file</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>file</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>filename</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>location of file or error message</p>
                       </div>
                     </section>
                   </div>
@@ -1198,7 +1271,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method encapsulates the logic to find the current documents path of the app</p>
 
                       </div>
                       <div class="declaration">
@@ -1208,6 +1281,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getDocumentsDirectory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">URL</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>URL of the directory path</p>
                       </div>
                     </section>
                   </div>

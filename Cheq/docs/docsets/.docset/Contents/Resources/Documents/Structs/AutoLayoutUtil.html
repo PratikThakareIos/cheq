@@ -14,7 +14,7 @@
     <a title="AutoLayoutUtil Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (26% documented)</p>
+        <p><a href="../index.html"> Docs</a> (27% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1017,7 +1017,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Helper method for applying autolayout constraints for a given view and its superview. Use <strong>AutoLayoutUtil</strong> when we want to programmatically setup autolayout constraints.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1036,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This version of <strong>pinToSuperview</strong> takes a view with given height and pin its edge to its superview depending on the provided <strong>VeriticalAlignment</strong> configuration.</p>
 
                       </div>
                       <div class="declaration">
@@ -1046,6 +1046,49 @@
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">pinToSuperview</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">alignment</span><span class="p">:</span> <span class="kt"><a href="../Enums/VeriticalAlignment.html">VeriticalAlignment</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>View to have autolayout constraints setup against its superview.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>height</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Given height for the view, this is useful when we know our view has a constant height calculated or defined.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>alignment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>VeriticalAlignment.top will have the view pin itself to the top, left, right margin of its superview. VeriticalAlignment.bottom will have the view pin itself to the bottom, left, right margin of its superview. VeriticalAlignment.center will align the view&rsquo;s vertical center to superview&rsquo;s vertical center and pin to left, right of the superview&rsquo;s margin.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1063,7 +1106,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This version of <strong>pinToSuperview</strong> will pin the given view to all margins of its superview with paddings. <strong>horizontalPadding</strong> and <strong>verticalPadding</strong> provided drives the spacing.</p>
 
                       </div>
                       <div class="declaration">
@@ -1073,6 +1116,49 @@
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">pinToSuperview</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">horizontalPadding</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">verticalPadding</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view to be added with autolayout constraints</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>horizontalPadding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>this is the spacing between the left and right margins of view and its superview</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>verticalPadding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>this is the spacing between the top and bottom margins of view and its superview</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1090,7 +1176,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This version of <strong>pinToSuperview</strong> will pin the given view to all margins of its superview with a constant spacing on all sides.</p>
 
                       </div>
                       <div class="declaration">
@@ -1100,6 +1186,37 @@
                           <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">pinToSuperview</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>view to have autolayout constraints added</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>padding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the constant padding on all sides between view and its superview</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
