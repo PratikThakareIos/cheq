@@ -14,7 +14,7 @@
     <a title="CPopupDialog Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (25% documented)</p>
+        <p><a href="../index.html"> Docs</a> (26% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -115,12 +115,6 @@
                 <a href="../Classes/BottomTableViewCellViewModel.html">BottomTableViewCellViewModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CBarChartFormatter.html">CBarChartFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CBarChartView.html">CBarChartView</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/CButton.html">CButton</a>
               </li>
               <li class="nav-group-task">
@@ -164,12 +158,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CPickerView.html">CPickerView</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CPieChartFormatter.html">CPieChartFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CPieChartView.html">CPieChartView</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CPopupDialog.html">CPopupDialog</a>
@@ -641,9 +629,6 @@
                 <a href="../Enums/CButtonType.html">CButtonType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/CChartType.html">CChartType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/CKey.html">CKey</a>
               </li>
               <li class="nav-group-task">
@@ -909,9 +894,6 @@
                 <a href="../Protocols/AuthManagerProtocol.html">AuthManagerProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/CChartViewProtocol.html">CChartViewProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/CCollectionViewCellProtocol.html">CCollectionViewCellProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -972,9 +954,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CBATheme.html">CBATheme</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/CChartModel.html">CChartModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CProgress.html">CProgress</a>
@@ -1038,7 +1017,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>CPopupDialog abstracts the logics for presenting a message/decision</p>
 
           </section>
           <section class="section task-group-section">
@@ -1057,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Title of the popup dialog</p>
 
                       </div>
                       <div class="declaration">
@@ -1084,7 +1063,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Message body for dialog</p>
 
                       </div>
                       <div class="declaration">
@@ -1111,7 +1090,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This is optional, it&rsquo;s the image thats part of the popup dialog. This is used for congratulations popup dialog.</p>
 
                       </div>
                       <div class="declaration">
@@ -1138,7 +1117,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Title of the confirmation button</p>
 
                       </div>
                       <div class="declaration">
@@ -1165,7 +1144,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Title of the cancel/dismissal button</p>
 
                       </div>
                       <div class="declaration">
@@ -1192,7 +1171,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Popup is an instance of pod library object <strong>PopupDialog</strong>. With <strong>CPopupDialog</strong> we abstract the library we use from outside, so if we change the implementation, it won&rsquo;t affect how code executes the interface with <strong>CPopupDialog</strong>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1219,7 +1198,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Custom init method to conveniently setup the contents we want to populate on <strong>CPopupDialog</strong>. There are different flavor of custom init, this one is defaulted to have just one dismissal cancel button.</p>
 
                       </div>
                       <div class="declaration">
@@ -1229,6 +1208,73 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageTitle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogTitle.html">CPopupDialogTitle</a></span><span class="p">,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">messageBody</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">button</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogButton.html">CPopupDialogButton</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of the message title, it&rsquo;s <strong>CPopupDialogTitle</strong> because we want to ensure the String is derived from prefined enums instead of any magically defined String elsewhere in the code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>image name if we want to have an image as part of the <strong>CPopupDialog</strong>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageBody</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>message text for the popup dialog.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>button</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>button is from enum <strong>CPopupDialogButton</strong>, so predefined settings have to be used for consistencies across.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the completion action which is triggered by the <strong>CancelButton</strong> that gets added by default with this custom init method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1246,7 +1292,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This is a custom init method that also takes in <strong>confirm</strong> callback action as well <strong>cancel</strong> callback action.</p>
 
                       </div>
                       <div class="declaration">
@@ -1256,6 +1302,73 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageTitle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogTitle.html">CPopupDialogTitle</a></span><span class="p">,</span> <span class="nv">messageBody</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">button</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogButton.html">CPopupDialogButton</a></span><span class="p">,</span> <span class="nv">cancelButton</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogButton.html">CPopupDialogButton</a></span><span class="p">,</span> <span class="nv">confirm</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">,</span> <span class="nv">cancel</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span><span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of the message title, it&rsquo;s <strong>CPopupDialogTitle</strong> because we want to ensure the String is derived from prefined enums instead of any magically defined String elsewhere in the code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageBody</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>message text for the popup dialog.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>button</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>button is from enum <strong>CPopupDialogButton</strong>, so predefined settings have to be used for consistencies across.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>confirm</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the completion action which is triggered by the <strong>DefaultButton</strong> that gets added by default with this custom init method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancel</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the completion action which is triggered by the <strong>CancelButton</strong> that gets added by default with this custom init method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1273,7 +1386,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This is the simplest version of initialising <strong>CPopupDialog</strong>, we only have title, message and dismissal button.</p>
 
                       </div>
                       <div class="declaration">
@@ -1283,6 +1396,61 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageTitle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogTitle.html">CPopupDialogTitle</a></span><span class="p">,</span> <span class="nv">messageBody</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">button</span><span class="p">:</span> <span class="kt"><a href="../Enums/CPopupDialogButton.html">CPopupDialogButton</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>title of the message title, it&rsquo;s <strong>CPopupDialogTitle</strong> because we want to ensure the String is derived from prefined enums instead of any magically defined String elsewhere in the code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageBody</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>message text for the popup dialog.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>button</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>button is enum <strong>CPopupDialogButton</strong>, update the enum if more button needed to be added.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>this is the callback action when <strong>CancelButton</strong> is pressed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -1300,7 +1468,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>SetupUI method which encapsulates the custom styling logics of <strong>PopupDialog</strong> to fit the theme of the app. Notice the use of referencing styling from <strong>AppConfig.shared.activeTheme</strong> ensures that the the styling definitions will always be consistent.</p>
 
                       </div>
                       <div class="declaration">
@@ -1327,7 +1495,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>build in method which takes in the current presenting viewController and trigger the action for that viewController to present our customised popup.</p>
 
                       </div>
                       <div class="declaration">

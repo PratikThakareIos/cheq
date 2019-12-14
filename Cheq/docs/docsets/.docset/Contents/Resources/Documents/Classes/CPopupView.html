@@ -14,7 +14,7 @@
     <a title="CPopupView Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (25% documented)</p>
+        <p><a href="../index.html"> Docs</a> (26% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -115,12 +115,6 @@
                 <a href="../Classes/BottomTableViewCellViewModel.html">BottomTableViewCellViewModel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CBarChartFormatter.html">CBarChartFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CBarChartView.html">CBarChartView</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/CButton.html">CButton</a>
               </li>
               <li class="nav-group-task">
@@ -164,12 +158,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CPickerView.html">CPickerView</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CPieChartFormatter.html">CPieChartFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CPieChartView.html">CPieChartView</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CPopupDialog.html">CPopupDialog</a>
@@ -641,9 +629,6 @@
                 <a href="../Enums/CButtonType.html">CButtonType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/CChartType.html">CChartType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/CKey.html">CKey</a>
               </li>
               <li class="nav-group-task">
@@ -909,9 +894,6 @@
                 <a href="../Protocols/AuthManagerProtocol.html">AuthManagerProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/CChartViewProtocol.html">CChartViewProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/CCollectionViewCellProtocol.html">CCollectionViewCellProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -972,9 +954,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CBATheme.html">CBATheme</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/CChartModel.html">CChartModel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CProgress.html">CProgress</a>
@@ -1038,7 +1017,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>This is wrapper to whichever popup implementation that the app uses. It abtracts the details of implementation, so that if <strong>SwiftEntryKit</strong> is replaced with something else, <strong>CPopupView</strong>  are still sharing the same interface for popup with the rest of the code.</p>
 
           </section>
           <section class="section task-group-section">
@@ -1057,7 +1036,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Variable instance for customView</p>
 
                       </div>
                       <div class="declaration">
@@ -1084,7 +1063,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Custom init to take customView if we need it</p>
 
                       </div>
                       <div class="declaration">
@@ -1111,7 +1090,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Dismiss method hides the details on how we implement dismissal for the outside world</p>
 
                       </div>
                       <div class="declaration">
@@ -1138,7 +1117,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Show method hides all the details required to setup the popup modal, the details can change based on the implmentation and library which we use. But to the outside world, <strong>show</strong> method will remain the interface to display a popup with the <strong>customView</strong> provided during initialisation.</p>
 
                       </div>
                       <div class="declaration">
