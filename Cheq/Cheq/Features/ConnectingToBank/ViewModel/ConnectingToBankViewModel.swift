@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewModel for **ConnectingToBankViewController**. Add more variables when needed 
 class ConnectingToBankViewModel {
     
 }

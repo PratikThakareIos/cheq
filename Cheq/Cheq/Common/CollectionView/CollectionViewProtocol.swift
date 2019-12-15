@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+Old code thats not used anymore.
+
+Protocol and Constants for CharCollectionView 
+*/
 enum CollectionViewIdentifier: String {
     case CarouselCollectionView = "CarouselCollectionView"
     case GridCollectionView = "GridCollectionView"

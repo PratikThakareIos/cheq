@@ -491,104 +491,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 11,
-      "symbol": "ChartCollectionViewCellProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 13,
-      "symbol": "ChartCollectionViewCellProtocol.compactSize",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 14,
-      "symbol": "ChartCollectionViewCellProtocol.regularSize",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 15,
-      "symbol": "ChartCollectionViewCellProtocol.anySize",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 17,
-      "symbol": "ChartCollectionViewCellProtocol.setupChart()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 18,
-      "symbol": "ChartCollectionViewCellProtocol.animate()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 19,
-      "symbol": "ChartCollectionViewCellProtocol.suitableSize(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 22,
-      "symbol": "ChartCollectionViewCellProtocol",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/ChartCollectionViewCellProtocol.swift",
-      "line": 23,
-      "symbol": "ChartCollectionViewCellProtocol.suitableSize(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/CollectionViewProtocol.swift",
-      "line": 11,
-      "symbol": "CollectionViewIdentifier",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/CollectionViewProtocol.swift",
-      "line": 12,
-      "symbol": "CollectionViewIdentifier.CarouselCollectionView",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/CollectionViewProtocol.swift",
-      "line": 13,
-      "symbol": "CollectionViewIdentifier.GridCollectionView",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/CollectionViewProtocol.swift",
-      "line": 16,
-      "symbol": "ChartCollectionViewCoordinatorDelegate",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/CollectionView/CollectionViewProtocol.swift",
-      "line": 17,
-      "symbol": "ChartCollectionViewCoordinatorDelegate.selectedCell(_:collectionView:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Enums/CommonEnums.swift",
       "line": 13,
       "symbol": "CurrencySymbol.dollar",
@@ -1829,918 +1731,491 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 12,
-      "symbol": "AppThemeProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 14,
-      "symbol": "AppThemeProtocol.darkBlurEffectView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 15,
-      "symbol": "AppThemeProtocol.lightBlurEffectView",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 18,
-      "symbol": "AppThemeProtocol.themeTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 21,
-      "symbol": "AppThemeProtocol.smallFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 22,
-      "symbol": "AppThemeProtocol.defaultFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 23,
-      "symbol": "AppThemeProtocol.mediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 24,
-      "symbol": "AppThemeProtocol.headerFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 25,
-      "symbol": "AppThemeProtocol.extraLargeFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 28,
-      "symbol": "AppThemeProtocol.smallMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 29,
-      "symbol": "AppThemeProtocol.defaultMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 30,
-      "symbol": "AppThemeProtocol.mediumMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 31,
-      "symbol": "AppThemeProtocol.headerMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 32,
-      "symbol": "AppThemeProtocol.extraLargeMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 35,
-      "symbol": "AppThemeProtocol.smallBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 36,
-      "symbol": "AppThemeProtocol.defaultBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 37,
-      "symbol": "AppThemeProtocol.mediumBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 38,
-      "symbol": "AppThemeProtocol.headerBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 39,
-      "symbol": "AppThemeProtocol.extraLargeBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 42,
-      "symbol": "AppThemeProtocol.barStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 43,
-      "symbol": "AppThemeProtocol.textColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 44,
-      "symbol": "AppThemeProtocol.altTextColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 45,
-      "symbol": "AppThemeProtocol.linksColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 46,
-      "symbol": "AppThemeProtocol.primaryColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 47,
-      "symbol": "AppThemeProtocol.backgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 48,
-      "symbol": "AppThemeProtocol.textBackgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 49,
-      "symbol": "AppThemeProtocol.alternativeColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 50,
-      "symbol": "AppThemeProtocol.alternativeColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 51,
-      "symbol": "AppThemeProtocol.alternativeColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 52,
-      "symbol": "AppThemeProtocol.alternativeColor4",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 53,
-      "symbol": "AppThemeProtocol.facebookColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 54,
-      "symbol": "AppThemeProtocol.nonActiveAlpha",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 57,
+      "line": 118,
       "symbol": "AppThemeProtocol.monetaryColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 60,
-      "symbol": "AppThemeProtocol.errorColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 63,
-      "symbol": "AppThemeProtocol.lightGrayScaleColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 64,
-      "symbol": "AppThemeProtocol.lightGrayBorderColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 67,
-      "symbol": "AppThemeProtocol.darkGrayColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 68,
-      "symbol": "AppThemeProtocol.mediumGrayColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 69,
-      "symbol": "AppThemeProtocol.lightGrayColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 70,
-      "symbol": "AppThemeProtocol.lightestGrayColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 73,
-      "symbol": "AppThemeProtocol.splashBgColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 74,
-      "symbol": "AppThemeProtocol.splashBgColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 75,
-      "symbol": "AppThemeProtocol.splashBgColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 78,
-      "symbol": "AppThemeProtocol.gradientSet1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 79,
-      "symbol": "AppThemeProtocol.gradientSet2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 80,
-      "symbol": "AppThemeProtocol.gradientSet3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 83,
-      "symbol": "AppThemeProtocol.gradientSet4",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 84,
-      "symbol": "AppThemeProtocol.gradientSet5",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 86,
-      "symbol": "AppThemeProtocol.allBgColors()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 89,
-      "symbol": "AppThemeProtocol.longAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 90,
-      "symbol": "AppThemeProtocol.mediumAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 91,
-      "symbol": "AppThemeProtocol.quickAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 94,
-      "symbol": "AppThemeProtocol.xsPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 95,
-      "symbol": "AppThemeProtocol.sPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 96,
-      "symbol": "AppThemeProtocol.mPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 97,
-      "symbol": "AppThemeProtocol.lPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 98,
-      "symbol": "AppThemeProtocol.xlPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 99,
-      "symbol": "AppThemeProtocol.xxlPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 102,
-      "symbol": "AppThemeProtocol.padding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 103,
-      "symbol": "AppThemeProtocol.gridCellToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 104,
-      "symbol": "AppThemeProtocol.carouselCellWidthToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 105,
-      "symbol": "AppThemeProtocol.carouselCellHeightToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 106,
-      "symbol": "AppThemeProtocol.popoverMenuLabelHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 107,
-      "symbol": "AppThemeProtocol.popoverMenuToScreenWidthRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 108,
-      "symbol": "AppThemeProtocol.defaultButtonHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 109,
-      "symbol": "AppThemeProtocol.defaultCornerRadius",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 110,
-      "symbol": "AppThemeProtocol.defaultProgressBarHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 112,
-      "symbol": "AppThemeProtocol.cardStyling(_:borderColor:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 113,
-      "symbol": "AppThemeProtocol.cardStyling(_:addBorder:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 114,
-      "symbol": "AppThemeProtocol.cardStyling(_:bgColors:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 115,
-      "symbol": "AppThemeProtocol.cardStyling(_:bgColor:applyShadow:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 116,
-      "symbol": "AppThemeProtocol.collectionViewPadding(_:cellLength:collectionType:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 117,
-      "symbol": "AppThemeProtocol.roundRectButton(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
       "line": 121,
-      "symbol": "AppThemeProtocol",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 123,
-      "symbol": "AppThemeProtocol.defaultCornerRadius",
+      "symbol": "AppThemeProtocol.errorColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
       "line": 124,
-      "symbol": "AppThemeProtocol.defaultButtonHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 125,
-      "symbol": "AppThemeProtocol.defaultTextFieldHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 126,
-      "symbol": "AppThemeProtocol.defaultProgressBarHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 127,
-      "symbol": "AppThemeProtocol.popoverMenuLabelHeight",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 128,
-      "symbol": "AppThemeProtocol.popoverMenuToScreenWidthRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 130,
-      "symbol": "AppThemeProtocol.roundRectButton(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 136,
-      "symbol": "AppThemeProtocol.cardStyling(_:bgColor:applyShadow:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 151,
-      "symbol": "AppThemeProtocol.cardStyling(_:borderColor:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 160,
-      "symbol": "AppThemeProtocol.cardStyling(_:addBorder:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 169,
-      "symbol": "AppThemeProtocol.cardStyling(_:bgColors:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 189,
-      "symbol": "AppThemeProtocol.allBgColors()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 193,
-      "symbol": "AppThemeProtocol.collectionViewPadding(_:cellLength:collectionType:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 206,
-      "symbol": "AppThemeProtocol.padding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 210,
-      "symbol": "AppThemeProtocol.xsPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 211,
-      "symbol": "AppThemeProtocol.sPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 212,
-      "symbol": "AppThemeProtocol.mPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 213,
-      "symbol": "AppThemeProtocol.lPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 214,
-      "symbol": "AppThemeProtocol.xlPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 215,
-      "symbol": "AppThemeProtocol.xxlPadding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 217,
-      "symbol": "AppThemeProtocol.nonActiveAlpha",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 220,
-      "symbol": "AppThemeProtocol.smallFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 221,
-      "symbol": "AppThemeProtocol.defaultFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 222,
-      "symbol": "AppThemeProtocol.mediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 223,
-      "symbol": "AppThemeProtocol.headerFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 224,
-      "symbol": "AppThemeProtocol.extraLargeFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 227,
-      "symbol": "AppThemeProtocol.smallMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 228,
-      "symbol": "AppThemeProtocol.defaultMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 229,
-      "symbol": "AppThemeProtocol.mediumMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 230,
-      "symbol": "AppThemeProtocol.headerMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 231,
-      "symbol": "AppThemeProtocol.extraLargeMediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 234,
-      "symbol": "AppThemeProtocol.smallBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 235,
-      "symbol": "AppThemeProtocol.defaultBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 236,
-      "symbol": "AppThemeProtocol.mediumBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 237,
-      "symbol": "AppThemeProtocol.headerBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 238,
-      "symbol": "AppThemeProtocol.extraLargeBoldFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 241,
-      "symbol": "AppThemeProtocol.longAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 242,
-      "symbol": "AppThemeProtocol.mediumAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 243,
-      "symbol": "AppThemeProtocol.quickAnimationDuration",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 245,
-      "symbol": "AppThemeProtocol.gridCellToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 246,
-      "symbol": "AppThemeProtocol.carouselCellWidthToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 247,
-      "symbol": "AppThemeProtocol.carouselCellHeightToScreenRatio",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 249,
-      "symbol": "AppThemeProtocol.splashBgColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 253,
-      "symbol": "AppThemeProtocol.splashBgColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 257,
-      "symbol": "AppThemeProtocol.splashBgColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 261,
-      "symbol": "AppThemeProtocol.facebookColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 265,
-      "symbol": "AppThemeProtocol.altTextColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 269,
-      "symbol": "AppThemeProtocol.monetaryColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 274,
       "symbol": "AppThemeProtocol.lightGrayScaleColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 278,
+      "line": 125,
       "symbol": "AppThemeProtocol.lightGrayBorderColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 283,
-      "symbol": "AppThemeProtocol.errorColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 288,
+      "line": 128,
       "symbol": "AppThemeProtocol.darkGrayColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 292,
+      "line": 129,
       "symbol": "AppThemeProtocol.mediumGrayColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 296,
+      "line": 130,
       "symbol": "AppThemeProtocol.lightGrayColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 300,
+      "line": 131,
       "symbol": "AppThemeProtocol.lightestGrayColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 304,
-      "symbol": "AppThemeProtocol.darkBlurEffectView",
+      "line": 134,
+      "symbol": "AppThemeProtocol.splashBgColor1",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
-      "line": 308,
-      "symbol": "AppThemeProtocol.lightBlurEffectView",
+      "line": 135,
+      "symbol": "AppThemeProtocol.splashBgColor2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 136,
+      "symbol": "AppThemeProtocol.splashBgColor3",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 139,
+      "symbol": "AppThemeProtocol.gradientSet1",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 140,
+      "symbol": "AppThemeProtocol.gradientSet2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 141,
+      "symbol": "AppThemeProtocol.gradientSet3",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 144,
+      "symbol": "AppThemeProtocol.gradientSet4",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 145,
+      "symbol": "AppThemeProtocol.gradientSet5",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 147,
+      "symbol": "AppThemeProtocol.allBgColors()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 150,
+      "symbol": "AppThemeProtocol.longAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 151,
+      "symbol": "AppThemeProtocol.mediumAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 152,
+      "symbol": "AppThemeProtocol.quickAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 155,
+      "symbol": "AppThemeProtocol.xsPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 156,
+      "symbol": "AppThemeProtocol.sPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 157,
+      "symbol": "AppThemeProtocol.mPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 158,
+      "symbol": "AppThemeProtocol.lPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 159,
+      "symbol": "AppThemeProtocol.xlPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 160,
+      "symbol": "AppThemeProtocol.xxlPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 163,
+      "symbol": "AppThemeProtocol.padding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 164,
+      "symbol": "AppThemeProtocol.gridCellToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 165,
+      "symbol": "AppThemeProtocol.carouselCellWidthToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 166,
+      "symbol": "AppThemeProtocol.carouselCellHeightToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 167,
+      "symbol": "AppThemeProtocol.popoverMenuLabelHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 168,
+      "symbol": "AppThemeProtocol.popoverMenuToScreenWidthRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 169,
+      "symbol": "AppThemeProtocol.defaultButtonHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 170,
+      "symbol": "AppThemeProtocol.defaultCornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 171,
+      "symbol": "AppThemeProtocol.defaultProgressBarHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 173,
+      "symbol": "AppThemeProtocol.cardStyling(_:borderColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 174,
+      "symbol": "AppThemeProtocol.cardStyling(_:addBorder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 175,
+      "symbol": "AppThemeProtocol.cardStyling(_:bgColors:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 176,
+      "symbol": "AppThemeProtocol.cardStyling(_:bgColor:applyShadow:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 177,
+      "symbol": "AppThemeProtocol.collectionViewPadding(_:cellLength:collectionType:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 178,
+      "symbol": "AppThemeProtocol.roundRectButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 184,
+      "symbol": "AppThemeProtocol.defaultCornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 185,
+      "symbol": "AppThemeProtocol.defaultButtonHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 186,
+      "symbol": "AppThemeProtocol.defaultTextFieldHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 187,
+      "symbol": "AppThemeProtocol.defaultProgressBarHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 188,
+      "symbol": "AppThemeProtocol.popoverMenuLabelHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 189,
+      "symbol": "AppThemeProtocol.popoverMenuToScreenWidthRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 191,
+      "symbol": "AppThemeProtocol.roundRectButton(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 281,
+      "symbol": "AppThemeProtocol.sPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 282,
+      "symbol": "AppThemeProtocol.mPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 283,
+      "symbol": "AppThemeProtocol.lPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 284,
+      "symbol": "AppThemeProtocol.xlPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 285,
+      "symbol": "AppThemeProtocol.xxlPadding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 311,
+      "symbol": "AppThemeProtocol.longAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 312,
+      "symbol": "AppThemeProtocol.mediumAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 313,
+      "symbol": "AppThemeProtocol.quickAnimationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 315,
+      "symbol": "AppThemeProtocol.gridCellToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 316,
+      "symbol": "AppThemeProtocol.carouselCellWidthToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 317,
+      "symbol": "AppThemeProtocol.carouselCellHeightToScreenRatio",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 319,
+      "symbol": "AppThemeProtocol.splashBgColor1",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 323,
+      "symbol": "AppThemeProtocol.splashBgColor2",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 327,
+      "symbol": "AppThemeProtocol.splashBgColor3",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 339,
+      "symbol": "AppThemeProtocol.monetaryColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 344,
+      "symbol": "AppThemeProtocol.lightGrayScaleColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 348,
+      "symbol": "AppThemeProtocol.lightGrayBorderColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 353,
+      "symbol": "AppThemeProtocol.errorColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 358,
+      "symbol": "AppThemeProtocol.darkGrayColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 362,
+      "symbol": "AppThemeProtocol.mediumGrayColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 366,
+      "symbol": "AppThemeProtocol.lightGrayColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/AppThemeProtocol.swift",
+      "line": 370,
+      "symbol": "AppThemeProtocol.lightestGrayColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
@@ -2749,83 +2224,6 @@
       "line": 11,
       "symbol": "CBATheme",
       "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 15,
-      "symbol": "CBATheme.themeTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 19,
-      "symbol": "CBATheme.barStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 20,
-      "symbol": "CBATheme.textColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 21,
-      "symbol": "CBATheme.linksColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 22,
-      "symbol": "CBATheme.primaryColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 23,
-      "symbol": "CBATheme.backgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 24,
-      "symbol": "CBATheme.textBackgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 25,
-      "symbol": "CBATheme.alternativeColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 26,
-      "symbol": "CBATheme.alternativeColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 27,
-      "symbol": "CBATheme.alternativeColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 28,
-      "symbol": "CBATheme.alternativeColor4",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -2871,260 +2269,92 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 61,
-      "symbol": "CBATheme.smallFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 65,
-      "symbol": "CBATheme.defaultFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 69,
-      "symbol": "CBATheme.mediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/CBATheme.swift",
-      "line": 73,
-      "symbol": "CBATheme.headerFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 11,
-      "symbol": "DarkTheme",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 12,
-      "symbol": "DarkTheme.themeTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 13,
+      "line": 15,
       "symbol": "DarkTheme.gridCellToScreenRatio",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 14,
+      "line": 16,
       "symbol": "DarkTheme.carouselCellWidthToScreenRatio",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 15,
+      "line": 17,
       "symbol": "DarkTheme.carouselCellHeightToScreenRatio",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 19,
-      "symbol": "DarkTheme",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 20,
+      "line": 22,
       "symbol": "DarkTheme.gradientSet1",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 26,
+      "line": 28,
       "symbol": "DarkTheme.gradientSet2",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 31,
+      "line": 33,
       "symbol": "DarkTheme.gradientSet3",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 37,
+      "line": 39,
       "symbol": "DarkTheme.gradientSet4",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 43,
+      "line": 45,
       "symbol": "DarkTheme.gradientSet5",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 49,
-      "symbol": "DarkTheme.primaryColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 53,
-      "symbol": "DarkTheme.alternativeColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 57,
-      "symbol": "DarkTheme.alternativeColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 61,
-      "symbol": "DarkTheme.alternativeColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 65,
-      "symbol": "DarkTheme.alternativeColor4",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 69,
+      "line": 71,
       "symbol": "DarkTheme.alternativeOrangeColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 73,
+      "line": 75,
       "symbol": "DarkTheme.alternativeYellowColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 77,
-      "symbol": "DarkTheme.backgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 81,
-      "symbol": "DarkTheme.textBackgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 85,
-      "symbol": "DarkTheme.textColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 89,
-      "symbol": "DarkTheme.linksColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 93,
-      "symbol": "DarkTheme.nonActiveAlpha",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 95,
-      "symbol": "DarkTheme.barStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 99,
-      "symbol": "DarkTheme",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 101,
-      "symbol": "DarkTheme.smallFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 105,
-      "symbol": "DarkTheme.defaultFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 109,
-      "symbol": "DarkTheme.mediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 113,
-      "symbol": "DarkTheme.headerFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 119,
-      "symbol": "DarkTheme",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 120,
+      "line": 122,
       "symbol": "DarkTheme.longAnimationDuration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 121,
+      "line": 123,
       "symbol": "DarkTheme.mediumAnimationDuration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/DarkTheme.swift",
-      "line": 122,
+      "line": 124,
       "symbol": "DarkTheme.quickAnimationDuration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -3155,13 +2385,6 @@
       "line": 20,
       "symbol": "PrimaryTheme",
       "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 21,
-      "symbol": "PrimaryTheme.themeTitle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -3236,41 +2459,6 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 70,
-      "symbol": "PrimaryTheme.primaryColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 75,
-      "symbol": "PrimaryTheme.alternativeColor1",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 80,
-      "symbol": "PrimaryTheme.alternativeColor2",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 85,
-      "symbol": "PrimaryTheme.alternativeColor3",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 90,
-      "symbol": "PrimaryTheme.alternativeColor4",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
       "line": 94,
       "symbol": "PrimaryTheme.alternativeOrangeColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
@@ -3285,72 +2473,9 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 103,
-      "symbol": "PrimaryTheme.backgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 108,
-      "symbol": "PrimaryTheme.textBackgroundColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 113,
-      "symbol": "PrimaryTheme.textColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 118,
-      "symbol": "PrimaryTheme.linksColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 122,
-      "symbol": "PrimaryTheme.barStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
       "line": 126,
       "symbol": "PrimaryTheme",
       "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 128,
-      "symbol": "PrimaryTheme.smallFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 132,
-      "symbol": "PrimaryTheme.defaultFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 136,
-      "symbol": "PrimaryTheme.mediumFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Theme/PrimaryTheme.swift",
-      "line": 140,
-      "symbol": "PrimaryTheme.headerFont",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -3403,296 +2528,9 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DeclineViewTestUtil.swift",
-      "line": 12,
-      "symbol": "DeclineViewTestUtil",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DeclineViewTestUtil.swift",
-      "line": 13,
-      "symbol": "DeclineViewTestUtil.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/DeclineViewTestUtil.swift",
-      "line": 16,
-      "symbol": "DeclineViewTestUtil.generateDeclineDetails(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 109,
+      "line": 108,
       "symbol": "TestUtil.validEmail()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 113,
-      "symbol": "TestUtil.testEmail()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 117,
-      "symbol": "TestUtil.testPass()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 121,
-      "symbol": "TestUtil.testAddress()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 125,
-      "symbol": "TestUtil.testMobile()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 129,
-      "symbol": "TestUtil.testFirstname()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 133,
-      "symbol": "TestUtil.testLastname()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 137,
-      "symbol": "TestUtil.testBirthday()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 145,
-      "symbol": "TestUtil.dobFormatStyle()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 149,
-      "symbol": "TestUtil.testEmployerName()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 153,
-      "symbol": "TestUtil.testEmploymentType()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 157,
-      "symbol": "TestUtil.testEmployeAddress()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 161,
-      "symbol": "TestUtil.testPostcode()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 165,
-      "symbol": "TestUtil.testState()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 173,
-      "symbol": "TestUtil.testCountry()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 177,
-      "symbol": "TestUtil.randomPositiveAmount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 181,
-      "symbol": "TestUtil.randomAmount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 185,
-      "symbol": "TestUtil.randomIntAmount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 189,
-      "symbol": "TestUtil.randomBillAmount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 193,
-      "symbol": "TestUtil.randomDate()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 198,
-      "symbol": "TestUtil.randomBool()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 202,
-      "symbol": "TestUtil.randomLoanActivityType()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 206,
-      "symbol": "TestUtil.testLoanActivities()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 216,
-      "symbol": "TestUtil.testLoanAgreement()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 229,
-      "symbol": "TestUtil.testLoanPreview()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 262,
-      "symbol": "TestUtil.topCategoriesAmount(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 282,
-      "symbol": "TestUtil.randomRemoteBank()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 299,
-      "symbol": "TestUtil.randomTransactions(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 311,
-      "symbol": "TestUtil.testMonthAmountStatResponse()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 325,
-      "symbol": "TestUtil.testDailTransactions()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 335,
-      "symbol": "TestUtil.testSpendingCategoryById()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 341,
-      "symbol": "TestUtil.testSpendingCategories()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 347,
-      "symbol": "TestUtil.testSpendingOverview()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 358,
-      "symbol": "TestUtil.testGetBudgets()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 366,
-      "symbol": "TestUtil.testUserBudgets()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 377,
-      "symbol": "TestUtil.testLendingOverview()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 395,
-      "symbol": "TestUtil.loginWithTestAccount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 410,
-      "symbol": "TestUtil.autoSetupRegisteredCheqAccount()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Common/Util/TestUtil.swift",
-      "line": 436,
-      "symbol": "TestUtil.autoSetupAccount()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -5028,79 +3866,65 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 11,
-      "symbol": "ConnectingToBankViewController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 13,
+      "line": 16,
       "symbol": "ConnectingToBankViewController.titleLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 14,
+      "line": 17,
       "symbol": "ConnectingToBankViewController.descriptionLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 15,
+      "line": 18,
       "symbol": "ConnectingToBankViewController.image",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 16,
+      "line": 19,
       "symbol": "ConnectingToBankViewController.viewModel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 17,
+      "line": 20,
       "symbol": "ConnectingToBankViewController.transparentView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 19,
+      "line": 22,
       "symbol": "ConnectingToBankViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 24,
+      "line": 27,
       "symbol": "ConnectingToBankViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 33,
+      "line": 36,
       "symbol": "ConnectingToBankViewController.viewWillDisappear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 38,
+      "line": 41,
       "symbol": "ConnectingToBankViewController.setupUI()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ViewModel/ConnectingToBankViewModel.swift",
-      "line": 11,
-      "symbol": "ConnectingToBankViewModel",
-      "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {

@@ -8,8 +8,12 @@
 
 import UIKit
 
+/**
+ ConnectingToBankViewController is a loading indication screen that is presented when we are doing linking of banks using **MoneySoft SDK**.
+ */
 class ConnectingToBankViewController: UIViewController {
 
+    /// refer to **ConnectingToBankViewController** on **Common** storyboard
     @IBOutlet weak var titleLabel: CLabel!
     @IBOutlet weak var descriptionLabel: CLabel! 
     @IBOutlet weak var image: UIImageView!

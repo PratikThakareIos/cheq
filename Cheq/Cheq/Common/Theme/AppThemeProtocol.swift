@@ -8,49 +8,110 @@
 
 import UIKit
 
-// by adopting AppThemeProtocol
+/**
+ By adopting AppThemeProtocol, implementing classes will be able create a common interface for all themes. To the outside code, it is merely retrieving the styling from **AppThemeProtocol** interface.
+ */
 protocol AppThemeProtocol {
     
+    /// dark special effect view
     var darkBlurEffectView: UIVisualEffectView { get }
+    
+    /// dark special effect view
     var lightBlurEffectView: UIVisualEffectView { get }
 
     //MARK: theme info
+    /// title of the theme
     var themeTitle: String { get }
 
     //MARK: fonts
+    /// font interface
     var smallFont: UIFont { get }
+    
+    /// font interface
     var defaultFont: UIFont { get }
+    
+    /// font interface
     var mediumFont: UIFont { get }
+    
+    /// font interface
     var headerFont: UIFont { get }
+    
+    /// font interface
     var extraLargeFont: UIFont { get }
     
     // MARK: medium fonts
+    
+    /// medium weighted font interface
     var smallMediumFont: UIFont { get }
+    
+    /// medium weighted font interface
     var defaultMediumFont: UIFont { get }
+    
+    /// medium weighted font interface
     var mediumMediumFont: UIFont { get }
+    
+    /// medium weighted font interface
     var headerMediumFont: UIFont { get }
+    
+    /// medium weighted font interface
     var extraLargeMediumFont: UIFont { get }
     
     // MARK: bold fonts
+    
+    /// bold weighted font interface
     var smallBoldFont: UIFont { get }
+    
+    /// bold weighted font interface
     var defaultBoldFont: UIFont { get }
+    
+    /// bold weighted font interface
     var mediumBoldFont: UIFont { get }
+    
+    /// bold weighted font interface
     var headerBoldFont: UIFont { get }
+    
+    /// bold weighted font interface
     var extraLargeBoldFont: UIFont { get }
 
     //MARK: colors
+    
+    /// style of the status bar
     var barStyle: UIBarStyle { get }
+    
+    /// default textColor is used when we have light background
     var textColor: UIColor { get }
+    
+    /// alt textColor is used when we have dark background. e.g. Button title.
     var altTextColor: UIColor { get }
+    
+    /// links text color
     var linksColor: UIColor { get }
+    
+    /// primary color is used as background color for normal buttons
     var primaryColor: UIColor { get }
+    
+    /// default background color on viewControllers
     var backgroundColor: UIColor { get }
+    
+    /// default background color for text, usually same as **backgroundColor**
     var textBackgroundColor: UIColor { get }
+    
+    /// alternative colors that belongs to the app's design
     var alternativeColor1: UIColor { get }
+    
+    /// alternative colors that belongs to the app's design
     var alternativeColor2: UIColor { get }
+    
+    /// alternative colors that belongs to the app's design
     var alternativeColor3: UIColor { get }
+    
+    /// alternative colors that belongs to the app's design
     var alternativeColor4: UIColor { get }
+    
+    /// facebook colors for facebook login button background color
     var facebookColor: UIColor { get }
+    
+    /// when any view is not acive, then we could apply this alpha value
     var nonActiveAlpha: CGFloat { get }
     
     // monetary color
@@ -133,6 +194,8 @@ extension AppThemeProtocol {
         button.clipsToBounds = true
     }
     
+    
+    /// helper method to apply round rect card styling to a given view.
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool) {
         view.backgroundColor = bgColor
         view.layer.masksToBounds = false
@@ -148,6 +211,7 @@ extension AppThemeProtocol {
         }
     }
     
+    /// helper method to add border to a round-rect view
     func cardStyling(_ view: UIView, borderColor: UIColor?) {
         view.layer.masksToBounds = true
         view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
@@ -157,6 +221,7 @@ extension AppThemeProtocol {
         }
     }
 
+    /// variation of cardStlying method. Adding round-rect and standard light-gray border
     func cardStyling(_ view: UIView, addBorder: Bool) {
         view.layer.masksToBounds = true
         view.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
@@ -166,6 +231,7 @@ extension AppThemeProtocol {
         }
     }
 
+    /// card-styling and adding a gradient background with a given list of colors
     func cardStyling(_ view: UIView, bgColors: [UIColor]) {
         // setup gradient layer
         let gradientLayer = CAGradientLayer()
@@ -186,27 +252,31 @@ extension AppThemeProtocol {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
+    /// Helper method returning list of all possible background colors. Implementing classes may have its own logics.
     func allBgColors()-> [UIColor] {
         return [alternativeColor1, alternativeColor2, alternativeColor3, alternativeColor4]
     }
 
+    /// helper method adding padding on collection view
     func collectionViewPadding(_ collectionView: UICollectionView, cellLength: CGFloat, collectionType: CollectionViewType) {
         switch(collectionType) {
 
-        // for carousel
+        /// for carousel
         case .carousel:
             collectionView.contentInset = UIEdgeInsets(top: padding, left: cellLength*0.25, bottom: padding, right: cellLength*0.25)
 
-        // for grid view
+        /// for grid view
         case .grid:
             collectionView.contentInset = UIEdgeInsets(top: padding, left: cellLength*0.25, bottom: padding, right: cellLength*0.25)
         }
     }
 
+    /// standard padding size
     var padding: CGFloat {
         get { return 10.0 }
     }
     
+    /// A padding system to standardize all padding logics
     var xsPadding: CGFloat { get { return 4.0 } }
     var sPadding: CGFloat { get { return 8.0 } }
     var mPadding: CGFloat { get { return 16.0 } }

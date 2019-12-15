@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ Old code thats not used anymore.
+ 
+ Protocol for Chart CollectionViewCells
+ */
 protocol ChartCollectionViewCellProtocol {
 
     static var compactSize: CGSize { get }

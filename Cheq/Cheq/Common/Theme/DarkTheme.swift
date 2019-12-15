@@ -8,7 +8,9 @@
 
 import UIKit
 
+/// DarkTheme implementation of **AppThemeProtocol**
 struct DarkTheme: AppThemeProtocol {
+    
     var themeTitle: String { get { return "DarkTheme" } }
     var gridCellToScreenRatio: CGFloat { get { return 0.35 } }
     var carouselCellWidthToScreenRatio: CGFloat { get { return 0.6 } }

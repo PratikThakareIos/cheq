@@ -9,10 +9,17 @@
 import UIKit
 import PromiseKit
 
+/**
+ Helper class to generate DeclineDetails for testing purpose
+ */
 class DeclineViewTestUtil {
+    
+    /// Singleton instance
     static let shared = DeclineViewTestUtil()
+    /// private init for implementing Singleton
     private init() {}
     
+    /// Helper method to generate decline details with a given **DeclineDetail.DeclineReason** 
     func generateDeclineDetails(_ reason: DeclineDetail.DeclineReason)-> DeclineDetail? {
         switch reason {
         case ._none:

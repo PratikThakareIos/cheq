@@ -100,109 +100,122 @@ class TestUtil {
         return [usernameInput, password, checkBox, confirm, spacer]
     }
     
-    /// Helper to generate weak password 
+    /// Helper to generate weak password
     func weakPassword()-> String {
         return "12345678"
     }
     
-    // TODO
     func validEmail()-> Bool {
         return true
     }
     
+    /// Helper method returning a test email. In some test cases, we want to stick with using the same email. e.g. Login to perform linking bank accounts.
     func testEmail()-> String {
         return "xuwei@cheq.com.au"
     }
     
+    /// Helper method for getting a password. Sometimes, we want to always use the same password for testing with registered account. e.g. Login to perform linking bank accounts.
     func testPass()-> String {
         return "cheqPass808"
     }
     
+    /// Helper method to retriev a test address.
     func testAddress()-> String {
         return String(describing: "60 \(addressSuffix[0])")
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testMobile()-> String {
         return "0405090733"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testFirstname()-> String {
         return "Bob"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testLastname()-> String {
         return "Builder"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testBirthday()-> Date {
         return 25.years.earlier
     }
     
-//    func testAgeRange()-> PutUserDetailRequest.AgeRange {
-//        return .from25To34
-//    }
-    
+    /// retrieve DOB format style for formatting Date to fill in question form
     func dobFormatStyle()->String {
         return "dd/MM/yyyy"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testEmployerName()-> String {
         return "Cheq Pty Ltd"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testEmploymentType()-> PutUserEmployerRequest.EmploymentType {
         return .fulltime
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testEmployeAddress()-> String {
         return "60 Margaret Street, Sydney 2000 NSW"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testPostcode()-> String {
         return "2000"
     }
     
+    /// Helper method to retrieve data to fill in question form
     func testState()->  PutUserOnfidoKycRequest.State {
         return .nsw
     }
-    
-//    func testPutUserState()-> PutUserDetailRequest.State {
-//        return .nsw
-//    }
-    
+
+    /// Helper method to retrieve data to fill in question form
     func testCountry()-> String {
         return "Australia"
     }
     
+    /// Helper method to retrievce a random positive amount
     func randomPositiveAmount()->Double {
         return Double.random(in: 0...1000)
     }
     
+    /// Helper method to retrievce a random signed amount. Can be negative or positive.
     func randomAmount()->Double {
         return Double.random(in: -100...100)
     }
     
+    /// Helper method to retrievce a random int amount. Can be negative or positive.
     func randomIntAmount()->Int {
         return Int.random(in: -100...100)
     }
     
+    /// Helper method to retrievce a random Double amount. Can be negative or positive.
     func randomBillAmount()->Double {
         return Double.random(in: -1000...1000)
     }
     
+    /// Helper method for creating a random past date
     func randomDate()-> Date {
         let random = Int.random(in: 0...30)
         return random.days.earlier
     }
     
+    /// Giving back a random Boolean value
     func randomBool()-> Bool {
         return Bool.random()
     }
     
+    /// Helper method to return a random **LoanActivity.ModelType**
     func randomLoanActivityType()->LoanActivity.ModelType {
         return randomBool() ? LoanActivity.ModelType.cashout : LoanActivity.ModelType.repayment
     }
     
+    /// Generate a list of LoanActivity to test UI for Lending screen
     func testLoanActivities()->[LoanActivity] {
         var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
@@ -213,6 +226,7 @@ class TestUtil {
         return loanActivities
     }
     
+    /// Generate a dummy Loan Agreement text
     func testLoanAgreement()->String {
         return """
         A loan agreement is an agreement between two parties whereby one party (usually referred to as the ‘lender’) agrees to provide a loan to the other party (usually referred to as the ‘borrower’).
@@ -226,6 +240,9 @@ class TestUtil {
         """
     }
     
+    /**
+     Generate a mock **GetLoanPreviewResponse**
+     */
     func testLoanPreview()->GetLoanPreviewResponse {
         let amount = Double(AppData.shared.amountSelected)
         let fee = Double(AppData.shared.loanFee)
@@ -234,21 +251,27 @@ class TestUtil {
         return loanPreview
     }
     
+    /**
+     Convert data types from **GetUpcomingBillResponse.CategoryCode** to **SlimTransactionResponse.CategoryCode**. This shouldn't be neccessary once Swagger definition has consolidate **CategoryCode**.
+     */
     fileprivate func slimTransactionCategoryCode(_ code: GetUpcomingBillResponse.CategoryCode)->SlimTransactionResponse.CategoryCode {
         let slimTransactionCategoryCode = SlimTransactionResponse.CategoryCode(rawValue: code.rawValue) ?? .benefits
         return slimTransactionCategoryCode
     }
     
+    /// Helper method to retrieve random CategoryCode, this is useful for testing UI
     fileprivate func randomCategoryCode()->GetUpcomingBillResponse.CategoryCode {
         let categoryCodes: [GetUpcomingBillResponse.CategoryCode] = [.benefits, .bills, .employmentIncome, .entertainment, .financialServices, .fitness, .groceries, .health, .household, .ondemandIncome, .otherDeposit, .others, .restaurantsAndCafes, .secondaryIncome, .shopping, .tobaccoAndAlcohol, .transport, .travel, .workAndEducation]
         return categoryCodes.randomElement() ?? .bills
     }
     
+    /// Helper method for random recurring frequency
     fileprivate func randomRecurringFrequency()->GetUpcomingBillResponse.RecurringFrequency {
         let recurringFreqencyTypes: [GetUpcomingBillResponse.RecurringFrequency] = [.bimonthly, .fortnightly, .halfYearly, .monthly, .quarterly, .weekly, .yearly]
         return recurringFreqencyTypes.randomElement() ?? .weekly
     }
-    
+     
+    /// Helper method to generate a list of **GetUpcomingBillResponse**
     fileprivate func upcomingBillResponses()-> [GetUpcomingBillResponse] {
         var result = [GetUpcomingBillResponse]()
         for _ in 1...20 {
@@ -259,6 +282,7 @@ class TestUtil {
         return result
     }
     
+    /// Helper method to generate a list of **CategoryAmountStatResponse**
     func topCategoriesAmount(_ numOfItems: Int)->[CategoryAmountStatResponse] {
         let range = 0..<numOfItems
         var result = [CategoryAmountStatResponse]()
@@ -279,6 +303,7 @@ class TestUtil {
         return result
     }
     
+    /// Helper method to generate random **RemoteBank**
     func randomRemoteBank()-> RemoteBank {
         var remoteBanks = [RemoteBank]()
         let commnWealthBank = RemoteBank(financialInstitutionId: 236, name: "Commonwealth Bank", alias: "CBA", logoUrl: "https://cheq-financialinstitution-logos.s3-ap-southeast-2.amazonaws.com/236-www-commbank-com-au.png", order: 1)
@@ -296,6 +321,7 @@ class TestUtil {
         return remoteBanks.randomElement() ?? commnWealthBank
     }
     
+    /// Helper method to generate **SlimTransactionResponse** for testing UI. Takes **numberOfItems** as the amount parameter to generate.
     func randomTransactions(_ numberOfItems: Int)->[SlimTransactionResponse] {
         var transactions = [SlimTransactionResponse]()
         for _ in 0..<numberOfItems {
@@ -308,8 +334,8 @@ class TestUtil {
         return transactions
     }
     
+    /// Helper method to generate a list of **MonthAmountStatResponse** for testing UI.
     func testMonthAmountStatResponse()->[MonthAmountStatResponse] {
-        
         var result = [MonthAmountStatResponse]()
         let months = [ FormatterUtil.shared.monthFromDate(2.months.earlier),
                        FormatterUtil.shared.monthFromDate(1.months.earlier),
@@ -321,7 +347,8 @@ class TestUtil {
         }
         return result
     }
-    
+     
+    /// Helper method to generate a list of **DailyTransactionsResponse**
     func testDailTransactions()->[DailyTransactionsResponse] {
         var transactions = [DailyTransactionsResponse]()
         for _ in 0...20 {
@@ -332,18 +359,21 @@ class TestUtil {
         return transactions
     }
     
+    /// Helper method for **GetSpendingSpecificCategoryResponse** to test during development
     func testSpendingCategoryById()->GetSpendingSpecificCategoryResponse {
         let monthAmountStats = testMonthAmountStatResponse()
         let response = GetSpendingSpecificCategoryResponse(monthAmountStats: monthAmountStats, dailyTransactions: testDailTransactions())
         return response
     }
     
+    /// Helper method for **GetSpendingCategoryResponse** to test during development
     func testSpendingCategories()->GetSpendingCategoryResponse {
         let monthAmountStats = testMonthAmountStatResponse()
         let response = GetSpendingCategoryResponse(monthAmountStats: monthAmountStats, categoryAmountStats: topCategoriesAmount(19))
         return response
     }
     
+    /// Helper method for **GetSpendingOverviewResponse** to test during development
     func testSpendingOverview()->GetSpendingOverviewResponse {
         let startDate = FormatterUtil.shared.simpleDateFormatter().string(from: 5.days.later)
         let endDate = FormatterUtil.shared.simpleDateFormatter().string(from: 10.days.later)
@@ -354,15 +384,14 @@ class TestUtil {
         return spendingOverview
     }
     
-    
+    /// Helper method for **GetUserBudgetResponse** to test during development
     func testGetBudgets()->GetUserBudgetResponse {
         let startDate = 7.days.later
         let startDateString = FormatterUtil.shared.simpleDateFormatter().string(from: startDate)
         return GetUserBudgetResponse(startDate: startDateString, recurringFrequency: "", requireSetupProcess: true, totalBudget: 1000.0, totalSpending: 900.0, userBudgets: TestUtil.shared.testUserBudgets())
     }
     
-    
-    
+    /// Helper method for list **UserBudget**
     func testUserBudgets()->[UserBudget] {
         var results = [UserBudget]()
         for _ in 0...20 {
@@ -374,6 +403,7 @@ class TestUtil {
         return results
     }
     
+    /// Helper method for building a mock **GetLendingOverviewResponse**
     func testLendingOverview()->GetLendingOverviewResponse {
         let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         
@@ -392,6 +422,9 @@ class TestUtil {
         return lendingOverview
     }
     
+    /**
+    Sometimes we want to test UI flow that requires logged in authToken. This method is for assisting the automation of logging in programmatically with test account, so that the code can jump into the part where we need the authUser with authToken to start testing.
+     */
     func loginWithTestAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             let email = "dean1@testcheq.com.au"
@@ -407,6 +440,9 @@ class TestUtil {
         }
     }
     
+    /**
+     This is a helper method to automatically register a new user for cheq and go through a lot of the tedious steps required during onboard. So that developer can jump into testing linking of bank with MoneySoft SDK quickly.
+     */
     func autoSetupRegisteredCheqAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             var loginCredentials = [LoginCredentialType: String]()
@@ -433,10 +469,11 @@ class TestUtil {
         }
     }
     
+    /**
+     Similar to the above 2 method. Using PromiseKit to automate the setting up of data so that we can jump into the testing of in progress work.
+     */
     func autoSetupAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
-//            let testBank = "St.George Bank"
-//            var storedAccounts = [FinancialAccountModel]()
             var loginCredentials = [LoginCredentialType: String]()
             loginCredentials[.email] = TestUtil.shared.randomEmail()
             loginCredentials[.password] = TestUtil.shared.randomPassword()
@@ -458,68 +495,6 @@ class TestUtil {
             }.catch { err in
                 resolver.reject(err)
             }
-                
-                
-//            .then { authUser->Promise<AuthUser> in
-//                return AuthConfig.shared.activeManager.postNotificationToken(authUser)
-//            }.then { authUser->Promise<AuthenticationModel> in
-//                LoggingUtil.shared.cPrint(authUser.authToken() ?? "")
-//                let msCredential = authUser.msCredential
-//                return MoneySoftManager.shared.login(msCredential)
-//            }.then { msAuthModel-> Promise<UserProfileModel> in
-//                return MoneySoftManager.shared.getProfile()
-//            }.then { profile->Promise<[FinancialInstitutionModel]> in
-//                return MoneySoftManager.shared.getInstitutions()
-//            }.then { institutions-> Promise<Bool> in
-//                AppData.shared.financialInstitutions = institutions
-//                let postReq = DataHelperUtil.shared.postFinancialInstitutionsRequest(institutions)
-//                return CheqAPIManager.shared.postBanks(postReq)
-//            }.then { success->Promise<InstitutionCredentialsFormModel> in
-//                let institutions = AppData.shared.financialInstitutions
-//                let banks: [FinancialInstitutionModel] = institutions
-//                banks.forEach {
-//                    let name = $0.name ?? ""
-//                    LoggingUtil.shared.cPrint(name)
-//                }
-//                let selected = banks.first(where: { $0.name == testBank})
-//                LoggingUtil.shared.cPrint(selected?.name ?? "")
-//                return MoneySoftManager.shared.getBankSignInForm(selected!)
-//            }.then { signInForm->Promise<[FinancialAccountLinkModel]> in
-//                var form = signInForm
-//                MoneySoftUtil.shared.fillFormWithStGeorgeAccount(&form)
-//                LoggingUtil.shared.cPrint(form)
-//                return MoneySoftManager.shared.linkableAccounts(form)
-//            }.then { linkableAccounts in
-//                return MoneySoftManager.shared.linkAccounts(linkableAccounts)
-//            }.then { linkedAccounts in
-//                return MoneySoftManager.shared.getAccounts()
-//            }.then { fetchedAccounts  -> Promise<Bool> in
-//                storedAccounts = fetchedAccounts
-//                let postFinancialAccountReq = DataHelperUtil.shared.postFinancialAccountsReq(fetchedAccounts)
-//                return CheqAPIManager.shared.postAccounts(postFinancialAccountReq)
-//            }.then { succcess -> Promise<[FinancialAccountModel]> in
-//                let refreshOptions = RefreshAccountOptions()
-//                refreshOptions.includeTransactions = true
-//                let enabledAccounts = storedAccounts.filter{ $0.disabled == false}
-//                return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
-//            }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
-//                storedAccounts = refreshedAccounts
-//                let transactionFilter = TransactionFilter()
-//                transactionFilter.fromDate = 90.days.earlier
-//                transactionFilter.toDate = Date()
-//                transactionFilter.count = 1000
-//                transactionFilter.offset = 0
-//                return MoneySoftManager.shared.getTransactions(transactionFilter)
-//            }.then { transactions->Promise<Bool> in
-//                AppData.shared.financialTransactions = transactions
-//                let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsReq(transactions)
-//                return CheqAPIManager.shared.postTransactions(postFinancialTransactionsReq)
-//            }.then { success->Promise<AuthUser> in
-//                return AuthConfig.shared.activeManager.getCurrentUser()
-//            }.then { authUser->Promise<AuthUser> in
-//                return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-//            }
-            
         }
     }
 }
