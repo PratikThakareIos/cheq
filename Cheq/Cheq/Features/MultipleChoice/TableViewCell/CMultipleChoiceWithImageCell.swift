@@ -31,7 +31,8 @@ class CMultipleChoiceWithImageCell: UITableViewCell {
     }
     
     func setupConfig() {
-        self.choiceTitleLabel.font = AppConfig.shared.activeTheme.mediumFont
+        self.iconImageView.image = UIImage.init(named: "bankPlaceholder")
+        self.choiceTitleLabel.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
         self.backgroundColor = .white
         self.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

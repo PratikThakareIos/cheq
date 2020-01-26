@@ -14,16 +14,21 @@ class PreviewLoanViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = PreviewLoanViewModel()
-        setupKeyboardHandling()
         setupUI()
         setupDelegate()
-        registerObservables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        activeTimestamp()
+        registerObservables()
         hideBackTitle()
         NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func setupUI() {
@@ -33,6 +38,8 @@ class PreviewLoanViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(confirm(_:)), name: NSNotification.Name(UINotificationEvent.swipeConfirmation.rawValue), object: nil)
         

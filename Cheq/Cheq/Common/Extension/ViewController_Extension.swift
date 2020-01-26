@@ -10,47 +10,76 @@ import UIKit
 import NotificationCenter
 import UDatePicker
 
+/**
+ UIViewControllerProtocol should be implement by any viewController that leverages on **setupKeyboardHandling** method to enable scrolling when keyboard shows up during data entry. This avoids keyboard blocking the view's content.
+ */
 protocol UIViewControllerProtocol {
+    
+    /// baseScrollView method returns the UIScrollView reference on viewController/ This method is used by **setupKeyboardHandling**. If we return nil, then the logic to handle keyboard display will be different, where we manually add contentInset to the viewController view instead of scrolling the current view controller
     func baseScrollView()-> UIScrollView?
 }
 
 // MARK: Hide navigation bar back button title
 extension UIViewController {
+    
+    /// **transparentStatusBar** style nav bar to have transparent status bar
+    func transparentStatusBar(_ navBar: inout UINavigationBar) {
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+    }
 
+    /// style nav bar to show logout button
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
     }
     
+    
+    /// style nav bar to show back button
     func showBackButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
     }
     
+    /// style to add logout button on right, it's debug purpose
     func addLogoutNavButton() {
         let nav = self.navigationItem
         let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
         nav.setRightBarButton(logoutButton, animated: true)
     }
     
+    
+    /// hide nav bar
+    func hideNavBar() {
+        guard let nav = self.navigationController else { return }
+        nav.setNavigationBarHidden(true, animated: false)
+    }
+    
+    /// hide back title text, leaving just the back arrow
     func hideBackTitle() {
         self.navigationItem.hidesBackButton = false
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
     
+    /// hide back button
     func hideBackButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
     }
 
+    /// show close button on the left of the nav bar
     func showCloseButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navClose"), style: .plain, target: self, action: #selector(closeButton))
     }
 
+    /// when close button is pressed, calls **AppNav.shared.dismissModal**, which abstracts the logic behind dismissing the current view controller
     @objc func closeButton() {
         AppNav.shared.dismissModal(self) { }
     }
     
+    
+    /// extension method which abstracts the logic behind popping the current view controller
     @objc func back() {
         AppNav.shared.dismiss(self)
     }
@@ -58,6 +87,8 @@ extension UIViewController {
 
 // MARK: Intercom
 extension UIViewController {
+    
+    /// handle presenting intercom view controller notification event
     @objc func intercom(_ notification: NSNotification) {
         IntercomManager.shared.loginIntercom().done { authUser in
             IntercomManager.shared.present()
@@ -70,9 +101,12 @@ extension UIViewController {
 // MARK: PopupDialog wrapper
 extension UIViewController {
     
+    /// wrapper to show decision popup dialog
     func showDecision(_ msg: String, confirmCb: (()->Void)?, cancelCb: (()->Void)?) {
         // Prepare the popup assets
         let message = msg
+        
+        /// CPopupDialog is custom class abstracting our app from whatever third party library that we are using
         let cPopup = CPopupDialog(.decision, messageBody: message, button: .ok, cancelButton: .cancel, confirm: {
             if let cb = confirmCb { cb() }
         }, cancel: {
@@ -81,6 +115,7 @@ extension UIViewController {
         cPopup.present(self)
     }
     
+    /// extension method to show popup with message and image altogether
     func showImageMessage(_ msg: String, image: String, completion: (()->Void)?) {
         let cPopup = CPopupDialog(.congrats, image: "success", messageBody: msg, button: .ok) {
             if let cb = completion { cb() }
@@ -88,6 +123,8 @@ extension UIViewController {
         cPopup.present(self)
     }
     
+    
+    /// extension method to simply show message with completion handler
     func showMessage(_ msg: String, completion: (()->Void)?) {
         // Prepare the popup assets
         let message = msg
@@ -97,6 +134,8 @@ extension UIViewController {
         cPopup.present(self)
     }
     
+    
+    /// extension method to display error
     func showError(_ err: Error, completion: (()->Void)?) {
         
         var message = ""
@@ -111,10 +150,6 @@ extension UIViewController {
             if let cb = completion { cb() }
         })
         cPopup.present(self)
-    }
-    
-    func slideUpCustomView(_ view: UIView, completion: (@escaping ()->Void)) {
-       
     }
 }
 
@@ -134,6 +169,15 @@ extension UIViewController {
     }
     
     func setupKeyboardHandling() {
+        
+        let tapToDismiss = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(notification:)))
+        tapToDismiss.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapToDismiss)
+        
+        self.view.endEditing(true)
+        if let scrollView = self.baseScrollView() {
+            scrollView.contentInsetAdjustmentBehavior = .automatic
+        }
 
         // Event for programmatically dismissing the keyboard anywhere
         NotificationCenter.default.addObserver(self, selector: #selector(dismissKeyboard(notification:)), name: NSNotification.Name(NotificationEvent.dismissKeyboard.rawValue), object: nil)
@@ -252,5 +296,51 @@ extension UIViewController {
             }
             
         }, cancelCb: nil)
+    }
+    
+    @objc func tapToDismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+//demo helper method for Development/DEMO only
+extension UIViewController {
+    @objc func autoSetupForAuthTokenIfNotLoggedIn() {
+        AppConfig.shared.showSpinner()
+        AuthConfig.shared.activeManager.getCurrentUser().done { _ in
+            AppConfig.shared.hideSpinner { }
+        }.catch { err in
+            self.autoSetup()
+        }
+    }
+    
+    func autoSetup() {
+        TestUtil.shared.autoSetupRegisteredCheqAccount().done { authUser in
+            AppConfig.shared.hideSpinner {
+                self.showMessage("initial setup done!", completion: nil)
+            }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+        }
+    }
+}
+
+// MARK: Clear observables
+extension UIViewController {
+    @objc func removeObservables() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//MARK: reload table without tableview scrolling
+extension UIViewController {
+    func reloadTableView(_ tableView: UITableView) {
+        let contentOffset = tableView.contentOffset
+        tableView.reloadData()
+        tableView.layoutIfNeeded()
+        tableView.setContentOffset(contentOffset, animated: false)
+        
     }
 }

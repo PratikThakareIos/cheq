@@ -23,13 +23,12 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupUI()
     }
     
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         if AppData.shared.isOnboarding {
@@ -37,9 +36,15 @@ class DynamicFormViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        setupKeyboardHandling()
         if built { return }
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
@@ -128,15 +133,42 @@ class DynamicFormViewController: UIViewController {
     }
 
     func submitForm() {
-        AppConfig.shared.showSpinner()
-        viewModel.coordinator.submitForm().done { success in
-            AppConfig.shared.hideSpinner {
-                AppData.shared.isOnboarding = false 
-                self.viewModel.coordinator.nextViewController()
+        let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
+        self.present(connectingToBank, animated: true) { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.coordinator.submitForm().done { success in
+                self.checkSpendingStatus { result in
+                    // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
+                    self.dismiss(animated: true) {
+                        switch result {
+                        case .success(_):
+                            AppData.shared.isOnboarding = false
+                            self.viewModel.coordinator.nextViewController()
+                        case .failure(let err):
+                            self.showError(err, completion: nil)
+                        }
+                    }
+                }
+            }.catch { err in
+                self.dismiss(animated: true) {
+                    self.showError(err, completion: nil)
+                }
             }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
+        }
+    }
+    
+    func checkSpendingStatus(_ completion: @escaping (Result<Bool>)->Void) {
+        if AppData.shared.spendingOverviewReady {
+            completion(.success(true))
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                CheqAPIManager.shared.spendingStatus().done { getSpendingStatusResponse in
+                    AppData.shared.spendingOverviewReady = (getSpendingStatusResponse.transactionStatus == GetSpendingStatusResponse.TransactionStatus.ready) ? true : false
+                    self.checkSpendingStatus(completion)
+                }.catch { err in
+                    LoggingUtil.shared.cPrint(err)
+                    completion(.failure(err))
+                }
             }
         }
     }

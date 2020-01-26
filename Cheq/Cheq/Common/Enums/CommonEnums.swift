@@ -8,10 +8,12 @@
 
 import Foundation
 
+/// currency symbol enum for looking up pre-defined currency symbol character
 enum CurrencySymbol: String {
     case dollar = "$"
 }
 
+/// enum of large category emoji icons
 enum LargeCategoryEmoji: String {
     case benefits = "large/benefits"
     case billsUtilities = "large/billsUtilities"
@@ -34,6 +36,7 @@ enum LargeCategoryEmoji: String {
     case work = "large/work"
 }
 
+/// enum of medium category emoji icons
 enum MediumCategoryEmoji: String {
     case benefits = "medium/benefits"
     case billsUtilities = "medium/billsUtilities"
@@ -56,7 +59,7 @@ enum MediumCategoryEmoji: String {
     case work = "medium/work"
 }
 
-
+/// enum of country code, add more country code here when needed 
 enum CountryCode: String {
     case AU = "AU"
 }

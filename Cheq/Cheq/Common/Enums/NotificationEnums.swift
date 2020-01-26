@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ NotificationEvent for events across the app, don't hardcode event names, update enum for lookup instead
+ */
 enum NotificationEvent: String {
     case apnsDeviceToken = "apns"
     case fcmToken = "fcm"
@@ -19,6 +22,10 @@ enum NotificationEvent: String {
     case appBecomeIdle = "appBecomeIdle"
 }
 
+
+/**
+ UINotificationEvent is UI related notification event, update when we want support for types of UI notifications
+ */
 enum UINotificationEvent: String {
     case completeDetails = "completeDetails"
     case buttonClicked = "buttonClicked"
@@ -31,15 +38,20 @@ enum UINotificationEvent: String {
     case spendingCategories = "spendingCategories"
     case spendingTransactions = "spendingTransactions"
     case selectedCategoryById = "selectedCategoryById"
+    case accountInfo = "accountInfo"
     case loadCategoryById = "loadCategoryById"
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"
     case showError = "showError"
     case showTransaction = "showTransaction"
+    case openLink = "openLink" 
     case viewAll = "viewAll"
 }
 
+/**
+ NotificationUserInfoKey are keys for accessing objects from UserInfo inside notifications, don't want to hardcode any String in our code for accessing UserInfo from notification, update this enum and use enum's rawValue to access instead. 
+ */
 enum NotificationUserInfoKey: String {
     case token = "token"
     case cell = "cell"
@@ -51,4 +63,5 @@ enum NotificationUserInfoKey: String {
     case category = "category"
     case viewAll = "viewAll"
     case transaction = "transaction"
+    case link = "link"
 }

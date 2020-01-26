@@ -45,10 +45,16 @@ enum CheqAPIManagerError: Error, Equatable {
     case errorFromGetUserDetails
 }
 
+enum CheqAPIManagerError_Budget: Error {
+    case unableToRetrieveBudgets
+    case unableToPutBudgets
+}
+
 enum CheqAPIManagerError_Spending: Error {
     case unableToRetrieveOverview
     case unableToRetrieveCategories
     case unableToRetrieveCategoryById
+    case unableToRetrieveSpendingStatus
     case unableToRetrieveTransactions
     
 }
@@ -143,7 +149,7 @@ extension MoneySoftManagerError: LocalizedError {
         case .unableToRetrieveUserProfile:
             return NSLocalizedString("Unable to retrieve user profile", comment: "")
         case .unableToUpdateDisabledAccountCredentials:
-            return NSLocalizedString("Unable to update dsialed account credentials", comment: "")
+            return NSLocalizedString("Unable to update disabled account credentials", comment: "")
         case .unableToRetrieveFinancialInstitutions:
             return NSLocalizedString("Unable to retrieve financial institutions", comment: "")
         case .unableToRetrieveFinancialInstitutionSignInForm:
@@ -171,6 +177,17 @@ extension RemoteConfigError: LocalizedError {
     }
 }
 
+extension CheqAPIManagerError_Budget: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .unableToRetrieveBudgets:
+            return NSLocalizedString("Unable to retrieve budget overview", comment: "")
+        case .unableToPutBudgets:
+            return NSLocalizedString("Unable to put budgets", comment: "")
+        }
+    }
+}
+
 extension CheqAPIManagerError_Spending: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -182,6 +199,8 @@ extension CheqAPIManagerError_Spending: LocalizedError {
             return NSLocalizedString("Unable to retrieve transactions, please try again later.", comment: "")
         case .unableToRetrieveCategoryById:
             return NSLocalizedString("Unable to retrieve spending by category by id, please try again later", comment: "")
+        case .unableToRetrieveSpendingStatus:
+            return NSLocalizedString("Unable to retrieve spending status, please try again later", comment: "")
         }
     }
 }

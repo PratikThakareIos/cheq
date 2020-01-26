@@ -8,33 +8,49 @@
 
 import UIKit
 
+/// There are 3 stages of completing details on enabling Lending. The titles are keep within CompleteDetailsType enum constants
 enum CompleteDetailsType: String {
     case workDetails = "Work details"
     case bankDetils = "Enter your bank details"
     case verifyYourDetails = "Verify your identity"
 
+    /// allowing the enum to be initialise from rawValue
     init(fromRawValue: String){
         self = CompleteDetailsType(rawValue: fromRawValue) ?? .workDetails
     }
 }
 
+/// The complete details stages can potentially have 4 different states UI, **CompleteDetailsState** is representation for these states
 enum CompleteDetailsState: String {
     case inactive = "Inactive"
     case pending = "Pending"
     case done = "Done"
     case inprogress = "Inprogress"
     
+    /// allowing the enum to be initialise from rawValue
     init(fromRawValue: String) {
         self = CompleteDetailsState(rawValue: fromRawValue) ?? .inactive
     }
 }
 
+/**
+ ViewModel for **CompleteDetailsTableViewCell**. Each **CompleteDetailsTableViewCell** represents a row in the complet details stages item list. Check Lending screen UI.
+ */
 class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
+    
+    /// Reuse identifier
     var identifier: String = "CompleteDetailsTableViewCell"
+    
+    /// Type of **CompleteDetailsType**
     var type: CompleteDetailsType = .workDetails
+    
+    /// State of this "Complete Details Stage"
     var completionState: CompleteDetailsState = .pending
+    
+    /// Complete details can be expanded or compressed, this is the toggle that drives the UI state
     var expanded: Bool = false 
 
+    /// imageIcon method returns the image name for the icon corresponding to the "Complete Details" **CompleteDetailsType** and **CompleteDetailsState**
     func imageIcon()-> String {
         var filename = ""
         var suffix = ""
@@ -56,9 +72,11 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             filename = "identityVerification"
         }
         
+        /// the image file name is constructed through combination of the two attributes
         return String(describing: "\(filename)\(suffix)")
     }
 
+    /// headerText method that returns text corresponding to the **CompleteDetailsType** and **CompleteDetailsState**
     func headerText()-> String {
         switch type {
         case .bankDetils: return "Enter your bank details"
@@ -70,6 +88,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
         }
     }
 
+    /// detailsText method that returns text corresponding to the **CompleteDetailsType** and **CompleteDetailsState**
     func detailsText()-> String {
         switch type {
         case .bankDetils: return "Link your banking details to ensure you're eligible for same day pay."

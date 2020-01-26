@@ -8,8 +8,12 @@
 
 import UIKit
 
+/**
+ extension to NSMutableAttributedString
+ */
 extension NSMutableAttributedString {
 
+    /// Apply styling to link amongst text. Find the text amongst current NSMutableAttributedString's value and and apply link, color and font styling.
     func applyLinkTo(_ text: String, link: String, color: UIColor, font: UIFont) {
         let mainString = self.string as NSString
         let range = mainString.range(of: text)
@@ -20,6 +24,7 @@ extension NSMutableAttributedString {
         }
     }
     
+    /// Simply apply highlight, but no link to a given text
     func applyHighlight(_ text: String, color: UIColor, font: UIFont) {
         let mainString = self.string as NSString
         let range = mainString.range(of: text)

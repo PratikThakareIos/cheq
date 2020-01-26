@@ -18,6 +18,14 @@ struct RemoteBankList {
         }
         return mapping
     }
+    
+    func mappingByFinancialInstitutionId()->[String: RemoteBank] {
+        var mapping = [String: RemoteBank]()
+        for bank: RemoteBank in self.banks {
+            mapping[String(bank.financialInstitutionId)] = bank
+        }
+        return mapping
+    }
 }
 
 struct RemoteBank: Codable {

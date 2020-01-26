@@ -8,15 +8,30 @@
 
 import UIKit
 
+/**
+TransferCardTableViewCell is UI implementation of transfer card on Lending screen.
+ */
 class TransferCardTableViewCell: CTableViewCell {
 
+    /// refer to **xib**
     @IBOutlet weak var amountLabel: CLabel!
+    
+    /// refer to **xib**
     @IBOutlet weak var feeLabel: CLabel!
+    
+    /// refer to **xib**
     @IBOutlet weak var transferIcon: UIImageView!
+    
+    /// refer to **xib**
     @IBOutlet weak var descriptionLabel: CLabel!
+    
+    /// refer to **xib**
     @IBOutlet weak var dateString: CLabel!
+    
+    /// refer to **xib**
     @IBOutlet weak var containerView: UIView!
 
+    /// method executed when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +44,7 @@ class TransferCardTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
 
+    /// setupConfig applies the UI update to the tableview cell, call this after we updated viewModel 
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! TransferCardTableViewCellViewModel
@@ -36,7 +52,7 @@ class TransferCardTableViewCell: CTableViewCell {
         AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: bgColor.withAlphaComponent(0.05), applyShadow: false)
         AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
         self.amountLabel.text = vm.transferAmount
-        self.amountLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.amountLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.feeLabel.text = vm.feeAmountText
         self.feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.feeLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor

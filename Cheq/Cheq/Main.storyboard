@@ -9,17 +9,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Account View Controller-->
         <scene sceneID="HYQ-QJ-5vD">
             <objects>
-                <viewController storyboardIdentifier="FinanceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eVJ-jz-eFJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eVJ-jz-eFJ" customClass="AccountViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcE-pI-91v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yp2-j7-bRX">
+                                <rect key="frame" x="10" y="88" width="394" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.84644777199999999" blue="0.336507416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yp2-j7-bRX" firstAttribute="top" secondItem="0HN-bH-1RS" secondAttribute="top" id="LLB-Uk-thJ"/>
+                            <constraint firstItem="0HN-bH-1RS" firstAttribute="bottom" secondItem="Yp2-j7-bRX" secondAttribute="bottom" id="Q1T-FP-N2q"/>
+                            <constraint firstItem="Yp2-j7-bRX" firstAttribute="leading" secondItem="0HN-bH-1RS" secondAttribute="leading" constant="10" id="Sgr-r3-bOK"/>
+                            <constraint firstItem="0HN-bH-1RS" firstAttribute="trailing" secondItem="Yp2-j7-bRX" secondAttribute="trailing" constant="10" id="kIo-kt-K3i"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0HN-bH-1RS"/>
                     </view>
                     <navigationItem key="navigationItem" id="aG1-y3-8Lp"/>
+                    <connections>
+                        <outlet property="tableView" destination="Yp2-j7-bRX" id="MaL-3d-x7f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Lt-FD-e7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,11 +45,11 @@
             <objects>
                 <viewController storyboardIdentifier="LendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gh5-ns-Z4N" customClass="LendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="37o-pU-Tpf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cJz-X1-sMR">
-                                <rect key="frame" x="10" y="88" width="394" height="725"/>
+                                <rect key="frame" x="10" y="44" width="394" height="769"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -48,9 +63,9 @@
                         <viewLayoutGuide key="safeArea" id="5BY-ug-oG6"/>
                     </view>
                     <navigationItem key="navigationItem" id="YSa-H9-hGi"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="cJz-X1-sMR" id="OJO-YR-sgh"/>
+                        <outlet property="tableView" destination="cJz-X1-sMR" id="HSH-sE-Rxm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1Y-bb-XPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,7 +77,7 @@
             <objects>
                 <viewController storyboardIdentifier="SpendingOverviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rfb-1r-f6T" customClass="SpendingViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Te9-v8-WYa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4v8-16-xQv">
@@ -183,13 +198,15 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CxM-bx-Nzq" customClass="TabViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" id="P4Y-tc-Z55">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="P4Y-tc-Z55">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
                     <connections>
                         <segue destination="Sfi-gR-bCw" kind="relationship" relationship="viewControllers" id="tJa-cv-pNy"/>
                         <segue destination="fCA-g3-tzo" kind="relationship" relationship="viewControllers" id="5Wt-N0-BrP"/>
+                        <segue destination="Pcr-8f-oVW" kind="relationship" relationship="viewControllers" id="yXX-9X-Fv3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmT-Q8-0cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,7 +217,7 @@
         <scene sceneID="z6G-Zh-bY4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCA-g3-tzo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cashout" image="financeIcon" selectedImage="tab-lend" id="eMQ-MP-TEQ"/>
+                    <tabBarItem key="tabBarItem" title="Cashout" image="tab-lend" selectedImage="tab-lend" id="eMQ-MP-TEQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wGs-fp-jRe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -219,7 +236,7 @@
         <scene sceneID="dfW-76-Q4Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sfi-gR-bCw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spending" image="analyticsIcon" selectedImage="tab-overview" id="QDd-tr-hz7"/>
+                    <tabBarItem key="tabBarItem" title="Spending" image="tab-overview" selectedImage="tab-overview" id="QDd-tr-hz7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QYS-f0-J5J">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -238,7 +255,7 @@
         <scene sceneID="FvH-wu-sMb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcr-8f-oVW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="profileIcon" id="5Ts-ET-dEX"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="tab-profile" selectedImage="tab-profile" id="5Ts-ET-dEX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUn-52-blZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -285,10 +302,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="analyticsIcon" width="30" height="30"/>
-        <image name="financeIcon" width="30" height="30"/>
-        <image name="profileIcon" width="30" height="30"/>
         <image name="tab-lend" width="20" height="25"/>
         <image name="tab-overview" width="25" height="25"/>
+        <image name="tab-profile" width="24" height="25"/>
     </resources>
 </document>

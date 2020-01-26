@@ -12,6 +12,7 @@ import PromiseKit
 import UDatePicker
 import UserNotifications
 import CoreLocation
+import SearchTextField
 
 class QuestionViewController: UIViewController {
 
@@ -38,8 +39,8 @@ class QuestionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         activeTimestamp()
+        setupKeyboardHandling()
         self.updateKeyboardViews()
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
@@ -50,9 +51,14 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegate()
         setupUI()
         prePopulateEntry()
@@ -103,7 +109,7 @@ class QuestionViewController: UIViewController {
         self.showNormalTextFields()
         self.showCheckbox()
         self.populatePlaceHolderNormalTextField()
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerFont
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
         // special case for address look up
         switch self.viewModel.coordinator.type {
@@ -135,14 +141,22 @@ class QuestionViewController: UIViewController {
     
     func prePopulateEntry() {
         viewModel.loadSaved()
-//        switch viewModel.coordinator.type {
-//        case .companyAddress:
-//            if AppData.shared.employerList.count > 0 {
-//                self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-//            }
-//            self.searchTextField.keyboardType = .default
-//        default: break
-//        }
+        switch viewModel.coordinator.type {
+        case .companyAddress:
+            self.searchTextField.text = ""
+            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
+                let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
+                let employerName = employer.name ?? ""
+                let employerAddress = employer.address ?? ""
+                if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
+                    self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+                    AppData.shared.employerAddressList = AppData.shared.employerList
+                    AppData.shared.selectedEmployerAddress = AppData.shared.selectedEmployer
+                }
+            }
+            self.searchTextField.keyboardType = .default
+        default: break
+        }
     }
     
 //    func prePopulateEntry() {
@@ -215,8 +229,6 @@ class QuestionViewController: UIViewController {
         case .contactDetails:
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
-//            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
-            
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
@@ -266,13 +278,12 @@ class QuestionViewController: UIViewController {
             }
             break
         case .companyName:
-            if AppData.shared.employerList.count > 0 {
+            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
                 let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
                 self.viewModel.save(QuestionField.employerAddress.rawValue, value: employer.address ?? "")
             }
             self.viewModel.save(QuestionField.employerName.rawValue, value: searchTextField.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.companyName)
-
 
             // check if we are onboarding or completing details for lending
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
@@ -310,7 +321,7 @@ class QuestionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
                         AppData.shared.completingDetailsForLending = false
-                        AppNav.shared.dismissModal(self)
+                        AppNav.shared.dismissModal(self) { }
                     } else {
                         AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                     }
@@ -379,17 +390,19 @@ extension QuestionViewController {
     }
     
     func validateCompanyAddressLookup()->ValidationError? {
-        guard AppData.shared.employerAddressList.count > 0 else {
+        guard AppData.shared.employerAddressList.count > 0 || AppData.shared.employerList.count > 0 else {
             self.searchTextField.text = ""
             return ValidationError.autoCompleteIsMandatory
         }
         
         let autoCompleteMatch = AppData.shared.employerAddressList.filter { $0.address == searchTextField.text }
-        guard autoCompleteMatch.count == 1 else {
+        let autoCompleteMatch2 = AppData.shared.employerList.filter { $0.address == searchTextField.text }
+        if autoCompleteMatch.count == 1 || autoCompleteMatch2.count == 1 {
+            return nil
+        } else {
             self.searchTextField.text = ""
             return ValidationError.autoCompleteIsMandatory
         }
-        return nil
     }
     
     func validateInput()->Error? {
@@ -517,15 +530,6 @@ extension QuestionViewController: UITextFieldDelegate {
         }
         return true
     }
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//       
-//        if textField == self.searchTextField, self.viewModel.coordinator.type == .companyAddress {
-//            LoggingUtil.shared.cPrint("searchTextField - textFieldDidEndEditing")
-//        }
-//        
-//        textField.resignFirstResponder()
-//    }
 }
 
 // MARK: UIViewControllerProtocol
@@ -547,11 +551,22 @@ extension QuestionViewController{
             AppData.shared.selectedEmployer = itemPosition
             self.searchTextField.text = item[itemPosition].title
         }
+        
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
+                    
+                    if addressList.isEmpty {
+                        AppData.shared.selectedEmployer = -1
+                        return
+                    }
                     AppData.shared.employerList = addressList
-                    self.searchTextField.filterStrings(addressList.map{ $0.name ?? "" })
+                    var items = [CSearchTextFieldItem]()
+                    for address in addressList {
+                        let textFieldItem = CSearchTextFieldItem(title: address.name ?? "", subtitle: address.address ?? "")
+                        items.append(textFieldItem)
+                    }
+                    self.searchTextField.filterItems(items)
                     }.catch {err in
                         LoggingUtil.shared.cPrint(err)
                 }

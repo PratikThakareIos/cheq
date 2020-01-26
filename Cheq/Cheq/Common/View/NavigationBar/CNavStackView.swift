@@ -8,8 +8,12 @@
 
 import UIKit
 
+/**
+ CNavStackView is in a nutshell, designed as a horizontal stackview to hold subviews on the navigation bar titleView
+ */
 class CNavStackView: UIStackView {
 
+    /// subViews which **CNavStackView** will hold horizontally
     var subViews: [UIView] = []
     
     init(subViews: [UIView]) {
@@ -18,6 +22,7 @@ class CNavStackView: UIStackView {
         setupConfig()
     }
     
+    /// **awakeFromNib** is called when
     override func awakeFromNib() {
         super.awakeFromNib()
         setupConfig()
@@ -33,6 +38,7 @@ class CNavStackView: UIStackView {
         setupConfig()
     }
     
+    /// **setupConfig** should be called again whenever **subViews** are updated
     func setupConfig() {
         self.distribution = .fillProportionally
         self.alignment = .center
@@ -44,6 +50,7 @@ class CNavStackView: UIStackView {
         }
     }
 
+    /// **intrinsicContentSize** is calculated automatically 
     override var intrinsicContentSize: CGSize {
         return UIView.layoutFittingExpandedSize
     }

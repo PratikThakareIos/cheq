@@ -15,12 +15,6 @@ import FirebaseRemoteConfig
 class MoneySoftManager {
     static let shared = MoneySoftManager()
     let msApi: MoneysoftApi
-//    static let API_BASE_URL = "https://api.beta.moneysoft.com.au"
-//    static let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
-//    let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: true, isBeta: true, aggregationTimeout: 600)
-//
-//    let bgTaskConfig = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL, apiReferrer: API_REFERRER, view: UIView(), isDebug: false, isBeta: true, aggregationTimeout: 60)
-    
     private init() {
         MoneysoftApi.configure(MoneySoft.config())
         self.msApi = MoneysoftApi()
@@ -189,7 +183,7 @@ extension MoneySoftManager {
     func linkableAccounts(_ credentials: InstitutionCredentialsFormModel)-> Promise<[FinancialAccountLinkModel]> {
         return Promise<[FinancialAccountLinkModel]>() { resolver in
             do {
-                try msApi.financial().getLinkableAccounts(credentials: credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
+                try self.msApi.financial().getLinkableAccounts(credentials: credentials, listener: ApiListListener<FinancialAccountLinkModel>(successHandler: { linkableAccounts in
                     
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
@@ -202,9 +196,10 @@ extension MoneySoftManager {
                     }
                     resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
                 }))
-            } catch { 
+            } catch {
                 resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
             }
+            
         }
     }
     

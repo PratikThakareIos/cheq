@@ -22,6 +22,7 @@ public struct DeclineDetail: Codable {
         case hasWriteOff = "HasWriteOff"
         case hasNameConflict = "HasNameConflict"
         case identityConflict = "IdentityConflict"
+        case reachedCapacity = "ReachedCapacity"
     }
     public var declineReason: DeclineReason?
     public var declineDescription: String?

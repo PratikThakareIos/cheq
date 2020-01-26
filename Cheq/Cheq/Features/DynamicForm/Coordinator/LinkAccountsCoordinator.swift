@@ -44,24 +44,50 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
     
+    func printForm(_ form: InstitutionCredentialsFormModel) {
+        LoggingUtil.shared.cPrint("form")
+        LoggingUtil.shared.cPrint("financial institution id - \(form.financialInstitutionId)")
+        LoggingUtil.shared.cPrint("provider institution id - \(form.providerInstitutionId)")
+        LoggingUtil.shared.cPrint("prompts - \(form.prompts.description)")
+        LoggingUtil.shared.cPrint("financial service id - \(form.financialServiceId)")
+    }
+    
+    func printAuthUser(_ authUser: AuthUser) {
+        LoggingUtil.shared.cPrint("authUser moneysoft username \(String(describing: authUser.msCredential[.msUsername]))")
+        LoggingUtil.shared.cPrint("authUser moneysoft password \(String(describing: authUser.msCredential[.msPassword]))")
+    }
+    
     func submitFormForMigration()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-                    AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
-//                return MoneySoftManager.shared.updateAccountCredentials(AppData.shared.disabledAccount, credentialFormModel: form)
-                    return MoneySoftManager.shared.linkableAccounts(form)
-                }.then { linkableAccounts->Promise<[FinancialAccountModel]> in
+            let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
+            printForm(form)
+                AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountModel]> in
+                    self.printAuthUser(authUser)
                     return MoneySoftManager.shared.getAccounts()
                 }.then { fetchedAccounts-> Promise<Bool> in
                     AppData.shared.storedAccounts = fetchedAccounts
                     let postFinancialAccountsReq = DataHelperUtil.shared.postFinancialAccountsReq(AppData.shared.storedAccounts)
                     return CheqAPIManager.shared.postAccounts(postFinancialAccountsReq)
-                }.then { success->Promise<[FinancialAccountModel]> in
+                }.then { sucesss->Promise<Bool> in
+                    // if there is disableAccount, we try to update the status using updateAccountCredentials
+                    // which will update the credential in the PDV
+                    let fetchedAccounts = AppData.shared.storedAccounts
+                    let disabledAccounts = fetchedAccounts.filter{ $0.disabled == true}
+                    if disabledAccounts.count > 0, let disableAccount = disabledAccounts.first {
+                        return MoneySoftManager.shared.updateAccountCredentials(disableAccount, credentialFormModel: form)
+                    } else {
+                        return Promise<Bool>() { res in
+                            res.fulfill(true)
+                        }
+                    }
+                }.then { success-> Promise<[FinancialAccountModel]> in
+                    return MoneySoftManager.shared.getAccounts()
+                }.then { accounts->Promise<[FinancialAccountModel]> in
+                    AppData.shared.storedAccounts = accounts 
                     let refreshOptions = RefreshAccountOptions()
                     refreshOptions.includeTransactions = true
-                    let fetchedAccounts = AppData.shared.storedAccounts
-                    let enabledAccounts = fetchedAccounts.filter{ $0.disabled == false}
-                    return MoneySoftManager.shared.refreshAccounts(enabledAccounts, refreshOptions: refreshOptions)
+                    return MoneySoftManager.shared.refreshAccounts(AppData.shared.storedAccounts, refreshOptions: refreshOptions)
                 }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
                     let transactionFilter = TransactionFilter()
                     transactionFilter.fromDate = 3.months.earlier
@@ -85,7 +111,8 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func submitFormForOnboarding()->Promise<Bool> {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<[FinancialAccountLinkModel]> in
+            let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
+            AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.linkAccounts(linkableAccounts)

@@ -83,6 +83,7 @@
             <connections>
                 <outlet property="containerView" destination="wrX-Xv-8el" id="mvQ-qS-sPJ"/>
                 <outlet property="infoIcon" destination="raa-IJ-wdI" id="SO4-P6-1i0"/>
+                <outlet property="infoIconContainer" destination="ieI-eX-4sW" id="z6Q-lt-nVl"/>
                 <outlet property="infoIconSpacing" destination="8iW-oB-nSU" id="BOY-A7-vhv"/>
                 <outlet property="informationNoteLabel" destination="c3y-Z5-5BY" id="SJZ-5A-iST"/>
             </connections>

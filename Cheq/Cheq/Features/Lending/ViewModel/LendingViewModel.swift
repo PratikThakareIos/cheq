@@ -18,7 +18,7 @@ class LendingViewModel: BaseTableVCViewModel {
     }
     
     func render(_ lendingOverview: GetLendingOverviewResponse) {
-    
+        clearSectionIfNeeded()
         var section = TableSectionViewModel()
         section.rows.append(IntercomChatTableViewCellViewModel())
         self.addLoanSetting(lendingOverview, section: &section)
@@ -180,8 +180,8 @@ extension LendingViewModel {
         for loanActivity: LoanActivity in activities {
             let activityItem = HistoryItemTableViewCellViewModel()
             let amount = loanActivity.amount ?? 0.0
-            let prefix = "$"
-            activityItem.amount = String("\(prefix)\(amount)")
+            let amountString = FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+            activityItem.amount = String("\(amountString)")
             activityItem.itemCaption = loanActivity.date ?? ""
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
             activityItem.itemTitle = type.rawValue

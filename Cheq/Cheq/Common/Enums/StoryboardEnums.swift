@@ -8,14 +8,22 @@
 
 import Foundation
 
+/**
+ StoryboardName is String enum of all the storyboards in use. This enum is used by AppNav and whenever we want to refer to the storyboard name we want to load. Update the enum when new Storyboard is added.
+*/
 enum StoryboardName: String {
     case onboarding = "Onboarding"
     case main = "Main"
     case common = "Common"
 }
 
+/**
+ OnboardingStoryboardId are viewController storyboard Ids inside the **onboarding** storyboard. Use these in pair with **StoryboardName.onboarding.rawValue** by **AppNav**
+ */
 enum OnboardingStoryboardId: String {
     case splash = "SplashViewController"
+    case cSplash = "CSplashViewController"
+    case cSplashPage = "CSplashPageViewController"
     case registration = "RegistrationViewController"
     case login = "LoginViewController"
     case forgot = "ForgotPasswordViewController"
@@ -25,6 +33,9 @@ enum OnboardingStoryboardId: String {
     case dynamic = "DynamicFormViewController"
 }
 
+/**
+MainStoryboardId are viewController storyboard Ids inside the **main** storyboard. Use these in pair with **StoryboardName.main.rawValue** by **AppNav**
+*/
 enum MainStoryboardId: String {
     case tab = "TabViewController"
     case lending = "LendingViewController"
@@ -34,12 +45,17 @@ enum MainStoryboardId: String {
     case spendingTransactions = "SpendingTransactionsViewController"
     case budget = "BudgetViewController"
     case preview = "PreviewLoanViewController"
+    case account = "AccountViewController" 
 }
 
+/**
+CommonStoryboardId are viewController storyboard Ids inside the **common** storyboard. Use these in pair with **StoryboardName.main.rawValue** by **AppNav**
+*/
 enum CommonStoryboardId: String {
     case emailVerify = "EmailVerificationViewController"
     case web = "WebViewController"
     case kyc = "KYCViewController"
     case account = "AccountViewController"
     case passcode = "PasscodeViewController"
+    case connecting = "ConnectingToBankViewController"
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIImage {
+    
+    /// turns UIImage into gradient bar with given colors
     static func gradientImage(with bounds: CGRect,
                               colors: [CGColor],
                               locations: [NSNumber]?) -> UIImage? {

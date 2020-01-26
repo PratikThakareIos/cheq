@@ -10,23 +10,37 @@ import UIKit
 import Onfido
 import MobileSDK
 
+/**
+ AppNav is Singleton class which contains all our viewController intialisation and navigation logics. So we don't have adhoc code scatter everywhere. This class is the single place for viewController initialisation and navigation.
+ */
 class AppNav {
+    
+    /// Minutes before passcode screen displays, when user is idle for 5 minutes without updating last active timestamp, then we display the passcode sceen lock
     let minsToShowPasscode = 5
+    
+    /// For every 30 seconds, we check if idle time have expired **minsToShowPasscode**
     let appLastActiveTimestampCheckInterval = 30
+    
+    /// timer instance for doing idle activity checks
     var timer: Timer?
+    
+    /// Singleton instance of AppNav
     static let shared = AppNav()
+    
     private init() {
-        // Event for programmatically for app becoming active
-        // Check if we need to show the passcode screen if passcode is setup
+        /// Event for programmatically for app becoming active
+        /// Check if we need to show the passcode screen if passcode is setup
         NotificationCenter.default.addObserver(self, selector: #selector(showPasscodeIfNeeded(notification:)), name: NSNotification.Name(NotificationEvent.appBecomeActive.rawValue), object: nil)
     }
     
+    /// This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the **minsToShowPasscode** threshold. If user has been idle for more than **minsToShowPasscode** threshold, then **presentPasscodeViewController** is called.
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
         if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
             presentPasscodeViewController()
         }
     }
     
+    /// Helper method used by **showPasscodeIfNeeded** which if user has been idle long enough to show passcode
     func isTimeToShowPasscode()->Bool {
         let now = Date()
         let earlier = CKeychain.shared.dateByKey(CKey.activeTime.rawValue)
@@ -38,16 +52,23 @@ class AppNav {
         return false
     }
     
+    /// method to clear passcode from keychain
     func emptyPasscode() {
         let _ = CKeychain.shared.setValue(CKey.passcodeLock.rawValue, value: "")
         let _ = CKeychain.shared.setValue(CKey.confirmPasscodeLock.rawValue, value: "")
     }
     
+    /// checks if passcode has been setup in keychain
     func passcodeExist()-> Bool {
         let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
 
+    /**
+     pushToQuestionForm abstract the logics to initialise a new **QuestionViewController** based on **QuestionType** and performs a navigation push from given ViewController
+     - parameter questionType: QuestionType determines how **QuestionViewController** renders the to the corresponding screen.
+     - parameter viewController: the current source viewController for the navigation action
+     */
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -60,6 +81,11 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    /**
+    pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
+    - parameter multipleChoiceType: MultipleChoiceQuestionType determines how **MultipleChoiceViewController** renders the to the corresponding screen.
+    - parameter viewController: the current source viewController for the navigation action
+    */
     func pushToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -71,7 +97,11 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
-    // Dynamic form view for linking bank account using MoneySoft SDK
+    /**
+    Dynamic form view UI is driven by **FinancialInstitutionModel**. Push to dynamic form view for linking bank account using MoneySoft SDK
+     - parameter institutionModel: FinancialInstitutionModel is retrieved from selecting the destination bank/institution
+     - parameter viewController: The source viewController for current navigation action
+     */
     func pushToDynamicForm(_ institutionModel: FinancialInstitutionModel, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -80,6 +110,11 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    /**
+     Introduction screen is a common UI pattern across the app. Use the same method to present same UI patterns across the app.
+     - parameter introductionType: IntroductionType drives the appearance for **IntroductionViewController**
+     - parameter viewController: The source viewController for current navigation action
+     */
     func pushToIntroduction(_ introductionType: IntroductionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -90,6 +125,11 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    /**
+     SpendingViewController is reused for different scenarios of displaying spending data. Use **SpendingVCType** to drive how the UI on **SpendingViewController**
+     - parameter spendingVCType: **SpendingVCType** supports scenarios for overview, categories list, specific category and transactions list
+     - parameter viewController: The source viewController for current navigation action
+     */
     func pushToSpendingVC(_ spendingVCType: SpendingVCType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
@@ -109,6 +149,11 @@ class AppNav {
         }
     }
     
+    /**
+     pushToInAppWeb opens a given URL using our own in-app webView
+     parameter url: URL is the location we want to open with in-app webview
+     parameter viewController: The source viewController for current navigation action
+     */
     func pushToInAppWeb(_ url: URL, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
@@ -117,6 +162,12 @@ class AppNav {
         nav.pushViewController(webVC, animated: true)
     }
     
+    
+    /**
+     pushToViewController abstracts the logic to initialise a viewController by **storyboardName** and **storyboardId** and push it from a given viewController
+     - parameter storyboardName: extract storyboardName String from **StoryboardEnums**
+     - parameter storyboardId: extract storyboardId String from **OnboardingStoryboardId**, **MainStoryboardId** and **CommonStoryboardId**
+     */
     func pushToViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
         guard let nav =  viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
@@ -124,15 +175,26 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    /**
+     a different flavor for **pushToViewController** where we simply provided the initialised viewController
+     - parameter newVc: intialised viewController as destination for current navigation action
+     - parameter from: current existing source viewController
+     */
     func pushToViewController(_ newVc: UIViewController, from: UIViewController) {
         guard let nav =  from.navigationController else { return }
         nav.pushViewController(newVc, animated: true)
     }
     
+    /**
+     method to open App's setting screen
+     */
     func pushToAppSetting() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
     
+    /**
+     method to open App's location setting screen. But **App-Prefs:root** is not allowed to be use officially by Apple
+     */
     func pushToAppLocationServices() {
         guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { return }
         UIApplication.shared.open(url)
@@ -142,6 +204,10 @@ class AppNav {
 // MARK: present related
 extension AppNav {
     
+    /**
+     initialises a new **QuestionViewController**
+     - parameter questionType: **QuestionType** will drive the appearance of QuestionViewController
+     */
     func initViewController(_ questionType: QuestionType)->UIViewController? {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         guard let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as? QuestionViewController else { return nil }
@@ -149,6 +215,10 @@ extension AppNav {
         return vc 
     }
     
+    /**
+     initialise a new **IntroductionViewController**
+     - parameter introType: **IntroductionType** will drive how we initialise the viewController
+     */
     func initViewController(_ introType: IntroductionType)-> UIViewController? {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         guard let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as? IntroductionViewController else { return nil }
@@ -156,12 +226,21 @@ extension AppNav {
         return vc
     }
     
+    /**
+     After onboarding/login process, the app's main view controllers is embedded inside tabs. We use **initTabViewController** to initialise the parent tab view controller.
+     */
     func initTabViewController()-> UIViewController {
         let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.tab.rawValue)
         return vc 
     }
     
+    /**
+     initViewController allows initialisation of viewController by **StoryboardEnums** and choose whether the viewController is embeded inside navigation controller or not with a boolean parameter.
+     - parameter storyboardName: Storyboard name from **StoryboardName** enums rawValues
+     - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
+     - returns: the initialised viewController
+     */
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
@@ -173,13 +252,23 @@ extension AppNav {
         }
     }
     
+    /**
+     presents a viewController instantiate by storyboard name, storyboard id
+     - parameter storyboardName: Storyboard name from **StoryboardName** enums rawValues
+     - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
+     - parameter viewController:
+     */
     func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
         let nav = UINavigationController(rootViewController: vc)
         viewController.present(nav, animated: true)
     }
-    
+
+    /**
+     present **decline** viewController is actually initialising **IntroductionViewController** based on provided **declineReason** enum. **presentDeclineViewController** is actually a special case for presenting **IntroductionViewController**
+     - parameter declineReason: **DeclineDetail.DeclineReason** the enum mapping to the corresponding decline message.
+     */
     func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
@@ -192,6 +281,11 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+     present a introduction view controller, this leverages on top of initialisation helper method
+     - parameter introductionType: **IntroductionType** which determines which coordinator to use for driving the appearance and behaviour of the viewController
+     - parameter viewController: current source viewController for the navigation action
+     */
     func presentIntroduction(_ introductionType: IntroductionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
@@ -203,6 +297,9 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+     Present the passcode lock viewController
+     */
     func presentPasscodeViewController() {
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
@@ -211,6 +308,11 @@ extension AppNav {
         currentRootVc.present(vc, animated: true, completion: nil)
     }
     
+    /**
+     Present a question view controller. Built on top of the initialisation helper method for **QuestionViewController**
+     - parameter questionType: QuestionType which drives the appearance of the **QuestionViewController**
+     - parameter viewController: the source viewController of the current navigation action
+     */
     func presentToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: QuestionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.question.rawValue) as! QuestionViewController
@@ -221,6 +323,11 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    /**
+    Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
+     - parameter multipleChoiceType: MultipleChoiceQuestionType which drives the appearance of the **MultipleChoiceViewController**
+     - parameter viewController: source viewController of the current navigation action
+    */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
@@ -235,14 +342,24 @@ extension AppNav {
 
 // MARK: KYC
 extension AppNav {
+    
+    /**
+     Helper method to initiate KYC flow using the onfido SDK
+     - parameter type: **KycDocType** can be driver's license or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
+     - parameter viewController: source viewController of the navigation action
+     */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
+        /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
         let sdkToken = AppData.shared.loadOnfidoSDKToken()
         guard sdkToken.isEmpty == false else {
+            
+            /// if the sdk token is empty, then the logic cannot continue
             viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
+        /// customising the appearance of Onfido SDK viewControllers to fit activeTheme
         let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
         let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let config = try! OnfidoConfig.builder()
@@ -253,9 +370,11 @@ extension AppNav {
             .withFaceStep(ofVariant: .photo(withConfiguration: nil))
             .build()
         
+        /// define the handling of the end of Onfido flow
         let onfidoFlow = OnfidoFlow(withConfiguration: config)
             .with(responseHandler: { results in
                 switch results {
+                /// successful case
                 case .success(_):
                     CheqAPIManager.shared.putKycCheck().done {
                         LoggingUtil.shared.cPrint("kyc checked")
@@ -271,6 +390,7 @@ extension AppNav {
                             })
                     }
                     
+                /// error case handling
                 case let OnfidoResponse.error(err):
                     switch err {
                     case OnfidoFlowError.cameraPermission:
@@ -287,6 +407,7 @@ extension AppNav {
                 }
             })
         
+        /// presenting onfido viewController to start the flow
         do {
             let onfidoRun = try onfidoFlow.run()
             viewController.present(onfidoRun, animated: true) { }
@@ -300,20 +421,33 @@ extension AppNav {
 // MARK: smart dimiss
 extension AppNav {
     
+    /**
+     Returns the current **rootViewController** if it exists
+     returns: rootviewController or dummy viewController to avoid returning nil
+     */
     func rootViewController()-> UIViewController {
         return UIApplication.shared.keyWindow!.rootViewController ?? UIViewController()
     }
     
+    /**
+     dismissModal abstracts the dismiss of currently presenting viewController from the given viewController as well as handling the dimissal of any keyboards on display
+     - parameter viewController: source viewController of current action 
+     - parameter completion: completion callback closure, it can be nil if we don't need it
+     */
     func dismissModal(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         guard let presentVc = viewController.presentingViewController else { return }
         presentVc.dismiss(animated: true) {
+            NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
             if let cb = completion {
-                NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
                 cb()
             }
         }
     }
     
+    /**
+     pop the current viewController from navigation controller
+     - parameter viewController: source viewController of current action
+     */
     func dismiss(_ viewController: UIViewController) {
         if let nav = viewController.navigationController {
             NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")

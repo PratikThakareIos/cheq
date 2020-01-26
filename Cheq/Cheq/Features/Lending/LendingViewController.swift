@@ -23,21 +23,25 @@ class LendingViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = LendingViewModel()
-        setupKeyboardHandling()
+        hideNavBar()
         setupUI()
         setupDelegate()
-        registerObservables()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
 
     func setupUI() {
         hideBackTitle()
-        addLogoutNavButton()
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
@@ -45,7 +49,9 @@ class LendingViewController: CTableViewController {
     
     func registerObservables() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+        setupKeyboardHandling()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.completeDetails(_:)), name: NSNotification.Name(UINotificationEvent.completeDetails.rawValue), object: nil)
         
@@ -101,7 +107,7 @@ extension LendingViewController {
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
         self.showDeclineIfNeeded(lendingOverview)
         LoggingUtil.shared.cPrint("build view model here...")
-        guard let vm = self.viewModel as?  LendingViewModel else { return }
+        guard let vm = self.viewModel as? LendingViewModel else { return }
         vm.render(lendingOverview)
     }
     
@@ -110,7 +116,6 @@ extension LendingViewController {
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
-//                    let lendingOverview = TestUtil.shared.testLendingOverview()
                    self.renderLending(overview)
                 }
             }.catch { err in

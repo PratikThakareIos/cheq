@@ -10,6 +10,7 @@ import UIKit
 
 extension NSLayoutConstraint {
     
+    /// Extension method that allows programmatic modification of auto constraint multiplier attribute. We actually re-create a new auto constraint with new multiplier value. 
     func setMultiplier(multiplier:CGFloat) -> NSLayoutConstraint {
         NSLayoutConstraint.deactivate([self])
         

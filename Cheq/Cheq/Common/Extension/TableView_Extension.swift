@@ -9,7 +9,12 @@
 import UIKit
 import PullToRefreshKit
 
+/**
+ Extension methods of UITableView to facilitate reuse of common logics across UI
+ */
 extension UITableView {
+    
+    /// this method is used when we want to reload tableView without the table scrolling back the top after refreshed
     func reloadWithoutScroll() {
         let contentOffset = self.contentOffset
         self.beginUpdates()
@@ -18,6 +23,7 @@ extension UITableView {
         self.setContentOffset(contentOffset, animated: false)
     }
     
+    /// Call this method when we want the UITableView to have a **Pull To Refresh** mechanism. The method will add pull to refresh UI to the table view. 
     func addPullToRefreshAction(_ action: @escaping ()->Void) {
         guard let superview = self.superview else { return }
         let header = DefaultRefreshHeader.header()

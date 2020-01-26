@@ -6,7 +6,7 @@
 //  Copyright © 2019 WiseTree Solutions Pty Ltd. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 import UserNotifications
 import Firebase
 import FirebaseMessaging
@@ -52,12 +52,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
-//        self.setupInitialViewController()
-//        self.setupInitDevController2()
+        #if DEMO
+            self.setupSpendingViewController()
+        #else
+            self.setupInitialViewController()
+        #endif
+//        self.setupIntroDevController()
 //        self.setupInitDevController()
-        self.setupSpendingViewController()
+ 
 //        self.setupLogController()
 //        self.setupQuestionController()
+//        self.setupSplashController()
         return true
     }
     
@@ -118,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if !AppConfig.shared.isFirstInstall() {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splash.rawValue, embedInNav: true)
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
         }
         self.window?.makeKeyAndVisible()
     }
@@ -285,6 +290,14 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
     
+    func setupSplashController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: false)
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
     func setupInitDevController2 () {
         self.setupServicesForDev()
         let vc = AppNav.shared.initViewController(.employee) as! IntroductionViewController
@@ -293,10 +306,21 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
     
+    func setupIntroDevController() {
+        self.setupServicesForDev()
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.intro.rawValue, embedInNav: false) as! IntroductionViewController
+        vc.viewModel.coordinator = SetupBankIntroCoordinator()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
     func setupInitDevController () {
         self.setupServicesForDev()
-        let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.lending.rawValue, embedInNav: true)
-        window?.rootViewController = vc
+        let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.question.rawValue, embedInNav: false) as! QuestionViewController
+        vc.viewModel.coordinator = CompanyNameCoordinator()
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
 

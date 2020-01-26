@@ -23,14 +23,19 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
         setupDelegates()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupKeyboardHandling()
         activeTimestamp()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func sendVerificationCode() {
@@ -69,7 +74,7 @@ class EmailVerificationViewController: UIViewController {
         newPasswordField.keyboardType = .default
         newPasswordField.reloadInputViews()
         viewTitle.text = viewModel.header
-        viewTitle.font = AppConfig.shared.activeTheme.headerFont
+        viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         verificationInstructions.attributedText = viewModel.instructions
         verificationInstructions.font = AppConfig.shared.activeTheme.mediumFont
         footerText.attributedText = viewModel.footerText

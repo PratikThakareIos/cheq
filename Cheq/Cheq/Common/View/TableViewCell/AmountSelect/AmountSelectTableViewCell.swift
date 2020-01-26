@@ -8,17 +8,33 @@
 
 import UIKit
 
+/**
+ AmountSelectTableViewCell is the Amount Select widget implementation. Amount Select widget allows user to select the amount of loan they like to borrow.
+ */
 class AmountSelectTableViewCell: CTableViewCell {
 
-    // Loan amount control
+    /// refer to **xib** for layout
     @IBOutlet weak var controlView: UIView!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var infoView: UIView!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var loanAmountHeader: UILabel!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var loanAmount: UILabel!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var loanAmountCaption: UILabel!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var increaseLoanAmouontButton: UIButton!
+    
+    /// refer to **xib** for layout
     @IBOutlet weak var decreaseLoanAmouontButton: UIButton!
 
+    /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,6 +48,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
 
+    /// call this method when UI is updated
     override func setupConfig() {
         self.backgroundColor = .clear
         ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
@@ -41,7 +58,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         // loan amount
         self.infoView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
-        self.loanAmount.font = AppConfig.shared.activeTheme.headerFont
+        self.loanAmount.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
         self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultFont
         self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.darkGrayColor
@@ -50,6 +67,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.updateControlButtons()
     }
 
+    /// Handling the minus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func minusPressed(_ sender: Any) {
         LoggingUtil.shared.cPrint("minusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
@@ -58,6 +76,7 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.updateControlButtons()
     }
 
+    /// Handling the plus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func plusPressed(_ sender: Any) {
         LoggingUtil.shared.cPrint("plusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
@@ -65,15 +84,16 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.updateControlButtons()
     }
 
+    /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         self.decreaseLoanAmouontButton.isEnabled = amountSelectViewModel.minusEnabled
         self.increaseLoanAmouontButton.isEnabled = amountSelectViewModel.plusEnabled
         let amount: String = amountSelectViewModel.currentSelectedAmount()
         AppData.shared.amountSelected = amount 
-        let loanAmount = String("$\(amount)")
+        let loanAmount = String("\(CurrencySymbol.dollar.rawValue)\(amount)")
         let attributedString = NSMutableAttributedString(string: loanAmount)
-        attributedString.applyHighlight(amount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeFont)
+        attributedString.applyHighlight(loanAmount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeBoldFont)
         self.loanAmount.attributedText = attributedString
     }
 }

@@ -8,7 +8,14 @@
 
 import UIKit
 
+/**
+ ViewModel for **LineSeparatorTableViewCell**
+ */
 class LineSeparatorTableViewCellViewModel: TableViewCellViewModelProtocol {
+    
+    /// reuse identifier
     var identifier: String = "LineSeparatorTableViewCell"
+    
+    /// the height for line sepearator is adjustable by updating this value on ViewModel 
     var height: CGFloat = 0.5
 }

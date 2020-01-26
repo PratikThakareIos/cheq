@@ -21,16 +21,20 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingSpecificCategoryViewModel()
-        self.setupKeyboardHandling()
         self.setupUI()
         setupDelegate()
-        registerObservables()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.loadCategoryById.rawValue, key: "", value: "")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func setupUI() {
@@ -54,7 +58,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
             navStackView.subViews.append(categoryIconImageView)
             let categoryLabel = CLabel()
             categoryLabel.text = selectedCategory.categoryTitle
-            categoryLabel.font = AppConfig.shared.activeTheme.headerFont
+            categoryLabel.font = AppConfig.shared.activeTheme.headerBoldFont
             navStackView.addArrangedSubview(categoryIconImageView)
             navStackView.addArrangedSubview(categoryLabel)
             self.navigationItem.titleView = navStackView
@@ -67,6 +71,8 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     }
     
     func registerObservables() {
+        
+        setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadCategoryTransactions(_:)), name: NSNotification.Name(UINotificationEvent.loadCategoryById.rawValue), object: nil)
         

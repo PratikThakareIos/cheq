@@ -23,20 +23,27 @@ class IntroductionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
-        registerObservables()
         setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerObservables()
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
         }
+        
+//        autoSetupForAuthTokenIfNotLoggedIn()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeObservables()
     }
     
     func registerObservables() {
+        setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     
@@ -61,7 +68,7 @@ class IntroductionViewController: UIViewController {
 //        }
 
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerFont
+        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleLabel.text = self.viewModel.coordinator.type.rawValue
         self.caption.font = AppConfig.shared.activeTheme.mediumFont
         self.caption.text = self.viewModel.caption()
@@ -124,7 +131,9 @@ class IntroductionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
-            
+        case .hasReachedCapacity:
+            //TODO
+            break
         case .hasNameConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
             AppConfig.shared.showSpinner()
@@ -132,14 +141,13 @@ class IntroductionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     AppNav.shared.dismissModal(self)
                 }
-                }.catch { err in
-                    AppConfig.shared.hideSpinner {
-                        self.showError(err, completion: nil)
-                    }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
             }
+       
         }
-        
-        
     }
 
     @IBAction func secondaryButton(_ sender: Any) {
@@ -158,7 +166,7 @@ class IntroductionViewController: UIViewController {
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending 
             AppNav.shared.dismiss(self)
-        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict:
+        case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict, .hasReachedCapacity:
             LoggingUtil.shared.cPrint("Chat with us")
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         }
