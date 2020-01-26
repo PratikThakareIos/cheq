@@ -3866,63 +3866,56 @@
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 16,
-      "symbol": "ConnectingToBankViewController.titleLabel",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 17,
+      "line": 18,
       "symbol": "ConnectingToBankViewController.descriptionLabel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 18,
+      "line": 19,
       "symbol": "ConnectingToBankViewController.image",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 19,
+      "line": 20,
       "symbol": "ConnectingToBankViewController.viewModel",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 20,
+      "line": 21,
       "symbol": "ConnectingToBankViewController.transparentView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 22,
+      "line": 23,
       "symbol": "ConnectingToBankViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 27,
+      "line": 28,
       "symbol": "ConnectingToBankViewController.viewDidAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 36,
+      "line": 37,
       "symbol": "ConnectingToBankViewController.viewWillDisappear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/xuweiliang/Documents/Development/cheq.ios/Cheq/Cheq/Features/ConnectingToBank/ConnectingToBankViewController.swift",
-      "line": 41,
+      "line": 42,
       "symbol": "ConnectingToBankViewController.setupUI()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
