@@ -105,7 +105,7 @@ class LoginViewController: RegistrationViewController {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account
                         AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
-                        AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitutionId
+                        AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
                         AppData.shared.disabledAccount = disabledAccount
                         
                         MoneySoftManager.shared.getInstitutions().done { institutions in
@@ -124,7 +124,7 @@ class LoginViewController: RegistrationViewController {
                             return
                         }
                     } else {
-                        AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitutionId ?? -1
+                        AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
                         MoneySoftManager.shared.getInstitutions().done { institutions in
                             AppData.shared.financialInstitutions = institutions
                             AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })

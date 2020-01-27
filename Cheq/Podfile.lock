@@ -147,6 +147,9 @@ PODS:
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
+  - Mixpanel-swift (2.6.7):
+    - Mixpanel-swift/Complete (= 2.6.7)
+  - Mixpanel-swift/Complete (2.6.7)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -154,7 +157,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - NavigationDropdownMenu (5.0.0)
   - Obfuscator (2.0.0)
-  - Onfido (13.2.0)
+  - Onfido (16.0.0)
   - OpenSSL-Universal (1.0.2.18):
     - OpenSSL-Universal/Static (= 1.0.2.18)
   - OpenSSL-Universal/Static (1.0.2.18)
@@ -214,6 +217,7 @@ DEPENDENCIES:
   - Hex
   - Intercom (~> 5.4.1)
   - Mantle
+  - Mixpanel-swift
   - NavigationDropdownMenu
   - Obfuscator
   - Onfido
@@ -273,7 +277,6 @@ SPEC REPOS:
     - nanopb
     - NavigationDropdownMenu
     - Obfuscator
-    - Onfido
     - OpenSSL-Universal
     - PopOverMenu
     - PopupDialog
@@ -293,6 +296,9 @@ SPEC REPOS:
     - SwiftKeychainWrapper
     - UDatePicker
     - Validator
+  trunk:
+    - Mixpanel-swift
+    - Onfido
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -328,10 +334,11 @@ SPEC CHECKSUMS:
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
   Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  Mixpanel-swift: 9118aa461d7ad4bb66718b0d4d826e6487bb0105
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
-  Onfido: 00352714aa11b4c598e73532b9a90e58b935602d
+  Onfido: 6d16470843f73b10eff14d9221964b16ee5d0798
   OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
   PopOverMenu: 0a5cbb60b38fa86f5fd8a703e51fa1b51d181215
   PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2
@@ -352,6 +359,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: cfdf3e9dffcc96fbd9a8cb6719fb323150ebb026
+PODFILE CHECKSUM: dbd1a63884451ad1e2981e823ecc69b81a7335d9
 
 COCOAPODS: 1.8.4

@@ -387,3 +387,261 @@ extension MoneySoftManager {
         return loginModel
     }
 }
+
+// MARK: MoneySoft New SDK
+extension MoneySoftManager {
+
+    func refreshAccountsWithNewSDK()->Promise<[FinancialAccountModel]> {
+        return Promise<[FinancialAccountModel]>() { resolver in
+            let getAccountsListener: ApiListListener<FinancialAccountModel> = ApiListListener<FinancialAccountModel>(successHandler: {
+                (accountsResponse) in
+                
+                guard let accounts: [FinancialAccountModel] = accountsResponse as? [FinancialAccountModel] else {
+                   print("Unable to parse the response.");
+                    resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                    return;
+                }
+                print(accounts.count)
+                
+                let refreshListener: ApiListListener<FinancialAccountModel> = ApiListListener<FinancialAccountModel>(successHandler: {
+                    (response) in
+                    
+                    guard let accounts: [FinancialAccountModel] = response as? [FinancialAccountModel] else {
+                        
+                        return;
+                    }
+                    
+                    var message: String = "";
+                    
+                    for account in accounts {
+                        message.append("\(account.name) | \(account.balance)");
+                    }
+                    
+                   resolver.fulfill(accounts)
+                    
+                }, errorHandler: {
+                    (error) in
+                    resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                   print(error)
+                    
+                });
+                
+                do {
+                  
+                    
+                    let refreshOptions: RefreshAccountOptions = RefreshAccountOptions();
+                    
+                    refreshOptions.includeTransactions = true;
+                    try self.msApi.financial().refreshAccounts(financialAccounts: accounts,
+                                                          options: refreshOptions,
+                                                          listener: refreshListener);
+                }
+                catch {
+                    resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                    print(error);
+                }
+            }, errorHandler: {
+                (error) in
+                resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                print(error)
+                
+            });
+            
+            do {
+               
+                try msApi.financial().getAccounts(listener: getAccountsListener);
+            }
+            catch {
+                resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
+                print(error);
+            }
+            
+        }
+    }
+    
+    
+    
+
+      //Step 1
+    func getInstitutionsNewSDK()->Promise<[FinancialInstitutionModel]> {
+        return Promise<[FinancialInstitutionModel]>() { resolver in
+            let institutionsListener: ApiListListener<FinancialInstitutionModel> = ApiListListener<FinancialInstitutionModel>(successHandler: {
+                (institutionsResponse) in
+                
+                if let institutions = institutionsResponse as? [FinancialInstitutionModel] {
+                     resolver.fulfill(institutions)
+                }else {
+                    print("Nothing to show")
+                   resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+                }
+                
+            }, errorHandler: {
+                (error) in
+              resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+                print("Error Occured with institutions")
+            });
+            
+            
+            
+            do {
+                  try msApi.financial().getInstitutions(listener: institutionsListener);
+            }
+            catch {
+                resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
+                print("Fail to load")
+            }
+            
+           }//Resolver
+        }
+    
+    
+    
+      //Step 2
+    func getLinkableAccountsNewSDK(credentialForm:InstitutionCredentialsFormModel?)->Promise<[FinancialAccountLinkModel]> {
+       return Promise<[FinancialAccountLinkModel]>() { resolver in
+        if (credentialForm != nil) {
+            
+           
+            let linkAccountListener: ApiListListener<FinancialAccountLinkModel> = ApiListListener<FinancialAccountLinkModel>(successHandler: {
+                (linkResponse) in
+                print(linkResponse?.count)
+         
+
+                  guard let accounts = linkResponse as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
+                             }
+                
+                  resolver.fulfill(accounts)
+                
+                
+            }, errorHandler: {
+                (errorResponse) in
+                resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+                
+                guard let error: ApiErrorModel = errorResponse else {
+                    print("Unable to parse the response.");
+                    resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+                    return;
+                }
+                
+                if (error.code == ErrorCode.REQUIRES_MFA.rawValue) {
+                    //For now this is no need, but keeping for future reference
+                    let mfaVerification: MFAVerificationModel = MFAVerificationModel(institutionId: credentialForm?.providerInstitutionId ?? "",
+                                                                                     label: error.messages[ErrorKey.MFA_PROMPT.rawValue],
+                                                                                     type: error.messages[ErrorKey.MFA_FIELD_TYPE.rawValue]);
+                    
+                }
+                else {
+                   resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+                    print("Error")
+                }
+            });
+            
+            do {
+                
+                try msApi.financial().getLinkableAccounts(credentials: credentialForm!,
+                                                          listener: linkAccountListener);
+            }
+            catch {
+                resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+                print(error);
+            }
+        }
+        else {
+             resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
+        }
+      }
+    }
+    //Step 3
+     func linkAccountsNewSDK(accounts: [FinancialAccountLinkModel]?)->Promise<[FinancialAccountModel]> {
+         return Promise<[FinancialAccountModel]>() { resolver in
+           if (accounts != nil && accounts!.count > 0) {
+               
+               
+               do {
+                   let linkListener: ApiListListener<FinancialAccountModel> = ApiListListener<FinancialAccountModel>(successHandler: {
+                       (response) in
+                   
+                       
+                       guard let accounts: [FinancialAccountModel] = response as? [FinancialAccountModel] else {
+                            print("Unable to parse the response.")
+                           
+                           return;
+                       }
+                      
+                       var linkedAccountsMsg: String = "";
+                       
+                       for account in accounts {
+                           linkedAccountsMsg.append("\(account.name) | \(account.balance)\n");
+                       }
+                       
+                       print(linkedAccountsMsg)
+                       resolver.fulfill(accounts)
+                   }, errorHandler: {
+                       (error) in
+                      
+                       resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
+                      print(error)
+                   });
+                   
+                 
+                   try msApi.financial().linkAccounts(accounts: accounts!,
+                                                      includeTransactions: true,
+                                                      listener: linkListener);
+               }
+               catch {
+                   
+                   print(error);
+                resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
+               }
+           }
+           else {
+                  
+                    print("No accounts have been selected to link.");
+              resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
+           }
+         }
+       }
+    
+     //Not yet implimented
+    
+}
+// MARK: MoneySoft New SDK Transactions
+extension MoneySoftManager {
+
+     func getTransactionsNewSDK(filter: TransactionFilter)->Promise<[FinancialTransactionModel]> {
+       return Promise<[FinancialTransactionModel]>() { resolver in
+        let transactionListener: ApiListListener<FinancialTransactionModel> = ApiListListener<FinancialTransactionModel>(successHandler: {
+            (response) in
+            
+            guard let transactions: [FinancialTransactionModel] = response as? [FinancialTransactionModel] else {
+                
+                print("Unable to parse the response.");
+               
+                return;
+            }
+            
+            var transactionsMsg: String = "";
+            
+            for transaction in transactions {
+                transactionsMsg.append("\(transaction.name ?? "Unknown Name") | \(transaction.amount) | \(transaction.type.rawValue)\n");
+            }
+            resolver.fulfill(transactions)
+            print(transactionsMsg)
+        }, errorHandler: {
+            (error) in
+            print(error)
+             resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+        });
+        
+        do {
+           
+            try msApi.transactions().getTransactions(filter: filter,
+                                                     listener: transactionListener);
+        }
+        catch {
+            resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
+            print(error);
+        }
+      }
+    }
+}

@@ -166,7 +166,6 @@
 		4F01F6E9237E6A5B00268423 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */; };
 		4F01F6EA237E6A5B00268423 /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
 		4F01F6EB237E6A5B00268423 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD33230E897400AE6CBB /* AuthUser.swift */; };
-		4F01F6EC237E6A5B00268423 /* VDotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF5C84233988DF0036F0EB /* VDotManager.swift */; };
 		4F01F6ED237E6A5B00268423 /* PreviewLoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */; };
 		4F01F6EE237E6A5B00268423 /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6CE2327725A00A05E25 /* CLabel.swift */; };
 		4F01F6EF237E6A5B00268423 /* Date_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8217C234354B800AA940F /* Date_Extension.swift */; };
@@ -625,8 +624,6 @@
 		4F2E4BA2233B217B001F1BA2 /* CPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA1233B217B001F1BA2 /* CPickerView.swift */; };
 		4F2E4BA6233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA5233B24A1001F1BA2 /* QuestionPickerViewCoordinator.swift */; };
 		4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2E4BA8233B2863001F1BA2 /* CToolbar.swift */; };
-		4F345B94238E08A4005DCFDB /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F345B96238E08C6005DCFDB /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F44955A238DFBA4000E9DAA /* MobileSDK.framework */; };
 		4F345B9F238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
 		4F345BA0238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
 		4F345BA1238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */; };
@@ -639,11 +636,6 @@
 		4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
 		4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */; };
-		4F449566238E04A3000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
-		4F449568238E0534000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
-		4F449569238E0534000E9DAA /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4F44956A238E053A000E9DAA /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; };
-		4F44956B238E053A000E9DAA /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F449564238E04A3000E9DAA /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */; };
 		4F57BAFE2325C65500B95C06 /* BenefitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */; };
 		4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F57BB012325EE4700B95C06 /* CPopupDialog.swift */; };
@@ -816,7 +808,6 @@
 		4FBDDABF236BC68700EDB1E9 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A71423534EDE0082C2A3 /* HeaderTableViewCell.swift */; };
 		4FBDDAC0236BC68700EDB1E9 /* LendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0D71642346B53800AA819C /* LendingViewModel.swift */; };
 		4FBDDAC1236BC68700EDB1E9 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD33230E897400AE6CBB /* AuthUser.swift */; };
-		4FBDDAC2236BC68700EDB1E9 /* VDotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF5C84233988DF0036F0EB /* VDotManager.swift */; };
 		4FBDDAC4236BC68700EDB1E9 /* PreviewLoanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80FCE8235B30C0009C8F83 /* PreviewLoanViewModel.swift */; };
 		4FBDDAC6236BC68700EDB1E9 /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A9F6CE2327725A00A05E25 /* CLabel.swift */; };
 		4FBDDAC7236BC68700EDB1E9 /* Date_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8217C234354B800AA940F /* Date_Extension.swift */; };
@@ -1040,7 +1031,6 @@
 		96B0069822FE72A700173743 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069722FE72A700173743 /* CommonEnums.swift */; };
 		96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0069922FE7CF700173743 /* CChartModel.swift */; };
 		96B8217D234354B800AA940F /* Date_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B8217C234354B800AA940F /* Date_Extension.swift */; };
-		96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BF5C84233988DF0036F0EB /* VDotManager.swift */; };
 		96F9FF9F2352B0120041001F /* CTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FF9E2352B0120041001F /* CTableViewCell.swift */; };
 		96F9FFA52352B0C80041001F /* IntercomChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFA32352B0C70041001F /* IntercomChatTableViewCell.swift */; };
 		96F9FFA72352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */; };
@@ -1067,6 +1057,19 @@
 		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
 		96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FADE96230ECA2400AE6CBB /* GoogleService-Info.plist */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
+		BD186E8D23DDD3730067F735 /* VDotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD186E8C23DDD3730067F735 /* VDotManager.swift */; };
+		BD186E9123DDD9260067F735 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */; };
+		BD186E9223DDDA920067F735 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8E23DDD9250067F735 /* MobileSDK.framework */; };
+		BD186E9323DDDA920067F735 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8E23DDD9250067F735 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD186E9423DDDD5A0067F735 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8E23DDD9250067F735 /* MobileSDK.framework */; };
+		BD186E9523DDDD5B0067F735 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8E23DDD9250067F735 /* MobileSDK.framework */; };
+		BD186E9623DDDD5D0067F735 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */; };
+		BD186E9723DDDD5E0067F735 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */; };
+		BD186E9823DDDD640067F735 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */; };
+		BD186E9923DDDD670067F735 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD186E8E23DDD9250067F735 /* MobileSDK.framework */; };
+		BD3760C523DE7D350016FF86 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C423DE7D350016FF86 /* AnalyticsService.swift */; };
+		BD3760C823DE7D700016FF86 /* MixpanelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C723DE7D700016FF86 /* MixpanelService.swift */; };
+		BD3760CA23DE7E770016FF86 /* MixpanelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1106,7 +1109,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F345B94238E08A4005DCFDB /* MobileSDK.framework in Embed Frameworks */,
+				BD186E9323DDDA920067F735 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1117,7 +1120,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F449569238E0534000E9DAA /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1128,7 +1130,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F44956B238E053A000E9DAA /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1326,7 +1327,6 @@
 		4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication_Extension.swift; sourceTree = "<group>"; };
 		4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView_Extension.swift; sourceTree = "<group>"; };
 		4F44955A238DFBA4000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = /Users/xuwei/Documents/dev/cheq.ios/Cheq/dependencies/MobileSDK.framework; sourceTree = "<absolute>"; };
-		4F449564238E04A3000E9DAA /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
 		4F573AEF231CCAE5004616F5 /* MoneySoftManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySoftManager.swift; sourceTree = "<group>"; };
 		4F57BAFD2325C65500B95C06 /* BenefitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F57BB012325EE4700B95C06 /* CPopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPopupDialog.swift; sourceTree = "<group>"; };
@@ -1495,7 +1495,6 @@
 		96B0069722FE72A700173743 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
 		96B0069922FE7CF700173743 /* CChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CChartModel.swift; sourceTree = "<group>"; };
 		96B8217C234354B800AA940F /* Date_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Extension.swift; sourceTree = "<group>"; };
-		96BF5C84233988DF0036F0EB /* VDotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDotManager.swift; sourceTree = "<group>"; };
 		96F9FF9E2352B0120041001F /* CTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFA32352B0C70041001F /* IntercomChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomChatTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntercomChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -1524,6 +1523,12 @@
 		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
 		A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDevice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BD186E8C23DDD3730067F735 /* VDotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDotManager.swift; sourceTree = "<group>"; };
+		BD186E8E23DDD9250067F735 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
+		BD3760C423DE7D350016FF86 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		BD3760C723DE7D700016FF86 /* MixpanelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelService.swift; sourceTree = "<group>"; };
+		BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelEnums.swift; sourceTree = "<group>"; };
 		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1541,7 +1546,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
-				4F44956A238E053A000E9DAA /* MobileSDK.framework in Frameworks */,
+				BD186E9723DDDD5E0067F735 /* PersonalDataVault.framework in Frameworks */,
+				BD186E9523DDDD5B0067F735 /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1551,8 +1557,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
-				4F449568238E0534000E9DAA /* MobileSDK.framework in Frameworks */,
-				4F449566238E04A3000E9DAA /* MobileSDK.framework in Frameworks */,
+				BD186E9623DDDD5D0067F735 /* PersonalDataVault.framework in Frameworks */,
+				BD186E9423DDDD5A0067F735 /* MobileSDK.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1561,8 +1567,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F345B96238E08C6005DCFDB /* MobileSDK.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
+				BD186E9223DDDA920067F735 /* MobileSDK.framework in Frameworks */,
+				BD186E9123DDD9260067F735 /* PersonalDataVault.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1572,6 +1579,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */,
+				BD186E9923DDDD670067F735 /* MobileSDK.framework in Frameworks */,
+				BD186E9823DDDD640067F735 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2790,7 +2799,6 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F449564238E04A3000E9DAA /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
@@ -3032,6 +3040,8 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
+				BD186E8E23DDD9250067F735 /* MobileSDK.framework */,
+				BD186E8F23DDD9260067F735 /* PersonalDataVault.framework */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				9676521122FAFD01001E43E0 /* Products */,
@@ -3194,12 +3204,13 @@
 		9676525722FB080F001E43E0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BD3760C223DE7C440016FF86 /* Analytics */,
+				BD186E8B23DDD3610067F735 /* VDot */,
 				4F180BD2235E7E480018507D /* RemoteConfig */,
 				4F80FAD52357C551009C8F83 /* Intercom */,
 				96FADE98230ED16500AE6CBB /* Storage */,
 				4F573A91231CC929004616F5 /* CheqAPI */,
 				4FD7C201232A18D900AC7A67 /* OnfidoAPI */,
-				96BF5C832339889A0036F0EB /* VDot  */,
 				4F573A90231CC4C4004616F5 /* MoneySoft */,
 				96FADE95230EC96700AE6CBB /* Enums */,
 				96FADD29230E82C900AE6CBB /* AuthManager */,
@@ -3321,6 +3332,7 @@
 				96B0069722FE72A700173743 /* CommonEnums.swift */,
 				4F09109F23208A2800AA7F7D /* NotificationEnums.swift */,
 				4FD7C139232878FC00AC7A67 /* StoryboardEnums.swift */,
+				BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -3332,14 +3344,6 @@
 				966A19E522FEA95600A6E444 /* GridCoordinatorViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		96BF5C832339889A0036F0EB /* VDot  */ = {
-			isa = PBXGroup;
-			children = (
-				96BF5C84233988DF0036F0EB /* VDotManager.swift */,
-			);
-			path = "VDot ";
 			sourceTree = "<group>";
 		};
 		96F9FFA22352B09D0041001F /* IntercomChat */ = {
@@ -3467,6 +3471,31 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		BD186E8B23DDD3610067F735 /* VDot */ = {
+			isa = PBXGroup;
+			children = (
+				BD186E8C23DDD3730067F735 /* VDotManager.swift */,
+			);
+			path = VDot;
+			sourceTree = "<group>";
+		};
+		BD3760C223DE7C440016FF86 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				BD3760C423DE7D350016FF86 /* AnalyticsService.swift */,
+				BD3760C623DE7D430016FF86 /* Mixpanel */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		BD3760C623DE7D430016FF86 /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				BD3760C723DE7D700016FF86 /* MixpanelService.swift */,
+			);
+			path = Mixpanel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3532,6 +3561,7 @@
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				4F345B95238E08A4005DCFDB /* Embed Frameworks */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
+				BD3760C323DE7CD80016FF86 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4131,6 +4161,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BD3760C323DE7CD80016FF86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nfind \"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\" -name '*.framework' -type d | while read -r FRAMEWORK; do\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    for arch in $(lipo -archs $FRAMEWORK_EXECUTABLE_PATH); do\n        if ! printf '%s\\n' ${ARCHS[@]} | egrep -q \"^$arch$\"; then\n            lipo -remove $arch \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH\" \n        fi\n    done\ndone\n";
+		};
 		C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4388,7 +4435,6 @@
 				4F01F8DF2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4F01F6EA237E6A5B00268423 /* LendingViewModel.swift in Sources */,
 				4F01F6EB237E6A5B00268423 /* AuthUser.swift in Sources */,
-				4F01F6EC237E6A5B00268423 /* VDotManager.swift in Sources */,
 				4F01F6ED237E6A5B00268423 /* PreviewLoanViewModel.swift in Sources */,
 				4F01F6EE237E6A5B00268423 /* CLabel.swift in Sources */,
 				4F01F6EF237E6A5B00268423 /* Date_Extension.swift in Sources */,
@@ -4705,7 +4751,6 @@
 				4F01F8DE2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4FBDDAC0236BC68700EDB1E9 /* LendingViewModel.swift in Sources */,
 				4FBDDAC1236BC68700EDB1E9 /* AuthUser.swift in Sources */,
-				4FBDDAC2236BC68700EDB1E9 /* VDotManager.swift in Sources */,
 				4FBDDAC4236BC68700EDB1E9 /* PreviewLoanViewModel.swift in Sources */,
 				4FBDDAC6236BC68700EDB1E9 /* CLabel.swift in Sources */,
 				4FBDDAC7236BC68700EDB1E9 /* Date_Extension.swift in Sources */,
@@ -4839,6 +4884,7 @@
 				9676524722FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F01F81923825F8300268423 /* PutFinancialAccountRequest.swift in Sources */,
 				4F01F87323825F8300268423 /* SpendingOverviewCard.swift in Sources */,
+				BD186E8D23DDD3730067F735 /* VDotManager.swift in Sources */,
 				4F2323E92374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
 				4F0D71622346B52400AA819C /* LendingViewController.swift in Sources */,
 				4F01F80723825F8300268423 /* GetUserKycResponse.swift in Sources */,
@@ -4876,6 +4922,7 @@
 				96A9F6D22327D1E800A05E25 /* NSMutableAttributedString.swift in Sources */,
 				4F01F81623825F8300268423 /* GetSpendingStatusResponse.swift in Sources */,
 				9654D48A234EA9AE00847389 /* EmployeeIntroCoordinator.swift in Sources */,
+				BD3760C823DE7D700016FF86 /* MixpanelService.swift in Sources */,
 				4FD2291523743D1D00045662 /* TransactionTableViewCellViewModel.swift in Sources */,
 				4F2E4B95233AED52001F1BA2 /* DataHelperUtil.swift in Sources */,
 				4FD7C1F72329E16300AC7A67 /* EmailVerificationViewModel.swift in Sources */,
@@ -5022,7 +5069,6 @@
 				4F01F8DD2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
 				96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */,
-				96BF5C85233988DF0036F0EB /* VDotManager.swift in Sources */,
 				4F80FCE9235B30C0009C8F83 /* PreviewLoanViewModel.swift in Sources */,
 				96A9F6CF2327725A00A05E25 /* CLabel.swift in Sources */,
 				96B8217D234354B800AA940F /* Date_Extension.swift in Sources */,
@@ -5069,6 +5115,7 @@
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */,
 				4F2E49FE233441DE001F1BA2 /* OnDemandCoordinator.swift in Sources */,
+				BD3760CA23DE7E770016FF86 /* MixpanelEnums.swift in Sources */,
 				4F01F7CB23825F8300268423 /* FinancesAPI.swift in Sources */,
 				4F01F80423825F8300268423 /* GetBudgetSpendingsResponse.swift in Sources */,
 				4F2E4AC923383A2D001F1BA2 /* CProgressViewStackView.swift in Sources */,
@@ -5099,6 +5146,7 @@
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
 				4F180BD4235E7E690018507D /* RemoteConfigManager.swift in Sources */,
+				BD3760C523DE7D350016FF86 /* AnalyticsService.swift in Sources */,
 				4F01F84023825F8300268423 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
 				4F573AF0231CCAE5004616F5 /* MoneySoftManager.swift in Sources */,
 				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
@@ -5178,6 +5226,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5225,6 +5274,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5271,6 +5321,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5305,6 +5356,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
@@ -5447,6 +5499,7 @@
 			baseConfigurationReference = CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -5457,6 +5510,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5496,6 +5550,7 @@
 			baseConfigurationReference = E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -5505,6 +5560,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5550,6 +5606,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;
@@ -5579,6 +5636,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
+					"$(PROJECT_DIR)",
 				);
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = CheqTests/Info.plist;
