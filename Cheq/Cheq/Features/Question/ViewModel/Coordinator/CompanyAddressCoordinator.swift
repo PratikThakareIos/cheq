@@ -12,7 +12,7 @@ class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .companyAddress
     
-    var question: String = "What is your employer's address?"
+    var question: String = "Company address?"
     
     func placeHolder(_ index: Int)->String {
         return "123 Example Street"

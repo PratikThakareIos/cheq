@@ -73,6 +73,7 @@ extension LendingViewController {
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
         switch type {
         case .workDetails:
+           
             AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
         case .bankDetils:

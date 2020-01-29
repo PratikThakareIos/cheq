@@ -12,7 +12,7 @@ class CompanyNameCoordinator: QuestionCoordinatorProtocol {
 
     var type: QuestionType = .companyName
     
-    var question: String = "What is your employer's company name?"
+    var question: String = "Company name?"
     
     func placeHolder(_ index: Int)->String {
         return "Company name"

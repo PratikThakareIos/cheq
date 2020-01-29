@@ -19,7 +19,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sectionTitle: CLabel!
     @IBOutlet weak var questionTitle: CLabel!
-    
+    var showNextButton = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -197,6 +197,29 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             LoggingUtil.shared.cPrint("trigger onfido kyc")
             return
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
+        if showNextButton{
+        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
+        let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
+        // here is what you should add:
+            nextButton.center = footerView.center
+
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
+        nextButton.layer.cornerRadius = 28.0
+        nextButton.addTarget(self, action: #selector(hello(sender:)), for: .touchUpInside)
+        footerView.addSubview(nextButton)
+        }
+        
+        return footerView
+    }
+    
+    @objc func hello(sender: UIButton!) {
+     print("Next");
     }
 }
 

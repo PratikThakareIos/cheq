@@ -12,8 +12,8 @@ import PromiseKit
 enum EmploymentType: String {
     case fulltime = "Full time"
     case onDemand = "On demand"
-    case contract = "Contractual"
-    case casual = "Casual employee"
+    case contract = "Contractor"
+    case casual = "Casual"
     case selfEmployed = "Self employed"
     case partTime = "Part time"
     
@@ -29,13 +29,13 @@ struct EmployementTypeCoordinator: MultipleChoiceViewModelCoordinator {
     
     func choices() -> Promise<[ChoiceModel]> {
         return Promise<[ChoiceModel]>() { resolver in
-            let fullTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.fulltime.rawValue, caption: "Full time description and example", image: nil, ordering: 0, ref : nil)
-            let onDemand = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.onDemand.rawValue, caption: "On demand description", image: nil,  ordering: 0, ref : nil)
-            let contractual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.contract.rawValue, caption: "Contractors", image: nil,  ordering: 0, ref : nil)
-            let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "Casual employment", image: nil,  ordering: 0, ref : nil)
+            let fullTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.fulltime.rawValue, caption: "You work 38 hours or more per week", image: nil, ordering: 0, ref : nil)
+            let onDemand = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.onDemand.rawValue, caption: "You work for an on demand company \ne.g. Uber, Airtasker, etc.", image: nil,  ordering: 0, ref : nil)
+            let contractual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.contract.rawValue, caption: "You have a contract and get paid by invoicing the employer", image: nil,  ordering: 0, ref : nil)
+            let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "You work Irregular hours and don't have a set number of working hours. ", image: nil,  ordering: 0, ref : nil)
             let selfEmployed = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.selfEmployed.rawValue, caption: "Self employed", image: nil,  ordering: 0, ref : nil)
-            let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "Part time", image: nil,  ordering: 0, ref : nil)
-            let result = [fullTime, onDemand, contractual, casual, partTime, selfEmployed]
+            let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "You work less than 38 hours  per week", image: nil,  ordering: 0, ref : nil)
+            let result = [fullTime, partTime, onDemand, contractual, casual]
             resolver.fulfill(result)
         }
     }
