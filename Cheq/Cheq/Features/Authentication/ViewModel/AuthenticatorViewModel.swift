@@ -69,7 +69,6 @@ class AuthenticatorViewModel: BaseViewModel {
             guard email.isEmpty == false, password.isEmpty == false else {
                 resolver.reject(AuthManagerError.invalidLoginFields); return
             }
-            
             resolver.fulfill(())
         }
     }
