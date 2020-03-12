@@ -90,12 +90,15 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                     return MoneySoftManager.shared.refreshAccounts(AppData.shared.storedAccounts, refreshOptions: refreshOptions)
                 }.then { refreshedAccounts->Promise<[FinancialTransactionModel]> in
                     let transactionFilter = TransactionFilter()
-                    transactionFilter.fromDate = 3.months.earlier
+                    transactionFilter.fromDate = nil
                     transactionFilter.toDate = Date()
-                    transactionFilter.count = 10000
+                    transactionFilter.count = 1000
                     transactionFilter.offset = 0
                     return MoneySoftManager.shared.getTransactions(transactionFilter)
                 }.then { transactions->Promise<Bool> in
+                    for elems in transactions {
+                        print(elems.date)
+                    }
                     LoggingUtil.shared.cPrint("transaction count: \(transactions.count)")
                     AppData.shared.financialTransactions = transactions
                     let postFinancialTransactionsReq = DataHelperUtil.shared.postFinancialTransactionsRequest(transactions)

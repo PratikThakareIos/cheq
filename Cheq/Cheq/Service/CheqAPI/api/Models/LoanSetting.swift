@@ -14,11 +14,23 @@ public struct LoanSetting: Codable {
     public var maximumAmount: Int?
     public var minimalAmount: Int?
     public var incrementalAmount: Int?
+    public var isFirstTime: Bool?
+    public var payCycleStartDate: Date?
+    public var nextPayDate: Date?
+    public var repaymentSettleHours: Int?
+    public var cashoutLimitInformation: String?
+    public var cashoutLimitLearnMoreLink: String?
 
-    public init(maximumAmount: Int?, minimalAmount: Int?, incrementalAmount: Int?) {
+    public init(maximumAmount: Int?, minimalAmount: Int?, incrementalAmount: Int?, isFirstTime: Bool?, payCycleStartDate: Date?, nextPayDate: Date?, repaymentSettleHours: Int?, cashoutLimitInformation: String?, cashoutLimitLearnMoreLink: String?) {
         self.maximumAmount = maximumAmount
         self.minimalAmount = minimalAmount
         self.incrementalAmount = incrementalAmount
+        self.isFirstTime = isFirstTime
+        self.payCycleStartDate = payCycleStartDate
+        self.nextPayDate = nextPayDate
+        self.repaymentSettleHours = repaymentSettleHours
+        self.cashoutLimitInformation = cashoutLimitInformation
+        self.cashoutLimitLearnMoreLink = cashoutLimitLearnMoreLink
     }
 
 

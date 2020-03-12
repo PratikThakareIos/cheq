@@ -69,6 +69,7 @@ class AppNav {
      - parameter questionType: QuestionType determines how **QuestionViewController** renders the to the corresponding screen.
      - parameter viewController: the current source viewController for the navigation action
      */
+    
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -124,7 +125,6 @@ class AppNav {
         vc.viewModel = introductionViewModel
         nav.pushViewController(vc, animated: true)
     }
-    
     /**
      SpendingViewController is reused for different scenarios of displaying spending data. Use **SpendingVCType** to drive how the UI on **SpendingViewController**
      - parameter spendingVCType: **SpendingVCType** supports scenarios for overview, categories list, specific category and transactions list
@@ -329,6 +329,7 @@ extension AppNav {
      - parameter viewController: source viewController of the current navigation action
     */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
+        print(multipleChoiceType)
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
         let multipleChoiceViewModel = MultipleChoiceViewModel()
@@ -341,8 +342,15 @@ extension AppNav {
              vc.showNextButton = false
         }
         
-        let nav = UINavigationController(rootViewController: vc)
-        viewController.present(nav, animated: true, completion: nil)
+        if multipleChoiceType == .workingLocation {
+            vc.showNextButton = true
+            print(vc.showNextButton)
+            guard let nav = viewController.navigationController else { return }
+            nav.pushViewController(vc, animated: true)
+        }else{
+            let nav = UINavigationController(rootViewController: vc)
+            viewController.present(nav, animated: true, completion: nil)
+        }
     }
 }
 

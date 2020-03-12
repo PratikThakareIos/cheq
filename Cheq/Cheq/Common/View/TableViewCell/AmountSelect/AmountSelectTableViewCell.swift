@@ -86,9 +86,11 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
+         
+         print(AppData.shared.employeeOverview?.eligibleRequirement?.isReviewingPayCycle)
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
-        self.decreaseLoanAmouontButton.isEnabled = amountSelectViewModel.minusEnabled
-        self.increaseLoanAmouontButton.isEnabled = amountSelectViewModel.plusEnabled
+        self.decreaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.minusEnabled : false
+        self.increaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.plusEnabled : false
         let amount: String = amountSelectViewModel.currentSelectedAmount()
         AppData.shared.amountSelected = amount 
         let loanAmount = String("\(CurrencySymbol.dollar.rawValue)\(amount)")

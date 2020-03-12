@@ -69,6 +69,7 @@ class AuthenticatorViewModel: BaseViewModel {
             guard email.isEmpty == false, password.isEmpty == false else {
                 resolver.reject(AuthManagerError.invalidLoginFields); return
             }
+            
             resolver.fulfill(())
         }
     }
@@ -104,9 +105,9 @@ class AuthenticatorViewModel: BaseViewModel {
 extension AuthenticatorViewModel {
     
     func conditionsAttributedText()-> NSAttributedString {
-        let text = NSMutableAttributedString(string: "By creating an account, you accept Cheq's Terms of Use and Private Policy")
+        let text = NSMutableAttributedString(string: "By creating an account, you accept Cheq's Terms of Use and Privacy Policy")
         text.applyLinkTo("Terms of Use", link: links.toc.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
-        text.applyLinkTo("Private Policy", link: links.privacy.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.defaultFont)
+        text.applyLinkTo("Privacy Policy", link: links.privacy.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.defaultFont)
         return text
     }
     

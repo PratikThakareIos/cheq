@@ -35,7 +35,18 @@ class ViewUtil {
         }
         view.clipsToBounds = true
     }
-
+    
+    /// This method will set the label text of the table view
+    func setTableCellLabelText(cell: UITableViewCell, labelTag:Int?, text: Any){
+        if labelTag != nil{
+            let label = cell.viewWithTag(labelTag!)
+            (label as! UILabel).text = text as? String;
+        }else {
+            cell.textLabel?.text = text as? String;
+        }
+    }
+    
+    
     /**
      This method modifies the given **CButton** with rounded edges. The cornerRadius amount is defaulted to be based on height, because we don't have vertical buttons. But this logic is subjected to change if vertical button is introduced.
      */
@@ -97,5 +108,20 @@ class ViewUtil {
         gradient.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradient, at: 0)
         return gradient
+    }
+    func footerButton(width:CGFloat,title:String) -> UIView {
+         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
+
+               footerView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 100.0))
+           
+               let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width:width - 24, height: 56.0))
+               // here is what you should add:
+               nextButton.center = footerView.center
+
+               nextButton.setTitle(title, for: .normal)
+               nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
+               nextButton.layer.cornerRadius = 28.0
+               footerView.addSubview(nextButton)
+        return footerView
     }
 }

@@ -24,6 +24,9 @@ class MultipleChoiceViewController: UIViewController {
         super.viewDidLoad()
         setupDelegate()
         setupUI()
+        if showNextButton{
+             showBackButton()
+        }
     }
     
     func setupDelegate() {
@@ -54,17 +57,34 @@ class MultipleChoiceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
-        
-        if AppData.shared.completingDetailsForLending {
+        getTransactionData()
+        if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .workingLocation {
             showCloseButton()
         }
         
         if selectedChoice == nil {
             self.updateChoices()
         }
+
     }
     
-   
+   private func getTransactionData() {
+    if AppData.shared.employeePaycycle?.count == 0 {
+          AppConfig.shared.showSpinner()
+          CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
+              .done{ paycyles in
+                  AppConfig.shared.hideSpinner {
+                      print("Transaction success")
+                  }
+              }.catch { err in
+                  AppConfig.shared.hideSpinner {
+                      self.showError(err) {
+                        print("error")
+                      }
+                  }
+              }
+        }
+    }
     func updateChoices() {
         if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
             AppConfig.shared.showSpinner()
@@ -124,8 +144,20 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
             } else {
-                AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
+               // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
+                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
             }
+        case .workingLocation:
+            print("Location clicked")
+            if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
+                AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
+            }else{
+                if isIncomeDetected() == false {
+                    print("Upload time sheet anything other than fix location")
+                   incomeVerification()
+                }
+            }
+           
         case .onDemand:
             let vm = self.viewModel
             vm.save(QuestionField.employerName.rawValue, value: choice.title)
@@ -134,15 +166,18 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             qVm.loadSaved()
             let req = DataHelperUtil.shared.putUserEmployerRequest()
             AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+            
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
                 return
             }
             
+            /* Mark: If uber selected (demanding company other than other) */
+            
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppData.shared.updateProgressAfterCompleting(.onDemand)
                 if AppData.shared.completingDetailsForLending, self.isModal {
-                    AppNav.shared.dismissModal(self)
+                    self.incomeVerification()
                 } else {
                     AppData.shared.updateProgressAfterCompleting(.onDemand)
                     AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
@@ -152,6 +187,8 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                     AppNav.shared.dismissModal(self)
                 }
             }
+            
+            
         case .financialInstitutions:
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form 
@@ -230,6 +267,7 @@ extension MultipleChoiceViewController {
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithCaptionCell
         cell.titleLabel.text = choice.title
         cell.captionLabel.text = choice.caption ?? ""
+        cell.captionLabel.textColor = ColorUtil.hexStringToUIColor(hex: "#999999")
         cell.backgroundColor = .clear
         AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
         return cell
@@ -257,5 +295,41 @@ extension MultipleChoiceViewController {
         cell.backgroundColor = .clear
         AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
         return cell
+    }
+    func showTransactions() {
+         guard let nav = self.navigationController else { return }
+                                  let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+                                  let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
+                                  nav.pushViewController(vc, animated: true)
+    }
+    
+    
+    
+     func incomeVerification(){
+        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+        print(AppData.shared.employeePaycycle?.count)
+            if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+               showTransactions()
+            }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+               // show popup but for now navigate to lending page
+                
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                AppNav.shared.dismissModal(self){}
+            }else {
+    //             self.delegate?.refreshLendingScreen()
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                AppNav.shared.dismissModal(self){}
+            }
+           
+        }
+}
+
+
+
+
+extension MultipleChoiceViewController {
+    func isIncomeDetected() -> Bool {
+        print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
+        return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false
     }
 }

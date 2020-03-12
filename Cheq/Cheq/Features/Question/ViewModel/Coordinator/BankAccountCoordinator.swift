@@ -10,43 +10,50 @@ import UIKit
 
 class BankAccountCoordinator: QuestionCoordinatorProtocol {
     var type: QuestionType = .bankAccount
-
     var sectionTitle: String = Section.bankDetails.rawValue
-    var question: String = "Add your account"
+    var question: String = "Enter your direct debit details"
 
     func placeHolder(_ index: Int) -> String {
         switch index {
         case 0:
-            return "Account name"
+            return "First name"
         case 1:
-            return "BSB"
+            return "Last name"
         case 2:
-            return "Account number"
+            return "BSB"
         case 3:
-            return "Is this a joint account"
+            return "Account number"
+        case 4:
+            return "is this a joint Account?"
         default:
             return ""
         }
     }
 
-    var numOfTextFields: Int = 3
+    var numOfTextFields: Int = 4
     var numOfCheckBox: Int = 1
+    var numOfImageContainer: Int = 1
 
     func validateInput(_ inputs: [String : Any]) -> ValidationError? {
-        // account name
-        guard let accountName = inputs[self.placeHolder(0)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        guard StringUtil.shared.isAlphaNumericOnly(accountName) else { return  ValidationError.invalidNameFormat }
+        //*
+        // First Name and Last Name
+        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
+        guard firstName.count >= 2, lastName.count >= 2 else {
+            return ValidationError.invalidNameFormat
+        }
         
         // bsb
-        guard let bsb = inputs[self.placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let bsb = inputs[self.placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
         guard StringUtil.shared.isNumericOnly(bsb) else { return ValidationError.onlyNumericCharactersIsAllowed }
         guard bsb.count == 6 else { return ValidationError.invalidInputFormat }
         
         // account number
-        guard let accNo = inputs[self.placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let accNo = inputs[self.placeHolder(3)] as? String else { return ValidationError.allFieldsMustBeFilled }
         guard StringUtil.shared.isNumericOnly(accNo) else { return ValidationError.onlyNumericCharactersIsAllowed }
-        
+      //  */
         // validation passes
+        
         return nil 
     }
 

@@ -18,8 +18,9 @@ public struct FinancialAccountSlim: Codable {
     public var number: String?
     public var accountType: String?
     public var assetType: String?
+    public var isSalaryAccount: Bool?
 
-    public init(financialInstitutionName: String?, financialAccountId: Int?, name: String?, nickname: String?, number: String?, accountType: String?, assetType: String?) {
+    public init(financialInstitutionName: String?, financialAccountId: Int?, name: String?, nickname: String?, number: String?, accountType: String?, assetType: String?, isSalaryAccount: Bool?) {
         self.financialInstitutionName = financialInstitutionName
         self.financialAccountId = financialAccountId
         self.name = name
@@ -27,6 +28,7 @@ public struct FinancialAccountSlim: Codable {
         self.number = number
         self.accountType = accountType
         self.assetType = assetType
+        self.isSalaryAccount = isSalaryAccount
     }
 
 

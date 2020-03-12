@@ -19,6 +19,8 @@ enum QuestionType: String {
     case companyName = "companyName"
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
+    case verifyName = "verifyName"
+    case verifyHomeAddress = "verifyHomeAddress"
 }
 
 enum QuestionField: String {
@@ -26,7 +28,7 @@ enum QuestionField: String {
     // about me
     case firstname = "firstname"
     case lastname = "lastname"
-    case fullLegalName = "fullLegalName" 
+    case fullLegalName = "fullLegalName"
     case dateOfBirth = "dateOfBirth"
     case contactDetails = "mobile"
     case residentialAddress = "residentialAddress"
@@ -34,6 +36,8 @@ enum QuestionField: String {
     case residentialSuburb = "residentialSuburb"
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
+    case unitNumber = "unitNo"
+    case homeAddress = "homeAddress"
 
     // kyc
     case kycDocSelect = "KycDocSelect"
@@ -88,6 +92,10 @@ class QuestionViewModel: BaseViewModel {
         return coordinator.numOfCheckBox
     }
     
+    func numOfImageContainer()->Int {
+        return coordinator.numOfImageContainer
+    }
+    
     func placeHolder(_ index: Int)->String {
         return coordinator.placeHolder(index)
     }
@@ -126,7 +134,7 @@ class QuestionViewModel: BaseViewModel {
 extension QuestionViewModel {
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails))
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails),ageRange:.from25To34,state:.nsw)
         return putUserDetailsReq
     }
     
@@ -138,7 +146,7 @@ extension QuestionViewModel {
 //    func ageRange()-> PutUserDetailRequest.AgeRange {
 //        return convertAgeRange(self.fieldValue(.ageRange))
 //    }
-//    
+//
 //    func convertAgeRange(_ ageRange: String)-> PutUserDetailRequest.AgeRange {
 //        return AgeRangeCoordinator.ageRangeToPutUserDetailsReqAgeRange(ageRange)
 //    }
@@ -156,7 +164,7 @@ extension QuestionViewModel {
         }
     }
 
-    func residentialState()-> PutUserOnfidoKycRequest.State {
+    func residentialState() {
         let state = self.fieldValue(.residentialState)
         let localEnum = cState(fromRawValue: state)
         return StateCoordinator.convertCStateToState(localEnum)
@@ -189,6 +197,10 @@ extension QuestionViewModel {
             coordinator = MaritalStatusCoordinator()
         case .bankAccount:
             coordinator = BankAccountCoordinator()
+        case .verifyName:
+            coordinator = VerifyNameCoordinator()
+        case .verifyHomeAddress:
+            coordinator = HomeAddressCoordinator()
         }
         return coordinator
     }

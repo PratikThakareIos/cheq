@@ -77,7 +77,7 @@ extension CheqAPIManager {
                     guard let response = lendingOverview?.body else {
                         resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLendingOverview); return
                     }
-                    
+                    AppData.shared.employeeOverview = response
                     resolver.fulfill(response)
                 })
             }.catch { err in
@@ -115,14 +115,19 @@ extension CheqAPIManager {
                 let token = authUser.authToken() ?? ""
                 let qvm = QuestionViewModel()
                 qvm.loadSaved()
+                let account = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname))"
+                print(account)
                 let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
-                let putBankAccountRequest = PutBankAccountRequest(accountName: qvm.fieldValue(.accountName), bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
+                let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
+                print(putBankAccountRequest)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     
                     if let error = err {
-                        LoggingUtil.shared.cPrint(error)
+                        LoggingUtil.shared.cPrint(error.localizedDescription)
+                         LoggingUtil.shared.cPrint(error)
                         
-                        resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);    
+                        resolver.reject(error)
+                      //  resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
                         return
                         
                     }
@@ -133,4 +138,79 @@ extension CheqAPIManager {
             }
         }
     }
+    
+    
+    func getSalaryPayCycleTimeSheets() -> Promise<[SalaryTransactionResponse]>  {
+        return Promise<[SalaryTransactionResponse]>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                LendingAPI.getIncomingTransactionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (timeSheets, err) in
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToGetTimeSheets); return
+                    }
+                    guard let response = timeSheets?.body else {
+                        resolver.reject(CheqAPIManagerError_Lending.unableToGetTimeSheets); return
+                    }
+                    AppData.shared.employeePaycycle = response
+                   
+                    resolver.fulfill(response)
+                })
+            }.catch { err in
+                //TODO - remove fulfill mock data code
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(CheqAPIManagerError_Lending.unableToGetTimeSheets)
+            }
+            
+        }
+    }
+    
+    func postSalaryTransactions(salaryTransactionIds:[Int]?,payFrequency:PostSalaryTransactionsRequest.PayFrequency?,_noSalary:Bool?,_isInAnotherBank:Bool?)->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                
+                let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs: salaryTransactionIds, payFrequency: payFrequency, noSalary: _noSalary, isInAnotherBank: _isInAnotherBank)
+                LendingAPI.postSalaryTransactionsWithRequestBuilder(salaryTransactions: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        
+                        resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
+                        return
+                        
+                    }
+                    resolver.fulfill(authUser)
+                }
+            }.catch { err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
+    
+    func PostMoneySoftErrorlogs(requestParam:PostLogRequest?) ->Promise<AuthUser> {
+        return Promise<AuthUser>() { resolver in
+                   AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                       let token = authUser.authToken() ?? ""
+                     
+                       LoggingAPI.postLogWithRequestBuilder(request: requestParam).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                           
+                           if let error = err {
+                               LoggingUtil.shared.cPrint(error)
+                               
+                               resolver.reject(AuthManagerError.unknown);
+                               return
+                               
+                           }
+                           resolver.fulfill(authUser)
+                       }
+                   }.catch { err in
+                       resolver.reject(err)
+                   }
+            }
+    }
 }
+
+
+ 

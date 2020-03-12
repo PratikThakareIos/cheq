@@ -16,20 +16,26 @@ public struct DeclineDetail: Codable {
         case creditAssessment = "CreditAssessment"
         case employmentType = "EmploymentType"
         case jointAccount = "JointAccount"
-        case kycFailed = "KycFailed"
         case monthlyPayCycle = "MonthlyPayCycle"
-        case noPayCycle = "NoPayCycle"
         case hasWriteOff = "HasWriteOff"
-        case hasNameConflict = "HasNameConflict"
+        case hasOverdueLoans = "HasOverdueLoans"
         case identityConflict = "IdentityConflict"
         case reachedCapacity = "ReachedCapacity"
+        case salaryInDifferentBank = "SalaryInDifferentBank"
+        case noEnoughSalaryInfo = "NoEnoughSalaryInfo"
+        case selectYourSalary = "SelectYourSalary"
+        case payCycleStopped = "PayCycleStopped"
     }
     public var declineReason: DeclineReason?
+    public var declineTitle: String?
     public var declineDescription: String?
+    public var learnMoreLink: String?
 
-    public init(declineReason: DeclineReason?, declineDescription: String?) {
+    public init(declineReason: DeclineReason?, declineTitle: String?, declineDescription: String?, learnMoreLink: String?) {
         self.declineReason = declineReason
+        self.declineTitle = declineTitle
         self.declineDescription = declineDescription
+        self.learnMoreLink = learnMoreLink
     }
 
 

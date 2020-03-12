@@ -62,6 +62,8 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.button(_:)), name: NSNotification.Name(UINotificationEvent.buttonClicked.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.turnOnLocation(_:)), name: NSNotification.Name(UINotificationEvent.turnOnLocation.rawValue), object: nil)
     }
 }
 
@@ -69,6 +71,7 @@ class LendingViewController: CTableViewController {
 extension LendingViewController {
     
     @objc func completeDetails(_ notificaton: NSNotification) {
+        //["type"] as? String  is just the key set on CompleteDetailsTableViewCell for the user object
         guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
         switch type {
@@ -84,6 +87,10 @@ extension LendingViewController {
             AppData.shared.completingDetailsForLending = true
             // verification flow
             AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+        case .workVerify:
+              AppData.shared.completingDetailsForLending = true
+            print("verify work details")
+            //Needs to pass the screen
         }
     }
     
@@ -105,6 +112,19 @@ extension LendingViewController {
         }
     }
     
+    @objc func turnOnLocation(_ notification: NSNotification) {
+        if let action = notification.userInfo?[NotificationUserInfoKey.turnOnLocation.rawValue] as? String{
+            if action == UserAction.Action.turnOnLocation.rawValue {
+                CompleteDetailsTableViewCellViewModel.turnOnlocation = true
+                AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
+            }else {
+                CompleteDetailsTableViewCellViewModel.turnOnlocation = false
+                showMessage("No time sheets yet", completion: nil)
+            }
+       }
+        
+    }
+    
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
         self.showDeclineIfNeeded(lendingOverview)
         LoggingUtil.shared.cPrint("build view model here...")
@@ -117,7 +137,7 @@ extension LendingViewController {
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
-                   self.renderLending(overview)
+                    self.renderLending(overview)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -171,3 +191,5 @@ extension LendingViewController {
         }
     }
 }
+
+

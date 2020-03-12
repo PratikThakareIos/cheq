@@ -11,14 +11,35 @@ import Foundation
 
 public struct PutUserDetailRequest: Codable {
 
+    public enum AgeRange: String, Codable { 
+        case from18To24 = "From18To24"
+        case from25To34 = "From25To34"
+        case from35To54 = "From35To54"
+        case from55To64 = "From55To64"
+        case over65 = "Over65"
+    }
+    public enum State: String, Codable { 
+        case nsw = "NSW"
+        case qld = "QLD"
+        case sa = "SA"
+        case tas = "TAS"
+        case vic = "VIC"
+        case wa = "WA"
+        case act = "ACT"
+        case nt = "NT"
+    }
     public var firstName: String
     public var lastName: String
     public var mobile: String
+    public var ageRange: AgeRange?
+    public var state: State?
 
-    public init(firstName: String, lastName: String, mobile: String) {
+    public init(firstName: String, lastName: String, mobile: String, ageRange: AgeRange?, state: State?) {
         self.firstName = firstName
         self.lastName = lastName
         self.mobile = mobile
+        self.ageRange = ageRange
+        self.state = state
     }
 
 

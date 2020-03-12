@@ -19,13 +19,13 @@ class DeclineViewTestUtil {
     /// private init for implementing Singleton
     private init() {}
     
-    /// Helper method to generate decline details with a given **DeclineDetail.DeclineReason** 
+    /// Helper method to generate decline details with a given **DeclineDetail.DeclineReason**
     func generateDeclineDetails(_ reason: DeclineDetail.DeclineReason)-> DeclineDetail? {
         switch reason {
         case ._none:
             return nil
         default:
-            let declineDetails = DeclineDetail(declineReason: reason, declineDescription: TestUtil.shared.randomString(500))
+            let declineDetails = generateDeclineDetails(reason)
             return declineDetails
         }
     }

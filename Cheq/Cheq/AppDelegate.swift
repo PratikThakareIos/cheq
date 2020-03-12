@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup FB SDK
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        //Dark these overided for text feilds
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()

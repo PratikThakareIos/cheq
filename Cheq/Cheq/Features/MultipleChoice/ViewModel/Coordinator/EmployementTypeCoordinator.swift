@@ -42,3 +42,36 @@ struct EmployementTypeCoordinator: MultipleChoiceViewModelCoordinator {
     
 
 }
+
+
+
+
+enum WorkLocationType: String {
+    case fixLocation = "From a fixed location"
+    case multipleLocations = "From multiple locations"
+    case remoteLocation = "From home/remote"
+    
+    
+    init(fromRawValue: String) {
+        self = WorkLocationType(rawValue: fromRawValue) ?? .fixLocation
+    }
+}
+
+struct WorkLocationTypeCoordinator: MultipleChoiceViewModelCoordinator {
+    var sectionTitle = Section.employmentDetails.rawValue
+    var questionTitle = "Where do you work most of the time?"
+    var coordinatorType: MultipleChoiceQuestionType = .workingLocation
+    
+    func choices() -> Promise<[ChoiceModel]> {
+        return Promise<[ChoiceModel]>() { resolver in
+            let fixedLocation = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.fixLocation.rawValue, caption: "You work from one location every \nday e.g. office.", image: nil, ordering: 0, ref : nil)
+            let multipleLocations = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.multipleLocations.rawValue, caption: "You move around every day for work \nfrom site to site e.g. salesperson.", image: nil,  ordering: 0, ref : nil)
+            let remoteLocation = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.multipleLocations.rawValue, caption: "You work from your own home.", image: nil,  ordering: 0, ref : nil)
+            
+            let result = [fixedLocation, multipleLocations, remoteLocation]
+            resolver.fulfill(result)
+        }
+    }
+    
+
+}

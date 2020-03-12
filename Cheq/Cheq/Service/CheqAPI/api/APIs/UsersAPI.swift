@@ -82,6 +82,7 @@ open class UsersAPI {
   "employer" : {
     "address" : "address",
     "employmentType" : "Fulltime",
+    "workingLocation" : "FromFixedLocation",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
     "noFixedAddress" : true,
@@ -284,6 +285,7 @@ open class UsersAPI {
   "employer" : {
     "address" : "address",
     "employmentType" : "Fulltime",
+    "workingLocation" : "FromFixedLocation",
     "latitude" : 0.8008281904610115,
     "employerName" : "employerName",
     "noFixedAddress" : true,

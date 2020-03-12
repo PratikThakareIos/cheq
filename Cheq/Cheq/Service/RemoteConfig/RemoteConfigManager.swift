@@ -13,7 +13,7 @@ import PromiseKit
 
 
 enum RemoteConfigParameters: String, CaseIterable {
-    case financialInstitutions = "FinancialInstitutions"
+    case financialInstitutions = "FinancialInstitutionsNew"
     case financialInstituitonsWithDemo = "FinancialInstitutionsWithDemoBank"
     case appVersionNumber = "AppVersionNumber"
     case transactionSyncTimeoutMins = "TxnSyncTimeoutMins"
@@ -50,7 +50,8 @@ class RemoteConfigManager {
        
         return Promise<RemoteBankList>() { resolver in
             self.fetchAndActivate().done { _ in
-                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstituitonsWithDemo.rawValue)
+                let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstitutions.rawValue)
+                print("Banks:",banks)
                 let decoder = JSONDecoder()
                 do {
                     let remoteBanks = try decoder.decode([RemoteBank].self, from: banks.dataValue)
@@ -60,6 +61,7 @@ class RemoteConfigManager {
                     resolver.fulfill(remoteBankList)
                 }
                 catch let error {
+                    print("Error occured in",error)
                     resolver.reject(error)
                 }
             }.catch { err in

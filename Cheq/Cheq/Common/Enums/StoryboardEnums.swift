@@ -31,6 +31,9 @@ enum OnboardingStoryboardId: String {
     case intro = "IntroductionViewController"
     case multipleChoice = "MultipleChoiceViewController"
     case dynamic = "DynamicFormViewController"
+    case salaryPayments = "SalaryPaymentViewController"
+    case payCycleViewController = "PayCycleViewController"
+    case verifyDocs = "DocumentVerificationViewController"
 }
 
 /**
@@ -45,7 +48,8 @@ enum MainStoryboardId: String {
     case spendingTransactions = "SpendingTransactionsViewController"
     case budget = "BudgetViewController"
     case preview = "PreviewLoanViewController"
-    case account = "AccountViewController" 
+    case account = "AccountViewController"
+    
 }
 
 /**

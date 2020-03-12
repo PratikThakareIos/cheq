@@ -55,6 +55,11 @@ enum IntroductionType: String {
     case creditAssessment = "Credit assessment didn't pass"
     case hasNameConflict = "Name does not match"
     case hasReachedCapacity = "Has reached capacity"
+    case hasOverdueLoans = "HasOverdueLoans"
+    case salaryInDifferentBank = "SalaryInDifferentBank"
+    case noEnoughSalaryInfo = "NoEnoughSalaryInfo"
+    case selectYourSalary = "selectYourSalary"
+    case payCycleStopped = "payCycleStopped"
 }
 
 class IntroductionViewModel: BaseViewModel {
@@ -93,11 +98,16 @@ class IntroductionViewModel: BaseViewModel {
         case .hasWriteOff: return .hasWriteOff
         case .identityConflict: return .identityConflict
         case .jointAccount: return .jointAccount
-        case .kycFailed: return .kycFailed
+//        case .kycFailed: return .kycFailed
         case .monthlyPayCycle: return .monthlyPayCycle
-        case .noPayCycle: return .noPayCycle
-        case .hasNameConflict: return .hasNameConflict
+//        case .noPayCycle: return .noPayCycle
+//        case .hasNameConflict: return .hasNameConflict
         case .reachedCapacity: return .hasReachedCapacity
+        case .hasOverdueLoans : return .hasOverdueLoans
+        case .salaryInDifferentBank : return .salaryInDifferentBank
+        case .noEnoughSalaryInfo : return .noEnoughSalaryInfo
+        case .selectYourSalary : return .selectYourSalary
+        case .payCycleStopped:  return .payCycleStopped
         }
     }
 
@@ -135,6 +145,16 @@ class IntroductionViewModel: BaseViewModel {
             return NameConflictCoordinator()
         case .hasReachedCapacity:
             return HasReachedCapacityCoordinator()
+        case .hasOverdueLoans:
+           return HasOverdueLoansIntroCoordinator()
+        case .salaryInDifferentBank:
+            return SalaryInDifferentBankIntroCoordinator()
+        case .noEnoughSalaryInfo:
+            return NoEnoughSalaryInfoIntroCoordinator()
+        case .selectYourSalary:
+            return SelectYourSalaryInfoIntroCoordinator()
+        case .payCycleStopped:
+             return PayCycleStoppedInfoIntroCoordinator()
         }
     }
 }

@@ -160,7 +160,8 @@ class CheqAPIManager {
             AuthConfig.shared.activeManager.getCurrentUser()
             .done { authUser in
                 let token = authUser.authToken() ?? ""
-                let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, address: req.address ?? "", noFixedAddress: req.noFixedAddress ?? false, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, postCode: req.postCode ?? "", state: req.state ?? "", country: req.country ?? "")
+                let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, workingLocation: .fromMultipleLocations, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, address:  req.address ?? "", state: req.state ?? "", country: req.country ?? "", postCode: req.postCode ?? "")
+                    
                 UsersAPI.putUserEmployerWithRequestBuilder(request: employerDetailsReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
                     
                     
@@ -273,7 +274,7 @@ class CheqAPIManager {
     }
     
     // try PUT USER KYC, if error, it will do GET USER KYC
-    // PUT will get error when we have initiated an application already 
+    // PUT will get error when we have initiated an application already
     func retrieveUserDetailsKyc(_ req: PutUserOnfidoKycRequest)-> Promise<GetUserKycResponse> {
         var oauthToken = ""
         return Promise<GetUserKycResponse>() { resolver in

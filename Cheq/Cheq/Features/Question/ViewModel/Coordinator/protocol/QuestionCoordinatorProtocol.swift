@@ -14,7 +14,7 @@ protocol QuestionCoordinatorProtocol {
     var question: String { get }
     var numOfTextFields: Int { get }
     var numOfCheckBox: Int { get }
-    
+    var numOfImageContainer: Int { get }
     func placeHolder(_ index: Int)->String
     
     func validateInput(_ inputs: [String: Any])-> ValidationError?
@@ -35,11 +35,17 @@ extension QuestionCoordinatorProtocol {
             return 0 
         }
     }
+     // default is 0
+    var numOfImageContainer: Int {
+        get {
+            return 0
+        }
+    }
 
     var sectionTitle: String {
         get {
             return Section.aboutMe.rawValue
         }
     }
-
+    
 }

@@ -626,10 +626,11 @@ open class SpendingAPI {
 
     /**
 
+     - parameter financialAccountIds: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSpendingStatus(completion: @escaping ((_ data: GetSpendingStatusResponse?,_ error: Error?) -> Void)) {
-        getSpendingStatusWithRequestBuilder().execute { (response, error) -> Void in
+    open class func getSpendingStatus(financialAccountIds: String? = nil, completion: @escaping ((_ data: GetSpendingStatusResponse?,_ error: Error?) -> Void)) {
+        getSpendingStatusWithRequestBuilder(financialAccountIds: financialAccountIds).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -641,17 +642,22 @@ open class SpendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "transactionStatus" : "Received"
+  "transactionStatus" : "Categorising"
 }}]
+     
+     - parameter financialAccountIds: (query)  (optional)
 
      - returns: RequestBuilder<GetSpendingStatusResponse> 
      */
-    open class func getSpendingStatusWithRequestBuilder() -> RequestBuilder<GetSpendingStatusResponse> {
+    open class func getSpendingStatusWithRequestBuilder(financialAccountIds: String? = nil) -> RequestBuilder<GetSpendingStatusResponse> {
         let path = "/v1/Spending/status"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
-        let url = URLComponents(string: URLString)
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "financialAccountIds": financialAccountIds
+        ])
 
         let requestBuilder: RequestBuilder<GetSpendingStatusResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 

@@ -14,10 +14,11 @@ open class LocationsAPI {
     /**
 
      - parameter query: (query)  (optional)
+     - parameter sessionToken: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getAutocompleteAddress(query: String? = nil, completion: @escaping ((_ data: [GetAddressResponse]?,_ error: Error?) -> Void)) {
-        getAutocompleteAddressWithRequestBuilder(query: query).execute { (response, error) -> Void in
+    open class func getAutocompleteAddress(query: String? = nil, sessionToken: String? = nil, completion: @escaping ((_ data: [GetAddressResponse]?,_ error: Error?) -> Void)) {
+        getAutocompleteAddressWithRequestBuilder(query: query, sessionToken: sessionToken).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -34,7 +35,7 @@ open class LocationsAPI {
   "latitude" : 0.8008281904610115,
   "suburb" : "suburb",
   "postCode" : "postCode",
-  "state" : "NSW",
+  "state" : "state",
   "longitude" : 6.027456183070403
 }, {
   "country" : "country",
@@ -42,22 +43,24 @@ open class LocationsAPI {
   "latitude" : 0.8008281904610115,
   "suburb" : "suburb",
   "postCode" : "postCode",
-  "state" : "NSW",
+  "state" : "state",
   "longitude" : 6.027456183070403
 } ]}]
      
      - parameter query: (query)  (optional)
+     - parameter sessionToken: (query)  (optional)
 
      - returns: RequestBuilder<[GetAddressResponse]> 
      */
-    open class func getAutocompleteAddressWithRequestBuilder(query: String? = nil) -> RequestBuilder<[GetAddressResponse]> {
+    open class func getAutocompleteAddressWithRequestBuilder(query: String? = nil, sessionToken: String? = nil) -> RequestBuilder<[GetAddressResponse]> {
         let path = "/v1/Locations/autocomplete/address"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "query": query
+            "query": query, 
+            "sessionToken": sessionToken
         ])
 
         let requestBuilder: RequestBuilder<[GetAddressResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -68,10 +71,11 @@ open class LocationsAPI {
     /**
 
      - parameter query: (query)  (optional)
+     - parameter sessionToken: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getAutocompleteWorkAddress(query: String? = nil, completion: @escaping ((_ data: [GetEmployerPlaceResponse]?,_ error: Error?) -> Void)) {
-        getAutocompleteWorkAddressWithRequestBuilder(query: query).execute { (response, error) -> Void in
+    open class func getAutocompleteWorkAddress(query: String? = nil, sessionToken: String? = nil, completion: @escaping ((_ data: [GetEmployerPlaceResponse]?,_ error: Error?) -> Void)) {
+        getAutocompleteWorkAddressWithRequestBuilder(query: query, sessionToken: sessionToken).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -89,7 +93,7 @@ open class LocationsAPI {
   "name" : "name",
   "suburb" : "suburb",
   "postCode" : "postCode",
-  "state" : "NSW",
+  "state" : "state",
   "longitude" : 6.027456183070403
 }, {
   "country" : "country",
@@ -98,22 +102,24 @@ open class LocationsAPI {
   "name" : "name",
   "suburb" : "suburb",
   "postCode" : "postCode",
-  "state" : "NSW",
+  "state" : "state",
   "longitude" : 6.027456183070403
 } ]}]
      
      - parameter query: (query)  (optional)
+     - parameter sessionToken: (query)  (optional)
 
      - returns: RequestBuilder<[GetEmployerPlaceResponse]> 
      */
-    open class func getAutocompleteWorkAddressWithRequestBuilder(query: String? = nil) -> RequestBuilder<[GetEmployerPlaceResponse]> {
+    open class func getAutocompleteWorkAddressWithRequestBuilder(query: String? = nil, sessionToken: String? = nil) -> RequestBuilder<[GetEmployerPlaceResponse]> {
         let path = "/v1/Locations/autocomplete/work"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "query": query
+            "query": query, 
+            "sessionToken": sessionToken
         ])
 
         let requestBuilder: RequestBuilder<[GetEmployerPlaceResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

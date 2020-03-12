@@ -12,6 +12,10 @@ import UIKit
  SwipeToConfirmTableViewCell is a tableview cell that implements the "swipe to confirm" widget for the lending stage of the app
  */
 class SwipeToConfirmTableViewCell: CTableViewCell {
+    @IBOutlet weak var grayView: UIView!
+    
+
+    @IBOutlet weak var agreementAcceptanceLabel: UILabel!
     
     /// refer to **xib**
     @IBOutlet weak var draggable: UIView!
@@ -58,18 +62,23 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     /// event with **UINotificationEvent.swipeReset** will trigger **swipeReset** method
     func registerObservables() {
         NotificationCenter.default.addObserver(self, selector: #selector(swipeReset(_:)), name: NSNotification.Name(UINotificationEvent.swipeReset.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(agreemntAccepted(_:)), name: NSNotification.Name(UINotificationEvent.agreemntAccepted.rawValue), object: nil)
     }
     
     /// method to update the styling whenever viewModel is updated
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
+        self.grayView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = .clear
         self.backgroundTextContainerView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         self.footerText.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         self.backgroundText.text = vm.textInBackground
         self.backgroundText.textColor = AppConfig.shared.activeTheme.altTextColor
         self.footerText.text = vm.footerText
+        self.agreementAcceptanceLabel.text = vm.headerText
+        self.agreementAcceptanceLabel.numberOfLines = 0
         self.draggableText.text = vm.buttonTitle
         self.draggableText.font = AppConfig.shared.activeTheme.mediumFont
         self.draggable.backgroundColor = AppConfig.shared.activeTheme.altTextColor
@@ -90,6 +99,11 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
             self.backgroundText.alpha = 1.0
             AppData.shared.acceptedAgreement = false
         }
+    }
+    @objc func agreemntAccepted(_ notification: NSNotification) {
+        
+        self.grayView.isHidden = true
+        self.agreementAcceptanceLabel.isHidden = true
     }
     
     /**

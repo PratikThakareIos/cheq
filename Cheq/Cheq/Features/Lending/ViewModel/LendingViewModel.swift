@@ -20,6 +20,7 @@ class LendingViewModel: BaseTableVCViewModel {
     func render(_ lendingOverview: GetLendingOverviewResponse) {
         clearSectionIfNeeded()
         var section = TableSectionViewModel()
+       
         section.rows.append(IntercomChatTableViewCellViewModel())
         self.addLoanSetting(lendingOverview, section: &section)
         self.addCashoutButton(lendingOverview, section: &section)
@@ -45,8 +46,12 @@ class LendingViewModel: BaseTableVCViewModel {
         return kycStatus == EligibleRequirement.KycStatus.failed
     }
     
+    func isKycStatusInProcessing(_ kycStatus: EligibleRequirement.KycStatus) -> Bool {
+          return kycStatus == EligibleRequirement.KycStatus.inProcessing
+    }
+    
     func isKycStatusPending(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
-        if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant || kycStatus == EligibleRequirement.KycStatus.inProcessing || kycStatus == EligibleRequirement.KycStatus.blocked {
+        if kycStatus == EligibleRequirement.KycStatus.notStarted || kycStatus == EligibleRequirement.KycStatus.createdApplicant{
             return true
         } else {
             return false
@@ -103,17 +108,39 @@ extension LendingViewModel {
         let hasBankDetails = eligibleRequirement.hasBankAccountDetail ?? false
         let kycStatus = eligibleRequirement.kycStatus ?? .notStarted
         let kycCompleted = isKycStatusSuccess(kycStatus) || isKycStatusFailed(kycStatus)
-        if hasEmploymentDetail == true, hasBankDetails == true, kycCompleted {
+        
+        print(lendingOverview)
+        //Check all status
+        if hasEmploymentDetail == true,hasBankDetails == true, kycCompleted {
             return
         }
         
-        if eligibleRequirement.hasEmploymentDetail ?? false {
+        // inprogress status should come too for all the cases
+        
+         /// **Step-> 1** Employment details*
+        if hasEmploymentDetail {
             completed = completed + 1
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
             completeDetailsForWork.type = .workDetails
-            completeDetailsForWork.completionState = .done
-            completeDetailsForWork.expanded = false
+            if (eligibleRequirement.hasPayCycle ?? false){
+                completeDetailsForWork.completionState = .done
+                completeDetailsForWork.expanded = false
+                completeDetailsViewModels.append(completeDetailsForWork)
+            }else if (!(eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
+               completeDetailsForWork.completionState = .inprogress
+               completeDetailsForWork.expanded = true
+               completeDetailsViewModels.append(completeDetailsForWork)
+            }else if ((eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
+            completeDetailsForWork.completionState = .inprogress
+            completeDetailsForWork.expanded = true
             completeDetailsViewModels.append(completeDetailsForWork)
+            }
+            else {
+                completeDetailsForWork.completionState = .done
+                completeDetailsForWork.expanded = false
+                completeDetailsViewModels.append(completeDetailsForWork)
+            }
+            
         } else {
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
             completeDetailsForWork.type = .workDetails
@@ -122,6 +149,30 @@ extension LendingViewModel {
             completeDetailsViewModels.append(completeDetailsForWork)
         }
         
+//
+//          /// **Step-> 2** Verify that you have worked*
+//        if hasEmploymentDetail {
+//            print(eligibleRequirement.userAction)
+//            let verifyYouHaveWorkedDetails = CompleteDetailsTableViewCellViewModel()
+//            verifyYouHaveWorkedDetails.type = .workVerify
+//            verifyYouHaveWorkedDetails.userAction = (eligibleRequirement.userAction?.action) ?? UserAction.Action.turnOnLocation
+//            verifyYouHaveWorkedDetails.captionForVarifyWork = eligibleRequirement.userAction?._description
+//            verifyYouHaveWorkedDetails.completionState = verifyYouHaveWorked ? .done : .inprogress
+//            completed = verifyYouHaveWorked ? completed + 1 : completed
+//            verifyYouHaveWorkedDetails.expanded = verifyYouHaveWorked ? false : true
+//            completeDetailsViewModels.append(verifyYouHaveWorkedDetails)
+//        } else {
+//
+//            let verifyYouHaveWorkedDetails = CompleteDetailsTableViewCellViewModel()
+//            verifyYouHaveWorkedDetails.userAction = (eligibleRequirement.userAction?.action) ?? UserAction.Action.turnOnLocation
+//            verifyYouHaveWorkedDetails.type = .workVerify
+//            verifyYouHaveWorkedDetails.completionState = .inactive
+//            verifyYouHaveWorkedDetails.expanded = false
+//            completeDetailsViewModels.append(verifyYouHaveWorkedDetails)
+//        }
+        
+        
+          /// **Step-> 3** Enter your bank details*
         if hasEmploymentDetail {
             
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
@@ -138,17 +189,25 @@ extension LendingViewModel {
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         }
         
+        
+          /// **Step-> 4** Verify your identity*
         if self.isKycStatusPending(kycStatus) {
             
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
             completeDetailsForKyc.type = .verifyYourDetails
-            completeDetailsForKyc.completionState = hasBankDetails && isKycStatusPending(kycStatus) ? .pending : .inactive
+            completeDetailsForKyc.completionState = hasBankDetails && isKycStatusPending(kycStatus) ? .pending : .inprogress
             completeDetailsForKyc.expanded = hasBankDetails ? true : false
             completeDetailsViewModels.append(completeDetailsForKyc)
-        } else {
+        }else if self.isKycStatusInProcessing(kycStatus){
+            let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
+                completeDetailsForKyc.type = .verifyYourDetails
+                completeDetailsForKyc.completionState = isKycStatusInProcessing(kycStatus) ? .inprogress : .inactive
+                completeDetailsForKyc.expanded = hasBankDetails ? true : false
+                completeDetailsViewModels.append(completeDetailsForKyc)
+        }else {
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
             completeDetailsForKyc.type = .verifyYourDetails
-            completeDetailsForKyc.completionState = isKycStatusSuccess(kycStatus) ? .inactive : .pending
+            completeDetailsForKyc.completionState = isKycStatusSuccess(kycStatus) ? .done : .inactive
             completeDetailsForKyc.expanded = hasBankDetails ? true : false
             completeDetailsViewModels.append(completeDetailsForKyc)
         }

@@ -46,7 +46,7 @@ extension PreviewLoanViewModel {
         let card = AgreementItemTableViewCellViewModel()
         card.expanded = false
         card.message = loanPreview.loanAgreement ?? ""
-        card.title = "Loan Agreement"
+        card.title = "Terms & conditions"
         section.rows.append(card)
     }
     
@@ -55,7 +55,7 @@ extension PreviewLoanViewModel {
         let card = AgreementItemTableViewCellViewModel()
         card.expanded = false
         card.message = loanPreview.directDebitAgreement ?? ""
-        card.title = "Direct Debit Agreement"
+        card.title = "Direct debit agreement"
         section.rows.append(card)
         
     }

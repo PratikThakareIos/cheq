@@ -16,13 +16,15 @@ public struct RecentBorrowingSummary: Codable {
     public var totalFees: Double?
     public var feesPercent: Double?
     public var repaymentDate: String?
+    public var hasOverdueLoans: Bool?
 
-    public init(totalCashRequested: Double?, totalRepaymentAmount: Double?, totalFees: Double?, feesPercent: Double?, repaymentDate: String?) {
+    public init(totalCashRequested: Double?, totalRepaymentAmount: Double?, totalFees: Double?, feesPercent: Double?, repaymentDate: String?, hasOverdueLoans: Bool?) {
         self.totalCashRequested = totalCashRequested
         self.totalRepaymentAmount = totalRepaymentAmount
         self.totalFees = totalFees
         self.feesPercent = feesPercent
         self.repaymentDate = repaymentDate
+        self.hasOverdueLoans = hasOverdueLoans
     }
 
 

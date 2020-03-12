@@ -12,12 +12,10 @@ import Foundation
 public struct BorrowOverview: Codable {
 
     public var availableCashoutAmount: Double?
-    public var canUploadTimesheet: Bool?
     public var activities: [LoanActivity]?
 
-    public init(availableCashoutAmount: Double?, canUploadTimesheet: Bool?, activities: [LoanActivity]?) {
+    public init(availableCashoutAmount: Double?, activities: [LoanActivity]?) {
         self.availableCashoutAmount = availableCashoutAmount
-        self.canUploadTimesheet = canUploadTimesheet
         self.activities = activities
     }
 

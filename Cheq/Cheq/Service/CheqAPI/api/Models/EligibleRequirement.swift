@@ -11,6 +11,11 @@ import Foundation
 
 public struct EligibleRequirement: Codable {
 
+    public enum WorkingLocation: String, Codable { 
+        case fromFixedLocation = "FromFixedLocation"
+        case fromMultipleLocations = "FromMultipleLocations"
+        case fromHomeOrRemote = "FromHomeOrRemote"
+    }
     public enum KycStatus: String, Codable { 
         case blocked = "Blocked"
         case notStarted = "NotStarted"
@@ -19,14 +24,31 @@ public struct EligibleRequirement: Codable {
         case failed = "Failed"
         case success = "Success"
     }
+    public enum ProofOfAddressStatus: String, Codable { 
+        case _required = "Required"
+        case success = "Success"
+        case failed = "Failed"
+    }
     public var hasEmploymentDetail: Bool?
+    public var hasPayCycle: Bool?
+    public var isReviewingPayCycle: Bool?
+    public var hasProofOfProductivity: Bool?
+    public var workingLocation: WorkingLocation?
+    public var userAction: UserAction?
     public var hasBankAccountDetail: Bool?
     public var kycStatus: KycStatus?
+    public var proofOfAddressStatus: ProofOfAddressStatus?
 
-    public init(hasEmploymentDetail: Bool?, hasBankAccountDetail: Bool?, kycStatus: KycStatus?) {
+    public init(hasEmploymentDetail: Bool?, hasPayCycle: Bool?, isReviewingPayCycle: Bool?, hasProofOfProductivity: Bool?, workingLocation: WorkingLocation?, userAction: UserAction?, hasBankAccountDetail: Bool?, kycStatus: KycStatus?, proofOfAddressStatus: ProofOfAddressStatus?) {
         self.hasEmploymentDetail = hasEmploymentDetail
+        self.hasPayCycle = hasPayCycle
+        self.isReviewingPayCycle = isReviewingPayCycle
+        self.hasProofOfProductivity = hasProofOfProductivity
+        self.workingLocation = workingLocation
+        self.userAction = userAction
         self.hasBankAccountDetail = hasBankAccountDetail
         self.kycStatus = kycStatus
+        self.proofOfAddressStatus = proofOfAddressStatus
     }
 
 

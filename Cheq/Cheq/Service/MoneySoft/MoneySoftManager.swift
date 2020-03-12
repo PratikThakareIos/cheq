@@ -58,7 +58,7 @@ class MoneySoftManager {
         return Promise<UserProfileModel>() { resolver in
             do {
                 try msApi.user().profile(listener: ApiListener<UserProfileModel>(successHandler: { profileModel in
-                    guard let profile = profileModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveUserProfile); return }
+                     let profile = profileModel
                     resolver.fulfill(profile)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -88,16 +88,16 @@ class MoneySoftManager {
  
             do {
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
-                    guard let model = authModel else { resolver.reject(MoneySoftManagerError.unableToLoginWithCredential);
-                        return
-                    }
+                     let model = authModel
                     
                     resolver.fulfill(model)
                 }, errorHandler: { errorModel in
                     // throw error for verification code
                     if let err: ApiErrorModel = errorModel, err.code == ErrorCode.REQUIRES_LOGIN_VERIFICATION.rawValue {
+                        self.logMoneysoftError(error: errorModel, event: "Login")
                         resolver.reject(MoneySoftManagerError.require2FAVerificationCode); return
                     }
+                   
                     resolver.reject(MoneySoftManagerError.unableToLoginWithCredential)
                 }))
             } catch {
@@ -120,6 +120,7 @@ extension MoneySoftManager {
                     resolver.fulfill(fetchedTransactions)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Get Transactions")
                     resolver.reject(MoneySoftManagerError.unableToRefreshTransactions)
                 }))
             } catch {
@@ -140,6 +141,7 @@ extension MoneySoftManager {
                     resolver.fulfill(fetchedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                      self.logMoneysoftError(error: errorModel, event: "Get Accounts")
                     resolver.reject(MoneySoftManagerError.unableToGetAccounts)
                 }))
             } catch {
@@ -156,6 +158,7 @@ extension MoneySoftManager {
                     resolver.fulfill(updatedTransactions)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Update Transactions")
                     resolver.reject(MoneySoftManagerError.unableToUpdateTransactions)
                 }))
             } catch { 
@@ -172,6 +175,7 @@ extension MoneySoftManager {
                     resolver.fulfill(updatedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Refresh Accounts")
                     resolver.reject(MoneySoftManagerError.unableToRefreshAccounts)
                 }))
             } catch {
@@ -189,11 +193,15 @@ extension MoneySoftManager {
                     }
                     resolver.fulfill(accounts)
                 }, errorHandler: { errModel in
-                    if let err = errModel, err.code == ErrorCode.REQUIRES_MFA.rawValue {
+                     let err = errModel
+                    if err.code == ErrorCode.REQUIRES_MFA.rawValue {
                         let mfaPrompt = err.messages[ErrorKey.MFA_PROMPT.rawValue] ?? ""
                         let mfaErr = MoneySoftManagerError.requireMFA(reason: mfaPrompt)
                         resolver.reject(mfaErr); return
                     }
+                    print(errModel.description)
+                     print(errModel.code)
+                    self.logMoneysoftError(error: errModel, event: "Linkable Accounts")
                     resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts)
                 }))
             } catch {
@@ -211,6 +219,7 @@ extension MoneySoftManager {
                     resolver.fulfill(linkedAccts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Link Accounts")
                     resolver.reject(MoneySoftManagerError.unableToLinkAccounts)
                 }))
             } catch {
@@ -223,10 +232,11 @@ extension MoneySoftManager {
         return Promise<InstitutionCredentialsFormModel>() { resolver in
             do {
                 try msApi.financial().getSignInForm(institution: financialInstitutionModel, listener: ApiListener<InstitutionCredentialsFormModel>(successHandler: { formModel in
-                    guard let form = formModel else { resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm); return }
+                     let form = formModel
                     resolver.fulfill(form)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                    self.logMoneysoftError(error: errorModel, event: "Get Bank SignIn Form",bankName: financialInstitutionModel.displayName)
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutionSignInForm)
                 }))
             } catch {
@@ -247,6 +257,7 @@ extension MoneySoftManager {
                     }
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Get Institutions")
                     resolver.reject(MoneySoftManagerError.unableToRetrieveFinancialInstitutions)
                 }))
             } catch {
@@ -276,6 +287,7 @@ extension MoneySoftManager {
                     resolver.fulfill(true)
                 }, errorHandler: { errorModel  in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                    self.logMoneysoftError(error: errorModel, event: "Update Account Credentials")
                     resolver.reject(MoneySoftManagerError.unableToUpdateDisabledAccountCredentials)
                 }))
             } catch {
@@ -288,7 +300,7 @@ extension MoneySoftManager {
         return Promise<Bool>() { resolver in
             do {
                 try msApi.financial().forceUnlinkAllAccounts(listener: ApiListener<ApiResponseModel>(successHandler: { responseModel in
-                    guard let response = responseModel else { resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts); return }
+                     let response = responseModel
                     if response.success {
                         resolver.fulfill(true)
                     } else {
@@ -296,6 +308,7 @@ extension MoneySoftManager {
                     }
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Force Unlink All Accounts")
                     resolver.reject(MoneySoftManagerError.unableToForceUnlinkAllAccounts)
                 }))
             } catch {
@@ -312,6 +325,7 @@ extension MoneySoftManager {
                     resolver.fulfill(removedAccts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
+                     self.logMoneysoftError(error: errorModel, event: "Unlink Accounts")
                     resolver.reject(MoneySoftManagerError.unableToUnlinkAccounts)
                 }))
             } catch {
@@ -361,11 +375,13 @@ extension MoneySoftManager {
                 }
                 completion(.success(accounts))
             }, errorHandler: { errModel in
-                if let err = errModel, err.code == ErrorCode.REQUIRES_MFA.rawValue {
+                 let err = errModel
+                if err.code == ErrorCode.REQUIRES_MFA.rawValue {
                     let mfaPrompt = err.messages[ErrorKey.MFA_PROMPT.rawValue] ?? ""
                     let mfaErr = MoneySoftManagerError.requireMFA(reason: mfaPrompt)
                     completion(.failure(mfaErr)); return
                 }
+                 self.logMoneysoftError(error: errModel, event: "Get Linkable Accounts")
                 completion(.failure(MoneySoftManagerError.unableToRetreiveLinkableAccounts))
             }))
         } catch {
@@ -504,7 +520,7 @@ extension MoneySoftManager {
            
             let linkAccountListener: ApiListListener<FinancialAccountLinkModel> = ApiListListener<FinancialAccountLinkModel>(successHandler: {
                 (linkResponse) in
-                print(linkResponse?.count)
+                print(linkResponse.count)
          
 
                   guard let accounts = linkResponse as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
@@ -643,5 +659,23 @@ extension MoneySoftManager {
             print(error);
         }
       }
+    }
+    
+}
+extension MoneySoftManager {
+    
+    //This method will log all the erros to the backend, where sending the bank name is optional.
+    
+    func logMoneysoftError(error: ApiErrorModel?, event: String, bankName:String? = nil)  {
+        
+        let req = PostLogRequest(deviceId: UUID().uuidString, type: .error, message: "Failed with error code :\(String(describing: error?.code)), with description: \(String(describing: error?.description)), and with additional reasons: \( String(describing: error?.messages))", event: event, bankName: bankName)
+        CheqAPIManager.shared.PostMoneySoftErrorlogs(requestParam:req)
+        .done{ success in
+                 AppConfig.shared.hideSpinner {
+                    print(success)
+                 }
+             }.catch { err in
+                print(err)
+             }
     }
 }

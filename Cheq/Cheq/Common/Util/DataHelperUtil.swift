@@ -55,8 +55,8 @@ class DataHelperUtil {
         let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
         
         /// Notice that **fieldValue** is used to access the saved answers instead of directly accessing the answer map inside **QuestionViewModel**
-        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: state)
-        return req 
+        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: "")
+        return req
     }
     
     /**
@@ -71,7 +71,7 @@ class DataHelperUtil {
         /// ensure the user have gone through the UI flow to accept agreement
         let hasAccepted = AppData.shared.acceptedAgreement
         let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted)
-        return req 
+        return req
     }
     
     /**
@@ -82,17 +82,20 @@ class DataHelperUtil {
         
         /// To retrieve the stored question answers, first initialise a **QuestionViewModel**
         let qVm = QuestionViewModel()
-        
+       
         /// Call the method **loadSaved**, so the saved answer values are loaded onto this **QuestionViewModel** instance.
         qVm.loadSaved()
         
         /// User **fieldValue** method with **QuestionField** enum as argument to accesss the answered values.
         let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
+        
         let putReqEmploymentType = MultipleChoiceViewModel.cheqAPIEmploymentType(employmentType)
         let noFixedAddress = employmentType == .onDemand ? true : false
-        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: qVm.fieldValue(QuestionField.employerAddress), noFixedAddress: noFixedAddress, latitude: Double(qVm.fieldValue(.employerLatitude)) ?? 0.0, longitude: Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, postCode: qVm.fieldValue(.employerPostcode), state: qVm.fieldValue(.employerState), country: qVm.fieldValue(.employerCountry))
+        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, workingLocation: .fromFixedLocation,latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 , longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, address:  qVm.fieldValue(QuestionField.employerAddress), state: qVm.fieldValue(.employerPostcode), country: qVm.fieldValue(.employerState), postCode: qVm.fieldValue(.employerCountry))
         return req
     }
+   
+   
     
     /**
      Helper method to build a post request payload containing the push notification tokens used by backend's purpose.
@@ -178,7 +181,7 @@ class DataHelperUtil {
     }
     
     /**
-     Helper method to retrieve the corresponding Spending category icon by **CategoryAmountStatResponse.CategoryCode** 
+     Helper method to retrieve the corresponding Spending category icon by **CategoryAmountStatResponse.CategoryCode**
      */
     func iconFromCategory(_ code: CategoryAmountStatResponse.CategoryCode, largeIcon: Bool)-> String {
         switch code {

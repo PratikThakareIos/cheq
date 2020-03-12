@@ -70,6 +70,7 @@ open class FinancesAPI {
        - name: Bearer
      - examples: [{contentType=application/json, example=[ {
   "number" : "number",
+  "isSalaryAccount" : true,
   "accountType" : "accountType",
   "name" : "name",
   "nickname" : "nickname",
@@ -78,6 +79,7 @@ open class FinancesAPI {
   "assetType" : "assetType"
 }, {
   "number" : "number",
+  "isSalaryAccount" : true,
   "accountType" : "accountType",
   "name" : "name",
   "nickname" : "nickname",

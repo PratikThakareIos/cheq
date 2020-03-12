@@ -13,7 +13,7 @@ enum Section: String {
     case aboutMe = "About me"
     case employmentDetails = "Employment details"
     case bankDetails = "Bank details"
-    case verifyMyIdentity = "Verify my identity"
+    case verifyMyIdentity = "Verify identity"
 }
 
 protocol MultipleChoiceViewModelCoordinator {

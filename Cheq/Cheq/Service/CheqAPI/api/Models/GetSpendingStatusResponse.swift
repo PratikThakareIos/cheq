@@ -12,7 +12,6 @@ import Foundation
 public struct GetSpendingStatusResponse: Codable {
 
     public enum TransactionStatus: String, Codable { 
-        case received = "Received"
         case categorising = "Categorising"
         case ready = "Ready"
         case noData = "NoData"

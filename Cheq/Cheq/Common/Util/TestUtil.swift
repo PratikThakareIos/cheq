@@ -78,7 +78,7 @@ class TestUtil {
     
     /// Generate employer details **Put** request
     func putEmployerDetailsReq()-> PutUserEmployerRequest {
-        let employerReq = PutUserEmployerRequest(employerName: TestUtil.shared.testEmployerName(), employmentType: .fulltime, address: TestUtil.shared.testEmployeAddress(), noFixedAddress: false, latitude: -33.8653556, longitude: 151.205377, postCode: TestUtil.shared.testPostcode(), state: TestUtil.shared.testState().rawValue, country: TestUtil.shared.testCountry())
+        let employerReq = PutUserEmployerRequest(employerName: TestUtil.shared.testEmployerName(), employmentType: .fulltime, workingLocation: .fromFixedLocation, latitude:  -33.8653556, longitude:  151.205377, address: TestUtil.shared.testEmployeAddress(), state:"", country: TestUtil.shared.testCountry(), postCode: TestUtil.shared.testPostcode())
         return employerReq
     }
     
@@ -86,7 +86,7 @@ class TestUtil {
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
-        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile())
+        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile(),ageRange: .from35To54,state:.nsw)
         return req
     }
     
@@ -170,8 +170,8 @@ class TestUtil {
     }
     
     /// Helper method to retrieve data to fill in question form
-    func testState()->  PutUserOnfidoKycRequest.State {
-        return .nsw
+    func testState(){
+       
     }
 
     /// Helper method to retrieve data to fill in question form
@@ -217,10 +217,13 @@ class TestUtil {
     
     /// Generate a list of LoanActivity to test UI for Lending screen
     func testLoanActivities()->[LoanActivity] {
-        var dates = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
+        _ = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
         for _ in 0..<10 {
-            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
+            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, loanAgreement: "", directDebitAgreement: "", notes: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()))
+                
+                
+              //  LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
             loanActivities.append(loanActivity)
         }
         return loanActivities
@@ -247,7 +250,8 @@ class TestUtil {
         let amount = Double(AppData.shared.amountSelected)
         let fee = Double(AppData.shared.loanFee)
         let formatter = FormatterUtil.shared.defaultDateFormatter()
-        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn: "1234567890")
+        
+        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, repaymentAmount: 200.0, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn:  "1234567890")
         return loanPreview
     }
     
@@ -405,20 +409,22 @@ class TestUtil {
     
     /// Helper method for building a mock **GetLendingOverviewResponse**
     func testLendingOverview()->GetLendingOverviewResponse {
-        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
+        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100, isFirstTime: true, payCycleStartDate: nil, nextPayDate: nil, repaymentSettleHours: nil, cashoutLimitInformation: "", cashoutLimitLearnMoreLink: "")
+       // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         
-        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, canUploadTimesheet: false, activities: TestUtil.shared.testLoanActivities())
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities())
         
-        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success)
+        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, workingLocation: .fromMultipleLocations, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success)
         
-        // ignore decline for now 
+        // ignore decline for now
         let decline = DeclineViewTestUtil.shared.generateDeclineDetails(DeclineDetail.DeclineReason.creditAssessment)
         
         let repaymentDate = FormatterUtil.shared.userFriendlyDateFormatter().string(from: 7.days.later)
     
-        let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5, repaymentDate: repaymentDate)
+        let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5.0, repaymentDate: repaymentDate, hasOverdueLoans: true)
+        
     
-        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
+        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil, userAction: .none)
         return lendingOverview
     }
     

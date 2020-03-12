@@ -18,9 +18,18 @@ class PreviewLoanViewController: CTableViewController {
         setupDelegate()
     }
     
+    override func registerCells() {
+         let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),SwipeToConfirmTableViewCellViewModel(),TransferCardTableViewCellViewModel(),AgreementItemTableViewCellViewModel()]
+               for vm: TableViewCellViewModelProtocol in cellModels {
+                   let nib = UINib(nibName: vm.identifier, bundle: nil)
+                   self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
+               }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
+        registerCells()
         registerObservables()
         hideBackTitle()
         NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
@@ -46,8 +55,11 @@ class PreviewLoanViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(previewLoan(_:)), name: NSNotification.Name(UINotificationEvent.previewLoan.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout(_:)), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(openAgreement(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
     }
     
+    //Upon swiping the agreement this will evoke
     @objc func confirm(_ notification: NSNotification) {
         showDecision("Do you accept all the Terms and Conditions?", confirmCb: {
             LoggingUtil.shared.cPrint("confirm loan")
@@ -90,7 +102,7 @@ extension PreviewLoanViewController {
                 
                 guard let vm = self.viewModel as?  PreviewLoanViewModel else { return }
                 section.rows.append(SpacerTableViewCellViewModel())
-        
+//        print(loanPreview)
                 vm.addTransferToCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                 vm.addRepaymemtCard(loanPreview, section: &section)
@@ -100,10 +112,15 @@ extension PreviewLoanViewController {
                 vm.addDirectDebitAgreementCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                 section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
                 section.rows.append(SwipeToConfirmTableViewCellViewModel())
                 section.rows.append(SpacerTableViewCellViewModel())
+                section.rows.append(SpacerTableViewCellViewModel())
                 self.viewModel.addSection(section)
-                self.registerCells()
+              //  self.registerCells()
                 self.tableView.reloadData()
             }
         }.catch { err in
@@ -111,5 +128,17 @@ extension PreviewLoanViewController {
                 self.showError(err, completion: nil)
             }
         }
+    }
+    
+    ///This will open up theterms and conditions one a webview
+    @objc func openAgreement(_ notification: NSNotification) {
+        guard let link =  notification.userInfo?[NotificationUserInfoKey.link.rawValue] else {
+            return
+        }
+        let storyBoard : UIStoryboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle:nil)
+
+        let termsViewController = storyBoard.instantiateViewController(withIdentifier: "TermsAndConditionsViewController") as! TermsAndConditionsViewController
+        termsViewController.url = link as? String
+        self.present(termsViewController, animated:true, completion:nil)
     }
 }

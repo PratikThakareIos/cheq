@@ -140,9 +140,9 @@ extension VDotManager {
             let atWork = Bool(atWorkString)
             let dateTimeString = workSheetDict[VDotLogKey.dateTime.rawValue] as? String ?? ""
             let dateTime = Date(dateString: dateTimeString, format: worksheetTimeFormat)
-            let workSheet = Worksheet(atWork: atWork, dateTime: dateTime)
+            let workSheet = Worksheet(atWork: atWork, dateTime: dateTime,distanceMeters:nil)
             workSheets.append(workSheet)
         }
-        return PostWorksheetRequest(email: email, worksheets: workSheets)
+        return PostWorksheetRequest(email: email, worksheets: workSheets,geolocationDisabled: false)
     }
 }

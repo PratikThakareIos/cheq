@@ -16,7 +16,7 @@ class MoneySoftUtil {
     
     func randomPutUserEmployerRequest()-> PutUserEmployerRequest {
         let testUtil = TestUtil.shared
-        let employer = PutUserEmployerRequest(employerName: testUtil.testEmployerName(), employmentType: testUtil.testEmploymentType(), address: testUtil.testEmployeAddress(), noFixedAddress: false, latitude: 0.0, longitude: 0.0, postCode: testUtil.testPostcode(), state: testUtil.testState().rawValue, country: testUtil.testCountry())
+        let employer = PutUserEmployerRequest(employerName: testUtil.testEmployerName(), employmentType: testUtil.testEmploymentType(), workingLocation: .fromHomeOrRemote, latitude: 0.0, longitude: 0.0, address: testUtil.testEmployeAddress(), state: testUtil.testPostcode(), country:"", postCode: testUtil.testCountry())
         return employer
     }
     
@@ -70,7 +70,7 @@ class MoneySoftUtil {
         var login: [LoginCredentialType: String] = [:]
         login[.msUsername] = "eca91f24varun@test.com"
         login[.msPassword] = "61BFF5E53C0C484Da3b78f4383efbfcB"
-        return login 
+        return login
     }
 
     func loginAccount3()-> [LoginCredentialType: String] {

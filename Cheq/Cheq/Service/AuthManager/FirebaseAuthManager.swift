@@ -142,6 +142,7 @@ extension FirebaseAuthManager {
             return self.postNotificationToken(authUser)
         }
     }
+
 }
 
 //MARK: registration

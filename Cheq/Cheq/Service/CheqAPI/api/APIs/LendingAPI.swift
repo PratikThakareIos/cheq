@@ -31,6 +31,7 @@ open class LendingAPI {
      - examples: [{contentType=application/json, example={
   "directDebitAgreement" : "directDebitAgreement",
   "amount" : 0.8008281904610115,
+  "repaymentAmount" : 1.4658129805029452,
   "cashoutDate" : "cashoutDate",
   "loanAgreement" : "loanAgreement",
   "repaymentDate" : "repaymentDate",
@@ -63,6 +64,50 @@ open class LendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
+    open class func getIncomingTransactions(completion: @escaping ((_ data: [SalaryTransactionResponse]?,_ error: Error?) -> Void)) {
+        getIncomingTransactionsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Lending/salarytransactions/recent
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example=[ {
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "amount" : 6.027456183070403,
+  "isSalary" : true,
+  "description" : "description",
+  "transactionId" : 0
+}, {
+  "date" : "2000-01-23T04:56:07.000+00:00",
+  "amount" : 6.027456183070403,
+  "isSalary" : true,
+  "description" : "description",
+  "transactionId" : 0
+} ]}]
+
+     - returns: RequestBuilder<[SalaryTransactionResponse]> 
+     */
+    open class func getIncomingTransactionsWithRequestBuilder() -> RequestBuilder<[SalaryTransactionResponse]> {
+        let path = "/v1/Lending/salarytransactions/recent"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<[SalaryTransactionResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
     open class func getLending(completion: @escaping ((_ data: GetLendingOverviewResponse?,_ error: Error?) -> Void)) {
         getLendingWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
@@ -76,41 +121,78 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
+  "userAction" : {
+    "link" : "link",
+    "action" : "ResolveNameConflict",
+    "description" : "description",
+    "title" : "title"
+  },
   "recentBorrowings" : {
-    "totalFees" : 3.616076749251911,
-    "totalRepaymentAmount" : 9.301444243932576,
+    "totalFees" : 2.027123023002322,
+    "totalRepaymentAmount" : 3.616076749251911,
     "repaymentDate" : "repaymentDate",
-    "feesPercent" : 2.027123023002322,
-    "totalCashRequested" : 7.061401241503109
+    "feesPercent" : 4.145608029883936,
+    "totalCashRequested" : 9.301444243932576,
+    "hasOverdueLoans" : true
   },
   "decline" : {
     "declineDescription" : "declineDescription",
+    "learnMoreLink" : "learnMoreLink",
+    "declineTitle" : "declineTitle",
     "declineReason" : "None"
   },
   "eligibleRequirement" : {
+    "userAction" : {
+      "link" : "link",
+      "action" : "ResolveNameConflict",
+      "description" : "description",
+      "title" : "title"
+    },
     "kycStatus" : "Blocked",
     "hasBankAccountDetail" : true,
-    "hasEmploymentDetail" : true
+    "workingLocation" : "FromFixedLocation",
+    "hasEmploymentDetail" : true,
+    "proofOfAddressStatus" : "Required",
+    "isReviewingPayCycle" : true,
+    "hasPayCycle" : true,
+    "hasProofOfProductivity" : true
   },
   "loanSetting" : {
+    "cashoutLimitInformation" : "cashoutLimitInformation",
+    "repaymentSettleHours" : 5,
     "maximumAmount" : 0,
+    "isFirstTime" : true,
     "minimalAmount" : 6,
-    "incrementalAmount" : 1
+    "incrementalAmount" : 1,
+    "payCycleStartDate" : "2000-01-23T04:56:07.000+00:00",
+    "nextPayDate" : "2000-01-23T04:56:07.000+00:00",
+    "cashoutLimitLearnMoreLink" : "cashoutLimitLearnMoreLink"
   },
   "borrowOverview" : {
-    "canUploadTimesheet" : true,
     "activities" : [ {
       "date" : "date",
-      "amount" : 5.637376656633329,
-      "fee" : 2.3021358869347655,
-      "type" : "Cashout"
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 2.3021358869347655,
+      "notes" : "notes",
+      "cheqPayReference" : "cheqPayReference",
+      "loanAgreement" : "loanAgreement",
+      "repaymentDate" : "repaymentDate",
+      "fee" : 7.061401241503109,
+      "type" : "Cashout",
+      "status" : "Unprocessed"
     }, {
       "date" : "date",
-      "amount" : 5.637376656633329,
-      "fee" : 2.3021358869347655,
-      "type" : "Cashout"
+      "directDebitAgreement" : "directDebitAgreement",
+      "amount" : 2.3021358869347655,
+      "notes" : "notes",
+      "cheqPayReference" : "cheqPayReference",
+      "loanAgreement" : "loanAgreement",
+      "repaymentDate" : "repaymentDate",
+      "fee" : 7.061401241503109,
+      "type" : "Cashout",
+      "status" : "Unprocessed"
     } ],
-    "availableCashoutAmount" : 5.962133916683182
+    "availableCashoutAmount" : 5.637376656633329
   }
 }}]
 
@@ -164,6 +246,44 @@ open class LendingAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
+     - parameter salaryTransactions: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postSalaryTransactions(salaryTransactions: PostSalaryTransactionsRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postSalaryTransactionsWithRequestBuilder(salaryTransactions: salaryTransactions).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - PUT /v1/Lending/salarytransactions
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter salaryTransactions: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postSalaryTransactionsWithRequestBuilder(salaryTransactions: PostSalaryTransactionsRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/salarytransactions"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: salaryTransactions)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**

@@ -13,10 +13,12 @@ public struct PostWorksheetRequest: Codable {
 
     public var email: String
     public var worksheets: [Worksheet]?
+    public var geolocationDisabled: Bool?
 
-    public init(email: String, worksheets: [Worksheet]?) {
+    public init(email: String, worksheets: [Worksheet]?, geolocationDisabled: Bool?) {
         self.email = email
         self.worksheets = worksheets
+        self.geolocationDisabled = geolocationDisabled
     }
 
 

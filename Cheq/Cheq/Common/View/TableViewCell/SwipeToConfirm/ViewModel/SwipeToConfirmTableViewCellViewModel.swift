@@ -24,4 +24,10 @@ class SwipeToConfirmTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     /// the footer text underneath the swipe UI
     var footerText: String = "By swiping right you agree to the terms of the loan and Direct debit agreements"
+
+    /// the header text underneath the swipe UI
+    var headerText: String = "Read through the Terms & conditions and Direct debit agreement before proceeding..."
+    
+    /// bool for accepting the agreement
+    var isAgreementAccpeted: Bool = false
 }

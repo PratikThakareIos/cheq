@@ -13,13 +13,14 @@ import MobileSDK
 
 class IntroductionViewController: UIViewController {
 
-    var viewModel = IntroductionViewModel() 
-    @IBOutlet weak var imageViiew: UIImageView! 
+    var viewModel = IntroductionViewModel()
+    @IBOutlet weak var imageViiew: UIImageView!
     @IBOutlet weak var titleLabel: CLabel!
     @IBOutlet weak var caption: CLabel!
     @IBOutlet weak var confirmButton: CButton!
     @IBOutlet weak var secondaryButton: CButton!
     @IBOutlet weak var refreshButton: CButton!
+    @IBOutlet weak var securityView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class IntroductionViewController: UIViewController {
     }
     
     func setupUI() {
-        
+        print(self.viewModel.coordinator.type)
         let declineReasons = IntroductionViewModel.declineReasons()
         if declineReasons.contains(self.viewModel.coordinator.type) {
             self.refreshButton.isHidden = false
@@ -77,6 +78,12 @@ class IntroductionViewController: UIViewController {
         switch viewModel.coordinator.type {
         case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
             self.secondaryButton.isHidden = false
+              self.securityView.isHidden = true
+        case .setupBank:
+            self.titleLabel.text = "Connect your Bank"
+            self.titleLabel.font.withSize(35)
+            self.secondaryButton.isHidden = true
+            self.securityView.isHidden = false
         default:
             self.secondaryButton.isHidden = true
         }
@@ -97,7 +104,13 @@ class IntroductionViewController: UIViewController {
             AppNav.shared.pushToMultipleChoice(.employmentType, viewController: self)
         case .enableLocation:
             enableLocation {
-                AppNav.shared.pushToIntroduction(.notification, viewController: self)
+                if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
+                      NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                     AppNav.shared.dismiss(self)
+                }else{
+                    AppNav.shared.pushToIntroduction(.notification, viewController: self)
+                }
+                
             }
         case .notification:
             enableNotification {
@@ -147,6 +160,16 @@ class IntroductionViewController: UIViewController {
                 }
             }
        
+        case .hasOverdueLoans:
+            break
+        case .salaryInDifferentBank:
+            break
+        case .noEnoughSalaryInfo:
+            break
+        case .selectYourSalary:
+            break
+        case .payCycleStopped:
+            break
         }
     }
 
@@ -160,15 +183,31 @@ class IntroductionViewController: UIViewController {
             AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
             AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
         case .enableLocation:
-            AppNav.shared.pushToIntroduction(.notification, viewController: self)
+            if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                AppNav.shared.dismiss(self)
+            }else{
+                AppNav.shared.pushToIntroduction(.notification, viewController: self)
+            }
+           
         case .notification:
             AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
         case .verifyIdentity:
-            // TODO : confirm this behaviour when implementing Lending 
+            // TODO : confirm this behaviour when implementing Lending
             AppNav.shared.dismiss(self)
         case .employmentTypeDeclined, .hasWriteOff, .noPayCycle, .jointAccount, .kycFailed, .monthlyPayCycle, .creditAssessment, .identityConflict, .hasNameConflict, .hasReachedCapacity:
             LoggingUtil.shared.cPrint("Chat with us")
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+        case .hasOverdueLoans:
+            break
+        case .salaryInDifferentBank:
+            break
+        case .noEnoughSalaryInfo:
+            break
+        case .selectYourSalary:
+            break
+        case .payCycleStopped:
+                       break
         }
     }
 }

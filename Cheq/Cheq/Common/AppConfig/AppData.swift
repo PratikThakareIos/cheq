@@ -38,6 +38,7 @@ enum ScreenName: String {
     case onDemand = "On Demand"
     case companyName = "companyName"
     case companyAddress = "companyAddress"
+    case workingLocation = "workingLocation"
     
     /// bank details
     case financialInstitutions = "Financial Institutions"
@@ -165,6 +166,12 @@ class AppData {
     /// employer list fetched from company name lookup
     var employerList = [GetEmployerPlaceResponse]()
     
+    // employee overview details fetched from /v1/Lending/overview
+    var employeeOverview : GetLendingOverviewResponse?
+    
+    // employee timesheet details fetched from /v1/Lending/salarytransactions/recent
+       var employeePaycycle : [SalaryTransactionResponse]?
+   
     /// employer list fetched from company address lookup
     var employerAddressList = [GetEmployerPlaceResponse]()
     
@@ -235,7 +242,8 @@ class AppData {
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 0.5, linkingBank: 0.0)
         case .companyAddress:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 1.0, linkingBank: 0.0)
-            
+        case .workingLocation:
+            AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 1.0, linkingBank: 0.0)
         case .financialInstitutions:
             AppData.shared.progress = CProgress(aboutMe: 1.0, employmentDetails: 1.0, linkingBank: 0.5)
         case .bankLogin:

@@ -64,7 +64,10 @@ enum CheqAPIManagerError_Lending: Error {
     case unableToRetrieveLoanPreview
     case unableToPutBankDetails
     case unableToResolveNameConflict
-    case unableToProcessBorrow 
+    case unableToProcessBorrow
+    case unableToGetTimeSheets
+    case unableToPostSalaryTransaction
+    case unableToResolveBankAccount
 }
 
 enum MoneySoftManagerError: Error {
@@ -137,7 +140,7 @@ extension MoneySoftManagerError: LocalizedError {
         case .unableToUpdateTransactions:
             return NSLocalizedString("Unable to update transactions", comment: "")
         case .unableToLoginWithCredential:
-            return NSLocalizedString("Unable to login with credential", comment: "")
+            return NSLocalizedString("Unable to login with moneysoft credential", comment: "")
         case .unableToUnlinkAccounts:
             return NSLocalizedString("Unable to unlink accounts", comment: "")
         case .unableToRetreiveLinkableAccounts:
@@ -218,6 +221,12 @@ extension CheqAPIManagerError_Lending: LocalizedError {
             return NSLocalizedString("Unable to retrieve loan preview", comment: "")
         case .unableToProcessBorrow:
             return NSLocalizedString("Unable to process on server, please try again later", comment: "")
+        case .unableToGetTimeSheets:
+            return NSLocalizedString("Unable to load time-sheets, please try again later", comment: "")
+        case .unableToPostSalaryTransaction:
+             return NSLocalizedString("Unable to post Salary Transactions, please try again later", comment: "")
+        case .unableToResolveBankAccount:
+            return NSLocalizedString("Unable to unable to Resolve Bank Account, please try again later", comment: "")
         }
     }
 }
