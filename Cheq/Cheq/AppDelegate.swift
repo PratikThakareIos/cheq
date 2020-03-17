@@ -14,6 +14,8 @@ import Fabric
 import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
+import IQKeyboardManagerSwift
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
@@ -24,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     var visualEffectView = UIVisualEffectView()
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         
+         IQKeyboardManager.shared.enable = true
+         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
         
         // keep a reference for re-use
         AppData.shared.application = application

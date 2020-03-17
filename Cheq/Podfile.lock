@@ -113,6 +113,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - FRHyperLabel (1.0.4)
   - GoogleAppMeasurement (6.1.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -144,6 +145,7 @@ PODS:
   - GTMSessionFetcher/Core (1.2.2)
   - Hex (6.1.0)
   - Intercom (5.4.1)
+  - IQKeyboardManagerSwift (6.5.5)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
@@ -214,8 +216,10 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Facebook
   - FMDB
+  - FRHyperLabel
   - Hex
   - Intercom (~> 5.4.1)
+  - IQKeyboardManagerSwift
   - Mantle
   - Mixpanel-swift
   - NavigationDropdownMenu
@@ -297,6 +301,8 @@ SPEC REPOS:
     - UDatePicker
     - Validator
   trunk:
+    - FRHyperLabel
+    - IQKeyboardManagerSwift
     - Mixpanel-swift
     - Onfido
 
@@ -326,6 +332,7 @@ SPEC CHECKSUMS:
   FirebaseRemoteConfig: 03efa57106f9b6f7afe36658de4a9c67c803d3a8
   FirebaseUI: 41e06c5f7f6e34a8f430862d67637e36e4aa696c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FRHyperLabel: f4a127d5f8ffb211040554615e93f936d5a576a6
   GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
   GoogleDataTransport: c8617c00e4f3eb9418e42ac0e8ac5241a9d555dd
   GoogleDataTransportCCTSupport: 9f352523e8785a71f6754f51eeff09f49ec19268
@@ -333,6 +340,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
   Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   Mixpanel-swift: 9118aa461d7ad4bb66718b0d4d826e6487bb0105
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -359,6 +367,6 @@ SPEC CHECKSUMS:
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: dbd1a63884451ad1e2981e823ecc69b81a7335d9
+PODFILE CHECKSUM: d5dbeb34bc3a9d3a6b024cef93ef5a8270de4f67
 
 COCOAPODS: 1.8.4

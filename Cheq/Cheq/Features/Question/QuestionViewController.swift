@@ -17,13 +17,15 @@ import SearchTextField
 class QuestionViewController: UIViewController {
 
     @IBOutlet weak var ImageViewContainer: UIView!
-    @IBOutlet weak var sectionTitle: CLabel!
+    @IBOutlet weak var sectionTitle: UILabel!
+    @IBOutlet weak var lblContactInfo: UILabel! //We use this for verification and security texts
     @IBOutlet weak var questionTitle: CLabel!
-    @IBOutlet weak var nextButton: CButton!
-    @IBOutlet weak var textField1: CTextField!
-    @IBOutlet weak var textField2: CTextField!
-    @IBOutlet weak var textField3: CTextField!
-    @IBOutlet weak var textField4: CTextField!
+    @IBOutlet weak var nextButton: CNButton!
+    @IBOutlet weak var textField1: CNTextField!
+    @IBOutlet weak var textField2: CNTextField!
+    @IBOutlet weak var textField3: CNTextField!
+    @IBOutlet weak var textField4: CNTextField!
+    @IBOutlet weak var nextButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var checkboxContainerView: UIView!
     var switchWithLabel = CSwitchWithLabel()
     
@@ -44,8 +46,9 @@ class QuestionViewController: UIViewController {
         super.viewDidAppear(animated)
         
         activeTimestamp()
-        setupKeyboardHandling()
-        self.updateKeyboardViews()
+        //setupKeyboardHandling()
+        //self.updateKeyboardViews()
+        
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .verifyHomeAddress || viewModel.coordinator.type == .verifyName{
@@ -54,32 +57,43 @@ class QuestionViewController: UIViewController {
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
         }
+    
       //  getTransactionData()
 //        if AppData.shared.completingDetailsForLending == true{
 //            showCloseButton()
 //        }
     }
     
+    
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        removeObservables()
-        
+        //removeObservables()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+         super.viewWillDisappear(true)
+         self.showNavBar()
+     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        setupUI()
+        //setupUI()
         prePopulateEntry()
         setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
         getTransactionData()
     }
-    
+
     private func getTransactionData() {
        if AppData.shared.employeePaycycle?.count == 0 {
              AppConfig.shared.showSpinner()
@@ -145,9 +159,9 @@ class QuestionViewController: UIViewController {
     
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
+        //self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
-       
+        self.nextButton.createShadowLayer()
         self.hideBackTitle()
         self.showNormalTextFields()
         self.showCheckbox()
@@ -174,15 +188,19 @@ class QuestionViewController: UIViewController {
         default: break
         }
         
+        self.lblContactInfo.isHidden = true
+        if viewModel.coordinator.type == .contactDetails {
+                self.lblContactInfo.isHidden = false
+        }
+        
+        //manish to hide nav bar
         if AppData.shared.isOnboarding {
-            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
         
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
-        
-        
     }
     
     func updateKeyboardViews() {
@@ -264,6 +282,7 @@ class QuestionViewController: UIViewController {
         
         switch self.viewModel.coordinator.type {
         case .legalName:
+           
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             
@@ -277,7 +296,7 @@ class QuestionViewController: UIViewController {
             AppData.shared.updateProgressAfterCompleting(.legalName)
 //            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
-            
+            //manish
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
             
@@ -559,6 +578,38 @@ extension QuestionViewController {
 
 //MARK: TextFields show/hide
 extension QuestionViewController {
+    
+    //TODO: -
+    @objc func keyboardDidShow(notification: NSNotification) {
+        let duration = notification.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
+        let curve = notification.userInfo![UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            var buttonPosition : CGFloat = 0.0
+            if self.viewModel.coordinator.numOfTextFields == 3 {
+                buttonPosition = 0.0
+            } else if self.viewModel.coordinator.numOfTextFields == 2 {
+                buttonPosition = keyboardSize.height
+            } else {
+                buttonPosition = keyboardSize.height
+            }
+            self.nextButtonBottom.constant = 450.0 //buttonPosition
+            
+            UIView.animate(withDuration: duration + 0.15 , delay: 0, options: UIView.AnimationOptions.init(rawValue: curve), animations: {
+                self.view.layoutIfNeeded()
+            }) { ani in
+                
+            }
+        }
+    }
+
+    override func keyboardWillHide(notification: NSNotification) {
+        self.nextButtonBottom.constant = 12
+        UIView.animate(withDuration: 0.25) {
+            //self.scrollView.contentOffset.y  = 0
+            self.view.layoutIfNeeded()
+        }
+    }
 
 
     func populatePlaceHolderNormalTextField() {
@@ -575,6 +626,8 @@ extension QuestionViewController {
         } else if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
+            //manish
+            self.hideNavBar()
         } else {
             textField1.placeholder = self.viewModel.placeHolder(0)
         }
@@ -607,6 +660,14 @@ extension QuestionViewController {
             textField4.isHidden = true
             searchTextField.isHidden = true
         }
+        
+        textField1.setupLeftPadding()
+        textField2.setupLeftPadding()
+        textField3.setupLeftPadding()
+        textField1.setShadow()
+        textField2.setShadow()
+        textField3.setShadow()
+        textField1.becomeFirstResponder()
     }
 
     func showCheckbox() {
@@ -722,9 +783,11 @@ extension QuestionViewController: UITextFieldDelegate {
 
 // MARK: UIViewControllerProtocol
 extension QuestionViewController {
+    /*
     @objc override func baseScrollView() -> UIScrollView? {
         return self.scrollView
     }
+   */
 }
 
 // MARK: Setup Look Up Logics

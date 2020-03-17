@@ -48,6 +48,11 @@ extension UIViewController {
         nav.setRightBarButton(logoutButton, animated: true)
     }
     
+    /// show nav bar
+    func showNavBar() {
+        guard let nav = self.navigationController else { return }
+        nav.setNavigationBarHidden(false, animated: false)
+    }
     
     /// hide nav bar
     func hideNavBar() {

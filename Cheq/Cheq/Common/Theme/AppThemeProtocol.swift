@@ -84,6 +84,9 @@ protocol AppThemeProtocol {
     /// alt textColor is used when we have dark background. e.g. Button title.
     var altTextColor: UIColor { get }
     
+    /// placeHolderColor is used for UITextField text color
+    var placeHolderColor: UIColor { get }
+    
     /// links text color
     var linksColor: UIColor { get }
     
@@ -171,14 +174,14 @@ protocol AppThemeProtocol {
     var defaultProgressBarHeight: CGFloat { get }
     
     func cardStyling(_ view: UIView, borderColor: UIColor?)
-    func cardStyling(_ view: UIView, addBorder: Bool) 
+    func cardStyling(_ view: UIView, addBorder: Bool)
     func cardStyling(_ view: UIView, bgColors: [UIColor])
     func cardStyling(_ view: UIView, bgColor: UIColor, applyShadow: Bool)
     func collectionViewPadding(_ collectionView: UICollectionView, cellLength: CGFloat, collectionType: CollectionViewType)
     func roundRectButton(_ button: inout UIButton)
 }
 
-// MARK: Styling logics 
+// MARK: Styling logics
 extension AppThemeProtocol {
 
     var defaultCornerRadius: CGFloat { get { return AppConfig.shared.screenHeight() * 0.025 } }
@@ -286,28 +289,55 @@ extension AppThemeProtocol {
 
     var nonActiveAlpha: CGFloat { get { return 0.5 } }
 
-    // MARK: regular fonts
-    var smallFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0) } }
-    var defaultFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0) } }
-    var mediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0) } }
-    var headerFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0) } }
-    var extraLargeFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0) } }
+//    // MARK: regular fonts
+//    var smallFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0) } }
+//    var defaultFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0) } }
+//    var mediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0) } }
+//    var headerFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0) } }
+//    var extraLargeFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0) } }
     
+    // MARK: regular fonts
+    var smallFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0)} }
+    var defaultFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0)} }
+    var mediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)} }
+    var headerFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0)} }
+    var extraLargeFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0)} }
+    
+    
+ 
+//    // MARK: medium fonts
+//    var smallMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
+//    var defaultMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
+//    var mediumMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .medium) } }
+//    var headerMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
+//    var extraLargeMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .medium) } }
+  
     // MARK: medium fonts
-    var smallMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
-    var defaultMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
-    var mediumMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .medium) } }
-    var headerMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
-    var extraLargeMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .medium) } }
+    var smallMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
+    var defaultMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
+    var mediumMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium) } }
+    var headerMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
+    var extraLargeMediumFont: UIFont { return UIFont.init(name: FontConstant.SFProTextMedium, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .medium) }
+    
+ 
+    
+
+//    // MARK: bold fonts
+//    var smallBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
+//    var defaultBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
+//    var mediumBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .bold) } }
+//    var headerBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 23.0, weight: .bold) } }
+//    var extraLargeBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
     
     // MARK: bold fonts
-    var smallBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
-    var defaultBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
-    var mediumBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .bold) } }
-    var headerBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .bold) } }
-    var extraLargeBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
+    var smallBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
+    var defaultBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
+    var mediumBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .bold) } }
+    var headerBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 23.0) ?? UIFont.systemFont(ofSize: 23.0, weight: .bold) } }
+    var extraLargeBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
     
     
+
     var longAnimationDuration: TimeInterval { return 1.0 }
     var mediumAnimationDuration: TimeInterval { return 0.5 }
     var quickAnimationDuration: TimeInterval { return 0.25}
@@ -332,8 +362,16 @@ extension AppThemeProtocol {
         get { return UIColor(hex: "3B5998")}
     }
     
+    var textColor: UIColor {
+        get { return UIColor(hex: "111111") }
+    }
+    
     var altTextColor: UIColor {
         get { return .white }
+    }
+    
+    var placeHolderColor: UIColor {
+        get { return UIColor(hex: "CDCDCD") }
     }
 
     var monetaryColor: UIColor {
@@ -379,3 +417,4 @@ extension AppThemeProtocol {
         get { return UIVisualEffectView(effect: UIBlurEffect(style: .light)) }
     }
 }
+
