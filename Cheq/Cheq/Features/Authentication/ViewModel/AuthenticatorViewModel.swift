@@ -12,8 +12,11 @@ import FBSDKCoreKit
 import FRHyperLabel
 
 enum links: String {
-    case toc = "https://cheq.com.au/terms-conditions" //"https://cheq.com.au/terms"
-    case privacy = "https://cheq.com.au/privacy-policy" //"https://cheq.com.au/privacy"
+    //case toc = "https://cheq.com.au/terms-conditions" //"https://cheq.com.au/terms"
+    //case privacy = "https://cheq.com.au/privacy-policy" //"https://cheq.com.au/privacy"
+    
+    case toc = "https://cheq.com.au/terms"
+    case privacy = "https://cheq.com.au/privacy"
      
     // internal screens
     case logout = "http://app.logout.cheq.com.au"

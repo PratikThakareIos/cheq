@@ -27,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9t-3E-URe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9t-3E-URe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jGD-hY-IEk">
@@ -279,7 +279,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ueM-gd-76q">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DX1-Bk-NxP">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX1-Bk-NxP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-Nf-a9V">
@@ -345,13 +345,26 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not in inbox or spam folder? Resend" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sff-2m-NVd" customClass="FRHyperLabel">
-                                                        <rect key="frame" x="30" y="412" width="357" height="19.5"/>
-                                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                                        <rect key="frame" x="30" y="412" width="357" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="OJA-cK-44R"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrc-q6-VLb">
+                                                        <rect key="frame" x="263" y="412" width="140" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="4Eh-WG-MgN"/>
+                                                            <constraint firstAttribute="width" constant="140" id="pqx-LD-2n5"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="btnResendCodeTapped" destination="4GN-dV-u6O" eventType="touchUpInside" id="mdb-Xo-Ugo"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-bm-pOm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
-                                                        <rect key="frame" x="30" y="466.5" width="354" height="59.5"/>
+                                                        <rect key="frame" x="30" y="477" width="354" height="59.5"/>
                                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ufp-bm-pOm" secondAttribute="height" multiplier="167:28" id="EMy-tf-14M"/>
@@ -376,6 +389,7 @@
                                                     <constraint firstItem="WI8-Av-KpI" firstAttribute="leading" secondItem="xhg-Nf-a9V" secondAttribute="leading" constant="30" id="KnL-RO-cJK"/>
                                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ufp-bm-pOm" secondAttribute="bottom" constant="50" id="LuC-YJ-dDp"/>
                                                     <constraint firstAttribute="trailing" secondItem="ufp-bm-pOm" secondAttribute="trailing" constant="30" id="RZl-JA-1dq"/>
+                                                    <constraint firstItem="Xrc-q6-VLb" firstAttribute="centerY" secondItem="Sff-2m-NVd" secondAttribute="centerY" id="U4l-f2-8ER"/>
                                                     <constraint firstItem="ufp-bm-pOm" firstAttribute="leading" secondItem="xhg-Nf-a9V" secondAttribute="leading" constant="30" id="X7L-dF-k36"/>
                                                     <constraint firstAttribute="trailing" secondItem="l1I-v6-LLv" secondAttribute="trailing" constant="35" id="ZJ3-UJ-nLv"/>
                                                     <constraint firstItem="O3f-b2-P5g" firstAttribute="top" secondItem="HS9-Zx-8jK" secondAttribute="bottom" constant="16" id="cGO-4b-GsW"/>
@@ -383,6 +397,7 @@
                                                     <constraint firstItem="l1I-v6-LLv" firstAttribute="leading" secondItem="xhg-Nf-a9V" secondAttribute="leading" constant="35" id="iX7-2v-OBd"/>
                                                     <constraint firstItem="Sff-2m-NVd" firstAttribute="leading" secondItem="xhg-Nf-a9V" secondAttribute="leading" constant="30" id="ksU-DZ-ma5"/>
                                                     <constraint firstAttribute="trailing" secondItem="Sff-2m-NVd" secondAttribute="trailing" constant="27" id="pLi-W5-wWA"/>
+                                                    <constraint firstItem="Xrc-q6-VLb" firstAttribute="trailing" secondItem="Sff-2m-NVd" secondAttribute="trailing" constant="16" id="t5H-V2-cLH"/>
                                                     <constraint firstItem="WI8-Av-KpI" firstAttribute="top" secondItem="l1I-v6-LLv" secondAttribute="bottom" constant="30" id="v0m-Sr-w2g"/>
                                                     <constraint firstItem="l1I-v6-LLv" firstAttribute="top" secondItem="O3f-b2-P5g" secondAttribute="bottom" constant="16" id="vvs-n8-qle"/>
                                                 </constraints>

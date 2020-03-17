@@ -28,18 +28,19 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var invalideCodeTryCount = 0
+    var isShowCodeSentPopUp = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         //showNavBar()
-        self.setupHyperlables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupKeyboardHandling()
         activeTimestamp()
+        self.setupHyperlables()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -52,9 +53,7 @@ class EmailVerificationViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
             AppConfig.shared.hideSpinner {}
-            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
-            self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
-            
+              self.showVerificationCodeSentPopUp()
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err, completion: nil)
@@ -62,10 +61,18 @@ class EmailVerificationViewController: UIViewController {
         }
     }
     
+    func showVerificationCodeSentPopUp(){
+        if (isShowCodeSentPopUp){
+            self.isShowCodeSentPopUp = false
+            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
+        }
+    }
+    
     func setupUI() {
         
         self.confirmButton.createShadowLayer()
-        
+        self.setupHyperlables()
         codeTextField.setShadow()
         codeTextField.setupLeftPadding()
         codeTextField.isSecureTextEntry = true
@@ -82,6 +89,7 @@ class EmailVerificationViewController: UIViewController {
         
     
         if self.viewModel.type == .email {
+            self.isShowCodeSentPopUp = false
             self.sendVerificationCode()
         }
         
@@ -179,6 +187,12 @@ class EmailVerificationViewController: UIViewController {
         passcodeVc.viewModel.type = .setup
         AppNav.shared.pushToViewController(passcodeVc, from: self)
     }
+    
+    @IBAction func btnResendCodeTapped() {
+        self.view.endEditing(true)
+        self.isShowCodeSentPopUp = true
+        self.sendVerificationCode()
+    }
 }
 
 extension EmailVerificationViewController: UITextViewDelegate {
@@ -186,6 +200,7 @@ extension EmailVerificationViewController: UITextViewDelegate {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
         if self.viewModel.isResendCodeReq(URL.absoluteString) {
+            self.isShowCodeSentPopUp = true
             self.sendVerificationCode()
         }
         
@@ -220,9 +235,11 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
             self.present(popupVC, animated: false, completion: nil)
         }
     }
+    
     func tappedOnSendButton(){
        self.invalideCodeTryCount = 0
        self.codeTextField.text = ""
+       self.isShowCodeSentPopUp = true
        self.sendVerificationCode()
     }
     
@@ -247,7 +264,7 @@ extension EmailVerificationViewController {
         self.setAttributeOnHyperLable(lable: self.lblVerificationInstructions)
          
          //Step 2: Define a selection handler block
-         let handler = {
+         let handler1 = {
              (hyperLabel: FRHyperLabel?, substring: String?) -> Void in
              guard let strSubstring = substring else {
                  return
@@ -255,7 +272,7 @@ extension EmailVerificationViewController {
              self.didSelectLinkWithName(strSubstring: strSubstring)
          }
          
-         self.lblVerificationInstructions.setLinksForSubstrings(["\(email)"], withLinkHandler: handler)
+         self.lblVerificationInstructions.setLinksForSubstrings(["\(email)"], withLinkHandler: handler1)
          
      }
      
@@ -265,7 +282,7 @@ extension EmailVerificationViewController {
          self.setAttributeOnHyperLable(lable: self.lblFooterText)
          
          //Step 2: Define a selection handler block
-         let handler = {
+         let handler2 = {
              (hyperLabel: FRHyperLabel?, substring: String?) -> Void in
              guard let strSubstring = substring else {
                  return
@@ -273,7 +290,7 @@ extension EmailVerificationViewController {
              self.didSelectLinkWithName(strSubstring: strSubstring)
          }
          
-         self.lblFooterText.setLinksForSubstrings(["Resend"], withLinkHandler: handler)
+         self.lblFooterText.setLinksForSubstrings(["Resend"], withLinkHandler: handler2)
      }
     
      func setAttributeOnHyperLable(lable : FRHyperLabel) -> Void{
@@ -306,9 +323,12 @@ extension EmailVerificationViewController {
          LoggingUtil.shared.cPrint(strSubstring)
          print("strSubstring = \(strSubstring)")
          if self.viewModel.isResendCodeReq(strSubstring) {
+               self.isShowCodeSentPopUp = true
                self.sendVerificationCode()
          }
      }
+    
+    
 }
 
 //extension EmailVerificationViewController {
