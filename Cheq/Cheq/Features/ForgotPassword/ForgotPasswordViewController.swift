@@ -12,8 +12,7 @@ import PromiseKit
 class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: CLabel!
-    @IBOutlet weak var email: CNTextField!
-    @IBOutlet weak var forgotPasswordButton: CNButton!
+    @IBOutlet weak var email: CTextField!
     var viewModel = ForgotPasswordViewModel()
 
     override func viewDidLoad() {
@@ -22,9 +21,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     func setupUI() {
-        self.forgotPasswordButton.createShadowLayer()
         showCloseButton()
-        self.email.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
     }

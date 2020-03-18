@@ -67,10 +67,6 @@ def shared_pods
   
   # Mixpanel pod
   pod 'Mixpanel-swift'
-  
-  pod 'FRHyperLabel'
-  pod 'IQKeyboardManagerSwift'
-  
 end
 
 target 'Cheq' do

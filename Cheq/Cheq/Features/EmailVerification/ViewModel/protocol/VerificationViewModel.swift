@@ -81,12 +81,8 @@ extension VerificationViewModel {
         }
     }
     
-//    func isResendCodeReq(_ urlString: String)-> Bool {
-//        return urlString == links.resendCode.rawValue
-//    }
-    
     func isResendCodeReq(_ urlString: String)-> Bool {
-        return urlString == "Resend"
+        return urlString == links.resendCode.rawValue
     }
     
     var newPasswordPlaceHolder: String {

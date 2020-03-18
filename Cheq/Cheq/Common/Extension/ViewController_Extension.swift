@@ -48,11 +48,6 @@ extension UIViewController {
         nav.setRightBarButton(logoutButton, animated: true)
     }
     
-    /// show nav bar
-    func showNavBar() {
-        guard let nav = self.navigationController else { return }
-        nav.setNavigationBarHidden(false, animated: false)
-    }
     
     /// hide nav bar
     func hideNavBar() {
@@ -139,7 +134,13 @@ extension UIViewController {
         cPopup.present(self)
     }
     
-    
+    func showMessageWithSubTitle(_ msgBody: String, image: String, completion: (()->Void)?){
+        //needMoreInfo
+        let cPopup = CPopupDialog(.invalidBankCredentials, image: "needMoreInfo", messageBody: msgBody, button: .cancel) {
+            if let cb = completion { cb() }
+        }
+        cPopup.present(self)
+    }
     /// extension method to display error
     func showError(_ err: Error, completion: (()->Void)?) {
         

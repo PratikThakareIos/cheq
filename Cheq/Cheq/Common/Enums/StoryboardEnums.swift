@@ -15,7 +15,6 @@ enum StoryboardName: String {
     case onboarding = "Onboarding"
     case main = "Main"
     case common = "Common"
-    case Popup = "PopUp"
 }
 
 /**
@@ -25,8 +24,8 @@ enum OnboardingStoryboardId: String {
     case splash = "SplashViewController"
     case cSplash = "CSplashViewController"
     case cSplashPage = "CSplashPageViewController"
-    case registration = "RegistrationVC"//"RegistrationViewController"
-    case login = "LoginVC"//"LoginViewController"
+    case registration = "RegistrationViewController"
+    case login = "LoginViewController"
     case forgot = "ForgotPasswordViewController"
     case question = "QuestionViewController"
     case intro = "IntroductionViewController"
@@ -63,4 +62,5 @@ enum CommonStoryboardId: String {
     case account = "AccountViewController"
     case passcode = "PasscodeViewController"
     case connecting = "ConnectingToBankViewController"
+    case reTryConnecting = "ConnectingTobankFalilsViewController"
 }
