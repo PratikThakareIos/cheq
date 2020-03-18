@@ -14,7 +14,7 @@ import Fabric
 import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
-import IQKeyboardManagerSwift
+import MobileSDK
 
 
 @UIApplicationMain
@@ -24,11 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     let backgroundTaskIdentifier = "CheqBackground-Service"
     var visualEffectView = UIVisualEffectView()
-   
+    let API_BASE_URL = "https://api.beta.moneysoft.com.au"
+    let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         
-         IQKeyboardManager.shared.enable = true
-         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
+        
+        //Moneysoft  Configure method goes here
+        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
+                                                                    apiReferrer: API_REFERRER,
+                                                                    view: UIView(),
+                                                                    isDebug: true,
+                                                                    isBeta: true, serviceProvider: .EWISE);
+                        
+                        MoneysoftApi.configure(config);
+        
+        
+        
         
         // keep a reference for re-use
         AppData.shared.application = application

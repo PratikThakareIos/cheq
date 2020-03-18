@@ -22,7 +22,7 @@ def shared_pods
   pod 'Hex'
   pod 'SVProgressHUD'
   pod 'PopOverMenu'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.9.0'
   pod 'PromiseKit'
   pod 'Validator', '~> 3.2'
   pod 'PopupDialog', '~> 1.0.0'
@@ -44,7 +44,7 @@ def shared_pods
 	# pod 'MIHCrypto'
 	pod 'Obfuscator'
 	pod 'SQLCipher'
-	pod 'sqlite3'
+	pod 'sqlite3','~> 3.27.2'
 	pod 'CocoaLumberjack', '<= 3.4.2'
 	pod 'OpenSSL-Universal'
   
