@@ -8,6 +8,8 @@
 
 import UIKit
 import PromiseKit
+import FRHyperLabel
+
 
 class EmailVerificationViewController: UIViewController {
 
@@ -55,6 +57,8 @@ class EmailVerificationViewController: UIViewController {
     
     func setupUI() {
         
+        newPasswordField.setupLeftPadding()
+        newPasswordField.isSecureTextEntry = true
         if self.viewModel.type == .email {
             self.sendVerificationCode()
         }
