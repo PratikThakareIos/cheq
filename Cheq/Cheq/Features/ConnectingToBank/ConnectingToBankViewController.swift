@@ -20,6 +20,8 @@ class ConnectingToBankViewController: UIViewController {
     var viewModel = ConnectingToBankViewModel()
     let transparentView = UIView()
     
+    @IBOutlet weak var chatWithusBtn: UIButton!
+    @IBOutlet weak var tryToconnectBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

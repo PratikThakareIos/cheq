@@ -9,15 +9,11 @@
 import UIKit
 import PromiseKit
 import FBSDKCoreKit
-import FRHyperLabel
 
 enum links: String {
-    //case toc = "https://cheq.com.au/terms-conditions" //"https://cheq.com.au/terms"
-    //case privacy = "https://cheq.com.au/privacy-policy" //"https://cheq.com.au/privacy"
+    case toc = "https://cheq.com.au/terms-conditions"
+    case privacy = "https://cheq.com.au/privacy-policy"
     
-    case toc = "https://cheq.com.au/terms"
-    case privacy = "https://cheq.com.au/privacy"
-     
     // internal screens
     case logout = "http://app.logout.cheq.com.au"
     case login = "http://app.login.cheq.com.au"
@@ -29,7 +25,6 @@ enum links: String {
     case helpAndSupport = "http://app.helpAndSupport.cheq.com.au"
     case appSetting = "http://app.setting.cheq.com.au"
 }
-
 
 class AuthenticatorViewModel: BaseViewModel {
 
@@ -74,6 +69,7 @@ class AuthenticatorViewModel: BaseViewModel {
             guard email.isEmpty == false, password.isEmpty == false else {
                 resolver.reject(AuthManagerError.invalidLoginFields); return
             }
+            
             resolver.fulfill(())
         }
     }
@@ -93,128 +89,43 @@ class AuthenticatorViewModel: BaseViewModel {
         }
     }
     
-//    func isForgotPassword(_ linkUrl: String)-> Bool {
-//        return linkUrl == links.forgot.rawValue
-//    }
-//
-//    func isLogin(_ linkUrl: String)-> Bool {
-//        return linkUrl == links.login.rawValue
-//    }
-//
-//    func isSignup(_ linkUrl: String)-> Bool {
-//        return linkUrl == links.signup.rawValue
-//    }
-    
     func isForgotPassword(_ linkUrl: String)-> Bool {
-        return linkUrl == "Forgot your password?"
+        return linkUrl == links.forgot.rawValue
     }
     
     func isLogin(_ linkUrl: String)-> Bool {
-        return linkUrl == "Log in"
+        return linkUrl == links.login.rawValue
     }
     
     func isSignup(_ linkUrl: String)-> Bool {
-        return linkUrl == "Register"
+        return linkUrl == links.signup.rawValue
     }
-    
 }
 
 extension AuthenticatorViewModel {
     
-//    func conditionsAttributedText()-> NSAttributedString {
-//
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = .center
-//        let text = NSMutableAttributedString(string:"By creating an account, you accept Cheq's Terms of Use and Private Policy" ,
-//                                      attributes: [NSAttributedString.Key.paragraphStyle:style])
-//
-//       // let text = NSMutableAttributedString(string: "By creating an account, you accept Cheq's Terms of Use and Private Policy")
-//        text.applyLinkTo("Terms of Use", link: links.toc.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
-//        text.applyLinkTo("Private Policy", link: links.privacy.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.defaultFont)
-//        return text
-//    }
-    
-    
-//    func loginInText()-> NSAttributedString {
-//
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = .center
-//        let text = NSMutableAttributedString(string: "Already have an account? Log in",
-//                                      attributes: [NSAttributedString.Key.paragraphStyle:style])
-//
-//
-//       // let text = NSMutableAttributedString(string: "Already have an account? Log in")
-//        text.applyLinkTo("Log in", link: links.login.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
-//        return text
-//    }
-   
-//    func signUpText()-> NSAttributedString {
-//          let text = NSMutableAttributedString(string: "Don’t have an account? Register")
-//          text.applyLinkTo("Sign up", link: links.signup.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
-//          return text
-//    }
-   
-//    func forgotPasswordAttributedText()-> NSAttributedString {
-//        let text = NSMutableAttributedString(string: "Forgot your password?")
-//        text.applyLinkTo("Forgot your password?", link: links.forgot.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
-//        return text
-//    }
-    
     func conditionsAttributedText()-> NSAttributedString {
-        let string = "Terms of Use & Private Policy"
-        //let font = UIFont.init(name: "SFProText-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        let font = AppConfig.shared.activeTheme.mediumFont
-        let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.textColor,
-                               NSAttributedString.Key.font: font]
-        let text = NSMutableAttributedString(string: string, attributes: attributes)
+        let text = NSMutableAttributedString(string: "By creating an account, you accept Cheq's Terms of Use and Privacy Policy")
+        text.applyLinkTo("Terms of Use", link: links.toc.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
+        text.applyLinkTo("Privacy Policy", link: links.privacy.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.defaultFont)
         return text
     }
     
     func loginInText()-> NSAttributedString {
-        let string = "Already have an account? Log in"
-        //let font = UIFont.init(name: "SFProText-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        let font = AppConfig.shared.activeTheme.mediumFont
-        let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.textColor,
-                               NSAttributedString.Key.font: font]
-        let text = NSMutableAttributedString(string: string, attributes: attributes)
+        let text = NSMutableAttributedString(string: "Already have an account? Log in")
+        text.applyLinkTo("Log in", link: links.login.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
         return text
     }
     
     func signUpText()-> NSAttributedString {
-        let string = "Don’t have an account? Register"
-        let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.altTextColor,
-                                     NSAttributedString.Key.font: AppConfig.shared.activeTheme.mediumFont]
-        let text = NSMutableAttributedString(string: string, attributes: attributes)
+        let text = NSMutableAttributedString(string: "Don't have an account? Sign up")
+        text.applyLinkTo("Sign up", link: links.signup.rawValue, color: AppConfig.shared.activeTheme.linksColor, font: AppConfig.shared.activeTheme.mediumFont)
         return text
     }
     
     func forgotPasswordAttributedText()-> NSAttributedString {
-          let string = "Forgot your password?"
-          let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.textColor,
-                                       NSAttributedString.Key.font: AppConfig.shared.activeTheme.mediumFont]
-          let text = NSMutableAttributedString(string: string, attributes: attributes)
-          return text
-      }
-    
-    func setAttributeOnHyperLable(lable : FRHyperLabel) -> Void{
-        
-        let LinkColorDefault = AppConfig.shared.activeTheme.linksColor
-        let LinkColorHighlight = AppConfig.shared.activeTheme.linksColor
-        
-        //let font = UIFont.init(name: "SFUIText-Medium", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium)
-        let font = AppConfig.shared.activeTheme.mediumMediumFont
-        let linkAttributeDefault = [
-            NSAttributedString.Key.foregroundColor:LinkColorDefault,
-            NSAttributedString.Key.font: font
-            ] as [NSAttributedString.Key : Any]
-        lable.linkAttributeDefault = linkAttributeDefault
-        
-        let linkAttributeHighlight = [
-            NSAttributedString.Key.foregroundColor:LinkColorHighlight,
-            NSAttributedString.Key.font: font
-            ] as [NSAttributedString.Key : Any]
-        lable.linkAttributeHighlight = linkAttributeHighlight
+        let text = NSMutableAttributedString(string: "Forgot your password?")
+        text.applyLinkTo("Forgot your password?", link: links.forgot.rawValue, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
+        return text
     }
-    
 }
-

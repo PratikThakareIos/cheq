@@ -8,27 +8,23 @@
 
 import UIKit
 import PromiseKit
-import FRHyperLabel
+
+
 
 class EmailVerificationViewModel: VerificationViewModel {
-    
-    var type: VerificatonType = .email
+    var type: VerificatonType = .email 
     var code: String = ""
     var newPassword: String = ""
     var header: String = "Cheq your email"
+    
     var image: UIImage = UIImage(named: "email") ?? UIImage()
     
     var instructions: NSAttributedString {
         get {
-
-             let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
-             let string = "We sent a 6 digit verification code to you at \(email)."
-             let font = AppConfig.shared.activeTheme.mediumMediumFont
-             print("font = \(font.fontDescriptor)")
-             let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.mediumGrayColor,
-                                    NSAttributedString.Key.font: font]
-             let text = NSMutableAttributedString(string: string, attributes: attributes)
-             return text
+            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            let instruction = NSMutableAttributedString(string: "We sent a 6 digit verification code to you at \(email).")
+            instruction.applyHighlight(email, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
+            return instruction
         }
     }
     
@@ -43,15 +39,9 @@ class EmailVerificationViewModel: VerificationViewModel {
     
     var footerText: NSAttributedString {
         get {
-            let string = "Not in inbox or spam folder? Resend"
-            let font = AppConfig.shared.activeTheme.mediumFont
-            let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.mediumGrayColor,
-                              NSAttributedString.Key.font: font]
-            let text = NSMutableAttributedString(string: string, attributes: attributes)
+            let text = NSMutableAttributedString(string: "Have't received the code yet? Re-send code")
+            text.applyLinkTo("Re-send code", link: links.resendCode.rawValue, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.defaultFont)
             return text
         }
     }
 }
-
-
-

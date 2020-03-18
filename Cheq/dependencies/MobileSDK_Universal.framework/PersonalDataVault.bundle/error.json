@@ -1,0 +1,302 @@
+{
+  "1000": {
+    "code": 1000,
+    "name": "NETWORK_ERROR",
+    "message": "Unable to connect to servers this time. Please try again later."
+  },
+  "1001": {
+    "code": 1001,
+    "name": "NETWORK_PROXY_ERROR",
+    "message": "Unable to connect to servers because of a network proxy issue. Please contact administrator."
+  },
+  "2000": {
+    "code": 2000,
+    "name": "SDK_ERROR",
+    "message": "Application encountered an internal error. Please contact administrator."
+  },
+  "2001": {
+    "code": 2001,
+    "name": "TIMEOUT",
+    "message": "The request to the server timed out."
+  },
+  "2002": {
+    "code": 2002,
+    "name": "INSTITUTION_BEING_AGGREGATED",
+    "message": "A process with the same institution and credentials is running. Please wait for the process to end."
+  },
+  "2003": {
+    "code": 2003,
+    "name": "ENGINE_ALREADY_RUNNING",
+    "message": "A process of the engine is currently running. Concurrent processes are not supported in mobile platforms."
+  },
+  "2004": {
+    "code": 2004,
+    "name": "BAD_IMAGE_GENERATION",
+    "message": "An error was encountered while generating an image for authentication."
+  },
+  "2100": {
+    "code": 2100,
+    "name": "NOT_FOUND_PROVIDERS",
+    "message": "There are no providers available."
+  },
+  "2101": {
+    "code": 2101,
+    "name": "NOT_FOUND_INSTITUTIONS",
+    "message": "There are no institutions found for the user."
+  },
+  "2102": {
+    "code": 2102,
+    "name": "NOT_FOUND_ACCOUNTS_FOR_INSTITUTION",
+    "message": "There are no accounts found for the institution."
+  },
+  "2103": {
+    "code": 2103,
+    "name": "NOT_FOUND_CREDENTIALS_FOR_INSTITUTION",
+    "message": "There are no credentials found for the institution."
+  },
+  "2200": {
+    "code": 2200,
+    "name": "INVALID_PAYLOAD",
+    "message": "An error was encountered while converting data."
+  },
+  "2201": {
+    "code": 2201,
+    "name": "INVALID_ACA",
+    "message": "An error was encountered while processing the response from server (ACA)."
+  },
+  "2202": {
+    "code": 2202,
+    "name": "INVALID_INSTITUTIONS",
+    "message": "An error was encountered while processing the response from server (Provider)."
+  },
+  "2203": {
+    "code": 2203,
+    "name": "INVALID_USER_PROFILE",
+    "message": "An error was encountered while processing the response from server (User Profile)."
+  },
+  "2204": {
+    "code": 2204,
+    "name": "INVALID_CONSENT",
+    "message": "An error was encountered while processing the response from server (User Consent)."
+  },
+  "2205": {
+    "code": 2205,
+    "name": "INVALID_TRANSACTIONS",
+    "message": "An error was encountered while processing the response from server (Transaction Sharing)."
+  },
+  "2206": {
+    "code": 2206,
+    "name": "INVALID_CREDENTIALS",
+    "message": "The saved credentials for the institution are not valid."
+  },
+  "2207": {
+    "code": 2207,
+    "name": "INVALID_ACA_PROMPTS",
+    "message": "An error was encountered while converting prompts response from the ACA."
+  },
+  "2208": {
+    "code": 2208,
+    "name": "INVALID_MFA_IMAGE",
+    "message": "An error was encountered while generating an image for authentication."
+  },
+  "2209": {
+    "code": 2209,
+    "name": "INVALID_ACA_DATA",
+    "message": "An error was encountered while converting response from the ACA."
+  },
+  "2300": {
+    "code": 2300,
+    "name": "ENGINE_REQUEST_ERROR",
+    "message": "An error was encountered while sending the request to the engine. Please try again."
+  },
+  "3000": {
+    "code": 3000,
+    "name": "CLIENT_ERROR",
+    "message": "Missing or invalid request parameters."
+  },
+  "3001": {
+    "code": 3001,
+    "name": "USER_NOT_SET",
+    "message": "A user has not been set for this session."
+  },
+  "3002": {
+    "code": 3002,
+    "name": "DUPLICATED_CREDENTIALS",
+    "message": "An institution with the same credentials has already been added."
+  },
+  "3003": {
+    "code": 3003,
+    "name": "IMMUTABLE_ATTRIBUTE",
+    "message": "The property for the credential cannot be changed."
+  },
+  "3004": {
+    "code": 3004,
+    "name": "DUPLICATED_ACCOUNT",
+    "message": "An account with the same account hash has already been added"
+  },
+  "3100": {
+    "code": 3100,
+    "name": "MISSING_ATTRIBUTE",
+    "message": "The attribute is missing"
+  },
+  "3101": {
+    "code": 3101,
+    "name": "MISSING_CREDENTIALS",
+    "message": "There are no credentials found for the given institution id."
+  },
+  "3102": {
+    "code": 3102,
+    "name": "MISSING_INSTITUTION_ID",
+    "message": "There is no institution id provided in the request."
+  },
+  "3103": {
+    "code": 3103,
+    "name": "MISSING_ACCOUNT_HASH",
+    "message": "There is no account hash/es provided in the request."
+  },
+  "3104": {
+    "code": 3104,
+    "name": "MISSING_ACCOUNT_REQUEST",
+    "message": "There is no account object provided in the request."
+  },
+  "3200": {
+    "code": 3200,
+    "name": "MALFORMED_ATTRIBUTE",
+    "message": "The attribute is malformed"
+  },
+  "3201": {
+    "code": 3201,
+    "name": "MALFORMED_INSTITUTION_ID",
+    "message": "Invalid institution id format."
+  },
+  "3202": {
+    "code": 3202,
+    "name": "MALFORMED_DATE",
+    "message": "Invalid date format."
+  },
+  "3203": {
+    "code": 3203,
+    "name": "MALFORMED_REPORT",
+    "message": "Invalid customer report format."
+  },
+  "3204": {
+    "code": 3204,
+    "name": "MALFORMED_CREDENTIALS",
+    "message": "Invalid credentials format."
+  },
+  "3300": {
+    "code": 3300,
+    "name": "INVALID_ARGUMENTS",
+    "message": "Invalid request parameters."
+  },
+  "3301": {
+    "code": 3301,
+    "name": "INVALID_DATE_RANGE",
+    "message": "Invalid start date and end date."
+  },
+  "3302": {
+    "code": 3302,
+    "name": "INVALID_ACCOUNT_HASH",
+    "message": "Invalid account hash/es."
+  },
+  "4000": {
+    "code": 4000,
+    "name": "SERVER_ERROR",
+    "message": "An error was encountered in getting data from server."
+  },
+  "4001": {
+    "code": 4001,
+    "name": "EXPIRED_TOKEN",
+    "message": "The request is not allowed due to an invalid or expired token/session. Please call initialise to create/revalidate your session."
+  },
+  "4002": {
+    "code": 4002,
+    "name": "SERVER_UNAVAILABLE",
+    "message": "Server is not available this time. Please try again later."
+  },
+  "5000": {
+    "code": 5000,
+    "name": "ACA_ERROR",
+    "message": "An error was encountered during aggregation of an institution."
+  },
+  "5001": {
+    "code": 5001,
+    "name": "GENERAL_UPDATE_ACCOUNTS_ERROR",
+    "message": "An error was encountered during aggregation of accounts."
+  },
+  "5002": {
+    "code": 5002,
+    "name": "GENERAL_UPDATE_TRANSACTIONS_ERROR",
+    "message": "An error was encountered during aggregation of accounts and transactions."
+  },
+  "5003": {
+    "code": 5003,
+    "name": "GENERAL_TIMEOUT",
+    "message": "ACA timed out."
+  },
+  "5010": {
+    "code": 5010,
+    "name": "LOGIN_INVALID_CREDENTIALS",
+    "message": "Account username or password or memorable info are incorrect."
+  },
+  "5011": {
+    "code": 5011,
+    "name": "LOGIN_INVALID_USERNAME",
+    "message": "Account username is incorrect."
+  },
+  "5012": {
+    "code": 5012,
+    "name": "LOGIN_INVALID_PASSWORD",
+    "message": "Account password is incorrect."
+  },
+  "5013": {
+    "code": 5013,
+    "name": "LOGIN_INVALID_MEMORABLE_INFO",
+    "message": "Account memorable info/secondary password data is incorrect."
+  },
+  "5014": {
+    "code": 5014,
+    "name": "LOGIN_ACCOUNT_LOCKED",
+    "message": "Account was locked due to number of invalid attempts."
+  },
+  "5015": {
+    "code": 5015,
+    "name": "LOGIN_ACCOUNT_TEMPORARILY_LOCKED",
+    "message": "Account was temporarily locked by the institution."
+  },
+  "5020": {
+    "code": 5020,
+    "name": "VERIFY_OTP_INVALID",
+    "message": "OTP supplied was invalid."
+  },
+  "5021": {
+    "code": 5021,
+    "name": "VERIFY_OTP_CANCELLED",
+    "message": "OTP was cancelled."
+  },
+  "5022": {
+    "code": 5022,
+    "name": "VERIFY_OTP_TIMEOUT",
+    "message": "OTP was never supplied."
+  },
+  "5030": {
+    "code": 5030,
+    "name": "USER_UPDATE_NEEDED",
+    "message": "The flow of the aggregation is blocked by an action that is required from the user."
+  },
+  "5031": {
+    "code": 5031,
+    "name": "USER_ALREADY_LOGGED_IN",
+    "message": "There is an existing session that prevents the aggregation to continue."
+  },
+  "5040": {
+    "code": 5040,
+    "name": "SITE_MAINTENANCE",
+    "message": "Site is down for maintenance."
+  },
+  "5041": {
+    "code": 5041,
+    "name": "SITE_UNAVAILABLE",
+    "message": "Site is currently unavailable."
+  }
+}

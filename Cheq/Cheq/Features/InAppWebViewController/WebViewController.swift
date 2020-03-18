@@ -16,7 +16,6 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showNavBar()
         self.hideBackTitle()
     }
     
@@ -24,10 +23,6 @@ class WebViewController: UIViewController {
         super.viewDidAppear(animated)
         reloadUrl()
         activeTimestamp()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(animated)
-          self.hideNavBar()
     }
     
     func reloadUrl() {
@@ -44,16 +39,13 @@ class WebViewController: UIViewController {
 extension WebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("webView didStartProvisionalNavigation")
         AppConfig.shared.showSpinner()
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("webView didFinish navigation")
         AppConfig.shared.hideSpinner()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("webView didFail navigation")
         AppConfig.shared.hideSpinner()
     }
 }

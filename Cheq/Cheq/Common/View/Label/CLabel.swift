@@ -27,8 +27,8 @@ class CLabel: UILabel {
 
     ///  **setupConfig** encapsulates the styling logics
     func setupConfig() {
-        self.textColor = AppConfig.shared.activeTheme.darkGrayColor
-        self.font = AppConfig.shared.activeTheme.headerBoldFont
+        self.textColor = AppConfig.shared.activeTheme.textColor
+        self.font = AppConfig.shared.activeTheme.defaultFont
         self.backgroundColor = .clear
     }
 }

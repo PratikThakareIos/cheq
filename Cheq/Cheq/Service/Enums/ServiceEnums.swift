@@ -79,6 +79,7 @@ enum MoneySoftManagerError: Error {
     case unableToRetrieveFinancialInstitutions
     case unableToRetrieveFinancialInstitutionSignInForm
     case unableToRetreiveLinkableAccounts
+    case wrongUserNameOrPasswordLinkableAccounts
     case unableToUpdateAccountCredentials
     case unableToLinkAccounts
     case unableToUpdateTransactions
@@ -163,6 +164,8 @@ extension MoneySoftManagerError: LocalizedError {
             return NSLocalizedString("Unable to login with bank credentials", comment: "")
         case .unableToRetrieveMoneySoftCredential:
             return NSLocalizedString("Unable to retrieve money soft credentials", comment: "")
+        case .wrongUserNameOrPasswordLinkableAccounts:
+            return NSLocalizedString("The log in details you have entered are incorrect.  Please re-enter your financial account log in details, exactly as you would if logging into your internet banking site.", comment: "")
         }
     }
 }
