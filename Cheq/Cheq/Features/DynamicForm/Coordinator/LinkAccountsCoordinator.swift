@@ -115,13 +115,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
             let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
-            let mainQue = DispatchQueue.main
-            AuthConfig.shared.activeManager.getCurrentUser().then(on: mainQue) {
-                linkedAccounts-> Promise<[FinancialAccountModel]> in
-                return MoneySoftManager.shared.getAccounts()}.then {
-                authUser->             
-                
-                Promise<[FinancialAccountLinkModel]> in
+            AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountLinkModel]> in
                     return MoneySoftManager.shared.linkableAccounts(form)
                 }.then { linkableAccounts-> Promise<[FinancialAccountModel]> in
                     return MoneySoftManager.shared.linkAccounts(linkableAccounts)
@@ -166,10 +160,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
 
-    
-    //
-    
-    
     func nextViewController(){
         var vcInfo = [String: String]()
         vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue

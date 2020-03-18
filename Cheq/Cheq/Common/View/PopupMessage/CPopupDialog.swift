@@ -19,7 +19,6 @@ enum CPopupDialogTitle: String {
     
     /// When lending is sucessful, we show the congradulations dialog title
     case congrats = "Congradulations!"
-    case invalidBankCredentials = "Invalid bank account credentials!"
 }
 
 /**

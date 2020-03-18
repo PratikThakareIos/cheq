@@ -12,7 +12,7 @@ class CSplashPageViewController: UIViewController {
     
     @IBOutlet weak var splashImage: UIImageView!
     @IBOutlet weak var splashText: UIImageView!
-    @IBOutlet weak var startButton: CButton!
+    @IBOutlet weak var startButton: CNButton!
     
     var viewModel: CSplashPageViewModel = CSplashPageViewModel()
     
@@ -24,6 +24,7 @@ class CSplashPageViewController: UIViewController {
     func setupUI() {
         splashImage.image = UIImage.init(named: self.viewModel.splashImage.rawValue)
         splashText.image = UIImage.init(named: self.viewModel.splashText.rawValue)
+        self.startButton.createShadowLayer()
         startButton.setType(.normal)
         self.view.backgroundColor = viewModel.bgColor
     }

@@ -17,7 +17,7 @@ class LegalNameCoordinator: QuestionCoordinatorProtocol {
     var numOfTextFields: Int = 2
     
     func placeHolder(_ index: Int)->String {
-       let result = (index == 0) ? "First name" : "Last name"
+       let result = (index == 0) ? "First name" : "Surname"
         return result
     }
     

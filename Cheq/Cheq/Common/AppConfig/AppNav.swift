@@ -199,6 +199,23 @@ class AppNav {
         guard let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") else { return }
         UIApplication.shared.open(url)
     }
+    
+    func pushToViewControllerWithAnimation(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
+        guard let nav =  viewController.navigationController else { return }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+        
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.type = CATransitionType.fade;
+        transition.subtype = CATransitionSubtype.fromTop;
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+
+        nav.view.layer.add(transition, forKey: "kCATransition")
+        nav.pushViewController(vc, animated: false)
+    }
+    
 }
 
 // MARK: present related
@@ -262,6 +279,7 @@ extension AppNav {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true)
     }
 

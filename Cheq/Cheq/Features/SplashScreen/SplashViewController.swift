@@ -61,7 +61,7 @@ extension SplashViewController {
         }
         AppConfig.shared.markFirstInstall()
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationViewController
+        let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC
         let nav = UINavigationController(rootViewController: regViewController)
         self.present(nav, animated: true)
 
