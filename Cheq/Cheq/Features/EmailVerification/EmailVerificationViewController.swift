@@ -82,11 +82,12 @@ class EmailVerificationViewController: UIViewController {
         codeTextField.reloadInputViews()
         
         newPasswordField.setShadow()
+        newPasswordField.setupLeftPadding()
+        newPasswordField.isSecureTextEntry = true
         newPasswordField.addPlaceholderWith(text: viewModel.newPasswordPlaceHolder)
         newPasswordField.isHidden = !viewModel.showNewPasswordField()
         newPasswordField.keyboardType = .default
         newPasswordField.reloadInputViews()
-        
     
         if self.viewModel.type == .email {
             self.isShowCodeSentPopUp = false

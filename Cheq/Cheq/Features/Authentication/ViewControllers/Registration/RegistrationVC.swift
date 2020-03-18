@@ -217,7 +217,7 @@ extension RegistrationVC {
             self.didSelectLinkWithName(strSubstring: strSubstring)
         }
         
-        self.lblTerms.setLinksForSubstrings(["Terms of Use", "Private Policy"], withLinkHandler: handler)
+        self.lblTerms.setLinksForSubstrings(["Terms of Use", "Privacy Policy"], withLinkHandler: handler)
         
     }
     
