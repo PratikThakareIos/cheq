@@ -9,6 +9,48 @@
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
 		1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */; };
+		2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6B2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6C2420A94A0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF6D2420A94A0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF702420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF712420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF722420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF762420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF772420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF782420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF792420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7A2420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7B2420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7E2420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF7F2420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF802420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF842420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF852420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF862420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF872420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF882420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF892420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF922420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF932420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF942420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF962420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF972420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF982420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF992420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF9A2420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9C2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9D2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9E2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CF9F2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CFA02420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
+		2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
+		2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1189,22 +1231,21 @@
 		BD28B9A5241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
 		BD28B9A6241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
 		BD28B9A7241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
-		BD28B9F6241F10910049D828 /* MoneySoftDev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD83980235FF1130069EB30 /* MoneySoftDev.swift */; };
-		BD28B9F8241F266D0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B9F7241F266D0049D828 /* ConnectingTobankFalilsViewController.swift */; };
-		BD28B9F9241F2D7B0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B9F7241F266D0049D828 /* ConnectingTobankFalilsViewController.swift */; };
-		BD28B9FA241F2D7C0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B9F7241F266D0049D828 /* ConnectingTobankFalilsViewController.swift */; };
+		BD28B9D62418DEDC0049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */; };
+		BD28B9DA2418DF050049D828 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD28B9DD2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
+		BD28B9DE2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
+		BD28B9DF2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
+		BD28B9E02418DF2F0049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
+		BD28B9E12418DF300049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
+		BD28B9E22418DF310049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
+		BD28B9E72418F2DD0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
 		BD3760C523DE7D350016FF86 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C423DE7D350016FF86 /* AnalyticsService.swift */; };
 		BD3760C823DE7D700016FF86 /* MixpanelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C723DE7D700016FF86 /* MixpanelService.swift */; };
 		BD3760CA23DE7E770016FF86 /* MixpanelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */; };
 		BD3760CD23E4794A0016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
 		BD3760D423E6DDF20016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
 		BD3760D523E6DDF20016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
-		BD91C582241F5FE200ABED6D /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD91C580241F5FE200ABED6D /* PersonalDataVault.framework */; };
-		BD91C584241F5FE200ABED6D /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD91C581241F5FE200ABED6D /* MobileSDK.framework */; };
-		BD91C585241F5FE200ABED6D /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD91C581241F5FE200ABED6D /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD91C588241F65F700ABED6D /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD91C587241F65F600ABED6D /* PersonalDataVault.bundle */; };
-		BD91C589241F65F700ABED6D /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD91C587241F65F600ABED6D /* PersonalDataVault.bundle */; };
-		BD91C58A241F65F700ABED6D /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD91C587241F65F600ABED6D /* PersonalDataVault.bundle */; };
 		BD9739402404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
@@ -1272,13 +1313,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD91C586241F5FE200ABED6D /* Embed Frameworks */ = {
+		BD28B9D82418DEDC0049D828 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD91C585241F5FE200ABED6D /* MobileSDK.framework in Embed Frameworks */,
+				BD28B9DA2418DF050049D828 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1287,6 +1328,20 @@
 
 /* Begin PBXFileReference section */
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
+		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		2A72CF682420A9460053C0DD /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		2A72CF6F2420A98E0053C0DD /* CNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNButton.swift; sourceTree = "<group>"; };
+		2A72CF742420A9A20053C0DD /* CNTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTextField.swift; sourceTree = "<group>"; };
+		2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNSearchTextField.swift; sourceTree = "<group>"; };
+		2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRendringComponents.swift; sourceTree = "<group>"; };
+		2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationPopupVC.swift; sourceTree = "<group>"; };
+		2A72CF832420A9E70053C0DD /* PopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		2A72CF8B2420ADB80053C0DD /* FontConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
+		2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1614,6 +1669,8 @@
 		BD0D58F623EA699A009193CD /* CustomPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewModel.swift; sourceTree = "<group>"; };
 		BD0E0DE323F2A2280088BBAE /* DocumentVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationViewController.swift; sourceTree = "<group>"; };
 		BD0E0DE823F2AC930088BBAE /* DocumentVerifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifyTableViewCell.swift; sourceTree = "<group>"; };
+		BD0EDF3824076F1E0067BE02 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-02-27-XC11/2020-02-27/PersonalDataVault.framework"; sourceTree = "<group>"; };
+		BD0EDF3A24076F2B0067BE02 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-02-27-XC11/2020-02-27/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
 		BD186E8C23DDD3730067F735 /* VDotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDotManager.swift; sourceTree = "<group>"; };
 		BD28B83B2417629A0049D828 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
 		BD28B83C2417629A0049D828 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
@@ -1688,14 +1745,17 @@
 		BD28B8D1241762C20049D828 /* LoanSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoanSetting.swift; path = Models/LoanSetting.swift; sourceTree = "<group>"; };
 		BD28B8D2241762C30049D828 /* GetEmployerPlaceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetEmployerPlaceResponse.swift; path = Models/GetEmployerPlaceResponse.swift; sourceTree = "<group>"; };
 		BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetUserBudgetResponse.swift; path = Models/GetUserBudgetResponse.swift; sourceTree = "<group>"; };
-		BD28B9F7241F266D0049D828 /* ConnectingTobankFalilsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingTobankFalilsViewController.swift; sourceTree = "<group>"; };
+		BD28B9D22418DEAF0049D828 /* sdk.mobile.moneysoft.universal-2020-03-04-XC11 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "sdk.mobile.moneysoft.universal-2020-03-04-XC11"; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11"; sourceTree = "<group>"; };
+		BD28B9D92418DF050049D828 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
+		BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		BD3760C423DE7D350016FF86 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		BD3760C723DE7D700016FF86 /* MixpanelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelService.swift; sourceTree = "<group>"; };
 		BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelEnums.swift; sourceTree = "<group>"; };
 		BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryPaymentViewController.swift; sourceTree = "<group>"; };
-		BD91C580241F5FE200ABED6D /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = dependencies/PersonalDataVault.framework; sourceTree = "<group>"; };
-		BD91C581241F5FE200ABED6D /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
-		BD91C587241F65F600ABED6D /* PersonalDataVault.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PersonalDataVault.bundle; path = dependencies/PersonalDataVault.bundle; sourceTree = "<group>"; };
+		BD3FDF392410D3E7007D3A8B /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11/2020-03-04/PersonalDataVault.framework"; sourceTree = "<group>"; };
+		BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11/2020-03-04/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
+		BD97372E23F6A10800C34A33 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../sdk.mobile.moneysoft.universal-2020-02-11-XC11/2020-02-11/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
+		BD97373023F6A11900C34A33 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../sdk.mobile.moneysoft.universal-2020-02-11-XC11/2020-02-11/PersonalDataVault.framework"; sourceTree = "<group>"; };
 		BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1714,7 +1774,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
+				BD28B9E12418DF300049D828 /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
+				BD28B9DE2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,7 +1785,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
+				BD28B9E02418DF2F0049D828 /* MobileSDK.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
+				BD28B9DD2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1731,10 +1795,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD28B9D62418DEDC0049D828 /* MobileSDK.framework in Frameworks */,
+				BD28B9E72418F2DD0049D828 /* PersonalDataVault.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
-				BD91C584241F5FE200ABED6D /* MobileSDK.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
-				BD91C582241F5FE200ABED6D /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1743,12 +1807,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */,
+				BD28B9E22418DF310049D828 /* MobileSDK.framework in Frameworks */,
+				BD28B9DF2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A72CF6E2420A98E0053C0DD /* CN */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF6F2420A98E0053C0DD /* CNButton.swift */,
+			);
+			path = CN;
+			sourceTree = "<group>";
+		};
+		2A72CF732420A9A20053C0DD /* CN */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF742420A9A20053C0DD /* CNTextField.swift */,
+				2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */,
+			);
+			path = CN;
+			sourceTree = "<group>";
+		};
+		2A72CF7C2420A9C60053C0DD /* UIdesignable */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */,
+			);
+			path = UIdesignable;
+			sourceTree = "<group>";
+		};
+		2A72CF812420A9E70053C0DD /* VerificationPopup */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */,
+				2A72CF832420A9E70053C0DD /* PopUp.storyboard */,
+			);
+			path = VerificationPopup;
+			sourceTree = "<group>";
+		};
+		2A72CF8A2420ADB80053C0DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
+				2A72CF8C2420ADB80053C0DD /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A72CF8C2420ADB80053C0DD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */,
+				2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */,
+				2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */,
+				2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */,
+				2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2CD776E6BCD57CA70EFE0360 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2339,6 +2460,7 @@
 		4F2E4B8A233AECD1001F1BA2 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF682420A9460053C0DD /* RegistrationVC.swift */,
 				4F2E4B8B233AECD1001F1BA2 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
@@ -2347,6 +2469,7 @@
 		4F2E4B8C233AECD1001F1BA2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF662420A93B0053C0DD /* LoginVC.swift */,
 				4F2E4B8D233AECD1001F1BA2 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -2374,7 +2497,6 @@
 			children = (
 				4F345B9D238F55D8005DCFDB /* ViewModel */,
 				4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */,
-				BD28B9F7241F266D0049D828 /* ConnectingTobankFalilsViewController.swift */,
 			);
 			path = ConnectingToBank;
 			sourceTree = "<group>";
@@ -2431,6 +2553,7 @@
 		4F57BB092326002000B95C06 /* TextFeld */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF732420A9A20053C0DD /* CN */,
 				4F57BB0A2326005200B95C06 /* CTextField.swift */,
 				4FAE3655232F79CC0035E57E /* CSearchTextField.swift */,
 				4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */,
@@ -2442,6 +2565,7 @@
 		4F57BB0D2326011C00B95C06 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF6E2420A98E0053C0DD /* CN */,
 				4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */,
 				4F57BB0E2326013100B95C06 /* CButton.swift */,
 				4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */,
@@ -2875,9 +2999,13 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD91C587241F65F600ABED6D /* PersonalDataVault.bundle */,
-				BD91C581241F5FE200ABED6D /* MobileSDK.framework */,
-				BD91C580241F5FE200ABED6D /* PersonalDataVault.framework */,
+				BD28B9D22418DEAF0049D828 /* sdk.mobile.moneysoft.universal-2020-03-04-XC11 */,
+				BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */,
+				BD3FDF392410D3E7007D3A8B /* PersonalDataVault.framework */,
+				BD0EDF3A24076F2B0067BE02 /* MobileSDK.framework */,
+				BD97373023F6A11900C34A33 /* PersonalDataVault.framework */,
+				BD0EDF3824076F1E0067BE02 /* PersonalDataVault.framework */,
+				BD97372E23F6A10800C34A33 /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
@@ -2972,6 +3100,7 @@
 		9629A59F22FCC73C00828FCF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF7C2420A9C60053C0DD /* UIdesignable */,
 				9676A77623A4E28800E59BF7 /* LoggingUtil.swift */,
 				9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */,
 				9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */,
@@ -3119,6 +3248,8 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
+				BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */,
+				BD28B9D92418DF050049D828 /* MobileSDK.framework */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				9676521122FAFD01001E43E0 /* Products */,
@@ -3142,6 +3273,7 @@
 		9676521222FAFD01001E43E0 /* Cheq */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF8A2420ADB80053C0DD /* Resources */,
 				4FD839A023626ADD0069EB30 /* Environment */,
 				9676525722FB080F001E43E0 /* Service */,
 				9676524322FB061B001E43E0 /* Common */,
@@ -3186,6 +3318,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF812420A9E70053C0DD /* VerificationPopup */,
 				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
 				9FB5921D23EC52A000B7DB0F /* VerifyIdenty */,
 				BD0D58D723E81577009193CD /* Paycycle */,
@@ -3809,14 +3942,14 @@
 				5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */,
 				9676520C22FAFD01001E43E0 /* Sources */,
 				9676520D22FAFD01001E43E0 /* Frameworks */,
-				BD91C586241F5FE200ABED6D /* Embed Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
-				BD3FDF4E24120516007D3A8B /* Run Script */,
+				BD28B9D82418DEDC0049D828 /* Embed Frameworks */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
+				BD3FDF4E24120516007D3A8B /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -4005,7 +4138,9 @@
 				4F01F752237E6A5B00268423 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F323E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4F01F753237E6A5B00268423 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9D2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				4F01F754237E6A5B00268423 /* AmountSelectTableViewCell.xib in Resources */,
+				2A72CF9A2420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4F01F755237E6A5B00268423 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F01F756237E6A5B00268423 /* Onboarding.storyboard in Resources */,
 				4F01F757237E6A5B00268423 /* BarChartTableViewCell.xib in Resources */,
@@ -4021,16 +4156,19 @@
 				4F01F761237E6A5B00268423 /* BottomTableViewCell.xib in Resources */,
 				4F01F762237E6A5B00268423 /* Cheq.plist in Resources */,
 				4F01F763237E6A5B00268423 /* Main.storyboard in Resources */,
+				2A72CF972420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F01F764237E6A5B00268423 /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B42384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4F01F765237E6A5B00268423 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				4F01F8A823849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4F01F766237E6A5B00268423 /* TransactionModal.xib in Resources */,
 				4F01F767237E6A5B00268423 /* Emoji.xcassets in Resources */,
-				BD91C58A241F65F700ABED6D /* PersonalDataVault.bundle in Resources */,
 				4F01F768237E6A5B00268423 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F01F769237E6A5B00268423 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4F01F76A237E6A5B00268423 /* SpendingCardTableViewCell.xib in Resources */,
+				2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
+				2A72CF892420A9E70053C0DD /* PopUp.storyboard in Resources */,
+				2A72CFA02420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				4F01F76B237E6A5B00268423 /* SpacerTableViewCell.xib in Resources */,
 				4F01F76C237E6A5B00268423 /* Assets.xcassets in Resources */,
 				4F01F76D237E6A5B00268423 /* MainBackup.storyboard in Resources */,
@@ -4050,7 +4188,9 @@
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F223E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9C2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */,
+				2A72CF992420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
@@ -4066,16 +4206,19 @@
 				4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
+				2A72CF962420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B32384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				4F01F8A723849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4FDDC378237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
-				BD91C589241F65F700ABED6D /* PersonalDataVault.bundle in Resources */,
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
+				2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
+				2A72CF882420A9E70053C0DD /* PopUp.storyboard in Resources */,
+				2A72CF9F2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				4FBDDB31236BC68700EDB1E9 /* SpacerTableViewCell.xib in Resources */,
 				4FBDDB32236BC68700EDB1E9 /* Assets.xcassets in Resources */,
 				4FBDDB33236BC68700EDB1E9 /* MainBackup.storyboard in Resources */,
@@ -4090,11 +4233,13 @@
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				4F2324052375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FB1CB3A2355375D00E7B224 /* MessageBubbleTableViewCell.xib in Resources */,
+				2A72CF982420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4F01F8BA2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F123E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				9F3ACB8C23EFEC9700466953 /* DocumentAccessCell.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FA2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
@@ -4102,7 +4247,7 @@
 				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
-				BD91C588241F65F700ABED6D /* PersonalDataVault.bundle in Resources */,
+				2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F23259E2379323000BF3F21 /* BarView.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
@@ -4114,12 +4259,14 @@
 				9F3ACB8823EFEAB900466953 /* DocsListCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
+				2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B22384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				9F3ACB8423EFE4C700466953 /* DocPlaceHolderCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				4F01F8A623849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4FDDC375237CD95D00C3846E /* TransactionModal.xib in Resources */,
+				2A72CF872420A9E70053C0DD /* PopUp.storyboard in Resources */,
 				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -4127,6 +4274,7 @@
 				4FB1CDEF2356C11E00E7B224 /* SpacerTableViewCell.xib in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */,
+				2A72CF9E2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				96F9FFA72352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4290,7 +4438,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh\nset -e\nprintf “Preparing to move required files...\\n”\nappFrameworksPath=“${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}”\nmoneysoftFrameworkPath=“${appFrameworksPath}/MobileSDK.framework”\nmoneysoftSDKModule=“${moneysoftFrameworkPath}/MobileSDK”\nprintf “App Framework Path: ${appFrameworksPath}\\n”\nprintf “Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n”\nif [[ -d $moneysoftFrameworkPath ]]; then\n  printf “Moneysoft API framework found!\\n”\n  bundlePath=“${moneysoftFrameworkPath}/PersonalDataVault.bundle”\n  if [[ -d $bundlePath ]]; then\n    printf “Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n”\n    rm -r “${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle” 2> /dev/null || true\n    mv $bundlePath “${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle” 2> /dev/null || true\n  fi\nfi \n";
+			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
 		4F57BB1823263BEE00B95C06 /* Fabrics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4491,6 +4639,7 @@
 				4F01F624237E6A5B00268423 /* Error_Extension.swift in Sources */,
 				BD28B946241762C30049D828 /* GetUserKycResponse.swift in Sources */,
 				4F01F627237E6A5B00268423 /* CompanyAddressCoordinator.swift in Sources */,
+				2A72CF782420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4F01F628237E6A5B00268423 /* CPopupView.swift in Sources */,
 				4F01F62B237E6A5B00268423 /* CSearchTextField.swift in Sources */,
 				4F01F62C237E6A5B00268423 /* StoryboardEnums.swift in Sources */,
@@ -4513,6 +4662,7 @@
 				4F01F643237E6A5B00268423 /* PreviewLoanViewController.swift in Sources */,
 				4F01F644237E6A5B00268423 /* CChartViewProtocol.swift in Sources */,
 				4F01F645237E6A5B00268423 /* EmailVerificationViewController.swift in Sources */,
+				2A72CF6D2420A94A0053C0DD /* LoginVC.swift in Sources */,
 				BD28B99E241762C30049D828 /* LoanSetting.swift in Sources */,
 				4F01F646237E6A5B00268423 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F01F647237E6A5B00268423 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
@@ -4523,6 +4673,7 @@
 				4F01F649237E6A5B00268423 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F01F64A237E6A5B00268423 /* CBarViewFormatter.swift in Sources */,
 				4F01F64B237E6A5B00268423 /* CNavStackView.swift in Sources */,
+				2A72CF6B2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				4F01F64C237E6A5B00268423 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F01F64D237E6A5B00268423 /* CButton.swift in Sources */,
 				4F01F64F237E6A5B00268423 /* LegalNameCoordinator.swift in Sources */,
@@ -4585,6 +4736,7 @@
 				4F01F683237E6A5B00268423 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */,
 				4F01F684237E6A5B00268423 /* BankAccountCoordinator.swift in Sources */,
+				2A72CF7B2420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				4F01F685237E6A5B00268423 /* SpacerTableViewCell.swift in Sources */,
 				BD28B881241762AF0049D828 /* LendingAPI.swift in Sources */,
 				4F01F686237E6A5B00268423 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
@@ -4653,6 +4805,7 @@
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				BD28B85F2417629A0049D828 /* Configuration.swift in Sources */,
+				2A72CF722420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B956241762C30049D828 /* EligibleRequirement.swift in Sources */,
 				4F01F6BE237E6A5B00268423 /* AmountSelectTableViewCell.swift in Sources */,
@@ -4661,6 +4814,7 @@
 				4F01F6C2237E6A5B00268423 /* SpendingCategoriesViewController.swift in Sources */,
 				BD28B9A2241762C30049D828 /* GetEmployerPlaceResponse.swift in Sources */,
 				4F01F6C3237E6A5B00268423 /* PrimaryTheme.swift in Sources */,
+				2A72CF862420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				BD28B902241762C30049D828 /* PostFinancialAccountRequest.swift in Sources */,
 				BD28B8E2241762C30049D828 /* PutUserEmployerRequest.swift in Sources */,
 				BD28B8472417629A0049D828 /* JSONValue.swift in Sources */,
@@ -4713,7 +4867,6 @@
 				4F01F8DF2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				BD28B98A241762C30049D828 /* FinancialAccountSlim.swift in Sources */,
 				4F01F6EA237E6A5B00268423 /* LendingViewModel.swift in Sources */,
-				BD28B9FA241F2D7C0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				BD28B8DE241762C30049D828 /* GetRecurringBillResponse.swift in Sources */,
 				BD28B90A241762C30049D828 /* PutUserSingupVerificationCodeRequest.swift in Sources */,
 				4F01F6EB237E6A5B00268423 /* AuthUser.swift in Sources */,
@@ -4733,6 +4886,7 @@
 				4F01F6F8237E6A5B00268423 /* DeclineViewTestUtil.swift in Sources */,
 				4F01F8E42385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4F01F6F9237E6A5B00268423 /* TransactionModal.swift in Sources */,
+				2A72CF802420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4F01F6FA237E6A5B00268423 /* LinkAccountsCoordinator.swift in Sources */,
 				4F01F6FB237E6A5B00268423 /* IntercomManager.swift in Sources */,
 				BD28B895241762AF0049D828 /* FinancesAPI.swift in Sources */,
@@ -4797,6 +4951,7 @@
 				4F01F735237E6A5B00268423 /* TopTableViewCellViewModel.swift in Sources */,
 				4F01F736237E6A5B00268423 /* NewPasswordSetupViewModel.swift in Sources */,
 				4F01F738237E6A5B00268423 /* RemoteConfigManager.swift in Sources */,
+				2A72CF942420ADB80053C0DD /* FontConstant.swift in Sources */,
 				BD28B899241762AF0049D828 /* LocationsAPI.swift in Sources */,
 				4F01F739237E6A5B00268423 /* MoneySoftManager.swift in Sources */,
 				4F01F73A237E6A5B00268423 /* CTableViewController.swift in Sources */,
@@ -4823,6 +4978,7 @@
 				4FBDDA16236BC68700EDB1E9 /* Error_Extension.swift in Sources */,
 				BD28B945241762C30049D828 /* GetUserKycResponse.swift in Sources */,
 				4FBDDA19236BC68700EDB1E9 /* CompanyAddressCoordinator.swift in Sources */,
+				2A72CF772420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4FDDC362237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4FBDDA1A236BC68700EDB1E9 /* CSearchTextField.swift in Sources */,
 				4FBDDA1B236BC68700EDB1E9 /* StoryboardEnums.swift in Sources */,
@@ -4845,6 +5001,7 @@
 				4FBDDA30236BC68700EDB1E9 /* PreviewLoanViewController.swift in Sources */,
 				4FBDDA31236BC68700EDB1E9 /* CChartViewProtocol.swift in Sources */,
 				4FBDDA32236BC68700EDB1E9 /* EmailVerificationViewController.swift in Sources */,
+				2A72CF6C2420A94A0053C0DD /* LoginVC.swift in Sources */,
 				BD28B99D241762C30049D828 /* LoanSetting.swift in Sources */,
 				4FBDDA33236BC68700EDB1E9 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F2323EC2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
@@ -4855,6 +5012,7 @@
 				4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
 				4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */,
+				2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				4FBDDA3A236BC68700EDB1E9 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FBDDA3B236BC68700EDB1E9 /* CButton.swift in Sources */,
 				4FBDDA3C236BC68700EDB1E9 /* LegalNameCoordinator.swift in Sources */,
@@ -4917,6 +5075,7 @@
 				4F23240D2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */,
 				4FBDDA6C236BC68700EDB1E9 /* BankAccountCoordinator.swift in Sources */,
+				2A72CF7A2420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				4FBDDA6D236BC68700EDB1E9 /* SpacerTableViewCell.swift in Sources */,
 				BD28B880241762AF0049D828 /* LendingAPI.swift in Sources */,
 				4FBDDA6F236BC68700EDB1E9 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
@@ -4980,12 +5139,12 @@
 				BD0D58F823EA699A009193CD /* CustomPopupViewModel.swift in Sources */,
 				BD28B890241762AF0049D828 /* FirebaseAPI.swift in Sources */,
 				4FDDC339237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift in Sources */,
-				BD28B9F6241F10910049D828 /* MoneySoftDev.swift in Sources */,
 				BD28B971241762C30049D828 /* GetUserEmployerResponse.swift in Sources */,
 				4FBDDA9F236BC68700EDB1E9 /* CPickerView.swift in Sources */,
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
 				BD28B85E2417629A0049D828 /* Configuration.swift in Sources */,
+				2A72CF712420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B955241762C30049D828 /* EligibleRequirement.swift in Sources */,
 				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
@@ -4994,6 +5153,7 @@
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
 				BD28B9A1241762C30049D828 /* GetEmployerPlaceResponse.swift in Sources */,
 				4F2324242378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
+				2A72CF852420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				BD28B901241762C30049D828 /* PostFinancialAccountRequest.swift in Sources */,
 				BD28B8E1241762C30049D828 /* PutUserEmployerRequest.swift in Sources */,
 				BD28B8462417629A0049D828 /* JSONValue.swift in Sources */,
@@ -5039,7 +5199,6 @@
 				4FBDDAB8236BC68700EDB1E9 /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4FBDDAB9236BC68700EDB1E9 /* Array_Extension.swift in Sources */,
 				BD28B915241762C30049D828 /* GetBudgetSpendingsResponse.swift in Sources */,
-				BD28B9F9241F2D7B0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				4FBDDABB236BC68700EDB1E9 /* WebViewModel.swift in Sources */,
 				4FBDDABC236BC68700EDB1E9 /* PasscodeViewController.swift in Sources */,
 				4FBDDABD236BC68700EDB1E9 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
@@ -5066,6 +5225,7 @@
 				4FBDDAD1236BC68700EDB1E9 /* DeclineViewTestUtil.swift in Sources */,
 				4F01F8E32385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4FDDC36A237CD1F800C3846E /* TransactionModal.swift in Sources */,
+				2A72CF7F2420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4FBDDAD2236BC68700EDB1E9 /* LinkAccountsCoordinator.swift in Sources */,
 				4FBDDAD3236BC68700EDB1E9 /* IntercomManager.swift in Sources */,
 				BD28B894241762AF0049D828 /* FinancesAPI.swift in Sources */,
@@ -5130,6 +5290,7 @@
 				4FBDDB06236BC68700EDB1E9 /* TopTableViewCellViewModel.swift in Sources */,
 				4FBDDB08236BC68700EDB1E9 /* NewPasswordSetupViewModel.swift in Sources */,
 				4FBDDB09236BC68700EDB1E9 /* RemoteConfigManager.swift in Sources */,
+				2A72CF932420ADB80053C0DD /* FontConstant.swift in Sources */,
 				BD28B898241762AF0049D828 /* LocationsAPI.swift in Sources */,
 				4FBDDB0A236BC68700EDB1E9 /* MoneySoftManager.swift in Sources */,
 				4FBDDB0B236BC68700EDB1E9 /* CTableViewController.swift in Sources */,
@@ -5252,6 +5413,7 @@
 				BD28B990241762C30049D828 /* GetSpendingStatusResponse.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
 				4F0D715A2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */,
+				2A72CF922420ADB80053C0DD /* FontConstant.swift in Sources */,
 				9676A77723A4E28800E59BF7 /* LoggingUtil.swift in Sources */,
 				4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
@@ -5260,6 +5422,8 @@
 				4F180BD8235E88140018507D /* RemoteBank.swift in Sources */,
 				96F9FFA52352B0C80041001F /* IntercomChatTableViewCell.swift in Sources */,
 				4FD228F62373D7DF00045662 /* TransactionGroupTableViewCell.swift in Sources */,
+				2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */,
+				2A72CF792420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				BD28B8452417629A0049D828 /* JSONValue.swift in Sources */,
 				964F7BE023332A9800338227 /* StringUtil.swift in Sources */,
 				BD28B914241762C30049D828 /* GetBudgetSpendingsResponse.swift in Sources */,
@@ -5341,7 +5505,6 @@
 				4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
-				BD28B9F8241F266D0049D828 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F345BAF239012E4005DCFDB /* UIApplication_Extension.swift in Sources */,
@@ -5360,6 +5523,7 @@
 				BD28B8D8241762C30049D828 /* SlimTransactionResponse.swift in Sources */,
 				4F2325832378D10000BF3F21 /* NameConflictCoordinator.swift in Sources */,
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
+				2A72CF762420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */,
 				4FD229042373E9FC00045662 /* Image_Extension.swift in Sources */,
 				9FB5921A23EC250D00B7DB0F /* HomeAddressCoordinator.swift in Sources */,
@@ -5411,6 +5575,7 @@
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
 				BD28B893241762AF0049D828 /* FinancesAPI.swift in Sources */,
 				96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */,
+				2A72CF842420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				9F3ACB8023EFD10500466953 /* VerifyDocsViewController.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
@@ -5435,6 +5600,7 @@
 				4F80FCCF23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				BD28B918241762C30049D828 /* Worksheet.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
+				2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */,
 				4F2E49FE233441DE001F1BA2 /* OnDemandCoordinator.swift in Sources */,
@@ -5453,6 +5619,7 @@
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
 				4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
+				2A72CF7E2420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4F01F8B72384A81000268423 /* LinkTableViewCell.swift in Sources */,
 				BD28B904241762C30049D828 /* DeclineDetail.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
@@ -5463,6 +5630,7 @@
 				4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				4F2323F32374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				BD28B924241762C30049D828 /* PostFinancialTransactionRequest.swift in Sources */,
+				2A72CF702420A98E0053C0DD /* CNButton.swift in Sources */,
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
@@ -5907,10 +6075,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/dependencies/**",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/dependencies",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5924,6 +6093,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5934,7 +6104,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;
@@ -5957,10 +6127,11 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/dependencies/**",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/dependencies",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5974,6 +6145,7 @@
 					"PB_NO_PACKED_STRUCTS=1",
 					"PB_ENABLE_MALLOC=1",
 				);
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = " *.framework";
 				INFOPLIST_FILE = Cheq/Cheq.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5984,7 +6156,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.0.7;
+				MARKETING_VERSION = 2.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;

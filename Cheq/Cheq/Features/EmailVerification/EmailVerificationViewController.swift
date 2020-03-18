@@ -12,31 +12,40 @@ import FRHyperLabel
 
 
 class EmailVerificationViewController: UIViewController {
-
+  
     var viewModel: VerificationViewModel = EmailVerificationViewModel()
+  
     @IBOutlet weak var viewTitle: CLabel!
-    @IBOutlet weak var verificationInstructions: CLabel!
-    @IBOutlet weak var codeTextField: CTextField!
-    @IBOutlet weak var newPasswordField: CTextField!
-    @IBOutlet weak var confirmButton: CButton!
+    
+    @IBOutlet weak var lblVerificationInstructions: FRHyperLabel!
+    @IBOutlet weak var lblFooterText: FRHyperLabel!
+
+    @IBOutlet weak var codeTextField: CNTextField!
+    @IBOutlet weak var newPasswordField: CNTextField!
+    @IBOutlet weak var confirmButton: CNButton!
     @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var footerText: UITextView!
-    @IBOutlet weak var scrollView: UIScrollView! 
+
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var invalideCodeTryCount = 0
+    var isShowCodeSentPopUp = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDelegates()
         setupUI()
+        //showNavBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupKeyboardHandling()
         activeTimestamp()
+        self.setupHyperlables()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         removeObservables()
     }
     
@@ -44,6 +53,7 @@ class EmailVerificationViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
             AppConfig.shared.hideSpinner {}
+              self.showVerificationCodeSentPopUp()
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err, completion: nil)
@@ -51,15 +61,35 @@ class EmailVerificationViewController: UIViewController {
         }
     }
     
-    func setupDelegates() {
-        self.footerText.delegate = self
+    func showVerificationCodeSentPopUp(){
+        if (isShowCodeSentPopUp){
+            self.isShowCodeSentPopUp = false
+            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
+        }
     }
     
     func setupUI() {
         
-        newPasswordField.setupLeftPadding()
-        newPasswordField.isSecureTextEntry = true
+        self.confirmButton.createShadowLayer()
+        self.setupHyperlables()
+        codeTextField.setShadow()
+        codeTextField.setupLeftPadding()
+        codeTextField.isSecureTextEntry = true
+        codeTextField.addPlaceholderWith(text: viewModel.codeFieldPlaceHolder)
+        codeTextField.keyboardType = .numberPad
+        codeTextField.isHidden = !viewModel.showCodeField()
+        codeTextField.reloadInputViews()
+        
+        newPasswordField.setShadow()
+        newPasswordField.addPlaceholderWith(text: viewModel.newPasswordPlaceHolder)
+        newPasswordField.isHidden = !viewModel.showNewPasswordField()
+        newPasswordField.keyboardType = .default
+        newPasswordField.reloadInputViews()
+        
+    
         if self.viewModel.type == .email {
+            self.isShowCodeSentPopUp = false
             self.sendVerificationCode()
         }
         
@@ -69,19 +99,10 @@ class EmailVerificationViewController: UIViewController {
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         iconImage.image = viewModel.image
-        codeTextField.placeholder = viewModel.codeFieldPlaceHolder
-        codeTextField.keyboardType = .numberPad
-        codeTextField.isHidden = !viewModel.showCodeField()
-        codeTextField.reloadInputViews()
-        newPasswordField.placeholder = viewModel.newPasswordPlaceHolder
-        newPasswordField.isHidden = !viewModel.showNewPasswordField()
-        newPasswordField.keyboardType = .default
-        newPasswordField.reloadInputViews()
+
+        
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
-        verificationInstructions.attributedText = viewModel.instructions
-        verificationInstructions.font = AppConfig.shared.activeTheme.mediumFont
-        footerText.attributedText = viewModel.footerText
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
     }
     
@@ -110,13 +131,28 @@ class EmailVerificationViewController: UIViewController {
         }
     }
     
+    func showInvalidPopUpView(){
+        
+        invalideCodeTryCount = invalideCodeTryCount + 1
+        if invalideCodeTryCount >= 3{
+            self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
+            return
+        }else{
+            self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
+            return
+        }
+    }
+    
     func verifyCode() {
         self.viewModel.code = self.codeTextField.text ?? ""
         if let err = self.viewModel.validate() {
-            showError(err) {
-                self.codeTextField.text = ""
-            }
-            return 
+
+            self.showInvalidPopUpView()
+            return
+//            showError(err) {
+//                self.codeTextField.text = ""
+//            }
+            
         }
         
         // TODO : verify code api call
@@ -126,18 +162,19 @@ class EmailVerificationViewController: UIViewController {
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
-                
                 AppConfig.shared.hideSpinner {
                     self.handleSuccessVerification()
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
+                    self.showInvalidPopUpView()
+                    //self.showError(err, completion: nil)
                 }
         }
     }
     
     @IBAction func verify() {
+
         if self.viewModel.type == .email {
             self.verifyCode()
         } else {
@@ -150,6 +187,12 @@ class EmailVerificationViewController: UIViewController {
         passcodeVc.viewModel.type = .setup
         AppNav.shared.pushToViewController(passcodeVc, from: self)
     }
+    
+    @IBAction func btnResendCodeTapped() {
+        self.view.endEditing(true)
+        self.isShowCodeSentPopUp = true
+        self.sendVerificationCode()
+    }
 }
 
 extension EmailVerificationViewController: UITextViewDelegate {
@@ -157,8 +200,10 @@ extension EmailVerificationViewController: UITextViewDelegate {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
         if self.viewModel.isResendCodeReq(URL.absoluteString) {
+            self.isShowCodeSentPopUp = true
             self.sendVerificationCode()
         }
+        
         return false
     }
 }
@@ -170,12 +215,125 @@ extension EmailVerificationViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true 
+        return true
     }
 }
 
-extension EmailVerificationViewController {
-    override func baseScrollView() -> UIScrollView? {
-        return self.scrollView 
+//MARK: - Verification popup
+extension EmailVerificationViewController: VerificationPopupVCDelegate{
+    
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            self.present(popupVC, animated: false, completion: nil)
+        }
     }
+    
+    func tappedOnSendButton(){
+       self.invalideCodeTryCount = 0
+       self.codeTextField.text = ""
+       self.isShowCodeSentPopUp = true
+       self.sendVerificationCode()
+    }
+    
+    func tappedOnCloseButton(){
+        self.codeTextField.text = ""
+    }
+    
+
 }
+
+extension EmailVerificationViewController {
+    
+ 
+    func setupHyperlables(){
+        self.setupHyperlable_lblVerificationInstructions()
+        self.setupHyperlable_lblFooterText()
+    }
+    
+    func setupHyperlable_lblVerificationInstructions(){
+        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        self.lblVerificationInstructions.attributedText =  self.viewModel.instructions
+        self.setAttributeOnHyperLable(lable: self.lblVerificationInstructions)
+         
+         //Step 2: Define a selection handler block
+         let handler1 = {
+             (hyperLabel: FRHyperLabel?, substring: String?) -> Void in
+             guard let strSubstring = substring else {
+                 return
+             }
+             self.didSelectLinkWithName(strSubstring: strSubstring)
+         }
+         
+         self.lblVerificationInstructions.setLinksForSubstrings(["\(email)"], withLinkHandler: handler1)
+         
+     }
+     
+     func setupHyperlable_lblFooterText(){
+         
+         self.lblFooterText.attributedText = viewModel.footerText
+         self.setAttributeOnHyperLable(lable: self.lblFooterText)
+         
+         //Step 2: Define a selection handler block
+         let handler2 = {
+             (hyperLabel: FRHyperLabel?, substring: String?) -> Void in
+             guard let strSubstring = substring else {
+                 return
+             }
+             self.didSelectLinkWithName(strSubstring: strSubstring)
+         }
+         
+         self.lblFooterText.setLinksForSubstrings(["Resend"], withLinkHandler: handler2)
+     }
+    
+     func setAttributeOnHyperLable(lable : FRHyperLabel) -> Void{
+          
+          var LinkColorDefault = AppConfig.shared.activeTheme.linksColor
+          var LinkColorHighlight = AppConfig.shared.activeTheme.linksColor
+          
+          let font = AppConfig.shared.activeTheme.mediumBoldFont
+        
+          if (lable == self.lblVerificationInstructions){
+             LinkColorDefault = UIColor(hex: "333333")
+             LinkColorHighlight = UIColor(hex: "333333")
+          }
+        
+          let linkAttributeDefault = [
+              NSAttributedString.Key.foregroundColor:LinkColorDefault,
+              NSAttributedString.Key.font: font
+              ] as [NSAttributedString.Key : Any]
+          lable.linkAttributeDefault = linkAttributeDefault
+          
+          let linkAttributeHighlight = [
+              NSAttributedString.Key.foregroundColor:LinkColorHighlight,
+              NSAttributedString.Key.font: font
+              ] as [NSAttributedString.Key : Any]
+          lable.linkAttributeHighlight = linkAttributeHighlight
+      }
+     
+     func didSelectLinkWithName(strSubstring : String = ""){
+         self.view.endEditing(true)
+         LoggingUtil.shared.cPrint(strSubstring)
+         print("strSubstring = \(strSubstring)")
+         if self.viewModel.isResendCodeReq(strSubstring) {
+               self.isShowCodeSentPopUp = true
+               self.sendVerificationCode()
+         }
+     }
+    
+    
+}
+
+//extension EmailVerificationViewController {
+//    override func baseScrollView() -> UIScrollView? {
+//        return self.scrollView
+//    }
+//}
+

@@ -11,7 +11,7 @@ import UIKit
 class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var startButton: CButton!
+    @IBOutlet weak var startButton: CNButton!
 
     var viewControllers: [CSplashPageViewController] = []
     var currentViewControllerIndex = 0
@@ -58,6 +58,7 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         self.view.addSubview(pageViewController.view)
         AutoLayoutUtil.pinToSuperview(pageViewController.view, padding: 0.0)
         pageViewController.didMove(toParent: self)
+        self.startButton.createShadowLayer()
         self.startButton.setType(.normal)
         self.view.bringSubviewToFront(pageControl)
         self.view.bringSubviewToFront(startButton)
@@ -129,8 +130,9 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     @IBAction func getStarted(_ sender: Any) {
         AppConfig.shared.markFirstInstall()
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationViewController
+        let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC
         let nav = UINavigationController(rootViewController: regViewController)
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
     }
 }

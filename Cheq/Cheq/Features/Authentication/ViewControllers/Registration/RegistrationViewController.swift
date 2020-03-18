@@ -14,6 +14,7 @@ import FBSDKCoreKit
 import PromiseKit
 
 class RegistrationViewController: UIViewController {
+    
     @IBOutlet weak var loginLinkText: CTextView!
     @IBOutlet weak var footerText: CTextView!
     @IBOutlet weak var titleText: CLabel!

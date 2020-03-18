@@ -26,7 +26,7 @@ extension VerificationValidationError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .emptyInput:
-            return NSLocalizedString("Please enter the verification code that was sent to you", comment: "")
+            return NSLocalizedString("Verification needs to be entered", comment: "")
         case .invalidLength:
             return NSLocalizedString("invalid length", comment: "")
         case .nonNumeric:
@@ -36,7 +36,7 @@ extension VerificationValidationError: LocalizedError {
         case .lockedOut:
             return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
         case .invalidPasswordFormat:
-            return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            return NSLocalizedString("Invalid password format. Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)", comment: "")
         }
     }
 }
@@ -81,8 +81,12 @@ extension VerificationViewModel {
         }
     }
     
+//    func isResendCodeReq(_ urlString: String)-> Bool {
+//        return urlString == links.resendCode.rawValue
+//    }
+    
     func isResendCodeReq(_ urlString: String)-> Bool {
-        return urlString == links.resendCode.rawValue
+        return urlString == "Resend"
     }
     
     var newPasswordPlaceHolder: String {
