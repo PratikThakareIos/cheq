@@ -9,6 +9,48 @@
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
 		1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */; };
+		2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6B2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
+		2A72CF6C2420A94A0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF6D2420A94A0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
+		2A72CF702420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF712420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF722420A98E0053C0DD /* CNButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF6F2420A98E0053C0DD /* CNButton.swift */; };
+		2A72CF762420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF772420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF782420A9A20053C0DD /* CNTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF742420A9A20053C0DD /* CNTextField.swift */; };
+		2A72CF792420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7A2420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7B2420A9A20053C0DD /* CNSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */; };
+		2A72CF7E2420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF7F2420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF802420A9C60053C0DD /* UIRendringComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */; };
+		2A72CF842420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF852420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF862420A9E70053C0DD /* VerificationPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */; };
+		2A72CF872420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF882420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF892420A9E70053C0DD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF832420A9E70053C0DD /* PopUp.storyboard */; };
+		2A72CF922420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF932420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF942420ADB80053C0DD /* FontConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF8B2420ADB80053C0DD /* FontConstant.swift */; };
+		2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF962420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF972420ADB80053C0DD /* SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */; };
+		2A72CF982420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF992420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF9A2420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */; };
+		2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9C2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9D2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */; };
+		2A72CF9E2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CF9F2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CFA02420ADB80053C0DD /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
+		2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
+		2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
+		2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1286,6 +1328,20 @@
 
 /* Begin PBXFileReference section */
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
+		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		2A72CF682420A9460053C0DD /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		2A72CF6F2420A98E0053C0DD /* CNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNButton.swift; sourceTree = "<group>"; };
+		2A72CF742420A9A20053C0DD /* CNTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTextField.swift; sourceTree = "<group>"; };
+		2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNSearchTextField.swift; sourceTree = "<group>"; };
+		2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRendringComponents.swift; sourceTree = "<group>"; };
+		2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationPopupVC.swift; sourceTree = "<group>"; };
+		2A72CF832420A9E70053C0DD /* PopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		2A72CF8B2420ADB80053C0DD /* FontConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontConstant.swift; sourceTree = "<group>"; };
+		2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1759,6 +1815,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A72CF6E2420A98E0053C0DD /* CN */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF6F2420A98E0053C0DD /* CNButton.swift */,
+			);
+			path = CN;
+			sourceTree = "<group>";
+		};
+		2A72CF732420A9A20053C0DD /* CN */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF742420A9A20053C0DD /* CNTextField.swift */,
+				2A72CF752420A9A20053C0DD /* CNSearchTextField.swift */,
+			);
+			path = CN;
+			sourceTree = "<group>";
+		};
+		2A72CF7C2420A9C60053C0DD /* UIdesignable */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF7D2420A9C60053C0DD /* UIRendringComponents.swift */,
+			);
+			path = UIdesignable;
+			sourceTree = "<group>";
+		};
+		2A72CF812420A9E70053C0DD /* VerificationPopup */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */,
+				2A72CF832420A9E70053C0DD /* PopUp.storyboard */,
+			);
+			path = VerificationPopup;
+			sourceTree = "<group>";
+		};
+		2A72CF8A2420ADB80053C0DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
+				2A72CF8C2420ADB80053C0DD /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A72CF8C2420ADB80053C0DD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */,
+				2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */,
+				2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */,
+				2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */,
+				2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2CD776E6BCD57CA70EFE0360 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2349,6 +2460,7 @@
 		4F2E4B8A233AECD1001F1BA2 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF682420A9460053C0DD /* RegistrationVC.swift */,
 				4F2E4B8B233AECD1001F1BA2 /* RegistrationViewController.swift */,
 			);
 			path = Registration;
@@ -2357,6 +2469,7 @@
 		4F2E4B8C233AECD1001F1BA2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF662420A93B0053C0DD /* LoginVC.swift */,
 				4F2E4B8D233AECD1001F1BA2 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -2440,6 +2553,7 @@
 		4F57BB092326002000B95C06 /* TextFeld */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF732420A9A20053C0DD /* CN */,
 				4F57BB0A2326005200B95C06 /* CTextField.swift */,
 				4FAE3655232F79CC0035E57E /* CSearchTextField.swift */,
 				4F01F8EA238630A000268423 /* CSearchTextFieldItem.swift */,
@@ -2451,6 +2565,7 @@
 		4F57BB0D2326011C00B95C06 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF6E2420A98E0053C0DD /* CN */,
 				4FD7C1E52329E0C600AC7A67 /* CPasswordToggleButton.swift */,
 				4F57BB0E2326013100B95C06 /* CButton.swift */,
 				4FEDA34D232B4D110042E4E2 /* CFacebookButton.swift */,
@@ -2985,6 +3100,7 @@
 		9629A59F22FCC73C00828FCF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF7C2420A9C60053C0DD /* UIdesignable */,
 				9676A77623A4E28800E59BF7 /* LoggingUtil.swift */,
 				9629A5A222FCCBC400828FCF /* AutoLayoutUtil.swift */,
 				9629A5AC22FD2C6C00828FCF /* ChartModelUtil.swift */,
@@ -3157,6 +3273,7 @@
 		9676521222FAFD01001E43E0 /* Cheq */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF8A2420ADB80053C0DD /* Resources */,
 				4FD839A023626ADD0069EB30 /* Environment */,
 				9676525722FB080F001E43E0 /* Service */,
 				9676524322FB061B001E43E0 /* Common */,
@@ -3201,6 +3318,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2A72CF812420A9E70053C0DD /* VerificationPopup */,
 				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
 				9FB5921D23EC52A000B7DB0F /* VerifyIdenty */,
 				BD0D58D723E81577009193CD /* Paycycle */,
@@ -4020,7 +4138,9 @@
 				4F01F752237E6A5B00268423 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F323E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4F01F753237E6A5B00268423 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9D2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				4F01F754237E6A5B00268423 /* AmountSelectTableViewCell.xib in Resources */,
+				2A72CF9A2420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4F01F755237E6A5B00268423 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F01F756237E6A5B00268423 /* Onboarding.storyboard in Resources */,
 				4F01F757237E6A5B00268423 /* BarChartTableViewCell.xib in Resources */,
@@ -4036,6 +4156,7 @@
 				4F01F761237E6A5B00268423 /* BottomTableViewCell.xib in Resources */,
 				4F01F762237E6A5B00268423 /* Cheq.plist in Resources */,
 				4F01F763237E6A5B00268423 /* Main.storyboard in Resources */,
+				2A72CF972420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F01F764237E6A5B00268423 /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B42384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4F01F765237E6A5B00268423 /* SwipeToConfirmTableViewCell.xib in Resources */,
@@ -4045,6 +4166,9 @@
 				4F01F768237E6A5B00268423 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F01F769237E6A5B00268423 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4F01F76A237E6A5B00268423 /* SpendingCardTableViewCell.xib in Resources */,
+				2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
+				2A72CF892420A9E70053C0DD /* PopUp.storyboard in Resources */,
+				2A72CFA02420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				4F01F76B237E6A5B00268423 /* SpacerTableViewCell.xib in Resources */,
 				4F01F76C237E6A5B00268423 /* Assets.xcassets in Resources */,
 				4F01F76D237E6A5B00268423 /* MainBackup.storyboard in Resources */,
@@ -4064,7 +4188,9 @@
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F223E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9C2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */,
+				2A72CF992420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
@@ -4080,6 +4206,7 @@
 				4FD228BF23729CB200045662 /* GoogleService-Info.plist in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
+				2A72CF962420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4FBDDB2F236BC68700EDB1E9 /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B32384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				4FBDDB30236BC68700EDB1E9 /* SwipeToConfirmTableViewCell.xib in Resources */,
@@ -4089,6 +4216,9 @@
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
+				2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
+				2A72CF882420A9E70053C0DD /* PopUp.storyboard in Resources */,
+				2A72CF9F2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				4FBDDB31236BC68700EDB1E9 /* SpacerTableViewCell.xib in Resources */,
 				4FBDDB32236BC68700EDB1E9 /* Assets.xcassets in Resources */,
 				4FBDDB33236BC68700EDB1E9 /* MainBackup.storyboard in Resources */,
@@ -4103,11 +4233,13 @@
 				9676522022FAFD03001E43E0 /* LaunchScreen.storyboard in Resources */,
 				4F2324052375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FB1CB3A2355375D00E7B224 /* MessageBubbleTableViewCell.xib in Resources */,
+				2A72CF982420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4F01F8BA2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				96F9FFD72352DB060041001F /* TopTableViewCell.xib in Resources */,
 				9600A71823534EDE0082C2A3 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F123E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
+				2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				9F3ACB8C23EFEC9700466953 /* DocumentAccessCell.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FA2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
@@ -4115,6 +4247,7 @@
 				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
+				2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F23259E2379323000BF3F21 /* BarView.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
@@ -4126,12 +4259,14 @@
 				9F3ACB8823EFEAB900466953 /* DocsListCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
+				2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,
 				4F01F8B22384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
 				9F3ACB8423EFE4C700466953 /* DocPlaceHolderCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				4F01F8A623849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
 				4FDDC375237CD95D00C3846E /* TransactionModal.xib in Resources */,
+				2A72CF872420A9E70053C0DD /* PopUp.storyboard in Resources */,
 				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
 				4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
@@ -4139,6 +4274,7 @@
 				4FB1CDEF2356C11E00E7B224 /* SpacerTableViewCell.xib in Resources */,
 				9676521D22FAFD03001E43E0 /* Assets.xcassets in Resources */,
 				9676521B22FAFD01001E43E0 /* MainBackup.storyboard in Resources */,
+				2A72CF9E2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
 				96F9FFA72352B0C80041001F /* IntercomChatTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4503,6 +4639,7 @@
 				4F01F624237E6A5B00268423 /* Error_Extension.swift in Sources */,
 				BD28B946241762C30049D828 /* GetUserKycResponse.swift in Sources */,
 				4F01F627237E6A5B00268423 /* CompanyAddressCoordinator.swift in Sources */,
+				2A72CF782420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4F01F628237E6A5B00268423 /* CPopupView.swift in Sources */,
 				4F01F62B237E6A5B00268423 /* CSearchTextField.swift in Sources */,
 				4F01F62C237E6A5B00268423 /* StoryboardEnums.swift in Sources */,
@@ -4525,6 +4662,7 @@
 				4F01F643237E6A5B00268423 /* PreviewLoanViewController.swift in Sources */,
 				4F01F644237E6A5B00268423 /* CChartViewProtocol.swift in Sources */,
 				4F01F645237E6A5B00268423 /* EmailVerificationViewController.swift in Sources */,
+				2A72CF6D2420A94A0053C0DD /* LoginVC.swift in Sources */,
 				BD28B99E241762C30049D828 /* LoanSetting.swift in Sources */,
 				4F01F646237E6A5B00268423 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F01F647237E6A5B00268423 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
@@ -4535,6 +4673,7 @@
 				4F01F649237E6A5B00268423 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4F01F64A237E6A5B00268423 /* CBarViewFormatter.swift in Sources */,
 				4F01F64B237E6A5B00268423 /* CNavStackView.swift in Sources */,
+				2A72CF6B2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				4F01F64C237E6A5B00268423 /* SetupBankIntroCoordinator.swift in Sources */,
 				4F01F64D237E6A5B00268423 /* CButton.swift in Sources */,
 				4F01F64F237E6A5B00268423 /* LegalNameCoordinator.swift in Sources */,
@@ -4597,6 +4736,7 @@
 				4F01F683237E6A5B00268423 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */,
 				4F01F684237E6A5B00268423 /* BankAccountCoordinator.swift in Sources */,
+				2A72CF7B2420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				4F01F685237E6A5B00268423 /* SpacerTableViewCell.swift in Sources */,
 				BD28B881241762AF0049D828 /* LendingAPI.swift in Sources */,
 				4F01F686237E6A5B00268423 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
@@ -4665,6 +4805,7 @@
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				BD28B85F2417629A0049D828 /* Configuration.swift in Sources */,
+				2A72CF722420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B956241762C30049D828 /* EligibleRequirement.swift in Sources */,
 				4F01F6BE237E6A5B00268423 /* AmountSelectTableViewCell.swift in Sources */,
@@ -4673,6 +4814,7 @@
 				4F01F6C2237E6A5B00268423 /* SpendingCategoriesViewController.swift in Sources */,
 				BD28B9A2241762C30049D828 /* GetEmployerPlaceResponse.swift in Sources */,
 				4F01F6C3237E6A5B00268423 /* PrimaryTheme.swift in Sources */,
+				2A72CF862420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				BD28B902241762C30049D828 /* PostFinancialAccountRequest.swift in Sources */,
 				BD28B8E2241762C30049D828 /* PutUserEmployerRequest.swift in Sources */,
 				BD28B8472417629A0049D828 /* JSONValue.swift in Sources */,
@@ -4744,6 +4886,7 @@
 				4F01F6F8237E6A5B00268423 /* DeclineViewTestUtil.swift in Sources */,
 				4F01F8E42385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4F01F6F9237E6A5B00268423 /* TransactionModal.swift in Sources */,
+				2A72CF802420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4F01F6FA237E6A5B00268423 /* LinkAccountsCoordinator.swift in Sources */,
 				4F01F6FB237E6A5B00268423 /* IntercomManager.swift in Sources */,
 				BD28B895241762AF0049D828 /* FinancesAPI.swift in Sources */,
@@ -4808,6 +4951,7 @@
 				4F01F735237E6A5B00268423 /* TopTableViewCellViewModel.swift in Sources */,
 				4F01F736237E6A5B00268423 /* NewPasswordSetupViewModel.swift in Sources */,
 				4F01F738237E6A5B00268423 /* RemoteConfigManager.swift in Sources */,
+				2A72CF942420ADB80053C0DD /* FontConstant.swift in Sources */,
 				BD28B899241762AF0049D828 /* LocationsAPI.swift in Sources */,
 				4F01F739237E6A5B00268423 /* MoneySoftManager.swift in Sources */,
 				4F01F73A237E6A5B00268423 /* CTableViewController.swift in Sources */,
@@ -4834,6 +4978,7 @@
 				4FBDDA16236BC68700EDB1E9 /* Error_Extension.swift in Sources */,
 				BD28B945241762C30049D828 /* GetUserKycResponse.swift in Sources */,
 				4FBDDA19236BC68700EDB1E9 /* CompanyAddressCoordinator.swift in Sources */,
+				2A72CF772420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4FDDC362237CC8BD00C3846E /* CPopupView.swift in Sources */,
 				4FBDDA1A236BC68700EDB1E9 /* CSearchTextField.swift in Sources */,
 				4FBDDA1B236BC68700EDB1E9 /* StoryboardEnums.swift in Sources */,
@@ -4856,6 +5001,7 @@
 				4FBDDA30236BC68700EDB1E9 /* PreviewLoanViewController.swift in Sources */,
 				4FBDDA31236BC68700EDB1E9 /* CChartViewProtocol.swift in Sources */,
 				4FBDDA32236BC68700EDB1E9 /* EmailVerificationViewController.swift in Sources */,
+				2A72CF6C2420A94A0053C0DD /* LoginVC.swift in Sources */,
 				BD28B99D241762C30049D828 /* LoanSetting.swift in Sources */,
 				4FBDDA33236BC68700EDB1E9 /* ChartCollectionViewCellProtocol.swift in Sources */,
 				4F2323EC2374DD5400BF3F21 /* UpcomingBillCollectionViewCellViewModel.swift in Sources */,
@@ -4866,6 +5012,7 @@
 				4FBDDA38236BC68700EDB1E9 /* CompleteDetailsTableViewCell.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
 				4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */,
+				2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				4FBDDA3A236BC68700EDB1E9 /* SetupBankIntroCoordinator.swift in Sources */,
 				4FBDDA3B236BC68700EDB1E9 /* CButton.swift in Sources */,
 				4FBDDA3C236BC68700EDB1E9 /* LegalNameCoordinator.swift in Sources */,
@@ -4928,6 +5075,7 @@
 				4F23240D2375095A00BF3F21 /* InfoNoteTableViewCellViewModel.swift in Sources */,
 				BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */,
 				4FBDDA6C236BC68700EDB1E9 /* BankAccountCoordinator.swift in Sources */,
+				2A72CF7A2420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				4FBDDA6D236BC68700EDB1E9 /* SpacerTableViewCell.swift in Sources */,
 				BD28B880241762AF0049D828 /* LendingAPI.swift in Sources */,
 				4FBDDA6F236BC68700EDB1E9 /* CMultipleChoiceWithCaptionCell.swift in Sources */,
@@ -4996,6 +5144,7 @@
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
 				BD28B85E2417629A0049D828 /* Configuration.swift in Sources */,
+				2A72CF712420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B955241762C30049D828 /* EligibleRequirement.swift in Sources */,
 				4FD2289B23726F8000045662 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
@@ -5004,6 +5153,7 @@
 				4FBDDAA3236BC68700EDB1E9 /* PrimaryTheme.swift in Sources */,
 				BD28B9A1241762C30049D828 /* GetEmployerPlaceResponse.swift in Sources */,
 				4F2324242378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
+				2A72CF852420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				BD28B901241762C30049D828 /* PostFinancialAccountRequest.swift in Sources */,
 				BD28B8E1241762C30049D828 /* PutUserEmployerRequest.swift in Sources */,
 				BD28B8462417629A0049D828 /* JSONValue.swift in Sources */,
@@ -5075,6 +5225,7 @@
 				4FBDDAD1236BC68700EDB1E9 /* DeclineViewTestUtil.swift in Sources */,
 				4F01F8E32385137B00268423 /* CSplashPageViewModel.swift in Sources */,
 				4FDDC36A237CD1F800C3846E /* TransactionModal.swift in Sources */,
+				2A72CF7F2420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4FBDDAD2236BC68700EDB1E9 /* LinkAccountsCoordinator.swift in Sources */,
 				4FBDDAD3236BC68700EDB1E9 /* IntercomManager.swift in Sources */,
 				BD28B894241762AF0049D828 /* FinancesAPI.swift in Sources */,
@@ -5139,6 +5290,7 @@
 				4FBDDB06236BC68700EDB1E9 /* TopTableViewCellViewModel.swift in Sources */,
 				4FBDDB08236BC68700EDB1E9 /* NewPasswordSetupViewModel.swift in Sources */,
 				4FBDDB09236BC68700EDB1E9 /* RemoteConfigManager.swift in Sources */,
+				2A72CF932420ADB80053C0DD /* FontConstant.swift in Sources */,
 				BD28B898241762AF0049D828 /* LocationsAPI.swift in Sources */,
 				4FBDDB0A236BC68700EDB1E9 /* MoneySoftManager.swift in Sources */,
 				4FBDDB0B236BC68700EDB1E9 /* CTableViewController.swift in Sources */,
@@ -5261,6 +5413,7 @@
 				BD28B990241762C30049D828 /* GetSpendingStatusResponse.swift in Sources */,
 				4F0B0674233066EE00986E35 /* CMultipleChoiceWithImageCell.swift in Sources */,
 				4F0D715A2345ABA900AA819C /* CompanyNameCoordinator.swift in Sources */,
+				2A72CF922420ADB80053C0DD /* FontConstant.swift in Sources */,
 				9676A77723A4E28800E59BF7 /* LoggingUtil.swift in Sources */,
 				4F0D71572345AB9800AA819C /* MaritalStatusCoordinator.swift in Sources */,
 				96B0069A22FE7CF700173743 /* CChartModel.swift in Sources */,
@@ -5269,6 +5422,8 @@
 				4F180BD8235E88140018507D /* RemoteBank.swift in Sources */,
 				96F9FFA52352B0C80041001F /* IntercomChatTableViewCell.swift in Sources */,
 				4FD228F62373D7DF00045662 /* TransactionGroupTableViewCell.swift in Sources */,
+				2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */,
+				2A72CF792420A9A20053C0DD /* CNSearchTextField.swift in Sources */,
 				BD28B8452417629A0049D828 /* JSONValue.swift in Sources */,
 				964F7BE023332A9800338227 /* StringUtil.swift in Sources */,
 				BD28B914241762C30049D828 /* GetBudgetSpendingsResponse.swift in Sources */,
@@ -5368,6 +5523,7 @@
 				BD28B8D8241762C30049D828 /* SlimTransactionResponse.swift in Sources */,
 				4F2325832378D10000BF3F21 /* NameConflictCoordinator.swift in Sources */,
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
+				2A72CF762420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */,
 				4FD229042373E9FC00045662 /* Image_Extension.swift in Sources */,
 				9FB5921A23EC250D00B7DB0F /* HomeAddressCoordinator.swift in Sources */,
@@ -5419,6 +5575,7 @@
 				963D62F022FB2231006344C9 /* CarouselCollectionViewCoordinator.swift in Sources */,
 				BD28B893241762AF0049D828 /* FinancesAPI.swift in Sources */,
 				96F9FFDA2352DD530041001F /* UIView_Extension.swift in Sources */,
+				2A72CF842420A9E70053C0DD /* VerificationPopupVC.swift in Sources */,
 				9F3ACB8023EFD10500466953 /* VerifyDocsViewController.swift in Sources */,
 				9676524B22FB06DB001E43E0 /* AppThemeProtocol.swift in Sources */,
 				966A19E822FEDACC00A6E444 /* DispatchUtil.swift in Sources */,
@@ -5443,6 +5600,7 @@
 				4F80FCCF23597AFB009C8F83 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				BD28B918241762C30049D828 /* Worksheet.swift in Sources */,
 				9676526422FB158B001E43E0 /* GridCollectionViewCell.swift in Sources */,
+				2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				96FADD2D230E831800AE6CBB /* FirebaseAuthManager.swift in Sources */,
 				4F57BB022325EE4700B95C06 /* CPopupDialog.swift in Sources */,
 				4F2E49FE233441DE001F1BA2 /* OnDemandCoordinator.swift in Sources */,
@@ -5461,6 +5619,7 @@
 				9676523E22FB05C1001E43E0 /* ProfileViewController.swift in Sources */,
 				4F80FCD523597ECD009C8F83 /* JointAccountIntroCoordinator.swift in Sources */,
 				4FB1CB1F235439B800E7B224 /* AgreementItemTableViewCell.swift in Sources */,
+				2A72CF7E2420A9C60053C0DD /* UIRendringComponents.swift in Sources */,
 				4F01F8B72384A81000268423 /* LinkTableViewCell.swift in Sources */,
 				BD28B904241762C30049D828 /* DeclineDetail.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
@@ -5471,6 +5630,7 @@
 				4F80FCCC235972B2009C8F83 /* HasWriteOffIntroCoordinator.swift in Sources */,
 				4F2323F32374DE7B00BF3F21 /* CollectionViewCellViewModelProtocol.swift in Sources */,
 				BD28B924241762C30049D828 /* PostFinancialTransactionRequest.swift in Sources */,
+				2A72CF702420A98E0053C0DD /* CNButton.swift in Sources */,
 				96F9FFE723530A9C0041001F /* EmploymentTypeDeclineIntroCoordinator.swift in Sources */,
 				96F9FFDF2352DDF70041001F /* TopTableViewCellViewModel.swift in Sources */,
 				4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
