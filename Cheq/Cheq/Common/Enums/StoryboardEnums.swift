@@ -63,4 +63,5 @@ enum CommonStoryboardId: String {
     case account = "AccountViewController"
     case passcode = "PasscodeViewController"
     case connecting = "ConnectingToBankViewController"
+    case reTryConnecting = "ConnectingTobankFalilsViewController"
 }

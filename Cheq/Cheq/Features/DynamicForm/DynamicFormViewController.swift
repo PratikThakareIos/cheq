@@ -161,8 +161,22 @@ class DynamicFormViewController: UIViewController {
                     }
                 }
             }.catch { err in
-                self.dismiss(animated: true) {
-                    self.showError(err, completion: nil)
+                self.dismiss(animated: true) { [weak self] in
+                                     //Show if wrong account credentials
+                    if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
+                        
+                        let transactionModal: CustomSubViewPopup = UIView.fromNib()
+                        transactionModal.viewModel.data = CustomPopupModel(description: "Warning attemting this with multiple time with wrong credentials might lock you out of your internet banking", imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+                                         transactionModal.setupUI()
+                                         let popupView = CPopupView(transactionModal)
+
+                                         popupView.show()
+
+                    }else{
+                       let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                        self?.present(connectingFailed, animated: true)
+                     // self?.showError(err, completion: nil)
+                    }
                 }
             }
         }
