@@ -66,7 +66,6 @@ extension VerificationViewModel {
         if self.code.isEmpty { return VerificationValidationError.emptyInput }
         if self.code.count != self.codeLength { return VerificationValidationError.invalidLength }
         if !StringUtil.shared.isNumericOnly(self.code) { return VerificationValidationError.nonNumeric }
-        
         return nil
     }
     

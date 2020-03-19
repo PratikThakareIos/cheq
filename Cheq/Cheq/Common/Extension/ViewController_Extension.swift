@@ -156,6 +156,22 @@ extension UIViewController {
         })
         cPopup.present(self)
     }
+    
+    func showInvalidPasswordError(_ err: Error, completion: (()->Void)?) {
+        
+        var message = ""
+        // Prepare the popup assets
+        if let errMessage = err.message(), errMessage.isEmpty != false  {
+            message = errMessage
+        } else {
+            message = err.localizedDescription
+        }
+        
+        let cPopup = CPopupDialog(.invalidPassword, messageBody: message, button: .ok, completion: {
+            if let cb = completion { cb() }
+        })
+        cPopup.present(self)
+    }
 }
 
 // MARK: Setup Idle handling

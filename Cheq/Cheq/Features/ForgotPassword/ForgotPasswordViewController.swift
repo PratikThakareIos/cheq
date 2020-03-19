@@ -30,7 +30,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func sendEmail(_ sender: Any) {
-        
+        self.view.endEditing(true)
         self.viewModel.resetEmail = email.text ?? ""
         if let error = self.viewModel.validateInput() {
             showError(error, completion: nil)

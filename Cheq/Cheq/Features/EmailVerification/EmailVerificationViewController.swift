@@ -77,7 +77,7 @@ class EmailVerificationViewController: UIViewController {
         codeTextField.setupLeftPadding()
         codeTextField.isSecureTextEntry = true
         codeTextField.addPlaceholderWith(text: viewModel.codeFieldPlaceHolder)
-        codeTextField.keyboardType = .numberPad
+        codeTextField.keyboardType = .phonePad
         codeTextField.isHidden = !viewModel.showCodeField()
         codeTextField.reloadInputViews()
         
@@ -112,12 +112,23 @@ class EmailVerificationViewController: UIViewController {
         self.viewModel.code = self.codeTextField.text ?? ""
         self.viewModel.newPassword = self.newPasswordField.text ?? ""
         if let err = self.viewModel.validate() {
-            showError(err) {
-                self.codeTextField.text = ""
-                self.newPasswordField.text = ""
+            if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat){
+                 
+                    showInvalidPasswordError(err) {
+                        //self.codeTextField.text = ""
+                        self.newPasswordField.text = ""
+                    }
+                  
+            }else{
+                showError(err) {
+                    //self.codeTextField.text = ""
+                    self.newPasswordField.text = ""
+                }
             }
+            
             return
         }
+        
         
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
@@ -176,7 +187,7 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
-
+        self.view.endEditing(true)
         if self.viewModel.type == .email {
             self.verifyCode()
         } else {
@@ -219,6 +230,18 @@ extension EmailVerificationViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == codeTextField{
+            let maxLength = 6
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else{
+            return true
+        }
+    }
 }
 
 //MARK: - Verification popup
@@ -240,7 +263,7 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
     func tappedOnSendButton(){
        self.invalideCodeTryCount = 0
-       self.codeTextField.text = ""
+      // self.codeTextField.text = ""
        self.isShowCodeSentPopUp = true
        self.sendVerificationCode()
     }
