@@ -22,7 +22,7 @@ class EmailVerificationViewModel: VerificationViewModel {
         get {
 
              let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
-             let string = "We sent a 6 digit verification code to you at \(email)."
+             let string = "We sent a 6 digit verification code to you at \(email)"
              let font = AppConfig.shared.activeTheme.mediumMediumFont
              print("font = \(font.fontDescriptor)")
              let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.mediumGrayColor,

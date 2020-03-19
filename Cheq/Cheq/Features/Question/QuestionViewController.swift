@@ -664,9 +664,13 @@ extension QuestionViewController {
         textField1.setupLeftPadding()
         textField2.setupLeftPadding()
         textField3.setupLeftPadding()
+        textField4.setupLeftPadding()
+        
         textField1.setShadow()
         textField2.setShadow()
         textField3.setShadow()
+        textField4.setShadow()
+        
         textField1.becomeFirstResponder()
     }
 

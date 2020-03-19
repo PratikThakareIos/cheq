@@ -217,7 +217,7 @@ extension RegistrationVC {
             self.didSelectLinkWithName(strSubstring: strSubstring)
         }
         
-        self.lblTerms.setLinksForSubstrings(["Terms of Use", "Private Policy"], withLinkHandler: handler)
+        self.lblTerms.setLinksForSubstrings(["Terms of Use", "Privacy Policy"], withLinkHandler: handler)
         
     }
     
@@ -266,7 +266,7 @@ extension RegistrationVC {
         var strUrl = ""
         if (strSubstring == "Terms of Use"){
             strUrl = links.toc.rawValue
-        }else if (strSubstring == "Private Policy"){
+        }else if (strSubstring == "Privacy Policy"){
             strUrl = links.privacy.rawValue
         }
         

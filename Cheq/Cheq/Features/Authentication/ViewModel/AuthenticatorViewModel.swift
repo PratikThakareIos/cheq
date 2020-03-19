@@ -161,7 +161,7 @@ extension AuthenticatorViewModel {
 //    }
     
     func conditionsAttributedText()-> NSAttributedString {
-        let string = "Terms of Use & Private Policy"
+        let string = "Terms of Use & Privacy Policy"
         //let font = UIFont.init(name: "SFProText-Regular", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium)
         let font = AppConfig.shared.activeTheme.mediumFont
         let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.textColor,
