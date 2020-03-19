@@ -166,7 +166,7 @@ class DynamicFormViewController: UIViewController {
                     if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
                         
                         let transactionModal: CustomSubViewPopup = UIView.fromNib()
-                        transactionModal.viewModel.data = CustomPopupModel(description: "Warning attemting this with multiple time with wrong credentials might lock you out of your internet banking", imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+                        transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
                                          transactionModal.setupUI()
                                          let popupView = CPopupView(transactionModal)
 
