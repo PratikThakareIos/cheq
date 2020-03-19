@@ -49,6 +49,7 @@ enum UINotificationEvent: String {
     case showTransaction = "showTransaction"
     case openLink = "openLink" 
     case viewAll = "viewAll"
+    case resubmitForm = "resubmitForm"
     case mixPanelEvent = "mixPanelEvent"
 }
 

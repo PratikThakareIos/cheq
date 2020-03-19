@@ -43,6 +43,7 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        registerObservables()
         activeTimestamp()
         setupKeyboardHandling()
         if built { return }
@@ -61,7 +62,17 @@ class DynamicFormViewController: UIViewController {
             }
         }
     }
+    
+    
+    func registerObservables() {
+             
+             setupKeyboardHandling()
+             
+             NotificationCenter.default.addObserver(self, selector: #selector(reSubmitForm(_:)), name: NSNotification.Name(UINotificationEvent.resubmitForm.rawValue), object: nil)
+       }
 }
+ 
+ 
 
  extension DynamicFormViewController {
     func buildInputSubview(_ input: DynamicFormInput)-> UIView {
@@ -172,4 +183,15 @@ class DynamicFormViewController: UIViewController {
             }
         }
     }
+ }
+ 
+ extension DynamicFormViewController {
+    
+     @objc func reSubmitForm(_ notification: NSNotification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+              self.submitForm()
+        })
+       
+    }
+
  }
