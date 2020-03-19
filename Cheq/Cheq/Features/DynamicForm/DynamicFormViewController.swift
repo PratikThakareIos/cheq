@@ -43,6 +43,7 @@ class DynamicFormViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        registerObservables()
         activeTimestamp()
         setupKeyboardHandling()
         if built { return }
@@ -61,7 +62,17 @@ class DynamicFormViewController: UIViewController {
             }
         }
     }
+    
+    
+    func registerObservables() {
+             
+             setupKeyboardHandling()
+             
+             NotificationCenter.default.addObserver(self, selector: #selector(reSubmitForm(_:)), name: NSNotification.Name(UINotificationEvent.resubmitForm.rawValue), object: nil)
+       }
 }
+ 
+ 
 
  extension DynamicFormViewController {
     func buildInputSubview(_ input: DynamicFormInput)-> UIView {
@@ -150,8 +161,22 @@ class DynamicFormViewController: UIViewController {
                     }
                 }
             }.catch { err in
-                self.dismiss(animated: true) {
-                    self.showError(err, completion: nil)
+                self.dismiss(animated: true) { [weak self] in
+                                     //Show if wrong account credentials
+                    if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
+                        
+                        let transactionModal: CustomSubViewPopup = UIView.fromNib()
+                        transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+                                         transactionModal.setupUI()
+                                         let popupView = CPopupView(transactionModal)
+
+                                         popupView.show()
+
+                    }else{
+                       let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                        self?.present(connectingFailed, animated: true)
+                     // self?.showError(err, completion: nil)
+                    }
                 }
             }
         }
@@ -172,4 +197,15 @@ class DynamicFormViewController: UIViewController {
             }
         }
     }
+ }
+ 
+ extension DynamicFormViewController {
+    
+     @objc func reSubmitForm(_ notification: NSNotification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+              self.submitForm()
+        })
+       
+    }
+
  }

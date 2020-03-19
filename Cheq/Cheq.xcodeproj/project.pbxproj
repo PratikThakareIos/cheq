@@ -939,6 +939,13 @@
 		BD0E0DEA23F2AC930088BBAE /* DocumentVerifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E0DE823F2AC930088BBAE /* DocumentVerifyTableViewCell.swift */; };
 		BD0E0DEB23F2AC930088BBAE /* DocumentVerifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0E0DE823F2AC930088BBAE /* DocumentVerifyTableViewCell.swift */; };
 		BD186E8D23DDD3730067F735 /* VDotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD186E8C23DDD3730067F735 /* VDotManager.swift */; };
+		BD206E742422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */; };
+		BD206E752422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */; };
+		BD206E762422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */; };
+		BD206E772422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */; };
+		BD206E7C2422F5940016FCA9 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD206E7B2422F5930016FCA9 /* MobileSDK.framework */; };
+		BD206E7D2422F5940016FCA9 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD206E7B2422F5930016FCA9 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD206E802422F5B10016FCA9 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD206E7F2422F5B10016FCA9 /* PersonalDataVault.framework */; };
 		BD28B8452417629A0049D828 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B83B2417629A0049D828 /* JSONValue.swift */; };
 		BD28B8462417629A0049D828 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B83B2417629A0049D828 /* JSONValue.swift */; };
 		BD28B8472417629A0049D828 /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B83B2417629A0049D828 /* JSONValue.swift */; };
@@ -1231,21 +1238,15 @@
 		BD28B9A5241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
 		BD28B9A6241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
 		BD28B9A7241762C30049D828 /* GetUserBudgetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */; };
-		BD28B9D62418DEDC0049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */; };
-		BD28B9DA2418DF050049D828 /* MobileSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BD28B9DD2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
-		BD28B9DE2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
-		BD28B9DF2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
-		BD28B9E02418DF2F0049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
-		BD28B9E12418DF300049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
-		BD28B9E22418DF310049D828 /* MobileSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9D92418DF050049D828 /* MobileSDK.framework */; };
-		BD28B9E72418F2DD0049D828 /* PersonalDataVault.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */; };
 		BD3760C523DE7D350016FF86 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C423DE7D350016FF86 /* AnalyticsService.swift */; };
 		BD3760C823DE7D700016FF86 /* MixpanelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C723DE7D700016FF86 /* MixpanelService.swift */; };
 		BD3760CA23DE7E770016FF86 /* MixpanelEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */; };
 		BD3760CD23E4794A0016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
 		BD3760D423E6DDF20016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
 		BD3760D523E6DDF20016FF86 /* SalaryPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */; };
+		BD3C96232423231100927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
+		BD3C962424232BCF00927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
+		BD3C962624232BD000927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
 		BD9739402404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
@@ -1313,13 +1314,13 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD28B9D82418DEDC0049D828 /* Embed Frameworks */ = {
+		BD206E7E2422F5940016FCA9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BD28B9DA2418DF050049D828 /* MobileSDK.framework in Embed Frameworks */,
+				BD206E7D2422F5940016FCA9 /* MobileSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1669,9 +1670,10 @@
 		BD0D58F623EA699A009193CD /* CustomPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopupViewModel.swift; sourceTree = "<group>"; };
 		BD0E0DE323F2A2280088BBAE /* DocumentVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerificationViewController.swift; sourceTree = "<group>"; };
 		BD0E0DE823F2AC930088BBAE /* DocumentVerifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVerifyTableViewCell.swift; sourceTree = "<group>"; };
-		BD0EDF3824076F1E0067BE02 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-02-27-XC11/2020-02-27/PersonalDataVault.framework"; sourceTree = "<group>"; };
-		BD0EDF3A24076F2B0067BE02 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-02-27-XC11/2020-02-27/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
 		BD186E8C23DDD3730067F735 /* VDotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDotManager.swift; sourceTree = "<group>"; };
+		BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PersonalDataVault.bundle; sourceTree = "<group>"; };
+		BD206E7B2422F5930016FCA9 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = dependencies/MobileSDK.framework; sourceTree = "<group>"; };
+		BD206E7F2422F5B10016FCA9 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = dependencies/PersonalDataVault.framework; sourceTree = "<group>"; };
 		BD28B83B2417629A0049D828 /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
 		BD28B83C2417629A0049D828 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		BD28B83D2417629A0049D828 /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
@@ -1745,17 +1747,11 @@
 		BD28B8D1241762C20049D828 /* LoanSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoanSetting.swift; path = Models/LoanSetting.swift; sourceTree = "<group>"; };
 		BD28B8D2241762C30049D828 /* GetEmployerPlaceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetEmployerPlaceResponse.swift; path = Models/GetEmployerPlaceResponse.swift; sourceTree = "<group>"; };
 		BD28B8D3241762C30049D828 /* GetUserBudgetResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetUserBudgetResponse.swift; path = Models/GetUserBudgetResponse.swift; sourceTree = "<group>"; };
-		BD28B9D22418DEAF0049D828 /* sdk.mobile.moneysoft.universal-2020-03-04-XC11 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "sdk.mobile.moneysoft.universal-2020-03-04-XC11"; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11"; sourceTree = "<group>"; };
-		BD28B9D92418DF050049D828 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileSDK.framework; sourceTree = "<group>"; };
-		BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PersonalDataVault.framework; sourceTree = "<group>"; };
 		BD3760C423DE7D350016FF86 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		BD3760C723DE7D700016FF86 /* MixpanelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelService.swift; sourceTree = "<group>"; };
 		BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelEnums.swift; sourceTree = "<group>"; };
 		BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryPaymentViewController.swift; sourceTree = "<group>"; };
-		BD3FDF392410D3E7007D3A8B /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11/2020-03-04/PersonalDataVault.framework"; sourceTree = "<group>"; };
-		BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../../Downloads/sdk.mobile.moneysoft.universal-2020-03-04-XC11/2020-03-04/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
-		BD97372E23F6A10800C34A33 /* MobileSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileSDK.framework; path = "../../sdk.mobile.moneysoft.universal-2020-02-11-XC11/2020-02-11/Universal/MobileSDK.framework"; sourceTree = "<group>"; };
-		BD97373023F6A11900C34A33 /* PersonalDataVault.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalDataVault.framework; path = "../../sdk.mobile.moneysoft.universal-2020-02-11-XC11/2020-02-11/PersonalDataVault.framework"; sourceTree = "<group>"; };
+		BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectingTobankFalilsViewController.swift; sourceTree = "<group>"; };
 		BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1774,9 +1770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
-				BD28B9E12418DF300049D828 /* MobileSDK.framework in Frameworks */,
 				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
-				BD28B9DE2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1785,9 +1779,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
-				BD28B9E02418DF2F0049D828 /* MobileSDK.framework in Frameworks */,
 				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
-				BD28B9DD2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1795,9 +1787,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD28B9D62418DEDC0049D828 /* MobileSDK.framework in Frameworks */,
-				BD28B9E72418F2DD0049D828 /* PersonalDataVault.framework in Frameworks */,
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
+				BD206E802422F5B10016FCA9 /* PersonalDataVault.framework in Frameworks */,
+				BD206E7C2422F5940016FCA9 /* MobileSDK.framework in Frameworks */,
 				91736EC93241656A20F1DBAE /* Pods_Cheq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1807,8 +1799,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */,
-				BD28B9E22418DF310049D828 /* MobileSDK.framework in Frameworks */,
-				BD28B9DF2418DF2D0049D828 /* PersonalDataVault.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2497,6 +2487,7 @@
 			children = (
 				4F345B9D238F55D8005DCFDB /* ViewModel */,
 				4F345B9E238F55F2005DCFDB /* ConnectingToBankViewController.swift */,
+				BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */,
 			);
 			path = ConnectingToBank;
 			sourceTree = "<group>";
@@ -2999,13 +2990,9 @@
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD28B9D22418DEAF0049D828 /* sdk.mobile.moneysoft.universal-2020-03-04-XC11 */,
-				BD3FDF3B2410D3F6007D3A8B /* MobileSDK.framework */,
-				BD3FDF392410D3E7007D3A8B /* PersonalDataVault.framework */,
-				BD0EDF3A24076F2B0067BE02 /* MobileSDK.framework */,
-				BD97373023F6A11900C34A33 /* PersonalDataVault.framework */,
-				BD0EDF3824076F1E0067BE02 /* PersonalDataVault.framework */,
-				BD97372E23F6A10800C34A33 /* MobileSDK.framework */,
+				BD206E732422F36E0016FCA9 /* PersonalDataVault.bundle */,
+				BD206E7F2422F5B10016FCA9 /* PersonalDataVault.framework */,
+				BD206E7B2422F5930016FCA9 /* MobileSDK.framework */,
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
 				6A8EC44833D1E4011C72AB1F /* Pods_Cheq.framework */,
@@ -3248,8 +3235,6 @@
 		9676520722FAFD01001E43E0 = {
 			isa = PBXGroup;
 			children = (
-				BD28B9DB2418DF2C0049D828 /* PersonalDataVault.framework */,
-				BD28B9D92418DF050049D828 /* MobileSDK.framework */,
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
 				9676521122FAFD01001E43E0 /* Products */,
@@ -3942,14 +3927,14 @@
 				5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */,
 				9676520C22FAFD01001E43E0 /* Sources */,
 				9676520D22FAFD01001E43E0 /* Frameworks */,
+				BD206E7E2422F5940016FCA9 /* Embed Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
 				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
-				BD28B9D82418DEDC0049D828 /* Embed Frameworks */,
-				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 				BD3FDF4E24120516007D3A8B /* Run Script */,
+				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 			);
 			buildRules = (
 			);
@@ -4136,6 +4121,7 @@
 				4F01F8BC2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4F01F751237E6A5B00268423 /* TopTableViewCell.xib in Resources */,
 				4F01F752237E6A5B00268423 /* HeaderTableViewCell.xib in Resources */,
+				BD206E762422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */,
 				BD0D58F323E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4F01F753237E6A5B00268423 /* CButtonTableViewCell.xib in Resources */,
 				2A72CF9D2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
@@ -4186,6 +4172,7 @@
 				4F01F8BB2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */,
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
+				BD206E752422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */,
 				BD0D58F223E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
 				2A72CF9C2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
@@ -4250,6 +4237,7 @@
 				2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F23259E2379323000BF3F21 /* BarView.xib in Resources */,
 				4FD7C1EC2329E14400AC7A67 /* Common.storyboard in Resources */,
+				BD206E742422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */,
 				96F9FFB52352BF5E0041001F /* CompletionProgressTableViewCell.xib in Resources */,
 				4FB1CB152353C8C400E7B224 /* HistoryItemTableViewCell.xib in Resources */,
 				4F2324152378007D00BF3F21 /* LineSeparatorTableViewCell.xib in Resources */,
@@ -4283,6 +4271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD206E772422F36E0016FCA9 /* PersonalDataVault.bundle in Resources */,
 				BD0D58F423E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4746,6 +4735,7 @@
 				4F01F68B237E6A5B00268423 /* BaseTableVCViewModel.swift in Sources */,
 				4F01F68C237E6A5B00268423 /* AuthManagerProtocol.swift in Sources */,
 				4F01F68E237E6A5B00268423 /* TabViewController.swift in Sources */,
+				BD3C962624232BD000927055 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				4F01F68F237E6A5B00268423 /* TableView_Extension.swift in Sources */,
 				BD28B94A241762C30049D828 /* GetUserMoneySoftResponse.swift in Sources */,
 				4F01F690237E6A5B00268423 /* HistoryItemTableViewCellViewModel.swift in Sources */,
@@ -5085,6 +5075,7 @@
 				4FBDDA73236BC68700EDB1E9 /* BaseTableVCViewModel.swift in Sources */,
 				4FBDDA74236BC68700EDB1E9 /* AuthManagerProtocol.swift in Sources */,
 				4FBDDA75236BC68700EDB1E9 /* TabViewController.swift in Sources */,
+				BD3C962424232BCF00927055 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				4FBDDA78236BC68700EDB1E9 /* TableView_Extension.swift in Sources */,
 				BD28B949241762C30049D828 /* GetUserMoneySoftResponse.swift in Sources */,
 				4FBDDA79236BC68700EDB1E9 /* HistoryItemTableViewCellViewModel.swift in Sources */,
@@ -5454,6 +5445,7 @@
 				4F231AF823641DED00874D07 /* String_Extension.swift in Sources */,
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				BD28B998241762C30049D828 /* RecentBorrowingSummary.swift in Sources */,
+				BD3C96232423231100927055 /* ConnectingTobankFalilsViewController.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,
@@ -6080,6 +6072,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/dependencies",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -6132,6 +6125,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/**",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/dependencies",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
