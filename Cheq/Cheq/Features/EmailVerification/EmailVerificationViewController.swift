@@ -109,10 +109,12 @@ class EmailVerificationViewController: UIViewController {
     }
     
     func verifyCodeAndResetPassword() {
+        
         self.viewModel.code = self.codeTextField.text ?? ""
         self.viewModel.newPassword = self.newPasswordField.text ?? ""
+        
         if let err = self.viewModel.validate() {
-            if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat){
+            if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat || err == VerificationValidationError.allInputEmpty ){
                  
                     showInvalidPasswordError(err) {
                         //self.codeTextField.text = ""
@@ -347,7 +349,6 @@ extension EmailVerificationViewController {
      func didSelectLinkWithName(strSubstring : String = ""){
          self.view.endEditing(true)
          LoggingUtil.shared.cPrint(strSubstring)
-         print("strSubstring = \(strSubstring)")
          if self.viewModel.isResendCodeReq(strSubstring) {
                self.isShowCodeSentPopUp = true
                self.sendVerificationCode()

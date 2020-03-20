@@ -14,6 +14,7 @@ enum VerificatonType {
 }
 
 enum VerificationValidationError: Error {
+    case allInputEmpty
     case emptyInput
     case invalidLength
     case nonNumeric
@@ -24,7 +25,10 @@ enum VerificationValidationError: Error {
 
 extension VerificationValidationError: LocalizedError {
     public var errorDescription: String? {
+                
         switch self {
+        case .allInputEmpty:
+            return NSLocalizedString("Please enter the verification code and your new password", comment: "")
         case .emptyInput:
             return NSLocalizedString("Please enter the verification code that was sent to you", comment: "")
         case .invalidLength:
