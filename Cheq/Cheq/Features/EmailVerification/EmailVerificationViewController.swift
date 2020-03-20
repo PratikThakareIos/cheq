@@ -176,7 +176,8 @@ class EmailVerificationViewController: UIViewController {
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
                 AppConfig.shared.hideSpinner {
-                    self.handleSuccessVerification()
+                    //self.handleSuccessVerification()
+                    AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {

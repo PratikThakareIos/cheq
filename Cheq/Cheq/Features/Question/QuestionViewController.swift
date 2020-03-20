@@ -53,7 +53,7 @@ class QuestionViewController: UIViewController {
             hideBackButton()
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .verifyHomeAddress || viewModel.coordinator.type == .verifyName{
             showBackButton()
-
+            
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
         }
@@ -62,6 +62,7 @@ class QuestionViewController: UIViewController {
 //        if AppData.shared.completingDetailsForLending == true{
 //            showCloseButton()
 //        }
+        
     }
     
     
@@ -79,7 +80,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        //setupUI()
+        setupUI()
         prePopulateEntry()
         setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
@@ -143,9 +144,10 @@ class QuestionViewController: UIViewController {
         textField1.delegate = self
         textField2.delegate = self
         textField3.delegate = self
-        searchTextField.delegate = self
-        
+        textField4.delegate = self
+        //searchTextField.delegate = self
     }
+    
     // change the button title
     func changeButtonTitle(){
          nextButton.setTitle("Confirm",for: .normal)
@@ -634,6 +636,7 @@ extension QuestionViewController {
     }
     
     func showNormalTextFields() {
+        
         if self.viewModel.coordinator.numOfTextFields == 4 {
             textField1.isHidden = false
             textField2.isHidden = false
@@ -670,8 +673,12 @@ extension QuestionViewController {
         textField2.setShadow()
         textField3.setShadow()
         textField4.setShadow()
+        searchTextField.setShadow()
         
-        textField1.becomeFirstResponder()
+        if !textField1.isHidden {
+            textField1.becomeFirstResponder()
+        }
+        
     }
 
     func showCheckbox() {
@@ -758,18 +765,19 @@ extension QuestionViewController: UITextFieldDelegate {
     
         switch self.viewModel.coordinator.type {
         
-        case .maritalStatus:
-            LoggingUtil.shared.cPrint(textField.placeholder ?? "")
-            self.activeTextField = textField
-            
-        case .residentialAddress:
-            LoggingUtil.shared.cPrint("search residential addresss")
-            
-        case .dateOfBirth:
-            LoggingUtil.shared.cPrint("show date picker")
-            showDatePicker(textField1, initialDate: 18.years.earlier, picker: datePicker)
-            textField.resignFirstResponder()
-        default: break
+            case .maritalStatus:
+                LoggingUtil.shared.cPrint(textField.placeholder ?? "")
+                self.activeTextField = textField
+                
+            case .residentialAddress:
+                LoggingUtil.shared.cPrint("search residential addresss")
+                
+            case .dateOfBirth:
+                LoggingUtil.shared.cPrint("show date picker")
+                showDatePicker(textField1, initialDate: 18.years.earlier, picker: datePicker)
+                textField.resignFirstResponder()
+                
+            default: break
         }
     }
     
@@ -831,11 +839,13 @@ extension QuestionViewController{
     }
     
     func setupEmployerAddressLookup() {
+        
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
+        
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
             let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
@@ -843,10 +853,11 @@ extension QuestionViewController{
                 , longitude: employerAddress.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
         }
+
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
-                    // keep the address list 
+                    // keep the address list
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                 }.catch {err in
@@ -854,6 +865,7 @@ extension QuestionViewController{
                 }
             }
         }
+        
     }
     
     func setupResidentialAddressLookup() {

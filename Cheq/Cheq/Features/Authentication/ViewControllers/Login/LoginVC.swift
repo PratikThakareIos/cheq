@@ -302,7 +302,8 @@ extension LoginVC {
                 self.toEmailVerification()
             } else {
                 // for Facebook emails
-                self.toPasscodeSetup()
+                //self.toPasscodeSetup()
+                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
             }
         }
     }

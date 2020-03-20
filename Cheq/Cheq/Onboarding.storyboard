@@ -362,27 +362,30 @@
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-1v-boE">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-Vm-YGt">
-                                        <rect key="frame" x="0.0" y="148" width="374" height="77"/>
+                                        <rect key="frame" x="0.0" y="103" width="374" height="77"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-nL-CNQ" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="200" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent an email to you at xuwei@cheq.com.au. It has a link that'll activate your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr0-4f-QWX" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="285.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="240.5" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="346.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="301.5" width="374" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nw7-VH-tgm" secondAttribute="height" multiplier="175:28" id="RDQ-CQ-gLZ"/>
+                                        </constraints>
                                         <state key="normal" title="Open mail app">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -390,9 +393,12 @@
                                             <action selector="confirm:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="ucr-Yc-ixZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="396.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="381.5" width="374" height="59.5"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5BD-RF-Mk8" secondAttribute="height" multiplier="175:28" id="FWI-S8-ZIM"/>
+                                        </constraints>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -400,9 +406,12 @@
                                             <action selector="secondaryButton:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="rC8-RO-8Bn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="446.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="461" width="374" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="P2L-Kh-v1Q" secondAttribute="height" multiplier="175:28" id="eqg-0x-mle"/>
+                                        </constraints>
                                         <state key="normal" title="Refresh">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -411,7 +420,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB5-dz-tBu" userLabel="SecurityView">
-                                        <rect key="frame" x="0.0" y="496.5" width="374" height="130"/>
+                                        <rect key="frame" x="0.0" y="541" width="374" height="130"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="sdq-Wj-X9k">
                                                 <rect key="frame" x="99" y="0.0" width="70" height="80"/>
@@ -437,7 +446,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="9qF-TC-j4t">
-                                        <rect key="frame" x="0.0" y="646.5" width="374" height="127.5"/>
+                                        <rect key="frame" x="0.0" y="691" width="374" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -1599,7 +1608,7 @@
                                                     <constraint firstAttribute="width" secondItem="dFV-dH-TWu" secondAttribute="height" multiplier="167:28" id="pUg-DU-u7f"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-f9-Gz0" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="246.5" width="354" height="59"/>
@@ -2149,8 +2158,9 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="377"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CNSearchTextField" customModule="Cheq" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="59.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="2Wy-5y-tQx" secondAttribute="height" multiplier="167:28" id="PjI-bJ-xxB"/>
                                                                         </constraints>
@@ -2184,8 +2194,9 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="317.5" width="354" height="59.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="iaj-at-sl0" secondAttribute="height" multiplier="167:28" id="Ruh-6j-Dbu"/>
                                                                         </constraints>

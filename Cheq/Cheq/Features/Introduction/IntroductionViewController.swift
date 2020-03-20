@@ -17,9 +17,9 @@ class IntroductionViewController: UIViewController {
     @IBOutlet weak var imageViiew: UIImageView!
     @IBOutlet weak var titleLabel: CLabel!
     @IBOutlet weak var caption: CLabel!
-    @IBOutlet weak var confirmButton: CButton!
-    @IBOutlet weak var secondaryButton: CButton!
-    @IBOutlet weak var refreshButton: CButton!
+    @IBOutlet weak var confirmButton: CNButton!
+    @IBOutlet weak var secondaryButton: CNButton!
+    @IBOutlet weak var refreshButton: CNButton!
     @IBOutlet weak var securityView: UIView!
     
     override func viewDidLoad() {
@@ -54,6 +54,10 @@ class IntroductionViewController: UIViewController {
     }
     
     func setupUI() {
+        self.confirmButton.createShadowLayer()
+        self.secondaryButton.createShadowLayer()
+        self.refreshButton.createShadowLayer()
+        
         print(self.viewModel.coordinator.type)
         let declineReasons = IntroductionViewModel.declineReasons()
         if declineReasons.contains(self.viewModel.coordinator.type) {
