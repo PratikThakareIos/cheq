@@ -57,6 +57,10 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.header.text = vm.headerText()
         self.header.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.detailsText.text = vm.detailsText()
+        self.detailsText.numberOfLines = 0
+        self.detailsText.textAlignment = .natural
+        self.detailsText.font = UIFont.systemFont(ofSize: 15)
+        self.detailsText.adjustsFontSizeToFitWidth = true
         self.detailsSection.isHidden = !vm.expanded
         self.icon.image = UIImage(named: vm.imageIcon())
         self.verifyWorkimageView.translatesAutoresizingMaskIntoConstraints = false
