@@ -171,11 +171,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Required for document and facial capture</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
+	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
+	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
+	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Required for video capture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
