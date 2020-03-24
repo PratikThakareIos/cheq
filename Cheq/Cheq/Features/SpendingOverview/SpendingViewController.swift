@@ -71,7 +71,6 @@ class SpendingViewController: CTableViewController {
 extension SpendingViewController {
     
     func renderSpending(_ spendingOverview: GetSpendingOverviewResponse) {
-        
         // build the spending view model based on response here
         LoggingUtil.shared.cPrint("renderSpending")
         guard let vm = self.viewModel as? SpendingViewModel else { return }
@@ -102,4 +101,5 @@ extension SpendingViewController {
             AppNav.shared.pushToSpendingVC(.transactions, viewController: self)
         }
     }
+    
 }

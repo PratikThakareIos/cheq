@@ -42,6 +42,9 @@ class ForgotPasswordViewController: UIViewController {
         self.viewModel.forgotPassword().done { _ in
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("show email verification + new password screen")
+                
+                //let _ = CKeychain.shared.setValue(CKey.loggedInEmail.rawValue, value: self.viewModel.resetEmail)
+                
                 let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false) as! EmailVerificationViewController
                 vc.viewModel = NewPasswordSetupViewModel()
                 AppNav.shared.pushToViewController(vc, from: self)

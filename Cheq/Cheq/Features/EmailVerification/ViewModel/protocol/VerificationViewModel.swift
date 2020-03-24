@@ -9,11 +9,13 @@
 import UIKit
 
 enum VerificatonType {
+    
     case email
     case passwordReset
 }
 
 enum VerificationValidationError: Error {
+    
     case allInputEmpty
     case emptyInput
     case invalidLength

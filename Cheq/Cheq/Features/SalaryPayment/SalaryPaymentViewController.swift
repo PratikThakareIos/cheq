@@ -9,6 +9,7 @@
 import UIKit
 
 class SalaryPaymentViewController: UIViewController {
+   
     @IBOutlet weak var grayView: UIView!
     
     @IBOutlet weak var BottonConstrainOnPopup: NSLayoutConstraint!
@@ -23,7 +24,7 @@ class SalaryPaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       showBackButton()
+        showBackButton()
         popUpView.layer.cornerRadius = 24
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -50,8 +51,8 @@ class SalaryPaymentViewController: UIViewController {
                 }
         }else {
             self.tansactionDetailsArray = AppData.shared.employeePaycycle!
-                                   self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
-                                   self.tableView.reloadData()
+            self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
+            self.tableView.reloadData()
             
         }
     }

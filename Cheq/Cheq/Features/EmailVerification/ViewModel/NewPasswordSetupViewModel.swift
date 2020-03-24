@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import PromiseKit
 
 class NewPasswordSetupViewModel: VerificationViewModel {
+    
     var type: VerificatonType = .passwordReset
     var newPassword: String = ""
     var code: String = ""
@@ -24,7 +26,7 @@ class NewPasswordSetupViewModel: VerificationViewModel {
 //            instruction.applyHighlight(email, color: AppConfig.shared.activeTheme.linksColor, font:  AppConfig.shared.activeTheme.defaultFont)
 //            return instruction
             
-            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            let email = AppData.shared.forgotPasswordEmail //CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
             let string = "We sent a 6 digit verification code to you at \(email)"
             let font = AppConfig.shared.activeTheme.mediumMediumFont
             print("font = \(font.fontDescriptor)")
@@ -75,5 +77,4 @@ extension NewPasswordSetupViewModel {
     
         return nil
     }
-
 }

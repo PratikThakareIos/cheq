@@ -36,6 +36,11 @@ class EmailVerificationViewController: UIViewController {
         //showNavBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         setupUI()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupKeyboardHandling()
@@ -45,7 +50,6 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         removeObservables()
     }
     
@@ -64,7 +68,13 @@ class EmailVerificationViewController: UIViewController {
     func showVerificationCodeSentPopUp(){
         if (isShowCodeSentPopUp){
             self.isShowCodeSentPopUp = false
-            let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            var email = ""
+            if self.viewModel.type == .passwordReset {
+               email = AppData.shared.forgotPasswordEmail
+            }else{
+               email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+            }
+            
             self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
         }
     }
@@ -120,14 +130,13 @@ class EmailVerificationViewController: UIViewController {
                         //self.codeTextField.text = ""
                         self.newPasswordField.text = ""
                     }
-                  
+                
             }else{
                 showError(err) {
                     //self.codeTextField.text = ""
                     self.newPasswordField.text = ""
                 }
             }
-            
             return
         }
         
@@ -207,7 +216,11 @@ class EmailVerificationViewController: UIViewController {
     @IBAction func btnResendCodeTapped() {
         self.view.endEditing(true)
         self.isShowCodeSentPopUp = true
-        self.sendVerificationCode()
+        if self.viewModel.type == .passwordReset {
+            self.resendCodeForSetupNewPassword()
+        }else{
+            self.sendVerificationCode()
+        }
     }
 }
 
@@ -287,7 +300,15 @@ extension EmailVerificationViewController {
     }
     
     func setupHyperlable_lblVerificationInstructions(){
-        let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        
+        //let email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        var email = ""
+        if self.viewModel.type == .passwordReset {
+           email = AppData.shared.forgotPasswordEmail
+        }else{
+           email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
+        }
+        
         self.lblVerificationInstructions.attributedText =  self.viewModel.instructions
         self.setAttributeOnHyperLable(lable: self.lblVerificationInstructions)
          
@@ -299,9 +320,7 @@ extension EmailVerificationViewController {
              }
              self.didSelectLinkWithName(strSubstring: strSubstring)
          }
-         
          self.lblVerificationInstructions.setLinksForSubstrings(["\(email)"], withLinkHandler: handler1)
-         
      }
      
      func setupHyperlable_lblFooterText(){
@@ -354,9 +373,28 @@ extension EmailVerificationViewController {
                self.sendVerificationCode()
          }
      }
-    
-    
 }
+
+extension EmailVerificationViewController {
+    
+     func resendCodeForSetupNewPassword(){
+         self.view.endEditing(true)
+         AppConfig.shared.showSpinner()
+         ForgotPasswordViewModel().resetEmail = AppData.shared.forgotPasswordEmail
+         ForgotPasswordViewModel().forgotPassword().done { _ in
+             AppConfig.shared.hideSpinner {
+                 LoggingUtil.shared.cPrint("show email verification + new password screen")
+             }
+            self.showVerificationCodeSentPopUp()
+         }.catch { err in
+             AppConfig.shared.hideSpinner {
+                 self.showError(err, completion: nil)
+             }
+         }
+     }
+}
+
+
 
 //extension EmailVerificationViewController {
 //    override func baseScrollView() -> UIScrollView? {
