@@ -64,9 +64,6 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         self.view.bringSubviewToFront(startButton)
     }
     
-    
-    
-    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         guard let viewControllerIndex = self.viewControllers.index(of: viewController as! CSplashPageViewController) else {
