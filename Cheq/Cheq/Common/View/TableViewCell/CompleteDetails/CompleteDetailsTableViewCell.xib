@@ -136,7 +136,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="KwW-NQ-7FP" secondAttribute="trailing" constant="10" id="31L-sf-AsO"/>
                     <constraint firstItem="KwW-NQ-7FP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g6a-bd-b7i"/>
-                    <constraint firstAttribute="bottom" secondItem="KwW-NQ-7FP" secondAttribute="bottom" id="io5-q0-1LQ"/>
+                    <constraint firstAttribute="bottom" secondItem="KwW-NQ-7FP" secondAttribute="bottom" constant="10" id="io5-q0-1LQ"/>
                     <constraint firstItem="KwW-NQ-7FP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="jaH-nr-GiE"/>
                 </constraints>
             </tableViewCellContentView>

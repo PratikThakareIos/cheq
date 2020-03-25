@@ -95,6 +95,8 @@ class AppNav {
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+         
+        vc.modalPresentationStyle = .fullScreen
         nav.pushViewController(vc, animated: true)
     }
     
@@ -364,9 +366,11 @@ extension AppNav {
             vc.showNextButton = true
             print(vc.showNextButton)
             guard let nav = viewController.navigationController else { return }
+            vc.modalPresentationStyle = .fullScreen
             nav.pushViewController(vc, animated: true)
         }else{
             let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
             viewController.present(nav, animated: true, completion: nil)
         }
     }

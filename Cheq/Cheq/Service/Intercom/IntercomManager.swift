@@ -23,7 +23,7 @@ class IntercomManager {
         
         userAttributes.customAttributes = IntercomPersonalData(firstName: qvm.fieldValue(.firstname), lastName: qvm.fieldValue(.lastname), email: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cheqId: AppData.shared.fbAppId, bankName: qvm.fieldValue(.bankName), workAddress: qvm.fieldValue(.employerAddress), mobile: qvm.fieldValue(.contactDetails), appVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",errorStep: "Connecting to bank",cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
          Intercom.updateUser(userAttributes)
-     
+        
     //MARK: Present the UI after passing the parameters to the Intercome API
         Intercom.presentMessenger()
     }
