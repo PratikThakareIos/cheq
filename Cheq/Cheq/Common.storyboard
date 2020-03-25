@@ -141,7 +141,7 @@
         <!--Connecting To Bank View Controller-->
         <scene sceneID="diR-6H-O4s">
             <objects>
-                <viewController storyboardIdentifier="ConnectingToBankViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PFw-sD-gf4" customClass="ConnectingToBankViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConnectingToBankViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PFw-sD-gf4" customClass="ConnectingToBankViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WsY-sm-ht9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,36 +153,54 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="896"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsJ-Sb-IYi">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="313.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="340"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="EwY-vQ-Cca">
-                                                <rect key="frame" x="0.0" y="329.5" width="374" height="50"/>
+                                                <rect key="frame" x="0.0" y="356" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="xrD-vc-suh"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Connecting to your bank..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCg-Mh-dMg" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="395.5" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="422" width="374" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPH-Q1-dPp" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="432" width="374" height="81.5"/>
+                                                <rect key="frame" x="0.0" y="458.5" width="374" height="81.5"/>
                                                 <string key="text">Please don't leave the app, it can take up to 2 minutes to connect to your bank and crunch our numbers. We only need to do this once when you register.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="752" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aCu-zx-ufl">
-                                                <rect key="frame" x="0.0" y="529.5" width="374" height="37"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </activityIndicatorView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APL-ao-5Gc">
-                                                <rect key="frame" x="0.0" y="582.5" width="374" height="313.5"/>
+                                                <rect key="frame" x="0.0" y="556" width="374" height="340"/>
+                                                <subviews>
+                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KbV-eB-DEQ" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="29" y="81" width="316" height="2"/>
+                                                    </progressView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWk-Ip-R4E">
+                                                        <rect key="frame" x="124" y="104" width="126" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="126" id="Cgf-gl-9M5"/>
+                                                            <constraint firstAttribute="height" constant="21" id="exv-bY-6Cz"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="KbV-eB-DEQ" firstAttribute="top" secondItem="APL-ao-5Gc" secondAttribute="top" constant="81" id="HyZ-zu-SKN"/>
+                                                    <constraint firstItem="KbV-eB-DEQ" firstAttribute="centerX" secondItem="APL-ao-5Gc" secondAttribute="centerX" id="RId-nq-gyL"/>
+                                                    <constraint firstItem="jWk-Ip-R4E" firstAttribute="centerX" secondItem="KbV-eB-DEQ" secondAttribute="centerX" id="Z3y-Ti-r6f"/>
+                                                    <constraint firstItem="KbV-eB-DEQ" firstAttribute="leading" secondItem="APL-ao-5Gc" secondAttribute="leading" constant="29" id="fHd-bb-Nkj"/>
+                                                    <constraint firstItem="jWk-Ip-R4E" firstAttribute="top" secondItem="KbV-eB-DEQ" secondAttribute="bottom" constant="21" id="in5-Ew-Lif"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KbV-eB-DEQ" secondAttribute="trailing" constant="29" id="rcr-KI-7ua"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -211,12 +229,14 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="kPH-Q1-dPp" id="Eia-sa-WH1"/>
                         <outlet property="image" destination="EwY-vQ-Cca" id="JoV-OT-CJI"/>
+                        <outlet property="progressBar" destination="KbV-eB-DEQ" id="KJk-nn-wpL"/>
+                        <outlet property="progressBarContainer" destination="APL-ao-5Gc" id="dgT-Ml-zoM"/>
                         <outlet property="titleLabel" destination="uCg-Mh-dMg" id="ncf-cT-Qvp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBf-QE-u9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3113" y="70"/>
+            <point key="canvasLocation" x="3111.594202898551" y="69.642857142857139"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="jYG-bY-1hJ">

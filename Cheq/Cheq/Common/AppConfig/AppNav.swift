@@ -261,6 +261,11 @@ extension AppNav {
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
+//        if storyboardId == CommonStoryboardId.connecting.rawValue {
+//            let nav = UINavigationController(rootViewController: vc)
+//            nav.modalPresentationStyle = .fullScreen
+//            vc.present(nav, animated: true)
+//        }
         if embedInNav {
             let nav = UINavigationController(rootViewController: vc)
             return nav

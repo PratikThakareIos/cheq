@@ -66,8 +66,6 @@ class DynamicFormViewController: UIViewController {
     
     func registerObservables() {
              
-             setupKeyboardHandling()
-             
              NotificationCenter.default.addObserver(self, selector: #selector(reSubmitForm(_:)), name: NSNotification.Name(UINotificationEvent.resubmitForm.rawValue), object: nil)
        }
 }
@@ -144,9 +142,13 @@ class DynamicFormViewController: UIViewController {
     }
 
     func submitForm() {
+       NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+        //guard let nav =  self.navigationController else { return }
         let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
+     
         self.present(connectingToBank, animated: true) { [weak self] in
             guard let self = self else { return }
+             self.modalPresentationStyle = .fullScreen
             self.viewModel.coordinator.submitForm().done { success in
                 self.checkSpendingStatus { result in
                     // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen

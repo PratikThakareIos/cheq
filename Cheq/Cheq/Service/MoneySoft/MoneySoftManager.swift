@@ -13,6 +13,7 @@ import PromiseKit
 import FirebaseRemoteConfig
 
 class MoneySoftManager {
+    
     static let shared = MoneySoftManager()
    // let msApi: MoneysoftApi
     private init() {
@@ -146,6 +147,7 @@ extension MoneySoftManager {
             do {
                 try msApi.financial().getAccounts(listener: ApiListListener<FinancialAccountModel>(successHandler: { accounts in
                     guard let fetchedAccounts = accounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToGetAccounts); return }
+                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 2)
                     resolver.fulfill(fetchedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -182,6 +184,7 @@ extension MoneySoftManager {
             do {
                 try msApi.financial().refreshAccounts(financialAccounts: accounts, options: refreshOptions, listener: ApiListListener<FinancialAccountModel>(successHandler: { refreshedAccounts in
                     guard let updatedAccounts = refreshedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshAccounts); return }
+                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 3)
                     resolver.fulfill(updatedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -202,6 +205,7 @@ extension MoneySoftManager {
                     
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
+                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 1)
                     resolver.fulfill(accounts)
                 }, errorHandler: { errModel in
                      let err = errModel
