@@ -34,7 +34,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
     @IBOutlet weak var detailsSection: UIView!
     
     /// refer to **xib**
-    @IBOutlet weak var detailsText: CLabel!
+    @IBOutlet weak var detailsText: UILabel!
 
     /// called when init from **xib**
     override func awakeFromNib() {
@@ -57,10 +57,6 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.header.text = vm.headerText()
         self.header.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.detailsText.text = vm.detailsText()
-        self.detailsText.numberOfLines = 0
-        self.detailsText.textAlignment = .natural
-        self.detailsText.font = UIFont.systemFont(ofSize: 15)
-        self.detailsText.adjustsFontSizeToFitWidth = true
         self.detailsSection.isHidden = !vm.expanded
         self.icon.image = UIImage(named: vm.imageIcon())
         self.verifyWorkimageView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,8 +81,8 @@ class CompleteDetailsTableViewCell: CTableViewCell {
           self.linkButton.setTitle(vm.linkButtonText(), for: .normal)
           self.linkButton.isHidden = false
           self.turnOnLocationButton.isHidden = vm.showSecondaryButton()
-            let margin = vm.showSecondaryButton() ? 210.0 : 260.0
-            self.linkButtonTopMargin.constant = CGFloat(margin)
+          let margin = vm.showSecondaryButton() ? 210.0 : 260.0
+          self.linkButtonTopMargin.constant = CGFloat(margin)
           self.turnOnLocationButton.setTitle(vm.setWorkVerifyRoundedButtonTitle(), for: .normal)
             
         }else{

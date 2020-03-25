@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Regular.ttf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -47,6 +52,12 @@
                                             <action selector="expand:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8ge-Iy-8Dt"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhf-mZ-qrl">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <connections>
+                                            <action selector="expand:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zKv-tL-jgI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -54,19 +65,23 @@
                                     <constraint firstItem="jje-jh-Sha" firstAttribute="leading" secondItem="ddc-Mf-I71" secondAttribute="trailing" constant="8" id="Mf3-k8-VEw"/>
                                     <constraint firstAttribute="bottom" secondItem="jje-jh-Sha" secondAttribute="bottom" id="Qg7-2e-Kyz"/>
                                     <constraint firstItem="MjU-wz-51R" firstAttribute="centerY" secondItem="ars-sa-Hhl" secondAttribute="centerY" id="T2f-aO-Lxs"/>
+                                    <constraint firstItem="Yhf-mZ-qrl" firstAttribute="leading" secondItem="ars-sa-Hhl" secondAttribute="leading" constant="0.01" id="XVs-G0-Pzx"/>
                                     <constraint firstAttribute="height" constant="50" id="bYL-PF-wHV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yhf-mZ-qrl" secondAttribute="trailing" constant="0.01" id="csm-5C-S8d"/>
                                     <constraint firstItem="ddc-Mf-I71" firstAttribute="leading" secondItem="ars-sa-Hhl" secondAttribute="leading" id="ctd-J2-tBQ"/>
                                     <constraint firstAttribute="trailing" secondItem="MjU-wz-51R" secondAttribute="trailing" id="euW-8d-L7U"/>
                                     <constraint firstItem="jje-jh-Sha" firstAttribute="top" secondItem="ars-sa-Hhl" secondAttribute="top" id="hGP-sr-eGJ"/>
+                                    <constraint firstItem="Yhf-mZ-qrl" firstAttribute="top" secondItem="ars-sa-Hhl" secondAttribute="top" constant="0.01" id="mh9-Sa-uhc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yhf-mZ-qrl" secondAttribute="bottom" constant="0.01" id="tvE-26-h61"/>
                                     <constraint firstItem="ddc-Mf-I71" firstAttribute="centerY" secondItem="ars-sa-Hhl" secondAttribute="centerY" id="w71-xe-7OE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faK-WK-DHs" userLabel="details">
                                 <rect key="frame" x="0.0" y="50" width="300" height="360"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dasdsadsajdlsajdjaskdjsakldjsakljdlksajdlksajldkjsalkdjlkasjdlaslkdj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-OW-wFb" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dasdsadsajdlsajdjaskdjsakldjsakljdlksajdlksajldkjsalkdjlkasjdlaslkdj" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kI-OW-wFb">
                                         <rect key="frame" x="38" y="0.0" width="224" height="360"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -127,8 +142,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="detailsSection" destination="faK-WK-DHs" id="j9j-49-bfb"/>
-                <outlet property="detailsText" destination="9kI-OW-wFb" id="gh1-ly-pkl"/>
+                <outlet property="detailsSection" destination="faK-WK-DHs" id="uGA-AA-68I"/>
+                <outlet property="detailsText" destination="9kI-OW-wFb" id="O5U-y7-4Hf"/>
                 <outlet property="expandButton" destination="MjU-wz-51R" id="voN-fC-Nd2"/>
                 <outlet property="header" destination="jje-jh-Sha" id="QV6-mw-1jz"/>
                 <outlet property="headerSection" destination="ars-sa-Hhl" id="z0l-9O-em2"/>

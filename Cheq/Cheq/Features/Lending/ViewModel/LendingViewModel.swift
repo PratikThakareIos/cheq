@@ -21,7 +21,7 @@ class LendingViewModel: BaseTableVCViewModel {
         clearSectionIfNeeded()
         var section = TableSectionViewModel()
        
-        section.rows.append(IntercomChatTableViewCellViewModel())
+        //section.rows.append(IntercomChatTableViewCellViewModel())
         self.addLoanSetting(lendingOverview, section: &section)
         self.addCashoutButton(lendingOverview, section: &section)
         self.addMessageBubble(lendingOverview, section: &section)
@@ -66,6 +66,7 @@ extension LendingViewModel {
         // loan control
         if let loanSetting = lendingOverview.loanSetting {
             let amountSelect = AmountSelectTableViewCellViewModel()
+            
             amountSelect.selectedAmountIndex = 0
             amountSelect.buildAvaialbleToWithDraw(low: loanSetting.minimalAmount ?? 100, limit: loanSetting.maximumAmount ?? 200, increment: loanSetting.incrementalAmount ?? 100)
             section.rows.append(amountSelect)
@@ -262,3 +263,4 @@ extension LendingViewModel {
         section.rows.append(swipe)
     }
 }
+
