@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,53 +14,53 @@
             <rect key="frame" x="0.0" y="0.0" width="322" height="194"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="322" height="193.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="322" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-cC-Qif" customClass="CGradientView" customModule="Cheq" customModuleProvider="target">
-                        <rect key="frame" x="20" y="0.0" width="282" height="193.5"/>
+                        <rect key="frame" x="14" y="2" width="294" height="190"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H39-au-6pt">
-                                <rect key="frame" x="20" y="0.0" width="242" height="193.5"/>
+                                <rect key="frame" x="20" y="0.0" width="254" height="190"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-CI-CEP">
-                                        <rect key="frame" x="0.0" y="0.0" width="242" height="30"/>
+                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="yLW-CI-CEP" userLabel="ViewForSpace">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="XwP-fM-UQu"/>
+                                            <constraint firstAttribute="height" constant="28" id="XwP-fM-UQu"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$1,225" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Rj-e99" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="40" width="242" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$1,225" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Rj-e99" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38" width="254" height="24.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-xE-A7c" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76.5" width="242" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-xE-A7c" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72.5" width="254" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-B8-flZ">
-                                        <rect key="frame" x="0.0" y="107" width="242" height="30"/>
+                                        <rect key="frame" x="0.0" y="102.5" width="254" height="28"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Xh-KH-EuY" customClass="CProgressView" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="147" width="242" height="7"/>
+                                        <rect key="frame" x="0.0" y="140.5" width="254" height="9"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="6" id="YOY-jw-JTq"/>
+                                            <constraint firstAttribute="height" constant="8" id="YOY-jw-JTq"/>
                                         </constraints>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-qq-qwp">
-                                        <rect key="frame" x="0.0" y="163" width="242" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="158.5" width="254" height="14.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 days til payday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYm-0j-hQC" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="117" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="123" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="5 days til payday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-Ke-c0F" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="125" y="0.0" width="117" height="14.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="13 Mar - 13 Mar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-Ke-c0F" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                <rect key="frame" x="131" y="0.0" width="123" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -71,13 +70,13 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="SY5-8K-n3h">
-                                        <rect key="frame" x="0.0" y="187.5" width="242" height="6"/>
+                                        <rect key="frame" x="0.0" y="183" width="254" height="7"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="yLW-CI-CEP" firstAttribute="height" secondItem="Oyk-B8-flZ" secondAttribute="height" id="lbb-f8-vKS"/>
-                                    <constraint firstItem="SY5-8K-n3h" firstAttribute="height" secondItem="yLW-CI-CEP" secondAttribute="height" multiplier="0.2" id="xBg-nK-R9y"/>
+                                    <constraint firstItem="SY5-8K-n3h" firstAttribute="height" secondItem="yLW-CI-CEP" secondAttribute="height" multiplier="0.25" id="xBg-nK-R9y"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -99,10 +98,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HeN-m7-9tU"/>
-                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Pgu-cs-1IJ"/>
-                    <constraint firstAttribute="bottom" secondItem="8Bt-cC-Qif" secondAttribute="bottom" id="Q3l-Ry-CAq"/>
-                    <constraint firstAttribute="trailing" secondItem="8Bt-cC-Qif" secondAttribute="trailing" constant="20" id="wHJ-UP-xxF"/>
+                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="HeN-m7-9tU"/>
+                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="Pgu-cs-1IJ"/>
+                    <constraint firstAttribute="bottom" secondItem="8Bt-cC-Qif" secondAttribute="bottom" constant="2" id="Q3l-Ry-CAq"/>
+                    <constraint firstAttribute="trailing" secondItem="8Bt-cC-Qif" secondAttribute="trailing" constant="14" id="wHJ-UP-xxF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

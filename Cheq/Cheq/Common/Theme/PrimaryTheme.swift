@@ -54,7 +54,8 @@ extension PrimaryTheme {
     // orange gradient for spending overview
     var gradientSet4: [UIColor] {
         get {
-            return [UIColor.init(hex: "E07843"), UIColor.init(hex:"BD004F")]
+            //return [UIColor.init(hex: "E07843"), UIColor.init(hex:"BD004F")]
+            return [UIColor.init(hex: "BD004F"), UIColor.init(hex:"E07843")]
         }
     }
     
