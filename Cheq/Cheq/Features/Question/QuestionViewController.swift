@@ -15,7 +15,7 @@ import CoreLocation
 import SearchTextField
 
 class QuestionViewController: UIViewController {
-
+    
     @IBOutlet weak var ImageViewContainer: UIView!
     @IBOutlet weak var sectionTitle: UILabel!
     @IBOutlet weak var lblContactInfo: UILabel! //We use this for verification and security texts
@@ -53,15 +53,15 @@ class QuestionViewController: UIViewController {
             hideBackButton()
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .verifyHomeAddress || viewModel.coordinator.type == .verifyName{
             showBackButton()
-
+            
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
         }
-    
-      //  getTransactionData()
-//        if AppData.shared.completingDetailsForLending == true{
-//            showCloseButton()
-//        }
+        
+        //  getTransactionData()
+        //        if AppData.shared.completingDetailsForLending == true{
+        //            showCloseButton()
+        //        }
     }
     
     
@@ -71,9 +71,9 @@ class QuestionViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-         super.viewWillDisappear(true)
-         self.showNavBar()
-     }
+        super.viewWillDisappear(true)
+        self.showNavBar()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,26 +92,26 @@ class QuestionViewController: UIViewController {
         setupUI()
         getTransactionData()
     }
-
+    
     private func getTransactionData() {
-       if AppData.shared.employeePaycycle?.count == 0 {
-             AppConfig.shared.showSpinner()
-             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
-                 .done{ paycyles in
-                     AppConfig.shared.hideSpinner {
-                         print("Transaction success")
-                     }
-                 }.catch { err in
-                     AppConfig.shared.hideSpinner {
-                         self.showError(err) {
-                           print("error")
-                         }
-                     }
-                 }
-       }else {
-        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+        if AppData.shared.employeePaycycle?.count == 0 {
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
+                .done{ paycyles in
+                    AppConfig.shared.hideSpinner {
+                        print("Transaction success")
+                    }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                        print("error")
+                    }
+                }
+            }
+        }else {
+            print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
         }
-       }
+    }
     
     func setupLookupIfNeeded() {
         if viewModel.coordinator.type == .residentialAddress {
@@ -137,7 +137,7 @@ class QuestionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateTextField1(_:)), name: NSNotification.Name(QuestionField.maritalStatus.rawValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateTextField2(_:)), name: NSNotification.Name(QuestionField.dependents.rawValue), object: nil)
     }
-
+    
     func setupDelegate() {
         textField1.delegate = self
         textField2.delegate = self
@@ -147,11 +147,11 @@ class QuestionViewController: UIViewController {
     }
     // change the button title
     func changeButtonTitle(){
-         nextButton.setTitle("Confirm",for: .normal)
+        nextButton.setTitle("Confirm",for: .normal)
         let qvm = QuestionViewModel()
-            qvm.loadSaved()
-            let firstname = qvm.fieldValue(.firstname)
-            let lastname = qvm.fieldValue(.lastname)
+        qvm.loadSaved()
+        let firstname = qvm.fieldValue(.firstname)
+        let lastname = qvm.fieldValue(.lastname)
         textField1.text = firstname
         textField2.text = lastname
     }
@@ -170,26 +170,26 @@ class QuestionViewController: UIViewController {
         // special case for address look up
         switch self.viewModel.coordinator.type {
         case  .residentialAddress:
-        self.setupResidentialAddressLookup()
+            self.setupResidentialAddressLookup()
         case .companyName:
-        self.setupEmployerNameLookup()
+            self.setupEmployerNameLookup()
         case .companyAddress:
-        self.setupEmployerAddressLookup()
+            self.setupEmployerAddressLookup()
         case .bankAccount:
-        self.changeButtonTitle()
-        self.showImageContainer()
+            self.changeButtonTitle()
+            self.showImageContainer()
         case .verifyName:
-        self.hideImageContainer()
+            self.hideImageContainer()
         case .verifyHomeAddress:
-        self.hideImageContainer()
+            self.hideImageContainer()
         case .legalName:
-        self.legalNameAutoFill()
+            self.legalNameAutoFill()
         default: break
         }
         
         self.lblContactInfo.isHidden = true
         if viewModel.coordinator.type == .contactDetails {
-                self.lblContactInfo.isHidden = false
+            self.lblContactInfo.isHidden = false
         }
         
         //manish to hide nav bar
@@ -229,83 +229,83 @@ class QuestionViewController: UIViewController {
     }
     
     func populatePopup(){
-         let transactionModal: CustomSubViewPopup = UIView.fromNib()
+        let transactionModal: CustomSubViewPopup = UIView.fromNib()
         transactionModal.viewModel.data = CustomPopupModel(description: "We've detected these bank details have been used by another user. Please ensure these details belong to you", imageName: "accountEmoji", modalHeight: 400, headerTitle: "Bank Details Already in use")
         transactionModal.setupUI()
         let popupView = CPopupView(transactionModal)
         popupView.show()
     }
     
-//    func prePopulateEntry() {
-//        viewModel.loadSaved()
-//        switch viewModel.coordinator.type {
-//        case .legalName:
-//            self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
-//            self.textField1.keyboardType = .namePhonePad
-//            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)
-//            self.textField2.keyboardType = .namePhonePad
-//        case .dateOfBirth:
-//            self.textField1.text = viewModel.fieldValue(QuestionField.dateOfBirth)
-//            self.textField1.keyboardType = .default
-//        case .contactDetails:
-//            self.textField1.text = viewModel.fieldValue(QuestionField.contactDetails)
-//            self.textField1.keyboardType = .namePhonePad
-//        case .residentialAddress:
-//            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
-//            self.searchTextField.keyboardType = .default
-//        case .companyName:
-//            self.searchTextField.text = AppData.shared.completingOnDemandOther ? "" : viewModel.fieldValue(QuestionField.employerName)
-//            self.searchTextField.keyboardType = .default
-//        case .companyAddress:
-//            self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-//            self.searchTextField.keyboardType = .default
-//        case .maritalStatus:
-//            self.textField1.text = viewModel.fieldValue(QuestionField.maritalStatus)
-//            self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
-//            self.textField1.keyboardType = .default
-//            self.textField2.keyboardType = .default
-//        case .bankAccount:
-//            self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
-//            self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
-//            self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
-//        }
-//    }
-
+    //    func prePopulateEntry() {
+    //        viewModel.loadSaved()
+    //        switch viewModel.coordinator.type {
+    //        case .legalName:
+    //            self.textField1.text = viewModel.fieldValue(QuestionField.firstname)
+    //            self.textField1.keyboardType = .namePhonePad
+    //            self.textField2.text = viewModel.fieldValue(QuestionField.lastname)
+    //            self.textField2.keyboardType = .namePhonePad
+    //        case .dateOfBirth:
+    //            self.textField1.text = viewModel.fieldValue(QuestionField.dateOfBirth)
+    //            self.textField1.keyboardType = .default
+    //        case .contactDetails:
+    //            self.textField1.text = viewModel.fieldValue(QuestionField.contactDetails)
+    //            self.textField1.keyboardType = .namePhonePad
+    //        case .residentialAddress:
+    //            self.searchTextField.text = viewModel.fieldValue(QuestionField.residentialAddress)
+    //            self.searchTextField.keyboardType = .default
+    //        case .companyName:
+    //            self.searchTextField.text = AppData.shared.completingOnDemandOther ? "" : viewModel.fieldValue(QuestionField.employerName)
+    //            self.searchTextField.keyboardType = .default
+    //        case .companyAddress:
+    //            self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+    //            self.searchTextField.keyboardType = .default
+    //        case .maritalStatus:
+    //            self.textField1.text = viewModel.fieldValue(QuestionField.maritalStatus)
+    //            self.textField2.text = viewModel.fieldValue(QuestionField.dependents)
+    //            self.textField1.keyboardType = .default
+    //            self.textField2.keyboardType = .default
+    //        case .bankAccount:
+    //            self.textField1.text = viewModel.fieldValue(QuestionField.bankName)
+    //            self.textField2.text = viewModel.fieldValue(QuestionField.bankBSB)
+    //            self.textField3.text = viewModel.fieldValue(QuestionField.bankAccNo)
+    //        }
+    //    }
+    
     @IBAction func next(_ sender: Any) {
         
         if let error = self.validateInput() {
             showError(error, completion: nil)
             return
         }
-
+        
         
         switch self.viewModel.coordinator.type {
         case .legalName:
-           
+            
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             
             //This will hit only in the lending flow
             guard AppData.shared.completingDetailsForLending == false else {
-               // AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+                // AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
                 AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
                 return
             }
             
             AppData.shared.updateProgressAfterCompleting(.legalName)
-//            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
+            //            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
-            //manish
+        //manish
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
             
             guard AppData.shared.completingDetailsForLending == false else {
-               let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-                   guard let nav = self.navigationController else { return }
-                 let vc: DocumentVerificationViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.verifyDocs.rawValue) as! DocumentVerificationViewController
-                 nav.pushViewController(vc, animated: true)
+                let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+                guard let nav = self.navigationController else { return }
+                let vc: DocumentVerificationViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.verifyDocs.rawValue) as! DocumentVerificationViewController
+                nav.pushViewController(vc, animated: true)
                 // AppNav.shared.pushToMultipleChoice(.kycSelectDoc, viewController:self)
-                 return
+                return
             }
             
             AppData.shared.updateProgressAfterCompleting(.dateOfBirth)
@@ -319,20 +319,20 @@ class QuestionViewController: UIViewController {
             AppConfig.shared.showSpinner()
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                 return CheqAPIManager.shared.putUser(authUser)
-                }.then { authUser in
-                    return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
-                }.done { authUser in
-                    AppConfig.shared.hideSpinner {
-                        AppData.shared.updateProgressAfterCompleting(.contactDetails)
-                      AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            }.then { authUser in
+                return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
+            }.done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.contactDetails)
+                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    print(err)
+                    print(err.localizedDescription)
+                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                     }
-                }.catch { err in
-                    AppConfig.shared.hideSpinner {
-                        print(err)
-                        print(err.localizedDescription)
-                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
-                        }
-                    }
+                }
             }
         case .residentialAddress:
             self.viewModel.save(QuestionField.residentialAddress.rawValue, value: searchTextField.text ?? "")
@@ -370,7 +370,7 @@ class QuestionViewController: UIViewController {
             }
             self.viewModel.save(QuestionField.employerName.rawValue, value: searchTextField.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.companyName)
-
+            
             // check if we are onboarding or completing details for lending if other option selected
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
                 AppData.shared.completingDetailsForLending = false
@@ -390,20 +390,20 @@ class QuestionViewController: UIViewController {
                     }
                 }
                 
-                 //Other option selcted
+                //Other option selcted
                 if (isIncomeDetected()){
                     print("Update time sheet")
                 }
                 
             } else {
                 //Employement type other than on demand
-//                if (isIncomeDetected()){
-//                   self.delegate?.refreshLendingScreen()
-//                   AppNav.shared.dismissModal(self)
-//                    return
-//                }
+                //                if (isIncomeDetected()){
+                //                   self.delegate?.refreshLendingScreen()
+                //                   AppNav.shared.dismissModal(self)
+                //                    return
+                //                }
                 //Select the working locatrion
-              //  AppNav.shared.presentToMultipleChoice(.workingLocation, viewController: self)
+                //  AppNav.shared.presentToMultipleChoice(.workingLocation, viewController: self)
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
         case .companyAddress:
@@ -426,7 +426,7 @@ class QuestionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
                         AppData.shared.completingDetailsForLending = false
-//                        self.delegate?.refreshLendingScreen()
+                        //                        self.delegate?.refreshLendingScreen()
                         self.incomeVerification()
                     } else {
                         AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
@@ -443,7 +443,7 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.dependents.rawValue, value: textField2.text ?? "")
             
-            // This is the starting point of 3rd step in lending flow
+        // This is the starting point of 3rd step in lending flow
         case .bankAccount:
             LoggingUtil.shared.cPrint("bank account next")
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -456,60 +456,60 @@ class QuestionViewController: UIViewController {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.updateDirectDebitBankAccount().done { authUser in
                 AppConfig.shared.hideSpinner {
-
-                     NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-                        AppNav.shared.dismissModal(self)
-
+                    
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                    AppNav.shared.dismissModal(self)
+                    
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     print(err)
-                                let transactionModal: CustomSubViewPopup = UIView.fromNib()
+                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
                     transactionModal.viewModel.data = CustomPopupModel(description: "We have detected these bank details have been used by another user. Please ensure these detailsbelong to you", imageName: "", modalHeight: 300, headerTitle: "Bank details already in use")
-                                       transactionModal.setupUI()
-                                      let popupView = CPopupView(transactionModal)
+                    transactionModal.setupUI()
+                    let popupView = CPopupView(transactionModal)
                     
-                                      popupView.show()
-                   // self.showError(err, completion: nil)
+                    popupView.show()
+                    // self.showError(err, completion: nil)
                 }
             }
             
-           // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
+            // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
             
         case .verifyName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
         case .verifyHomeAddress:
-             self.viewModel.save(QuestionField.unitNumber.rawValue, value: textField1.text ?? "")
-             self.viewModel.save(QuestionField.homeAddress.rawValue, value: textField2.text ?? "")
-             guard AppData.shared.completingDetailsForLending == false else {
+            self.viewModel.save(QuestionField.unitNumber.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.homeAddress.rawValue, value: textField2.text ?? "")
+            guard AppData.shared.completingDetailsForLending == false else {
                 
                 AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
                 return
             }
-             AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
         }
     }
     
     func showTransactions() {
-         guard let nav = self.navigationController else { return }
-               let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-               let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
-                   nav.pushViewController(vc, animated: true)
+        guard let nav = self.navigationController else { return }
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
+        nav.pushViewController(vc, animated: true)
     }
     func incomeVerification(){
         if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
-           showTransactions()
+            showTransactions()
         }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle?.count == 0 {
-           // need to show popup but for now land on lending page
+            // need to show popup but for now land on lending page
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }else {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
-       
+        
     }
     
     
@@ -522,7 +522,7 @@ extension QuestionViewController {
         self.viewModel.save(QuestionField.residentialAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.residentialPostcode.rawValue, value: address.postCode ?? "")
         self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state ?? "")
-       // self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state?.rawValue ?? "")
+        // self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state?.rawValue ?? "")
         self.viewModel.save(QuestionField.residentialCountry.rawValue, value: address.country ?? "")
     }
     
@@ -601,7 +601,7 @@ extension QuestionViewController {
             }
         }
     }
-
+    
     override func keyboardWillHide(notification: NSNotification) {
         self.nextButtonBottom.constant = 12
         UIView.animate(withDuration: 0.25) {
@@ -609,16 +609,16 @@ extension QuestionViewController {
             self.view.layoutIfNeeded()
         }
     }
-
-
+    
+    
     func populatePlaceHolderNormalTextField() {
-          if self.viewModel.coordinator.numOfTextFields == 4 {
+        if self.viewModel.coordinator.numOfTextFields == 4 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
             textField3.placeholder = self.viewModel.placeHolder(2)
             textField4.placeholder = self.viewModel.placeHolder(3)
         }
-          else if self.viewModel.coordinator.numOfTextFields == 3 {
+        else if self.viewModel.coordinator.numOfTextFields == 3 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
             textField3.placeholder = self.viewModel.placeHolder(2)
@@ -668,7 +668,7 @@ extension QuestionViewController {
         textField3.setShadow()
         textField1.becomeFirstResponder()
     }
-
+    
     func showCheckbox() {
         if self.viewModel.coordinator.numOfCheckBox > 0 {
             self.switchWithLabel = CSwitchWithLabel(frame: CGRect.zero, title: self.viewModel.placeHolder(4))
@@ -679,7 +679,7 @@ extension QuestionViewController {
             self.checkboxContainerView.isHidden = true
         }
     }
-
+    
     func hideCheckbox() {
         self.checkboxContainerView.isHidden = true
     }
@@ -687,9 +687,9 @@ extension QuestionViewController {
     // show Image containerview desined for bank details
     func showImageContainer(){
         if self.viewModel.coordinator.numOfImageContainer > 0 {
-           self.ImageViewContainer.isHidden = false
+            self.ImageViewContainer.isHidden = false
         }
-         else {
+        else {
             self.ImageViewContainer.isHidden = true
         }
     }
@@ -703,15 +703,15 @@ extension QuestionViewController {
         textField1.text = unit
         textField2.text = address
         
-       
+        
     }
     func legalNameAutoFill()  {
-//        let qvm = QuestionViewModel()
-//        qvm.loadSaved()
-//        let firstname = qvm.fieldValue(.firstname)
-//        let lastname = qvm.fieldValue(.lastname)
-//        textField1.text = firstname
-//        textField2.text = lastname
+        //        let qvm = QuestionViewModel()
+        //        qvm.loadSaved()
+        //        let firstname = qvm.fieldValue(.firstname)
+        //        let lastname = qvm.fieldValue(.lastname)
+        //        textField1.text = firstname
+        //        textField2.text = lastname
     }
     
     func hideNormalTextFields() {
@@ -750,9 +750,9 @@ extension QuestionViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-    
-        switch self.viewModel.coordinator.type {
         
+        switch self.viewModel.coordinator.type {
+            
         case .maritalStatus:
             LoggingUtil.shared.cPrint(textField.placeholder ?? "")
             self.activeTextField = textField
@@ -783,10 +783,10 @@ extension QuestionViewController: UITextFieldDelegate {
 // MARK: UIViewControllerProtocol
 extension QuestionViewController {
     /*
-    @objc override func baseScrollView() -> UIScrollView? {
-        return self.scrollView
-    }
-   */
+     @objc override func baseScrollView() -> UIScrollView? {
+     return self.scrollView
+     }
+     */
 }
 
 // MARK: Setup Look Up Logics
@@ -803,26 +803,26 @@ extension QuestionViewController{
             self.searchTextField.text = item[itemPosition].title
         }
         
-//        searchTextField.userStoppedTypingHandler = {
-//            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
-//                CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
-//
-//                    if addressList.isEmpty {
-//                        AppData.shared.selectedEmployer = -1
-//                        return
-//                    }
-//                    AppData.shared.employerList = addressList
-//                    var items = [CSearchTextFieldItem]()
-//                    for address in addressList {
-//                        let textFieldItem = CSearchTextFieldItem(title: address.name ?? "", subtitle: address.address ?? "")
-//                        items.append(textFieldItem)
-//                    }
-//                    self.searchTextField.filterItems(items)
-//                    }.catch {err in
-//                        LoggingUtil.shared.cPrint(err)
-//                }
-//            }
-//        }
+        //        searchTextField.userStoppedTypingHandler = {
+        //            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
+        //                CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
+        //
+        //                    if addressList.isEmpty {
+        //                        AppData.shared.selectedEmployer = -1
+        //                        return
+        //                    }
+        //                    AppData.shared.employerList = addressList
+        //                    var items = [CSearchTextFieldItem]()
+        //                    for address in addressList {
+        //                        let textFieldItem = CSearchTextFieldItem(title: address.name ?? "", subtitle: address.address ?? "")
+        //                        items.append(textFieldItem)
+        //                    }
+        //                    self.searchTextField.filterItems(items)
+        //                    }.catch {err in
+        //                        LoggingUtil.shared.cPrint(err)
+        //                }
+        //            }
+        //        }
     }
     
     func setupEmployerAddressLookup() {
@@ -853,9 +853,9 @@ extension QuestionViewController{
     
     func setupResidentialAddressLookup() {
         let qvm = QuestionViewModel()
-            qvm.loadSaved()
+        qvm.loadSaved()
         let address = qvm.fieldValue(.residentialAddress)
-            searchTextField.text = address
+        searchTextField.text = address
         
         
         self.hideNormalTextFields()
@@ -872,16 +872,16 @@ extension QuestionViewController{
                 CheqAPIManager.shared.residentialAddressLookup(query).done { addressList in
                     AppData.shared.residentialAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
-                    }.catch {err in
-                        LoggingUtil.shared.cPrint(err)
+                }.catch {err in
+                    LoggingUtil.shared.cPrint(err)
                 }
             }
         }
     }
 }
 extension QuestionViewController {
-     func isIncomeDetected() -> Bool {
-      print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
-      return false
-     }
+    func isIncomeDetected() -> Bool {
+        print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
+        return false
+    }
 }

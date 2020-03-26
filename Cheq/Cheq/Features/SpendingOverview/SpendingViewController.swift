@@ -41,7 +41,45 @@ class SpendingViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
-        self.title = ScreenName.spending.rawValue
+        
+        //self.title = ScreenName.spending.rawValue
+//        let label = UILabel()
+//        //label.text = ScreenName.spending.rawValue
+//        //label.textColor = AppConfig.shared.activeTheme.textColor
+//        //label.font = AppConfig.shared.activeTheme.headerBoldFont
+//        label.textAlignment = .left
+//        label.sizeToFit()
+ 
+        let style = NSMutableParagraphStyle()
+        style.alignment = .left
+        let myString = ScreenName.spending.rawValue
+        let myAttribute = [NSAttributedString.Key.foregroundColor:AppConfig.shared.activeTheme.textColor,
+                           NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont,
+                           NSAttributedString.Key.paragraphStyle:style
+                          ]
+        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+        // set attributed text on a UILabel
+//        label.attributedText = myAttrString
+//
+//        self.navigationItem.titleView = label
+        
+        self.navigationController?.navigationBar.topItem?.title = "custom name"
+        self.navigationController?.navigationBar.titleTextAttributes = myAttribute
+    
+        
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: label.superview, attribute: .leading, multiplier: 1, constant: 5))
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: label.superview, attribute: .centerY, multiplier: 1, constant: 0))
+
+
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: label.superview, attribute: .centerX, multiplier: 1, constant: 0))
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: label.superview, attribute: .width, multiplier: 0.8, constant: 0))
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: label.superview, attribute: .centerY, multiplier: 1, constant: 0))
+//        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: label.superview, attribute: .height, multiplier: 1, constant: 0))
+        
+        
+    
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {

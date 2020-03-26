@@ -93,6 +93,7 @@ extension AppConfig {
         UINavigationBar.appearance().isTranslucent = true
         let attributes = [NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont]
         UINavigationBar.appearance().titleTextAttributes = attributes
+    
     }
     
     /// remove global progress navigation bar which are used during onboarding flow

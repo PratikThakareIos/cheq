@@ -36,7 +36,8 @@ class AppNav {
     /// This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the **minsToShowPasscode** threshold. If user has been idle for more than **minsToShowPasscode** threshold, then **presentPasscodeViewController** is called.
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
         if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
-            presentPasscodeViewController()
+             //manish
+            // presentPasscodeViewController()
         }
     }
     

@@ -76,16 +76,19 @@ class IntroductionViewController: UIViewController {
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
         switch viewModel.coordinator.type {
-        case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
-            self.secondaryButton.isHidden = false
-              self.securityView.isHidden = true
-        case .setupBank:
-            self.titleLabel.text = "Connect your Bank"
-            self.titleLabel.font.withSize(35)
-            self.secondaryButton.isHidden = true
-            self.securityView.isHidden = false
-        default:
-            self.secondaryButton.isHidden = true
+           
+           case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
+                self.secondaryButton.isHidden = false
+                  self.securityView.isHidden = true
+            
+            case .setupBank:
+                self.titleLabel.text = "Connect your Bank"
+                self.titleLabel.font.withSize(35)
+                self.secondaryButton.isHidden = true
+                self.securityView.isHidden = false
+            
+            default:
+                self.secondaryButton.isHidden = true
         }
         
         self.confirmButton.setTitle(viewModel.confirmButtonTitle(), for: .normal)
