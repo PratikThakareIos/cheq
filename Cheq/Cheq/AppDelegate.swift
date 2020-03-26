@@ -15,6 +15,7 @@ import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
 import MobileSDK
+import IQKeyboardManagerSwift
 
 
 @UIApplicationMain
@@ -28,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
         
         //Moneysoft  Configure method goes here
         let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,

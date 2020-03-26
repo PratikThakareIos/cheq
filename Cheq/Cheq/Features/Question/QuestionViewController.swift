@@ -47,7 +47,7 @@ class QuestionViewController: UIViewController {
         
         activeTimestamp()
         //setupKeyboardHandling()
-        //self.updateKeyboardViews()
+        self.updateKeyboardViews()
         
         if viewModel.coordinator.type == .legalName {
             hideBackButton()
@@ -62,6 +62,10 @@ class QuestionViewController: UIViewController {
         //        if AppData.shared.completingDetailsForLending == true{
         //            showCloseButton()
         //        }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> feature/NewCD-125
     }
     
     
@@ -78,7 +82,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        //setupUI()
+        setupUI()
         prePopulateEntry()
         setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
@@ -142,9 +146,10 @@ class QuestionViewController: UIViewController {
         textField1.delegate = self
         textField2.delegate = self
         textField3.delegate = self
-        searchTextField.delegate = self
-        
+        textField4.delegate = self
+        //searchTextField.delegate = self
     }
+    
     // change the button title
     func changeButtonTitle(){
         nextButton.setTitle("Confirm",for: .normal)
@@ -167,6 +172,7 @@ class QuestionViewController: UIViewController {
         self.populatePlaceHolderNormalTextField()
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
+        
         // special case for address look up
         switch self.viewModel.coordinator.type {
         case  .residentialAddress:
@@ -190,6 +196,10 @@ class QuestionViewController: UIViewController {
         self.lblContactInfo.isHidden = true
         if viewModel.coordinator.type == .contactDetails {
             self.lblContactInfo.isHidden = false
+<<<<<<< HEAD
+=======
+            self.textField1.keyboardType = .phonePad
+>>>>>>> feature/NewCD-125
         }
         
         //manish to hide nav bar
@@ -633,6 +643,7 @@ extension QuestionViewController {
     }
     
     func showNormalTextFields() {
+        
         if self.viewModel.coordinator.numOfTextFields == 4 {
             textField1.isHidden = false
             textField2.isHidden = false
@@ -663,10 +674,18 @@ extension QuestionViewController {
         textField1.setupLeftPadding()
         textField2.setupLeftPadding()
         textField3.setupLeftPadding()
+        textField4.setupLeftPadding()
+        
         textField1.setShadow()
         textField2.setShadow()
         textField3.setShadow()
-        textField1.becomeFirstResponder()
+        textField4.setShadow()
+        searchTextField.setShadow()
+        
+        if !textField1.isHidden {
+            textField1.becomeFirstResponder()
+        }
+        
     }
     
     func showCheckbox() {
@@ -764,8 +783,22 @@ extension QuestionViewController: UITextFieldDelegate {
             LoggingUtil.shared.cPrint("show date picker")
             showDatePicker(textField1, initialDate: 18.years.earlier, picker: datePicker)
             textField.resignFirstResponder()
+            
         default: break
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if viewModel.coordinator.type == .contactDetails{
+            let maxLength = 10
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else{
+            return true
+        }
+    
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -826,11 +859,13 @@ extension QuestionViewController{
     }
     
     func setupEmployerAddressLookup() {
+        
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
+        
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
             let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
@@ -838,10 +873,11 @@ extension QuestionViewController{
                 , longitude: employerAddress.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
         }
+        
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
-                    // keep the address list 
+                    // keep the address list
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                 }.catch {err in
@@ -849,6 +885,7 @@ extension QuestionViewController{
                 }
             }
         }
+        
     }
     
     func setupResidentialAddressLookup() {

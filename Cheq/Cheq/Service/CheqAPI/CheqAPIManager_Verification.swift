@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 
 extension CheqAPIManager {
+    
     func requestEmailVerificationCode()->Promise<Void> {
         return Promise<Void>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
