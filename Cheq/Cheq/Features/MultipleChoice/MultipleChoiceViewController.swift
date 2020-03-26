@@ -105,6 +105,7 @@ class MultipleChoiceViewController: UIViewController {
 
 // MARK: UITableViewDelegate, UITableViewDataSource
 extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.choices.count
     }
@@ -120,11 +121,12 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
         let choice = self.choices[indexPath.row]
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
+        
         case .kycSelectDoc:
-            
             let kycSelectDoc = KycDocType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.kycDocSelect.rawValue] = kycSelectDoc.rawValue
             OnfidoManager.shared.fetchSdkToken().done { response in
@@ -137,7 +139,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }
             
         case .employmentType:
-
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
@@ -147,6 +148,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
                  AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
             }
+            
         case .workingLocation:
             print("Location clicked")
             if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
@@ -206,6 +208,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             vm.save(QuestionField.ageRange.rawValue, value: choice.title)
             AppData.shared.updateProgressAfterCompleting(.ageRange)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
+            
         case .state:
             let vm = self.viewModel
             vm.save(QuestionField.residentialState.rawValue, value: choice.title)
@@ -296,14 +299,13 @@ extension MultipleChoiceViewController {
         AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
         return cell
     }
-    func showTransactions() {
+    
+     func showTransactions() {
          guard let nav = self.navigationController else { return }
                                   let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
                                   let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
                                   nav.pushViewController(vc, animated: true)
-    }
-    
-    
+     }
     
      func incomeVerification(){
         print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)

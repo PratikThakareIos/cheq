@@ -65,7 +65,6 @@ class QuestionViewController: UIViewController {
     }
     
     
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //removeObservables()

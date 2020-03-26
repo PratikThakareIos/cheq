@@ -145,6 +145,7 @@ class DynamicFormViewController: UIViewController {
 
     func submitForm() {
         let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
+        connectingToBank.modalPresentationStyle = .fullScreen
         self.present(connectingToBank, animated: true) { [weak self] in
             guard let self = self else { return }
             self.viewModel.coordinator.submitForm().done { success in
