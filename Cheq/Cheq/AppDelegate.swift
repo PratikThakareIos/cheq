@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                                                     isDebug: true,
                                                                     isBeta: true, serviceProvider: .EWISE);
                         
-                        MoneysoftApi.configure(config);
+        MoneysoftApi.configure(config);
         
         
         

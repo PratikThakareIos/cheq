@@ -62,10 +62,7 @@ class QuestionViewController: UIViewController {
         //        if AppData.shared.completingDetailsForLending == true{
         //            showCloseButton()
         //        }
-<<<<<<< HEAD
-=======
-        
->>>>>>> feature/NewCD-125
+
     }
     
     
@@ -196,10 +193,8 @@ class QuestionViewController: UIViewController {
         self.lblContactInfo.isHidden = true
         if viewModel.coordinator.type == .contactDetails {
             self.lblContactInfo.isHidden = false
-<<<<<<< HEAD
-=======
             self.textField1.keyboardType = .phonePad
->>>>>>> feature/NewCD-125
+
         }
         
         //manish to hide nav bar
