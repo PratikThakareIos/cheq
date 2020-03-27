@@ -242,6 +242,7 @@ extension AppDelegate {
 extension AppDelegate {
     
     func registerNotificationObservers() {
+        
         // Event for programmatically logging out and returning to Registration screen
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
         
@@ -265,8 +266,8 @@ extension AppDelegate {
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
         let _ = RemoteConfigManager.shared
-//        let _ = VDotManager.shared
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//      let _ = VDotManager.shared
+//      AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }
 

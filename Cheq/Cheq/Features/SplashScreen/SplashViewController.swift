@@ -98,10 +98,8 @@ extension SplashViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
-
 // MARK: UIScrollViewDelegate
 extension SplashViewController: UIScrollViewDelegate {
-
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView.isKind(of: UICollectionView.self) {
             let collectionView = scrollView as! UICollectionView

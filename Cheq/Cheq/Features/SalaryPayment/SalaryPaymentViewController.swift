@@ -82,8 +82,7 @@ class SalaryPaymentViewController: UIViewController {
     @IBAction func closeBtnPupup(_ sender: Any) {
          grayView.isHidden = true
          popUpView.isHidden = true
-      
-       
+             
         SalaryPaymentViewController.selectedSalaryOption[0] = false
         SalaryPaymentViewController.selectedSalaryOption[1] = false
        // removeAnimate()

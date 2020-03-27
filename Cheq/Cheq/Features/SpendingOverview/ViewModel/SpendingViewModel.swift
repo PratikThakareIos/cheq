@@ -32,7 +32,6 @@ class SpendingViewModel: BaseTableVCViewModel {
         categoryAmounts(spendingOverview, section: &section)
         recentTransactionList(spendingOverview, section: &section)
         self.sections = [section]
-
         NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
 }

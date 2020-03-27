@@ -41,6 +41,7 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
     
     /// method to update the appearance of **UpcomingBillCollectionViewCell**
     override func setupUI() {
+        
         self.contentView.backgroundColor = .clear
         self.backgroundColor = AppConfig.shared.activeTheme.textBackgroundColor
         self.merchanLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
@@ -48,6 +49,22 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         self.remainingTimeLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
         self.amountLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
+        self.setShadow()
+        
+        //containerView.layer.cornerRadius = 6.0
+        //containerView.layer.borderWidth = 1.0
+        
+//        containerView.layer.borderColor = UIColor.clear.cgColor
+//        containerView.layer.masksToBounds = true
+//
+//        containerView.layer.shadowColor = UIColor.lightGray.cgColor
+//        containerView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+//        containerView.layer.shadowRadius = 2.0
+//        containerView.layer.shadowOpacity = 1.0
+//        containerView.layer.masksToBounds = false
+//        containerView.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+//        containerView.layer.backgroundColor = UIColor.clear.cgColor
+        
         
         /// notice that by default viewModel is **CollectionViewCellViewModelProtocol**, so we have to cast to **UpcomingBillCollectionViewCellViewModel** first in order to read the variables we want from **UpcomingBillCollectionViewCellViewModel**
         let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
@@ -58,5 +75,14 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         let categoryCode = DataHelperUtil.shared.categoryAmountStateCode(vm.data.categoryCode ?? GetUpcomingBillResponse.CategoryCode.others)
         let iconName = DataHelperUtil.shared.iconFromCategory(categoryCode, largeIcon: true)
         self.icon.image = UIImage.init(named: iconName)
+    }
+    
+    func setShadow() {
+        //rgba(146,146,210,0.05)
+        containerView.layer.masksToBounds = false;
+        containerView.layer.shadowRadius  = 3.0;
+        containerView.layer.shadowColor   = UIColor.init(r: 146, g: 146, b: 210).cgColor;
+        containerView.layer.shadowOffset  = CGSize(width: 2.0, height: 4.0);
+        containerView.layer.shadowOpacity = 0.05;
     }
 }
