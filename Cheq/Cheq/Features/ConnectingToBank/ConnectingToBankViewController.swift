@@ -16,7 +16,9 @@ class ConnectingToBankViewController: UIViewController {
     @IBOutlet weak var progressBar: CProgressView!
     /// refer to **ConnectingToBankViewController** on **Common** storyboard
     @IBOutlet weak var titleLabel: CLabel!
-    @IBOutlet weak var descriptionLabel: CLabel! 
+    @IBOutlet weak var descriptionLabel: CLabel!
+    @IBOutlet weak var loadingLabel: UILabel!
+    
     @IBOutlet weak var image: UIImageView!
     var viewModel = ConnectingToBankViewModel()
     let transparentView = UIView()
@@ -72,20 +74,36 @@ class ConnectingToBankViewController: UIViewController {
 extension ConnectingToBankViewController {
     //Handle Moneysoftevents to update progressbar
     @objc func reloadTable(_ notification: NSNotification) {
-       
-        guard let category = notification.userInfo?[NotificationUserInfoKey.moneysoftProgress.rawValue] as? Int else { return }
+       let qvm = QuestionViewModel()
+              qvm.loadSaved()
+       let bank = qvm.fieldValue(.bankName)
+        guard let category = notification.userInfo?[NotificationUserInfoKey.moneysoftProgress.rawValue] as? MoneySoftLoadingEvents else { return }
 
         DispatchQueue.main.async {
               switch category {
-                  case 1:
+                case .connectingtoBank:
+                    self.loadingLabel.text = "Connecting to bank\(bank).."
                        self.progressBar.setProgress(0.3, animated: true)
-                  case 2:
-                       self.progressBar.setProgress(0.75, animated: true)
-                  case 3:
-                       self.progressBar.setProgress(0.90, animated: true)
-                  default:
-                       self.progressBar.setProgress(0.3, animated: true)
-                  }
+                case .requestingStatementsForAccounts:
+                       self.loadingLabel.text = "Requesting statements for accounts.."
+                       self.progressBar.setProgress(0.45, animated: true)
+                case .retrievingStatementsFromBank:
+                       self.loadingLabel.text = "Retrieving Statements from bank.."
+                       self.progressBar.setProgress(0.60, animated: true)
+                case .analysingYourBankStatement:
+                        self.loadingLabel.text = "Analysing your bank statement.."
+                        self.progressBar.setProgress(0.75, animated: true)
+                case .categorisingYourTransactions:
+                        self.loadingLabel.text = "Categorising your transactions.."
+                        self.progressBar.setProgress(0.90, animated: true)
+                   DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        //Load dashboard after 2seconds
+                        self.loadingLabel.text = "Loading Dashboard.."
+                        self.progressBar.setProgress(0.95, animated: true)
+                   }
+                default:
+                        self.progressBar.setProgress(0.3, animated: true)
+                }
         }
       
     }

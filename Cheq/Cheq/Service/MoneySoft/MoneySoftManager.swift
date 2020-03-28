@@ -125,6 +125,7 @@ extension MoneySoftManager {
                     guard let fetchedTransactions = transactions as? [FinancialTransactionModel] else {
                         resolver.reject(MoneySoftManagerError.unableToRefreshTransactions); return
                     }
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.categorisingYourTransactions)
                     resolver.fulfill(fetchedTransactions)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -147,7 +148,7 @@ extension MoneySoftManager {
             do {
                 try msApi.financial().getAccounts(listener: ApiListListener<FinancialAccountModel>(successHandler: { accounts in
                     guard let fetchedAccounts = accounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToGetAccounts); return }
-                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 2)
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.retrievingStatementsFromBank)
                     resolver.fulfill(fetchedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -184,7 +185,7 @@ extension MoneySoftManager {
             do {
                 try msApi.financial().refreshAccounts(financialAccounts: accounts, options: refreshOptions, listener: ApiListListener<FinancialAccountModel>(successHandler: { refreshedAccounts in
                     guard let updatedAccounts = refreshedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToRefreshAccounts); return }
-                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 3)
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.analysingYourBankStatement)
                     resolver.fulfill(updatedAccounts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -205,7 +206,7 @@ extension MoneySoftManager {
                     
                     guard let accounts = linkableAccounts as? [FinancialAccountLinkModel] else { resolver.reject(MoneySoftManagerError.unableToRetreiveLinkableAccounts); return
                     }
-                     NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: 1)
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.connectingtoBank)
                     resolver.fulfill(accounts)
                 }, errorHandler: { errModel in
                      let err = errModel
@@ -236,6 +237,7 @@ extension MoneySoftManager {
             do {
                 try msApi.financial().linkAccounts(accounts: linkAccounts, listener: ApiListListener<FinancialAccountModel>(successHandler: { linkedAccounts in
                     guard let linkedAccts = linkedAccounts as? [FinancialAccountModel] else { resolver.reject(MoneySoftManagerError.unableToLinkAccounts); return  }
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.requestingStatementsForAccounts)
                     resolver.fulfill(linkedAccts)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -249,11 +251,13 @@ extension MoneySoftManager {
     }
     
     func getBankSignInForm(_ financialInstitutionModel: FinancialInstitutionModel)-> Promise<InstitutionCredentialsFormModel> {
+        print(financialInstitutionModel.displayName)
         return Promise<InstitutionCredentialsFormModel>() { resolver in
             let msApi: MoneysoftApi = MoneysoftApi();
             do {
                 try msApi.financial().getSignInForm(institution: financialInstitutionModel, listener: ApiListener<InstitutionCredentialsFormModel>(successHandler: { formModel in
                      let form = formModel
+                    NotificationUtil.shared.notify(UINotificationEvent.moneysoftEvent.rawValue, key: NotificationUserInfoKey.moneysoftProgress.rawValue, object: MoneySoftLoadingEvents.getBankName)
                     resolver.fulfill(form)
                 }, errorHandler: { errorModel in
                     MoneySoftUtil.shared.logErrorModel(errorModel)
@@ -710,3 +714,20 @@ extension MoneySoftManager {
              }
     }
 }
+enum MoneySoftLoadingEvents {
+    
+    case connectingtoBank
+    case requestingStatementsForAccounts
+    case retrievingStatementsFromBank
+    case analysingYourBankStatement
+    case categorisingYourTransactions
+    case loadingYourDashboard
+    case getBankName
+    
+}
+
+
+
+
+
+
