@@ -15,6 +15,7 @@ import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
 import MobileSDK
+import IQKeyboardManagerSwift
 
 
 @UIApplicationMain
@@ -29,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
+        
         //Moneysoft  Configure method goes here
         let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
                                                                     apiReferrer: API_REFERRER,
@@ -36,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                                                     isDebug: true,
                                                                     isBeta: true, serviceProvider: .EWISE);
                         
-                        MoneysoftApi.configure(config);
+        MoneysoftApi.configure(config);
         
         
         
@@ -238,6 +242,7 @@ extension AppDelegate {
 extension AppDelegate {
     
     func registerNotificationObservers() {
+        
         // Event for programmatically logging out and returning to Registration screen
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
         
@@ -261,8 +266,8 @@ extension AppDelegate {
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
         let _ = RemoteConfigManager.shared
-//        let _ = VDotManager.shared
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//      let _ = VDotManager.shared
+//      AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }
 

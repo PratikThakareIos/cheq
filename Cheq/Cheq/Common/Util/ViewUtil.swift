@@ -109,6 +109,18 @@ class ViewUtil {
         view.layer.insertSublayer(gradient, at: 0)
         return gradient
     }
+    
+    /**
+     Adding Shadow to the reference view.
+     */
+    func applyShadow(_ view: inout UIView) {
+        view.layer.masksToBounds = false;
+        view.layer.shadowRadius  = 2.0;
+        view.layer.shadowColor   = AppConfig.shared.activeTheme.lightGrayColor.cgColor;
+        view.layer.shadowOffset  = CGSize(width: -2.0, height: 3.0);
+        view.layer.shadowOpacity = 0.2;
+    }
+    
     func footerButton(width:CGFloat,title:String) -> UIView {
          var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
 
@@ -124,4 +136,6 @@ class ViewUtil {
                footerView.addSubview(nextButton)
         return footerView
     }
+    
 }
+

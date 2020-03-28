@@ -23,12 +23,10 @@ class VerifyDocsViewController: CTableViewController {
         self.setupUI()
         // Do any additional setup after loading the view.
     }
+    
     func setupUI(){
-    self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-    self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+     self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+     self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
     }
-    
-    
-
 }
 

@@ -41,7 +41,8 @@ class SpendingViewController: CTableViewController {
     
     func setupUI() {
         hideBackTitle()
-        self.title = ScreenName.spending.rawValue
+        //self.title = ScreenName.spending.rawValue
+        self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.addPullToRefreshAction {
@@ -71,7 +72,6 @@ class SpendingViewController: CTableViewController {
 extension SpendingViewController {
     
     func renderSpending(_ spendingOverview: GetSpendingOverviewResponse) {
-        
         // build the spending view model based on response here
         LoggingUtil.shared.cPrint("renderSpending")
         guard let vm = self.viewModel as? SpendingViewModel else { return }

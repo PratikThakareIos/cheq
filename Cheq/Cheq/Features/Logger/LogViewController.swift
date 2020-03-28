@@ -55,8 +55,7 @@ class LogViewController: UIViewController {
         }
     }
     
-    func setup() {
-        
+    func setup() {        
         self.textView = UITextView()
         self.textView.backgroundColor = .black
         self.textView.textColor = .cyan

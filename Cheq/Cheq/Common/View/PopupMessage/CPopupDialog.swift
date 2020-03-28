@@ -16,7 +16,7 @@ enum CPopupDialogTitle: String {
     case decision = "Are you sure?"
     case message = "Message"
     case error = "Error"
-    
+    case invalidPassword = "Invalid Password"
     /// When lending is sucessful, we show the congradulations dialog title
     case congrats = "Congradulations!"
 }

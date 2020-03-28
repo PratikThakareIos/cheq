@@ -156,6 +156,22 @@ extension UIViewController {
         })
         cPopup.present(self)
     }
+    
+    func showInvalidPasswordError(_ err: Error, completion: (()->Void)?) {
+        
+        var message = ""
+        // Prepare the popup assets
+        if let errMessage = err.message(), errMessage.isEmpty != false  {
+            message = errMessage
+        } else {
+            message = err.localizedDescription
+        }
+        
+        let cPopup = CPopupDialog(.invalidPassword, messageBody: message, button: .ok, completion: {
+            if let cb = completion { cb() }
+        })
+        cPopup.present(self)
+    }
 }
 
 // MARK: Setup Idle handling
@@ -349,3 +365,57 @@ extension UIViewController {
         
     }
 }
+
+
+//MARK: How to set left-aligned title on the iOS navigation item
+extension UIViewController
+{
+    func setLeftAlignedNavigationItemTitle(text: String,
+                                           color: UIColor,
+                                           margin left: CGFloat)
+    {
+        let titleLabel = UILabel()
+        titleLabel.textColor = color
+        titleLabel.text = text
+        titleLabel.textAlignment = .left
+        titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.navigationItem.titleView = titleLabel
+        
+        guard let containerView = self.navigationItem.titleView?.superview else { return }
+        
+        // NOTE: This always seems to be 0. Huh??
+        let leftBarItemWidth = self.navigationItem.leftBarButtonItems?.reduce(0, { $0 + $1.width })
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor,
+                                             constant: (leftBarItemWidth ?? 0) + left),
+            titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor)
+        ])
+    }
+}
+
+
+//        //self.title = ScreenName.spending.rawValue
+//        let label = UILabel()
+//        //label.text = ScreenName.spending.rawValue
+//        //label.textColor = AppConfig.shared.activeTheme.textColor
+//        //label.font = AppConfig.shared.activeTheme.headerBoldFont
+//        label.textAlignment = .left
+//        label.sizeToFit()
+//
+//        let style = NSMutableParagraphStyle()
+//        style.alignment = .left
+//        let myString = ScreenName.spending.rawValue
+//        let myAttribute = [NSAttributedString.Key.foregroundColor:AppConfig.shared.activeTheme.textColor,
+//                           NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont,
+//                           NSAttributedString.Key.paragraphStyle:style
+//                          ]
+//        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
+//
+//        label.attributedText = myAttrString
+//
+//        self.navigationItem.titleView = label

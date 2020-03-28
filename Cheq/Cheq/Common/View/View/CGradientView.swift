@@ -39,9 +39,16 @@ public class CGradientView: UIView {
         let colors = [ startColor.cgColor, endColor.cgColor ]
         if let gradient = self.layer as? CAGradientLayer {
             gradient.colors = colors
+            
             gradient.locations = [0, 1]
-            gradient.startPoint = CGPoint(x: 1, y: 0)
-            gradient.endPoint = CGPoint(x: 0, y: 1)
+            
+            /// top-left corner of the screen (x = 0.0, y = 0.0), bottom-right corner is the ending point (x = 1.0, y = 1.0)
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+            
+//            gradient.locations = [0, 1]
+//            gradient.startPoint = CGPoint(x: 1, y: 0)
+//            gradient.endPoint = CGPoint(x: 0, y: 1)
         }
     }
 }

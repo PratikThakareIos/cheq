@@ -362,27 +362,30 @@
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-1v-boE">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-Vm-YGt">
-                                        <rect key="frame" x="0.0" y="148" width="374" height="77"/>
+                                        <rect key="frame" x="0.0" y="103" width="374" height="77"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-nL-CNQ" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="200" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent an email to you at xuwei@cheq.com.au. It has a link that'll activate your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr0-4f-QWX" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="285.5" width="374" height="41"/>
+                                        <rect key="frame" x="0.0" y="240.5" width="374" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="346.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="301.5" width="374" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nw7-VH-tgm" secondAttribute="height" multiplier="175:28" id="RDQ-CQ-gLZ"/>
+                                        </constraints>
                                         <state key="normal" title="Open mail app">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -390,9 +393,12 @@
                                             <action selector="confirm:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="ucr-Yc-ixZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="396.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="381.5" width="374" height="59.5"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5BD-RF-Mk8" secondAttribute="height" multiplier="175:28" id="FWI-S8-ZIM"/>
+                                        </constraints>
                                         <state key="normal" title="Close">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -400,9 +406,12 @@
                                             <action selector="secondaryButton:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="rC8-RO-8Bn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CButton" customModule="Cheq" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="446.5" width="374" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="461" width="374" height="60"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="P2L-Kh-v1Q" secondAttribute="height" multiplier="175:28" id="eqg-0x-mle"/>
+                                        </constraints>
                                         <state key="normal" title="Refresh">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -411,7 +420,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB5-dz-tBu" userLabel="SecurityView">
-                                        <rect key="frame" x="0.0" y="496.5" width="374" height="130"/>
+                                        <rect key="frame" x="0.0" y="541" width="374" height="130"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="sdq-Wj-X9k">
                                                 <rect key="frame" x="99" y="0.0" width="70" height="80"/>
@@ -437,7 +446,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="9qF-TC-j4t">
-                                        <rect key="frame" x="0.0" y="646.5" width="374" height="127.5"/>
+                                        <rect key="frame" x="0.0" y="691" width="374" height="83"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -530,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJu-Ih-gUk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="1344.6428571428571"/>
+            <point key="canvasLocation" x="1025" y="1345"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="vcP-NB-ihF">
@@ -898,7 +907,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL7-Cq-v4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2894.202898550725" y="637.5"/>
+            <point key="canvasLocation" x="2006" y="671"/>
         </scene>
         <!--Dynamic Form View Controller-->
         <scene sceneID="lTe-cS-HPJ">
@@ -966,7 +975,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIg-0D-eb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3760.8695652173915" y="637.5"/>
+            <point key="canvasLocation" x="2872" y="671"/>
         </scene>
         <!--Salary Payment View Controller-->
         <scene sceneID="PVm-si-Ooj">
@@ -1180,7 +1189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jam-R4-BVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4607.2463768115949" y="639.50892857142856"/>
+            <point key="canvasLocation" x="3719" y="673"/>
         </scene>
         <!--Pay Cycle View Controller-->
         <scene sceneID="V93-de-y5N">
@@ -1279,7 +1288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuL-jK-KSb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5360.8695652173919" y="639.50892857142856"/>
+            <point key="canvasLocation" x="4472" y="673"/>
         </scene>
         <!--Document Verification View Controller-->
         <scene sceneID="jgb-f9-NcZ">
@@ -1484,7 +1493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZv-wO-aXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6156.521739130435" y="638.83928571428567"/>
+            <point key="canvasLocation" x="5268" y="672"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zFh-W5-gox">
@@ -1514,7 +1523,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3M-9n-bCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="-771"/>
+            <point key="canvasLocation" x="74" y="-801"/>
         </scene>
         <!--Verify Docs View Controller-->
         <scene sceneID="1HL-cs-Dn8">
@@ -1566,7 +1575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzu-db-sd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-797" y="1330"/>
+            <point key="canvasLocation" x="74" y="1345"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="oVV-dg-q0v">
@@ -1599,7 +1608,7 @@
                                                     <constraint firstAttribute="width" secondItem="dFV-dH-TWu" secondAttribute="height" multiplier="167:28" id="pUg-DU-u7f"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-f9-Gz0" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="246.5" width="354" height="59"/>
@@ -1644,7 +1653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcu-WZ-4Ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3554" y="-1888"/>
+            <point key="canvasLocation" x="3416" y="-1888"/>
         </scene>
         <!--RegistrationVC-->
         <scene sceneID="LW2-Vw-jun">
@@ -1824,7 +1833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQG-4f-Is0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1987" y="-1888"/>
+            <point key="canvasLocation" x="2007" y="-1888"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="zZo-Yq-uWm">
@@ -2045,7 +2054,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzf-cF-Vqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="-1888"/>
+            <point key="canvasLocation" x="1107" y="-1888"/>
         </scene>
         <!--Splash Page View Controller-->
         <scene sceneID="AVy-Kp-aMt">
@@ -2105,7 +2114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujd-0L-9yz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-1888"/>
+            <point key="canvasLocation" x="384" y="-1888"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="GWf-IK-hSp">
@@ -2122,7 +2131,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-N3-R4H">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="945.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="944"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-ET-j3O">
                                                         <rect key="frame" x="30" y="50" width="69" height="30"/>
@@ -2133,7 +2142,7 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="100" width="354" height="60"/>
                                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2144,13 +2153,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E7n-zF-0Sz">
-                                                        <rect key="frame" x="30" y="196" width="354" height="481"/>
+                                                        <rect key="frame" x="30" y="196" width="354" height="479.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="377"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CNSearchTextField" customModule="Cheq" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="354" height="59.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="2Wy-5y-tQx" secondAttribute="height" multiplier="167:28" id="PjI-bJ-xxB"/>
                                                                         </constraints>
@@ -2184,8 +2194,9 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="317.5" width="354" height="59.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="iaj-at-sl0" secondAttribute="height" multiplier="167:28" id="Ruh-6j-Dbu"/>
                                                                         </constraints>
@@ -2218,16 +2229,16 @@
                                                                     <constraint firstAttribute="height" constant="80" id="RQE-Qh-e61"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use this for verification and security text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-re-TMk">
-                                                                <rect key="frame" x="0.0" y="465" width="354" height="16"/>
-                                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use this for verification and security text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-re-TMk">
+                                                                <rect key="frame" x="0.0" y="465" width="354" height="14.5"/>
+                                                                <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-nZ-m9u">
-                                                        <rect key="frame" x="30" y="693" width="354" height="232.5"/>
+                                                        <rect key="frame" x="30" y="691.5" width="354" height="232.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-ZD-NI3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="176"/>
@@ -2319,7 +2330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peu-Wg-GRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4451" y="-1868"/>
+            <point key="canvasLocation" x="4133" y="-1888"/>
         </scene>
     </scenes>
     <resources>

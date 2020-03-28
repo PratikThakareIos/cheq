@@ -18,6 +18,7 @@ class AmountSelectTableViewCell: CTableViewCell {
     
     /// refer to **xib** for layout
     @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var infoViewInternale: UIView!
     
     /// refer to **xib** for layout
     @IBOutlet weak var loanAmountHeader: UILabel!
@@ -33,12 +34,21 @@ class AmountSelectTableViewCell: CTableViewCell {
     
     /// refer to **xib** for layout
     @IBOutlet weak var decreaseLoanAmouontButton: UIButton!
+    
+    ///Shadow
+    private var shadowLayer: CAShapeLayer!
 
     /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.viewModel = AmountSelectTableViewCellViewModel()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
+            ViewUtil.shared.circularMask(&self.infoView, radiusBy: .width)
+            ViewUtil.shared.circularMask(&self.infoViewInternale, radiusBy: .width)
+            ViewUtil.shared.applyShadow(&self.infoView)
+        }
         setupConfig()
     }
 
@@ -51,12 +61,9 @@ class AmountSelectTableViewCell: CTableViewCell {
     /// call this method when UI is updated
     override func setupConfig() {
         self.backgroundColor = .clear
-        ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
-        ViewUtil.shared.circularMask(&self.infoView, radiusBy: .height)
-        ViewUtil.shared.applyBorder(&self.infoView, borderSize: 20.0, color: AppConfig.shared.activeTheme.backgroundColor)
-
+       
         // loan amount
-        self.infoView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
+        self.infoView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
         self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
         self.loanAmount.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
@@ -84,6 +91,11 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.updateControlButtons()
     }
 
+    @IBAction func intercom() {
+        LoggingUtil.shared.cPrint("present intercom")
+        NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+    }
+    
     /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
          

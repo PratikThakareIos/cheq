@@ -17,9 +17,9 @@ class IntroductionViewController: UIViewController {
     @IBOutlet weak var imageViiew: UIImageView!
     @IBOutlet weak var titleLabel: CLabel!
     @IBOutlet weak var caption: CLabel!
-    @IBOutlet weak var confirmButton: CButton!
-    @IBOutlet weak var secondaryButton: CButton!
-    @IBOutlet weak var refreshButton: CButton!
+    @IBOutlet weak var confirmButton: CNButton!
+    @IBOutlet weak var secondaryButton: CNButton!
+    @IBOutlet weak var refreshButton: CNButton!
     @IBOutlet weak var securityView: UIView!
     
     override func viewDidLoad() {
@@ -54,6 +54,10 @@ class IntroductionViewController: UIViewController {
     }
     
     func setupUI() {
+        self.confirmButton.createShadowLayer()
+        self.secondaryButton.createShadowLayer()
+        self.refreshButton.createShadowLayer()
+        
         print(self.viewModel.coordinator.type)
         let declineReasons = IntroductionViewModel.declineReasons()
         if declineReasons.contains(self.viewModel.coordinator.type) {
@@ -76,16 +80,19 @@ class IntroductionViewController: UIViewController {
         self.imageViiew.image = UIImage(named: self.viewModel.imageName())
         self.secondaryButton.type = .alternate
         switch viewModel.coordinator.type {
-        case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
-            self.secondaryButton.isHidden = false
-              self.securityView.isHidden = true
-        case .setupBank:
-            self.titleLabel.text = "Connect your Bank"
-            self.titleLabel.font.withSize(35)
-            self.secondaryButton.isHidden = true
-            self.securityView.isHidden = false
-        default:
-            self.secondaryButton.isHidden = true
+           
+           case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
+                self.secondaryButton.isHidden = false
+                  self.securityView.isHidden = true
+            
+            case .setupBank:
+                self.titleLabel.text = "Connect your Bank"
+                self.titleLabel.font.withSize(35)
+                self.secondaryButton.isHidden = true
+                self.securityView.isHidden = false
+            
+            default:
+                self.secondaryButton.isHidden = true
         }
         
         self.confirmButton.setTitle(viewModel.confirmButtonTitle(), for: .normal)

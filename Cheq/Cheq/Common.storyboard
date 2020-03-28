@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,14 +34,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X9-cj-BXz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="214.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="217.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="na3-Ja-sRr">
-                                                <rect key="frame" x="0.0" y="234.5" width="414" height="24"/>
+                                                <rect key="frame" x="0.0" y="237.5" width="414" height="16"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-hM-SqY">
-                                                <rect key="frame" x="0.0" y="278.5" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="273.5" width="414" height="128"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycl-sp-tez">
                                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="128"/>
@@ -64,7 +64,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FWU-ot-Kzc">
-                                                <rect key="frame" x="0.0" y="426.5" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="421.5" width="414" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-vZ-uQs">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.5" height="50"/>
@@ -97,7 +97,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6J-FN-NLm">
-                                                <rect key="frame" x="0.0" y="496.5" width="414" height="321.5"/>
+                                                <rect key="frame" x="0.0" y="491.5" width="414" height="326.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -312,7 +312,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent a 6 digit verification code to you at email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1I-v6-LLv" customClass="FRHyperLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent a 6 digit verification code to you at email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="l1I-v6-LLv" customClass="FRHyperLabel">
                                                         <rect key="frame" x="35" y="193" width="344" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
                                                         <nil key="textColor"/>
@@ -344,7 +344,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not in inbox or spam folder? Resend" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sff-2m-NVd" customClass="FRHyperLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not in inbox or spam folder? Resend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Sff-2m-NVd" customClass="FRHyperLabel">
                                                         <rect key="frame" x="30" y="412" width="357" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="OJA-cK-44R"/>
@@ -545,7 +545,7 @@
     <resources>
         <image name="cry" width="80" height="80"/>
         <image name="email" width="74" height="77"/>
-        <image name="lock" width="24" height="24"/>
+        <image name="lock" width="14" height="16"/>
         <image name="timer" width="70" height="70"/>
     </resources>
 </document>

@@ -36,7 +36,8 @@ class AppNav {
     /// This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the **minsToShowPasscode** threshold. If user has been idle for more than **minsToShowPasscode** threshold, then **presentPasscodeViewController** is called.
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
         if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
-            presentPasscodeViewController()
+             //manish
+            // presentPasscodeViewController()
         }
     }
     
@@ -95,6 +96,8 @@ class AppNav {
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+         
+        vc.modalPresentationStyle = .fullScreen
         nav.pushViewController(vc, animated: true)
     }
     
@@ -364,9 +367,11 @@ extension AppNav {
             vc.showNextButton = true
             print(vc.showNextButton)
             guard let nav = viewController.navigationController else { return }
+            vc.modalPresentationStyle = .fullScreen
             nav.pushViewController(vc, animated: true)
         }else{
             let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
             viewController.present(nav, animated: true, completion: nil)
         }
     }

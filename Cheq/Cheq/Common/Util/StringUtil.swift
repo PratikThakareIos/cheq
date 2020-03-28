@@ -55,7 +55,8 @@ class StringUtil {
     
     /// Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)
     func isValidPassword(_ string: String)-> Bool {
-        let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[@!#$%&?\"]).*$"
+       // let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[@!#$%&?\"]).*$"
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,}"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: string)
     }
 }
