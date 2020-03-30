@@ -145,7 +145,7 @@ class DataHelperUtil {
      - Returns: list of institution types for positng to Cheq backend
      */
     func postFinancialInstitutionsRequest(_ institutions: [FinancialInstitutionModel])-> [PostFinancialInstitutionRequest] {
-        let postFinancialInstitutionsRequest = institutions.map{ PostFinancialInstitutionRequest(financialInstitutionId: $0.financialInstitutionId, providerInstitutionId: $0.providerInstitutionId, name: $0.name ?? "", alias: $0.alias ?? "", displayName: $0.displayName ?? "", order: $0.order, isActive: $0.isActive(), financialServiceId: -1, isMFA: $0.isMFA(), providerId: -1) }
+        let postFinancialInstitutionsRequest = institutions.map{ PostFinancialInstitutionRequest(financialInstitutionId: $0.financialInstitutionId, providerInstitutionId: $0.providerInstitutionId, name: $0.name ?? "", alias: $0.alias ?? "", displayName: $0.name ?? "", order: $0.order, isActive: $0.isActive(), financialServiceId: -1, isMFA: $0.isMFA(), providerId: -1) }
         return postFinancialInstitutionsRequest
     }
     
@@ -224,5 +224,17 @@ class DataHelperUtil {
         case .workAndEducation:
             return largeIcon ? LargeCategoryEmoji.work.rawValue : MediumCategoryEmoji.work.rawValue
         }
+    }
+}
+//Converts a struct in to a dictionary
+struct JSON {
+    static let encoder = JSONEncoder()
+}
+extension Encodable {
+    subscript(key: String) -> Any? {
+        return dictionary[key]
+    }
+    var dictionary: [String: Any] {
+        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: Any] ?? [:]
     }
 }

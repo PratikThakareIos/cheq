@@ -1247,6 +1247,12 @@
 		BD3C96232423231100927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
 		BD3C962424232BCF00927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
 		BD3C962624232BD000927055 /* ConnectingTobankFalilsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */; };
+		BD3C96292428F7A200927055 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96282428F7A200927055 /* CustomProgressBar.swift */; };
+		BD3C962A2428F7A200927055 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96282428F7A200927055 /* CustomProgressBar.swift */; };
+		BD3C962B2428F7A200927055 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C96282428F7A200927055 /* CustomProgressBar.swift */; };
+		BD3C962D2428F7B100927055 /* CustomProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3C962C2428F7B100927055 /* CustomProgressBar.xib */; };
+		BD3C962E2428F7B100927055 /* CustomProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3C962C2428F7B100927055 /* CustomProgressBar.xib */; };
+		BD3C962F2428F7B100927055 /* CustomProgressBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD3C962C2428F7B100927055 /* CustomProgressBar.xib */; };
 		BD9739402404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
@@ -1476,7 +1482,7 @@
 		4F80FCEB235B311A009C8F83 /* BaseTableVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVCViewModel.swift; sourceTree = "<group>"; };
 		4F80FCF0235B3435009C8F83 /* CTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewController.swift; sourceTree = "<group>"; };
 		4FAE364B232F4C9B0035E57E /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
-		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		4FAE364E232F4CB00035E57E /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		4FAE3655232F79CC0035E57E /* CSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSearchTextField.swift; sourceTree = "<group>"; };
 		4FAE3658232FB26B0035E57E /* IntroductionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewModel.swift; sourceTree = "<group>"; };
 		4FB1CB112353C8C400E7B224 /* HistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -1752,6 +1758,8 @@
 		BD3760C923DE7E770016FF86 /* MixpanelEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixpanelEnums.swift; sourceTree = "<group>"; };
 		BD3760CC23E4794A0016FF86 /* SalaryPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryPaymentViewController.swift; sourceTree = "<group>"; };
 		BD3C96222423231100927055 /* ConnectingTobankFalilsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectingTobankFalilsViewController.swift; sourceTree = "<group>"; };
+		BD3C96282428F7A200927055 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
+		BD3C962C2428F7B100927055 /* CustomProgressBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProgressBar.xib; sourceTree = "<group>"; };
 		BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
 		CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2415,6 +2423,7 @@
 		4F2E4AC4233836EA001F1BA2 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
+				BD3C96272428F74900927055 /* CustomProgressbar */,
 				4F2E4AC823383A2D001F1BA2 /* CProgressViewStackView.swift */,
 				4F2E4ACB23383A3B001F1BA2 /* CProgressView.swift */,
 			);
@@ -3789,6 +3798,15 @@
 			path = SalaryPayment;
 			sourceTree = "<group>";
 		};
+		BD3C96272428F74900927055 /* CustomProgressbar */ = {
+			isa = PBXGroup;
+			children = (
+				BD3C96282428F7A200927055 /* CustomProgressBar.swift */,
+				BD3C962C2428F7B100927055 /* CustomProgressBar.xib */,
+			);
+			path = CustomProgressbar;
+			sourceTree = "<group>";
+		};
 		BD97373B23F6AE1700C34A33 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -4150,6 +4168,7 @@
 				4F01F766237E6A5B00268423 /* TransactionModal.xib in Resources */,
 				4F01F767237E6A5B00268423 /* Emoji.xcassets in Resources */,
 				4F01F768237E6A5B00268423 /* UpcomingBillsTableViewCell.xib in Resources */,
+				BD3C962F2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				4F01F769237E6A5B00268423 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4F01F76A237E6A5B00268423 /* SpendingCardTableViewCell.xib in Resources */,
 				2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
@@ -4201,6 +4220,7 @@
 				4FDDC378237CD95D00C3846E /* TransactionModal.xib in Resources */,
 				4F2323FC2374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A52372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				BD3C962E2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
@@ -4228,6 +4248,7 @@
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
 				2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
 				9F3ACB8C23EFEC9700466953 /* DocumentAccessCell.xib in Resources */,
+				BD3C962D2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FA2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
@@ -4795,6 +4816,7 @@
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				BD28B85F2417629A0049D828 /* Configuration.swift in Sources */,
+				BD3C962B2428F7A200927055 /* CustomProgressBar.swift in Sources */,
 				2A72CF722420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD86238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B956241762C30049D828 /* EligibleRequirement.swift in Sources */,
@@ -5135,6 +5157,7 @@
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
 				BD28B85E2417629A0049D828 /* Configuration.swift in Sources */,
+				BD3C962A2428F7A200927055 /* CustomProgressBar.swift in Sources */,
 				2A72CF712420A98E0053C0DD /* CNButton.swift in Sources */,
 				4F36DD85238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				BD28B955241762C30049D828 /* EligibleRequirement.swift in Sources */,
@@ -5497,6 +5520,7 @@
 				4F36DD84238B948F00FD74F9 /* ImageView_Extension.swift in Sources */,
 				964FA993235287D100B07AD7 /* AmountSelectTableViewCell.swift in Sources */,
 				4FB1CB132353C8C400E7B224 /* HistoryItemTableViewCell.swift in Sources */,
+				BD3C96292428F7A200927055 /* CustomProgressBar.swift in Sources */,
 				4F2324212378B0B100BF3F21 /* SpendingCategoriesViewController.swift in Sources */,
 				9629A59522FC460200828FCF /* PrimaryTheme.swift in Sources */,
 				4F345BAF239012E4005DCFDB /* UIApplication_Extension.swift in Sources */,
@@ -6097,7 +6121,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;
@@ -6150,7 +6174,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.1;
+				MARKETING_VERSION = 2.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;

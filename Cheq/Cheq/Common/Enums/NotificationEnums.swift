@@ -51,6 +51,7 @@ enum UINotificationEvent: String {
     case viewAll = "viewAll"
     case resubmitForm = "resubmitForm"
     case mixPanelEvent = "mixPanelEvent"
+    case moneysoftEvent = "moneysoftEvents"
 }
 
 /**
@@ -70,4 +71,5 @@ enum NotificationUserInfoKey: String {
     case link = "link"
     case mixpanel = "mixpanel"
     case turnOnLocation = "turnOnLocation"
+    case moneysoftProgress = "moneysoftProgress"
 }

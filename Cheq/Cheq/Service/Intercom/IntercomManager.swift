@@ -21,7 +21,7 @@ class IntercomManager {
         let qvm = QuestionViewModel()
         qvm.loadSaved()
         
-        userAttributes.customAttributes = IntercomPersonalData(firstName: qvm.fieldValue(.firstname), lastName: qvm.fieldValue(.lastname), email: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cheqId: AppData.shared.fbAppId, bankName: qvm.fieldValue(.bankName), workAddress: qvm.fieldValue(.employerAddress), mobile: qvm.fieldValue(.contactDetails), appVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",errorStep: "Connecting to bank",cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
+        userAttributes.customAttributes = IntercomPersonalData(cFirstName: qvm.fieldValue(.firstname), cLastName: qvm.fieldValue(.lastname), cEmail: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cBankName: qvm.fieldValue(.bankName), cAddress: qvm.fieldValue(.employerAddress), cMobile: qvm.fieldValue(.contactDetails), cAppVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",cErrorStep: "Connecting to bank",cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
          Intercom.updateUser(userAttributes)
         
     //MARK: Present the UI after passing the parameters to the Intercome API
@@ -51,30 +51,17 @@ class IntercomManager {
 
 //Struct represents the parameters to be passed on to the Intercome API
 struct IntercomPersonalData:Codable {
-    let firstName:String
-    let lastName:String
-    let email:String
-    let cheqId:String
-    let bankName:String
-    let workAddress:String
-    let mobile:String
-    let appVersion:String
-    let errorStep:String
+    let cFirstName:String
+    let cLastName:String
+    let cEmail:String
+    let cBankName:String
+    let cAddress:String
+    let cMobile:String
+    let cAppVersion:String
+    let cErrorStep:String
     let cid:String
     
 }
 
-//Converts a struct in to a dictionary
-struct JSON {
-    static let encoder = JSONEncoder()
-}
-extension Encodable {
-    subscript(key: String) -> Any? {
-        return dictionary[key]
-    }
-    var dictionary: [String: Any] {
-        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: Any] ?? [:]
-    }
-}
 
 
