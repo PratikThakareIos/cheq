@@ -29,7 +29,6 @@ class ConnectingToBankViewController: UIViewController {
         setupUI()
     }
     
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         transparentView.backgroundColor = .clear
@@ -41,13 +40,9 @@ class ConnectingToBankViewController: UIViewController {
     }
     
     func registerObservables() {
-        
         setupKeyboardHandling()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.moneysoftEvent.rawValue), object: nil)
-       
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -58,6 +53,7 @@ class ConnectingToBankViewController: UIViewController {
         super.viewDidDisappear(animated)
         removeObservables()
     }
+    
     func setupUI() {
         self.bankName = AppData.shared.selectedFinancialInstitution?.name ?? ""
         self.view.backgroundColor = AppConfig.shared.activeTheme.primaryColor
@@ -104,8 +100,5 @@ extension ConnectingToBankViewController {
                         self.progressBar.setProgress(0.3, animated: true)
                 }
         }
-      
     }
-
-    
 }

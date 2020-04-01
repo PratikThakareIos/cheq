@@ -32,6 +32,7 @@ class PayCycleViewController: UIViewController {
 
 }
 extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return choises.allCases.count
     }
@@ -81,6 +82,7 @@ extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 150
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
@@ -101,9 +103,5 @@ extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
                      }
                  }
              }
-        
      }
-    
-
-    
 }

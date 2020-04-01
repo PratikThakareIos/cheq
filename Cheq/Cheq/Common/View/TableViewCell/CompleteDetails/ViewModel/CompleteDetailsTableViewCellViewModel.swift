@@ -11,7 +11,7 @@ import UIKit
 /// There are 4 (for now three implemented)  stages of completing details on enabling Lending. The titles are keep within CompleteDetailsType enum constants
 enum CompleteDetailsType: String {
     case workDetails = "Employement details"
-    case workVerify = "Veryfy that you have worked"
+    case workVerify = "Verify that you have worked"
     case bankDetils = "Enter your bank details"
     case verifyYourDetails = "Verify your identity"
 

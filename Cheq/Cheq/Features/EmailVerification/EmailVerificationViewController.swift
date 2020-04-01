@@ -66,7 +66,7 @@ class EmailVerificationViewController: UIViewController {
     }
     
     func showVerificationCodeSentPopUp(){
-        if (isShowCodeSentPopUp){
+        if (isShowCodeSentPopUp) {
             self.isShowCodeSentPopUp = false
             var email = ""
             if self.viewModel.type == .passwordReset {
@@ -74,7 +74,6 @@ class EmailVerificationViewController: UIViewController {
             }else{
                email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
             }
-            
             self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
         }
     }
@@ -176,7 +175,6 @@ class EmailVerificationViewController: UIViewController {
 //            showError(err) {
 //                self.codeTextField.text = ""
 //            }
-            
         }
         
         // TODO : verify code api call
@@ -287,13 +285,10 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
     func tappedOnCloseButton(){
         self.codeTextField.text = ""
     }
-    
-
 }
 
 extension EmailVerificationViewController {
-    
- 
+     
     func setupHyperlables(){
         self.setupHyperlable_lblVerificationInstructions()
         self.setupHyperlable_lblFooterText()
@@ -336,7 +331,6 @@ extension EmailVerificationViewController {
              }
              self.didSelectLinkWithName(strSubstring: strSubstring)
          }
-         
          self.lblFooterText.setLinksForSubstrings(["Resend"], withLinkHandler: handler2)
      }
     

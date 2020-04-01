@@ -26,7 +26,7 @@ enum OnDemandType: String {
 
 struct OnDemandCoordinator: MultipleChoiceViewModelCoordinator {
     var sectionTitle = Section.employmentDetails.rawValue
-    var questionTitle = "What On demand company are you work for?"
+    var questionTitle = "What On Demand company are you work for?"
     var coordinatorType: MultipleChoiceQuestionType = .onDemand
     
     func choices() -> Promise<[ChoiceModel]> {

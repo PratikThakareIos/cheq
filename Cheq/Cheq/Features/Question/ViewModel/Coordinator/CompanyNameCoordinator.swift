@@ -11,6 +11,7 @@ import UIKit
 class CompanyNameCoordinator: QuestionCoordinatorProtocol {
 
     var type: QuestionType = .companyName
+    var sectionTitle: String = Section.employmentDetails.rawValue
     
     var question: String = "Company name?"
     

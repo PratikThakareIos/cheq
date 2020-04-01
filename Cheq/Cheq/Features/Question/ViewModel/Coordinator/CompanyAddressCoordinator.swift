@@ -11,8 +11,9 @@ import UIKit
 class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .companyAddress
+    var sectionTitle: String = Section.employmentDetails.rawValue
     
-    var question: String = "Company address?"
+    var question: String = "Company Address"
     
     func placeHolder(_ index: Int)->String {
         return "123 Example Street"

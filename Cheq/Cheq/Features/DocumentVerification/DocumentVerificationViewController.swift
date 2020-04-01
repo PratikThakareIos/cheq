@@ -23,10 +23,7 @@ class DocumentVerificationViewController: UIViewController {
         self.tableview.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.tableFooterView = UIView()
     }
-    
-
 }
-
 
 extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

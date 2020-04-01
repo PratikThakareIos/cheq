@@ -11,9 +11,9 @@ import PromiseKit
 
 enum Section: String {
     case aboutMe = "About me"
-    case employmentDetails = "Employment details"
-    case bankDetails = "Bank details"
-    case verifyMyIdentity = "Verify identity"
+    case employmentDetails = "Employment Details"
+    case bankDetails = "Bank Details"
+    case verifyMyIdentity = "Verify Identity"
 }
 
 protocol MultipleChoiceViewModelCoordinator {

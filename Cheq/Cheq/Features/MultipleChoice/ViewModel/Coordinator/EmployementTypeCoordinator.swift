@@ -11,9 +11,9 @@ import PromiseKit
 
 enum EmploymentType: String {
     case fulltime = "Full time"
-    case onDemand = "On demand"
+    case onDemand = "On Demand"
     case contract = "Contractor"
-    case casual = "Casual"
+    case casual = "Casual Employee"
     case selfEmployed = "Self employed"
     case partTime = "Part time"
     

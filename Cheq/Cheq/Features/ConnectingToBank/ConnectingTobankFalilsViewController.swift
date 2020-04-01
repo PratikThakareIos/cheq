@@ -16,14 +16,12 @@ class ConnectingTobankFalilsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-       
     }
     
     private func setupUI() {
         trytoConnectAgainBtn.layer.cornerRadius = 25
         backgroundView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
     }
-
 
     @IBAction func tryTocoeenctAgainBtnClick(_ sender: Any) {
         NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
@@ -36,6 +34,5 @@ class ConnectingTobankFalilsViewController: UIViewController {
              }.catch { err in
                  self.showError(err, completion: nil)
          }
-    }
-    
+    }    
 }
