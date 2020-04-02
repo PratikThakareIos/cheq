@@ -24,6 +24,7 @@ class ConnectingToBankViewController: UIViewController {
     let transparentView = UIView()
     @IBOutlet weak var progressBarContainer: UIView!
     var bankName = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

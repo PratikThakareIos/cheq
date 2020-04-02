@@ -20,6 +20,10 @@ class CompanyNameCoordinator: QuestionCoordinatorProtocol {
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
-        return nil
+         guard let CompanyName = inputs[placeHolder(0)] as? String else { return ValidationError.invalidCompanyName }
+         guard CompanyName.count >= 2 else {
+             return ValidationError.invalidCompanyName
+         }
+         return nil
     }
 }

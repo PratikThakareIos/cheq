@@ -69,6 +69,7 @@ class QuestionViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //removeObservables()
+        self.view.endEditing(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,8 +81,8 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         setupDelegate()
         setupUI()
+        self.setupLookupIfNeeded()
         prePopulateEntry()
-        setupLookupIfNeeded()
         if viewModel.coordinator.type == .maritalStatus {
             setupPicker()
         }
@@ -91,6 +92,7 @@ class QuestionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
+        self.setupLookupIfNeeded()
         getTransactionData()
     }
     
@@ -144,7 +146,7 @@ class QuestionViewController: UIViewController {
         textField2.delegate = self
         textField3.delegate = self
         textField4.delegate = self
-        //searchTextField.delegate = self
+        searchTextField.delegate = self
     }
     
     // change the button title
@@ -205,6 +207,8 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
+        
+         
     }
     
     func updateKeyboardViews() {
@@ -278,11 +282,11 @@ class QuestionViewController: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
+
         if let error = self.validateInput() {
             showError(error, completion: nil)
             return
         }
-        
         
         switch self.viewModel.coordinator.type {
         case .legalName:
@@ -408,7 +412,8 @@ class QuestionViewController: UIViewController {
                 //                    return
                 //                }
                 //Select the working locatrion
-                //  AppNav.shared.presentToMultipleChoice(.workingLocation, viewController: self)
+                
+                // AppNav.shared.presentToMultipleChoice(.workingLocation, viewController: self)
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
         case .companyAddress:
@@ -633,8 +638,14 @@ extension QuestionViewController {
             //manish
             self.hideNavBar()
         } else {
-            textField1.placeholder = self.viewModel.placeHolder(0)
+           textField1.placeholder = self.viewModel.placeHolder(0)
         }
+        
+        if (viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName){
+            textField1.placeholder = ""
+            searchTextField.placeholder = self.viewModel.placeHolder(0)
+         }
+       
     }
     
     func showNormalTextFields() {
@@ -659,13 +670,13 @@ extension QuestionViewController {
             textField4.isHidden = true
             searchTextField.isHidden = true
         } else {
-            textField1.isHidden = false
+            textField1.isHidden = false //manish
             textField2.isHidden = true
             textField3.isHidden = true
             textField4.isHidden = true
             searchTextField.isHidden = true
         }
-        
+     
         textField1.setupLeftPadding()
         textField2.setupLeftPadding()
         textField3.setupLeftPadding()
@@ -677,10 +688,13 @@ extension QuestionViewController {
         textField4.setShadow()
         searchTextField.setShadow()
         
-        if !textField1.isHidden {
-            textField1.becomeFirstResponder()
-        }
         
+        
+        if !(viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName){
+            if !textField1.isHidden {
+                textField1.becomeFirstResponder()
+            }
+        }
     }
     
     func showCheckbox() {
@@ -729,11 +743,12 @@ extension QuestionViewController {
     }
     
     func hideNormalTextFields() {
-        textField1.isHidden = true
-        textField2.isHidden = true
-        textField3.isHidden = true
-        textField4.isHidden = true
-        searchTextField.isHidden = false
+        self.searchTextField.isHidden = false
+        self.textField1.isHidden = true
+        self.textField2.isHidden = true
+        self.textField3.isHidden = true
+        self.textField4.isHidden = true
+        self.view.layoutIfNeeded()
     }
 }
 
@@ -801,9 +816,10 @@ extension QuestionViewController: UITextFieldDelegate {
         let qVm = QuestionViewModel()
         qVm.loadSaved()
         let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
-        if self.viewModel.coordinator.type == .companyAddress, employmentType == .fulltime {
-            return false
-        }
+        //manish
+//        if self.viewModel.coordinator.type == .companyAddress, employmentType == .fulltime {
+//            return false
+//        }
         return true
     }
 }
@@ -824,6 +840,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
+       
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
@@ -858,6 +875,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
+     
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
         
@@ -867,6 +885,7 @@ extension QuestionViewController{
             VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
                 , longitude: employerAddress.longitude ?? 0.0)
             self.searchTextField.text = item[itemPosition].title
+            //self.searchTextField.resignFirstResponder()
         }
         
         searchTextField.userStoppedTypingHandler = {
@@ -893,6 +912,7 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
+        
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
         searchTextField.itemSelectionHandler  = { item, itemPosition  in

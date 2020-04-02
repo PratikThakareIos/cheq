@@ -42,11 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                         
         MoneysoftApi.configure(config);
         
-        
-        
-        
         // keep a reference for re-use
         AppData.shared.application = application
+        
+        let _ = VDotManager.shared //manish
         
         // to setup VDot again
         if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {

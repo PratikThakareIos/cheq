@@ -285,6 +285,9 @@ extension MultipleChoiceViewController {
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithImageCell
         cell.choiceTitleLabel.text = choice.title
         cell.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
+        
+        // set placeholder first
+        cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
         if let imageName = choice.image, imageName.isEmpty == false {
             cell.iconImageView.isHidden = false
             if var view: UIView = cell.iconImageView {
@@ -292,12 +295,14 @@ extension MultipleChoiceViewController {
             }
 //            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
 //            })ll'/
-            
-            // set placeholder first
-            cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
-            cell.iconImageView.setImageForURL(imageName)
-        } else {
-            cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
+                        
+            if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
+                cell.iconImageView.setImageForURL(imageName)
+            }else{
+                if let img = UIImage.init(named: imageName){
+                     cell.iconImageView.image = img
+                }
+            }
         }
         cell.backgroundColor = .clear
         AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)

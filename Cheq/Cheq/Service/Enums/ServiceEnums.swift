@@ -34,6 +34,7 @@ enum ValidationError: Error {
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
     case autoCompleteIsMandatory
+    case invalidCompanyName
 }
 
 enum CheqAPIManagerError: Error, Equatable {
@@ -278,7 +279,9 @@ extension ValidationError: LocalizedError {
         case .onlyNumericCharactersIsAllowed:
             return NSLocalizedString("Only numeric characteres is allowed", comment: "")
         case .autoCompleteIsMandatory:
-            return NSLocalizedString("Input by autocomplete is mandatory", comment: "")
+            return NSLocalizedString("Please enter your Company Address", comment: "")
+        case .invalidCompanyName:
+            return NSLocalizedString("Please enter the Company Name", comment: "")
         }
     }
 }

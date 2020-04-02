@@ -20,6 +20,6 @@ class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
-        return nil
+        return nil //validation handled in Question VC
     }
 }
