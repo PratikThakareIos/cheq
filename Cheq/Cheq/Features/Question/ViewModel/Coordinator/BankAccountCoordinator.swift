@@ -24,7 +24,7 @@ class BankAccountCoordinator: QuestionCoordinatorProtocol {
         case 3:
             return "Account number"
         case 4:
-            return "is this a joint Account?"
+            return "is this a joint account?"
         default:
             return ""
         }
@@ -37,25 +37,25 @@ class BankAccountCoordinator: QuestionCoordinatorProtocol {
     func validateInput(_ inputs: [String : Any]) -> ValidationError? {
         //*
         // First Name and Last Name
-        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String, firstName.count > 0, lastName.count > 0 else { return ValidationError.allFieldsMustBeFilled }
         guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
         guard firstName.count >= 2, lastName.count >= 2 else {
             return ValidationError.invalidNameFormat
         }
         
         // bsb
-        guard let bsb = inputs[self.placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        guard StringUtil.shared.isNumericOnly(bsb) else { return ValidationError.onlyNumericCharactersIsAllowed }
-        guard bsb.count == 6 else { return ValidationError.invalidInputFormat }
+        guard let bsb = inputs[self.placeHolder(2)] as? String, bsb.count > 0 else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isNumericOnly(bsb) else { return ValidationError.invalidBBSandAccountNO }
+        guard bsb.count == 6 else { return ValidationError.invalidBBSandAccountNO }
         
         // account number
-        guard let accNo = inputs[self.placeHolder(3)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        guard StringUtil.shared.isNumericOnly(accNo) else { return ValidationError.onlyNumericCharactersIsAllowed }
-      //  */
+        guard let accNo = inputs[self.placeHolder(3)] as? String, accNo.count > 0 else { return ValidationError.allFieldsMustBeFilled }
+        guard StringUtil.shared.isNumericOnly(accNo) else { return ValidationError.invalidBBSandAccountNO }
+      
+        //  */
         // validation passes
         
         return nil 
     }
-
 
 }

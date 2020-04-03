@@ -42,8 +42,7 @@ class LendingViewController: CTableViewController {
 
     func setupUI() {
         hideBackTitle()
-        self.tableView.addPullToRefreshAction {
-            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        self.tableView.addPullToRefreshAction {            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
         }
     }
     
@@ -76,7 +75,6 @@ extension LendingViewController {
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
         switch type {
         case .workDetails:
-           
             AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
         case .bankDetils:

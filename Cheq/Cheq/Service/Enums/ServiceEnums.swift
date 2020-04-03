@@ -35,6 +35,7 @@ enum ValidationError: Error {
     case unableToMapSelectedBank
     case autoCompleteIsMandatory
     case invalidCompanyName
+    case invalidBBSandAccountNO
 }
 
 enum CheqAPIManagerError: Error, Equatable {
@@ -282,6 +283,9 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Please enter your Company Address", comment: "")
         case .invalidCompanyName:
             return NSLocalizedString("Please enter the Company Name", comment: "")
+        case .invalidBBSandAccountNO:
+            return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
+            
         }
     }
 }

@@ -2131,7 +2131,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-N3-R4H">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="944"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="923"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-ET-j3O">
                                                         <rect key="frame" x="30" y="50" width="69" height="30"/>
@@ -2142,18 +2142,32 @@
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aRx-vd-Bcc">
                                                         <rect key="frame" x="30" y="100" width="354" height="60"/>
-                                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="1PW-At-VWo"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="23"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="60"/>
+                                                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="1PW-At-VWo"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="23"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please ensure that this account matches the account you entered in the Cheq app" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSo-ES-TLH">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Fje-6A-xQv"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="15"/>
+                                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E7n-zF-0Sz">
-                                                        <rect key="frame" x="30" y="196" width="354" height="479.5"/>
+                                                        <rect key="frame" x="30" y="196" width="354" height="458.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="377"/>
@@ -2206,14 +2220,14 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-cu-Vba" customClass="CSwitchWithLabel" customModule="Cheq" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="393" width="354" height="56"/>
+                                                                <rect key="frame" x="0.0" y="393" width="354" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="ZaK-cu-Vba" secondAttribute="height" multiplier="177:28" id="pdj-CY-chr"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="Cmi-ga-8sz"/>
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5a7-Lx-ZUO">
-                                                                <rect key="frame" x="0.0" y="457" width="354" height="80"/>
+                                                                <rect key="frame" x="0.0" y="436" width="354" height="80"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="0mx-MJ-kGI">
                                                                         <rect key="frame" x="99" y="0.0" width="70" height="80"/>
@@ -2230,7 +2244,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use this for verification and security text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-re-TMk">
-                                                                <rect key="frame" x="0.0" y="465" width="354" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="444" width="354" height="14.5"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2238,7 +2252,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-nZ-m9u">
-                                                        <rect key="frame" x="30" y="691.5" width="354" height="232.5"/>
+                                                        <rect key="frame" x="30" y="670.5" width="354" height="232.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-ZD-NI3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="176"/>
@@ -2267,15 +2281,15 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="E7n-zF-0Sz" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="1Za-58-qf0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aRx-vd-Bcc" secondAttribute="trailing" constant="30" id="4K9-Zc-arf"/>
                                                     <constraint firstItem="MEA-ET-j3O" firstAttribute="top" secondItem="Tlg-N3-R4H" secondAttribute="top" constant="50" id="5Qj-dm-krj"/>
-                                                    <constraint firstItem="E7n-zF-0Sz" firstAttribute="top" secondItem="fOy-k7-WXH" secondAttribute="bottom" constant="36" id="8Fn-pd-Hi2"/>
-                                                    <constraint firstItem="fOy-k7-WXH" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="PLw-dn-8Bw"/>
                                                     <constraint firstItem="sqK-nZ-m9u" firstAttribute="top" secondItem="E7n-zF-0Sz" secondAttribute="bottom" constant="16" id="RAD-xg-HSP"/>
+                                                    <constraint firstItem="aRx-vd-Bcc" firstAttribute="top" secondItem="MEA-ET-j3O" secondAttribute="bottom" constant="20" id="V6Y-v6-vP3"/>
                                                     <constraint firstItem="sqK-nZ-m9u" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="VUj-s8-oI1"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fOy-k7-WXH" secondAttribute="trailing" constant="30" id="dCf-nO-I3o"/>
+                                                    <constraint firstItem="E7n-zF-0Sz" firstAttribute="top" secondItem="aRx-vd-Bcc" secondAttribute="bottom" constant="36" id="Yjt-4e-e6P"/>
+                                                    <constraint firstItem="aRx-vd-Bcc" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="g5O-ZQ-dv7"/>
                                                     <constraint firstItem="MEA-ET-j3O" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="qXV-66-VJ5"/>
                                                     <constraint firstAttribute="trailing" secondItem="sqK-nZ-m9u" secondAttribute="trailing" constant="30" id="s1q-MK-6Fi"/>
-                                                    <constraint firstItem="fOy-k7-WXH" firstAttribute="top" secondItem="MEA-ET-j3O" secondAttribute="bottom" constant="20" id="ufl-rR-uWO"/>
                                                     <constraint firstAttribute="bottom" secondItem="sqK-nZ-m9u" secondAttribute="bottom" constant="20" id="vCf-yb-Xq2"/>
                                                     <constraint firstAttribute="trailing" secondItem="E7n-zF-0Sz" secondAttribute="trailing" constant="30" id="x8t-22-JqG"/>
                                                 </constraints>
@@ -2317,6 +2331,7 @@
                         <outlet property="lblContactInfo" destination="yfX-re-TMk" id="Bma-8S-cAI"/>
                         <outlet property="nextButton" destination="Oaf-K7-3se" id="uL5-4S-phl"/>
                         <outlet property="nextButtonBottom" destination="vCf-yb-Xq2" id="CZ4-sI-xy2"/>
+                        <outlet property="questionDescription" destination="SSo-ES-TLH" id="ihA-f3-NHn"/>
                         <outlet property="questionTitle" destination="fOy-k7-WXH" id="DuD-7Q-9Aq"/>
                         <outlet property="scrollView" destination="pgj-0M-ePb" id="J3V-qR-Nux"/>
                         <outlet property="searchTextField" destination="2Wy-5y-tQx" id="yE7-T2-cEz"/>
@@ -2330,7 +2345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peu-Wg-GRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4133" y="-1888"/>
+            <point key="canvasLocation" x="4333" y="-1958"/>
         </scene>
     </scenes>
     <resources>

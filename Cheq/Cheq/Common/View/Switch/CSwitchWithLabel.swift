@@ -47,7 +47,7 @@ class CSwitchWithLabel: UIStackView {
     /// Setting up the layout margin and attributes for view and stackview that contains the **CLabel** and **UISwitch**
     func setupMargin() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.spacing = UIStackView.spacingUseSystem
+        self.spacing = 16.0 //UIStackView.spacingUseSystem
         self.isLayoutMarginsRelativeArrangement = true
         self.directionalLayoutMargins = NSDirectionalEdgeInsets(top: defaultSpacing, leading: defaultSpacing, bottom: defaultSpacing, trailing: defaultSpacing)
         self.alignment = .fill
@@ -60,14 +60,17 @@ class CSwitchWithLabel: UIStackView {
         self.toggle = CSwitch(frame: CGRect.zero)
         let spacer = UIView(frame: CGRect.zero)
         spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
-        let label = CLabel(frame: CGRect.zero)
+        //let label = CLabel(frame: CGRect.zero)
+        label.font = AppConfig.shared.activeTheme.mediumMediumFont
+        label.textColor = AppConfig.shared.activeTheme.mediumGrayColor
         label.text = titleLabel
-        label.textAlignment = .right
+        label.textAlignment = .left
         spacer.addSubview(label)
         AutoLayoutUtil.pinToSuperview(label, padding: 0)
         self.axis = .horizontal
-        self.addArrangedSubview(spacer)
         self.addArrangedSubview(toggle)
+        self.addArrangedSubview(spacer)
+       
     }
     
     /// helper method to add String to label and trigger a refresh using **setNeedsDisplay**

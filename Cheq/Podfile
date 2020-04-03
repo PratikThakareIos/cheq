@@ -74,6 +74,9 @@ def shared_pods
   #Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
   pod 'IQKeyboardManagerSwift'
   
+  #Use can use RadioButton and CheckboxButton same as UIButton.
+  #pod 'MBRadioCheckboxButton'
+  
 end
 
 target 'Cheq' do

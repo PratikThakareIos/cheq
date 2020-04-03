@@ -20,6 +20,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var sectionTitle: UILabel!
     @IBOutlet weak var lblContactInfo: UILabel! //We use this for verification and security texts
     @IBOutlet weak var questionTitle: CLabel!
+    @IBOutlet weak var questionDescription: UILabel!
+    
     @IBOutlet weak var nextButton: CNButton!
     @IBOutlet weak var textField1: CNTextField!
     @IBOutlet weak var textField2: CNTextField!
@@ -164,6 +166,7 @@ class QuestionViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         //self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+         self.questionDescription.isHidden = true
         self.nextButton.createShadowLayer()
         self.hideBackTitle()
         self.showNormalTextFields()
@@ -182,7 +185,10 @@ class QuestionViewController: UIViewController {
             self.setupEmployerAddressLookup()
         case .bankAccount:
             self.changeButtonTitle()
-            self.showImageContainer()
+            //self.showImageContainer()
+            self.questionDescription.text = "Please ensure that this account matches the account you entered in the Cheq app"
+            self.questionDescription.isHidden = false
+            self.ImageViewContainer.isHidden = true
         case .verifyName:
             self.hideImageContainer()
         case .verifyHomeAddress:
@@ -238,11 +244,17 @@ class QuestionViewController: UIViewController {
     }
     
     func populatePopup(){
-        let transactionModal: CustomSubViewPopup = UIView.fromNib()
-        transactionModal.viewModel.data = CustomPopupModel(description: "We've detected these bank details have been used by another user. Please ensure these details belong to you", imageName: "accountEmoji", modalHeight: 400, headerTitle: "Bank Details Already in use")
-        transactionModal.setupUI()
-        let popupView = CPopupView(transactionModal)
-        popupView.show()
+//        let transactionModal: CustomSubViewPopup = UIView.fromNib()
+//        transactionModal.viewModel.data = CustomPopupModel(description: "We've detected these bank details have been used by another user. Please ensure these details belong to you", imageName: "accountEmoji", modalHeight: 400, headerTitle: "Bank Details Already in use")
+//        transactionModal.setupUI()
+//        let popupView = CPopupView(transactionModal)
+//        popupView.show()
+        
+        self.openPopupWith(heading: "Bank details already in use",
+                           message: "We have detected these bank details have been used by another user. Please ensure these details belong to you",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "transferFailed"))
     }
     
     //    func prePopulateEntry() {
@@ -302,7 +314,7 @@ class QuestionViewController: UIViewController {
             }
             
             AppData.shared.updateProgressAfterCompleting(.legalName)
-            //            AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
+            //AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
         //manish
         case .dateOfBirth:
@@ -449,12 +461,18 @@ class QuestionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
+        
         case .maritalStatus:
             self.viewModel.save(QuestionField.maritalStatus.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.dependents.rawValue, value: textField2.text ?? "")
             
         // This is the starting point of 3rd step in lending flow
         case .bankAccount:
+            
+            if (switchWithLabel.switchValue()){
+                self.showJointAccountNotSupportedPopUp()
+                return
+            }
             LoggingUtil.shared.cPrint("bank account next")
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
@@ -466,35 +484,33 @@ class QuestionViewController: UIViewController {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.updateDirectDebitBankAccount().done { authUser in
                 AppConfig.shared.hideSpinner {
-                    
                     NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                     AppNav.shared.dismissModal(self)
-                    
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     print(err)
-                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
-                    transactionModal.viewModel.data = CustomPopupModel(description: "We have detected these bank details have been used by another user. Please ensure these detailsbelong to you", imageName: "", modalHeight: 300, headerTitle: "Bank details already in use")
-                    transactionModal.setupUI()
-                    let popupView = CPopupView(transactionModal)
+                    self.populatePopup()
                     
-                    popupView.show()
+//                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
+//                    transactionModal.viewModel.data = CustomPopupModel(description: "We have detected these bank details have been used by another user. Please ensure these detailsbelong to you", imageName: "", modalHeight: 300, headerTitle: "Bank details already in use")
+//                    transactionModal.setupUI()
+//                    let popupView = CPopupView(transactionModal)
+//                    popupView.show()
                     // self.showError(err, completion: nil)
                 }
             }
             
-            // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
-            
+        // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
         case .verifyName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
+        
         case .verifyHomeAddress:
             self.viewModel.save(QuestionField.unitNumber.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.homeAddress.rawValue, value: textField2.text ?? "")
             guard AppData.shared.completingDetailsForLending == false else {
-                
                 AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
                 return
             }
@@ -508,6 +524,7 @@ class QuestionViewController: UIViewController {
         let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
         nav.pushViewController(vc, animated: true)
     }
+    
     func incomeVerification(){
         if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
             showTransactions()
@@ -519,10 +536,7 @@ class QuestionViewController: UIViewController {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
-        
     }
-    
-    
 }
 
 //MARK: Input validations
@@ -730,9 +744,8 @@ extension QuestionViewController {
         let address = qvm.fieldValue(.homeAddress)
         textField1.text = unit
         textField2.text = address
-        
-        
     }
+    
     func legalNameAutoFill()  {
         //        let qvm = QuestionViewModel()
         //        qvm.loadSaved()
@@ -935,5 +948,44 @@ extension QuestionViewController {
     func isIncomeDetected() -> Bool {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return false
+    }
+}
+
+
+//MARK: - Verification popup
+extension QuestionViewController: VerificationPopupVCDelegate{
+    
+    
+
+    
+    func showJointAccountNotSupportedPopUp(){
+        self.openPopupWith(heading: "Something went wrong",
+                           message: "Unfortunately, we do not currently cater to users who have joint bank account",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "transferFailed"))
+     }
+    
+    //
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    
+    func tappedOnSendButton(){
+ 
+    }
+    
+    func tappedOnCloseButton(){
+      
     }
 }

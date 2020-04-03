@@ -304,6 +304,7 @@ extension AppNav {
         introductionViewModel.coordinator = introCoordinator
         vc.viewModel = introductionViewModel
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
@@ -320,6 +321,7 @@ extension AppNav {
         introductionViewModel.coordinator = introCoordinator
         vc.viewModel = introductionViewModel
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
@@ -331,6 +333,7 @@ extension AppNav {
         let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
         vc.viewModel.type = .validate
         guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
         currentRootVc.present(vc, animated: true, completion: nil)
     }
     
@@ -346,6 +349,7 @@ extension AppNav {
         questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
         vc.viewModel = questionViewModel
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
@@ -356,16 +360,19 @@ extension AppNav {
     */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         print(multipleChoiceType)
+        
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        
         let multipleChoiceViewModel = MultipleChoiceViewModel()
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        
         if multipleChoiceType == .employmentType {
             vc.showNextButton = true
         }else {
-             vc.showNextButton = false
+            vc.showNextButton = false
         }
         
         if multipleChoiceType == .workingLocation {
@@ -394,7 +401,6 @@ extension AppNav {
         /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
         let sdkToken = AppData.shared.loadOnfidoSDKToken()
         guard sdkToken.isEmpty == false else {
-            
             /// if the sdk token is empty, then the logic cannot continue
             viewController.showMessage("Sdk token must be available", completion: nil)
             return

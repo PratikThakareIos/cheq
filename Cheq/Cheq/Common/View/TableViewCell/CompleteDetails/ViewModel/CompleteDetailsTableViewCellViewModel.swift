@@ -57,30 +57,49 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
 
     /// imageIcon method returns the image name for the icon corresponding to the "Complete Details" **CompleteDetailsType** and **CompleteDetailsState**
     func imageIcon()-> String {
-        var filename = ""
-        var suffix = ""
-        switch completionState {
-        case .done: return "DetailsSuccess"
-        case .inactive:
-            suffix = "Inactive"
-        case .pending:
-            suffix = "Pending"
-        case .inprogress: return "DetailsInprogress"
+            var filename = ""
+            var suffix = ""
+            switch completionState {
+            case .done: return "DetailsSuccess"
+            case .inactive:
+                suffix = "Inactive"
+            case .pending:
+                suffix = "Pending"
+            case .inprogress: return "DetailsInprogress"
         }
+        
         switch type {
-        case .bankDetils:
-            filename = "bankDetails"
-        case .workDetails:
-            filename = "workDetails"
-        case .verifyYourDetails:
-            filename = "identityVerification"
-        case .workVerify:
-            filename = "workVerify"
+            case .bankDetils:
+                filename = "bankDetails"
+            case .workDetails:
+                filename = "workDetails"
+            case .verifyYourDetails:
+                filename = "identityVerification"
+            case .workVerify:
+                filename = "workVerify"
         }
         
         /// the image file name is constructed through combination of the two attributes
         return String(describing: "\(filename)\(suffix)")
     }
+    
+    func isHideRightArrow() -> Bool {
+        
+        switch completionState {
+            case .done:
+                return true
+            case .inactive:
+                return true
+            case .pending:
+                return false
+            case .inprogress:
+                return false
+            default:
+               return false
+        }
+    }
+    
+    
 
     func showTurnonLocationButton() -> Bool {
         return userAction == .turnOnLocation ? true:false
@@ -98,7 +117,6 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             return "uploadTimesheet"
             
         }
-        
     }
     
     

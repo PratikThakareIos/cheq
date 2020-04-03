@@ -59,6 +59,8 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.detailsText.text = vm.detailsText()
         self.detailsSection.isHidden = !vm.expanded
         self.icon.image = UIImage(named: vm.imageIcon())
+        self.expandButton.isHidden = vm.isHideRightArrow()//manish
+        
         self.verifyWorkimageView.translatesAutoresizingMaskIntoConstraints = false
         self.detailsText.translatesAutoresizingMaskIntoConstraints = false
         self.detailsSection.translatesAutoresizingMaskIntoConstraints = false
@@ -69,13 +71,11 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         self.turnOnLocationButton.layer.borderWidth = 2
         self.turnOnLocationButton.layer.borderColor = UIColor.blue.cgColor
         if (vm.type == .workVerify){
-        
             if vm.showSecondaryButton() {
                 detailsSection.heightAnchor.constraint(equalToConstant: 280).isActive = true
             }else {
                 detailsSection.heightAnchor.constraint(equalToConstant: 400).isActive = true
             }
-          
           self.verifyWorkimageView.image =  UIImage(named: vm.verifyWorkImage())
           self.verifyWorkimageView.isHidden = false
           self.linkButton.setTitle(vm.linkButtonText(), for: .normal)
@@ -91,8 +91,8 @@ class CompleteDetailsTableViewCell: CTableViewCell {
           self.verifyWorkimageView.isHidden = true
           self.linkButton.isHidden = true
         }
-        
     }
+    
     //tap guesture for teh whole view
     @objc func clickView(_ sender: UIView) {
         print("You clicked on view")
@@ -109,7 +109,6 @@ class CompleteDetailsTableViewCell: CTableViewCell {
         
         guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
         if vm.completionState == .pending {
-            
             /// In fact, this is triggering a **UINotificationEvent.completeDetails** event that tells the observing viewController to update the tableview to render this cell 
             NotificationUtil.shared.notify(UINotificationEvent.completeDetails.rawValue, key: "type", value: vm.type.rawValue)
         }

@@ -214,6 +214,7 @@ extension LendingViewModel {
         }
         
         section.rows.append(top)
+        
         let completedProgressViewModel = CompletionProgressTableViewCellViewModel()
         completedProgressViewModel.mode = .monetary
         completedProgressViewModel.completedItem = completed
