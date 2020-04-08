@@ -58,6 +58,7 @@ class MultipleChoiceViewController: UIViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         getTransactionData()
+        
         if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .workingLocation {
             showCloseButton()
         }
@@ -65,7 +66,6 @@ class MultipleChoiceViewController: UIViewController {
         if selectedChoice == nil {
             self.updateChoices()
         }
-
     }
     
    private func getTransactionData() {

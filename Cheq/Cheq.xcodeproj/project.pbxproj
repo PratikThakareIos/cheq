@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
 		1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */; };
+		2A5420FC243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
+		2A5420FD243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
+		2A5420FE243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
 		2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
 		2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
@@ -1335,6 +1338,7 @@
 
 /* Begin PBXFileReference section */
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
+		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
 		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2A72CF682420A9460053C0DD /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		2A72CF6F2420A98E0053C0DD /* CNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNButton.swift; sourceTree = "<group>"; };
@@ -2028,6 +2032,7 @@
 				4FD229032373E9FC00045662 /* Image_Extension.swift */,
 				4F36DD83238B948F00FD74F9 /* ImageView_Extension.swift */,
 				4F2325B3237A133100BF3F21 /* NSLayoutConstraint_Extension.swift */,
+				2A5420FB243DF96F00B52B7C /* Double_Extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -4656,6 +4661,7 @@
 				4F01F62E237E6A5B00268423 /* AuthenticatorViewModel.swift in Sources */,
 				4F01F62F237E6A5B00268423 /* SpacerTableViewCellViewModel.swift in Sources */,
 				BD0E0DEB23F2AC930088BBAE /* DocumentVerifyTableViewCell.swift in Sources */,
+				2A5420FE243DF96F00B52B7C /* Double_Extention.swift in Sources */,
 				4F01F630237E6A5B00268423 /* TableSectionViewModel.swift in Sources */,
 				4F01F632237E6A5B00268423 /* QuestionCoordinatorProtocol.swift in Sources */,
 				4F01F633237E6A5B00268423 /* ForgotPasswordViewModel.swift in Sources */,
@@ -4997,6 +5003,7 @@
 				4FBDDA1C236BC68700EDB1E9 /* AuthenticatorViewModel.swift in Sources */,
 				4FBDDA1D236BC68700EDB1E9 /* SpacerTableViewCellViewModel.swift in Sources */,
 				BD0E0DEA23F2AC930088BBAE /* DocumentVerifyTableViewCell.swift in Sources */,
+				2A5420FD243DF96F00B52B7C /* Double_Extention.swift in Sources */,
 				4FBDDA1E236BC68700EDB1E9 /* TableSectionViewModel.swift in Sources */,
 				4FBDDA1F236BC68700EDB1E9 /* QuestionCoordinatorProtocol.swift in Sources */,
 				4FBDDA23236BC68700EDB1E9 /* ForgotPasswordViewModel.swift in Sources */,
@@ -5469,6 +5476,7 @@
 				4F2E4BA9233B2863001F1BA2 /* CToolbar.swift in Sources */,
 				BD28B998241762C30049D828 /* RecentBorrowingSummary.swift in Sources */,
 				BD3C96232423231100927055 /* ConnectingTobankFalilsViewController.swift in Sources */,
+				2A5420FC243DF96F00B52B7C /* Double_Extention.swift in Sources */,
 				964FA999235288E400B07AD7 /* AmountSelectTableViewCellViewModel.swift in Sources */,
 				9654D484234E9A6300847389 /* IntroductionCoordinatorProtocol.swift in Sources */,
 				96FADD31230E856500AE6CBB /* ServiceEnums.swift in Sources */,

@@ -49,6 +49,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
 
     /// Call setupConfig when viewModel is updated
     override func setupConfig() {
+        
         self.headerSection.backgroundColor = .clear
         self.detailsSection.backgroundColor = .clear
         

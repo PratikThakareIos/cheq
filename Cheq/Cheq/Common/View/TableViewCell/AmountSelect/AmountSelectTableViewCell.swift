@@ -47,7 +47,7 @@ class AmountSelectTableViewCell: CTableViewCell {
             ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
             ViewUtil.shared.circularMask(&self.infoView, radiusBy: .width)
             ViewUtil.shared.circularMask(&self.infoViewInternale, radiusBy: .width)
-            ViewUtil.shared.applyShadow(&self.infoView)
+            //ViewUtil.shared.applyShadow(&self.infoView)
         }
         setupConfig()
     }
@@ -63,14 +63,14 @@ class AmountSelectTableViewCell: CTableViewCell {
         self.backgroundColor = .clear
        
         // loan amount
-        self.infoView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
+        self.infoView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.controlView.backgroundColor = AppConfig.shared.activeTheme.lightGrayScaleColor
         self.loanAmount.font = AppConfig.shared.activeTheme.headerBoldFont
         self.loanAmount.textColor = AppConfig.shared.activeTheme.textColor
-        self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultFont
-        self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.darkGrayColor
-        self.loanAmountCaption.font = AppConfig.shared.activeTheme.defaultFont
-        self.loanAmountCaption.textColor = AppConfig.shared.activeTheme.darkGrayColor
+        self.loanAmountHeader.font = AppConfig.shared.activeTheme.defaultMediumFont
+        self.loanAmountHeader.textColor = AppConfig.shared.activeTheme.lightestGrayColor
+        self.loanAmountCaption.font = AppConfig.shared.activeTheme.defaultMediumFont
+        self.loanAmountCaption.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         self.updateControlButtons()
     }
 
@@ -78,7 +78,6 @@ class AmountSelectTableViewCell: CTableViewCell {
     @IBAction func minusPressed(_ sender: Any) {
         LoggingUtil.shared.cPrint("minusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
-
         amountSelectViewModel.minus()
         self.updateControlButtons()
     }
@@ -99,7 +98,7 @@ class AmountSelectTableViewCell: CTableViewCell {
     /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
          
-         print(AppData.shared.employeeOverview?.eligibleRequirement?.isReviewingPayCycle)
+    print(AppData.shared.employeeOverview?.eligibleRequirement?.isReviewingPayCycle)
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         self.decreaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.minusEnabled : false
         self.increaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.plusEnabled : false

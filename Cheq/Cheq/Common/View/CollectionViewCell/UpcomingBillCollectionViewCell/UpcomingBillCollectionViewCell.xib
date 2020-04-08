@@ -28,14 +28,14 @@
                                 <rect key="frame" x="10" y="10" width="160" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Jc-L6-x1T">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                        <rect key="frame" x="8" y="0.0" width="152" height="160"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66x-Nt-Diu">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="8.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="8.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqz-df-vcd">
-                                                <rect key="frame" x="0.0" y="18.5" width="160" height="32"/>
+                                                <rect key="frame" x="0.0" y="18.5" width="152" height="32"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="large/benefits" translatesAutoresizingMaskIntoConstraints="NO" id="Jfh-tF-lXy">
                                                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -53,25 +53,25 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFc-Qb-1rm" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="60.5" width="160" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="60.5" width="152" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in 5 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqG-8y-joG" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="91" width="160" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="91" width="152" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="$12.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-YR-gjK" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="121.5" width="160" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="121.5" width="152" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="pav-aj-lNW">
-                                                <rect key="frame" x="0.0" y="152" width="160" height="8"/>
+                                                <rect key="frame" x="0.0" y="152" width="152" height="8"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -83,7 +83,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0Jc-L6-x1T" firstAttribute="leading" secondItem="dOU-R9-Lj2" secondAttribute="leading" id="T1b-Ca-mTX"/>
+                                    <constraint firstItem="0Jc-L6-x1T" firstAttribute="leading" secondItem="dOU-R9-Lj2" secondAttribute="leading" constant="8" id="T1b-Ca-mTX"/>
                                     <constraint firstItem="0Jc-L6-x1T" firstAttribute="top" secondItem="dOU-R9-Lj2" secondAttribute="top" id="W2G-a3-ytS"/>
                                     <constraint firstAttribute="bottom" secondItem="0Jc-L6-x1T" secondAttribute="bottom" id="bhE-tG-4E8"/>
                                     <constraint firstAttribute="trailing" secondItem="0Jc-L6-x1T" secondAttribute="trailing" id="zEC-JW-uG2"/>

@@ -165,7 +165,6 @@ extension RegistrationVC {
             }
         }
     }
-    
 }
 
 // MARK: Navigation Methods
@@ -235,8 +234,7 @@ extension RegistrationVC {
             }
             print("substring =\(strSubstring)")
             self.didSelectLinkWithName(strSubstring: strSubstring)
-        }
-        
+        }        
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
     }
     

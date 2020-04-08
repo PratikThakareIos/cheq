@@ -86,12 +86,15 @@ class SpendingCardTableViewCell: CTableViewCell {
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
                
         let vm = self.viewModel as! SpendingCardTableViewCellViewModel
+        
+
+        let balanceDouble = vm.data.allAccountCashBalance ?? 0.0
+        headerLabel.text = "$" + balanceDouble.strWithCommas
+        
         if let startDate = vm.data.payCycleStartDate, let endDate = vm.data.payCycleEndDate, startDate.isEmpty == false, endDate.isEmpty == false {
             
         let strConverted_startDate = convertDateFormater(startDate) ?? startDate
         let strConverted_endDate = convertDateFormater(endDate) ?? endDate
-            
-            
             nextPayCycleLabel.text = "\(strConverted_startDate) - \(strConverted_endDate)"
         } else {
             nextPayCycleLabel.text = ""

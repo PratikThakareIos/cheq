@@ -12,6 +12,4 @@ class AnalyticsViewModel: BaseViewModel {
     override func load(_ complete: @escaping () -> Void) {
         complete()
     }
-
-   
 }

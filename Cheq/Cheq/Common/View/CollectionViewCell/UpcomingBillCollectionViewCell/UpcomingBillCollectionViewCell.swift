@@ -68,7 +68,7 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         
         /// notice that by default viewModel is **CollectionViewCellViewModelProtocol**, so we have to cast to **UpcomingBillCollectionViewCellViewModel** first in order to read the variables we want from **UpcomingBillCollectionViewCellViewModel**
         let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
-        self.merchanLabel.text = vm.data.merchant
+        self.merchanLabel.text = vm.data._description //vm.data.merchant //manish
         self.remainingTimeLabel.text = String("in \(vm.data.daysToDueDate ?? -1) days")
         self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
         

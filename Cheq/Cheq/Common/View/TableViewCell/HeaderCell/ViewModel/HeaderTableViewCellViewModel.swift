@@ -19,7 +19,7 @@ enum HeaderTableViewCellTag: Int {
 enum Header: String {
     case activity = "Activity'"
     case recentActivity = "Recent Activity"
-    case upcomingBills = "Upcoming bill"
+    case upcomingBills = "Upcoming bills"
     case moneySpent = "Money spent"
 }
 

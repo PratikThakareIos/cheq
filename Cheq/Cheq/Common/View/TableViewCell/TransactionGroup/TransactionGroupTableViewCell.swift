@@ -61,7 +61,11 @@ class TransactionGroupTableViewCell: CTableViewCell {
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
         self.categoryTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
-        self.categoryAmount.text = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
+        
+        var amountStr = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
+        amountStr = amountStr.replacingOccurrences(of: "-", with: "")
+        self.categoryAmount.text = amountStr
+        
         self.categoryAmount.font = AppConfig.shared.activeTheme.mediumMediumFont
         let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
         let iconName = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)

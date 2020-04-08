@@ -25,6 +25,7 @@ class WebViewController: UIViewController {
         reloadUrl()
         activeTimestamp()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
          super.viewWillDisappear(animated)
           self.hideNavBar()
@@ -50,8 +51,7 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("webView didFinish navigation")
         AppConfig.shared.hideSpinner()
-    }
-    
+    }    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         print("webView didFail navigation")
         AppConfig.shared.hideSpinner()

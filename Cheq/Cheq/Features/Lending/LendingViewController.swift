@@ -119,8 +119,7 @@ extension LendingViewController {
                 CompleteDetailsTableViewCellViewModel.turnOnlocation = false
                 showMessage("No time sheets yet", completion: nil)
             }
-       }
-        
+       }        
     }
     
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
@@ -135,6 +134,7 @@ extension LendingViewController {
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
+                    print("\n\nLending view controller = \(overview)")
                     self.renderLending(overview)
                 }
             }.catch { err in
@@ -184,7 +184,6 @@ extension LendingViewController {
                 showMessage("Please select loan amount", completion: nil)
                 return
             }
-            
             AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
         }
     }

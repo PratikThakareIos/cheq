@@ -124,12 +124,10 @@ class EmailVerificationViewController: UIViewController {
         
         if let err = self.viewModel.validate() {
             if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat || err == VerificationValidationError.allInputEmpty ){
-                 
                     showInvalidPasswordError(err) {
                         //self.codeTextField.text = ""
                         self.newPasswordField.text = ""
                     }
-                
             }else{
                 showError(err) {
                     //self.codeTextField.text = ""
@@ -138,8 +136,7 @@ class EmailVerificationViewController: UIViewController {
             }
             return
         }
-        
-        
+                
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
             AppConfig.shared.hideSpinner {

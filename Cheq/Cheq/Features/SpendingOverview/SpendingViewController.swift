@@ -83,6 +83,7 @@ extension SpendingViewController {
         CheqAPIManager.shared.spendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
+                    print("spending view controller = \(overview)")
                     self.renderSpending(overview)
                 }
             }.catch { err in

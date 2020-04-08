@@ -65,8 +65,20 @@ class TransactionTableViewCell: CTableViewCell {
         self.iconImageContainerWidth.constant = vm.hideIcon ? 0 : AppConfig.shared.activeTheme.xlPadding
         self.transactionTitle.text = vm.data._description
         self.transactionTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
-        self.transactionAmount.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+        
+        
+        var strAmount = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+        if (strAmount.contains("-")){
+            strAmount = strAmount.replacingOccurrences(of: "-", with: "")
+            strAmount = "-" + strAmount
+            self.transactionAmount.textColor = AppConfig.shared.activeTheme.textColor
+        }else{
+            self.transactionAmount.textColor = UIColor(hex: "00B662")
+        }
+        
+        self.transactionAmount.text = strAmount
         self.transactionAmount.font = AppConfig.shared.activeTheme.mediumMediumFont
+        
         self.transactionDate.text = vm.data.date
         self.transactionDate.font = AppConfig.shared.activeTheme.defaultMediumFont
         self.transactionDate.textColor = AppConfig.shared.activeTheme.lightGrayColor

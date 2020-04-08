@@ -304,7 +304,6 @@ extension AppThemeProtocol {
     var extraLargeFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0)} }
     
     
- 
 //    // MARK: medium fonts
 //    var smallMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
 //    var defaultMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
