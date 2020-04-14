@@ -73,8 +73,6 @@ extension SpendingViewModel {
             section.rows.append(spacer)
             section.rows.append(spacer)
         }
-        
-        
     }
 }
 

@@ -62,7 +62,8 @@ class TransactionGroupTableViewCell: CTableViewCell {
         self.categoryTitle.text = vm.data.categoryTitle
         self.categoryTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
         
-        var amountStr = FormatterUtil.shared.currencyFormat(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
+
+        var amountStr = FormatterUtil.shared.currencyFormatWithComma(vm.data.categoryAmount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
         amountStr = amountStr.replacingOccurrences(of: "-", with: "")
         self.categoryAmount.text = amountStr
         

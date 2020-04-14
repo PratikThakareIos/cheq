@@ -67,7 +67,8 @@ class TransactionTableViewCell: CTableViewCell {
         self.transactionTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
         
         
-        var strAmount = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+        var strAmount = FormatterUtil.shared.currencyFormatWithComma(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+        
         if (strAmount.contains("-")){
             strAmount = strAmount.replacingOccurrences(of: "-", with: "")
             strAmount = "-" + strAmount

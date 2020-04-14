@@ -16,8 +16,7 @@ class SpendingCategoriesViewModel: BaseTableVCViewModel {
     }
     
     func render(_ spendingCategories: GetSpendingCategoryResponse) {
-        
-        
+                
         clearSectionIfNeeded()
         var section = TableSectionViewModel()
         categoryMonthlyStats(spendingCategories.monthAmountStats, section: &section)

@@ -33,8 +33,7 @@ class IntroductionViewController: UIViewController {
         registerObservables()
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
-        }
-        
+        }        
 //        autoSetupForAuthTokenIfNotLoggedIn()
     }
     
@@ -166,7 +165,6 @@ class IntroductionViewController: UIViewController {
                     self.showError(err, completion: nil)
                 }
             }
-       
         case .hasOverdueLoans:
             break
         case .salaryInDifferentBank:
@@ -196,7 +194,6 @@ class IntroductionViewController: UIViewController {
             }else{
                 AppNav.shared.pushToIntroduction(.notification, viewController: self)
             }
-           
         case .notification:
             AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
         case .verifyIdentity:
@@ -214,7 +211,7 @@ class IntroductionViewController: UIViewController {
         case .selectYourSalary:
             break
         case .payCycleStopped:
-                       break
+            break
         }
     }
 }

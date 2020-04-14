@@ -51,9 +51,7 @@ class SpendingViewController: CTableViewController {
     }
     
     func registerObservables() {
-        
         setupKeyboardHandling()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(spendingOverview(_:)), name: NSNotification.Name(UINotificationEvent.spendingOverviuew.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
@@ -89,7 +87,7 @@ extension SpendingViewController {
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err) { }
-                }
+            }
         }
     }
     

@@ -76,6 +76,7 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     /// Handling the minus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func minusPressed(_ sender: Any) {
+        
         LoggingUtil.shared.cPrint("minusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         amountSelectViewModel.minus()
@@ -84,6 +85,7 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     /// Handling the plus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func plusPressed(_ sender: Any) {
+        
         LoggingUtil.shared.cPrint("plusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         amountSelectViewModel.plus()
@@ -91,14 +93,15 @@ class AmountSelectTableViewCell: CTableViewCell {
     }
 
     @IBAction func intercom() {
+        
         LoggingUtil.shared.cPrint("present intercom")
         NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
     }
     
     /// Text is faded out and button is disabled, when user can't further change the amount for a certain direction. **UpdateControlButtons** handles the checking logics for this.
     func updateControlButtons() {
-         
-    print(AppData.shared.employeeOverview?.eligibleRequirement?.isReviewingPayCycle)
+        
+        print(AppData.shared.employeeOverview?.eligibleRequirement?.isReviewingPayCycle)
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         self.decreaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.minusEnabled : false
         self.increaseLoanAmouontButton.isEnabled = AppData.shared.employeeOverview?.eligibleRequirement?.hasEmploymentDetail ?? false ? amountSelectViewModel.plusEnabled : false

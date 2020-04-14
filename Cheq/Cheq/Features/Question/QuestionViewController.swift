@@ -633,8 +633,7 @@ extension QuestionViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    
+        
     func populatePlaceHolderNormalTextField() {
         if self.viewModel.coordinator.numOfTextFields == 4 {
             textField1.placeholder = self.viewModel.placeHolder(0)
@@ -670,20 +669,19 @@ extension QuestionViewController {
             textField3.isHidden = false
             textField4.isHidden = false
             searchTextField.isHidden = true
-        }
-        else if self.viewModel.coordinator.numOfTextFields == 3 {
+        }else if self.viewModel.coordinator.numOfTextFields == 3 {
             textField1.isHidden = false
             textField2.isHidden = false
             textField3.isHidden = false
             textField4.isHidden = true
             searchTextField.isHidden = true
-        } else if self.viewModel.coordinator.numOfTextFields == 2 {
+        }else if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.isHidden = false
             textField2.isHidden = false
             textField3.isHidden = true
             textField4.isHidden = true
             searchTextField.isHidden = true
-        } else {
+        }else {
             textField1.isHidden = false //manish
             textField2.isHidden = true
             textField3.isHidden = true
@@ -701,9 +699,7 @@ extension QuestionViewController {
         textField3.setShadow()
         textField4.setShadow()
         searchTextField.setShadow()
-        
-        
-        
+
         if !(viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName){
             if !textField1.isHidden {
                 textField1.becomeFirstResponder()
