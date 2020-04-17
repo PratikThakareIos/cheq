@@ -177,7 +177,7 @@ class CheqAPIManager {
         }
     }
 
-    func getUserDetails()-> Promise<AuthUser> {
+    func getUserDetails()-> Promise<AuthUser> {        
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser()
             .done { authUser in
@@ -228,7 +228,6 @@ class CheqAPIManager {
     }
     
     func putUserDetails(_ req: PutUserDetailRequest)->Promise<AuthUser> {
-        
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser()
             .done { authUser in
@@ -256,7 +255,6 @@ class CheqAPIManager {
     }
     
     func putKycCheck()->Promise<Void> {
-        
         return Promise<Void>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let oauthToken = authUser.authToken() ?? ""

@@ -23,15 +23,13 @@ class TermsAndConditionsViewController: UIViewController {
     }
     
     @IBAction func acceptedBtnClick(_ sender: Any) {
-        
         AppNav.shared.dismiss(self)
         NotificationUtil.shared.notify(UINotificationEvent.agreemntAccepted.rawValue, key: "", value: "")
-        
     }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == webView {
             print("Scrolled")
         }
     }
-
 }

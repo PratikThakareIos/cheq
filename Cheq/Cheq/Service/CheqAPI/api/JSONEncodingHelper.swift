@@ -36,8 +36,6 @@ open class JSONEncodingHelper {
                 return nil
             }
         }
-
         return params
     }
-    
 }

@@ -18,7 +18,5 @@ public struct BorrowOverview: Codable {
         self.availableCashoutAmount = availableCashoutAmount
         self.activities = activities
     }
-
-
 }
 

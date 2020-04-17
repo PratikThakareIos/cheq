@@ -100,7 +100,6 @@ class LoginViewController: RegistrationViewController {
                     }
                     
                     let financialAccounts: [FinancialAccountModel] = accounts
-                    
                     if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account

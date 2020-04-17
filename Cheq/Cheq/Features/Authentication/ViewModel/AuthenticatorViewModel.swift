@@ -26,7 +26,8 @@ enum links: String {
     case resendForgot = "http://app.resendCode.forgot.cheq.com.au"
     case resendCode = "http://app.resendCode.cheq.com.au"
     case email = "http://app.email.cheq.com.au"
-    case helpAndSupport = "http://app.helpAndSupport.cheq.com.au"
+    case helpAndSupport = "https://help.cheq.com.au/en/"
+    //http://app.helpAndSupport.cheq.com.au"
     case appSetting = "http://app.setting.cheq.com.au"
 }
 

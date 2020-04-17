@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 public struct CategoryAmountStatResponse: Codable {
 
     public enum CategoryCode: String, Codable { 
@@ -32,6 +31,7 @@ public struct CategoryAmountStatResponse: Codable {
         case travel = "Travel"
         case workAndEducation = "WorkAndEducation"
     }
+    
     public var categoryId: Int?
     public var categoryTitle: String?
     public var categoryCode: CategoryCode?

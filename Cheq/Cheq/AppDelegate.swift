@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                                                     isBeta: true, serviceProvider: .EWISE);
                         
         MoneysoftApi.configure(config);
-        
         // keep a reference for re-use
         AppData.shared.application = application
         

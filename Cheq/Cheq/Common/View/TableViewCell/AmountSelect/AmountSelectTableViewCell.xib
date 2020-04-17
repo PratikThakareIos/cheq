@@ -198,7 +198,7 @@ withdrawal</string>
                 <outlet property="loanAmountCaption" destination="A3h-en-91H" id="PQ6-Yx-Fw7"/>
                 <outlet property="loanAmountHeader" destination="oEN-Tc-XUL" id="kax-3C-CO1"/>
             </connections>
-            <point key="canvasLocation" x="182.60869565217394" y="137.94642857142856"/>
+            <point key="canvasLocation" x="182.60869565217394" y="137.27678571428569"/>
         </tableViewCell>
     </objects>
     <resources>

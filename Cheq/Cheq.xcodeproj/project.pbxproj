@@ -12,6 +12,9 @@
 		2A5420FC243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FD243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FE243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
+		2A5C74D4244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
+		2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
+		2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
 		2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
 		2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
@@ -1339,6 +1342,7 @@
 /* Begin PBXFileReference section */
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
+		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
 		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2A72CF682420A9460053C0DD /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		2A72CF6F2420A98E0053C0DD /* CNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNButton.swift; sourceTree = "<group>"; };
@@ -1854,6 +1858,7 @@
 		2A72CF8A2420ADB80053C0DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
 				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A72CF8C2420ADB80053C0DD /* Fonts */,
 			);
@@ -4865,6 +4870,7 @@
 				BD28B89D241762AF0049D828 /* HealthCheckAPI.swift in Sources */,
 				4F01F6D6237E6A5B00268423 /* CGradientView.swift in Sources */,
 				4F01F6D7237E6A5B00268423 /* MobileNumberCoordinator.swift in Sources */,
+				2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */,
 				4F01F6D8237E6A5B00268423 /* CPasswordToggleButton.swift in Sources */,
 				4F01F77E23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */,
 				BD28B922241762C30049D828 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
@@ -5207,6 +5213,7 @@
 				BD28B89C241762AF0049D828 /* HealthCheckAPI.swift in Sources */,
 				4FBDDAB1236BC68700EDB1E9 /* MobileNumberCoordinator.swift in Sources */,
 				4F2323DB2374D52500BF3F21 /* CGradientView.swift in Sources */,
+				2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */,
 				4FBDDAB2236BC68700EDB1E9 /* CPasswordToggleButton.swift in Sources */,
 				4F01F77D23823EB600268423 /* CheqAPIManager_Budgeting.swift in Sources */,
 				BD28B921241762C30049D828 /* UserFinancialAccountsLinkingResponse.swift in Sources */,
@@ -5549,6 +5556,7 @@
 				9660718E23003FA700F0D5CC /* CBATheme.swift in Sources */,
 				2A72CF762420A9A20053C0DD /* CNTextField.swift in Sources */,
 				4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */,
+				2A5C74D4244861FD0031B172 /* Double_Extention.swift in Sources */,
 				4FD229042373E9FC00045662 /* Image_Extension.swift in Sources */,
 				9FB5921A23EC250D00B7DB0F /* HomeAddressCoordinator.swift in Sources */,
 				BD28B8512417629A0049D828 /* Extensions.swift in Sources */,

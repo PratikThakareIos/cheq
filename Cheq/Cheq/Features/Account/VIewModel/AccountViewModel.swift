@@ -13,7 +13,7 @@ enum AccountInfo: String {
     case email = "Email"
     case mobile = "Mobile"
     case helpAndSupport = "Help & Support"
-    case privacyPolicy = "Policy"
+    case privacyPolicy = "Privacy Policy"
     case termsAndConditions = "Terms of Use"
     case appSetting = "Settings"
     case logout = "Log out"
@@ -90,13 +90,13 @@ class AccountViewModel: BaseTableVCViewModel {
         section.rows.append(logout)
         section.rows.append(spacer)
         
-        let version = InfoNoteTableViewCellViewModel()
-        let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        version.data = "Version \(ver)"
-        version.showIcon = false
-        version.textAlignment = .center
-        section.rows.append(version)
-        section.rows.append(spacer)
+//        let version = InfoNoteTableViewCellViewModel()
+//        let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+//        version.data = "Version \(ver)"
+//        version.showIcon = false
+//        version.textAlignment = .center
+//        section.rows.append(version)
+//        section.rows.append(spacer)
         
         self.sections = [section]
         

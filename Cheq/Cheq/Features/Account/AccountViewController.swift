@@ -10,6 +10,8 @@ import UIKit
 
 class AccountViewController: CTableViewController {
     
+    @IBOutlet weak var lblVersion: CLabel!
+    
     override func registerCells() {
         let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel(), AvatarTableViewCellViewModel(), AccountInfoTableViewCellViewModel(), LinkTableViewCellViewModel(), InfoNoteTableViewCellViewModel()]
         for vm: TableViewCellViewModelProtocol in cellModels {
@@ -40,7 +42,13 @@ class AccountViewController: CTableViewController {
     }
     
     func setupUI() {
+        let ver = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        lblVersion.text = "Version \(ver)"
+        lblVersion.font = AppConfig.shared.activeTheme.defaultFont
+        lblVersion.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        
         hideBackTitle()
+        showNavBar()
         self.title = ScreenName.accountInfo.rawValue
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

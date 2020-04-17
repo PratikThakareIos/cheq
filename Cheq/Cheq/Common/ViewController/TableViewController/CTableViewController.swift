@@ -104,10 +104,10 @@ extension CTableViewController {
             return 
         }
         
-        if link == links.helpAndSupport.rawValue {
-            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
-            return
-        }
+//        if link == links.helpAndSupport.rawValue {
+//            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+//            return
+//        }
         
         guard let url = URL(string: link) else { return }
         AppNav.shared.pushToInAppWeb(url, viewController: self)

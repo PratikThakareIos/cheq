@@ -70,7 +70,6 @@ class DynamicFormViewController: UIViewController {
        }
 }
  
- 
 
  extension DynamicFormViewController {
     func buildInputSubview(_ input: DynamicFormInput)-> UIView {

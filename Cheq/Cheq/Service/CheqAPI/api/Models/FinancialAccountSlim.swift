@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 public struct FinancialAccountSlim: Codable {
 
     public var financialInstitutionName: String?
@@ -30,7 +29,5 @@ public struct FinancialAccountSlim: Codable {
         self.assetType = assetType
         self.isSalaryAccount = isSalaryAccount
     }
-
-
 }
 

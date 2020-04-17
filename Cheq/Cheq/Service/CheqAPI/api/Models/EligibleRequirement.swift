@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 public struct EligibleRequirement: Codable {
 
     public enum WorkingLocation: String, Codable { 
@@ -50,7 +49,6 @@ public struct EligibleRequirement: Codable {
         self.kycStatus = kycStatus
         self.proofOfAddressStatus = proofOfAddressStatus
     }
-
 
 }
 

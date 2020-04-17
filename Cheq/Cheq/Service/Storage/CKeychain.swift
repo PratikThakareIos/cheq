@@ -9,6 +9,12 @@
 import Foundation
 import SwiftKeychainWrapper
 
+/*
+One of the most important security elements for Apple developers is the iOS Keychain, which is a specialized database for storing
+metadata and sensitive information. Using Keychain is the best practice for storing small pieces of data that are critical to your app
+such as secrets and passwords.
+*/
+
 enum CKey: String {
 
 //    case msgRegToken = "msgRegToken"

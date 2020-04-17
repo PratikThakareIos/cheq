@@ -60,8 +60,7 @@ extension CheqAPIManager {
     }
     
     func lendingOverview()->Promise<GetLendingOverviewResponse> {
-        
-        
+    
         return Promise<GetLendingOverviewResponse>() { resolver in
             #if DEMO
             let lendingOverview = TestUtil.shared.testLendingOverview()
