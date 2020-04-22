@@ -86,7 +86,7 @@ extension LendingViewController {
             // verification flow
             AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
         case .workVerify:
-              AppData.shared.completingDetailsForLending = true
+            AppData.shared.completingDetailsForLending = true
             print("verify work details")
             //Needs to pass the screen
         }
@@ -134,7 +134,7 @@ extension LendingViewController {
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
-                    print("\n\nLending view controller = \(overview)")
+                    //print("\n\nLending view controller = \(overview)")
                     self.renderLending(overview)
                 }
             }.catch { err in
@@ -167,13 +167,12 @@ extension LendingViewController {
     
     func kycHasCompleted(_ status: EligibleRequirement.KycStatus)-> Bool {
         switch status {
-        case .createdApplicant, .inProcessing, .notStarted, .blocked: return false
-        default: return true
+            case .createdApplicant, .inProcessing, .notStarted, .blocked: return false
+            default: return true
         }
     }
   
     @objc func button(_ notification: NSNotification) {
-        
         
         guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
     

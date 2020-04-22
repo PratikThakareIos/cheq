@@ -202,6 +202,22 @@ class CheqAPIManager {
 
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                         var updatedAuthUser = authUser
+                        
+                        let viewModel = QuestionViewModel()
+                        
+                        //Manish
+                        if let userDetail =  resp.userDetail {
+                            viewModel.save(QuestionField.firstname.rawValue, value: userDetail.firstName ?? "")
+                            viewModel.save(QuestionField.lastname.rawValue, value: userDetail.lastName ?? "")
+                            viewModel.save(QuestionField.dateOfBirth.rawValue, value: userDetail.dateOfBirth ?? "")
+                            viewModel.save(QuestionField.contactDetails.rawValue, value: userDetail.mobile ?? "")
+                            viewModel.save(QuestionField.residentialAddress.rawValue, value: userDetail.residentialAddress ?? "")
+                        }
+                        
+                        viewModel.save(QuestionField.employerName.rawValue, value: resp.employer?.employerName ?? "")
+                        viewModel.save(QuestionField.employerAddress.rawValue, value: resp.employer?.address ?? "")
+
+                        
                         updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                         let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
                         updatedAuthUser.msCredential[.msPassword] = password
@@ -239,6 +255,7 @@ class CheqAPIManager {
                     if let error = err { resolver.reject(error); return }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                     var updatedAuthUser = authUser
+                    
                     updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
                     let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
                     updatedAuthUser.msCredential[.msPassword] = password

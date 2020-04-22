@@ -46,7 +46,6 @@ class AccountViewController: CTableViewController {
         lblVersion.text = "Version \(ver)"
         lblVersion.font = AppConfig.shared.activeTheme.defaultFont
         lblVersion.textColor = AppConfig.shared.activeTheme.lightGrayColor
-        
         hideBackTitle()
         showNavBar()
         self.title = ScreenName.accountInfo.rawValue

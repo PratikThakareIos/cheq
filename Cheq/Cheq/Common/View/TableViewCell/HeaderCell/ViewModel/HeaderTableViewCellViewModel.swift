@@ -17,7 +17,7 @@ enum HeaderTableViewCellTag: Int {
 
 /// enums for Header title, update this enum when we need new headers for HeaderTableViewCell
 enum Header: String {
-    case activity = "Activity'"
+    case activity = "Activity"
     case recentActivity = "Recent Activity"
     case upcomingBills = "Upcoming bills"
     case moneySpent = "Money spent"

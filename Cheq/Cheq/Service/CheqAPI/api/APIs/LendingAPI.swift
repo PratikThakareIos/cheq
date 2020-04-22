@@ -46,8 +46,10 @@ open class LendingAPI {
      - returns: RequestBuilder<GetLoanPreviewResponse> 
      */
     open class func getBorrowPreviewWithRequestBuilder(amount: Double) -> RequestBuilder<GetLoanPreviewResponse> {
+        
+        //amount * integer($int32) required on server
         var path = "/v1/Lending/borrow/preview/{amount}"
-        let amountPreEscape = "\(amount)"
+        let amountPreEscape = "\(Int(amount))"
         let amountPostEscape = amountPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{amount}", with: amountPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path

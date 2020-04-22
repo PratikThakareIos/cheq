@@ -16,6 +16,8 @@ class PreviewLoanViewController: CTableViewController {
         self.viewModel = PreviewLoanViewModel()
         setupUI()
         setupDelegate()
+        showNavBar()
+        showBackButton()
     }
     
     override func registerCells() {
@@ -23,7 +25,7 @@ class PreviewLoanViewController: CTableViewController {
                for vm: TableViewCellViewModelProtocol in cellModels {
                    let nib = UINib(nibName: vm.identifier, bundle: nil)
                    self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
-               }
+          }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +76,7 @@ class PreviewLoanViewController: CTableViewController {
                         AppNav.shared.dismiss(self)
                     })
                 }
-                }.catch { err in
+            }.catch { err in
                     AppConfig.shared.hideSpinner {
                         self.showError(err) {
                             NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")

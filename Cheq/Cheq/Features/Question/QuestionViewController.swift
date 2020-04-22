@@ -52,8 +52,20 @@ class QuestionViewController: UIViewController {
         self.updateKeyboardViews()
         
         if viewModel.coordinator.type == .legalName {
-            hideBackButton()
+            let firstname = viewModel.fieldValue(.firstname)
+            let lastname = viewModel.fieldValue(.lastname)
+            if (firstname.count == 0){
+                hideBackButton() //is from registration then hide back button
+            }else{
+                //is from lending screen - verify details
+               
+                showCloseButton()
+                textField1.text = firstname
+                textField2.text = lastname
+            }
+            
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .verifyHomeAddress || viewModel.coordinator.type == .verifyName{
+            showNavBar()
             showBackButton()
             
         }else if viewModel.coordinator.type == .bankAccount {
@@ -65,6 +77,7 @@ class QuestionViewController: UIViewController {
         //            showCloseButton()
         //        }
 
+        
     }
     
     
@@ -166,7 +179,7 @@ class QuestionViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         //self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
-         self.questionDescription.isHidden = true
+        self.questionDescription.isHidden = true
         self.nextButton.createShadowLayer()
         self.hideBackTitle()
         self.showNormalTextFields()
@@ -213,8 +226,6 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
-        
-         
     }
     
     func updateKeyboardViews() {
@@ -500,8 +511,8 @@ class QuestionViewController: UIViewController {
                     // self.showError(err, completion: nil)
                 }
             }
-            
         // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
+            
         case .verifyName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
@@ -648,8 +659,13 @@ extension QuestionViewController {
         } else if self.viewModel.coordinator.numOfTextFields == 2 {
             textField1.placeholder = self.viewModel.placeHolder(0)
             textField2.placeholder = self.viewModel.placeHolder(1)
+            
             //manish
-            self.hideNavBar()
+            let firstname = viewModel.fieldValue(.firstname)
+            if (firstname.count == 0){
+                self.hideNavBar() //is from registration then hide back button
+            }
+        
         } else {
            textField1.placeholder = self.viewModel.placeHolder(0)
         }

@@ -64,11 +64,12 @@ extension LendingViewModel {
     
     func addLoanSetting (_ lendingOverview: GetLendingOverviewResponse,  section: inout TableSectionViewModel) {
         // loan control
-        if let loanSetting = lendingOverview.loanSetting {
+        if let loanSetting = lendingOverview.loanSetting, let borrowOverview = lendingOverview.borrowOverview {
             let amountSelect = AmountSelectTableViewCellViewModel()
-            
+            let maxLimit = borrowOverview.availableCashoutAmount ?? 0 //loanSetting.maximumAmount ?? 200
             amountSelect.selectedAmountIndex = 0
-            amountSelect.buildAvaialbleToWithDraw(low: loanSetting.minimalAmount ?? 100, limit: loanSetting.maximumAmount ?? 200, increment: loanSetting.incrementalAmount ?? 100)
+            amountSelect.buildAvaialbleToWithDraw(low: loanSetting.minimalAmount ?? 100, limit: Int(maxLimit), increment: loanSetting.incrementalAmount ?? 100)
+            
             section.rows.append(amountSelect)
         }
     }
@@ -111,8 +112,9 @@ extension LendingViewModel {
         let kycCompleted = isKycStatusSuccess(kycStatus) || isKycStatusFailed(kycStatus)
         
         print(lendingOverview)
+       
         //Check all status
-        if hasEmploymentDetail == true,hasBankDetails == true, kycCompleted {
+        if hasEmploymentDetail == true, hasBankDetails == true, kycCompleted {
             return
         }
         
@@ -128,13 +130,13 @@ extension LendingViewModel {
                 completeDetailsForWork.expanded = false
                 completeDetailsViewModels.append(completeDetailsForWork)
             }else if (!(eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
-               completeDetailsForWork.completionState = .inprogress
-               completeDetailsForWork.expanded = true
-               completeDetailsViewModels.append(completeDetailsForWork)
+                completeDetailsForWork.completionState = .inprogress
+                completeDetailsForWork.expanded = true
+                completeDetailsViewModels.append(completeDetailsForWork)
             }else if ((eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
-            completeDetailsForWork.completionState = .inprogress
-            completeDetailsForWork.expanded = true
-            completeDetailsViewModels.append(completeDetailsForWork)
+                completeDetailsForWork.completionState = .inprogress
+                completeDetailsForWork.expanded = true
+                completeDetailsViewModels.append(completeDetailsForWork)
             }
             else {
                 completeDetailsForWork.completionState = .done
@@ -150,7 +152,7 @@ extension LendingViewModel {
             completeDetailsViewModels.append(completeDetailsForWork)
         }
         
-//
+
 //          /// **Step-> 2** Verify that you have worked*
 //        if hasEmploymentDetail {
 //            print(eligibleRequirement.userAction)

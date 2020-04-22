@@ -317,8 +317,8 @@ extension MultipleChoiceViewController {
      }
     
      func incomeVerification(){
-        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-        print(AppData.shared.employeePaycycle?.count)
+            print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+            print(AppData.shared.employeePaycycle?.count)
             if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
                showTransactions()
             }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {

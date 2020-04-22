@@ -138,7 +138,6 @@ extension FirebaseAuthManager {
         .then { authUser in
             return self.retrieveAuthToken(authUser)
         }.then { authUser in
-            
             return self.postNotificationToken(authUser)
         }
     }

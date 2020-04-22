@@ -39,13 +39,11 @@ extension CheqAPIManager {
             }
             #endif
         }
-        
     }
     
     func putBudgets(_ req: PutUserBudgetsRequest)->Promise<Void> {
         
-        return Promise<Void>() { resolver in
-            
+        return Promise<Void>() { resolver in            
             #if DEMO
             resolver.fulfill(())
             #else
