@@ -60,5 +60,6 @@ class TransferCardTableViewCell: CTableViewCell {
         let transferImage = vm.imageIcon()
         self.transferIcon.image = UIImage(named: transferImage)
         self.descriptionLabel.text = vm.descriptionText()
+        self.descriptionLabel.font = AppConfig.shared.activeTheme.mediumFont
     }
 }

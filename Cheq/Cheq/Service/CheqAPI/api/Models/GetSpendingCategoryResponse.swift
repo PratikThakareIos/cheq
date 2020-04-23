@@ -18,7 +18,5 @@ public struct GetSpendingCategoryResponse: Codable {
         self.monthAmountStats = monthAmountStats
         self.categoryAmountStats = categoryAmountStats
     }
-
-
 }
 

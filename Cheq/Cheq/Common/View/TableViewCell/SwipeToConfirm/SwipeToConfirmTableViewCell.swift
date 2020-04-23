@@ -73,15 +73,23 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         self.grayView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = .clear
         self.backgroundTextContainerView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
-        self.footerText.textColor = AppConfig.shared.activeTheme.lightestGrayColor
+       
         self.backgroundText.text = vm.textInBackground
         self.backgroundText.textColor = AppConfig.shared.activeTheme.altTextColor
+        self.backgroundText.font = AppConfig.shared.activeTheme.smallBoldFont
+        
+        self.footerText.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         self.footerText.text = vm.footerText
+        self.footerText.font = AppConfig.shared.activeTheme.smallFont
+        
         self.agreementAcceptanceLabel.text = vm.headerText
+        self.agreementAcceptanceLabel.font = AppConfig.shared.activeTheme.defaultBoldFont
         self.agreementAcceptanceLabel.numberOfLines = 0
+        
         self.draggableText.text = vm.buttonTitle
-        self.draggableText.font = AppConfig.shared.activeTheme.mediumFont
+        self.draggableText.font = AppConfig.shared.activeTheme.mediumBoldFont
         self.draggable.backgroundColor = AppConfig.shared.activeTheme.altTextColor
+        
         AppConfig.shared.activeTheme.cardStyling(self.backgroundTextContainerView, addBorder: false)
         AppConfig.shared.activeTheme.cardStyling(self.draggable, addBorder: false)
         
@@ -100,6 +108,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
             AppData.shared.acceptedAgreement = false
         }
     }
+    
     @objc func agreemntAccepted(_ notification: NSNotification) {
         
         self.grayView.isHidden = true

@@ -27,7 +27,7 @@ class TransferCardTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     /// Description retrieval method, **CashDirection** determines the text
     func descriptionText()-> String {
-        let text = self.direction == .credit ? "Will be deposited to your account" : "Will be deducted from your account"
+        let text = self.direction == .credit ? "Will be transferred to your account" : "Will be deducted from your account on"
         return text
     }
     
@@ -40,3 +40,10 @@ class TransferCardTableViewCellViewModel: TableViewCellViewModelProtocol {
         return iconName
     }
 }
+
+
+//* funds clearance time will depend on your bank
+
+
+//Will be deducted from your account on
+//Mon, 23 Sep

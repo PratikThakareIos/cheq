@@ -19,24 +19,23 @@ extension PreviewLoanViewModel {
         card.direction = .credit
         card.dateString = loanPreview.cashoutDate ?? ""
         card.feeAmountText = ""
-        let amount = Double(loanPreview.amount ?? 0.0)
+        let amount = Int(loanPreview.amount ?? 0)
         card.transferAmount = "$\(amount)"
         section.rows.append(card)
-        
     }
     
     func addRepaymemtCard (_ loanPreview: GetLoanPreviewResponse, section: inout TableSectionViewModel) {
         
         let card = TransferCardTableViewCellViewModel()
         card.direction = .debit
+        var amount = Int(loanPreview.amount ?? 0)
         card.dateString = loanPreview.repaymentDate ?? ""
         if let fee = loanPreview.fee {
-            card.feeAmountText = "+ $\(fee) fee"
+            card.feeAmountText = "Incl. $\(fee) fee"
+            amount = amount + Int(fee)
         } else {
             card.feeAmountText = ""
         }
-        
-        let amount = Double(loanPreview.amount ?? 0.0)
         card.transferAmount = "$\(amount)"
         section.rows.append(card)
     }

@@ -16,8 +16,9 @@ class PreviewLoanViewController: CTableViewController {
         self.viewModel = PreviewLoanViewModel()
         setupUI()
         setupDelegate()
+        self.title = "Cash out summary "
         showNavBar()
-        showBackButton()
+        showCloseButton()
     }
     
     override func registerCells() {
@@ -83,7 +84,6 @@ class PreviewLoanViewController: CTableViewController {
                         }
                     }
             }
-            
         }, cancelCb: {
             NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
         })
@@ -98,13 +98,16 @@ extension PreviewLoanViewController {
         CheqAPIManager.shared.loanPreview().done{ loanPreview in
             AppData.shared.loanFee = loanPreview.fee ?? 0.0
             AppConfig.shared.hideSpinner {
+                
+                print("\n\n>>loanPreview = \(loanPreview)")
+                
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()
                 LoggingUtil.shared.cPrint("build view model here...")
                 
                 guard let vm = self.viewModel as?  PreviewLoanViewModel else { return }
                 section.rows.append(SpacerTableViewCellViewModel())
-//        print(loanPreview)
+
                 vm.addTransferToCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
                 vm.addRepaymemtCard(loanPreview, section: &section)
