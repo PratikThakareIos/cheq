@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+
+
 open class UsersAPI {
     /**
 
@@ -75,7 +77,8 @@ open class UsersAPI {
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "NSW"
+    "state" : "NSW",
+    "unitApartmentNumber" : "unitApartmentNumber"
   },
   "employer" : {
     "address" : "address",
@@ -101,6 +104,43 @@ open class UsersAPI {
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<GetUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getUserActions(completion: @escaping ((_ data: GetUserActionResponse?,_ error: Error?) -> Void)) {
+        getUserActionsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Users/actions
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "userAction" : "None",
+  "link" : "link",
+  "detail" : "detail",
+  "title" : "title"
+}}]
+
+     - returns: RequestBuilder<GetUserActionResponse> 
+     */
+    open class func getUserActionsWithRequestBuilder() -> RequestBuilder<GetUserActionResponse> {
+        let path = "/v1/Users/actions"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetUserActionResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -183,8 +223,8 @@ open class UsersAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putKycCheckCheck(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        putKycCheckCheckWithRequestBuilder().execute { (response, error) -> Void in
+    open class func putKycCheck(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putKycCheckWithRequestBuilder().execute { (response, error) -> Void in
             if error == nil {
                 completion((), error)
             } else {
@@ -202,7 +242,7 @@ open class UsersAPI {
 
      - returns: RequestBuilder<Void> 
      */
-    open class func putKycCheckCheckWithRequestBuilder() -> RequestBuilder<Void> {
+    open class func putKycCheckWithRequestBuilder() -> RequestBuilder<Void> {
         let path = "/v1/Users/kyc/check"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -278,7 +318,8 @@ open class UsersAPI {
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "NSW"
+    "state" : "NSW",
+    "unitApartmentNumber" : "unitApartmentNumber"
   },
   "employer" : {
     "address" : "address",

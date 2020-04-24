@@ -33,15 +33,17 @@ public struct GetUserDetailResponse: Codable {
     public var mobile: String?
     public var ageRange: AgeRange?
     public var dateOfBirth: String?
+    public var unitApartmentNumber: String?
     public var residentialAddress: String?
     public var state: State?
 
-    public init(firstName: String?, lastName: String?, mobile: String?, ageRange: AgeRange?, dateOfBirth: String?, residentialAddress: String?, state: State?) {
+    public init(firstName: String?, lastName: String?, mobile: String?, ageRange: AgeRange?, dateOfBirth: String?, unitApartmentNumber: String?, residentialAddress: String?, state: State?) {
         self.firstName = firstName
         self.lastName = lastName
         self.mobile = mobile
         self.ageRange = ageRange
         self.dateOfBirth = dateOfBirth
+        self.unitApartmentNumber = unitApartmentNumber
         self.residentialAddress = residentialAddress
         self.state = state
     }

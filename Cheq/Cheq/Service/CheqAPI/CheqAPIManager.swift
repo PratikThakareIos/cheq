@@ -101,24 +101,25 @@ class CheqAPIManager {
         }
     }
 
-    func flushWorkTimesToServer()-> Promise<Bool> {
-        return Promise<Bool> () { resolver in
-            let token = CKeychain.shared.getValueByKey(CKey.authToken.rawValue)
-            guard token.isEmpty == false else { return }
-            let postWorksheetReq = VDotManager.shared.loadWorksheets()
-            LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-                if let error = err {
-                    resolver.reject(error)
-                    LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData failed\n")
-                    return
-                }
-
-                let timeStamp = Date().timeStamp()
-                LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData successfully - \(timeStamp)\n")
-                resolver.fulfill(true)
-            }
-        }
-    }
+    //manish
+//    func flushWorkTimesToServer()-> Promise<Bool> {
+//        return Promise<Bool> () { resolver in
+//            let token = CKeychain.shared.getValueByKey(CKey.authToken.rawValue)
+//            guard token.isEmpty == false else { return }
+//            let postWorksheetReq = VDotManager.shared.loadWorksheets()
+//            LendingAPI.postTimeWithRequestBuilder(request: postWorksheetReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+//                if let error = err {
+//                    resolver.reject(error)
+//                    LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData failed\n")
+//                    return
+//                }
+//
+//                let timeStamp = Date().timeStamp()
+//                LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData successfully - \(timeStamp)\n")
+//                resolver.fulfill(true)
+//            }
+//        }
+//    }
 
     func employerAddressLookup(_ query: String)-> Promise<[GetEmployerPlaceResponse]> {
         return Promise<[GetEmployerPlaceResponse]>() { resolver in
@@ -275,7 +276,7 @@ class CheqAPIManager {
         return Promise<Void>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let oauthToken = authUser.authToken() ?? ""
-                UsersAPI.putKycCheckCheckWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (resp, err) in
+                UsersAPI.putKycCheckWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (resp, err) in
                     if err != nil {
                         resolver.reject(CheqAPIManagerError.unableToPerformKYCNow)
                         return

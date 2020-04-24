@@ -104,6 +104,150 @@ open class FinancesAPI {
 
     /**
 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getBasiqConnectionToken(completion: @escaping ((_ data: GetAppTokenResponse?,_ error: Error?) -> Void)) {
+        getBasiqConnectionTokenWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/connections/token
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "apiConnectionUrl" : "apiConnectionUrl",
+  "apiContentType" : "apiContentType",
+  "accessToken" : "accessToken",
+  "expiresInSeconds" : 0
+}}]
+
+     - returns: RequestBuilder<GetAppTokenResponse> 
+     */
+    open class func getBasiqConnectionTokenWithRequestBuilder() -> RequestBuilder<GetAppTokenResponse> {
+        let path = "/v1/Finances/connections/token"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetAppTokenResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getFinancialInstitutions(completion: @escaping ((_ data: GetFinancialInstitutionResponse?,_ error: Error?) -> Void)) {
+        getFinancialInstitutionsWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/institutions
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "institutions" : [ {
+    "authorization" : "authorization",
+    "secondaryLoginIdCaption" : "secondaryLoginIdCaption",
+    "passwordCaption" : "passwordCaption",
+    "isWarning" : true,
+    "loginIdCaption" : "loginIdCaption",
+    "squareLogoUrl" : "squareLogoUrl",
+    "fullLogoUrl" : "fullLogoUrl",
+    "displayOrder" : 0,
+    "securityCodeCaption" : "securityCodeCaption",
+    "disabled" : true,
+    "id" : "id",
+    "shortName" : "shortName"
+  }, {
+    "authorization" : "authorization",
+    "secondaryLoginIdCaption" : "secondaryLoginIdCaption",
+    "passwordCaption" : "passwordCaption",
+    "isWarning" : true,
+    "loginIdCaption" : "loginIdCaption",
+    "squareLogoUrl" : "squareLogoUrl",
+    "fullLogoUrl" : "fullLogoUrl",
+    "displayOrder" : 0,
+    "securityCodeCaption" : "securityCodeCaption",
+    "disabled" : true,
+    "id" : "id",
+    "shortName" : "shortName"
+  } ],
+  "disableMessage" : "disableMessage",
+  "warningMessage" : "warningMessage"
+}}]
+
+     - returns: RequestBuilder<GetFinancialInstitutionResponse> 
+     */
+    open class func getFinancialInstitutionsWithRequestBuilder() -> RequestBuilder<GetFinancialInstitutionResponse> {
+        let path = "/v1/Finances/institutions"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetFinancialInstitutionResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter jobId: (path)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getJobStatus(jobId: String, completion: @escaping ((_ data: GetConnectionJobResponse?,_ error: Error?) -> Void)) {
+        getJobStatusWithRequestBuilder(jobId: jobId).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/connections/jobs/{jobId}/status
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "institutionId" : "institutionId",
+  "errorTitle" : "errorTitle",
+  "errorDetail" : "errorDetail",
+  "step" : "VerifyingCredentials",
+  "error" : "InvalidCredentials",
+  "stepStatus" : "Pending"
+}}]
+     
+     - parameter jobId: (path)  
+
+     - returns: RequestBuilder<GetConnectionJobResponse> 
+     */
+    open class func getJobStatusWithRequestBuilder(jobId: String) -> RequestBuilder<GetConnectionJobResponse> {
+        var path = "/v1/Finances/connections/jobs/{jobId}/status"
+        let jobIdPreEscape = "\(jobId)"
+        let jobIdPostEscape = jobIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{jobId}", with: jobIdPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetConnectionJobResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
      - parameter accounts: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -132,6 +276,44 @@ open class FinancesAPI {
         let path = "/v1/Finances/accounts"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: accounts)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
+     - parameter request: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postBasiqConnectionJob(request: PostConnectionJobRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postBasiqConnectionJobWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /v1/Finances/connections/jobs
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     
+     - parameter request: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postBasiqConnectionJobWithRequestBuilder(request: PostConnectionJobRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Finances/connections/jobs"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = URLComponents(string: URLString)
 

@@ -55,7 +55,8 @@ class DataHelperUtil {
         let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
         
         /// Notice that **fieldValue** is used to access the saved answers instead of directly accessing the answer map inside **QuestionViewModel**
-        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: "")
+        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, unitApartmentNumber: "", residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: "")
+        
         return req
     }
     
@@ -70,7 +71,8 @@ class DataHelperUtil {
         
         /// ensure the user have gone through the UI flow to accept agreement
         let hasAccepted = AppData.shared.acceptedAgreement
-        let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted)
+        let req = PostLoanRequest(amount: amount, fee: fee, agreeLoanAgreement: hasAccepted, installments: [Repayment]())
+       
         return req
     }
     

@@ -18,5 +18,7 @@ public struct DailyTransactionsResponse: Codable {
         self.date = date
         self.transactions = transactions
     }
+
+
 }
 

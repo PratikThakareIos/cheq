@@ -69,11 +69,12 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 
     func flushStoredData() {
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "flushStoredData")
-        CheqAPIManager.shared.flushWorkTimesToServer().done { success in
-            if success { let _ = self.cleanWorksheets() }
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err)
-        }
+        //Manish
+//        CheqAPIManager.shared.flushWorkTimesToServer().done { success in
+//            if success { let _ = self.cleanWorksheets() }
+//        }.catch { err in
+//            LoggingUtil.shared.cPrint(err)
+//        }
     }
     
     func isAtWork(_ location: CLLocation)-> Bool {

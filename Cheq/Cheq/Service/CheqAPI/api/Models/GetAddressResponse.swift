@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 public struct GetAddressResponse: Codable {
 
     public var address: String?
@@ -26,5 +28,7 @@ public struct GetAddressResponse: Codable {
         self.state = state
         self.country = country
     }
+
+
 }
 

@@ -37,5 +37,7 @@ public struct DeclineDetail: Codable {
         self.declineDescription = declineDescription
         self.learnMoreLink = learnMoreLink
     }
+
+
 }
 

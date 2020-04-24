@@ -16,7 +16,7 @@ open class LendingAPI {
      - parameter amount: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getBorrowPreview(amount: Double, completion: @escaping ((_ data: GetLoanPreviewResponse?,_ error: Error?) -> Void)) {
+    open class func getBorrowPreview(amount: Int, completion: @escaping ((_ data: GetLendingPreviewResponse?,_ error: Error?) -> Void)) {
         getBorrowPreviewWithRequestBuilder(amount: amount).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -32,8 +32,18 @@ open class LendingAPI {
   "directDebitAgreement" : "directDebitAgreement",
   "amount" : 0.8008281904610115,
   "repaymentAmount" : 1.4658129805029452,
+  "requestCashoutFeedback" : true,
   "cashoutDate" : "cashoutDate",
   "loanAgreement" : "loanAgreement",
+  "installments" : [ {
+    "repaymentAmount" : 0.8008281904610115,
+    "repaymentDate" : "repaymentDate",
+    "fee" : 6.027456183070403
+  }, {
+    "repaymentAmount" : 0.8008281904610115,
+    "repaymentDate" : "repaymentDate",
+    "fee" : 6.027456183070403
+  } ],
   "repaymentDate" : "repaymentDate",
   "fee" : 6.027456183070403,
   "abstractLoanAgreement" : "abstractLoanAgreement",
@@ -43,13 +53,11 @@ open class LendingAPI {
      
      - parameter amount: (path)  
 
-     - returns: RequestBuilder<GetLoanPreviewResponse> 
+     - returns: RequestBuilder<GetLendingPreviewResponse> 
      */
-    open class func getBorrowPreviewWithRequestBuilder(amount: Double) -> RequestBuilder<GetLoanPreviewResponse> {
-        
-        //amount * integer($int32) required on server
+    open class func getBorrowPreviewWithRequestBuilder(amount: Int) -> RequestBuilder<GetLendingPreviewResponse> {
         var path = "/v1/Lending/borrow/preview/{amount}"
-        let amountPreEscape = "\(Int(amount))"
+        let amountPreEscape = "\(amount)"
         let amountPostEscape = amountPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{amount}", with: amountPostEscape, options: .literal, range: nil)
         let URLString = SwaggerClientAPI.basePath + path
@@ -57,7 +65,7 @@ open class LendingAPI {
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetLoanPreviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<GetLendingPreviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -123,18 +131,12 @@ open class LendingAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "userAction" : {
-    "link" : "link",
-    "action" : "ResolveNameConflict",
-    "description" : "description",
-    "title" : "title"
-  },
   "recentBorrowings" : {
-    "totalFees" : 2.027123023002322,
-    "totalRepaymentAmount" : 3.616076749251911,
+    "totalFees" : 4.145608029883936,
+    "totalRepaymentAmount" : 2.027123023002322,
     "repaymentDate" : "repaymentDate",
-    "feesPercent" : 4.145608029883936,
-    "totalCashRequested" : 9.301444243932576,
+    "feesPercent" : 7.386281948385884,
+    "totalCashRequested" : 3.616076749251911,
     "hasOverdueLoans" : true
   },
   "decline" : {
@@ -171,27 +173,66 @@ open class LendingAPI {
     "cashoutLimitLearnMoreLink" : "cashoutLimitLearnMoreLink"
   },
   "borrowOverview" : {
-    "activities" : [ {
+    "allActivities" : [ {
       "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
       "amount" : 2.3021358869347655,
       "notes" : "notes",
       "cheqPayReference" : "cheqPayReference",
       "loanAgreement" : "loanAgreement",
-      "repaymentDate" : "repaymentDate",
       "fee" : 7.061401241503109,
       "type" : "Cashout",
+      "settlementTimingInfo" : "settlementTimingInfo",
+      "hasMissedRepayment" : true,
+      "directDebitAgreement" : "directDebitAgreement",
+      "isOverdue" : true,
+      "exactFee" : 9.301444243932576,
+      "repaymentDate" : "repaymentDate",
       "status" : "Unprocessed"
     }, {
       "date" : "date",
-      "directDebitAgreement" : "directDebitAgreement",
       "amount" : 2.3021358869347655,
       "notes" : "notes",
       "cheqPayReference" : "cheqPayReference",
       "loanAgreement" : "loanAgreement",
-      "repaymentDate" : "repaymentDate",
       "fee" : 7.061401241503109,
       "type" : "Cashout",
+      "settlementTimingInfo" : "settlementTimingInfo",
+      "hasMissedRepayment" : true,
+      "directDebitAgreement" : "directDebitAgreement",
+      "isOverdue" : true,
+      "exactFee" : 9.301444243932576,
+      "repaymentDate" : "repaymentDate",
+      "status" : "Unprocessed"
+    } ],
+    "activities" : [ {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "notes" : "notes",
+      "cheqPayReference" : "cheqPayReference",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 7.061401241503109,
+      "type" : "Cashout",
+      "settlementTimingInfo" : "settlementTimingInfo",
+      "hasMissedRepayment" : true,
+      "directDebitAgreement" : "directDebitAgreement",
+      "isOverdue" : true,
+      "exactFee" : 9.301444243932576,
+      "repaymentDate" : "repaymentDate",
+      "status" : "Unprocessed"
+    }, {
+      "date" : "date",
+      "amount" : 2.3021358869347655,
+      "notes" : "notes",
+      "cheqPayReference" : "cheqPayReference",
+      "loanAgreement" : "loanAgreement",
+      "fee" : 7.061401241503109,
+      "type" : "Cashout",
+      "settlementTimingInfo" : "settlementTimingInfo",
+      "hasMissedRepayment" : true,
+      "directDebitAgreement" : "directDebitAgreement",
+      "isOverdue" : true,
+      "exactFee" : 9.301444243932576,
+      "repaymentDate" : "repaymentDate",
       "status" : "Unprocessed"
     } ],
     "availableCashoutAmount" : 5.637376656633329
@@ -208,6 +249,137 @@ open class LendingAPI {
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<GetLendingOverviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter amount: (query)  (optional)
+     - parameter fee: (query)  (optional)
+     - parameter date: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMultiBorrowPreview(amount: String? = nil, fee: String? = nil, date: String? = nil, completion: @escaping ((_ data: GetLendingPreviewResponse?,_ error: Error?) -> Void)) {
+        getMultiBorrowPreviewWithRequestBuilder(amount: amount, fee: fee, date: date).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Lending/borrow/preview/repayment/multi
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "directDebitAgreement" : "directDebitAgreement",
+  "amount" : 0.8008281904610115,
+  "repaymentAmount" : 1.4658129805029452,
+  "requestCashoutFeedback" : true,
+  "cashoutDate" : "cashoutDate",
+  "loanAgreement" : "loanAgreement",
+  "installments" : [ {
+    "repaymentAmount" : 0.8008281904610115,
+    "repaymentDate" : "repaymentDate",
+    "fee" : 6.027456183070403
+  }, {
+    "repaymentAmount" : 0.8008281904610115,
+    "repaymentDate" : "repaymentDate",
+    "fee" : 6.027456183070403
+  } ],
+  "repaymentDate" : "repaymentDate",
+  "fee" : 6.027456183070403,
+  "abstractLoanAgreement" : "abstractLoanAgreement",
+  "companyName" : "companyName",
+  "acnAbn" : "acnAbn"
+}}]
+     
+     - parameter amount: (query)  (optional)
+     - parameter fee: (query)  (optional)
+     - parameter date: (query)  (optional)
+
+     - returns: RequestBuilder<GetLendingPreviewResponse> 
+     */
+    open class func getMultiBorrowPreviewWithRequestBuilder(amount: String? = nil, fee: String? = nil, date: String? = nil) -> RequestBuilder<GetLendingPreviewResponse> {
+        let path = "/v1/Lending/borrow/preview/repayment/multi"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "amount": amount, 
+            "fee": fee, 
+            "date": date
+        ])
+
+        let requestBuilder: RequestBuilder<GetLendingPreviewResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter amount: (path)  
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getRepaymentOptions(amount: Double, completion: @escaping ((_ data: GetRepaymentOptionsResponse?,_ error: Error?) -> Void)) {
+        getRepaymentOptionsWithRequestBuilder(amount: amount).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Lending/{amount}/repayments/options
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "multiRepaymentOptions" : [ {
+    "installments" : [ {
+      "repaymentAmount" : 0.8008281904610115,
+      "repaymentDate" : "repaymentDate",
+      "fee" : 6.027456183070403
+    }, {
+      "repaymentAmount" : 0.8008281904610115,
+      "repaymentDate" : "repaymentDate",
+      "fee" : 6.027456183070403
+    } ]
+  }, {
+    "installments" : [ {
+      "repaymentAmount" : 0.8008281904610115,
+      "repaymentDate" : "repaymentDate",
+      "fee" : 6.027456183070403
+    }, {
+      "repaymentAmount" : 0.8008281904610115,
+      "repaymentDate" : "repaymentDate",
+      "fee" : 6.027456183070403
+    } ]
+  } ],
+  "oneTimeRepayment" : {
+    "repaymentAmount" : 0.8008281904610115,
+    "repaymentDate" : "repaymentDate",
+    "fee" : 6.027456183070403
+  },
+  "multiRepaymentAttention" : "multiRepaymentAttention"
+}}]
+     
+     - parameter amount: (path)  
+
+     - returns: RequestBuilder<GetRepaymentOptionsResponse> 
+     */
+    open class func getRepaymentOptionsWithRequestBuilder(amount: Double) -> RequestBuilder<GetRepaymentOptionsResponse> {
+        var path = "/v1/Lending/{amount}/repayments/options"
+        let amountPreEscape = "\(amount)"
+        let amountPostEscape = amountPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{amount}", with: amountPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetRepaymentOptionsResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -293,44 +465,6 @@ open class LendingAPI {
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postTime(request: PostWorksheetRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postTimeWithRequestBuilder(request: request).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /v1/Lending/timesheets/geolocation
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     
-     - parameter request: (body)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func postTimeWithRequestBuilder(request: PostWorksheetRequest? = nil) -> RequestBuilder<Void> {
-        let path = "/v1/Lending/timesheets/geolocation"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
-
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-
-    /**
-
-     - parameter request: (body)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
     open class func putBankAccount(request: PutBankAccountRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
         putBankAccountWithRequestBuilder(request: request).execute { (response, error) -> Void in
             if error == nil {
@@ -362,41 +496,6 @@ open class LendingAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-
-    /**
-
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func resolveNameConflict(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        resolveNameConflictWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - PUT /v1/Lending/nameconflict/resolve
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func resolveNameConflictWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v1/Lending/nameconflict/resolve"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
-
-        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
 }

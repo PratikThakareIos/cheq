@@ -101,6 +101,7 @@ extension String: CodingKey {
     public init?(intValue: Int) {
         return nil
     }
+
 }
 
 extension KeyedEncodingContainerProtocol {
@@ -127,6 +128,7 @@ extension KeyedEncodingContainerProtocol {
             try encodeMap(pairs)
         }
     }
+
 }
 
 extension KeyedDecodingContainerProtocol {

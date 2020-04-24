@@ -220,8 +220,11 @@ class TestUtil {
         _ = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
         for _ in 0..<10 {
-            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, loanAgreement: "", directDebitAgreement: "", notes: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()))
-                
+            
+         let loanActivity = LoanActivity.init(amount: randomAmount(), fee: 5.0, exactFee: 2.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, hasMissedRepayment: false, isOverdue: false, loanAgreement: "", directDebitAgreement: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), notes: "", settlementTimingInfo: "")
+            
+//            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, loanAgreement: "", directDebitAgreement: "", notes: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()))
+//
                 
               //  LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
             loanActivities.append(loanActivity)
@@ -244,14 +247,15 @@ class TestUtil {
     }
     
     /**
-     Generate a mock **GetLoanPreviewResponse**
+     Generate a mock **GetLendingPreviewResponse**
      */
-    func testLoanPreview()->GetLoanPreviewResponse {
-        let amount = Double(AppData.shared.amountSelected)
+    func testLoanPreview()->GetLendingPreviewResponse {
+        let amount = Double(AppData.shared.amountSelected) ?? 0.0
         let fee = Double(AppData.shared.loanFee)
         let formatter = FormatterUtil.shared.defaultDateFormatter()
+                
+        let loanPreview = GetLendingPreviewResponse(amount: amount, fee: fee, repaymentAmount: 200.0, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn:  "1234567890",requestCashoutFeedback: false, installments: [InstallmentDetail]())
         
-        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, repaymentAmount: 200.0, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn:  "1234567890")
         return loanPreview
     }
     
@@ -409,10 +413,13 @@ class TestUtil {
     
     /// Helper method for building a mock **GetLendingOverviewResponse**
     func testLendingOverview()->GetLendingOverviewResponse {
-        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100, isFirstTime: true, payCycleStartDate: nil, nextPayDate: nil, repaymentSettleHours: nil, cashoutLimitInformation: "", cashoutLimitLearnMoreLink: "")
-       // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         
-        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities())
+        
+        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100, isFirstTime: true, payCycleStartDate: nil, nextPayDate: nil, repaymentSettleHours: nil, cashoutLimitInformation: "", cashoutLimitLearnMoreLink: "")
+       
+        // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
+        let loanActivities = [LoanActivity]()
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities)
         
         let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, workingLocation: .fromMultipleLocations, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success)
         

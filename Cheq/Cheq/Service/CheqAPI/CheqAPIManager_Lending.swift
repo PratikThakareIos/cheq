@@ -9,6 +9,11 @@
 import UIKit
 import PromiseKit
 
+//manish
+
+//resolveNameConflict()
+
+
 extension CheqAPIManager {
     
     func borrow()->Promise<Void> {
@@ -34,11 +39,11 @@ extension CheqAPIManager {
         }
     }
     
-    func loanPreview()->Promise<GetLoanPreviewResponse> {
-        return Promise<GetLoanPreviewResponse>() { resolver in
+    func loanPreview()->Promise<GetLendingPreviewResponse> {
+        return Promise<GetLendingPreviewResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
-                let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
+                let borrowAmount = Int(AppData.shared.amountSelected) ?? 0
                 LendingAPI.getBorrowPreviewWithRequestBuilder(amount: borrowAmount).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
@@ -88,25 +93,26 @@ extension CheqAPIManager {
         }
     }
     
-    func resolveNameConflict()->Promise<AuthUser> {
-        return Promise<AuthUser>() { resolver in
-            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-                let token = authUser.authToken() ?? ""
-                LendingAPI.resolveNameConflictWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-                    if let error = err {
-                        LoggingUtil.shared.cPrint(error)
-                        resolver.reject(CheqAPIManagerError_Lending.unableToResolveNameConflict)
-                        return
-                    }
-                    
-                    resolver.fulfill(authUser)
-                }
-                
-            }.catch { err in
-                resolver.reject(err)
-            }
-        }
-    }
+//    func resolveNameConflict()->Promise<AuthUser> {
+//        return Promise<AuthUser>() { resolver in
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                let token = authUser.authToken() ?? ""
+//
+//               LendingAPI.resolveNameConflictWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+//                    if let error = err {
+//                        LoggingUtil.shared.cPrint(error)
+//                        resolver.reject(CheqAPIManagerError_Lending.unableToResolveNameConflict)
+//                        return
+//                    }
+//
+//                    resolver.fulfill(authUser)
+//                }
+//
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+//        }
+//    }
     
     func updateDirectDebitBankAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in

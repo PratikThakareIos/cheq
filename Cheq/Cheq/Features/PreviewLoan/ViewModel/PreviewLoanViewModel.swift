@@ -13,7 +13,7 @@ class PreviewLoanViewModel: BaseTableVCViewModel {
 }
 
 extension PreviewLoanViewModel {
-    func addTransferToCard (_ loanPreview: GetLoanPreviewResponse, section: inout TableSectionViewModel) {
+    func addTransferToCard (_ loanPreview: GetLendingPreviewResponse, section: inout TableSectionViewModel) {
         
         let card = TransferCardTableViewCellViewModel()
         card.direction = .credit
@@ -24,7 +24,7 @@ extension PreviewLoanViewModel {
         section.rows.append(card)
     }
     
-    func addRepaymemtCard (_ loanPreview: GetLoanPreviewResponse, section: inout TableSectionViewModel) {
+    func addRepaymemtCard (_ loanPreview: GetLendingPreviewResponse, section: inout TableSectionViewModel) {
         
         let card = TransferCardTableViewCellViewModel()
         card.direction = .debit
@@ -40,7 +40,7 @@ extension PreviewLoanViewModel {
         section.rows.append(card)
     }
     
-    func addLoanAgreementCard (_ loanPreview: GetLoanPreviewResponse, section: inout TableSectionViewModel) {
+    func addLoanAgreementCard (_ loanPreview: GetLendingPreviewResponse, section: inout TableSectionViewModel) {
         
         let card = AgreementItemTableViewCellViewModel()
         card.expanded = false
@@ -49,7 +49,7 @@ extension PreviewLoanViewModel {
         section.rows.append(card)
     }
     
-    func addDirectDebitAgreementCard (_ loanPreview: GetLoanPreviewResponse, section: inout TableSectionViewModel) {
+    func addDirectDebitAgreementCard (_ loanPreview: GetLendingPreviewResponse, section: inout TableSectionViewModel) {
         
         let card = AgreementItemTableViewCellViewModel()
         card.expanded = false

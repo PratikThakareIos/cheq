@@ -14,15 +14,17 @@ public struct PutUserOnfidoKycRequest: Codable {
     public var firstName: String
     public var lastName: String
     public var dateOfBirth: Date?
+    public var unitApartmentNumber: String?
     public var residentialAddress: String?
     public var suburb: String?
     public var postCode: String?
     public var state: String?
 
-    public init(firstName: String, lastName: String, dateOfBirth: Date?, residentialAddress: String?, suburb: String?, postCode: String?, state: String?) {
+    public init(firstName: String, lastName: String, dateOfBirth: Date?, unitApartmentNumber: String?, residentialAddress: String?, suburb: String?, postCode: String?, state: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.dateOfBirth = dateOfBirth
+        self.unitApartmentNumber = unitApartmentNumber
         self.residentialAddress = residentialAddress
         self.suburb = suburb
         self.postCode = postCode

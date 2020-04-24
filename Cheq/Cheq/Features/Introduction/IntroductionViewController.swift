@@ -139,32 +139,36 @@ class IntroductionViewController: UIViewController {
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         case .identityConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
+           //manish
             // resolve kyc conflict
-            AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.resolveNameConflict().done { authUser in
-                AppConfig.shared.hideSpinner {
-                    AppNav.shared.dismissModal(self)
-                }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
-                }
-            }
+//            AppConfig.shared.showSpinner()
+//            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+//                AppConfig.shared.hideSpinner {
+//                    AppNav.shared.dismissModal(self)
+//                }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err, completion: nil)
+//                }
+//            }
+            
         case .hasReachedCapacity:
             //TODO
             break
         case .hasNameConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
             AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.resolveNameConflict().done { authUser in
-                AppConfig.shared.hideSpinner {
-                    AppNav.shared.dismissModal(self)
-                }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
-                }
-            }
+      //Manish
+//            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+//                AppConfig.shared.hideSpinner {
+//                    AppNav.shared.dismissModal(self)
+//                }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err, completion: nil)
+//                }
+//            }
+            
         case .hasOverdueLoans:
             break
         case .salaryInDifferentBank:

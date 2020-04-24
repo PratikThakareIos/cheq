@@ -8,6 +8,7 @@
 import Foundation
 
 
+
 public struct LoanSetting: Codable {
 
     public var maximumAmount: Int?
