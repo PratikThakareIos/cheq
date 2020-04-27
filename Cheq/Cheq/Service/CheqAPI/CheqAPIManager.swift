@@ -314,4 +314,98 @@ class CheqAPIManager {
             }
         }
     }
+    
+    func getUserActions()-> Promise<GetUserActionResponse> {
+        return Promise<GetUserActionResponse>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser()
+            .done { authUser in
+                    let token = authUser.authToken() ?? ""
+                UsersAPI.getUserActionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                    
+                    // http code 400 indicates bad req, we will indicate user needs to do onboarding again
+                      if response?.statusCode == 400 {
+                          resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                          return
+                      }
+                   
+                    if let code = err?.code() {
+                        if code == 400 {
+                            resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                            return
+                        } else {
+                            resolver.reject(CheqAPIManagerError.errorFromGetUserDetails)
+                            return
+                        }
+                    }
+
+                    guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    resolver.fulfill(resp)
+
+                })
+                
+             
+                
+                
+                
+                
+                
+                
+                
+                
+//                    UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+//
+//                        // http code 400 indicates bad req, we will indicate user needs to do onboarding again
+//                        if response?.statusCode == 400 {
+//                            resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+//                            return
+//                        }
+//
+//                        if let code = err?.code() {
+//                            if code == 400 {
+//                                resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+//                                return
+//                            } else {
+//                                resolver.reject(CheqAPIManagerError.errorFromGetUserDetails)
+//                                return
+//                            }
+//                        }
+//
+//                        guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+//                        var updatedAuthUser = authUser
+//
+//                        let viewModel = QuestionViewModel()
+//
+//                        //Manish
+//                        if let userDetail =  resp.userDetail {
+//                            viewModel.save(QuestionField.firstname.rawValue, value: userDetail.firstName ?? "")
+//                            viewModel.save(QuestionField.lastname.rawValue, value: userDetail.lastName ?? "")
+//                            viewModel.save(QuestionField.dateOfBirth.rawValue, value: userDetail.dateOfBirth ?? "")
+//                            viewModel.save(QuestionField.contactDetails.rawValue, value: userDetail.mobile ?? "")
+//                            viewModel.save(QuestionField.residentialAddress.rawValue, value: userDetail.residentialAddress ?? "")
+//                        }
+//
+//                        viewModel.save(QuestionField.employerName.rawValue, value: resp.employer?.employerName ?? "")
+//                        viewModel.save(QuestionField.employerAddress.rawValue, value: resp.employer?.address ?? "")
+//
+//
+//                        updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
+//                        let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
+//                        updatedAuthUser.msCredential[.msPassword] = password
+//                        AuthConfig.shared.activeManager.setUser(updatedAuthUser).done{ updateUser in
+//                            resolver.fulfill(updateUser)
+//                        }.catch {err in
+//                            resolver.reject(err)
+//                        }
+//                    })
+                
+                
+                
+                
+                
+            }.catch {err in
+                resolver.reject(err)
+            }
+        }
+    }
+    
 }

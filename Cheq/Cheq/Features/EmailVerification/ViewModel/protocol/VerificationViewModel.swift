@@ -9,7 +9,6 @@
 import UIKit
 
 enum VerificatonType {
-    
     case email
     case passwordReset
 }

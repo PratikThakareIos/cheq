@@ -96,7 +96,6 @@ class MoneySoftManager {
             do {
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
                      let model = authModel
-                    
                     resolver.fulfill(model)
                 }, errorHandler: { errorModel in
                     // throw error for verification code

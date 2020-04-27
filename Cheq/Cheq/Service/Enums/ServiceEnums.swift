@@ -45,6 +45,8 @@ enum CheqAPIManagerError: Error, Equatable {
     case invalidInput
     case onboardingRequiredFromGetUserDetails
     case errorFromGetUserDetails
+    case errorFromGetUserAction
+    
 }
 
 enum CheqAPIManagerError_Budget: Error {
@@ -254,6 +256,9 @@ extension CheqAPIManagerError: LocalizedError {
             return NSLocalizedString("Onboarding process required", comment: "")
         case .errorFromGetUserDetails:
             return NSLocalizedString("Error from get user details", comment: "")
+        case .errorFromGetUserAction:
+            return NSLocalizedString("Error from get User Action", comment: "")
+            
         }
     }
 }

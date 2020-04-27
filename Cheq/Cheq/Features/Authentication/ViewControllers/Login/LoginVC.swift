@@ -206,6 +206,7 @@ extension LoginVC {
     }
     
     
+    
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
@@ -219,59 +220,124 @@ extension LoginVC {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
+        
         // whenever we successfully login, we post notification token
-        viewModel.login(email, password: password).then { authUser->Promise<AuthenticationModel> in
-            return MoneySoftManager.shared.login(authUser.msCredential)
-        }.then { authModel->Promise<[FinancialAccountModel]> in
-            return MoneySoftManager.shared.getAccounts()
-        }.done { accounts in
+        viewModel.login(email, password: password).then { authUser->Promise<GetUserActionResponse> in
+            //When the user opens the app the apps checks if the user has a basiq account or not
+            return CheqAPIManager.shared.getUserActions()
+        }.done { userActionResponse in
+            /*
+            The backend will return one of these condition
+
+            RequireMigration - User has not linked their bank account with Basiq yet
+            InvalidBankCredentials - Since the user has last opened their app Basiq has informed us that they are not able to access the user’s account as  they have changed their password
+            ActionRequiredByBank - this is when the user needs to perform an action on their bank account before they can access their bank
+            AccountReactivation- this occurs when the user has not logged in to the Cheq app and they need to “relink” their bank
+            BankNotSupported - this occurs when the user’s bank is no longer supported.
+            MissingAccount - this needs to call PUT v1/users to create basiq accounts
+             
+            if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
+            */
             AppConfig.shared.hideSpinner {
-                
-                guard accounts.isEmpty == false else {
-                    AppData.shared.completingDetailsForLending = false
-                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                    return
-                }
-                
-                let financialAccounts: [FinancialAccountModel] = accounts
-                
-                if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
-                    // when we have disabled linked acccount, we need to get user
-                    // to dynamic form view and link their bank account
-                    AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
-                    AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
-                    AppData.shared.disabledAccount = disabledAccount
-                    
-                    MoneySoftManager.shared.getInstitutions().done { institutions in
-                        AppData.shared.financialInstitutions = institutions
-                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-                        guard let selected = AppData.shared.selectedFinancialInstitution else {
-                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                            return
-                        }
+                LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+                switch (userActionResponse.userAction){
+                case ._none:
+                        LoggingUtil.shared.cPrint("go to home screen")
+                        break
+                case .accountReactivation:
+                        //LoggingUtil.shared.cPrint("err")
+                        break
+                case .actionRequiredByBank:
+                        //LoggingUtil.shared.cPrint("err")
+                        break
+                case .bankNotSupported:
+                        //LoggingUtil.shared.cPrint("err")
+                        break
+                case .invalidCredentials:
+                        //LoggingUtil.shared.cPrint("err")
+                        break
+                case .missingAccount:
+                        LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")
                         
-                        AppData.shared.isOnboarding = false
-                        AppData.shared.migratingToNewDevice = true
-                        AppNav.shared.pushToDynamicForm(selected, viewController: self)
-                    }.catch { err in
-                        self.showError(err, completion: nil)
-                        return
-                    }
-                } else {
-                    AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
-                    MoneySoftManager.shared.getInstitutions().done { institutions in
-                        AppData.shared.financialInstitutions = institutions
-                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-                        // Load to dashboard
-                        AppData.shared.isOnboarding = false
-                        AppData.shared.migratingToNewDevice = false
-                        AppData.shared.completingDetailsForLending = false
-                        self.navigateToDashboard()
-                    }.catch { err in
-                        self.showError(err, completion: nil)
-                        return
-                    }
+                        AppConfig.shared.showSpinner()
+                        AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                            return CheqAPIManager.shared.putUser(authUser)
+                        }.then { authUser in
+                            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+                        }.then { authUser in
+                            AuthConfig.shared.activeManager.setUser(authUser)
+                        }.done { authUser in
+                            AppConfig.shared.hideSpinner {
+                                AppData.shared.completingDetailsForLending = false
+                                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                            }
+                        }.catch { err in
+                            AppConfig.shared.hideSpinner {
+                                print(err)
+                                print(err.localizedDescription)
+                                self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                                }
+                            }
+                        }
+                    
+                        break
+                case .requireBankLinking:
+                        LoggingUtil.shared.cPrint("err")
+                        break
+                case .requireMigration:
+                        LoggingUtil.shared.cPrint("err")
+                        break
+                case .none:
+                     LoggingUtil.shared.cPrint("err")
                 }
+                
+           
+                
+//                guard accounts.isEmpty == false else {
+//                    AppData.shared.completingDetailsForLending = false
+//                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+//                    return
+//                }
+//                let financialAccounts: [FinancialAccountModel] = accounts
+//                if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
+//                    // when we have disabled linked acccount, we need to get user
+//                    // to dynamic form view and link their bank account
+//                    AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
+//                    AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
+//                    AppData.shared.disabledAccount = disabledAccount
+//
+//                    MoneySoftManager.shared.getInstitutions().done { institutions in
+//                        AppData.shared.financialInstitutions = institutions
+//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
+//                        guard let selected = AppData.shared.selectedFinancialInstitution else {
+//                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+//                            return
+//                        }
+//
+//                        AppData.shared.isOnboarding = false
+//                        AppData.shared.migratingToNewDevice = true
+//                        AppNav.shared.pushToDynamicForm(selected, viewController: self)
+//                    }.catch { err in
+//                        self.showError(err, completion: nil)
+//                        return
+//                    }
+//                } else {
+//                    AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
+//                    MoneySoftManager.shared.getInstitutions().done { institutions in
+//                        AppData.shared.financialInstitutions = institutions
+//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
+//                        // Load to dashboard
+//                        AppData.shared.isOnboarding = false
+//                        AppData.shared.migratingToNewDevice = false
+//                        AppData.shared.completingDetailsForLending = false
+//                        self.navigateToDashboard()
+//                    }.catch { err in
+//                        self.showError(err, completion: nil)
+//                        return
+//                    }
+//                }
+                
+                
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -280,6 +346,81 @@ extension LoginVC {
             }
         }
     }
+    
+    
+    
+//    @IBAction func login(_ sender: Any) {
+//        self.view.endEditing(true)
+//
+//        if let error = self.validateInputs() {
+//            showError(error) { }
+//            return
+//        }
+//
+//        AppConfig.shared.showSpinner()
+//
+//        let email = emailTextField.text ?? ""
+//        let password = passwordTextField.text ?? ""
+//
+//        // whenever we successfully login, we post notification token
+//        viewModel.login(email, password: password).then { authUser->Promise<AuthenticationModel> in
+//            return MoneySoftManager.shared.login(authUser.msCredential)
+//        }.then { authModel->Promise<[FinancialAccountModel]> in
+//            return MoneySoftManager.shared.getAccounts()
+//        }.done { accounts in
+//            AppConfig.shared.hideSpinner {
+//
+//                guard accounts.isEmpty == false else {
+//                    AppData.shared.completingDetailsForLending = false
+//                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+//                    return
+//                }
+//                let financialAccounts: [FinancialAccountModel] = accounts
+//                if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
+//                    // when we have disabled linked acccount, we need to get user
+//                    // to dynamic form view and link their bank account
+//                    AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
+//                    AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
+//                    AppData.shared.disabledAccount = disabledAccount
+//
+//                    MoneySoftManager.shared.getInstitutions().done { institutions in
+//                        AppData.shared.financialInstitutions = institutions
+//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
+//                        guard let selected = AppData.shared.selectedFinancialInstitution else {
+//                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+//                            return
+//                        }
+//
+//                        AppData.shared.isOnboarding = false
+//                        AppData.shared.migratingToNewDevice = true
+//                        AppNav.shared.pushToDynamicForm(selected, viewController: self)
+//                    }.catch { err in
+//                        self.showError(err, completion: nil)
+//                        return
+//                    }
+//                } else {
+//                    AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
+//                    MoneySoftManager.shared.getInstitutions().done { institutions in
+//                        AppData.shared.financialInstitutions = institutions
+//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
+//                        // Load to dashboard
+//                        AppData.shared.isOnboarding = false
+//                        AppData.shared.migratingToNewDevice = false
+//                        AppData.shared.completingDetailsForLending = false
+//                        self.navigateToDashboard()
+//                    }.catch { err in
+//                        self.showError(err, completion: nil)
+//                        return
+//                    }
+//                }
+//            }
+//        }.catch { err in
+//            AppConfig.shared.hideSpinner {
+//                // handle err
+//                self.handleLoginErr(err)
+//            }
+//        }
+//    }
     
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()

@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                                                     view: UIView(),
                                                                     isDebug: true,
                                                                     isBeta: true, serviceProvider: .EWISE);
-                        
         MoneysoftApi.configure(config);
+        
         // keep a reference for re-use
         AppData.shared.application = application
         
@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         let fileContent = LoggingUtil.shared.printLocationFile(LoggingUtil.shared.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)
+        
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
         
@@ -71,10 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-        
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
+       
         #if DEMO
             self.setupSpendingViewController()
         #else
@@ -82,10 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         #endif
 //        self.setupIntroDevController()
 //        self.setupInitDevController()
- 
 //        self.setupLogController()
 //        self.setupQuestionController()
 //        self.setupSplashController()
+        
         return true
     }
     

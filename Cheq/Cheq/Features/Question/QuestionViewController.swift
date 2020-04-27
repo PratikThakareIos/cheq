@@ -327,6 +327,7 @@ class QuestionViewController: UIViewController {
             AppData.shared.updateProgressAfterCompleting(.legalName)
             //AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
+            
         //manish
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
