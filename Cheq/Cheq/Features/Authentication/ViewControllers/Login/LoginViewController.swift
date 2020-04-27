@@ -73,6 +73,7 @@ class LoginViewController: RegistrationViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        /*
         self.view.endEditing(true)
         
         if let error = self.validateInputs() {
@@ -144,6 +145,8 @@ class LoginViewController: RegistrationViewController {
                     self.handleLoginErr(err)
                 }
             }
+ 
+      */
     }
     
     func handleLoginErr(_ err: Error) {

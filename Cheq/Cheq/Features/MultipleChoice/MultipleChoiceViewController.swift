@@ -10,9 +10,10 @@ import UIKit
 import MobileSDK
 import Onfido
 import SDWebImage
+import PromiseKit
 
 class MultipleChoiceViewController: UIViewController {
-
+    
     var viewModel = MultipleChoiceViewModel()
     var choices:[ChoiceModel] = []
     var selectedChoice: ChoiceModel?
@@ -25,7 +26,7 @@ class MultipleChoiceViewController: UIViewController {
         setupDelegate()
         setupUI()
         if showNextButton{
-             showBackButton()
+            showBackButton()
         }
     }
     
@@ -68,39 +69,47 @@ class MultipleChoiceViewController: UIViewController {
         }
     }
     
-   private func getTransactionData() {
-    if AppData.shared.employeePaycycle?.count == 0 {
-          AppConfig.shared.showSpinner()
-          CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
-              .done{ paycyles in
-                  AppConfig.shared.hideSpinner {
-                      print("Transaction success")
-                  }
-              }.catch { err in
-                  AppConfig.shared.hideSpinner {
-                      self.showError(err) {
-                        print("error")
-                      }
-                  }
-              }
-        }
-    }
-    func updateChoices() {
-        if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
+    private func getTransactionData() {
+        if AppData.shared.employeePaycycle?.count == 0 {
             AppConfig.shared.showSpinner()
-        }
-        self.viewModel.coordinator.choices().done { choices in
-            AppConfig.shared.hideSpinner {
-                self.choices = choices
-                self.tableView.reloadData()
-            }
-            
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
+            CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
+                .done{ paycyles in
+                    AppConfig.shared.hideSpinner {
+                        print("Transaction success")
+                    }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                        print("error")
+                    }
+                }
             }
         }
     }
+    
+    func updateChoices() {
+        
+        if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
+            self.getUsersBankConnectionStatus()
+        }else{
+            AppConfig.shared.showSpinner()
+            self.viewModel.coordinator.choices().done { choices in
+                AppConfig.shared.hideSpinner {
+                    self.choices = choices
+                    self.tableView.reloadData()
+                }
+                
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err, completion: nil)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
@@ -121,11 +130,11 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         let choice = self.choices[indexPath.row]
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
-        
+            
         case .kycSelectDoc:
             
             let kycSelectDoc = KycDocType(fromRawValue: choice.title)
@@ -147,8 +156,8 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
             } else {
-               // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
-                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
+                AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
             }
             
         case .workingLocation:
@@ -159,10 +168,10 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }else{
                 if isIncomeDetected() == false {
                     print("Upload time sheet anything other than fix location")
-                   incomeVerification()
+                    incomeVerification()
                 }
             }
-           
+            
         case .onDemand:
             
             let vm = self.viewModel
@@ -192,7 +201,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                     AppNav.shared.dismissModal(self)
                 }
             }
-                        
+            
         case .financialInstitutions:
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form 
@@ -247,23 +256,23 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         guard section == 0 else { return nil }
         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
         if showNextButton{
-        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
-        let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
-        // here is what you should add:
+            footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
+            let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
+            // here is what you should add:
             nextButton.center = footerView.center
-
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
-        nextButton.layer.cornerRadius = 28.0
-        nextButton.addTarget(self, action: #selector(hello(sender:)), for: .touchUpInside)
-        footerView.addSubview(nextButton)
+            
+            nextButton.setTitle("Next", for: .normal)
+            nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
+            nextButton.layer.cornerRadius = 28.0
+            nextButton.addTarget(self, action: #selector(hello(sender:)), for: .touchUpInside)
+            footerView.addSubview(nextButton)
         }
         
         return footerView
     }
     
     @objc func hello(sender: UIButton!) {
-     print("Next");
+        print("Next");
     }
 }
 
@@ -293,14 +302,15 @@ extension MultipleChoiceViewController {
             if var view: UIView = cell.iconImageView {
                 ViewUtil.shared.circularMask(&view, radiusBy: .height)
             }
-//            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-//            })ll'/
-                        
+            //            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
+            //            })ll'/
+            
+                    
             if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
                 cell.iconImageView.setImageForURL(imageName)
             }else{
                 if let img = UIImage.init(named: imageName){
-                     cell.iconImageView.image = img
+                    cell.iconImageView.image = img
                 }
             }
         }
@@ -309,29 +319,29 @@ extension MultipleChoiceViewController {
         return cell
     }
     
-     func showTransactions() {
-         guard let nav = self.navigationController else { return }
-                                  let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-                                  let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
-         nav.pushViewController(vc, animated: true)
-     }
+    func showTransactions() {
+        guard let nav = self.navigationController else { return }
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
+        nav.pushViewController(vc, animated: true)
+    }
     
-     func incomeVerification(){
-            print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-            print(AppData.shared.employeePaycycle?.count)
-            if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
-               showTransactions()
-            }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
-               // show popup but for now navigate to lending page
-                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-                AppNav.shared.dismissModal(self){}
-            }else {
-    //             self.delegate?.refreshLendingScreen()
-                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-                AppNav.shared.dismissModal(self){}
-            }
-           
+    func incomeVerification(){
+        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+        print(AppData.shared.employeePaycycle?.count)
+        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+            showTransactions()
+        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+            // show popup but for now navigate to lending page
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            AppNav.shared.dismissModal(self){}
+        }else {
+            //             self.delegate?.refreshLendingScreen()
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            AppNav.shared.dismissModal(self){}
         }
+        
+    }
 }
 
 
@@ -339,5 +349,100 @@ extension MultipleChoiceViewController {
     func isIncomeDetected() -> Bool {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false
+    }
+    
+    
+    func getUsersBankConnectionStatus(){
+        
+        AppConfig.shared.showSpinner()
+        
+        AuthConfig.shared.activeManager.getCurrentUser().then{ authUser-> Promise<GetUserActionResponse> in
+            //When the user opens the app the apps checks if the user has a basiq account or not
+            return CheqAPIManager.shared.getUserActions()
+        }.done { userActionResponse in
+            /*
+             The backend will return one of these condition
+             
+             RequireMigration - User has not linked their bank account with Basiq yet
+             InvalidBankCredentials - Since the user has last opened their app Basiq has informed us that they are not able to access the user’s account as  they have changed their password
+             ActionRequiredByBank - this is when the user needs to perform an action on their bank account before they can access their bank
+             AccountReactivation- this occurs when the user has not logged in to the Cheq app and they need to “relink” their bank
+             BankNotSupported - this occurs when the user’s bank is no longer supported.
+             MissingAccount - this needs to call PUT v1/users to create basiq accounts
+             
+             if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
+             */
+            AppConfig.shared.hideSpinner {
+                LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+                switch (userActionResponse.userAction){
+                case ._none:
+                    LoggingUtil.shared.cPrint("go to home screen")
+                    break
+                case .accountReactivation:
+                    //LoggingUtil.shared.cPrint("err")
+                    break
+                case .actionRequiredByBank:
+                    //LoggingUtil.shared.cPrint("err")
+                    break
+                case .bankNotSupported:
+                    //LoggingUtil.shared.cPrint("err")
+                    break
+                case .invalidCredentials:
+                    //LoggingUtil.shared.cPrint("err")
+                    break
+                case .missingAccount:
+
+                    AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                        return CheqAPIManager.shared.putUser(authUser)
+                    }.then { authUser in
+                        AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+                    }.then { authUser in
+                        AuthConfig.shared.activeManager.setUser(authUser)
+                    }.done { authUser in
+                        self.getUsersBankConnectionStatus()
+                    }.catch { err in
+                        AppConfig.shared.hideSpinner {
+                            print(err)
+                            print(err.localizedDescription)
+                            self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                            }
+                        }
+                    }
+                    
+                    break
+                case .requireBankLinking:
+                    self.getBankListFromServer()
+                    break
+                case .requireMigration:
+                    LoggingUtil.shared.cPrint("err")
+                    break
+                case .none:
+                    LoggingUtil.shared.cPrint("err")
+                }
+            }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                // handle err
+                print(err.localizedDescription)
+                self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                }
+            }
+        }
+    }
+    
+    
+    func getBankListFromServer(){        
+        AppConfig.shared.showSpinner()
+        self.viewModel.coordinator.choices().done { choices in
+            AppConfig.shared.hideSpinner {
+                self.choices = choices
+                self.tableView.reloadData()
+            }
+            
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
+        }
     }
 }

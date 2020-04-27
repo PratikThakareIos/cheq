@@ -165,13 +165,10 @@ class EmailVerificationViewController: UIViewController {
     
     func verifyCode() {
         self.viewModel.code = self.codeTextField.text ?? ""
-        if let err = self.viewModel.validate() {
-
+       
+        if let _ = self.viewModel.validate() {
             self.showInvalidPopUpView()
             return
-//            showError(err) {
-//                self.codeTextField.text = ""
-//            }
         }
         
         // TODO : verify code api call

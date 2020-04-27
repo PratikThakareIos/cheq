@@ -282,7 +282,10 @@ extension LoginVC {
                     
                         break
                 case .requireBankLinking:
-                        LoggingUtil.shared.cPrint("err")
+                       AppConfig.shared.hideSpinner {
+                            AppData.shared.completingDetailsForLending = false
+                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                        }
                         break
                 case .requireMigration:
                         LoggingUtil.shared.cPrint("err")

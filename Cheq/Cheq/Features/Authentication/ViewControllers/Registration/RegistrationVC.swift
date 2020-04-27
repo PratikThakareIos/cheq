@@ -157,6 +157,7 @@ extension RegistrationVC {
             .then { authUser in
                 AuthConfig.shared.activeManager.setUser(authUser)
         }.done { authUser in
+            QuestionViewModel().clearAllSavedData()
             self.beginOnboarding()
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {

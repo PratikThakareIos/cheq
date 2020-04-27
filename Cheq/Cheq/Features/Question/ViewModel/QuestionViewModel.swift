@@ -125,6 +125,10 @@ class QuestionViewModel: BaseViewModel {
         #endif
     }
     
+    func clearAllSavedData(){
+        UserDefaults.standard.set([:], forKey: self.viewModelKey())
+    }
+    
     func fieldValue(_ questionField: QuestionField)-> String {
         if (self.savedAnswer.count == 0) { loadSaved() }
         return self.savedAnswer[questionField.rawValue] ?? ""

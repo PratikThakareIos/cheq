@@ -57,8 +57,7 @@ class QuestionViewController: UIViewController {
             if (firstname.count == 0){
                 hideBackButton() //is from registration then hide back button
             }else{
-                //is from lending screen - verify details
-               
+                //is from lending screen - verify details               
                 showCloseButton()
                 textField1.text = firstname
                 textField2.text = lastname
@@ -71,13 +70,7 @@ class QuestionViewController: UIViewController {
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
         }
-        
-        //  getTransactionData()
-        //        if AppData.shared.completingDetailsForLending == true{
-        //            showCloseButton()
-        //        }
-
-        
+    
     }
     
     
@@ -343,6 +336,7 @@ class QuestionViewController: UIViewController {
             
             AppData.shared.updateProgressAfterCompleting(.dateOfBirth)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
+            
         case .contactDetails:
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
