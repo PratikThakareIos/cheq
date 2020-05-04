@@ -21,6 +21,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var sectionTitle: CLabel!
     @IBOutlet weak var questionTitle: CLabel!
     var showNextButton = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -31,11 +32,13 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     func setupDelegate() {
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
     
     func setupUI() {
+        
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.hideBackTitle()
         // non-zero estimated row height to trigger automatically calculation of cell height based on auto layout on tableview
@@ -73,7 +76,7 @@ class MultipleChoiceViewController: UIViewController {
         if AppData.shared.employeePaycycle?.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
-                .done{ paycyles in
+                .done { paycyles in
                     AppConfig.shared.hideSpinner {
                         print("Transaction success")
                     }
@@ -106,9 +109,6 @@ class MultipleChoiceViewController: UIViewController {
             }
         }
     }
-    
-    
-    
     
 }
 
@@ -207,7 +207,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // to render the form 
             AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
             let selectedChoice = self.choices[indexPath.row]
-            AppData.shared.selectedFinancialInstitution = selectedChoice.ref as? FinancialInstitutionModel
+            AppData.shared.selectedFinancialInstitution = selectedChoice.ref as? GetFinancialInstitution
             guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
                 return
             }
@@ -255,7 +255,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
-        if showNextButton{
+        if showNextButton {
             footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
             let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
             // here is what you should add:
@@ -267,7 +267,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             nextButton.addTarget(self, action: #selector(hello(sender:)), for: .touchUpInside)
             footerView.addSubview(nextButton)
         }
-        
         return footerView
     }
     
@@ -297,15 +296,19 @@ extension MultipleChoiceViewController {
         
         // set placeholder first
         cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
+ 
         if let imageName = choice.image, imageName.isEmpty == false {
             cell.iconImageView.isHidden = false
-            if var view: UIView = cell.iconImageView {
-                ViewUtil.shared.circularMask(&view, radiusBy: .height)
+            
+            if self.viewModel.coordinator.coordinatorType != .financialInstitutions {
+                if var view: UIView = cell.iconImageView {
+                    ViewUtil.shared.circularMask(&view, radiusBy: .height)
+                }
             }
+        
             //            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
             //            })ll'/
-            
-                    
+                                
             if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
                 cell.iconImageView.setImageForURL(imageName)
             }else{
@@ -350,8 +353,7 @@ extension MultipleChoiceViewController {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false
     }
-    
-    
+        
     func getUsersBankConnectionStatus(){
         
         AppConfig.shared.showSpinner()
@@ -360,6 +362,7 @@ extension MultipleChoiceViewController {
             //When the user opens the app the apps checks if the user has a basiq account or not
             return CheqAPIManager.shared.getUserActions()
         }.done { userActionResponse in
+            
             /*
              The backend will return one of these condition
              
@@ -372,6 +375,7 @@ extension MultipleChoiceViewController {
              
              if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
              */
+            
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
@@ -408,7 +412,6 @@ extension MultipleChoiceViewController {
                             }
                         }
                     }
-                    
                     break
                 case .requireBankLinking:
                     self.getBankListFromServer()

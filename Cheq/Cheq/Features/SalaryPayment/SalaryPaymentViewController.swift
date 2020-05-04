@@ -33,7 +33,7 @@ class SalaryPaymentViewController: UIViewController {
     }
     private func getData() {
         
-        if AppData.shared.employeePaycycle == nil || AppData.shared.employeePaycycle!.count == 0{
+        if AppData.shared.employeePaycycle == nil || AppData.shared.employeePaycycle!.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done{ paycyles in

@@ -13,6 +13,7 @@ class ConnectingTobankFalilsViewController: UIViewController {
 
     @IBOutlet weak var trytoConnectAgainBtn: UIButton!
     @IBOutlet weak var backgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

@@ -44,7 +44,5 @@ public struct GetConnectionJobResponse: Codable {
         self.errorTitle = errorTitle
         self.errorDetail = errorDetail
     }
-
-
 }
 

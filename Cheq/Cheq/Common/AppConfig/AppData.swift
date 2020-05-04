@@ -135,16 +135,14 @@ class AppData {
     /// Placeholder value for financialInstitutionsId
     let financialInstitutionsUnused = -1
     
-    /// FinancialInstitutionModel represent a bank/intitution from MoneySoft SDK. **financialInstitutions** is the list we fetched from MoneySoft SDK.
-    //var financialInstitutions: [FinancialInstitutionModel] = []
-    
+
     /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
     var financialInstitutions: [GetFinancialInstitution] = []
     
     var resGetFinancialInstitutionResponse: GetFinancialInstitutionResponse?
     
     /// Keep track of the selected institution
-    var selectedFinancialInstitution: FinancialInstitutionModel?
+    var selectedFinancialInstitution: GetFinancialInstitution?
     
     /// financial login form from MoneySoft SDK
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")

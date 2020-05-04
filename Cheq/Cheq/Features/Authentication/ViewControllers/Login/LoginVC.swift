@@ -37,6 +37,9 @@ class LoginVC: UIViewController {
         super.viewDidAppear(animated)
         setupUI()
         activeTimestamp()
+        
+        //Manish
+        //self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -46,6 +49,12 @@ class LoginVC: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func addTestAccountDetails(){
+        self.emailTextField.text = "qqq@g.com"
+        self.passwordTextField.text = "Tfc@12345"
+        
     }
 }
 
@@ -170,8 +179,7 @@ extension LoginVC {
         self.emailTextField.keyboardType = .emailAddress
         self.passwordTextField.keyboardType = .default
     }
-    
-    
+
 }
 
 extension LoginVC : UITextFieldDelegate {
@@ -243,6 +251,13 @@ extension LoginVC {
                 switch (userActionResponse.userAction){
                 case ._none:
                         LoggingUtil.shared.cPrint("go to home screen")
+                        
+                        // Load to dashboard
+                        AppData.shared.isOnboarding = false
+                        AppData.shared.migratingToNewDevice = false
+                        AppData.shared.completingDetailsForLending = false
+                        self.navigateToDashboard()
+                        
                         break
                 case .accountReactivation:
                         //LoggingUtil.shared.cPrint("err")
@@ -269,7 +284,8 @@ extension LoginVC {
                         }.done { authUser in
                             AppConfig.shared.hideSpinner {
                                 AppData.shared.completingDetailsForLending = false
-                                AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                                AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
+                                //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                             }
                         }.catch { err in
                             AppConfig.shared.hideSpinner {
@@ -284,7 +300,8 @@ extension LoginVC {
                 case .requireBankLinking:
                        AppConfig.shared.hideSpinner {
                             AppData.shared.completingDetailsForLending = false
-                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                            AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
+                            //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                         }
                         break
                 case .requireMigration:
@@ -293,54 +310,7 @@ extension LoginVC {
                 case .none:
                      LoggingUtil.shared.cPrint("err")
                 }
-                
-           
-                
-//                guard accounts.isEmpty == false else {
-//                    AppData.shared.completingDetailsForLending = false
-//                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-//                    return
-//                }
-//                let financialAccounts: [FinancialAccountModel] = accounts
-//                if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
-//                    // when we have disabled linked acccount, we need to get user
-//                    // to dynamic form view and link their bank account
-//                    AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
-//                    AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
-//                    AppData.shared.disabledAccount = disabledAccount
-//
-//                    MoneySoftManager.shared.getInstitutions().done { institutions in
-//                        AppData.shared.financialInstitutions = institutions
-//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-//                        guard let selected = AppData.shared.selectedFinancialInstitution else {
-//                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-//                            return
-//                        }
-//
-//                        AppData.shared.isOnboarding = false
-//                        AppData.shared.migratingToNewDevice = true
-//                        AppNav.shared.pushToDynamicForm(selected, viewController: self)
-//                    }.catch { err in
-//                        self.showError(err, completion: nil)
-//                        return
-//                    }
-//                } else {
-//                    AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
-//                    MoneySoftManager.shared.getInstitutions().done { institutions in
-//                        AppData.shared.financialInstitutions = institutions
-//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-//                        // Load to dashboard
-//                        AppData.shared.isOnboarding = false
-//                        AppData.shared.migratingToNewDevice = false
-//                        AppData.shared.completingDetailsForLending = false
-//                        self.navigateToDashboard()
-//                    }.catch { err in
-//                        self.showError(err, completion: nil)
-//                        return
-//                    }
-//                }
-                
-                
+
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {

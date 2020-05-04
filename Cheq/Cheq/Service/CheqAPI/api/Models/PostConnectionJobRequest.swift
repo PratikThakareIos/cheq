@@ -13,12 +13,14 @@ public struct PostConnectionJobRequest: Codable {
 
     public var jobId: String
     public var institutionId: String
+    public var isUpdateConnection: Bool
 
-    public init(jobId: String, institutionId: String) {
+    public init(jobId: String, institutionId: String, isUpdateConnection: Bool ) {
         self.jobId = jobId
         self.institutionId = institutionId
+        self.isUpdateConnection = isUpdateConnection
+        
     }
-
-
 }
+
 

@@ -16,4 +16,8 @@ protocol DynamicFormViewModelCoordinator {
     func loadForm() -> Promise<[DynamicFormInput]>
     func submitForm()->Promise<Bool>
     func nextViewController()
+        
+    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?)->Promise<Bool>
+    func checkConnectionJobStatus() -> Promise<GetConnectionJobResponse>
 }
+

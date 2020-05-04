@@ -102,11 +102,11 @@ class AppNav {
     }
     
     /**
-    Dynamic form view UI is driven by **FinancialInstitutionModel**. Push to dynamic form view for linking bank account using MoneySoft SDK
-     - parameter institutionModel: FinancialInstitutionModel is retrieved from selecting the destination bank/institution
+    Dynamic form view UI is driven by **GetFinancialInstitution**. Push to dynamic form view for linking bank account using MoneySoft SDK
+     - parameter institutionModel: GetFinancialInstitution is retrieved from selecting the destination bank/institution
      - parameter viewController: The source viewController for current navigation action
      */
-    func pushToDynamicForm(_ institutionModel: FinancialInstitutionModel, viewController: UIViewController) {
+    func pushToDynamicForm(_ institutionModel: GetFinancialInstitution, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: DynamicFormViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.dynamic.rawValue) as! DynamicFormViewController

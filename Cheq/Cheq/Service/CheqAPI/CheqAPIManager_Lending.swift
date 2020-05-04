@@ -59,7 +59,7 @@ extension CheqAPIManager {
                 })
             }.catch { err in
                 LoggingUtil.shared.cPrint(err)
-            resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLoanPreview)
+                resolver.reject(CheqAPIManagerError_Lending.unableToRetrieveLoanPreview)
             }
         }
     }
@@ -132,9 +132,8 @@ extension CheqAPIManager {
                          LoggingUtil.shared.cPrint(error)
                         
                         resolver.reject(error)
-                      //  resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
+                        //resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
                         return
-                        
                     }
                     resolver.fulfill(authUser)
                 }
@@ -180,10 +179,8 @@ extension CheqAPIManager {
                     
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
-                        
                         resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
                         return
-                        
                     }
                     resolver.fulfill(authUser)
                 }
@@ -215,6 +212,7 @@ extension CheqAPIManager {
                    }
             }
     }
+    
 }
 
 

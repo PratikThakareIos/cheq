@@ -53,7 +53,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
         dateFormatter.dateFormat = worksheetTimeFormat
         let localTimeZoneAbbreviation = TimeZone.current.abbreviation() ?? ""
         dateFormatter.timeZone = TimeZone(abbreviation: localTimeZoneAbbreviation)
-        self.setupLocationManager()
+        //self.setupLocationManager()
     }
 
     func setupLocationManager() {

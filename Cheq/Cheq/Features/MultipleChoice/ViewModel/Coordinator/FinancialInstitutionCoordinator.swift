@@ -36,7 +36,8 @@ struct FinancialInstitutionCoordinator: MultipleChoiceViewModelCoordinator {
                 return Promise<[ChoiceModel]>() { res in
                     var result = [ChoiceModel]()
                     for institution:GetFinancialInstitution in institutions {
-                       let choice = ChoiceModel.init(type: .choiceWithIcon, title: institution.shortName ?? "N/A", caption: nil, image: institution.squareLogoUrl ?? "", ordering: institution.displayOrder!, ref: institution)
+                        
+                       let choice = ChoiceModel.init(type: .choiceWithIcon, title: institution.shortName ?? "N/A", caption: nil, image: institution._id ?? "", ordering: institution.displayOrder!, ref: institution)
                         result.append(choice)
 
                     }

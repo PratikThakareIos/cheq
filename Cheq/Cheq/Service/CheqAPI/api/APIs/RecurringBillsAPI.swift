@@ -37,6 +37,7 @@ open class RecurringBillsAPI {
 
      - returns: RequestBuilder<Void> 
      */
+    
     open class func deleteRecurringBillWithRequestBuilder(_id: Int) -> RequestBuilder<Void> {
         var path = "/v1/RecurringBills/{id}"
         let _idPreEscape = "\(_id)"
@@ -141,5 +142,5 @@ open class RecurringBillsAPI {
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
-
+    
 }
