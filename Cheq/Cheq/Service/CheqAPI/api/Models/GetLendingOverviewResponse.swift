@@ -16,15 +16,13 @@ public struct GetLendingOverviewResponse: Codable {
     public var recentBorrowings: RecentBorrowingSummary?
     public var eligibleRequirement: EligibleRequirement?
     public var decline: DeclineDetail?
-    public var userAction: UserAction?
 
-    public init(loanSetting: LoanSetting?, borrowOverview: BorrowOverview?, recentBorrowings: RecentBorrowingSummary?, eligibleRequirement: EligibleRequirement?, decline: DeclineDetail?, userAction: UserAction?) {
+    public init(loanSetting: LoanSetting?, borrowOverview: BorrowOverview?, recentBorrowings: RecentBorrowingSummary?, eligibleRequirement: EligibleRequirement?, decline: DeclineDetail?) {
         self.loanSetting = loanSetting
         self.borrowOverview = borrowOverview
         self.recentBorrowings = recentBorrowings
         self.eligibleRequirement = eligibleRequirement
         self.decline = decline
-        self.userAction = userAction
     }
 
 

@@ -20,5 +20,7 @@ public struct PutResetPasswordRequest: Codable {
         self.verificationCode = verificationCode
         self.newPassword = newPassword
     }
+
+
 }
 

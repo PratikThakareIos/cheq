@@ -35,14 +35,24 @@ public struct GetConnectionJobResponse: Codable {
     public var error: ModelError?
     public var errorTitle: String?
     public var errorDetail: String?
+    public var showClose: Bool?
+    public var showReconnect: Bool?
+    public var showChatWithUs: Bool?
+    public var actionRequiredGuidelines: [String]?
 
-    public init(institutionId: String?, step: Step?, stepStatus: StepStatus?, error: ModelError?, errorTitle: String?, errorDetail: String?) {
+    public init(institutionId: String?, step: Step?, stepStatus: StepStatus?, error: ModelError?, errorTitle: String?, errorDetail: String?, showClose: Bool?, showReconnect: Bool?, showChatWithUs: Bool?, actionRequiredGuidelines: [String]?) {
         self.institutionId = institutionId
         self.step = step
         self.stepStatus = stepStatus
         self.error = error
         self.errorTitle = errorTitle
         self.errorDetail = errorDetail
+        self.showClose = showClose
+        self.showReconnect = showReconnect
+        self.showChatWithUs = showChatWithUs
+        self.actionRequiredGuidelines = actionRequiredGuidelines
     }
+
+
 }
 

@@ -382,8 +382,8 @@ extension MoneySoftManager {
             UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: String("\(HttpHeaderKeyword.bearer.rawValue) \(token)")).execute() { (response, error) in
                 
                 guard let msUser: GetUserResponse = response?.body else { resolver.reject(error ?? MoneySoftManagerError.unableToRetrieveMoneySoftCredential); return}
-                let username = msUser.moneySoftCredential?.msUsername ?? ""
-                let password = msUser.moneySoftCredential?.msPassword ?? ""
+                let username = ""//msUser.moneySoftCredential?.msUsername ?? ""
+                let password = ""//msUser.moneySoftCredential?.msPassword ?? ""
                 let moneySoftUser = MoneySoftUser(username: username, passwd: password, otp: "")
                 resolver.fulfill(moneySoftUser)
             }

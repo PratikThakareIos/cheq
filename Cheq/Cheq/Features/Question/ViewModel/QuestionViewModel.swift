@@ -139,7 +139,7 @@ extension QuestionViewModel {
     
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails),ageRange:.from25To34,state:.nsw)
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails))
         return putUserDetailsReq
     }
     

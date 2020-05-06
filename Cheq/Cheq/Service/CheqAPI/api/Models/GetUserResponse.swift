@@ -12,15 +12,11 @@ import Foundation
 public struct GetUserResponse: Codable {
 
     public var userDetail: GetUserDetailResponse?
-    public var userFinancialAccountsLinking: UserFinancialAccountsLinkingResponse?
     public var employer: GetUserEmployerResponse?
-    public var moneySoftCredential: GetUserMoneySoftResponse?
 
-    public init(userDetail: GetUserDetailResponse?, userFinancialAccountsLinking: UserFinancialAccountsLinkingResponse?, employer: GetUserEmployerResponse?, moneySoftCredential: GetUserMoneySoftResponse?) {
+    public init(userDetail: GetUserDetailResponse?, employer: GetUserEmployerResponse?) {
         self.userDetail = userDetail
-        self.userFinancialAccountsLinking = userFinancialAccountsLinking
         self.employer = employer
-        self.moneySoftCredential = moneySoftCredential
     }
 
 

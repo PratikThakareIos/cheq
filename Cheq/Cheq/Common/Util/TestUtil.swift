@@ -86,7 +86,7 @@ class TestUtil {
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
-        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile(),ageRange: .from35To54,state:.nsw)
+        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile())
         return req
     }
     
@@ -388,7 +388,7 @@ class TestUtil {
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
         
-        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
+        let spendingOverview = GetSpendingOverviewResponse(headerMessage: "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
     }
     
@@ -430,8 +430,7 @@ class TestUtil {
     
         let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5.0, repaymentDate: repaymentDate, hasOverdueLoans: true)
         
-    
-        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil, userAction: .none)
+        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
         return lendingOverview
     }
     

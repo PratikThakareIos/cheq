@@ -66,18 +66,12 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "moneySoftCredential" : {
-    "msPassword" : "msPassword",
-    "msUsername" : "msUsername"
-  },
   "userDetail" : {
-    "ageRange" : "From18To24",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "NSW",
     "unitApartmentNumber" : "unitApartmentNumber"
   },
   "employer" : {
@@ -88,9 +82,6 @@ open class UsersAPI {
     "employerName" : "employerName",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
-  },
-  "userFinancialAccountsLinking" : {
-    "hasLinkedAnyFinancialAccounts" : true
   }
 }}]
 
@@ -125,10 +116,16 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
+  "showReconnect" : true,
   "userAction" : "None",
+  "showClose" : true,
+  "actionRequiredGuidelines" : [ "actionRequiredGuidelines", "actionRequiredGuidelines" ],
   "link" : "link",
+  "showChatWithUs" : true,
   "detail" : "detail",
-  "title" : "title"
+  "title" : "title",
+  "linkedInstitutionId" : "linkedInstitutionId",
+  "canSelectBank" : true
 }}]
 
      - returns: RequestBuilder<GetUserActionResponse> 
@@ -307,18 +304,12 @@ open class UsersAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
-  "moneySoftCredential" : {
-    "msPassword" : "msPassword",
-    "msUsername" : "msUsername"
-  },
   "userDetail" : {
-    "ageRange" : "From18To24",
     "firstName" : "firstName",
     "lastName" : "lastName",
     "residentialAddress" : "residentialAddress",
     "mobile" : "mobile",
     "dateOfBirth" : "dateOfBirth",
-    "state" : "NSW",
     "unitApartmentNumber" : "unitApartmentNumber"
   },
   "employer" : {
@@ -329,9 +320,6 @@ open class UsersAPI {
     "employerName" : "employerName",
     "noFixedAddress" : true,
     "longitude" : 6.027456183070403
-  },
-  "userFinancialAccountsLinking" : {
-    "hasLinkedAnyFinancialAccounts" : true
   }
 }}]
      

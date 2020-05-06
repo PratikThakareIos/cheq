@@ -106,6 +106,48 @@ open class FinancesAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
+    open class func getBasiqConnectionForUpdate(completion: @escaping ((_ data: GetConnectionUpdateResponse?,_ error: Error?) -> Void)) {
+        getBasiqConnectionForUpdateWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - GET /v1/Finances/connections/update
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "secondaryLoginIdCaption" : "secondaryLoginIdCaption",
+  "institutionId" : "institutionId",
+  "passwordCaption" : "passwordCaption",
+  "apiConnectionUrl" : "apiConnectionUrl",
+  "apiContentType" : "apiContentType",
+  "securityCodeCaption" : "securityCodeCaption",
+  "shortName" : "shortName",
+  "accessToken" : "accessToken",
+  "expiresInSeconds" : 0
+}}]
+
+     - returns: RequestBuilder<GetConnectionUpdateResponse> 
+     */
+    open class func getBasiqConnectionForUpdateWithRequestBuilder() -> RequestBuilder<GetConnectionUpdateResponse> {
+        let path = "/v1/Finances/connections/update"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetConnectionUpdateResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
     open class func getBasiqConnectionToken(completion: @escaping ((_ data: GetAppTokenResponse?,_ error: Error?) -> Void)) {
         getBasiqConnectionTokenWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
@@ -219,9 +261,13 @@ open class FinancesAPI {
        - type: apiKey Authorization 
        - name: Bearer
      - examples: [{contentType=application/json, example={
+  "showReconnect" : true,
   "institutionId" : "institutionId",
+  "showClose" : true,
   "errorTitle" : "errorTitle",
+  "actionRequiredGuidelines" : [ "actionRequiredGuidelines", "actionRequiredGuidelines" ],
   "errorDetail" : "errorDetail",
+  "showChatWithUs" : true,
   "step" : "VerifyingCredentials",
   "error" : "InvalidCredentials",
   "stepStatus" : "Pending"
@@ -434,6 +480,40 @@ open class FinancesAPI {
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func refreshConnection(completion: @escaping ((_ data: GetRefreshConnectionResponse?,_ error: Error?) -> Void)) {
+        refreshConnectionWithRequestBuilder().execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - PUT /v1/Finances/connections/refresh
+     - API Key:
+       - type: apiKey Authorization 
+       - name: Bearer
+     - examples: [{contentType=application/json, example={
+  "jobId" : "jobId"
+}}]
+
+     - returns: RequestBuilder<GetRefreshConnectionResponse> 
+     */
+    open class func refreshConnectionWithRequestBuilder() -> RequestBuilder<GetRefreshConnectionResponse> {
+        let path = "/v1/Finances/connections/refresh"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<GetRefreshConnectionResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
 }

@@ -202,8 +202,7 @@ class CheqAPIManager {
                         }
 
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                        var updatedAuthUser = authUser
-                        
+                                            
                         let viewModel = QuestionViewModel()
                         
                         //Manish
@@ -217,12 +216,8 @@ class CheqAPIManager {
                         
                         viewModel.save(QuestionField.employerName.rawValue, value: resp.employer?.employerName ?? "")
                         viewModel.save(QuestionField.employerAddress.rawValue, value: resp.employer?.address ?? "")
-
                         
-                        updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
-                        let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
-                        updatedAuthUser.msCredential[.msPassword] = password
-                        AuthConfig.shared.activeManager.setUser(updatedAuthUser).done{ updateUser in
+                        AuthConfig.shared.activeManager.setUser(authUser).done{ updateUser in
                             resolver.fulfill(updateUser)
                         }.catch {err in
                             resolver.reject(err)
@@ -255,12 +250,13 @@ class CheqAPIManager {
                    
                     if let error = err { resolver.reject(error); return }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                    var updatedAuthUser = authUser
                     
-                    updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
-                    let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
-                    updatedAuthUser.msCredential[.msPassword] = password
-                    AuthConfig.shared.activeManager.setUser(updatedAuthUser).done{ updateUser in
+//                    var updatedAuthUser = authUser
+//                    updatedAuthUser.msCredential[.msUsername] = resp.moneySoftCredential?.msUsername
+//                    let password = StringUtil.shared.decodeBase64(resp.moneySoftCredential?.msPassword ?? "")
+//                    updatedAuthUser.msCredential[.msPassword] = password
+                    
+                    AuthConfig.shared.activeManager.setUser(authUser).done{ updateUser in
                         resolver.fulfill(updateUser)
                     }.catch {err in
                         resolver.reject(err)

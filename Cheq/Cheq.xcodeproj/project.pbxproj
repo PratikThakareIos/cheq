@@ -276,6 +276,12 @@
 		2A5C74D4244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
+		2A70ACB62462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
+		2A70ACB72462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
+		2A70ACB82462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
+		2A70ACB92462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */; };
+		2A70ACBA2462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */; };
+		2A70ACBB2462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */; };
 		2A72CF672420A93B0053C0DD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF662420A93B0053C0DD /* LoginVC.swift */; };
 		2A72CF692420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
 		2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A72CF682420A9460053C0DD /* RegistrationVC.swift */; };
@@ -1399,6 +1405,8 @@
 		2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
 		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
+		2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConnectionUpdateResponse.swift; sourceTree = "<group>"; };
+		2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRefreshConnectionResponse.swift; sourceTree = "<group>"; };
 		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2A72CF682420A9460053C0DD /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		2A72CF6F2420A98E0053C0DD /* CNButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNButton.swift; sourceTree = "<group>"; };
@@ -1852,6 +1860,8 @@
 		2A44A1D82452E6ED00346FCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */,
+				2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */,
 				2A44A3152452F67400346FCA /* GetLoanPreviewResponse.swift */,
 				2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */,
 				2A44A3142452F67400346FCA /* Worksheet.swift */,
@@ -4857,6 +4867,7 @@
 				2A44A2BF2452E6ED00346FCA /* MonthAmountStatResponse.swift in Sources */,
 				4F01F6AA237E6A5B00268423 /* CBarChartView.swift in Sources */,
 				2A44A2982452E6ED00346FCA /* DailyTransactionsResponse.swift in Sources */,
+				2A70ACBB2462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */,
 				4F01F6AB237E6A5B00268423 /* TransferCardTableViewCell.swift in Sources */,
 				4F01F6AC237E6A5B00268423 /* CTableViewCell.swift in Sources */,
 				4F01F6AD237E6A5B00268423 /* LoginViewController.swift in Sources */,
@@ -4880,6 +4891,7 @@
 				2A44A2A12452E6ED00346FCA /* GetConnectionJobResponse.swift in Sources */,
 				2A44A25C2452E6ED00346FCA /* PutResetPasswordRequest.swift in Sources */,
 				2A44A2F22452E6EE00346FCA /* RecentBorrowingSummary.swift in Sources */,
+				2A70ACB82462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */,
 				4F01F6BC237E6A5B00268423 /* VerificationViewModel.swift in Sources */,
 				4F01F6BD237E6A5B00268423 /* UpcomingBillsTableViewCellViewModel.swift in Sources */,
 				BD3C962B2428F7A200927055 /* CustomProgressBar.swift in Sources */,
@@ -5214,6 +5226,7 @@
 				2A44A2BE2452E6ED00346FCA /* MonthAmountStatResponse.swift in Sources */,
 				4FBDDA8E236BC68700EDB1E9 /* CBarChartView.swift in Sources */,
 				2A44A2972452E6ED00346FCA /* DailyTransactionsResponse.swift in Sources */,
+				2A70ACBA2462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */,
 				4FBDDA91236BC68700EDB1E9 /* TransferCardTableViewCell.swift in Sources */,
 				4FBDDA92236BC68700EDB1E9 /* CTableViewCell.swift in Sources */,
 				4FBDDA93236BC68700EDB1E9 /* LoginViewController.swift in Sources */,
@@ -5237,6 +5250,7 @@
 				2A44A2A02452E6ED00346FCA /* GetConnectionJobResponse.swift in Sources */,
 				2A44A25B2452E6ED00346FCA /* PutResetPasswordRequest.swift in Sources */,
 				2A44A2F12452E6EE00346FCA /* RecentBorrowingSummary.swift in Sources */,
+				2A70ACB72462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */,
 				4FBDDAA0236BC68700EDB1E9 /* VerificationViewModel.swift in Sources */,
 				4FBDDAA1236BC68700EDB1E9 /* AmountSelectTableViewCell.swift in Sources */,
 				BD3C962A2428F7A200927055 /* CustomProgressBar.swift in Sources */,
@@ -5705,6 +5719,7 @@
 				4FBDDA10236BC66B00EDB1E9 /* MoneySoftDev.swift in Sources */,
 				2A44A2212452E6ED00346FCA /* JSONValue.swift in Sources */,
 				4F80FCD223597CA7009C8F83 /* IdentityConflictIntroCoordinator.swift in Sources */,
+				2A70ACB62462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */,
 				4F09109A231F7E9A00AA7F7D /* Data_Extension.swift in Sources */,
 				2A44A2F02452E6EE00346FCA /* RecentBorrowingSummary.swift in Sources */,
 				2A44A26F2452E6ED00346FCA /* PostRecurringBillRequest.swift in Sources */,
@@ -5718,6 +5733,7 @@
 				2A44A2C92452E6ED00346FCA /* PostFinancialAccountRequest.swift in Sources */,
 				2A44A2D52452E6ED00346FCA /* GetSpendingCategoryResponse.swift in Sources */,
 				4F01F8B72384A81000268423 /* LinkTableViewCell.swift in Sources */,
+				2A70ACB92462AA7400756AC2 /* GetRefreshConnectionResponse.swift in Sources */,
 				4F2E4B9E233B10F3001F1BA2 /* StateCoordinator.swift in Sources */,
 				2A44A2FC2452E6EE00346FCA /* PutUserBudgetsRequest.swift in Sources */,
 				4F0D716D2346B9B600AA819C /* AccountViewModel.swift in Sources */,

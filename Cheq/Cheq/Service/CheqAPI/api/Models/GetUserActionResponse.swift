@@ -24,12 +24,24 @@ public struct GetUserActionResponse: Codable {
     public var userAction: UserAction?
     public var title: String?
     public var detail: String?
+    public var linkedInstitutionId: String?
+    public var canSelectBank: Bool?
+    public var showClose: Bool?
+    public var showReconnect: Bool?
+    public var showChatWithUs: Bool?
+    public var actionRequiredGuidelines: [String]?
     public var link: String?
 
-    public init(userAction: UserAction?, title: String?, detail: String?, link: String?) {
+    public init(userAction: UserAction?, title: String?, detail: String?, linkedInstitutionId: String?, canSelectBank: Bool?, showClose: Bool?, showReconnect: Bool?, showChatWithUs: Bool?, actionRequiredGuidelines: [String]?, link: String?) {
         self.userAction = userAction
         self.title = title
         self.detail = detail
+        self.linkedInstitutionId = linkedInstitutionId
+        self.canSelectBank = canSelectBank
+        self.showClose = showClose
+        self.showReconnect = showReconnect
+        self.showChatWithUs = showChatWithUs
+        self.actionRequiredGuidelines = actionRequiredGuidelines
         self.link = link
     }
 

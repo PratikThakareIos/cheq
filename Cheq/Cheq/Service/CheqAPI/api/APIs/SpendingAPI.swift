@@ -210,6 +210,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "headerMessage" : "headerMessage",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -305,6 +306,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "headerMessage" : "headerMessage",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -400,6 +402,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "headerMessage" : "headerMessage",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -495,6 +498,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "headerMessage" : "headerMessage",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,

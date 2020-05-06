@@ -12,6 +12,7 @@ open class SwaggerClientAPI {
     #else
     open static var basePath = "https://api.cheq.com.au"
     #endif
+
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
