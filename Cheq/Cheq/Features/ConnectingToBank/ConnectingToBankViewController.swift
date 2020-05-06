@@ -31,6 +31,7 @@ class ConnectingToBankViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         transparentView.backgroundColor = .clear
         let rootVc = AppNav.shared.rootViewController()
@@ -45,8 +46,12 @@ class ConnectingToBankViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.moneysoftEvent.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.basiqEvent.rawValue), object: nil)
+<<<<<<< HEAD
         
      
+=======
+
+>>>>>>> Add checkSpendingStatus API
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -130,6 +135,7 @@ extension ConnectingToBankViewController {
                         self.loadingLabel.text = "Categorising your transactions..."
                         self.progressBar.setProgress(0.80, animated: true)
 
+<<<<<<< HEAD
                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         //Load dashboard after 2seconds
                         self.loadingLabel.text = "Loading Dashboard.."
@@ -137,8 +143,17 @@ extension ConnectingToBankViewController {
                    }
                 
                 default:
+=======
+//                   DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                        //Load dashboard after 2seconds
+//                        self.loadingLabel.text = "Loading Dashboard.."
+//                        self.progressBar.setProgress(0.95, animated: true)
+//                   }
+                
+               default:
+>>>>>>> Add checkSpendingStatus API
                         self.progressBar.setProgress(0.3, animated: true)
-                }
+            }
         }
     }
     

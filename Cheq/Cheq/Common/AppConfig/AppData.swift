@@ -95,7 +95,12 @@ class AppData {
     var expirationDuration = TimeInterval(3600)
     
     /// spending overview status
-    var spendingOverviewReady = false 
+    var spendingOverviewReady = false
+    
+    /// connection Job Status
+    var connectionJobStatusReady = false
+    
+    
     
     /// amount selected from loan setting
     var amountSelected = "0"

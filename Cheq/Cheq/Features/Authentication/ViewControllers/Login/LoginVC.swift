@@ -39,7 +39,11 @@ class LoginVC: UIViewController {
         activeTimestamp()
         
         //Manish
+<<<<<<< HEAD
         //self.addTestAccountDetails()
+=======
+        self.addTestAccountDetails()
+>>>>>>> Add checkSpendingStatus API
     }
     
     override func viewDidDisappear(_ animated: Bool) {

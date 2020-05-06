@@ -347,7 +347,11 @@ class QuestionViewController: UIViewController {
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                 return CheqAPIManager.shared.putUser(authUser)
             }.then { authUser in
+                AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+            }.then { authUser in
                 return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
+            }.then { authUser in
+                AuthConfig.shared.activeManager.setUser(authUser)
             }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.contactDetails)

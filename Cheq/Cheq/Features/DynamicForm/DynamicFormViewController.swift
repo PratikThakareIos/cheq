@@ -60,7 +60,11 @@ class DynamicFormViewController: UIViewController {
                 }
                 self.built = true
                 //Manish
+<<<<<<< HEAD
                // self.addTestAccountDetails()
+=======
+                self.addTestAccountDetails()
+>>>>>>> Add checkSpendingStatus API
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -193,17 +197,38 @@ class DynamicFormViewController: UIViewController {
              self.modalPresentationStyle = .fullScreen
              self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
                 
+<<<<<<< HEAD
                 self.checkSpendingStatus { result in
+=======
+                self.checkJobStatus { result in
+>>>>>>> Add checkSpendingStatus API
                     // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
-                    self.dismiss(animated: true) {
                         switch result {
                         case .success(_):
-                            AppData.shared.isOnboarding = false
-                            self.viewModel.coordinator.nextViewController()
+                            
+                            
+                            self.checkSpendingStatus { result in
+                                // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
+                                self.dismiss(animated: true) {
+                                    switch result {
+                                    case .success(_):
+                                        AppData.shared.isOnboarding = false
+                                        self.viewModel.coordinator.nextViewController()
+                                    case .failure(let err):
+                                        self.showError(err, completion: nil)
+                                    }
+                                }
+                            }
+                            
+                            
+//                            AppData.shared.isOnboarding = false
+//                            self.viewModel.coordinator.nextViewController()
                         case .failure(let err):
-                            self.showError(err, completion: nil)
+                            self.dismiss(animated: true) {
+                                self.showError(err, completion: nil)
+                            }
                         }
-                    }
+                    
                 }
                 
             }.catch { err in
@@ -228,10 +253,57 @@ class DynamicFormViewController: UIViewController {
     }
     
     //getJobConnectionStatus
+<<<<<<< HEAD
+=======
+    func checkJobStatus(_ completion: @escaping (Result<Bool>)->Void) {
+        if AppData.shared.connectionJobStatusReady {
+            completion(.success(true))
+        } else {
+            
+            if self.count == 0 {
+                self.dynamicTimeInterval = 1.0
+            }
+           
+            if self.count == 1 || self.count == 2 {
+                self.dynamicTimeInterval = 15.0
+            }
+            
+            if self.count == 3 || self.count == 4 {
+                self.dynamicTimeInterval = 10.0
+            }else{
+                self.dynamicTimeInterval = 5.0
+            }
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.dynamicTimeInterval) {
+
+                 self.viewModel.coordinator.checkConnectionJobStatus().done { getConnectionJobResponse in
+                   
+                    LoggingUtil.shared.cPrint("\n getConnectionJobResponse = \(getConnectionJobResponse)")
+                    
+                    guard getConnectionJobResponse.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
+                       let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey:  getConnectionJobResponse.errorDetail]) as Error
+                       completion(.failure(error))
+                       return
+                    }
+                    
+                    AppData.shared.connectionJobStatusReady = self.manageConectionJobStatus(res: getConnectionJobResponse)
+                    self.checkJobStatus(completion)
+                }.catch { err in
+                    LoggingUtil.shared.cPrint(err)
+                    completion(.failure(err))
+                }
+            }
+        }
+    }
+    
+
+>>>>>>> Add checkSpendingStatus API
     func checkSpendingStatus(_ completion: @escaping (Result<Bool>)->Void) {
         if AppData.shared.spendingOverviewReady {
             completion(.success(true))
         } else {
+<<<<<<< HEAD
             
             if self.count == 0 {
                 self.dynamicTimeInterval = 1.0
@@ -263,6 +335,12 @@ class DynamicFormViewController: UIViewController {
                     }
                     
                     AppData.shared.spendingOverviewReady = self.manageConectionJobStatus(res: getConnectionJobResponse)
+=======
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                CheqAPIManager.shared.spendingStatus().done { getSpendingStatusResponse in
+                    LoggingUtil.shared.cPrint("\n getSpendingStatusResponse = \(getSpendingStatusResponse)")
+                    AppData.shared.spendingOverviewReady = (getSpendingStatusResponse.transactionStatus == GetSpendingStatusResponse.TransactionStatus.ready) ? true : false
+>>>>>>> Add checkSpendingStatus API
                     self.checkSpendingStatus(completion)
                 }.catch { err in
                     LoggingUtil.shared.cPrint(err)
@@ -272,7 +350,10 @@ class DynamicFormViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> Add checkSpendingStatus API
     
 
 //
@@ -354,6 +435,7 @@ class DynamicFormViewController: UIViewController {
 //        }
 //    }
     
+<<<<<<< HEAD
 //    func checkSpendingStatus(_ completion: @escaping (Result<Bool>)->Void) {
 //        if AppData.shared.spendingOverviewReady {
 //            completion(.success(true))
@@ -369,6 +451,9 @@ class DynamicFormViewController: UIViewController {
 //            }
 //        }
 //    }
+=======
+
+>>>>>>> Add checkSpendingStatus API
     
  }
  
@@ -381,6 +466,7 @@ class DynamicFormViewController: UIViewController {
     
     }
  }
+<<<<<<< HEAD
 
  
  // MARK: - Timer
@@ -398,6 +484,25 @@ class DynamicFormViewController: UIViewController {
 
             ConnectionStepStatus
 
+=======
+
+ 
+ // MARK: - Timer
+ extension DynamicFormViewController {
+    
+    func manageConectionJobStatus(res: GetConnectionJobResponse) -> Bool {
+             LoggingUtil.shared.cPrint("\n manageConectionJobStatus Called")
+            /*
+            ConnectionStep
+
+            VerifyingCredentials: logging into user’s internet bank
+            RetrievingAccounts: getting financial account info
+            RetrievingTransactions: getting financial transactions info
+            Categorisation: processing financial transactions
+
+            ConnectionStepStatus
+
+>>>>>>> Add checkSpendingStatus API
             Pending
             InProgress
             Failed: failed, ask users to try again, show the error message based on

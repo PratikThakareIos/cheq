@@ -140,6 +140,7 @@ class IntroductionViewController: UIViewController {
         case .identityConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
            //manish
+            
             // resolve kyc conflict
 //            AppConfig.shared.showSpinner()
 //            CheqAPIManager.shared.resolveNameConflict().done { authUser in
@@ -159,6 +160,7 @@ class IntroductionViewController: UIViewController {
             LoggingUtil.shared.cPrint("Confirm and change")
             AppConfig.shared.showSpinner()
       //Manish
+            
 //            CheqAPIManager.shared.resolveNameConflict().done { authUser in
 //                AppConfig.shared.hideSpinner {
 //                    AppNav.shared.dismissModal(self)

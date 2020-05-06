@@ -113,7 +113,6 @@ class SalaryPaymentViewController: UIViewController {
             }
         })
     }
-    
 }
 
 extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource {
@@ -177,7 +176,7 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
         
         ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.title, text: "\(String(describing: data._description!) )")
         ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.value, text: "\(String(describing: data.amount!) )")
-       let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
+        let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
 
         /*accessibilityIdentifier is used to identify a particular element which takes an input parameter of a string
 
