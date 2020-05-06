@@ -6094,11 +6094,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Manual;
-<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 1;
-=======
-				CURRENT_PROJECT_VERSION = 2;
->>>>>>> Add checkSpendingStatus API
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -6153,11 +6149,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Manual;
-<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 1;
-=======
-				CURRENT_PROJECT_VERSION = 2;
->>>>>>> Add checkSpendingStatus API
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";

@@ -344,6 +344,9 @@ class QuestionViewController: UIViewController {
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
             AppConfig.shared.showSpinner()
+           
+            
+            
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                 return CheqAPIManager.shared.putUser(authUser)
             }.then { authUser in
