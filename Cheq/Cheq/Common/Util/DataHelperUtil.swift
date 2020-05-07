@@ -39,14 +39,7 @@ class DataHelperUtil {
         let req = PostForgetPasswordRequest(email: AppData.shared.forgotPasswordEmail)
         return req
     }
-    
-//    /**
-//     Helper method to request password reset verification email
-//     - Returns: Post request payload to trigger backend to send an password reset email
-//     */
-//    func PostBasiqLoginRequest(dict:[String:Any])-> PostBasiqLoginRequest {
-//
-//    }
+
     
     /**
      Helper method to **PUT** user details for Onfido KYC validation

@@ -173,6 +173,8 @@ class LoginViewController: RegistrationViewController {
                 AuthConfig.shared.activeManager.setUser(authUser)
             }.then { authUser in
                 CheqAPIManager.shared.getUserDetails()
+            }.then { authUser in
+                AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     guard authUser.email.isEmpty == false, let msUsername = authUser.msCredential[.msUsername], msUsername.isEmpty == false, let msPassword = authUser.msCredential[.msPassword], msPassword.isEmpty == false else {

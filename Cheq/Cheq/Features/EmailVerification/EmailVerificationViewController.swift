@@ -138,7 +138,13 @@ class EmailVerificationViewController: UIViewController {
         }
                 
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
+        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).then { _ in
+            return AuthConfig.shared.activeManager.getCurrentUser()
+        }.then { authUser in
+            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.then { authUser in
+            AuthConfig.shared.activeManager.setUser(authUser)
+        }.done { _ in
             AppConfig.shared.hideSpinner {
                 self.showMessage("New password successfully created.") {
                     AppNav.shared.dismissModal(self)
@@ -148,7 +154,7 @@ class EmailVerificationViewController: UIViewController {
             AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
             }
-        }
+        } 
     }
     
     func showInvalidPopUpView(){
@@ -177,12 +183,12 @@ class EmailVerificationViewController: UIViewController {
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-            }.done { authUser in
+        }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     //self.handleSuccessVerification()
                     AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
-            }.catch { err in
+        }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showInvalidPopUpView()
                     //self.showError(err, completion: nil)
