@@ -204,15 +204,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             
         case .financialInstitutions:
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
-            // to render the form 
-            AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
+            // to render the form
             let selectedChoice = self.choices[indexPath.row]
-            AppData.shared.selectedFinancialInstitution = selectedChoice.ref as? GetFinancialInstitution
-            guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
-                return
-            }
-            AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
-            AppNav.shared.pushToDynamicForm(bank, viewController: self)
+            self.gotoNewScreenWith(choiceModel: selectedChoice)
             
         case .ageRange:
             
@@ -376,14 +370,12 @@ extension MultipleChoiceViewController {
              if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
              */
             
+            
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
                 case ._none:
                     LoggingUtil.shared.cPrint("go to home screen")
-                    break
-                case .accountReactivation:
-                    //LoggingUtil.shared.cPrint("err")
                     break
                 case .actionRequiredByBank:
                     //LoggingUtil.shared.cPrint("err")
@@ -413,12 +405,15 @@ extension MultipleChoiceViewController {
                         }
                     }
                     break
-                case .requireBankLinking:
-                    self.getBankListFromServer()
-                    break
-                case .requireMigration:
-                    LoggingUtil.shared.cPrint("err")
-                    break
+                case .requireMigration,.requireBankLinking, .accountReactivation:
+                    
+//                UserAction: RequireMigration, RequireBankLinking, AccountReactivation
+//                LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
+//                LinkedInstitutionId is null, ask users to select institution from bank list
+                    
+                  self.getBankListFromServer(linkedInstitutionId : userActionResponse.linkedInstitutionId)
+                  break
+             
                 case .none:
                     LoggingUtil.shared.cPrint("err")
                 }
@@ -434,18 +429,59 @@ extension MultipleChoiceViewController {
     }
     
     
-    func getBankListFromServer(){        
+    func getBankListFromServer(linkedInstitutionId : String?){
         AppConfig.shared.showSpinner()
         self.viewModel.coordinator.choices().done { choices in
-            AppConfig.shared.hideSpinner {
-                self.choices = choices
-                self.tableView.reloadData()
+            
+            var foundBankModel : ChoiceModel?
+            if let linkedInstitutionId = linkedInstitutionId, choices.count > 0{
+                 for obj in choices {
+                      if let ref = obj.ref as? GetFinancialInstitution, ref._id == linkedInstitutionId {
+                           LoggingUtil.shared.cPrint("match found = \(ref)")
+                           foundBankModel = obj
+                           break
+                      }
+                }
             }
             
+            AppConfig.shared.hideSpinner {
+                if let obj = foundBankModel{
+                   self.gotoNewScreenWith(choiceModel: obj)
+                }else{
+                    self.choices = choices
+                    self.tableView.reloadData()
+                }
+            }
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
             }
         }
     }
+    
+    
+    func gotoNewScreenWith(choiceModel : ChoiceModel){
+       
+        AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
+        AppData.shared.selectedFinancialInstitution = choiceModel.ref as? GetFinancialInstitution
+        guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
+            return
+        }
+        AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
+        AppNav.shared.pushToDynamicForm(bank, viewController: self)
+    }
+    
+//    func getBankListFromServer(){
+//        AppConfig.shared.showSpinner()
+//        self.viewModel.coordinator.choices().done { choices in
+//            AppConfig.shared.hideSpinner {
+//                    self.choices = choices
+//                    self.tableView.reloadData()
+//            }
+//        }.catch { err in
+//            AppConfig.shared.hideSpinner {
+//                self.showError(err, completion: nil)
+//            }
+//        }
+//    }
 }

@@ -82,7 +82,7 @@ class IntroductionViewController: UIViewController {
            
            case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
                 self.secondaryButton.isHidden = false
-                  self.securityView.isHidden = true
+                self.securityView.isHidden = true
             
             case .setupBank:
                 self.titleLabel.text = "Connect your Bank"
@@ -102,6 +102,7 @@ class IntroductionViewController: UIViewController {
     
     @IBAction func confirm(_ sender: Any) {
         switch viewModel.coordinator.type {
+        
         case .setupBank:
             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
         case .email:

@@ -259,9 +259,7 @@ extension LoginVC {
                         self.navigateToDashboard()
                         
                         break
-                case .accountReactivation:
-                        //LoggingUtil.shared.cPrint("err")
-                        break
+      
                 case .actionRequiredByBank:
                         //LoggingUtil.shared.cPrint("err")
                         break
@@ -297,15 +295,17 @@ extension LoginVC {
                         }
                     
                         break
-                case .requireBankLinking:
+                case  .requireMigration,.requireBankLinking, .accountReactivation:
+                    
+//                    UserAction: RequireMigration, RequireBankLinking, AccountReactivation
+//                    LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
+//                    LinkedInstitutionId is null, ask users to select institution from bank list
+
                        AppConfig.shared.hideSpinner {
                             AppData.shared.completingDetailsForLending = false
                             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                             //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                         }
-                        break
-                case .requireMigration:
-                        LoggingUtil.shared.cPrint("err")
                         break
                 case .none:
                      LoggingUtil.shared.cPrint("err")
@@ -516,3 +516,31 @@ extension LoginVC {
         }
     }
 }
+
+
+/*
+ 
+ InvalidCredentials
+ call GET /connections/update
+ display the screen to users and ask users to fill new password
+ call Basiq Update Connection endpoint, you will have a JobId in response
+ Post the JobId to backend: POST connections/jobs, with isUpdate = true
+
+ UserAction: RequireMigration, RequireBankLinking, AccountReactivation
+ LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
+ LinkedInstitutionId is null, ask users to select institution from bank list
+ 
+ UserAction: ActionRequiredByBank
+ show the screen and guideline.
+ call the backend API: PUT v1/connections/refresh
+ 
+ UserAction: BankNotSupported
+ display the BankNotSupported block screen
+
+ UserAction: MissingAccount
+ call PUT v1/users
+ refresh firebase token
+ get useraction again to continue the action in the response
+ 
+ 
+ */

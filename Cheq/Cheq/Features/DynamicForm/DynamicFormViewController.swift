@@ -99,29 +99,29 @@ class DynamicFormViewController: UIViewController {
     
     func buildInputSubview(_ input: DynamicFormInput)-> UIView {
         switch input.type {
-        case .text:
-            let textField = CTextField(frame: CGRect.zero)
-            textField.placeholder = input.title
-            textField.autocapitalizationType = .none
-            return textField
-        case .password:
-            let passwordTextField = CTextField(frame: CGRect.zero)
-            passwordTextField.placeholder = input.title
-            passwordTextField.isSecureTextEntry = true
-            return passwordTextField
-        case .checkBox:
-            let switchView = CSwitchWithLabel(frame: CGRect.zero, title: input.title)
-            return switchView
-        case .confirmButton:
-            let confirmButton = CButton(frame: CGRect.zero)
-            confirmButton.type = .normal
-            confirmButton.setTitle(input.title, for: .normal)
-            confirmButton.addTarget(self, action: #selector(confirm(_:)), for: .touchUpInside)
-            return confirmButton
-        case .spacer:
-            let spacer = UIView(frame: CGRect.zero)
-            spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
-            return spacer
+            case .text:
+                let textField = CTextField(frame: CGRect.zero)
+                textField.placeholder = input.title
+                textField.autocapitalizationType = .none
+                return textField
+            case .password:
+                let passwordTextField = CTextField(frame: CGRect.zero)
+                passwordTextField.placeholder = input.title
+                passwordTextField.isSecureTextEntry = true
+                return passwordTextField
+            case .checkBox:
+                let switchView = CSwitchWithLabel(frame: CGRect.zero, title: input.title)
+                return switchView
+            case .confirmButton:
+                let confirmButton = CButton(frame: CGRect.zero)
+                confirmButton.type = .normal
+                confirmButton.setTitle(input.title, for: .normal)
+                confirmButton.addTarget(self, action: #selector(confirm(_:)), for: .touchUpInside)
+                return confirmButton
+            case .spacer:
+                let spacer = UIView(frame: CGRect.zero)
+                spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
+                return spacer
         }
     }
  }
@@ -289,10 +289,6 @@ class DynamicFormViewController: UIViewController {
     }
     
 
-
-
-    
-
 //
 //    @objc func confirm(_ sender: Any) {
 //        LoggingUtil.shared.cPrint("confirm")
@@ -388,7 +384,6 @@ class DynamicFormViewController: UIViewController {
             }
         }
     }
-
  }
  
  extension DynamicFormViewController {
