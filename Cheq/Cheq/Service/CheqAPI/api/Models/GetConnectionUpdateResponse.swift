@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 public struct GetConnectionUpdateResponse: Codable {
 
     public var institutionId: String?

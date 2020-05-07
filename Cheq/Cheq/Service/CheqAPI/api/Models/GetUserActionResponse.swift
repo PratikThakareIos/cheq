@@ -20,6 +20,7 @@ public struct GetUserActionResponse: Codable {
         case requireMigration = "RequireMigration"
         case missingAccount = "MissingAccount"
         case requireBankLinking = "RequireBankLinking"
+        case inProgress = "InProgress"
     }
     public var userAction: UserAction?
     public var title: String?
