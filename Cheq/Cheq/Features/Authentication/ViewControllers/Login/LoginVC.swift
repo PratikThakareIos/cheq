@@ -249,6 +249,8 @@ extension LoginVC {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
+                case .inProgress:
+                      break
                 case ._none:
                         LoggingUtil.shared.cPrint("go to home screen")
                         
@@ -261,13 +263,16 @@ extension LoginVC {
                         break
       
                 case .actionRequiredByBank:
-                        //LoggingUtil.shared.cPrint("err")
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
                 case .bankNotSupported:
-                        //LoggingUtil.shared.cPrint("err")
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
                 case .invalidCredentials:
-                        //LoggingUtil.shared.cPrint("err")
+                        AppData.shared.completingDetailsForLending = false
+                        AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
                 case .missingAccount:
                         LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")

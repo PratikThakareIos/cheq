@@ -370,15 +370,23 @@ extension MultipleChoiceViewController {
              if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
              */
             
-            
+            self.view.endEditing(true)
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
+                case .inProgress:
+                    break
                 case ._none:
                     LoggingUtil.shared.cPrint("go to home screen")
                     break
                 case .actionRequiredByBank:
-                    //LoggingUtil.shared.cPrint("err")
+                     //guard let nav =  self.navigationController else { return }
+                    if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
+                        vc.getUserActionResponse = userActionResponse
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true)
+                    }
+
                     break
                 case .bankNotSupported:
                     //LoggingUtil.shared.cPrint("err")
@@ -471,17 +479,17 @@ extension MultipleChoiceViewController {
         AppNav.shared.pushToDynamicForm(bank, viewController: self)
     }
     
-//    func getBankListFromServer(){
-//        AppConfig.shared.showSpinner()
-//        self.viewModel.coordinator.choices().done { choices in
-//            AppConfig.shared.hideSpinner {
-//                    self.choices = choices
-//                    self.tableView.reloadData()
-//            }
-//        }.catch { err in
-//            AppConfig.shared.hideSpinner {
-//                self.showError(err, completion: nil)
-//            }
-//        }
-//    }
+    func manageInvalidCredentialsCase(){
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.getBasiqConnectionForUpdate().done { getConnectionUpdateResponse in
+            LoggingUtil.shared.cPrint("\n\n>>getConnectionUpdateResponse = \(getConnectionUpdateResponse)")
+            self.getBankListFromServer(linkedInstitutionId : getConnectionUpdateResponse.institutionId)
+        }.catch { [weak self] err in
+            guard let self = self else { return }
+            AppConfig.shared.hideSpinner {
+                 self.showError(err, completion: nil)
+            }
+        }
+    }
+    
 }

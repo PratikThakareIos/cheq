@@ -108,14 +108,14 @@ extension FirebaseAuthManager {
                 AuthConfig.shared.activeUser = authUser
                 resolver.fulfill(authUser)
             }
-        }.then { authUser in
-            CheqAPIManager.shared.getUserDetails()
         }.then{ authUser in
             self.retrieveAuthToken(authUser)
         }.then { authUser in
             self.setUser(authUser)
         }.then { authUser in
             IntercomManager.shared.loginIntercom()
+        }.then { authUser in
+            CheqAPIManager.shared.getUserDetails()
         }
     }
 

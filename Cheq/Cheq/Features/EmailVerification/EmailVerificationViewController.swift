@@ -57,7 +57,7 @@ class EmailVerificationViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
             AppConfig.shared.hideSpinner {}
-              self.showVerificationCodeSentPopUp()
+                self.showVerificationCodeSentPopUp()
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err, completion: nil)
@@ -66,6 +66,7 @@ class EmailVerificationViewController: UIViewController {
     }
     
     func showVerificationCodeSentPopUp(){
+        
         if (isShowCodeSentPopUp) {
             self.isShowCodeSentPopUp = false
             var email = ""
@@ -97,8 +98,7 @@ class EmailVerificationViewController: UIViewController {
         newPasswordField.isHidden = !viewModel.showNewPasswordField()
         newPasswordField.keyboardType = .default
         newPasswordField.reloadInputViews()
-        
-    
+                
         if self.viewModel.type == .email {
             self.isShowCodeSentPopUp = false
             self.sendVerificationCode()
@@ -110,7 +110,6 @@ class EmailVerificationViewController: UIViewController {
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         iconImage.image = viewModel.image
-
         
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
@@ -160,16 +159,17 @@ class EmailVerificationViewController: UIViewController {
     func showInvalidPopUpView(){
         
         invalideCodeTryCount = invalideCodeTryCount + 1
-        if invalideCodeTryCount >= 3{
+        if invalideCodeTryCount >= 3 {
             self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
             return
-        }else{
+        }else {
             self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             return
         }
     }
     
     func verifyCode() {
+        
         self.viewModel.code = self.codeTextField.text ?? ""
        
         if let _ = self.viewModel.validate() {
@@ -387,7 +387,6 @@ extension EmailVerificationViewController {
          }
      }
 }
-
 
 
 //extension EmailVerificationViewController {

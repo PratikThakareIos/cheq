@@ -319,10 +319,10 @@ class CheqAPIManager {
                 UsersAPI.getUserActionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
                     
                     // http code 400 indicates bad req, we will indicate user needs to do onboarding again
-                      if response?.statusCode == 400 {
-                          resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
-                          return
-                      }
+                    if response?.statusCode == 400 {
+                        resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                        return
+                    }
                    
                     if let code = err?.code() {
                         if code == 400 {
@@ -333,12 +333,9 @@ class CheqAPIManager {
                             return
                         }
                     }
-
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                     resolver.fulfill(resp)
-
                 })
-                
             }.catch {err in
                 resolver.reject(err)
             }
@@ -435,39 +432,25 @@ class CheqAPIManager {
      }
     
     
-//    func CreateConnectionoOnBasiqAPI(strfullUrl: String, strToken: String, postBasiqLoginRequest : PostBasiqLoginRequest)->Promise<BasiqConnectionResponse> {
-//
-//        return Promise<BasiqConnectionResponse>() { resolver in
-//
-//            CheqAPIManager.createConnectionoOnBasiqAPIBuilder(strfullUrl: strfullUrl, strToken: strToken, postBasiqLoginRequest : postBasiqLoginRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(strToken)").execute( { (response, err) in
-//
-//                    print("CreateConnectionoOnBasiqAPI = \(String(describing: response))")
-//                     if let error = err {
-//                          LoggingUtil.shared.cPrint(error)
-//                          resolver.reject(error);
-//                          return
-//                      }
-//
-//                      guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-//                      print("CreateConnectionoOnBasiqAPI = \(resp)")
-//                      resolver.fulfill(resp)
-//              })
-//          }
-//    }
-//
-//
-//    open class func createConnectionoOnBasiqAPIBuilder(strfullUrl: String, strToken: String, postBasiqLoginRequest : PostBasiqLoginRequest) -> RequestBuilder<BasiqConnectionResponse> {
-//        let URLString = strfullUrl //SwaggerClientAPI.basePath + path
-//        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: postBasiqLoginRequest)
-//
-//        let url = URLComponents(string: URLString)
-//
-//        let requestBuilder: RequestBuilder<BasiqConnectionResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-//        let headers = [ "Content-Type" : "application/json", "Authorization": "Bearer \(strToken)"]
-//        let req = requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headers)
-//        print(req)
-//        return req
-//        //return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-//    }
-    
+    /// "/v1/Finances/connections/update"
+    func getBasiqConnectionForUpdate()->Promise<GetConnectionUpdateResponse> {
+         return Promise<GetConnectionUpdateResponse>() { resolver in
+             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                 let token = authUser.authToken() ?? ""
+                 FinancesAPI.getBasiqConnectionForUpdateWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+
+                     if let error = err {
+                         LoggingUtil.shared.cPrint(error)
+                         resolver.reject(error);
+                         return
+                     }
+                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                     resolver.fulfill(resp)
+                 })
+             }.catch { err in
+                 LoggingUtil.shared.cPrint(err)
+                 resolver.reject(err)
+             }
+         }
+     }
 }

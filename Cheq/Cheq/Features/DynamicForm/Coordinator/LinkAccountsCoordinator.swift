@@ -119,7 +119,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 resolver.reject(err)
             }
         }
-        
     }
     
     

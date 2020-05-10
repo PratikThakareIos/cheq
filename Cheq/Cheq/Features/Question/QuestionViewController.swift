@@ -338,15 +338,13 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             
         case .contactDetails:
+            self.view.endEditing(true)
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
             AppConfig.shared.showSpinner()
-           
-            
-            
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                 return CheqAPIManager.shared.putUser(authUser)
             }.then { authUser in

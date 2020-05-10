@@ -12,6 +12,9 @@
 		2A25F6F024598DFB00617CA3 /* BasiqConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */; };
 		2A25F6F124598DFB00617CA3 /* BasiqConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */; };
 		2A25F6F224598DFB00617CA3 /* BasiqConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */; };
+		2A367E2C2465643E008EC38A /* UserActionRequiredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */; };
+		2A367E2D2465643E008EC38A /* UserActionRequiredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */; };
+		2A367E2E2465643E008EC38A /* UserActionRequiredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */; };
 		2A44A21B2452E6ED00346FCA /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A1C62452E6ED00346FCA /* APIHelper.swift */; };
 		2A44A21C2452E6ED00346FCA /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A1C62452E6ED00346FCA /* APIHelper.swift */; };
 		2A44A21D2452E6ED00346FCA /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A1C62452E6ED00346FCA /* APIHelper.swift */; };
@@ -1317,6 +1320,7 @@
 /* Begin PBXFileReference section */
 		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
 		2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasiqConnectionResponse.swift; sourceTree = "<group>"; };
+		2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionRequiredVC.swift; sourceTree = "<group>"; };
 		2A44A1C62452E6ED00346FCA /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		2A44A1C72452E6ED00346FCA /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		2A44A1C82452E6ED00346FCA /* JSONValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONValue.swift; sourceTree = "<group>"; };
@@ -1818,6 +1822,14 @@
 				2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2A367E2A2465640B008EC38A /* UserActionRequired */ = {
+			isa = PBXGroup;
+			children = (
+				2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */,
+			);
+			path = UserActionRequired;
 			sourceTree = "<group>";
 		};
 		2A44A1C52452E6ED00346FCA /* api */ = {
@@ -3433,6 +3445,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2A367E2A2465640B008EC38A /* UserActionRequired */,
 				2A72CF812420A9E70053C0DD /* VerificationPopup */,
 				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
 				9FB5921D23EC52A000B7DB0F /* VerifyIdenty */,
@@ -4883,6 +4896,7 @@
 				4F01F6B7237E6A5B00268423 /* NSLayoutConstraint_Extension.swift in Sources */,
 				2A44A24A2452E6ED00346FCA /* JSONEncodableEncoding.swift in Sources */,
 				4F01F8E82385176F00268423 /* CSplashViewController.swift in Sources */,
+				2A367E2E2465643E008EC38A /* UserActionRequiredVC.swift in Sources */,
 				4F01F6B8237E6A5B00268423 /* TopTableViewCell.swift in Sources */,
 				4F01F8AC2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
 				BD0D58F923EA699A009193CD /* CustomPopupViewModel.swift in Sources */,
@@ -5242,6 +5256,7 @@
 				4F2325B7237A133100BF3F21 /* NSLayoutConstraint_Extension.swift in Sources */,
 				2A44A2492452E6ED00346FCA /* JSONEncodableEncoding.swift in Sources */,
 				4F01F8E72385176F00268423 /* CSplashViewController.swift in Sources */,
+				2A367E2D2465643E008EC38A /* UserActionRequiredVC.swift in Sources */,
 				4FBDDA9E236BC68700EDB1E9 /* TopTableViewCell.swift in Sources */,
 				4F01F8AB2384A12A00268423 /* AccountInfoTableViewCellViewModel.swift in Sources */,
 				BD0D58F823EA699A009193CD /* CustomPopupViewModel.swift in Sources */,
@@ -5685,6 +5700,7 @@
 				4F2324272378B0E100BF3F21 /* SpendingCategoriesViewModel.swift in Sources */,
 				2A44A2722452E6ED00346FCA /* GetBudgetSpendingsResponse.swift in Sources */,
 				96A9F6D62327DBE600A05E25 /* CTextView.swift in Sources */,
+				2A367E2C2465643E008EC38A /* UserActionRequiredVC.swift in Sources */,
 				9681EC732323D37000E9F6D1 /* SplashViewModel.swift in Sources */,
 				4F0D63052342F4B300AA819C /* LogViewController.swift in Sources */,
 				2A44A2572452E6ED00346FCA /* PutUserDetailRequest.swift in Sources */,

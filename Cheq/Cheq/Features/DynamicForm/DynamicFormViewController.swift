@@ -133,8 +133,7 @@ class DynamicFormViewController: UIViewController {
  }
  
  extension DynamicFormViewController {
-    
-    
+
     @objc func confirm(_ sender: Any) {
         
         LoggingUtil.shared.cPrint("confirm")
@@ -148,21 +147,19 @@ class DynamicFormViewController: UIViewController {
         for view in self.stackView.subviews {
                         
             if let textField = view as? CTextField {
+                
                 let key = textField.placeholder ?? ""
                 let value = textField.text ?? ""
                 
                 if let loginIdCaption =  selectedFinancialInstitution.loginIdCaption, loginIdCaption == key {
                     loginId = value
                 }
-                
                 if let passwordCaption =  selectedFinancialInstitution.passwordCaption, passwordCaption == key {
                     password = value
                 }
-                
                 if let securityCodeCaption =  selectedFinancialInstitution.securityCodeCaption, securityCodeCaption == key {
                     securityCode = value
                 }
-                
                 if let secondaryLoginIdCaption =  selectedFinancialInstitution.secondaryLoginIdCaption, secondaryLoginIdCaption == key {
                     secondaryLoginId = value
                 }
@@ -185,7 +182,8 @@ class DynamicFormViewController: UIViewController {
     
     
     func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
-       NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+      
+        NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
         //guard let nav =  self.navigationController else { return }
         let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
         connectingToBank.modalPresentationStyle = .fullScreen
@@ -195,36 +193,21 @@ class DynamicFormViewController: UIViewController {
              self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
 
                 self.checkJobStatus { result in
-
                     // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
                         switch result {
                         case .success(_):
-                            
-                            
-                            self.checkSpendingStatus { result in
-                                // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
-                                self.dismiss(animated: true) {
-                                    switch result {
-                                    case .success(_):
-                                        AppData.shared.isOnboarding = false
-                                        self.viewModel.coordinator.nextViewController()
-                                    case .failure(let err):
-                                        self.showError(err, completion: nil)
-                                    }
-                                }
+                            LoggingUtil.shared.cPrint("total checkJobStatus count = \(self.count)")
+                            self.dismiss(animated: true) {
+                                AppData.shared.isOnboarding = false
+                                self.viewModel.coordinator.nextViewController()
                             }
-                            
-                            
-//                            AppData.shared.isOnboarding = false
-//                            self.viewModel.coordinator.nextViewController()
+                    
                         case .failure(let err):
                             self.dismiss(animated: true) {
                                 self.showError(err, completion: nil)
                             }
                         }
-                    
                 }
-                
             }.catch { err in
                 self.dismiss(animated: true) { [weak self] in
                     //Show if wrong account credentials
@@ -248,6 +231,7 @@ class DynamicFormViewController: UIViewController {
     
     //getJobConnectionStatus
     func checkJobStatus(_ completion: @escaping (Result<Bool>)->Void) {
+        
         if AppData.shared.connectionJobStatusReady {
             completion(.success(true))
         } else {
@@ -265,8 +249,7 @@ class DynamicFormViewController: UIViewController {
             }else{
                 self.dynamicTimeInterval = 5.0
             }
-            
-            
+  
             DispatchQueue.main.asyncAfter(deadline: .now() + self.dynamicTimeInterval) {
 
                  self.viewModel.coordinator.checkConnectionJobStatus().done { getConnectionJobResponse in
@@ -367,23 +350,7 @@ class DynamicFormViewController: UIViewController {
 //            }
 //        }
 //    }
-    
 
-    func checkSpendingStatus(_ completion: @escaping (Result<Bool>)->Void) {
-        if AppData.shared.spendingOverviewReady {
-            completion(.success(true))
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                CheqAPIManager.shared.spendingStatus().done { getSpendingStatusResponse in
-                    AppData.shared.spendingOverviewReady = (getSpendingStatusResponse.transactionStatus == GetSpendingStatusResponse.TransactionStatus.ready) ? true : false
-                    self.checkSpendingStatus(completion)
-                }.catch { err in
-                    LoggingUtil.shared.cPrint(err)
-                    completion(.failure(err))
-                }
-            }
-        }
-    }
  }
  
  extension DynamicFormViewController {
@@ -392,11 +359,8 @@ class DynamicFormViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
               //self.submitForm()
         })
-    
     }
  }
- 
-
  
  // MARK: - Timer
  extension DynamicFormViewController {
@@ -459,7 +423,8 @@ class DynamicFormViewController: UIViewController {
 //                LoggingUtil.shared.cPrint("\n res.errorDetail = \(res.errorDetail)")
 //                return false
 //            }
-            
+
+        
             NotificationUtil.shared.notify(UINotificationEvent.basiqEvent.rawValue, key: NotificationUserInfoKey.basiqProgress.rawValue, object: res.step)
 
             
@@ -480,7 +445,6 @@ class DynamicFormViewController: UIViewController {
                     }else{
                         return false
                     }
-          
             default:
                    LoggingUtil.shared.cPrint("manageConectionJobStatus - Something went wrong")
                    return false
@@ -488,31 +452,30 @@ class DynamicFormViewController: UIViewController {
                     
         }
     
-   func activateTimer(){
-      timer = Timer.scheduledTimer(timeInterval: dynamicTimeInterval, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true)
-   }
-
-   @objc func timerMethod() {
-       print("Timer method called = \(dynamicTimeInterval) and count = \(count)")
-       count = count + 1
-       if count == 3 {
-           self.changeAPICallTime(timeInSecond: 10)
-       }
-       
-       if count == 5 {
-           self.changeAPICallTime(timeInSecond: 5)
-       }
-   }
-   
-   func changeAPICallTime(timeInSecond : Double){
-       endTimer()
-       dynamicTimeInterval = timeInSecond
-       activateTimer()
-   }
-    func endTimer(){
-        if let _ = self.timer {
-                   self.timer?.invalidate()
-        }
-    }
+//   func activateTimer(){
+//      timer = Timer.scheduledTimer(timeInterval: dynamicTimeInterval, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true)
+//   }
+//   @objc func timerMethod() {
+//       print("Timer method called = \(dynamicTimeInterval) and count = \(count)")
+//       count = count + 1
+//       if count == 3 {
+//           self.changeAPICallTime(timeInSecond: 10)
+//       }
+//
+//       if count == 5 {
+//           self.changeAPICallTime(timeInSecond: 5)
+//       }
+//   }
+//
+//   func changeAPICallTime(timeInSecond : Double){
+//       endTimer()
+//       dynamicTimeInterval = timeInSecond
+//       activateTimer()
+//   }
+//    func endTimer(){
+//        if let _ = self.timer {
+//                   self.timer?.invalidate()
+//        }
+//    }
     
  }
