@@ -453,4 +453,31 @@ class CheqAPIManager {
              }
          }
      }
+    
+    
+   
+     func getJobIdAfterRefreshConnection()->Promise<GetRefreshConnectionResponse> {
+         return Promise<GetRefreshConnectionResponse>() { resolver in
+             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                 let token = authUser.authToken() ?? ""
+                 FinancesAPI.refreshConnectionWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+
+                     if let error = err {
+                         LoggingUtil.shared.cPrint(error)
+                         resolver.reject(error);
+                         return
+                     }
+                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                     resolver.fulfill(resp)
+                 })
+             }.catch { err in
+                 LoggingUtil.shared.cPrint(err)
+                 resolver.reject(err)
+             }
+         }
+     }
+    
+    
+    
+     
 }

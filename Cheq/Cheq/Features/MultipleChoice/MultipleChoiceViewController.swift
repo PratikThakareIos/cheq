@@ -25,6 +25,7 @@ class MultipleChoiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
+        registerObservables()
         setupUI()
         if showNextButton{
             showBackButton()
@@ -32,7 +33,6 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     func setupDelegate() {
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -56,6 +56,10 @@ class MultipleChoiceViewController: UIViewController {
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
+    }
+    
+    func registerObservables() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reconnectToBank), name: NSNotification.Name(UINotificationEvent.reconnectToBank.rawValue), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -374,7 +378,7 @@ extension MultipleChoiceViewController {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
-                case .inProgress:
+                case .categorisationInProgress:
                     break
                 case ._none:
                     LoggingUtil.shared.cPrint("go to home screen")
@@ -491,4 +495,14 @@ extension MultipleChoiceViewController {
         }
     }
     
+}
+
+
+extension MultipleChoiceViewController {
+   
+    @objc func reconnectToBank(_ notification: NSNotification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+             //self.refreshTokenAndReconnectToBankLinking()
+       })
+    }
 }

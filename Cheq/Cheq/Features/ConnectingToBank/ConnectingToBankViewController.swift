@@ -25,6 +25,8 @@ class ConnectingToBankViewController: UIViewController {
     @IBOutlet weak var progressBarContainer: UIView!
     var bankName = ""
     
+    var jobId : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -37,7 +39,8 @@ class ConnectingToBankViewController: UIViewController {
         rootVc.view.addSubview(transparentView)
         rootVc.view.bringSubviewToFront(transparentView)
         AutoLayoutUtil.pinToSuperview(transparentView, padding: 0.0)
-         registerObservables()
+        registerObservables()
+        self.checkBankLinkingStatus()
     }
     
     func registerObservables() {
@@ -133,13 +136,38 @@ extension ConnectingToBankViewController {
 //                        self.loadingLabel.text = "Loading Dashboard.."
 //                        self.progressBar.setProgress(0.95, animated: true)
 //                   }
-                
-               default:
-
-                        self.progressBar.setProgress(0.3, animated: true)
             }
         }
     }
     
 }
+
+extension ConnectingToBankViewController {
+    
+    func checkBankLinkingStatus(){
+        
+        guard let jobId = self.jobId else {
+            LoggingUtil.shared.cPrint("jobId should not be nil")
+            self.dismiss(animated: true)
+            return
+        }
+        
+        self.viewModel.jobId = jobId
+        self.viewModel.checkJobStatus { result in
+              // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
+              switch result {
+              case .success(_):
+                  self.dismiss(animated: true) {
+                      AppData.shared.isOnboarding = false
+                      self.viewModel.nextViewController()
+                  }
+              case .failure(let err):
+                  self.dismiss(animated: true) {
+                      self.showError(err, completion: nil)
+                  }
+              }
+        }
+    }
+}
+
 

@@ -245,7 +245,7 @@ extension LoginVC {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
                 
-                case .inProgress:
+                case .categorisationInProgress:
                        break
                 case ._none:
                         LoggingUtil.shared.cPrint("go to home screen")

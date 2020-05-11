@@ -53,6 +53,7 @@ enum UINotificationEvent: String {
     case mixPanelEvent = "mixPanelEvent"
     case moneysoftEvent = "moneysoftEvents"
     case basiqEvent = "basiqEvent"
+    case reconnectToBank = "reconnectToBank"
 }
 
 /**

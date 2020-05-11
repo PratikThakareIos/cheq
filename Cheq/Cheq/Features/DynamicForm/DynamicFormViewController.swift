@@ -18,9 +18,9 @@ class DynamicFormViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var built = false
     
-    var timer: Timer?
-    var dynamicTimeInterval: Double = 15.0
-    var count = 0
+    //var timer: Timer?
+    //var dynamicTimeInterval: Double = 15.0
+    //var count = 0
     
     var viewModel = DynamicFormViewModel()
     var form:[DynamicFormInput] = []
@@ -185,92 +185,131 @@ class DynamicFormViewController: UIViewController {
       
         NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
         //guard let nav =  self.navigationController else { return }
-        let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
-        connectingToBank.modalPresentationStyle = .fullScreen
-        self.present(connectingToBank, animated: true) { [weak self] in
-            guard let self = self else { return }
-             self.modalPresentationStyle = .fullScreen
-             self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
-
-                self.checkJobStatus { result in
-                    // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
-                        switch result {
-                        case .success(_):
-                            LoggingUtil.shared.cPrint("total checkJobStatus count = \(self.count)")
-                            self.dismiss(animated: true) {
-                                AppData.shared.isOnboarding = false
-                                self.viewModel.coordinator.nextViewController()
-                            }
+        AppConfig.shared.showSpinner()
+        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
+            
+            AppConfig.shared.hideSpinner {
+                 if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
+                     connectingToBank.modalPresentationStyle = .fullScreen
+                     connectingToBank.jobId = AppData.shared.bankJobId
+                     self.present(connectingToBank, animated: true, completion: nil)
+                 }
+            }
+            
+        }.catch { err in
+            //self.dismiss(animated: true) { [weak self] in
+                
+            AppConfig.shared.hideSpinner {
+                //Show if wrong account credentials
+                if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
                     
-                        case .failure(let err):
-                            self.dismiss(animated: true) {
-                                self.showError(err, completion: nil)
-                            }
-                        }
-                }
-            }.catch { err in
-                self.dismiss(animated: true) { [weak self] in
-                    //Show if wrong account credentials
-                    if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
-                        
-                        let transactionModal: CustomSubViewPopup = UIView.fromNib()
-                        transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
-                                         transactionModal.setupUI()
-                        let popupView = CPopupView(transactionModal)
-                        popupView.show()
+                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
+                    transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+                                     transactionModal.setupUI()
+                    let popupView = CPopupView(transactionModal)
+                    popupView.show()
 
-                    }else{
-                       let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
-                        self?.present(connectingFailed, animated: true)
-                     // self?.showError(err, completion: nil)
-                    }
+                }else{
+                   let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                    self.present(connectingFailed, animated: true)
                 }
             }
         }
     }
     
-    //getJobConnectionStatus
-    func checkJobStatus(_ completion: @escaping (Result<Bool>)->Void) {
-        
-        if AppData.shared.connectionJobStatusReady {
-            completion(.success(true))
-        } else {
-            
-            if self.count == 0 {
-                self.dynamicTimeInterval = 1.0
-            }
-           
-            if self.count == 1 || self.count == 2 {
-                self.dynamicTimeInterval = 15.0
-            }
-            
-            if self.count == 3 || self.count == 4 {
-                self.dynamicTimeInterval = 10.0
-            }else{
-                self.dynamicTimeInterval = 5.0
-            }
-  
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.dynamicTimeInterval) {
-
-                 self.viewModel.coordinator.checkConnectionJobStatus().done { getConnectionJobResponse in
-                   
-                    LoggingUtil.shared.cPrint("\n getConnectionJobResponse = \(getConnectionJobResponse)")
-                    
-                    guard getConnectionJobResponse.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
-                       let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey:  getConnectionJobResponse.errorDetail]) as Error
-                       completion(.failure(error))
-                       return
-                    }
-                    AppData.shared.connectionJobStatusReady = self.manageConectionJobStatus(res: getConnectionJobResponse)
-                    self.checkJobStatus(completion)
-                }.catch { err in
-                    LoggingUtil.shared.cPrint(err)
-                    completion(.failure(err))
-                }
-            }
-        }
-    }
     
+//    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
+//
+//        NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+//        //guard let nav =  self.navigationController else { return }
+//        let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false)
+//        connectingToBank.modalPresentationStyle = .fullScreen
+//        self.present(connectingToBank, animated: true) { [weak self] in
+//            guard let self = self else { return }
+//             self.modalPresentationStyle = .fullScreen
+//             self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
+//
+//                self.checkJobStatus { result in
+//                    // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
+//                        switch result {
+//                        case .success(_):
+//                            LoggingUtil.shared.cPrint("total checkJobStatus count = \(self.count)")
+//
+//                            self.dismiss(animated: true) {
+//                                AppData.shared.isOnboarding = false
+//                                self.viewModel.coordinator.nextViewController()
+//                            }
+//
+//                        case .failure(let err):
+//
+//                            self.dismiss(animated: true) {
+//                                self.showError(err, completion: nil)
+//                            }
+//                        }
+//                }
+//            }.catch { err in
+//                self.dismiss(animated: true) { [weak self] in
+//                    //Show if wrong account credentials
+//                    if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
+//
+//                        let transactionModal: CustomSubViewPopup = UIView.fromNib()
+//                        transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+//                                         transactionModal.setupUI()
+//                        let popupView = CPopupView(transactionModal)
+//                        popupView.show()
+//
+//                    }else{
+//                       let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+//                        self?.present(connectingFailed, animated: true)
+//                     // self?.showError(err, completion: nil)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+//    //getJobConnectionStatus
+//    func checkJobStatus(_ completion: @escaping (Result<Bool>)->Void) {
+//
+//        if AppData.shared.connectionJobStatusReady {
+//            completion(.success(true))
+//        } else {
+//
+//            if self.count == 0 {
+//                self.dynamicTimeInterval = 1.0
+//            }
+//
+//            if self.count == 1 || self.count == 2 {
+//                self.dynamicTimeInterval = 15.0
+//            }
+//
+//            if self.count == 3 || self.count == 4 {
+//                self.dynamicTimeInterval = 10.0
+//            }else{
+//                self.dynamicTimeInterval = 5.0
+//            }
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + self.dynamicTimeInterval) {
+//
+//                 self.viewModel.coordinator.checkConnectionJobStatus().done { getConnectionJobResponse in
+//
+//                    LoggingUtil.shared.cPrint("\n getConnectionJobResponse = \(getConnectionJobResponse)")
+//
+//                    guard getConnectionJobResponse.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
+//                       let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey:  getConnectionJobResponse.errorDetail]) as Error
+//                       completion(.failure(error))
+//                       return
+//                    }
+//                    AppData.shared.connectionJobStatusReady = self.manageConectionJobStatus(res: getConnectionJobResponse)
+//                    self.checkJobStatus(completion)
+//                }.catch { err in
+//                    LoggingUtil.shared.cPrint(err)
+//                    completion(.failure(err))
+//                }
+//            }
+//        }
+//    }
+//
 
 //
 //    @objc func confirm(_ sender: Any) {
@@ -365,92 +404,92 @@ class DynamicFormViewController: UIViewController {
  // MARK: - Timer
  extension DynamicFormViewController {
     
-    func manageConectionJobStatus(res: GetConnectionJobResponse) -> Bool {
-             LoggingUtil.shared.cPrint("\n manageConectionJobStatus Called")
-            /*
-            ConnectionStep
-
-            VerifyingCredentials: logging into user’s internet bank
-            RetrievingAccounts: getting financial account info
-            RetrievingTransactions: getting financial transactions info
-            Categorisation: processing financial transactions
-
-            ConnectionStepStatus
-
-            checkSpendingStatus API
-            Pending
-            InProgress
-            Failed: failed, ask users to try again, show the error message based on
-
-            ErrorTitle
-            ErrorDetail
-
-            Success: can look at the Categorisation status now.
-
-            CategorizingTransactionStatus = Ready, you can navigating to spending dashboard page.
-     
-            */
-            
-    //        public enum Step: String, Codable {
-    //            case verifyingCredentials = "VerifyingCredentials"
-    //            case retrievingAccounts = "RetrievingAccounts"
-    //            case retrievingTransactions = "RetrievingTransactions"
-    //            case categorisation = "Categorisation"
-    //        }
-    //        public enum StepStatus: String, Codable {
-    //            case pending = "Pending"
-    //            case inProgress = "InProgress"
-    //            case failed = "Failed"
-    //            case success = "Success"
-    //        }
-    //        public enum ModelError: String, Codable {
-    //            case invalidCredentials = "InvalidCredentials"
-    //            case actionRequiredByBank = "ActionRequiredByBank"
-    //            case maintenanceError = "MaintenanceError"
-    //            case temporaryUnavailable = "TemporaryUnavailable"
-    //        }
-    //        public var institutionId: String?
-    //        public var step: Step?
-    //        public var stepStatus: StepStatus?
-    //        public var error: ModelError?
-    //        public var errorTitle: String?
-    //        public var errorDetail: String?
-            
-            
-//            guard res.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
-//                LoggingUtil.shared.cPrint("\n manageConectionJobStatus GetConnectionJobResponse.StepStatus.failed")
-//                LoggingUtil.shared.cPrint("\n res.errorTitle = \(res.errorTitle)")
-//                LoggingUtil.shared.cPrint("\n res.errorDetail = \(res.errorDetail)")
-//                return false
+//    func manageConectionJobStatus(res: GetConnectionJobResponse) -> Bool {
+//             LoggingUtil.shared.cPrint("\n manageConectionJobStatus Called")
+//            /*
+//            ConnectionStep
+//
+//            VerifyingCredentials: logging into user’s internet bank
+//            RetrievingAccounts: getting financial account info
+//            RetrievingTransactions: getting financial transactions info
+//            Categorisation: processing financial transactions
+//
+//            ConnectionStepStatus
+//
+//            checkSpendingStatus API
+//            Pending
+//            InProgress
+//            Failed: failed, ask users to try again, show the error message based on
+//
+//            ErrorTitle
+//            ErrorDetail
+//
+//            Success: can look at the Categorisation status now.
+//
+//            CategorizingTransactionStatus = Ready, you can navigating to spending dashboard page.
+//
+//            */
+//
+//    //        public enum Step: String, Codable {
+//    //            case verifyingCredentials = "VerifyingCredentials"
+//    //            case retrievingAccounts = "RetrievingAccounts"
+//    //            case retrievingTransactions = "RetrievingTransactions"
+//    //            case categorisation = "Categorisation"
+//    //        }
+//    //        public enum StepStatus: String, Codable {
+//    //            case pending = "Pending"
+//    //            case inProgress = "InProgress"
+//    //            case failed = "Failed"
+//    //            case success = "Success"
+//    //        }
+//    //        public enum ModelError: String, Codable {
+//    //            case invalidCredentials = "InvalidCredentials"
+//    //            case actionRequiredByBank = "ActionRequiredByBank"
+//    //            case maintenanceError = "MaintenanceError"
+//    //            case temporaryUnavailable = "TemporaryUnavailable"
+//    //        }
+//    //        public var institutionId: String?
+//    //        public var step: Step?
+//    //        public var stepStatus: StepStatus?
+//    //        public var error: ModelError?
+//    //        public var errorTitle: String?
+//    //        public var errorDetail: String?
+//
+//
+////            guard res.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
+////                LoggingUtil.shared.cPrint("\n manageConectionJobStatus GetConnectionJobResponse.StepStatus.failed")
+////                LoggingUtil.shared.cPrint("\n res.errorTitle = \(res.errorTitle)")
+////                LoggingUtil.shared.cPrint("\n res.errorDetail = \(res.errorDetail)")
+////                return false
+////            }
+//
+//
+//            NotificationUtil.shared.notify(UINotificationEvent.basiqEvent.rawValue, key: NotificationUserInfoKey.basiqProgress.rawValue, object: res.step)
+//
+//
+//            switch res.step {
+//            case .verifyingCredentials:
+//                    LoggingUtil.shared.cPrint("Connecting to <bank name> ...") //25%
+//                    return false
+//            case .retrievingAccounts:
+//                    LoggingUtil.shared.cPrint("Retrieving statements from bank...") //50%
+//                    return false
+//            case .retrievingTransactions:
+//                    LoggingUtil.shared.cPrint("Analysing your bank statement...") //70
+//                    return false
+//            case .categorisation:
+//                    LoggingUtil.shared.cPrint("Categorising your transactions...") //80
+//                    if (res.stepStatus == GetConnectionJobResponse.StepStatus.success){
+//                        return true
+//                    }else{
+//                        return false
+//                    }
+//            default:
+//                   LoggingUtil.shared.cPrint("manageConectionJobStatus - Something went wrong")
+//                   return false
 //            }
-
-        
-            NotificationUtil.shared.notify(UINotificationEvent.basiqEvent.rawValue, key: NotificationUserInfoKey.basiqProgress.rawValue, object: res.step)
-
-            
-            switch res.step {
-            case .verifyingCredentials:
-                    LoggingUtil.shared.cPrint("Connecting to <bank name> ...") //25%
-                    return false
-            case .retrievingAccounts:
-                    LoggingUtil.shared.cPrint("Retrieving statements from bank...") //50%
-                    return false
-            case .retrievingTransactions:
-                    LoggingUtil.shared.cPrint("Analysing your bank statement...") //70
-                    return false
-            case .categorisation:
-                    LoggingUtil.shared.cPrint("Categorising your transactions...") //80
-                    if (res.stepStatus == GetConnectionJobResponse.StepStatus.success){
-                        return true
-                    }else{
-                        return false
-                    }
-            default:
-                   LoggingUtil.shared.cPrint("manageConectionJobStatus - Something went wrong")
-                   return false
-            }
-                    
-        }
+//
+//        }
     
 //   func activateTimer(){
 //      timer = Timer.scheduledTimer(timeInterval: dynamicTimeInterval, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true)

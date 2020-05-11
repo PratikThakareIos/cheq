@@ -106,6 +106,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
             }.then{ basiqConnectionResponse -> Promise<Bool> in
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
                 self.jobId = basiqConnectionResponse.id ?? ""
+                AppData.shared.bankJobId = basiqConnectionResponse.id ?? ""                
                 let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "", isUpdateConnection: false)
                 return CheqAPIManager.shared.postBasiqConnectionJob(req:request)
             }.then{ boolValue -> Promise<AuthUser> in

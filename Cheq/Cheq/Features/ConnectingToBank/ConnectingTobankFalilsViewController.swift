@@ -25,8 +25,8 @@ class ConnectingTobankFalilsViewController: UIViewController {
     }
 
     @IBAction func tryTocoeenctAgainBtnClick(_ sender: Any) {
-    NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
-    self.dismiss(animated: true, completion: nil)
+      NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
+      self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func chatWithUsBtnClick(_ sender: Any) {

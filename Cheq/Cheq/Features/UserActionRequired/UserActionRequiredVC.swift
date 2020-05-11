@@ -130,9 +130,40 @@ class UserActionRequiredVC: UIViewController {
     }
     
     @IBAction func btnConnectAction(_ sender: Any) {
-//        NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
-//        self.dismiss(animated: true, completion: nil)
+        // NotificationUtil.shared.notify(UINotificationEvent.reconnectToBank.rawValue, key: "", object: "")
+        //self.dismiss(animated: true, completion: nil)
+        self.refreshTokenAndReconnectToBankLinking()
     }
+    
+    func refreshTokenAndReconnectToBankLinking(){
+            
+    //        UserAction: ActionRequiredByBank
+    //        * show the screen and guideline. show the "Reconnect" button,
+    //        * call the backend API: PUT v1/connections/refresh
+    //        * then calling job status.
+            
+            
+            print("refreshTokenAndReconnectToBankLinking called")
+
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.getJobIdAfterRefreshConnection().done { getRefreshConnectionResponse in
+                AppConfig.shared.hideSpinner {
+                       if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
+                           connectingToBank.modalPresentationStyle = .fullScreen
+                           AppData.shared.bankJobId = getRefreshConnectionResponse.jobId
+                           connectingToBank.jobId = AppData.shared.bankJobId
+                           self.present(connectingToBank, animated: true, completion: nil)
+                       }
+                }
+            }.catch { [weak self] err in
+                guard let self = self else { return }
+                AppConfig.shared.hideSpinner {
+                     self.showError(err, completion: nil)
+                   //  let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                   //  self.present(connectingFailed, animated: true)
+                }
+            }
+      }
 
 }
 

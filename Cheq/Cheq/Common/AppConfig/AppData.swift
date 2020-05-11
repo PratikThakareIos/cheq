@@ -149,6 +149,9 @@ class AppData {
     /// Keep track of the selected institution
     var selectedFinancialInstitution: GetFinancialInstitution?
     
+    
+    var bankJobId :String?
+    
     /// financial login form from MoneySoft SDK
     var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
     
