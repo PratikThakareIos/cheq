@@ -38,9 +38,10 @@ public struct GetConnectionJobResponse: Codable {
     public var showClose: Bool?
     public var showReconnect: Bool?
     public var showChatWithUs: Bool?
+    public var canSelectBank: Bool?
     public var actionRequiredGuidelines: [String]?
 
-    public init(institutionId: String?, step: Step?, stepStatus: StepStatus?, error: ModelError?, errorTitle: String?, errorDetail: String?, showClose: Bool?, showReconnect: Bool?, showChatWithUs: Bool?, actionRequiredGuidelines: [String]?) {
+    public init(institutionId: String?, step: Step?, stepStatus: StepStatus?, error: ModelError?, errorTitle: String?, errorDetail: String?, showClose: Bool?, showReconnect: Bool?, showChatWithUs: Bool?, canSelectBank: Bool?, actionRequiredGuidelines: [String]?) {
         self.institutionId = institutionId
         self.step = step
         self.stepStatus = stepStatus
@@ -50,6 +51,7 @@ public struct GetConnectionJobResponse: Codable {
         self.showClose = showClose
         self.showReconnect = showReconnect
         self.showChatWithUs = showChatWithUs
+        self.canSelectBank = canSelectBank
         self.actionRequiredGuidelines = actionRequiredGuidelines
     }
 

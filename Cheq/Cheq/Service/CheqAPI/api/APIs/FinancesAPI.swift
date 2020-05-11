@@ -270,7 +270,8 @@ open class FinancesAPI {
   "showChatWithUs" : true,
   "step" : "VerifyingCredentials",
   "error" : "InvalidCredentials",
-  "stepStatus" : "Pending"
+  "stepStatus" : "Pending",
+  "canSelectBank" : true
 }}]
      
      - parameter jobId: (path)  

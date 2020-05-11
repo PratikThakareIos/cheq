@@ -386,7 +386,6 @@ extension MultipleChoiceViewController {
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true)
                     }
-
                     break
                 case .bankNotSupported:
                     //LoggingUtil.shared.cPrint("err")

@@ -16,7 +16,7 @@ import FRHyperLabel
 class UserActionRequiredVC: UIViewController {
  
     @IBOutlet weak var viewTitle: CLabel!
-    @IBOutlet weak var lblVerificationInstructions: CLabel!
+    @IBOutlet weak var lblVerificationInstructions: UILabel!
 
     @IBOutlet weak var confirmButton: CNButton!
     @IBOutlet weak var iconImage: UIImageView!
@@ -123,7 +123,7 @@ class UserActionRequiredVC: UIViewController {
 
     @IBAction func btnChatWithUsAction(_ sender: Any) {
         IntercomManager.shared.loginIntercom().done { authUser in
-            IntercomManager.shared.present()
+            IntercomManager.shared.present(str_cErrorStep : "ActionRequiredByBank")
             }.catch { err in
                 self.showError(err, completion: nil)
         }

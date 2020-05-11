@@ -37,7 +37,6 @@ class LoginVC: UIViewController {
         super.viewDidAppear(animated)
         setupUI()
         activeTimestamp()
-        
         //Manish
         self.addTestAccountDetails()
     }
@@ -54,7 +53,6 @@ class LoginVC: UIViewController {
     func addTestAccountDetails(){
         self.emailTextField.text = "qqq@g.com"
         self.passwordTextField.text = "Tfc@12345"
-        
     }
 }
 
@@ -97,7 +95,6 @@ extension LoginVC {
         if StringUtil.shared.isValidPassword(password) == false {
             return ValidationError.invalidPasswordFormat
         }
-        
         return nil
     }
     
@@ -116,6 +113,7 @@ extension LoginVC {
     }
     
     func continueWithLoggedInFB(_ token: String) {
+        
         AppConfig.shared.showSpinner()
         viewModel.fetchProfileWithFBAccessToken().then { ()->Promise<AuthUser> in
             self.viewModel.registerWithFBAccessToken(token)
@@ -152,7 +150,6 @@ extension LoginVC {
     }
     
     func setupUI() {
-        
         self.view.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
         self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleText.textColor = UIColor.white
@@ -160,7 +157,6 @@ extension LoginVC {
         self.emailTextField.addPlaceholderWith(text: "Your email")
         self.passwordTextField.addPlaceholderWith(text: "Enter password")
         
-
         self.emailTextField.setupLeftIcon(image : UIImage(named: "img-email") ?? UIImage())
         self.passwordTextField.setupLeftIcon(image : UIImage(named: "img-lock") ?? UIImage())
         
@@ -172,6 +168,7 @@ extension LoginVC {
         //AppConfig.shared.activeTheme.splashBgColor3
         
         self.viewModel.screenName = .registration
+        
         if self.isRootViewControllerUnderNav {
             self.lblSignUpLinkText.isHidden = true
         }
@@ -179,7 +176,6 @@ extension LoginVC {
         self.emailTextField.keyboardType = .emailAddress
         self.passwordTextField.keyboardType = .default
     }
-
 }
 
 extension LoginVC : UITextFieldDelegate {
@@ -212,8 +208,7 @@ extension LoginVC {
             }
         }
     }
-    
-    
+  
     
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
@@ -249,19 +244,17 @@ extension LoginVC {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
+                
                 case .inProgress:
-                      break
+                       break
                 case ._none:
                         LoggingUtil.shared.cPrint("go to home screen")
-                        
                         // Load to dashboard
                         AppData.shared.isOnboarding = false
                         AppData.shared.migratingToNewDevice = false
                         AppData.shared.completingDetailsForLending = false
                         self.navigateToDashboard()
-                        
                         break
-      
                 case .actionRequiredByBank:
                         AppData.shared.completingDetailsForLending = false
                         AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
@@ -298,7 +291,6 @@ extension LoginVC {
                                 }
                             }
                         }
-                    
                         break
                 case  .requireMigration,.requireBankLinking, .accountReactivation:
                     
@@ -315,8 +307,8 @@ extension LoginVC {
                 case .none:
                      LoggingUtil.shared.cPrint("err")
                 }
-
             }
+            
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 // handle err
@@ -324,7 +316,6 @@ extension LoginVC {
             }
         }
     }
-    
     
     
 //    @IBAction func login(_ sender: Any) {
@@ -400,6 +391,7 @@ extension LoginVC {
 //        }
 //    }
     
+
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
     }
