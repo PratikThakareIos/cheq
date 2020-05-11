@@ -279,6 +279,7 @@
 		2A5C74D4244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
+		2A5C88C52469A89F00C1C771 /* BankNotSupportedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */; };
 		2A70ACB62462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
 		2A70ACB72462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
 		2A70ACB82462AA7400756AC2 /* GetConnectionUpdateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */; };
@@ -1409,6 +1410,7 @@
 		2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
 		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
+		2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankNotSupportedVC.swift; sourceTree = "<group>"; };
 		2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConnectionUpdateResponse.swift; sourceTree = "<group>"; };
 		2A70ACB52462AA7400756AC2 /* GetRefreshConnectionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRefreshConnectionResponse.swift; sourceTree = "<group>"; };
 		2A72CF662420A93B0053C0DD /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -1941,6 +1943,14 @@
 				2A44A2162452E6ED00346FCA /* PostPushNotificationRequest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2A5C88C32469A88800C1C771 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2A72CF6E2420A98E0053C0DD /* CN */ = {
@@ -3445,6 +3455,7 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2A5C88C32469A88800C1C771 /* New Group */,
 				2A367E2A2465640B008EC38A /* UserActionRequired */,
 				2A72CF812420A9E70053C0DD /* VerificationPopup */,
 				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
@@ -5440,6 +5451,7 @@
 				963D62F222FB225B006344C9 /* GridCollectionViewCoordinator.swift in Sources */,
 				9629A5AD22FD2C6D00828FCF /* ChartModelUtil.swift in Sources */,
 				4F80FCC523591B74009C8F83 /* SelectDocumentCoordinator.swift in Sources */,
+				2A5C88C52469A89F00C1C771 /* BankNotSupportedVC.swift in Sources */,
 				4FAE3659232FB26B0035E57E /* IntroductionViewModel.swift in Sources */,
 				2A44A2932452E6ED00346FCA /* GetUserDetailResponse.swift in Sources */,
 				4F2E49FB23344123001F1BA2 /* MultipleChoiceViewModelCoordinator.swift in Sources */,

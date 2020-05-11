@@ -374,29 +374,41 @@ extension MultipleChoiceViewController {
              if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
              */
             
-            self.view.endEditing(true)
-            AppConfig.shared.hideSpinner {
+                self.view.endEditing(true)
+
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
+                
                 case .categorisationInProgress:
-                    break
-                case ._none:
-                    LoggingUtil.shared.cPrint("go to home screen")
-                    break
-                case .actionRequiredByBank:
-                     //guard let nav =  self.navigationController else { return }
-                    if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
-                        vc.getUserActionResponse = userActionResponse
-                        vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true)
+                    AppConfig.shared.hideSpinner {
+                        LoggingUtil.shared.cPrint("categorisationInProgress")
                     }
                     break
+                    
+                case ._none:
+                    AppConfig.shared.hideSpinner {
+                        LoggingUtil.shared.cPrint("go to home screen")
+                    }
+                    break
+                    
+                case .actionRequiredByBank:
+                    AppConfig.shared.hideSpinner {
+                        self.gotoUserActionRequiredVC(response : userActionResponse)
+                    }
+                    break
+                    
                 case .bankNotSupported:
-                    //LoggingUtil.shared.cPrint("err")
+                    AppConfig.shared.hideSpinner {
+                        self.gotoBankNotSupportedVC(response : userActionResponse)
+                    }
                     break
+                            
                 case .invalidCredentials:
-                    //LoggingUtil.shared.cPrint("err")
+                      AppConfig.shared.hideSpinner {
+                         LoggingUtil.shared.cPrint("invalidCredentials")
+                      }
                     break
+                    
                 case .missingAccount:
 
                     AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
@@ -426,9 +438,11 @@ extension MultipleChoiceViewController {
                   break
              
                 case .none:
-                    LoggingUtil.shared.cPrint("err")
+                    AppConfig.shared.hideSpinner {
+                        LoggingUtil.shared.cPrint("none err")
+                    }
+                    
                 }
-            }
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 // handle err
@@ -504,5 +518,23 @@ extension MultipleChoiceViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
              //self.refreshTokenAndReconnectToBankLinking()
        })
+    }
+    
+    
+    func gotoUserActionRequiredVC(response : GetUserActionResponse){
+         //guard let nav =  self.navigationController else { return }
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
+            vc.getUserActionResponse = response
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func gotoBankNotSupportedVC(response : GetUserActionResponse){
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
     }
 }

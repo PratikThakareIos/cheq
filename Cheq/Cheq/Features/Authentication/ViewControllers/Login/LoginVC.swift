@@ -260,8 +260,7 @@ extension LoginVC {
                         AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
                 case .bankNotSupported:
-                        AppData.shared.completingDetailsForLending = false
-                        AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
+                        self.gotoBankNotSupportedVC(response : userActionResponse)
                         break
                 case .invalidCredentials:
                         AppData.shared.completingDetailsForLending = false
@@ -455,6 +454,14 @@ extension LoginVC {
         //Step 3: Add link substrings
         self.lblSignUpLinkText.setLinksForSubstrings(["Register"], withLinkHandler: handler)
         self.lblforgotPassword.setLinksForSubstrings(["Forgot your password?"], withLinkHandler: handler)
+    }
+    
+    func gotoBankNotSupportedVC(response : GetUserActionResponse){
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
     }
     
     func didSelectLinkWithNameOnLogin(strSubstring : String = ""){

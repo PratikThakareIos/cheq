@@ -787,11 +787,116 @@
             </objects>
             <point key="canvasLocation" x="4777" y="70"/>
         </scene>
+        <!--BankNotSupportedVC-->
+        <scene sceneID="qm1-LB-RTd">
+            <objects>
+                <viewController storyboardIdentifier="BankNotSupportedVC" title="BankNotSupportedVC" id="Hjh-d7-Ik5" customClass="BankNotSupportedVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GOY-PD-yQc"/>
+                        <viewControllerLayoutGuide type="bottom" id="g9f-dq-Tzn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5YW-K5-7bO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZk-Ai-Q3R">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We no longer support your bank" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voR-kX-42v">
+                                        <rect key="frame" x="50" y="321" width="314" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emojiSad" translatesAutoresizingMaskIntoConstraints="NO" id="VLt-Nv-Gbq">
+                                        <rect key="frame" x="172" y="189" width="70" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="03p-jv-qBd"/>
+                                            <constraint firstAttribute="height" constant="92" id="NE3-uT-2yN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due to recent changes we are no longer able to support your bank." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-Eo-wfJ">
+                                        <rect key="frame" x="35" y="427.5" width="344" height="41"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OtL-C1-PmV">
+                                        <rect key="frame" x="62" y="782" width="290" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmY-2X-vn5">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="54"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="tRd-z6-3N3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Chat with us">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnChatWithUsAction:" destination="Hjh-d7-Ik5" eventType="touchUpInside" id="xrX-Px-kdj"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMY-hh-SMV">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="fxr-17-dN2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Try to connect again...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnTryAgainAction:" destination="Hjh-d7-Ik5" eventType="touchUpInside" id="Xck-Wj-RU7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cZV-Eo-wfJ" firstAttribute="centerY" secondItem="zZk-Ai-Q3R" secondAttribute="centerY" id="4K8-QQ-uYv"/>
+                                    <constraint firstItem="OtL-C1-PmV" firstAttribute="width" secondItem="zZk-Ai-Q3R" secondAttribute="width" multiplier="0.7" id="707-MF-9jU"/>
+                                    <constraint firstItem="voR-kX-42v" firstAttribute="leading" secondItem="zZk-Ai-Q3R" secondAttribute="leading" constant="50" id="Dc5-gE-iJn"/>
+                                    <constraint firstAttribute="bottom" secondItem="OtL-C1-PmV" secondAttribute="bottom" constant="60" id="HmB-gc-qGN"/>
+                                    <constraint firstItem="cZV-Eo-wfJ" firstAttribute="leading" secondItem="zZk-Ai-Q3R" secondAttribute="leading" constant="35" id="Ine-t3-9gR"/>
+                                    <constraint firstItem="VLt-Nv-Gbq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zZk-Ai-Q3R" secondAttribute="top" constant="20" id="Liu-P3-Vfc"/>
+                                    <constraint firstItem="VLt-Nv-Gbq" firstAttribute="centerX" secondItem="zZk-Ai-Q3R" secondAttribute="centerX" id="Sn6-0s-VQ3"/>
+                                    <constraint firstItem="cZV-Eo-wfJ" firstAttribute="top" secondItem="voR-kX-42v" secondAttribute="bottom" constant="30" id="ehj-54-4Ic"/>
+                                    <constraint firstItem="voR-kX-42v" firstAttribute="top" secondItem="VLt-Nv-Gbq" secondAttribute="bottom" constant="40" id="fWj-DE-KXh"/>
+                                    <constraint firstItem="OtL-C1-PmV" firstAttribute="centerX" secondItem="zZk-Ai-Q3R" secondAttribute="centerX" id="oSd-l4-Aq3"/>
+                                    <constraint firstAttribute="trailing" secondItem="voR-kX-42v" secondAttribute="trailing" constant="50" id="qzY-yF-zze"/>
+                                    <constraint firstAttribute="trailing" secondItem="cZV-Eo-wfJ" secondAttribute="trailing" constant="35" id="ztk-fV-C8w"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29019607843137252" green="0.0" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="zZk-Ai-Q3R" firstAttribute="top" secondItem="5YW-K5-7bO" secondAttribute="top" id="ELM-Sj-llp"/>
+                            <constraint firstAttribute="bottom" secondItem="zZk-Ai-Q3R" secondAttribute="bottom" id="HZQ-uz-Ww0"/>
+                            <constraint firstItem="zZk-Ai-Q3R" firstAttribute="leading" secondItem="5YW-K5-7bO" secondAttribute="leading" id="ZWT-wJ-oM5"/>
+                            <constraint firstItem="zZk-Ai-Q3R" firstAttribute="trailing" secondItem="5YW-K5-7bO" secondAttribute="trailing" id="x1i-8J-JFL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnChatWithUs" destination="xmY-2X-vn5" id="WW6-ah-kGe"/>
+                        <outlet property="btnTryAgain" destination="rMY-hh-SMV" id="R86-dM-r4a"/>
+                        <outlet property="iconImage" destination="VLt-Nv-Gbq" id="0dq-RJ-ysR"/>
+                        <outlet property="lblDetail" destination="cZV-Eo-wfJ" id="l9g-dk-jSL"/>
+                        <outlet property="viewTitle" destination="voR-kX-42v" id="4Yw-GH-Ftd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRN-5S-buk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5603" y="70"/>
+        </scene>
     </scenes>
     <resources>
         <image name="actionRequired" width="40" height="50"/>
         <image name="cry" width="80" height="80"/>
         <image name="email" width="74" height="77"/>
+        <image name="emojiSad" width="70" height="70"/>
         <image name="lock" width="14" height="16"/>
         <image name="number1" width="26" height="26"/>
         <image name="number2" width="26" height="26"/>
