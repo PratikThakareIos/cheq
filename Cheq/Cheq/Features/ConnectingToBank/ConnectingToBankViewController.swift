@@ -11,7 +11,16 @@ import UIKit
 /**
  ConnectingToBankViewController is a loading indication screen that is presented when we are doing linking of banks using **MoneySoft SDK**.
  */
+
+
+
+protocol ConnectingToBankViewControllerProtocol {
+    func dismissViewController(connectionJobResponse : GetConnectionJobResponse?)
+}
+
 class ConnectingToBankViewController: UIViewController {
+    
+    var delegate: ConnectingToBankViewControllerProtocol!
 
     @IBOutlet weak var progressBar: CProgressView!
     /// refer to **ConnectingToBankViewController** on **Common** storyboard
@@ -156,11 +165,25 @@ extension ConnectingToBankViewController {
         self.viewModel.checkJobStatus { result in
               // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
               switch result {
-              case .success(_):
-                  self.dismiss(animated: true) {
-                      AppData.shared.isOnboarding = false
-                      self.viewModel.nextViewController()
-                  }
+              
+              case .success(true):
+                self.dismiss(animated: true) {
+                    AppData.shared.isOnboarding = false
+                    self.viewModel.nextViewController()
+                }
+                break
+                
+              case .success(false):
+                
+                LoggingUtil.shared.cPrint("print failed message")
+                LoggingUtil.shared.cPrint(">> failed == \(self.viewModel.connectionJobResponse)")
+                
+                self.dismiss(animated: true) {
+                    self.delegate!.dismissViewController(connectionJobResponse: self.viewModel.connectionJobResponse)
+                }
+                
+                break
+
               case .failure(let err):
                   self.dismiss(animated: true) {
                       self.showError(err, completion: nil)

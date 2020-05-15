@@ -106,10 +106,11 @@ class AppNav {
      - parameter institutionModel: GetFinancialInstitution is retrieved from selecting the destination bank/institution
      - parameter viewController: The source viewController for current navigation action
      */
-    func pushToDynamicForm(_ institutionModel: GetFinancialInstitution, viewController: UIViewController) {
+    func pushToDynamicForm(_ institutionModel: GetFinancialInstitution, response : GetUserActionResponse?, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: DynamicFormViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.dynamic.rawValue) as! DynamicFormViewController
+        vc.resGetUserActionResponse = response
         vc.viewModel.screenName = .bankLogin
         nav.pushViewController(vc, animated: true)
     }

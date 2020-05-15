@@ -18,10 +18,7 @@ class DynamicFormViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var built = false
     
-    //var timer: Timer?
-    //var dynamicTimeInterval: Double = 15.0
-    //var count = 0
-    
+    var resGetUserActionResponse : GetUserActionResponse?
     var viewModel = DynamicFormViewModel()
     var form:[DynamicFormInput] = []
     
@@ -35,9 +32,15 @@ class DynamicFormViewController: UIViewController {
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+       
         if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
+        
+        if let res = resGetUserActionResponse {
+            self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
+        }
+    
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,6 +54,7 @@ class DynamicFormViewController: UIViewController {
         activeTimestamp()
         setupKeyboardHandling()
         if built { return }
+
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
             AppConfig.shared.hideSpinner {
@@ -61,7 +65,7 @@ class DynamicFormViewController: UIViewController {
                 self.built = true
                 //Manish
                 self.addTestAccountDetails()
-
+                self.showPopUpInvalidCredentialsIfNeeded()
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -177,20 +181,26 @@ class DynamicFormViewController: UIViewController {
 //            }
             
         }
+
         self.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId)
     }
     
     
     func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
       
+        var isUpdate =  false
+        if let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials {
+               isUpdate = true
+        }
         NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
         //guard let nav =  self.navigationController else { return }
         AppConfig.shared.showSpinner()
-        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
+        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId, isUpdateConnection: isUpdate).done { success in
             
             AppConfig.shared.hideSpinner {
                  if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
                      connectingToBank.modalPresentationStyle = .fullScreen
+                    connectingToBank.delegate = self
                      connectingToBank.jobId = AppData.shared.bankJobId
                      self.present(connectingToBank, animated: true, completion: nil)
                  }
@@ -202,7 +212,6 @@ class DynamicFormViewController: UIViewController {
             AppConfig.shared.hideSpinner {
                 //Show if wrong account credentials
                 if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
-                    
                     let transactionModal: CustomSubViewPopup = UIView.fromNib()
                     transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
                                      transactionModal.setupUI()
@@ -401,120 +410,83 @@ class DynamicFormViewController: UIViewController {
     }
  }
  
- // MARK: - Timer
- extension DynamicFormViewController {
-    
-//    func manageConectionJobStatus(res: GetConnectionJobResponse) -> Bool {
-//             LoggingUtil.shared.cPrint("\n manageConectionJobStatus Called")
-//            /*
-//            ConnectionStep
-//
-//            VerifyingCredentials: logging into user’s internet bank
-//            RetrievingAccounts: getting financial account info
-//            RetrievingTransactions: getting financial transactions info
-//            Categorisation: processing financial transactions
-//
-//            ConnectionStepStatus
-//
-//            checkSpendingStatus API
-//            Pending
-//            InProgress
-//            Failed: failed, ask users to try again, show the error message based on
-//
-//            ErrorTitle
-//            ErrorDetail
-//
-//            Success: can look at the Categorisation status now.
-//
-//            CategorizingTransactionStatus = Ready, you can navigating to spending dashboard page.
-//
-//            */
-//
-//    //        public enum Step: String, Codable {
-//    //            case verifyingCredentials = "VerifyingCredentials"
-//    //            case retrievingAccounts = "RetrievingAccounts"
-//    //            case retrievingTransactions = "RetrievingTransactions"
-//    //            case categorisation = "Categorisation"
-//    //        }
-//    //        public enum StepStatus: String, Codable {
-//    //            case pending = "Pending"
-//    //            case inProgress = "InProgress"
-//    //            case failed = "Failed"
-//    //            case success = "Success"
-//    //        }
-//    //        public enum ModelError: String, Codable {
-//    //            case invalidCredentials = "InvalidCredentials"
-//    //            case actionRequiredByBank = "ActionRequiredByBank"
-//    //            case maintenanceError = "MaintenanceError"
-//    //            case temporaryUnavailable = "TemporaryUnavailable"
-//    //        }
-//    //        public var institutionId: String?
-//    //        public var step: Step?
-//    //        public var stepStatus: StepStatus?
-//    //        public var error: ModelError?
-//    //        public var errorTitle: String?
-//    //        public var errorDetail: String?
-//
-//
-////            guard res.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
-////                LoggingUtil.shared.cPrint("\n manageConectionJobStatus GetConnectionJobResponse.StepStatus.failed")
-////                LoggingUtil.shared.cPrint("\n res.errorTitle = \(res.errorTitle)")
-////                LoggingUtil.shared.cPrint("\n res.errorDetail = \(res.errorDetail)")
-////                return false
-////            }
-//
-//
-//            NotificationUtil.shared.notify(UINotificationEvent.basiqEvent.rawValue, key: NotificationUserInfoKey.basiqProgress.rawValue, object: res.step)
-//
-//
-//            switch res.step {
-//            case .verifyingCredentials:
-//                    LoggingUtil.shared.cPrint("Connecting to <bank name> ...") //25%
-//                    return false
-//            case .retrievingAccounts:
-//                    LoggingUtil.shared.cPrint("Retrieving statements from bank...") //50%
-//                    return false
-//            case .retrievingTransactions:
-//                    LoggingUtil.shared.cPrint("Analysing your bank statement...") //70
-//                    return false
-//            case .categorisation:
-//                    LoggingUtil.shared.cPrint("Categorising your transactions...") //80
-//                    if (res.stepStatus == GetConnectionJobResponse.StepStatus.success){
-//                        return true
-//                    }else{
-//                        return false
-//                    }
-//            default:
-//                   LoggingUtil.shared.cPrint("manageConectionJobStatus - Something went wrong")
-//                   return false
-//            }
-//
-//        }
-    
-//   func activateTimer(){
-//      timer = Timer.scheduledTimer(timeInterval: dynamicTimeInterval, target: self, selector: #selector(timerMethod), userInfo: nil, repeats: true)
-//   }
-//   @objc func timerMethod() {
-//       print("Timer method called = \(dynamicTimeInterval) and count = \(count)")
-//       count = count + 1
-//       if count == 3 {
-//           self.changeAPICallTime(timeInSecond: 10)
-//       }
-//
-//       if count == 5 {
-//           self.changeAPICallTime(timeInSecond: 5)
-//       }
-//   }
-//
-//   func changeAPICallTime(timeInSecond : Double){
-//       endTimer()
-//       dynamicTimeInterval = timeInSecond
-//       activateTimer()
-//   }
-//    func endTimer(){
-//        if let _ = self.timer {
-//                   self.timer?.invalidate()
-//        }
-//    }
-    
+
+ //MARK: - Verification popup
+ extension DynamicFormViewController: VerificationPopupVCDelegate{
+  
+     func showPopUpInvalidCredentialsIfNeeded(){
+        
+//        ["\n>> userActionResponse = GetUserActionResponse(userAction: Optional(Cheq.GetUserActionResponse.UserAction.invalidCredentials), title: Optional(\"Reconnect to your bank\"), detail: Optional(\"We noticed that your bank credentials may have changed since you last logged in. Please enter your login details\"), linkedInstitutionId: Optional(\"AU00001\"), canSelectBank: Optional(true), showClose: Optional(true), showReconnect: Optional(false), showChatWithUs: Optional(false), actionRequiredGuidelines: nil, link: nil)"]
+        
+        guard let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials else { return }
+        self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
+        
+        self.openPopupWith(heading: res.title ?? "",
+                            message: res.detail ?? "",
+                            buttonTitle: "",
+                            showSendButton: false,
+                            emoji: UIImage(named: "bank"),
+                            isShowSecurityImage: true)
+     }
+     
+     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?, isShowSecurityImage:Bool = false  ){
+         self.view.endEditing(true)
+         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+         if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+             popupVC.delegate = self
+             popupVC.heading = heading ?? ""
+             popupVC.message = message ?? ""
+             popupVC.buttonTitle = buttonTitle ?? ""
+             popupVC.showSendButton = showSendButton ?? false
+             popupVC.emojiImage = emoji ?? UIImage()
+             popupVC.isShowViewSecurityImage = isShowSecurityImage
+             self.present(popupVC, animated: false, completion: nil)
+         }
+     }
+     
+     func tappedOnSendButton(){
+  
+     }
+     
+     func tappedOnCloseButton(){
+       
+     }
  }
+ 
+ extension DynamicFormViewController : ConnectingToBankViewControllerProtocol {
+    
+//    GetConnectionJobResponse(institutionId: Optional(\"AU00001\"), step: Optional(Cheq.GetConnectionJobResponse.Step.verifyingCredentials), stepStatus: Optional(Cheq.GetConnectionJobResponse.StepStatus.failed), error: nil, errorTitle: Optional(\"Invalid bank account credentials\"), errorDetail: Optional(\"Warning, attempting this multiple times with the wrong credentials might lock you out of your internet banking\"), showClose: Optional(true), showReconnect: Optional(false), showChatWithUs: Optional(false), canSelectBank: Optional(true), actionRequiredGuidelines: nil)
+
+ 
+    func dismissViewController(connectionJobResponse : GetConnectionJobResponse?){
+        self.view.endEditing(true)
+        self.showPopUpverifyingCredentialsFailed(connectionJobResponse: connectionJobResponse)
+    }
+    
+    func showPopUpverifyingCredentialsFailed(connectionJobResponse : GetConnectionJobResponse?){
+       
+        guard let res = connectionJobResponse, (res.step == .verifyingCredentials && res.stepStatus == .failed) else { return }
+        self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
+        
+        self.openPopupWith(heading: res.errorTitle ?? "",
+                            message: res.errorDetail ?? "",
+                            buttonTitle: "",
+                            showSendButton: false,
+                            emoji: UIImage(named: "image-moreInfo"),
+                            isShowSecurityImage: false)
+    }
+
+    func manageCanSelectBankCase(canSelectBank : Bool){
+        if canSelectBank {
+            showNavBar()
+            showBackButton()
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }else{
+            self.hideNavBar()
+            self.hideBackButton()
+        }
+    }
+ }
+
+ 
+ 

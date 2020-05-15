@@ -9,12 +9,16 @@
 import UIKit
 import PromiseKit
 
+
+
 /// ViewModel for **ConnectingToBankViewController**. Add more variables when needed 
 class ConnectingToBankViewModel {
     
     var jobId : String = ""
     var dynamicTimeInterval: Double = 15.0
     var count = 0
+    var connectionJobResponse : GetConnectionJobResponse?
+    
     
     func checkConnectionJobStatus() -> Promise<GetConnectionJobResponse> {
         return Promise<GetConnectionJobResponse>() { resolver in
@@ -60,16 +64,17 @@ class ConnectingToBankViewModel {
               DispatchQueue.main.asyncAfter(deadline: .now() + self.dynamicTimeInterval) {
 
                    self.checkConnectionJobStatus().done { getConnectionJobResponse in
-                     
+                    self.connectionJobResponse = getConnectionJobResponse
                       LoggingUtil.shared.cPrint("\n getConnectionJobResponse = \(getConnectionJobResponse)")
-                      
-                      guard getConnectionJobResponse.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
-                         let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey:  getConnectionJobResponse.errorDetail]) as Error
-                         completion(.failure(error))
+                     //TODO Managae all states for StepStatus.failed for all cases
+                    guard getConnectionJobResponse.stepStatus != GetConnectionJobResponse.StepStatus.failed  else {
+                         //let error = NSError(domain:"", code:401, userInfo:[ NSLocalizedDescriptionKey:  getConnectionJobResponse.errorDetail]) as Error
+                         //completion(.failure(error))
+                         completion(.success(false))
                          return
-                      }
+                    }
                     AppData.shared.connectionJobStatusReady = self.manageConectionJobStatus(res: getConnectionJobResponse)
-                      self.checkJobStatus(completion)
+                    self.checkJobStatus(completion)
                   }.catch { err in
                       LoggingUtil.shared.cPrint(err)
                       completion(.failure(err))

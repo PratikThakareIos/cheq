@@ -66,6 +66,8 @@ enum CommonStoryboardId: String {
     case reTryConnecting = "ConnectingTobankFalilsViewController"
     case userActionRequiredVC = "UserActionRequiredVC"
     case BankNotSupportedVC = "BankNotSupportedVC"
+    case CategorisationInProgressVC = "CategorisationInProgressVC"
+    
     
     
 }

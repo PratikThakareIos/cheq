@@ -12,7 +12,7 @@ import MobileSDK
 import Alamofire
 
 class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
- 
+  
     var sectionTitle = "Setup bank details"
     var viewTitle = "Login to link your accounts"
     var appTokenResponse : GetAppTokenResponse?
@@ -69,7 +69,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
   
-    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?)->Promise<Bool> {
+    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?, isUpdateConnection :Bool)->Promise<Bool> {
 
         var dict : [String:Any] = [:]
 
@@ -107,7 +107,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
                 self.jobId = basiqConnectionResponse.id ?? ""
                 AppData.shared.bankJobId = basiqConnectionResponse.id ?? ""                
-                let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "", isUpdateConnection: false)
+                let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "", isUpdateConnection: isUpdateConnection)
                 return CheqAPIManager.shared.postBasiqConnectionJob(req:request)
             }.then{ boolValue -> Promise<AuthUser> in
                 return AuthConfig.shared.activeManager.retrieveAuthToken(activeAuthUser!)

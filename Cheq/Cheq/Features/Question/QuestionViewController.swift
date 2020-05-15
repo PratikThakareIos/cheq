@@ -966,10 +966,7 @@ extension QuestionViewController {
 
 //MARK: - Verification popup
 extension QuestionViewController: VerificationPopupVCDelegate{
-    
-    
-
-    
+ 
     func showJointAccountNotSupportedPopUp(){
         self.openPopupWith(heading: "Something went wrong",
                            message: "Unfortunately, we do not currently cater to users who have joint bank account",

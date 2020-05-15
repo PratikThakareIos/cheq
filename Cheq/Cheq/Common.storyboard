@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBf-QE-u9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111.594202898551" y="69.642857142857139"/>
+            <point key="canvasLocation" x="3107" y="70"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="jYG-bY-1hJ">
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtP-5a-Lm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="70"/>
+            <point key="canvasLocation" x="1377" y="70"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="SrH-GA-DeQ">
@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQ7-M4-mM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="70"/>
+            <point key="canvasLocation" x="2225" y="70"/>
         </scene>
         <!--Email Verification View Controller-->
         <scene sceneID="MAj-Np-gzk">
@@ -485,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pps-Eg-trq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.75362318840587" y="69.642857142857139"/>
+            <point key="canvasLocation" x="545" y="70"/>
         </scene>
         <!--Connecting Tobank Falils View Controller-->
         <scene sceneID="dN0-sJ-y1g">
@@ -582,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5o-p0-wpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3876.811594202899" y="69.642857142857139"/>
+            <point key="canvasLocation" x="-288" y="892"/>
         </scene>
         <!--User Action RequiredVC-->
         <scene sceneID="74t-FI-xiR">
@@ -785,7 +785,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yE2-x6-216" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4777" y="70"/>
+            <point key="canvasLocation" x="546" y="892"/>
         </scene>
         <!--BankNotSupportedVC-->
         <scene sceneID="qm1-LB-RTd">
@@ -889,7 +889,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CRN-5S-buk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5603" y="70"/>
+            <point key="canvasLocation" x="1377" y="892"/>
+        </scene>
+        <!--CategorisationInProgressVC-->
+        <scene sceneID="9Kh-AW-OVl">
+            <objects>
+                <viewController storyboardIdentifier="CategorisationInProgressVC" title="CategorisationInProgressVC" id="yFZ-aU-b2c" customClass="CategorisationInProgressVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="biE-fm-O6o"/>
+                        <viewControllerLayoutGuide type="bottom" id="WGx-XZ-pUd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QJs-5Y-Zk1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vuk-3v-eif">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are syncing your bank transactions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-HK-UoT">
+                                        <rect key="frame" x="50" y="272.5" width="314" height="115"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="32"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-F6-zA5">
+                                        <rect key="frame" x="172" y="140.5" width="70" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="92" id="A3X-qA-Xht"/>
+                                            <constraint firstAttribute="width" constant="70" id="f12-td-dpV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be notified once we have synced your transactions. This could take up to 30 min." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-lr-gLY">
+                                        <rect key="frame" x="35" y="417.5" width="344" height="61"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ulo-ME-pxX">
+                                        <rect key="frame" x="62" y="782" width="290" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsR-3W-xeP">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="mPI-Vh-MWl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Chat with us">
+                                                    <color key="titleColor" red="0.29019607843137252" green="0.0" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnChatWithUsAction:" destination="yFZ-aU-b2c" eventType="touchUpInside" id="Khk-T9-rov"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ET-Cm-kvx">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="c0g-f3-rng"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Try to connect again...">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnTryAgainAction:" destination="yFZ-aU-b2c" eventType="touchUpInside" id="cF2-aQ-Dix"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aLM-HK-UoT" firstAttribute="leading" secondItem="Vuk-3v-eif" secondAttribute="leading" constant="50" id="2cR-JE-C3a"/>
+                                    <constraint firstItem="Ulo-ME-pxX" firstAttribute="centerX" secondItem="Vuk-3v-eif" secondAttribute="centerX" id="78d-OE-xQO"/>
+                                    <constraint firstItem="zlW-lr-gLY" firstAttribute="top" secondItem="aLM-HK-UoT" secondAttribute="bottom" constant="30" id="Bh6-Cl-3Kb"/>
+                                    <constraint firstItem="zlW-lr-gLY" firstAttribute="centerY" secondItem="Vuk-3v-eif" secondAttribute="centerY" id="De1-3b-9SE"/>
+                                    <constraint firstItem="Pwg-F6-zA5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Vuk-3v-eif" secondAttribute="top" constant="20" id="Mek-SC-Zq7"/>
+                                    <constraint firstItem="zlW-lr-gLY" firstAttribute="leading" secondItem="Vuk-3v-eif" secondAttribute="leading" constant="35" id="Msa-et-OEj"/>
+                                    <constraint firstItem="aLM-HK-UoT" firstAttribute="top" secondItem="Pwg-F6-zA5" secondAttribute="bottom" constant="40" id="bAe-3i-DTg"/>
+                                    <constraint firstAttribute="trailing" secondItem="zlW-lr-gLY" secondAttribute="trailing" constant="35" id="f1h-8b-uhe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ulo-ME-pxX" secondAttribute="bottom" constant="60" id="fMH-F1-wyR"/>
+                                    <constraint firstAttribute="trailing" secondItem="aLM-HK-UoT" secondAttribute="trailing" constant="50" id="feK-3g-bBC"/>
+                                    <constraint firstItem="Pwg-F6-zA5" firstAttribute="centerX" secondItem="Vuk-3v-eif" secondAttribute="centerX" id="ozq-rO-tPc"/>
+                                    <constraint firstItem="Ulo-ME-pxX" firstAttribute="width" secondItem="Vuk-3v-eif" secondAttribute="width" multiplier="0.7" id="zaa-Gx-a1K"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vuk-3v-eif" firstAttribute="trailing" secondItem="QJs-5Y-Zk1" secondAttribute="trailing" id="21M-ji-8Th"/>
+                            <constraint firstAttribute="bottom" secondItem="Vuk-3v-eif" secondAttribute="bottom" id="cbM-QN-FcE"/>
+                            <constraint firstItem="Vuk-3v-eif" firstAttribute="leading" secondItem="QJs-5Y-Zk1" secondAttribute="leading" id="dZf-2a-Afc"/>
+                            <constraint firstItem="Vuk-3v-eif" firstAttribute="top" secondItem="QJs-5Y-Zk1" secondAttribute="top" id="oqT-6M-OMK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnChatWithUs" destination="hsR-3W-xeP" id="UmV-BE-esN"/>
+                        <outlet property="btnTryAgain" destination="5ET-Cm-kvx" id="LXL-a6-bIB"/>
+                        <outlet property="iconImage" destination="Pwg-F6-zA5" id="o7h-Qa-aZ3"/>
+                        <outlet property="lblDetail" destination="zlW-lr-gLY" id="yX2-Vz-YqU"/>
+                        <outlet property="viewTitle" destination="aLM-HK-UoT" id="3AX-3D-4yi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fq1-sk-yf0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2225" y="892"/>
         </scene>
     </scenes>
     <resources>
@@ -901,6 +1005,7 @@
         <image name="number1" width="26" height="26"/>
         <image name="number2" width="26" height="26"/>
         <image name="number3" width="26" height="26"/>
+        <image name="rocket" width="56" height="55"/>
         <image name="timer" width="70" height="70"/>
     </resources>
 </document>

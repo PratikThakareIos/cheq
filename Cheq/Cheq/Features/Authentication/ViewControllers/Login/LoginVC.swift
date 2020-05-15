@@ -51,11 +51,10 @@ class LoginVC: UIViewController {
     }
     
     func addTestAccountDetails(){
-        self.emailTextField.text = "qqq@g.com"
+        self.emailTextField.text = "www@gmail.com"
         self.passwordTextField.text = "Tfc@12345"
     }
 }
-
 
 // MARK: Custom Methods
 extension LoginVC {
@@ -229,6 +228,7 @@ extension LoginVC {
             //When the user opens the app the apps checks if the user has a basiq account or not
             return CheqAPIManager.shared.getUserActions()
         }.done { userActionResponse in
+            
             /*
             The backend will return one of these condition
 
@@ -241,12 +241,16 @@ extension LoginVC {
              
             if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
             */
+            
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
                 
                 case .categorisationInProgress:
-                       break
+                        AppData.shared.completingDetailsForLending = false
+                        self.gotoCategorisationInProgressVC(response : userActionResponse)
+                        break
+                    
                 case ._none:
                         LoggingUtil.shared.cPrint("go to home screen")
                         // Load to dashboard
@@ -255,20 +259,24 @@ extension LoginVC {
                         AppData.shared.completingDetailsForLending = false
                         self.navigateToDashboard()
                         break
+                    
                 case .actionRequiredByBank:
                         AppData.shared.completingDetailsForLending = false
-                        AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
+                        self.gotoUserActionRequiredVC(response : userActionResponse)
                         break
+                    
                 case .bankNotSupported:
+                        AppData.shared.completingDetailsForLending = false
                         self.gotoBankNotSupportedVC(response : userActionResponse)
                         break
+                    
                 case .invalidCredentials:
                         AppData.shared.completingDetailsForLending = false
                         AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
+                    
                 case .missingAccount:
                         LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")
-                        
                         AppConfig.shared.showSpinner()
                         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                             return CheqAPIManager.shared.putUser(authUser)
@@ -291,8 +299,8 @@ extension LoginVC {
                             }
                         }
                         break
-                case  .requireMigration,.requireBankLinking, .accountReactivation:
                     
+                case  .requireMigration,.requireBankLinking, .accountReactivation:
 //                    UserAction: RequireMigration, RequireBankLinking, AccountReactivation
 //                    LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
 //                    LinkedInstitutionId is null, ask users to select institution from bank list
@@ -301,10 +309,12 @@ extension LoginVC {
                             AppData.shared.completingDetailsForLending = false
                             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                             //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                        }
-                        break
+                       }
+                       break
+                    
                 case .none:
                      LoggingUtil.shared.cPrint("err")
+                    
                 }
             }
             
@@ -464,6 +474,26 @@ extension LoginVC {
         }
     }
     
+    
+    
+    func gotoCategorisationInProgressVC(response : GetUserActionResponse){
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+
+    
+    func gotoUserActionRequiredVC(response : GetUserActionResponse){
+         //guard let nav =  self.navigationController else { return }
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
+            vc.getUserActionResponse = response
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
     func didSelectLinkWithNameOnLogin(strSubstring : String = ""){
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
@@ -522,29 +552,3 @@ extension LoginVC {
 }
 
 
-/*
- 
- InvalidCredentials
- call GET /connections/update
- display the screen to users and ask users to fill new password
- call Basiq Update Connection endpoint, you will have a JobId in response
- Post the JobId to backend: POST connections/jobs, with isUpdate = true
-
- UserAction: RequireMigration, RequireBankLinking, AccountReactivation
- LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
- LinkedInstitutionId is null, ask users to select institution from bank list
- 
- UserAction: ActionRequiredByBank
- show the screen and guideline.
- call the backend API: PUT v1/connections/refresh
- 
- UserAction: BankNotSupported
- display the BankNotSupported block screen
-
- UserAction: MissingAccount
- call PUT v1/users
- refresh firebase token
- get useraction again to continue the action in the response
- 
- 
- */

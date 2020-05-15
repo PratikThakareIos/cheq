@@ -187,6 +187,7 @@ class IntroductionViewController: UIViewController {
 
     @IBAction func secondaryButton(_ sender: Any) {
         switch viewModel.coordinator.type {
+        
         case .setupBank:
             navigateToBankSetupLearnMore()
         case .email:

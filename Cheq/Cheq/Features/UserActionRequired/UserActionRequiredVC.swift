@@ -58,8 +58,6 @@ class UserActionRequiredVC: UIViewController {
         removeObservables()
     }
     
-
-
     
     func setupUI(_ res : GetUserActionResponse) {
         
@@ -67,8 +65,7 @@ class UserActionRequiredVC: UIViewController {
         self.confirmButton.createShadowLayer()
         //iconImage.image = viewModel.image
         //confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
-        
-        
+                
         viewTitle.text = res.title ?? ""
         viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         

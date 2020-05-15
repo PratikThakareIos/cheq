@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @objc protocol VerificationPopupVCDelegate {
     @objc func tappedOnSendButton()
     @objc func tappedOnCloseButton()
@@ -20,6 +19,7 @@ class VerificationPopupVC: UIViewController {
     @IBOutlet weak var lblMessage:UILabel!
     @IBOutlet weak var sendButton:CNButton!
     @IBOutlet weak var imgEmoji:UIImageView!
+    @IBOutlet weak var viewSecurityImage: UIView!
     
     @IBOutlet weak var popViewBottom: NSLayoutConstraint!
     
@@ -30,6 +30,7 @@ class VerificationPopupVC: UIViewController {
     var message = ""
     var showSendButton = false
     var buttonTitle = ""
+    var isShowViewSecurityImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class VerificationPopupVC: UIViewController {
         self.lblMessage.text = message
         self.sendButton.isHidden = !showSendButton
         self.imgEmoji.image = emojiImage
+        self.viewSecurityImage.isHidden = !isShowViewSecurityImage
     }
     
     override func viewDidAppear(_ animated: Bool) {

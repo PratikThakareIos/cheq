@@ -22,6 +22,8 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var questionTitle: CLabel!
     var showNextButton = false
     
+    var responseGetUserActionResponse : GetUserActionResponse?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -45,16 +47,33 @@ class MultipleChoiceViewController: UIViewController {
         self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
         self.tableView.backgroundColor = .clear
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
-        self.questionTitle.text = self.viewModel.question()
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
-        self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         
         if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }else{
+            self.hideNavBar()
+            self.hideBackButton()
         }
         
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
+        }
+        
+        if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
+            self.setTitleAndSubTitle(isShow: false)
+        }else{
+            self.setTitleAndSubTitle(isShow:  true)
+        }
+    }
+    
+    func setTitleAndSubTitle(isShow: Bool){
+        if isShow {
+            self.questionTitle.text = self.viewModel.question()
+            self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+        }else{
+            self.questionTitle.text = ""
+            self.sectionTitle.text = ""
         }
     }
     
@@ -73,6 +92,10 @@ class MultipleChoiceViewController: UIViewController {
         
         if selectedChoice == nil {
             self.updateChoices()
+        }else{
+            self.setTitleAndSubTitle(isShow:  true)
+            self.tableView.reloadData()
+            self.responseGetUserActionResponse = nil
         }
     }
     
@@ -104,6 +127,7 @@ class MultipleChoiceViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     self.choices = choices
                     self.tableView.reloadData()
+                    self.setTitleAndSubTitle(isShow:  true)
                 }
                 
             }.catch { err in
@@ -210,7 +234,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form
             let selectedChoice = self.choices[indexPath.row]
-            self.gotoNewScreenWith(choiceModel: selectedChoice)
+            self.gotoBankLoginScreen(choiceModel: selectedChoice)
             
         case .ageRange:
             
@@ -375,42 +399,46 @@ extension MultipleChoiceViewController {
              */
             
                 self.view.endEditing(true)
-
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+
+                self.responseGetUserActionResponse = userActionResponse
                 switch (userActionResponse.userAction){
                 
                 case .categorisationInProgress:
+                    
                     AppConfig.shared.hideSpinner {
-                        LoggingUtil.shared.cPrint("categorisationInProgress")
+                        self.gotoCategorisationInProgressVC()
                     }
                     break
                     
                 case ._none:
+                   
                     AppConfig.shared.hideSpinner {
                         LoggingUtil.shared.cPrint("go to home screen")
                     }
                     break
                     
                 case .actionRequiredByBank:
+                    
                     AppConfig.shared.hideSpinner {
-                        self.gotoUserActionRequiredVC(response : userActionResponse)
+                        self.gotoUserActionRequiredVC()
                     }
                     break
                     
                 case .bankNotSupported:
+                    
                     AppConfig.shared.hideSpinner {
-                        self.gotoBankNotSupportedVC(response : userActionResponse)
+                        self.gotoBankNotSupportedVC()
                     }
                     break
                             
                 case .invalidCredentials:
-                      AppConfig.shared.hideSpinner {
-                         LoggingUtil.shared.cPrint("invalidCredentials")
-                      }
+                    
+                    self.manageInvalidCredentialsCase()
                     break
                     
                 case .missingAccount:
-
+                    
                     AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                         return CheqAPIManager.shared.putUser(authUser)
                     }.then { authUser in
@@ -428,20 +456,21 @@ extension MultipleChoiceViewController {
                         }
                     }
                     break
+                    
                 case .requireMigration,.requireBankLinking, .accountReactivation:
                     
 //                UserAction: RequireMigration, RequireBankLinking, AccountReactivation
 //                LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
 //                LinkedInstitutionId is null, ask users to select institution from bank list
                     
-                  self.getBankListFromServer(linkedInstitutionId : userActionResponse.linkedInstitutionId)
+                  self.getBankListFromServer()
                   break
              
                 case .none:
+                    
                     AppConfig.shared.hideSpinner {
                         LoggingUtil.shared.cPrint("none err")
                     }
-                    
                 }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -454,10 +483,13 @@ extension MultipleChoiceViewController {
     }
     
     
-    func getBankListFromServer(linkedInstitutionId : String?){
+    func getBankListFromServer(){
+        self.selectedChoice = nil
+        let linkedInstitutionId = self.responseGetUserActionResponse?.linkedInstitutionId
+        
         AppConfig.shared.showSpinner()
         self.viewModel.coordinator.choices().done { choices in
-            
+            self.choices = choices
             var foundBankModel : ChoiceModel?
             if let linkedInstitutionId = linkedInstitutionId, choices.count > 0{
                  for obj in choices {
@@ -468,12 +500,12 @@ extension MultipleChoiceViewController {
                       }
                 }
             }
-            
             AppConfig.shared.hideSpinner {
                 if let obj = foundBankModel{
-                   self.gotoNewScreenWith(choiceModel: obj)
+                    self.selectedChoice = obj
+                    self.gotoBankLoginScreen(choiceModel: obj)
                 }else{
-                    self.choices = choices
+                    self.setTitleAndSubTitle(isShow:  true)
                     self.tableView.reloadData()
                 }
             }
@@ -485,22 +517,21 @@ extension MultipleChoiceViewController {
     }
     
     
-    func gotoNewScreenWith(choiceModel : ChoiceModel){
-       
+    func gotoBankLoginScreen(choiceModel : ChoiceModel){
         AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
         AppData.shared.selectedFinancialInstitution = choiceModel.ref as? GetFinancialInstitution
         guard let bank = AppData.shared.selectedFinancialInstitution else { showError(AuthManagerError.invalidFinancialInstitutionSelected, completion: nil)
             return
         }
-        AppData.shared.updateProgressAfterCompleting(.financialInstitutions)
-        AppNav.shared.pushToDynamicForm(bank, viewController: self)
+        AppNav.shared.pushToDynamicForm(bank, response: self.responseGetUserActionResponse, viewController: self)
+       
     }
     
     func manageInvalidCredentialsCase(){
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.getBasiqConnectionForUpdate().done { getConnectionUpdateResponse in
             LoggingUtil.shared.cPrint("\n\n>>getConnectionUpdateResponse = \(getConnectionUpdateResponse)")
-            self.getBankListFromServer(linkedInstitutionId : getConnectionUpdateResponse.institutionId)
+            self.getBankListFromServer()
         }.catch { [weak self] err in
             guard let self = self else { return }
             AppConfig.shared.hideSpinner {
@@ -508,7 +539,6 @@ extension MultipleChoiceViewController {
             }
         }
     }
-    
 }
 
 
@@ -520,21 +550,29 @@ extension MultipleChoiceViewController {
        })
     }
     
-    
-    func gotoUserActionRequiredVC(response : GetUserActionResponse){
+    func gotoUserActionRequiredVC(){
          //guard let nav =  self.navigationController else { return }
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
-            vc.getUserActionResponse = response
+            vc.getUserActionResponse = self.responseGetUserActionResponse
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
         }
     }
     
-    func gotoBankNotSupportedVC(response : GetUserActionResponse){
+    func gotoBankNotSupportedVC(){
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
-              vc.getUserActionResponse = response
+              vc.getUserActionResponse = self.responseGetUserActionResponse
               vc.modalPresentationStyle = .fullScreen
               self.present(vc, animated: true)
         }
     }
+    
+    func gotoCategorisationInProgressVC(){
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
+              vc.getUserActionResponse = self.responseGetUserActionResponse
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+
 }

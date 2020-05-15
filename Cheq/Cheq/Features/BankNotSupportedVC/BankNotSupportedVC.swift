@@ -74,7 +74,6 @@ class BankNotSupportedVC: UIViewController {
             
         }
         
-        
         if let showReconnect = res.showReconnect, showReconnect == true {
             btnTryAgain.isHidden = false
         }else{

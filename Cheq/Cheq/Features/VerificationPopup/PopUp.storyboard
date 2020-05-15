@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i00-7e-GcH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i00-7e-GcH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-5Q-r2w">
-                                        <rect key="frame" x="16" y="1313.5" width="382" height="304.5"/>
+                                        <rect key="frame" x="16" y="1231.5" width="382" height="386.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rHU-wk-3RS">
                                                 <rect key="frame" x="0.0" y="36" width="382" height="60.5"/>
@@ -52,10 +52,34 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-au-sNV">
-                                                <rect key="frame" x="24" y="156.5" width="334" height="118"/>
+                                                <rect key="frame" x="24" y="156.5" width="334" height="200"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95F-7l-lxm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-zg-9Uh">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="58"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-Xi-jSv">
+                                                                <rect key="frame" x="105" y="13" width="124" height="32"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="Hmz-cS-dmi">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="28" height="32"/>
+                                                                    </imageView>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ssl" translatesAutoresizingMaskIntoConstraints="NO" id="del-S2-faO">
+                                                                        <rect key="frame" x="38" y="0.0" width="86" height="32"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="G8t-Xi-jSv" secondAttribute="bottom" constant="2" id="5bc-Ek-ak4"/>
+                                                            <constraint firstItem="G8t-Xi-jSv" firstAttribute="centerX" secondItem="BFh-zg-9Uh" secondAttribute="centerX" id="7x6-N4-GU3"/>
+                                                            <constraint firstItem="G8t-Xi-jSv" firstAttribute="centerY" secondItem="BFh-zg-9Uh" secondAttribute="centerY" id="BAX-hH-c0o"/>
+                                                            <constraint firstAttribute="width" secondItem="BFh-zg-9Uh" secondAttribute="height" multiplier="167:29" id="kwJ-wA-fcu"/>
+                                                            <constraint firstItem="G8t-Xi-jSv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BFh-zg-9Uh" secondAttribute="top" constant="2" id="qL7-lq-UvT"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95F-7l-lxm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="82" width="334" height="58"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="95F-7l-lxm" secondAttribute="height" multiplier="167:29" id="Cgh-Uu-Ev8"/>
                                                         </constraints>
@@ -67,7 +91,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgt-Dn-1gu">
-                                                        <rect key="frame" x="0.0" y="82" width="334" height="36"/>
+                                                        <rect key="frame" x="0.0" y="164" width="334" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="3QT-B8-meV"/>
                                                         </constraints>
@@ -129,6 +153,7 @@
                         <outlet property="lblMessage" destination="VWm-oe-Gex" id="DuY-ND-eQj"/>
                         <outlet property="popViewBottom" destination="arG-pb-h3X" id="rX7-he-jCO"/>
                         <outlet property="sendButton" destination="95F-7l-lxm" id="yn1-6y-dwT"/>
+                        <outlet property="viewSecurityImage" destination="BFh-zg-9Uh" id="3eo-Po-3d8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt8-Xj-FIM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -136,4 +161,8 @@
             <point key="canvasLocation" x="-57" y="150"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shield" width="28" height="32"/>
+        <image name="ssl" width="86" height="32"/>
+    </resources>
 </document>

@@ -276,6 +276,11 @@
 		2A5420FC243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FD243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FE243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
+		2A595652246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
+		2A595653246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
+		2A595654246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
+		2A595655246DB18700736BAC /* BankNotSupportedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */; };
+		2A595656246DB18700736BAC /* BankNotSupportedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */; };
 		2A5C74D4244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
@@ -1409,6 +1414,7 @@
 		2A44A3152452F67400346FCA /* GetLoanPreviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLoanPreviewResponse.swift; sourceTree = "<group>"; };
 		2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
+		2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisationInProgressVC.swift; sourceTree = "<group>"; };
 		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
 		2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankNotSupportedVC.swift; sourceTree = "<group>"; };
 		2A70ACB42462AA7300756AC2 /* GetConnectionUpdateResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConnectionUpdateResponse.swift; sourceTree = "<group>"; };
@@ -1945,12 +1951,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		2A5C88C32469A88800C1C771 /* New Group */ = {
+		2A595650246DB16300736BAC /* categorisationInProgress */ = {
+			isa = PBXGroup;
+			children = (
+				2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */,
+			);
+			path = categorisationInProgress;
+			sourceTree = "<group>";
+		};
+		2A5C88C32469A88800C1C771 /* BankNotSupportedVC */ = {
 			isa = PBXGroup;
 			children = (
 				2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */,
 			);
-			path = "New Group";
+			path = BankNotSupportedVC;
 			sourceTree = "<group>";
 		};
 		2A72CF6E2420A98E0053C0DD /* CN */ = {
@@ -3455,7 +3469,8 @@
 		9676523722FB0136001E43E0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				2A5C88C32469A88800C1C771 /* New Group */,
+				2A595650246DB16300736BAC /* categorisationInProgress */,
+				2A5C88C32469A88800C1C771 /* BankNotSupportedVC */,
 				2A367E2A2465640B008EC38A /* UserActionRequired */,
 				2A72CF812420A9E70053C0DD /* VerificationPopup */,
 				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
@@ -4744,6 +4759,7 @@
 				4F01F63C237E6A5B00268423 /* IntroductionViewModel.swift in Sources */,
 				4F01F63D237E6A5B00268423 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4F01F63E237E6A5B00268423 /* ForgotPasswordViewController.swift in Sources */,
+				2A595654246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */,
 				4F01F641237E6A5B00268423 /* CPieChartView.swift in Sources */,
 				4F01F643237E6A5B00268423 /* PreviewLoanViewController.swift in Sources */,
 				2A44A22F2452E6ED00346FCA /* HealthCheckAPI.swift in Sources */,
@@ -5027,6 +5043,7 @@
 				4F01F725237E6A5B00268423 /* ProfileViewModel.swift in Sources */,
 				4F01F727237E6A5B00268423 /* MoneySoftDev.swift in Sources */,
 				4F01F728237E6A5B00268423 /* IdentityConflictIntroCoordinator.swift in Sources */,
+				2A595656246DB18700736BAC /* BankNotSupportedVC.swift in Sources */,
 				2A44A2262452E6ED00346FCA /* FinancesAPI.swift in Sources */,
 				4F01F729237E6A5B00268423 /* Data_Extension.swift in Sources */,
 				4F01F72A237E6A5B00268423 /* ProfileViewController.swift in Sources */,
@@ -5104,6 +5121,7 @@
 				4FBDDA2C236BC68700EDB1E9 /* IntroductionViewModel.swift in Sources */,
 				4FBDDA2D236BC68700EDB1E9 /* MultipleChoiceViewModelCoordinator.swift in Sources */,
 				4FBDDA2E236BC68700EDB1E9 /* ForgotPasswordViewController.swift in Sources */,
+				2A595653246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */,
 				4FBDDA2F236BC68700EDB1E9 /* CPieChartView.swift in Sources */,
 				4FBDDA30236BC68700EDB1E9 /* PreviewLoanViewController.swift in Sources */,
 				2A44A22E2452E6ED00346FCA /* HealthCheckAPI.swift in Sources */,
@@ -5387,6 +5405,7 @@
 				4FBDDAF6236BC68700EDB1E9 /* AutoLayoutUtil.swift in Sources */,
 				4FBDDAF7236BC68700EDB1E9 /* ProfileViewModel.swift in Sources */,
 				4FBDDAFA236BC68700EDB1E9 /* IdentityConflictIntroCoordinator.swift in Sources */,
+				2A595655246DB18700736BAC /* BankNotSupportedVC.swift in Sources */,
 				2A44A2252452E6ED00346FCA /* FinancesAPI.swift in Sources */,
 				4FBDDAFB236BC68700EDB1E9 /* Data_Extension.swift in Sources */,
 				4FBDDAFC236BC68700EDB1E9 /* ProfileViewController.swift in Sources */,
@@ -5505,6 +5524,7 @@
 				4F01F89E23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */,
 				4FDDC331237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift in Sources */,
 				2A44A2752452E6ED00346FCA /* PostLogRequest.swift in Sources */,
+				2A595652246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */,
 				966434D62341AA8F00934FB0 /* SpendingViewModel.swift in Sources */,
 				9F3ACB8B23EFEC9700466953 /* DocumentAccessCell.swift in Sources */,
 				9676524222FB060E001E43E0 /* FinanceViewController.swift in Sources */,
@@ -6172,7 +6192,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.4;
+				MARKETING_VERSION = 2.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;
@@ -6226,7 +6246,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.4;
+				MARKETING_VERSION = 2.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = CheqDev;
