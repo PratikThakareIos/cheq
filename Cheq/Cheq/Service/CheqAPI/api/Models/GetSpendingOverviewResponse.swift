@@ -11,14 +11,14 @@ import Foundation
 
 public struct GetSpendingOverviewResponse: Codable {
 
-    public var headerMessage: String?
+    public var lastSuccessfulUpdatedAtUtc: String?
     public var overviewCard: SpendingOverviewCard?
     public var upcomingBills: [GetUpcomingBillResponse]?
     public var topCategoriesAmount: [CategoryAmountStatResponse]?
     public var recentTransactions: [SlimTransactionResponse]?
 
-    public init(headerMessage: String?, overviewCard: SpendingOverviewCard?, upcomingBills: [GetUpcomingBillResponse]?, topCategoriesAmount: [CategoryAmountStatResponse]?, recentTransactions: [SlimTransactionResponse]?) {
-        self.headerMessage = headerMessage
+    public init(lastSuccessfulUpdatedAtUtc: String?, overviewCard: SpendingOverviewCard?, upcomingBills: [GetUpcomingBillResponse]?, topCategoriesAmount: [CategoryAmountStatResponse]?, recentTransactions: [SlimTransactionResponse]?) {
+        self.lastSuccessfulUpdatedAtUtc = lastSuccessfulUpdatedAtUtc
         self.overviewCard = overviewCard
         self.upcomingBills = upcomingBills
         self.topCategoriesAmount = topCategoriesAmount

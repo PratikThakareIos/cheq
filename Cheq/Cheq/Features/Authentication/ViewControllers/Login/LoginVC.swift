@@ -74,14 +74,7 @@ extension LoginVC {
     //            }
     //    }
     
-    func navigateToDashboard() {
-        self.view.endEditing(true)
-        // go to dashboard board
-        var vcInfo = [String: String]()
-        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
-        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
-        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
-    }
+
     
     
     func validateInputs()-> ValidationError? {
@@ -245,6 +238,12 @@ extension LoginVC {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
+                    
+                case .bankLinkingUnsuccessful:
+                         AppConfig.shared.hideSpinner {
+                                               LoggingUtil.shared.cPrint("go to home screen")
+                         }
+                         break
                 
                 case .categorisationInProgress:
                         AppData.shared.completingDetailsForLending = false
@@ -404,39 +403,6 @@ extension LoginVC {
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
     }
-    
-}
-
-// MARK: Navigation Methods
-extension LoginVC {
-    
-    func beginOnboarding() {
-        AppData.shared.isOnboarding = true
-        AppConfig.shared.hideSpinner {
-            guard let activeUser = AuthConfig.shared.activeUser else {
-                self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
-                return
-            }
-            
-            if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
-                self.toEmailVerification()
-            } else {
-                // for Facebook emails
-                //self.toPasscodeSetup()
-                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
-            }
-        }
-    }
-    
-    func toPasscodeSetup() {
-        let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false)
-        AppNav.shared.pushToViewController(passcodeVc, from: self)
-    }
-    
-    func toEmailVerification() {
-        let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
-        AppNav.shared.pushToViewController(emailVc, from: self)
-    }
 }
 
 
@@ -466,33 +432,6 @@ extension LoginVC {
         self.lblforgotPassword.setLinksForSubstrings(["Forgot your password?"], withLinkHandler: handler)
     }
     
-    func gotoBankNotSupportedVC(response : GetUserActionResponse){
-        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
-              vc.getUserActionResponse = response
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true)
-        }
-    }
-    
-    
-    
-    func gotoCategorisationInProgressVC(response : GetUserActionResponse){
-        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
-              vc.getUserActionResponse = response
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true)
-        }
-    }
-
-    
-    func gotoUserActionRequiredVC(response : GetUserActionResponse){
-         //guard let nav =  self.navigationController else { return }
-        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
-            vc.getUserActionResponse = response
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }
-    }
     
     func didSelectLinkWithNameOnLogin(strSubstring : String = ""){
         self.view.endEditing(true)
@@ -552,3 +491,74 @@ extension LoginVC {
 }
 
 
+// MARK: Navigation Methods
+extension LoginVC {
+    
+    func navigateToDashboard() {
+        self.view.endEditing(true)
+        // go to dashboard board
+        var vcInfo = [String: String]()
+        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
+        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
+        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
+    }
+    
+    func beginOnboarding() {
+        self.view.endEditing(true)
+        AppData.shared.isOnboarding = true
+        AppConfig.shared.hideSpinner {
+            guard let activeUser = AuthConfig.shared.activeUser else {
+                self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
+                return
+            }
+            
+            if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
+                self.toEmailVerification()
+            } else {
+                // for Facebook emails
+                //self.toPasscodeSetup()
+                AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
+            }
+        }
+    }
+    
+    func toPasscodeSetup() {
+        self.view.endEditing(true)
+        let passcodeVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.passcode.rawValue, embedInNav: false)
+        AppNav.shared.pushToViewController(passcodeVc, from: self)
+    }
+    
+    func toEmailVerification() {
+        self.view.endEditing(true)
+        let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
+        AppNav.shared.pushToViewController(emailVc, from: self)
+    }
+    
+    func gotoBankNotSupportedVC(response : GetUserActionResponse){
+        self.view.endEditing(true)
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+    
+    func gotoCategorisationInProgressVC(response : GetUserActionResponse){
+        self.view.endEditing(true)
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+    
+    func gotoUserActionRequiredVC(response : GetUserActionResponse){
+        self.view.endEditing(true)
+         //guard let nav =  self.navigationController else { return }
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
+            vc.getUserActionResponse = response
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+}

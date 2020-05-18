@@ -127,9 +127,11 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
         cellConfiguration(cell: cell, data:tansactionDetailsArray[indexPath.row] , indexpath: indexPath)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
        
         var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
@@ -148,9 +150,11 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
         
         return footerView
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 150
     }
+    
     @objc func nextButtonClick(sender: UIButton!) {
         
         if self.tansactionDetailsArray.count > 0 {
@@ -177,7 +181,7 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
         
         ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.title, text: "\(String(describing: data._description!) )")
         ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.value, text: "\(String(describing: data.amount!) )")
-       let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
+        let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
 
         /*accessibilityIdentifier is used to identify a particular element which takes an input parameter of a string
 
@@ -206,8 +210,7 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
                    }
                }
                tableView.reloadData()
-        }
-          
+        } 
     }
 
 

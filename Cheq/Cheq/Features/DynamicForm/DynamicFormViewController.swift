@@ -188,14 +188,16 @@ class DynamicFormViewController: UIViewController {
     
     func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
       
-        var isUpdate =  false
-        if let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials {
-               isUpdate = true
-        }
+//        var isUpdate =  false
+//        if let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials {
+//               isUpdate = true
+//        }
+        
+        
         NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
         //guard let nav =  self.navigationController else { return }
         AppConfig.shared.showSpinner()
-        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId, isUpdateConnection: isUpdate).done { success in
+        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
             
             AppConfig.shared.hideSpinner {
                  if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {

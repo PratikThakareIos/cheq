@@ -20,4 +20,5 @@ class TabViewController: UITabBarController {
         self.view.backgroundColor = sharedAppConfig.activeTheme.backgroundColor
         self.selectedIndex = 0
     }
+    
 }

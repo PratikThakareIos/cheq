@@ -387,8 +387,8 @@ class TestUtil {
         let endDate = FormatterUtil.shared.simpleDateFormatter().string(from: 10.days.later)
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
-        
-        let spendingOverview = GetSpendingOverviewResponse(headerMessage: "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
+
+        let spendingOverview = GetSpendingOverviewResponse(lastSuccessfulUpdatedAtUtc: "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
     }
     

@@ -397,25 +397,3 @@ extension UIViewController
         ])
     }
 }
-
-
-//        //self.title = ScreenName.spending.rawValue
-//        let label = UILabel()
-//        //label.text = ScreenName.spending.rawValue
-//        //label.textColor = AppConfig.shared.activeTheme.textColor
-//        //label.font = AppConfig.shared.activeTheme.headerBoldFont
-//        label.textAlignment = .left
-//        label.sizeToFit()
-//
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = .left
-//        let myString = ScreenName.spending.rawValue
-//        let myAttribute = [NSAttributedString.Key.foregroundColor:AppConfig.shared.activeTheme.textColor,
-//                           NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont,
-//                           NSAttributedString.Key.paragraphStyle:style
-//                          ]
-//        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
-//
-//        label.attributedText = myAttrString
-//
-//        self.navigationItem.titleView = label

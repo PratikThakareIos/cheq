@@ -69,7 +69,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         }
     }
   
-    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?, isUpdateConnection :Bool)->Promise<Bool> {
+    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?)->Promise<Bool> {
 
         var dict : [String:Any] = [:]
 
@@ -107,7 +107,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
                 self.jobId = basiqConnectionResponse.id ?? ""
                 AppData.shared.bankJobId = basiqConnectionResponse.id ?? ""                
-                let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "", isUpdateConnection: isUpdateConnection)
+                let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "" )
                 return CheqAPIManager.shared.postBasiqConnectionJob(req:request)
             }.then{ boolValue -> Promise<AuthUser> in
                 return AuthConfig.shared.activeManager.retrieveAuthToken(activeAuthUser!)

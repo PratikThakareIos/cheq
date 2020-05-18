@@ -403,6 +403,12 @@ extension MultipleChoiceViewController {
 
                 self.responseGetUserActionResponse = userActionResponse
                 switch (userActionResponse.userAction){
+                    
+                case .bankLinkingUnsuccessful:
+                     AppConfig.shared.hideSpinner {
+                                           LoggingUtil.shared.cPrint("go to home screen")
+                     }
+                     break
                 
                 case .categorisationInProgress:
                     

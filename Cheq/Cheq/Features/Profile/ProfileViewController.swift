@@ -17,7 +17,6 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.view.backgroundColor = sharedAppConfig.activeTheme.allBgColors().randomElement()
-
     }
     
     /*
@@ -28,4 +27,5 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 }
