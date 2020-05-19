@@ -477,7 +477,10 @@ class CheqAPIManager {
          }
      }
     
-    
-    
-     
+    func updateFCMTokenToServer() {
+        let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+        let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
+        let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
+        let _ = CheqAPIManager.shared.postNotificationToken(req)
+    }
 }

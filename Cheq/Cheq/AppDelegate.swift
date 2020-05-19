@@ -137,6 +137,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
     
+    
+    @objc func handleSwitchToBankListFromHome(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("Switch : go to bank")
+    
+        AppData.shared.completingDetailsForLending = false
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(.financialInstitutions)
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        vc.modalPresentationStyle = .fullScreen
+        
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+    }
+    
+    
+    
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
         AppData.shared.completingDetailsForLending = false 
@@ -246,6 +265,8 @@ extension AppDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogout(notification:)), name: NSNotification.Name(NotificationEvent.logout.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleSwitch(notification:)), name: NSNotification.Name(UINotificationEvent.switchRoot.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSwitchToBankListFromHome(notification:)), name: NSNotification.Name(UINotificationEvent.switchRootToBank.rawValue), object: nil)
     }
     
     // trigger the first initiation of AppConfig singleton

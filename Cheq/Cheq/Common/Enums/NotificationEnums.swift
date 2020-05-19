@@ -45,6 +45,7 @@ enum UINotificationEvent: String {
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"
+    case switchRootToBank = "switchRootToBank"
     case showError = "showError"
     case showTransaction = "showTransaction"
     case openLink = "openLink" 

@@ -198,6 +198,7 @@ extension AppConfig {
         self.fcmToken = notification.userInfo?[NotificationUserInfoKey.token.rawValue] as? String ?? ""
         LoggingUtil.shared.cPrint("fcm token")
         LoggingUtil.shared.cPrint(self.fcmToken)
+        CheqAPIManager.shared.updateFCMTokenToServer()
     }
     
     /// method update apnsDeviceToken from notification
@@ -205,6 +206,7 @@ extension AppConfig {
         self.apnsDeviceToken = notification.userInfo?[NotificationUserInfoKey.token.rawValue] as? String ?? ""
         LoggingUtil.shared.cPrint("apns token")
         LoggingUtil.shared.cPrint(self.apnsDeviceToken)
+        CheqAPIManager.shared.updateFCMTokenToServer()
     }
 }
 

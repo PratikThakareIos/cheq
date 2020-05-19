@@ -406,40 +406,33 @@ extension MultipleChoiceViewController {
                     
                 case .bankLinkingUnsuccessful:
                      AppConfig.shared.hideSpinner {
-                                           LoggingUtil.shared.cPrint("go to home screen")
+                        LoggingUtil.shared.cPrint("go to home screen")
                      }
                      break
                 
                 case .categorisationInProgress:
-                    
                     AppConfig.shared.hideSpinner {
                         self.gotoCategorisationInProgressVC()
                     }
                     break
                     
                 case ._none:
-                   
-                    AppConfig.shared.hideSpinner {
-                        LoggingUtil.shared.cPrint("go to home screen")
-                    }
+                    self.gotoHomeViewController()
                     break
                     
                 case .actionRequiredByBank:
-                    
                     AppConfig.shared.hideSpinner {
                         self.gotoUserActionRequiredVC()
                     }
                     break
                     
                 case .bankNotSupported:
-                    
                     AppConfig.shared.hideSpinner {
                         self.gotoBankNotSupportedVC()
                     }
                     break
                             
                 case .invalidCredentials:
-                    
                     self.manageInvalidCredentialsCase()
                     break
                     
@@ -488,6 +481,12 @@ extension MultipleChoiceViewController {
         }
     }
     
+    func gotoHomeViewController(){
+        var vcInfo = [String: String]()
+        vcInfo[NotificationUserInfoKey.storyboardName.rawValue] = StoryboardName.main.rawValue
+        vcInfo[NotificationUserInfoKey.storyboardId.rawValue] = MainStoryboardId.tab.rawValue
+        NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
+    }
     
     func getBankListFromServer(){
         self.selectedChoice = nil

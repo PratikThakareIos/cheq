@@ -137,8 +137,8 @@ extension ConnectingToBankViewController {
                        self.loadingLabel.text = "Analysing your bank statement..."
                        self.progressBar.setProgress(0.70, animated: true)
                 case .categorisation:
-                        self.loadingLabel.text = "Categorising your transactions..."
-                        self.progressBar.setProgress(0.80, animated: true)
+                       self.loadingLabel.text = "Categorising your transactions..."
+                       self.progressBar.setProgress(0.80, animated: true)
 
 //                   DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
 //                        //Load dashboard after 2seconds

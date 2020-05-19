@@ -198,14 +198,8 @@ class DynamicFormViewController: UIViewController {
         //guard let nav =  self.navigationController else { return }
         AppConfig.shared.showSpinner()
         self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
-            
             AppConfig.shared.hideSpinner {
-                 if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
-                     connectingToBank.modalPresentationStyle = .fullScreen
-                    connectingToBank.delegate = self
-                     connectingToBank.jobId = AppData.shared.bankJobId
-                     self.present(connectingToBank, animated: true, completion: nil)
-                 }
+                 self.gotoConnectingToBankViewController()
             }
             
         }.catch { err in
@@ -225,6 +219,16 @@ class DynamicFormViewController: UIViewController {
                     self.present(connectingFailed, animated: true)
                 }
             }
+        }
+    }
+    
+    func gotoConnectingToBankViewController(){
+        
+        if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
+            connectingToBank.modalPresentationStyle = .fullScreen
+            connectingToBank.delegate = self
+            connectingToBank.jobId = AppData.shared.bankJobId
+            self.present(connectingToBank, animated: true, completion: nil)
         }
     }
     
