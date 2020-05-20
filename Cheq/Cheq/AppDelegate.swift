@@ -163,11 +163,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     func handleNotLoggedIn() {
+
         if !AppConfig.shared.isFirstInstall() {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
         }
+        
         self.window?.makeKeyAndVisible()
     }
     
@@ -182,14 +184,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     //MARK: Firebase messaging
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        
         // storeMessagingRegistrationToken stores fcmToken to CKeychain
         AuthConfig.shared.activeManager.storeMessagingRegistrationToken(fcmToken).done { success in
             if success {
                 LoggingUtil.shared.cPrint("fcmToken \(fcmToken)")
                 NotificationUtil.shared.notify(NotificationEvent.fcmToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: fcmToken)
             }
-            }.catch {_ in }
+        }.catch {_ in }
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {

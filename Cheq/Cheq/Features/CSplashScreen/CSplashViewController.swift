@@ -18,6 +18,7 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = ""
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.pageControl.pageIndicatorTintColor = AppConfig.shared.activeTheme.lightGrayColor.withAlphaComponent(AppConfig.shared.activeTheme.nonActiveAlpha)
         self.pageControl.currentPageIndicatorTintColor = AppConfig.shared.activeTheme.primaryColor

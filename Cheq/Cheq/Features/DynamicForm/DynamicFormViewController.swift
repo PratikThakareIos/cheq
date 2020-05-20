@@ -64,7 +64,7 @@ class DynamicFormViewController: UIViewController {
                 }
                 self.built = true
                 //Manish
-                self.addTestAccountDetails()
+                //self.addTestAccountDetails()
                 self.showPopUpInvalidCredentialsIfNeeded()
             }
         }.catch { err in

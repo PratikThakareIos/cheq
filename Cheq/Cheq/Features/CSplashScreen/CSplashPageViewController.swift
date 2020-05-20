@@ -22,6 +22,7 @@ class CSplashPageViewController: UIViewController {
     }
     
     func setupUI() {
+        self.title = ""
         splashImage.image = UIImage.init(named: self.viewModel.splashImage.rawValue)
         splashText.image = UIImage.init(named: self.viewModel.splashText.rawValue)
         self.startButton.createShadowLayer()

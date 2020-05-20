@@ -27,6 +27,8 @@ class LoggingUtil {
     func cPrint(_ msg: Any...) {
         #if DEV
             print(msg)
+        #elseif UAT
+            print(msg)
         #else
             print("")
         #endif

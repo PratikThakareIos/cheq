@@ -152,6 +152,8 @@ extension RegistrationVC {
             return
         }
         
+        LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
+        
         AppConfig.shared.showSpinner()
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
             .then { authUser in

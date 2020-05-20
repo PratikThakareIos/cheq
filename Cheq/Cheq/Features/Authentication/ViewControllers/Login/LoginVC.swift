@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        self.addTestAccountDetails()
+        //self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -237,11 +237,13 @@ extension LoginVC {
             
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+                LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
+                
                 switch (userActionResponse.userAction){
                     
                 case .bankLinkingUnsuccessful:
                          AppConfig.shared.hideSpinner {
-                                               LoggingUtil.shared.cPrint("go to home screen")
+                            LoggingUtil.shared.cPrint("go to home screen")
                          }
                          break
                 
