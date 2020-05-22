@@ -210,6 +210,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
   "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
@@ -306,6 +307,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
   "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
@@ -402,6 +404,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
   "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
@@ -498,6 +501,7 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
   "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",

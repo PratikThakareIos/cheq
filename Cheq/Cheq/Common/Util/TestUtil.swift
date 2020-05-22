@@ -388,7 +388,7 @@ class TestUtil {
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
 
-        let spendingOverview = GetSpendingOverviewResponse(lastSuccessfulUpdatedAtUtc: "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
+        let spendingOverview = GetSpendingOverviewResponse(lastSuccessfulUpdatedAtUtc: "",currentDateTimeUtc : "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
     }
     

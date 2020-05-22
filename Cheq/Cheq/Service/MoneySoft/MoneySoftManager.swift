@@ -22,8 +22,6 @@ class MoneySoftManager {
        // self.msApi = MoneysoftApi()
     }
     
-    
-    
     func handleNotification(_ data: [AnyHashable : Any])-> Promise<Bool> {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in

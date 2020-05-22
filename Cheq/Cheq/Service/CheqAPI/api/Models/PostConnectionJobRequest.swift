@@ -18,5 +18,7 @@ public struct PostConnectionJobRequest: Codable {
         self.jobId = jobId
         self.institutionId = institutionId
     }
+
+
 }
 

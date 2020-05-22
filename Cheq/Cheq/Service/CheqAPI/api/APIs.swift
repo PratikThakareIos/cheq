@@ -8,13 +8,6 @@ import Foundation
 
 open class SwaggerClientAPI {
     
-//    #if DEV
-//    open static var basePath = "https://dev-api.cheq.com.au"
-//    #else
-//      open static var basePath = "https://api.cheq.com.au"
-//    #endif
-    
-  
     #if DEV
         open static var basePath = "https://dev-api.cheq.com.au"
     #elseif UAT
@@ -22,7 +15,7 @@ open class SwaggerClientAPI {
     #else
          open static var basePath = "https://api.cheq.com.au"
     #endif
-
+    
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
