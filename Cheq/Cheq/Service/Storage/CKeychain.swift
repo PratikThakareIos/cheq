@@ -99,8 +99,10 @@ class CKeychain {
     
     func clearKeychain() {
         // clear old keychain items
-        let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: "")
-        let _ = CKeychain.shared.setValue(CKey.fcmToken.rawValue, value: "")
+        
+        //let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: "")
+       // let _ = CKeychain.shared.setValue(CKey.fcmToken.rawValue, value: "")
+        
         let _ = CKeychain.shared.setValue(CKey.authToken.rawValue, value: "")
         let _ = CKeychain.shared.setValue(CKey.fbToken.rawValue, value: "")
         

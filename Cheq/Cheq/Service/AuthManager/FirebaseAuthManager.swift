@@ -114,7 +114,10 @@ extension FirebaseAuthManager {
             self.setUser(authUser)
         }.then { authUser in
             IntercomManager.shared.loginIntercom()
-        }.then { authUser in
+        }.then { authUser ->Promise<Bool> in
+            let req = DataHelperUtil.shared.postPushNotificationRequest()
+            return CheqAPIManager.shared.postNotificationToken(req)
+        }.then { success in
             CheqAPIManager.shared.getUserDetails()
         }
     }
@@ -283,6 +286,7 @@ extension FirebaseAuthManager {
 extension FirebaseAuthManager {
 
     func setupForRemoteNotifications(_ application: UIApplication, delegate: Any) {
+        
         // setup for UserNotifications
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -300,5 +304,7 @@ extension FirebaseAuthManager {
         }
         
         application.registerForRemoteNotifications()
+
+        
     }
 }

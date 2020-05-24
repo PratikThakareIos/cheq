@@ -39,11 +39,15 @@ class CheqAPIManager {
     }
 
     func postNotificationToken(_ req: PostPushNotificationRequest)->Promise<Bool> {
+        LoggingUtil.shared.cPrint(req)
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-                let token = authUser.authToken() ?? ""
-                UsersAPI.postPushNotificationTokenWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
-                    resolver.fulfill(true)
+                if let token = authUser.authToken() {
+                    UsersAPI.postPushNotificationTokenWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
+                        resolver.fulfill(true)
+                    }
+                }else{
+                     resolver.fulfill(false)
                 }
             }.catch { err in
                 resolver.reject(err)
@@ -477,10 +481,28 @@ class CheqAPIManager {
          }
      }
     
-    func updateFCMTokenToServer() {
-        let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
-        let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
-        let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
-        let _ = CheqAPIManager.shared.postNotificationToken(req)
-    }
+//    func updateFCMTokenToServer()-> Promise<AuthUser>() {
+//
+//        return Promise<AuthUser>() { resolver in
+//
+//            let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+//            let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
+//            let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
+//
+//
+//                AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//                    let userId = authUser.userId
+//                    Intercom.registerUser(withUserId: userId)
+//                    resolver.fulfill(authUser)
+//                }.catch { err in
+//                    resolver.reject(err)
+//                }
+//            }
+//
+//
+//        let req = DataHelperUtil.shared.postPushNotificationRequest()
+//        let _ = CheqAPIManager.shared.postNotificationToken(req)
+//    }
+    
+    
 }

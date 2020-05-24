@@ -107,7 +107,7 @@ class DataHelperUtil {
     func postPushNotificationRequest()-> PostPushNotificationRequest {
         let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
         let apnsToken = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
-        let req = PostPushNotificationRequest(deviceId: UUID().uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apnsToken, deviceType: .ios)
+        let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apnsToken, deviceType: .ios)
         return req
     }
     

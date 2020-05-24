@@ -158,7 +158,7 @@ extension RegistrationVC {
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
             .then { authUser in
                 AuthConfig.shared.activeManager.setUser(authUser)
-        }.done { authUser in
+        }.done { success in
             QuestionViewModel().clearAllSavedData()
             self.beginOnboarding()
         }.catch { [weak self] err in
@@ -167,6 +167,12 @@ extension RegistrationVC {
                 self.showError(err, completion: nil)
             }
         }
+        
+        
+//        .then { authUser ->Promise<Bool> in
+//            let req = DataHelperUtil.shared.postPushNotificationRequest()
+//            return CheqAPIManager.shared.postNotificationToken(req)
+//        }
     }
 }
 

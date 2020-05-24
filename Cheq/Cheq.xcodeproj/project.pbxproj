@@ -276,6 +276,10 @@
 		2A5420FC243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FD243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
 		2A5420FE243DF96F00B52B7C /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5420FB243DF96F00B52B7C /* Double_Extention.swift */; };
+		2A5888AF2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */; };
+		2A5888B02478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */; };
+		2A5888B12478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */; };
+		2A5888B22478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */ = {isa = PBXBuildFile; fileRef = 2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */; };
 		2A595652246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
 		2A595653246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
 		2A595654246DB18100736BAC /* CategorisationInProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */; };
@@ -1855,6 +1859,7 @@
 		2A44A3152452F67400346FCA /* GetLoanPreviewResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLoanPreviewResponse.swift; sourceTree = "<group>"; };
 		2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
+		2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_FKLPYP9PYG.p8; sourceTree = "<group>"; };
 		2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisationInProgressVC.swift; sourceTree = "<group>"; };
 		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
 		2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankNotSupportedVC.swift; sourceTree = "<group>"; };
@@ -2411,6 +2416,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2A5888AD2478085600419149 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */,
+			);
+			path = Certificates;
+			sourceTree = "<group>";
+		};
 		2A595650246DB16300736BAC /* categorisationInProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -2464,6 +2477,7 @@
 		2A72CF8A2420ADB80053C0DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A5888AD2478085600419149 /* Certificates */,
 				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
 				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A72CF8C2420ADB80053C0DD /* Fonts */,
@@ -4745,6 +4759,7 @@
 				2AAB5D202473E4D3000CC702 /* DocsListCell.xib in Resources */,
 				2AAB5D212473E4D3000CC702 /* Cheq.plist in Resources */,
 				2AAB5D222473E4D3000CC702 /* Main.storyboard in Resources */,
+				2A5888B02478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
 				2AAB5D232473E4D3000CC702 /* SFProText-Bold.ttf in Resources */,
 				2AAB5D242473E4D3000CC702 /* TransferCardTableViewCell.xib in Resources */,
 				2AAB5D252473E4D3000CC702 /* AccountInfoTableViewCell.xib in Resources */,
@@ -4808,6 +4823,7 @@
 				BD3C962F2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				4F01F769237E6A5B00268423 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4F01F76A237E6A5B00268423 /* SpendingCardTableViewCell.xib in Resources */,
+				2A5888B22478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
 				2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
 				2A72CF892420A9E70053C0DD /* PopUp.storyboard in Resources */,
 				2A72CFA02420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
@@ -4860,6 +4876,7 @@
 				BD3C962E2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				4F2323E62374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD228912372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
+				2A5888B12478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
 				2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
 				2A72CF882420A9E70053C0DD /* PopUp.storyboard in Resources */,
 				2A72CF9F2420ADB80053C0DD /* SFProText-Regular.ttf in Resources */,
@@ -4904,6 +4921,7 @@
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
 				9F3ACB8823EFEAB900466953 /* DocsListCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
+				2A5888AF2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
 				4F0D71682346B56100AA819C /* Main.storyboard in Resources */,
 				2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */,
 				9680CEA92354A74C009CF66E /* TransferCardTableViewCell.xib in Resources */,

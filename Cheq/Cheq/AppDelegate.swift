@@ -59,9 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
         
-        // init firebase SDK
+        // Use Firebase library to configure APIs
         FirebaseApp.configure()
+        
         // Firebase Message delegate
+        //To receive registration tokens, implement the messaging delegate protocol and set FIRMessaging's delegate property after calling [FIRApp configure].
         Messaging.messaging().delegate = self
         // Setup Firebase remote config
         
@@ -75,12 +77,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup singleton and SDKs
         self.registerNotificationObservers()
         self.setupServices()
+        
+        
+        //Manish
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
        
         #if DEMO
             self.setupSpendingViewController()
         #else
             self.setupInitialViewController()
         #endif
+        
 //        self.setupIntroDevController()
 //        self.setupInitDevController()
 //        self.setupLogController()
@@ -89,6 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         return true
     }
+}
+
+
+// MARK: Register Notification Methods
+extension AppDelegate {
     
     // do not use this in AppDelegate as UIApplication.shared is not ready
     static func setupRemoteNotifications() {
@@ -102,6 +114,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        /*
+        Swizzling disabled: mapping your APNs token and registration token
+        If you have disabled method swizzling, you'll need to explicitly map your APNs token to the FCM registration token. Override the methods didRegisterForRemoteNotificationsWithDeviceToken to retrieve the APNs token, and then set FIRMessaging's APNSToken property:
+         After the FCM registration token is generated, you can access it and listen for refresh events using the same methods as with swizzling enabled.
+        */
+        
         // assign apns device token to Firebase Messaging sdk
         Messaging.messaging().apnsToken = deviceToken
         
@@ -111,76 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         let _ = CKeychain.shared.setValue(CKey.apnsToken.rawValue, value: apnsDeviceToken)
         NotificationUtil.shared.notify(NotificationEvent.apnsDeviceToken.rawValue, key: NotificationUserInfoKey.token.rawValue, value: apnsDeviceToken)
     }
+}
 
-    func setupInitialViewController() {
-        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-            let vc = AppNav.shared.initViewController(.legalName)
-            self.window?.rootViewController = vc ?? UIViewController()
-            self.window?.makeKeyAndVisible()
-        }.catch { err in
-            self.handleNotLoggedIn()
-        }
-    }
-    
-    @objc func handleSwitch(notification: NSNotification) {
-        LoggingUtil.shared.cPrint("handle login")
-        let dict = notification.userInfo?[NotificationUserInfoKey.vcInfo.rawValue] as? Dictionary<String, Any>
-        let storyname = dict?[NotificationUserInfoKey.storyboardName.rawValue] as? String ?? ""
-        let storyId = dict?[NotificationUserInfoKey.storyboardId.rawValue] as? String ?? ""
-        guard storyname.isEmpty == false, storyId.isEmpty == false  else {
-            LoggingUtil.shared.cPrint("err")
-            return
-        }
-        
-        AppData.shared.completingDetailsForLending = false 
-        // nav is embeded inside the viewcontrollers of tabbar
-        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
-    }
-    
-    
-    @objc func handleSwitchToBankListFromHome(notification: NSNotification) {
-        LoggingUtil.shared.cPrint("Switch : go to bank")
-    
-        AppData.shared.completingDetailsForLending = false
-        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
-        let multipleChoiceViewModel = MultipleChoiceViewModel()
-        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(.financialInstitutions)
-        vc.viewModel = multipleChoiceViewModel
-        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
-        vc.modalPresentationStyle = .fullScreen
-        
-        let nav = UINavigationController(rootViewController: vc)
-        window?.rootViewController = nav
-    }
-    
-    
-    
-    @objc func handleLogout(notification: NSNotification) {
-        LoggingUtil.shared.cPrint("handle logout")
-        AppData.shared.completingDetailsForLending = false 
-        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
-    }
-    
-    func handleNotLoggedIn() {
 
-        if !AppConfig.shared.isFirstInstall() {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
-        } else {
-            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
-        }
-        
-        self.window?.makeKeyAndVisible()
-    }
-    
-    //MARK: UNUserNotificationCenterDelegate
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-    }
+// MARK: Remote Notification
+extension AppDelegate {
     
     //MARK: Firebase messaging
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -198,15 +151,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         let dateString = VDotManager.shared.dateFormatter.string(from: Date())
         LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "message received \(dateString)")
     }
+    
+    
+    //MARK: UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        let userInfo = notification.request.content.userInfo
+        LoggingUtil.shared.cPrint(userInfo)
+        
+        completionHandler(.alert)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let userInfo = response.notification.request.content.userInfo
+        LoggingUtil.shared.cPrint(userInfo)
+        
+        completionHandler()
+    }
 }
 
-// MARK: Remote applicatioin handling
+// MARK: Remote Notification handling
 extension AppDelegate {
     
+    ///When your app is in the background, iOS directs messages with the notification key to the system tray. A tap on a notification opens the app, and the content of the notification is passed to the didReceiveRemoteNotification callback in the AppDelegate.
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        
+        
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+//        if let messageID = userInfo[gcmMessageIDKey] {
+//          print("Message ID: \(messageID)")
+//        }
+
+        // Print full message.
         LoggingUtil.shared.cPrint(userInfo)
     }
 
+    
     func application(_ application: UIApplication,
                               didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                               fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -236,6 +227,7 @@ extension AppDelegate {
 //        let dateString = VDotManager.shared.dateFormatter.string(from: Date())
 //        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
 //        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
+        
         MoneySoftManager.shared.handleNotification(data).done { success in
             LoggingUtil.shared.cPrint("handle notification success")
         }.catch { err in
@@ -327,6 +319,7 @@ extension AppDelegate {
     }
 }
 
+
 extension AppDelegate {
 
     func setupQuestionController() {
@@ -394,6 +387,71 @@ extension AppDelegate {
 //        let vc = AppNav.shared.initViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.spending.rawValue, embedInNav: true)
         window?.rootViewController = AppNav.shared.initTabViewController()
         window?.makeKeyAndVisible()
+    }
+}
+
+
+// MARK: Custom Methods
+extension AppDelegate {
+    
+    func setupInitialViewController() {
+        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+            let vc = AppNav.shared.initViewController(.legalName)
+            self.window?.rootViewController = vc ?? UIViewController()
+            self.window?.makeKeyAndVisible()
+        }.catch { err in
+            self.handleNotLoggedIn()
+        }
+    }
+    
+    @objc func handleSwitch(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle login")
+        let dict = notification.userInfo?[NotificationUserInfoKey.vcInfo.rawValue] as? Dictionary<String, Any>
+        let storyname = dict?[NotificationUserInfoKey.storyboardName.rawValue] as? String ?? ""
+        let storyId = dict?[NotificationUserInfoKey.storyboardId.rawValue] as? String ?? ""
+        guard storyname.isEmpty == false, storyId.isEmpty == false  else {
+            LoggingUtil.shared.cPrint("err")
+            return
+        }
+        
+        AppData.shared.completingDetailsForLending = false
+        // nav is embeded inside the viewcontrollers of tabbar
+        window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
+    }
+    
+    
+    @objc func handleSwitchToBankListFromHome(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("Switch : go to bank")
+    
+        AppData.shared.completingDetailsForLending = false
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        let multipleChoiceViewModel = MultipleChoiceViewModel()
+        multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(.financialInstitutions)
+        vc.viewModel = multipleChoiceViewModel
+        vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        vc.modalPresentationStyle = .fullScreen
+        
+        let nav = UINavigationController(rootViewController: vc)
+        window?.rootViewController = nav
+    }
+    
+
+    @objc func handleLogout(notification: NSNotification) {
+        LoggingUtil.shared.cPrint("handle logout")
+        AppData.shared.completingDetailsForLending = false
+        window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
+    }
+    
+    func handleNotLoggedIn() {
+
+        if !AppConfig.shared.isFirstInstall() {
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
+        } else {
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
+        }
+        
+        self.window?.makeKeyAndVisible()
     }
 }
 

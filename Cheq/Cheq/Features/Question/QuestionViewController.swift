@@ -353,7 +353,10 @@ class QuestionViewController: UIViewController {
                 return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
             }.then { authUser in
                 AuthConfig.shared.activeManager.setUser(authUser)
-            }.done { authUser in
+            }.then { authUser ->Promise<Bool> in
+                let req = DataHelperUtil.shared.postPushNotificationRequest()
+                return CheqAPIManager.shared.postNotificationToken(req)
+            }.done { success in
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.contactDetails)
                     AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
