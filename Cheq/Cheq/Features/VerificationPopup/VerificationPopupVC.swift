@@ -28,6 +28,7 @@ class VerificationPopupVC: UIViewController {
     var emojiImage = UIImage()
     var heading = ""
     var message = ""
+    var attributedMessage : NSAttributedString = NSAttributedString.init(string: "")
     var showSendButton = false
     var buttonTitle = ""
     var isShowViewSecurityImage = false
@@ -40,7 +41,15 @@ class VerificationPopupVC: UIViewController {
     
     private func setupUI(){
         self.lblHeading.text = heading
-        self.lblMessage.text = message
+        
+        if attributedMessage.length > 0 {
+             self.lblMessage.attributedText = attributedMessage
+        }else{
+             self.lblMessage.text = message
+        }
+        
+        
+       
         self.sendButton.isHidden = !showSendButton
         self.imgEmoji.image = emojiImage
         self.viewSecurityImage.isHidden = !isShowViewSecurityImage

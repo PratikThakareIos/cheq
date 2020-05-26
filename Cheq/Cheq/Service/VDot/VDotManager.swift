@@ -57,14 +57,14 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     }
 
     func setupLocationManager() {
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        self.locationManager.distanceFilter = self.distanceFilter
-        self.locationManager.delegate = self
-        self.locationManager.startUpdatingLocation()
-        self.locationManager.startMonitoringSignificantLocationChanges()
-        self.locationManager.allowsBackgroundLocationUpdates = true
-        self.locationManager.pausesLocationUpdatesAutomatically = false
+//        self.locationManager.requestAlwaysAuthorization()
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        self.locationManager.distanceFilter = self.distanceFilter
+//        self.locationManager.delegate = self
+//        self.locationManager.startUpdatingLocation()
+//        self.locationManager.startMonitoringSignificantLocationChanges()
+//        self.locationManager.allowsBackgroundLocationUpdates = true
+//        self.locationManager.pausesLocationUpdatesAutomatically = false
     }
 
     func flushStoredData() {

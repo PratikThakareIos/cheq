@@ -129,6 +129,16 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    func pushToSetupBank(_ introductionType: IntroductionType, viewController: UIViewController) {
+        guard let nav = viewController.navigationController else { return }
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SetupBankVC = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.setupBankVC.rawValue) as! SetupBankVC
+        let introductionViewModel = IntroductionViewModel()
+        introductionViewModel.coordinator = IntroductionViewModel.coordinatorFor(introductionType)
+        vc.viewModel = introductionViewModel
+        nav.pushViewController(vc, animated: true)
+    }
+    
     /**
      SpendingViewController is reused for different scenarios of displaying spending data. Use **SpendingVCType** to drive how the UI on **SpendingViewController**
      - parameter spendingVCType: **SpendingVCType** supports scenarios for overview, categories list, specific category and transactions list

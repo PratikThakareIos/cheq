@@ -24,6 +24,11 @@ class SpendingViewController: CTableViewController {
         self.setupUI()
         setupDelegate()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

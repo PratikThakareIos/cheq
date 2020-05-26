@@ -67,9 +67,9 @@ extension PrimaryTheme {
         }
     }
 
-    // purple
+    // purple //491556  
     var primaryColor: UIColor {
-        get { return UIColor(hex: "491556") }
+        get { return UIColor(hex: "4A0067") }
     }
 
     // purple

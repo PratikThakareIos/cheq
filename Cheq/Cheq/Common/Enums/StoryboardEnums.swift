@@ -35,6 +35,8 @@ enum OnboardingStoryboardId: String {
     case salaryPayments = "SalaryPaymentViewController"
     case payCycleViewController = "PayCycleViewController"
     case verifyDocs = "DocumentVerificationViewController"
+    case setupBankVC = "SetupBankVC"
+    case bankDetailLearnMoreVC = "BankDetailLearnMoreVC"
 }
 
 /**

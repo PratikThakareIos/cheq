@@ -34,12 +34,14 @@ enum IntroButtonTitle: String {
     case close = "Close"
     case learnMore = "Learn more"
     case openMailApp = "Open mail app"
+    case moreInformation = "More information"
+    
 }
 
 enum IntroductionType: String {
     case email = "Check your email"
     case employee = "Employee details"
-    case setupBank = "Set up your bank"
+    case setupBank = "Connect to your bank" //Set up your bank"
     case enableLocation = "Enable location"
     case notification = "Notification"
     case verifyIdentity = "Verify your identity"

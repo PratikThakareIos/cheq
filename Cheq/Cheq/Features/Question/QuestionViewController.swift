@@ -359,7 +359,8 @@ class QuestionViewController: UIViewController {
             }.done { success in
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.contactDetails)
-                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                    //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                    AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -465,7 +466,8 @@ class QuestionViewController: UIViewController {
                         //                        self.delegate?.refreshLendingScreen()
                         self.incomeVerification()
                     } else {
-                        AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                       // AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                         AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
                     }
                 }
             }.catch { err in

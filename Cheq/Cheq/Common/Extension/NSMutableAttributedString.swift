@@ -33,4 +33,5 @@ extension NSMutableAttributedString {
             self.addAttribute(.font, value: font, range: range )
         }
     }
+
 }

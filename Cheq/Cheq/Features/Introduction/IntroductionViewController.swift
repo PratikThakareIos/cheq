@@ -110,7 +110,8 @@ class IntroductionViewController: UIViewController {
         case .employee:
             AppNav.shared.pushToMultipleChoice(.employmentType, viewController: self)
         case .enableLocation:
-            enableLocation {
+            //enableLocation {
+                
                 if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
                       NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                      AppNav.shared.dismiss(self)
@@ -118,7 +119,7 @@ class IntroductionViewController: UIViewController {
                     AppNav.shared.pushToIntroduction(.notification, viewController: self)
                 }
                 
-            }
+           // }
         case .notification:
             enableNotification {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
@@ -194,7 +195,8 @@ class IntroductionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         case .employee:
             AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
-            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+           // AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+             AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         case .enableLocation:
             if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
                 NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
@@ -203,7 +205,8 @@ class IntroductionViewController: UIViewController {
                 AppNav.shared.pushToIntroduction(.notification, viewController: self)
             }
         case .notification:
-            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+             AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending
             AppNav.shared.dismiss(self)

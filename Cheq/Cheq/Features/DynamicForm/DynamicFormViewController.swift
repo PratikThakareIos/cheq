@@ -16,6 +16,11 @@ class DynamicFormViewController: UIViewController {
     @IBOutlet weak var questionTitle: CLabel! 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var viewBank: UIView!
+    @IBOutlet weak var imgVWBankLogo: UIImageView!
+    @IBOutlet weak var lblBankName: UILabel!
+    
     var built = false
     
     var resGetUserActionResponse : GetUserActionResponse?
@@ -29,7 +34,11 @@ class DynamicFormViewController: UIViewController {
     
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        
+        self.sectionTitle.font = AppConfig.shared.activeTheme.defaultMediumFont
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
+       
+        
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
        
@@ -40,7 +49,27 @@ class DynamicFormViewController: UIViewController {
         if let res = resGetUserActionResponse {
             self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
         }
+        self.addBankTitleAndLogo()
+    }
     
+    func addBankTitleAndLogo(){
+        guard let institution = AppData.shared.selectedFinancialInstitution else { return }
+        self.viewBank.isHidden = false
+        self.lblBankName.text = institution.shortName ?? "N/A"
+        self.imgVWBankLogo.image = UIImage.init(named: BankLogo.placeholder.rawValue)
+         if var view: UIView = self.imgVWBankLogo {
+              ViewUtil.shared.circularMask(&view, radiusBy: .height)
+         }
+
+         if let imageName = institution._id, imageName.isEmpty == false {
+            if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
+                self.imgVWBankLogo.setImageForURL(imageName)
+            }else{
+                if let img = UIImage.init(named: imageName){
+                    self.imgVWBankLogo.image = img
+                }
+            }
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,7 +94,7 @@ class DynamicFormViewController: UIViewController {
                 self.built = true
                 //Manish
                 //self.addTestAccountDetails()
-                self.showPopUpInvalidCredentialsIfNeeded()
+                self.showAlertPopUpIfNeeded()
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -215,7 +244,7 @@ class DynamicFormViewController: UIViewController {
                     popupView.show()
 
                 }else{
-                   let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                    let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
                     self.present(connectingFailed, animated: true)
                 }
             }
@@ -416,17 +445,66 @@ class DynamicFormViewController: UIViewController {
     }
  }
  
+ 
+ //MARK: - Verification popup
+ extension DynamicFormViewController {
+    func showAlertPopUpIfNeeded(){
+        guard let res = self.resGetUserActionResponse else { return }
+        LoggingUtil.shared.cPrint(res)
+        switch (res.userAction){
+                            
+            case .bankLinkingUnsuccessful:
+                 break
+            
+            case .categorisationInProgress:
+                break
+                
+            case ._none:
+                break
+                
+            case .actionRequiredByBank:
+                break
+                
+            case .bankNotSupported:
+                break
+                        
+            case .invalidCredentials:
+                self.showCommonPopUp()
+                break
+                
+            case .missingAccount:
+                break
+                
+            case .requireMigration:
+              self.showCommonPopUp()
+              break
+            
+            case .requireBankLinking:
+                break
+            
+            case .accountReactivation:
+                self.showCommonPopUp()
+                break
+         
+            case .none:
+               break
+        }
 
+    }
+ }
+
+ 
  //MARK: - Verification popup
  extension DynamicFormViewController: VerificationPopupVCDelegate{
   
-     func showPopUpInvalidCredentialsIfNeeded(){
+     func showCommonPopUp(){
         
 //        ["\n>> userActionResponse = GetUserActionResponse(userAction: Optional(Cheq.GetUserActionResponse.UserAction.invalidCredentials), title: Optional(\"Reconnect to your bank\"), detail: Optional(\"We noticed that your bank credentials may have changed since you last logged in. Please enter your login details\"), linkedInstitutionId: Optional(\"AU00001\"), canSelectBank: Optional(true), showClose: Optional(true), showReconnect: Optional(false), showChatWithUs: Optional(false), actionRequiredGuidelines: nil, link: nil)"]
         
-        guard let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials else { return }
-        self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
+//        ["\n>> userActionResponse = GetUserActionResponse(userAction: Optional(Cheq_DEV.GetUserActionResponse.UserAction.accountReactivation), title: Optional(\"Connect your bank\"), detail: Optional(\"Welcome back, it\\\'s been a while since you\\\'ve logged in. Simply reconnect your bank to get started.\"), linkedInstitutionId: Optional(\"AU00001\"), canSelectBank: Optional(false), showClose: Optional(true), showReconnect: Optional(false), showChatWithUs: Optional(false), actionRequiredGuidelines: nil, link: nil)"]
         
+        guard let res = self.resGetUserActionResponse else { return }
+        self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
         self.openPopupWith(heading: res.title ?? "",
                             message: res.detail ?? "",
                             buttonTitle: "",

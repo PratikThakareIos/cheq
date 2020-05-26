@@ -52,6 +52,7 @@ class CProgressView: UIProgressView {
     /// progress bar is styled based on **CProgressColorMode** setting
     func setupConfig() {
         self.backgroundColor = .clear
+        
         self.trackTintColor = AppConfig.shared.activeTheme.alternativeColor4
         switch mode {
         case .information:
@@ -59,6 +60,8 @@ class CProgressView: UIProgressView {
         case .monetary:
             self.progressTintColor = AppConfig.shared.activeTheme.monetaryColor
         case .gradientMonetary:
+            let tintColor = UIColor.init(red: 105.0, green: 224.0, blue: 251, alpha:  0.15)
+            self.trackTintColor = tintColor
             let gradientImage = UIImage.gradientImage(with: self.frame,
                                                       colors: [AppConfig.shared.activeTheme.alternativeColor3.cgColor, AppConfig.shared.activeTheme.monetaryColor.cgColor],
                                                       locations: nil)

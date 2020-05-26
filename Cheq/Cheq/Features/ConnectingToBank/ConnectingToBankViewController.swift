@@ -12,8 +12,6 @@ import UIKit
  ConnectingToBankViewController is a loading indication screen that is presented when we are doing linking of banks using **MoneySoft SDK**.
  */
 
-
-
 protocol ConnectingToBankViewControllerProtocol {
     func dismissViewController(connectionJobResponse : GetConnectionJobResponse?)
 }
@@ -70,13 +68,16 @@ class ConnectingToBankViewController: UIViewController {
     }
     
     func setupUI() {
+        
         self.bankName = AppData.shared.selectedFinancialInstitution?.shortName ?? ""
         self.view.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         self.titleLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         self.loadingLabel.text = "Connecting to \(bankName).."
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
-        self.descriptionLabel.textColor = AppConfig.shared.activeTheme.altTextColor
-        self.descriptionLabel.font = AppConfig.shared.activeTheme.mediumFont
+        self.titleLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 32.0) ?? UIFont.systemFont(ofSize: 32.0, weight: .bold)
+        //self.descriptionLabel.textColor = AppConfig.shared.activeTheme.altTextColor
+        self.descriptionLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.75)
+        
+        self.descriptionLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.progressBar.setProgress(0.1, animated: true)
         self.progressBar.mode = .gradientMonetary
         self.progressBar.setupConfig()
@@ -145,6 +146,7 @@ extension ConnectingToBankViewController {
 //                        self.loadingLabel.text = "Loading Dashboard.."
 //                        self.progressBar.setProgress(0.95, animated: true)
 //                   }
+                
             }
         }
     }

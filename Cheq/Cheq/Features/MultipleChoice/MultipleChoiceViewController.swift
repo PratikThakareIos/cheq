@@ -17,6 +17,8 @@ class MultipleChoiceViewController: UIViewController {
     var viewModel = MultipleChoiceViewModel()
     var choices:[ChoiceModel] = []
     var selectedChoice: ChoiceModel?
+    @IBOutlet weak var lblOtherInfo: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sectionTitle: CLabel!
     @IBOutlet weak var questionTitle: CLabel!
@@ -68,12 +70,17 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     func setTitleAndSubTitle(isShow: Bool){
+        
         if isShow {
             self.questionTitle.text = self.viewModel.question()
             self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+            if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
+                self.lblOtherInfo.isHidden = false
+            }
         }else{
             self.questionTitle.text = ""
             self.sectionTitle.text = ""
+            self.lblOtherInfo.isHidden = true
         }
     }
     
@@ -222,7 +229,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                     self.incomeVerification()
                 } else {
                     AppData.shared.updateProgressAfterCompleting(.onDemand)
-                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                    //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                    AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                    
                 }
             }.catch { err in
                 self.showError(err) {
@@ -529,7 +538,6 @@ extension MultipleChoiceViewController {
             return
         }
         AppNav.shared.pushToDynamicForm(bank, response: self.responseGetUserActionResponse, viewController: self)
-       
     }
     
     func manageInvalidCredentialsCase(){

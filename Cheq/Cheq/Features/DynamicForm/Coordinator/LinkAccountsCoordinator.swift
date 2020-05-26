@@ -13,8 +13,8 @@ import Alamofire
 
 class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
   
-    var sectionTitle = "Setup bank details"
-    var viewTitle = "Login to link your accounts"
+    var sectionTitle = "Connect your bank"
+    var viewTitle = "Enter your bank account credentials"
     var appTokenResponse : GetAppTokenResponse?
     var jobId = ""
     
