@@ -14,6 +14,8 @@ import PromiseKit
 
 class MultipleChoiceViewController: UIViewController {
     
+    @IBOutlet weak var viewFooterBottom: UIView!
+    
     var viewModel = MultipleChoiceViewModel()
     var choices:[ChoiceModel] = []
     var selectedChoice: ChoiceModel?
@@ -24,6 +26,7 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var questionTitle: CLabel!
     var showNextButton = false
     
+
     var responseGetUserActionResponse : GetUserActionResponse?
     
     override func viewDidLoad() {
@@ -43,13 +46,19 @@ class MultipleChoiceViewController: UIViewController {
     
     func setupUI() {
         
+        self.sectionTitle.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        self.sectionTitle.font = AppConfig.shared.activeTheme.defaultMediumFont
+        
+        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
+        self.questionTitle.textColor = AppConfig.shared.activeTheme.textColor
+        
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.hideBackTitle()
         // non-zero estimated row height to trigger automatically calculation of cell height based on auto layout on tableview
         self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
         self.tableView.backgroundColor = .clear
-        self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
-        self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
+        
+
         
         if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
@@ -145,6 +154,11 @@ class MultipleChoiceViewController: UIViewController {
         }
     }
     
+    @IBAction func btnRequestBankAction(_ sender: Any) {
+         print("btnRequestBankAction clicked")
+         self.gotoRequestForBankVC()
+    }
+
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
@@ -165,7 +179,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+ 
         let choice = self.choices[indexPath.row]
         self.selectedChoice = choice
         switch self.viewModel.coordinator.coordinatorType {
@@ -349,7 +363,34 @@ extension MultipleChoiceViewController {
             }
         }
         cell.backgroundColor = .clear
-        AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
+        cell.lblDescription.isHidden = true
+        cell.disableContainerView.isHidden = true
+        if (self.viewModel.coordinator.coordinatorType == .financialInstitutions){
+            AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: false)
+            AppConfig.shared.activeTheme.cardStyling(cell.disableContainerView, addBorder: false)
+            cell.containerView.backgroundColor = .white
+            cell.choiceTitleLabel.font = AppConfig.shared.activeTheme.mediumBoldFont
+            self.viewFooterBottom.isHidden = false
+            
+            if let institution = choice.ref as? GetFinancialInstitution{
+                if let isDisabled = institution.disabled, isDisabled == true, let msg = AppData.shared.resGetFinancialInstitutionResponse?.disableMessage {
+                    cell.lblDescription.text = msg
+                    cell.lblDescription.isHidden = false
+                    cell.disableContainerView.isHidden = false
+                }
+                if let isWarning = institution.isWarning, isWarning == true, let msg = AppData.shared.resGetFinancialInstitutionResponse?.warningMessage {
+                    cell.lblDescription.text = msg
+                    cell.lblDescription.isHidden = false
+                  
+                }
+            }
+   
+        }else{
+            AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
+            cell.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+            self.viewFooterBottom.isHidden = true
+        }
+
         return cell
     }
     
@@ -587,5 +628,15 @@ extension MultipleChoiceViewController {
               self.present(vc, animated: true)
         }
     }
-
+    
+    func gotoRequestForBankVC(){
+        
+        AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, viewController: self)
+        
+//        if let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, embedInNav: false) as? RequestForBankVC {
+//              vc.modalPresentationStyle = .fullScreen
+//              self.present(vc, animated: true)
+//        }
+        
+    }
 }

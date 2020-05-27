@@ -313,7 +313,7 @@ extension AppThemeProtocol {
   
     // MARK: medium fonts
     var smallMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
-    var defaultMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 13.0) ?? UIFont.systemFont(ofSize: 13.0, weight: .medium) } }
+    var defaultMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 14.0) ?? UIFont.systemFont(ofSize: 14.0, weight: .medium) } }
     var mediumMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium) } }
     var headerMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
     var extraLargeMediumFont: UIFont { return UIFont.init(name: FontConstant.SFProTextMedium, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .medium) }

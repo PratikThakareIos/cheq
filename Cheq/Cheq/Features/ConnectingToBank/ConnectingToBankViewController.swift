@@ -23,7 +23,7 @@ class ConnectingToBankViewController: UIViewController {
     @IBOutlet weak var progressBar: CProgressView!
     /// refer to **ConnectingToBankViewController** on **Common** storyboard
     @IBOutlet weak var titleLabel: CLabel!
-    @IBOutlet weak var descriptionLabel: CLabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var loadingLabel: UILabel!
     
     @IBOutlet weak var image: UIImageView!
@@ -76,8 +76,8 @@ class ConnectingToBankViewController: UIViewController {
         self.titleLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 32.0) ?? UIFont.systemFont(ofSize: 32.0, weight: .bold)
         //self.descriptionLabel.textColor = AppConfig.shared.activeTheme.altTextColor
         self.descriptionLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.75)
-        
         self.descriptionLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
+                
         self.progressBar.setProgress(0.1, animated: true)
         self.progressBar.mode = .gradientMonetary
         self.progressBar.setupConfig()

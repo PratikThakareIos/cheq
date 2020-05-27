@@ -28,10 +28,12 @@ class VerificationPopupVC: UIViewController {
     var emojiImage = UIImage()
     var heading = ""
     var message = ""
-    var attributedMessage : NSAttributedString = NSAttributedString.init(string: "")
+    var attributedMessage : NSMutableAttributedString = NSMutableAttributedString.init(string: "")
     var showSendButton = false
     var buttonTitle = ""
     var isShowViewSecurityImage = false
+    var isChangeLineHight = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,10 @@ class VerificationPopupVC: UIViewController {
              self.lblMessage.attributedText = attributedMessage
         }else{
              self.lblMessage.text = message
+        }
+        
+        if isChangeLineHight {
+          self.lblMessage.setLineSpacing(lineSpacing: 8.0)
         }
         
         

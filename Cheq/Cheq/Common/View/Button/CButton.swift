@@ -45,11 +45,16 @@ class CButton: UIButton {
     
     /// Styling logics is kept here and re-usable.
     func setupConfig() {
+        self.titleLabel?.textAlignment = .center
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
-        self.titleLabel?.font = AppConfig.shared.activeTheme.mediumMediumFont
+        self.titleLabel?.font = AppConfig.shared.activeTheme.headerMediumFont
         self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         var button = self as UIButton
-        AppConfig.shared.activeTheme.roundRectButton(&button)
+        //AppConfig.shared.activeTheme.roundRectButton(&button)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10, execute: {
+            self.layer.cornerRadius = self.frame.height/2
+        })
     }
     
     /// When a type is set, the styling is automatically applied 
@@ -65,4 +70,14 @@ class CButton: UIButton {
             self.backgroundColor = .clear
         }
     }
+}
+
+extension CButton {
+     func createShadowLayer() {
+        self.layer.masksToBounds = false;
+        self.layer.shadowRadius  = 3.0;
+        self.layer.shadowColor   = AppConfig.shared.activeTheme.primaryColor.cgColor;
+        self.layer.shadowOffset  = CGSize(width: 3.0, height: 4.0);
+        self.layer.shadowOpacity = 0.3;
+     }
 }

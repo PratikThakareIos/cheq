@@ -52,8 +52,8 @@ class LoginVC: UIViewController {
     
     func addTestAccountDetails(){
         //self.emailTextField.text = "umanga.sarathchandra+38@itelasoft.com"
-        self.emailTextField.text = "um2@gmail.com"
-        self.passwordTextField.text = "Umanga@123"
+        self.emailTextField.text = "ghh@g.com"
+        self.passwordTextField.text = "Tfc@12345"
     }
 }
 

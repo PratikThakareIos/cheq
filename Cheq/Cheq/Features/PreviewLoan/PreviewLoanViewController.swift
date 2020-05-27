@@ -141,9 +141,9 @@ extension PreviewLoanViewController {
             return
         }
         let storyBoard : UIStoryboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle:nil)
-
         let termsViewController = storyBoard.instantiateViewController(withIdentifier: "TermsAndConditionsViewController") as! TermsAndConditionsViewController
         termsViewController.url = link as? String
+        termsViewController.modalPresentationStyle = .fullScreen
         self.present(termsViewController, animated:true, completion:nil)
     }
 }

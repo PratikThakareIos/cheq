@@ -157,6 +157,7 @@ class UserActionRequiredVC: UIViewController {
                 AppConfig.shared.hideSpinner {
                      self.showError(err, completion: nil)
                    //  let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                   //  connectingFailed.modalPresentationStyle = .fullScreen
                    //  self.present(connectingFailed, animated: true)
                 }
             }

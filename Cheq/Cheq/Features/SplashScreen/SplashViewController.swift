@@ -62,6 +62,7 @@ extension SplashViewController {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC
         let nav = UINavigationController(rootViewController: regViewController)
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
     }
 }

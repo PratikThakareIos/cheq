@@ -74,36 +74,43 @@ extension SetupBankVC {
          LoggingUtil.shared.cPrint("navigateToBankSetupLearnMore")
         
          let heading = "Connect to your bank"
-         let message = """
-Cheq never has access to your bank information. We use patented technology to protect your bank details. It always stays encrypted on your mobile device in a data vault that is part of the Cheq app.
+         let message =
 
-         What Cheq have access to
-         Account names and types, Account balances, Fees, Transaction data
+        """
+Cheq uses third party technology providers to sync your bank transactions with Cheq. They regularly get security audits to ensure all your data is secure and encrypted.
 
-         What Cheq won’t be able to do
-         Make payments, Transfer money to/from your accounts
+What Cheq have access to
+Account names and types, Account balances, Transactions
+
+What Cheq won’t be able to do
+Make payments, Transfer money to/from your accounts
 """
         
-      self.openPopupWith(heading: heading, message: message, buttonTitle: "", showSendButton: false, emoji: UIImage(named: "successEmo"))
-
+        let attributedString = NSMutableAttributedString(string: message)
+        attributedString.applyHighlightTwo(text1: "What Cheq have access to", text2: "What Cheq won’t be able to do", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont)
+        self.openPopupWith(heading: heading, message: "", attr_message: attributedString, buttonTitle: "", showSendButton: false, emoji: UIImage(named: "successEmo"))
+    
     }
-
 }
 
 
 //MARK: - Verification popup
 extension SetupBankVC: VerificationPopupVCDelegate{
     
-    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+    func openPopupWith(heading:String?, message:String?, attr_message:NSMutableAttributedString, buttonTitle:String?, showSendButton:Bool?, emoji:UIImage?){
+        
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
         if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
             popupVC.delegate = self
             popupVC.heading = heading ?? ""
             popupVC.message = message ?? ""
+            popupVC.attributedMessage = attr_message
             popupVC.buttonTitle = buttonTitle ?? ""
             popupVC.showSendButton = showSendButton ?? false
             popupVC.emojiImage = emoji ?? UIImage()
+            
+            popupVC.isChangeLineHight = true
             popupVC.isShowViewSecurityImage = true
             
             self.present(popupVC, animated: false, completion: nil)

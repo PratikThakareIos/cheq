@@ -198,6 +198,7 @@ PODS:
     - QuickLayout (= 3.0.0)
   - SwiftKeychainWrapper (3.4.0)
   - UDatePicker (1.1.1)
+  - "UITextView+Placeholder (1.4.0)"
   - Validator (3.2.1)
 
 DEPENDENCIES:
@@ -241,6 +242,7 @@ DEPENDENCIES:
   - SwiftEntryKit (= 1.1.0)
   - SwiftKeychainWrapper
   - UDatePicker (~> 1.1.1)
+  - "UITextView+Placeholder"
   - Validator (~> 3.2)
 
 SPEC REPOS:
@@ -305,6 +307,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Mixpanel-swift
     - Onfido
+    - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -365,8 +368,9 @@ SPEC CHECKSUMS:
   SwiftEntryKit: 3f922303644cb41112564cb2379abc266387594d
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   UDatePicker: 9bc1e36698982375332daff674d26a68d40e2d3a
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: f35b7b60178e99c1094a5165e5404fc790526482
+PODFILE CHECKSUM: 96ab9d551ad770269fac3b4721d47dab83b2f16f
 
 COCOAPODS: 1.8.4

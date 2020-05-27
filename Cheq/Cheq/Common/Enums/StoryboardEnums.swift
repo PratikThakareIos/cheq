@@ -37,6 +37,7 @@ enum OnboardingStoryboardId: String {
     case verifyDocs = "DocumentVerificationViewController"
     case setupBankVC = "SetupBankVC"
     case bankDetailLearnMoreVC = "BankDetailLearnMoreVC"
+    case requestForBankVC = "RequestForBankVC"
 }
 
 /**

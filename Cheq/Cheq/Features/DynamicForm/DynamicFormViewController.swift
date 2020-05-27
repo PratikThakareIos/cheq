@@ -12,7 +12,7 @@ import PromiseKit
 
 class DynamicFormViewController: UIViewController {
 
-    @IBOutlet weak var sectionTitle: CLabel!
+    @IBOutlet weak var sectionTitle: UILabel!
     @IBOutlet weak var questionTitle: CLabel! 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -35,8 +35,11 @@ class DynamicFormViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         
+        self.sectionTitle.textColor = AppConfig.shared.activeTheme.lightGrayColor
         self.sectionTitle.font = AppConfig.shared.activeTheme.defaultMediumFont
+        
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
+        self.questionTitle.textColor = AppConfig.shared.activeTheme.textColor
        
         
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
@@ -60,6 +63,10 @@ class DynamicFormViewController: UIViewController {
          if var view: UIView = self.imgVWBankLogo {
               ViewUtil.shared.circularMask(&view, radiusBy: .height)
          }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+                self.imgVWBankLogo.layer.cornerRadius =  self.imgVWBankLogo.frame.height/2
+        })
+        
 
          if let imageName = institution._id, imageName.isEmpty == false {
             if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
@@ -136,21 +143,30 @@ class DynamicFormViewController: UIViewController {
                 let textField = CTextField(frame: CGRect.zero)
                 textField.placeholder = input.title
                 textField.autocapitalizationType = .none
+                textField.backgroundColor = UIColor.white
+                textField.setShadow()
                 return textField
+            
             case .password:
                 let passwordTextField = CTextField(frame: CGRect.zero)
                 passwordTextField.placeholder = input.title
                 passwordTextField.isSecureTextEntry = true
+                passwordTextField.backgroundColor = UIColor.white
+                passwordTextField.setShadow()
                 return passwordTextField
+            
             case .checkBox:
                 let switchView = CSwitchWithLabel(frame: CGRect.zero, title: input.title)
                 return switchView
+            
             case .confirmButton:
                 let confirmButton = CButton(frame: CGRect.zero)
                 confirmButton.type = .normal
+                confirmButton.createShadowLayer()
                 confirmButton.setTitle(input.title, for: .normal)
                 confirmButton.addTarget(self, action: #selector(confirm(_:)), for: .touchUpInside)
                 return confirmButton
+            
             case .spacer:
                 let spacer = UIView(frame: CGRect.zero)
                 spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
@@ -245,6 +261,7 @@ class DynamicFormViewController: UIViewController {
 
                 }else{
                     let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                    connectingFailed.modalPresentationStyle = .fullScreen
                     self.present(connectingFailed, animated: true)
                 }
             }

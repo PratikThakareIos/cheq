@@ -142,22 +142,26 @@ extension RegistrationVC {
     
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
+        
+      //  AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+        
         //self.gotoConnectingToBankViewController()
         
 //        let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+//          connectingFailed.modalPresentationStyle = .fullScreen
 //        self.present(connectingFailed, animated: true)
     }
     
     @IBAction func register(_ sender: Any) {
-     
+            
         self.view.endEditing(true)
         if let error = self.validateInputs() {
             showError(error) { }
             return
         }
-        
+
         LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
-        
+
         AppConfig.shared.showSpinner()
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
             .then { authUser in
@@ -171,12 +175,6 @@ extension RegistrationVC {
                 self.showError(err, completion: nil)
             }
         }
-        
-        
-//        .then { authUser ->Promise<Bool> in
-//            let req = DataHelperUtil.shared.postPushNotificationRequest()
-//            return CheqAPIManager.shared.postNotificationToken(req)
-//        }
     }
 }
 
@@ -289,37 +287,37 @@ extension RegistrationVC {
         }
     }
     
-//    func gotoConnectingToBankViewController(){
-//
-//         if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
-//             connectingToBank.modalPresentationStyle = .fullScreen
-//             connectingToBank.delegate = self
-//             connectingToBank.jobId = "13"
-//             self.present(connectingToBank, animated: true, completion: nil)
-//         }
-//     }
+    func gotoConnectingToBankViewController(){
+
+         if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
+             connectingToBank.modalPresentationStyle = .fullScreen
+             connectingToBank.delegate = self
+             connectingToBank.jobId = "13"
+             self.present(connectingToBank, animated: true, completion: nil)
+         }
+     }
 }
 
-//extension RegistrationVC : ConnectingToBankViewControllerProtocol {
-//
-//    func dismissViewController(connectionJobResponse : GetConnectionJobResponse?){
-//        self.view.endEditing(true)
-//        self.showPopUpverifyingCredentialsFailed(connectionJobResponse: connectionJobResponse)
-//    }
-//
-//    func showPopUpverifyingCredentialsFailed(connectionJobResponse : GetConnectionJobResponse?){
-//
-//
-//    }
-//
-//    func manageCanSelectBankCase(canSelectBank : Bool){
-//        if canSelectBank {
-//            showNavBar()
-//            showBackButton()
-//            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
-//        }else{
-//            self.hideNavBar()
-//            self.hideBackButton()
-//        }
-//    }
-// }
+extension RegistrationVC : ConnectingToBankViewControllerProtocol {
+
+    func dismissViewController(connectionJobResponse : GetConnectionJobResponse?){
+        self.view.endEditing(true)
+        self.showPopUpverifyingCredentialsFailed(connectionJobResponse: connectionJobResponse)
+    }
+
+    func showPopUpverifyingCredentialsFailed(connectionJobResponse : GetConnectionJobResponse?){
+
+
+    }
+
+    func manageCanSelectBankCase(canSelectBank : Bool){
+        if canSelectBank {
+            showNavBar()
+            showBackButton()
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }else{
+            self.hideNavBar()
+            self.hideBackButton()
+        }
+    }
+ }

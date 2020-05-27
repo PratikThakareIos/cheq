@@ -55,8 +55,11 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                     let dynamicInputType = DynamicFormInput(type: .text, title: secondaryLoginIdCaption, value: "")
                     inputs.append(dynamicInputType)
                 }
-
-                let confirmButton = DynamicFormInput(type: .confirmButton, title: "Link Accounts", value: "")
+                
+                let spacer1 = DynamicFormInput(type: .spacer, title: "", value: "")
+                inputs.append(spacer1)
+  
+                let confirmButton = DynamicFormInput(type: .confirmButton, title: "Connect securely", value: "")
                 inputs.append(confirmButton)
                 
                 let spacer = DynamicFormInput(type: .spacer, title: "", value: "")
