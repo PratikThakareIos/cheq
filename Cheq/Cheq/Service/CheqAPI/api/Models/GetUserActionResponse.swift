@@ -22,6 +22,7 @@ public struct GetUserActionResponse: Codable {
         case requireBankLinking = "RequireBankLinking"
         case categorisationInProgress = "CategorisationInProgress"
         case bankLinkingUnsuccessful = "BankLinkingUnsuccessful"
+        case genericInfo = "GenericInfo"
     }
     public var userAction: UserAction?
     public var title: String?
