@@ -48,9 +48,13 @@ class TabViewController: UITabBarController {
                 AppConfig.shared.hideSpinner {
                     LoggingUtil.shared.cPrint("\n>> TabViewController = \(userActionResponse)")
                    
-                    switch (userActionResponse.userAction){
-                        
+                    switch (userActionResponse.userAction) {
+                                                
                     case ._none:
+                            break
+                        
+                    case .genericInfo:
+                            self.gotoBankListScreen(response : userActionResponse)
                             break
                         
                     case .bankLinkingUnsuccessful :
@@ -78,18 +82,14 @@ class TabViewController: UITabBarController {
                            break
                         
                     case  .requireMigration,.requireBankLinking, .accountReactivation:
-    //                     UserAction: RequireMigration, RequireBankLinking, AccountReactivation
-    //                     LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
-    //                     LinkedInstitutionId is null, ask users to select institution from bank list
                            self.gotoBankListScreen(response : userActionResponse)
                            break
                         
                     case .none:
-                         LoggingUtil.shared.cPrint("TabViewController case none")
-                        
+                          self.gotoBankListScreen(response : userActionResponse)
+                          break
                     }
                 }
-                
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     // handle err

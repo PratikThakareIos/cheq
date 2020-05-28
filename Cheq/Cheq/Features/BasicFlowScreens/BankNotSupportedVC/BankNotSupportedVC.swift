@@ -58,7 +58,7 @@ class BankNotSupportedVC: UIViewController {
                 
         viewTitle.text = res.title ?? ""
         viewTitle.textColor =  UIColor.white
-        viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
+        //viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         
         lblDetail.text = res.detail ?? ""
         

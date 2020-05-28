@@ -52,8 +52,8 @@ class LoginVC: UIViewController {
     
     func addTestAccountDetails(){
         //self.emailTextField.text = "umanga.sarathchandra+38@itelasoft.com"
-        self.emailTextField.text = "ghh@g.com"
-        self.passwordTextField.text = "Tfc@12345"
+        self.emailTextField.text = "ma5@gmail.com"
+        self.passwordTextField.text = "Umanga@123"
     }
 }
 
@@ -198,6 +198,8 @@ extension LoginVC {
             }
         }
     }
+    
+  
   
     
     @IBAction func login(_ sender: Any) {
@@ -212,8 +214,7 @@ extension LoginVC {
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        
-        
+                
         // whenever we successfully login, we post notification token
         viewModel.login(email, password: password).then { authUser->Promise<GetUserActionResponse> in
             //When the user opens the app the apps checks if the user has a basiq account or not
@@ -234,17 +235,15 @@ extension LoginVC {
             */
             
             AppConfig.shared.hideSpinner {
-                LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
-                
+                LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 switch (userActionResponse.userAction){
                     
-                case .bankLinkingUnsuccessful:
-                         AppConfig.shared.hideSpinner {
-                            LoggingUtil.shared.cPrint("go to home screen")
-                         }
-                         break
-                
+                 case .genericInfo:
+                        AppData.shared.completingDetailsForLending = false
+                        self.gotoGenericInfoVC(response : userActionResponse)
+                        break
+                                    
                 case .categorisationInProgress:
                         AppData.shared.completingDetailsForLending = false
                         self.gotoCategorisationInProgressVC(response : userActionResponse)
@@ -291,15 +290,15 @@ extension LoginVC {
                             }
                         }.catch { err in
                             AppConfig.shared.hideSpinner {
-                                print(err)
-                                print(err.localizedDescription)
-                                self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                                 print(err)
+                                 print(err.localizedDescription)
+                                 self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                                 }
                             }
                         }
                         break
                     
-                case  .requireMigration,.requireBankLinking, .accountReactivation:
+                case  .requireMigration,.requireBankLinking, .accountReactivation, .bankLinkingUnsuccessful:
 //                    UserAction: RequireMigration, RequireBankLinking, AccountReactivation
 //                    LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
 //                    LinkedInstitutionId is null, ask users to select institution from bank list
@@ -313,7 +312,6 @@ extension LoginVC {
                     
                 case .none:
                      LoggingUtil.shared.cPrint("err")
-                    
                 }
             }
             
@@ -561,4 +559,14 @@ extension LoginVC {
             self.present(vc, animated: true)
         }
     }
+    
+    func gotoGenericInfoVC(response : GetUserActionResponse){
+        self.view.endEditing(true)
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.GenericInfoVC.rawValue, embedInNav: false) as? GenericInfoVC {
+              vc.getUserActionResponse = response
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+    
 }

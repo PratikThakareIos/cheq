@@ -257,8 +257,16 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form
             let selectedChoice = self.choices[indexPath.row]
-            self.gotoBankLoginScreen(choiceModel: selectedChoice)
-            
+            if let institution = selectedChoice.ref as? GetFinancialInstitution{
+               if let isDisabled = institution.disabled, isDisabled == true{
+                  
+               }else if let isWarning = institution.isWarning, isWarning == true{
+           
+               }else{
+                   self.gotoBankLoginScreen(choiceModel: selectedChoice)
+               }
+           }
+  
         case .ageRange:
             
             let vm = self.viewModel
@@ -336,9 +344,9 @@ extension MultipleChoiceViewController {
     func setupCellForChoiceWithIcon(_ choice: ChoiceModel, tableView: UITableView, indexPath: IndexPath)-> UITableViewCell {
         let reuseId = String(describing: CMultipleChoiceWithImageCell.self)
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithImageCell
+        cell.coordinatorType = self.viewModel.coordinator.coordinatorType
         cell.choiceTitleLabel.text = choice.title
         cell.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
-        
         // set placeholder first
         cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
  
@@ -454,12 +462,12 @@ extension MultipleChoiceViewController {
                 self.responseGetUserActionResponse = userActionResponse
                 switch (userActionResponse.userAction){
                     
-                case .bankLinkingUnsuccessful:
-                     AppConfig.shared.hideSpinner {
-                        LoggingUtil.shared.cPrint("go to home screen")
-                     }
-                     break
-                
+                case .genericInfo:
+                      AppConfig.shared.hideSpinner {
+                         self.gotoGenericInfoVC()
+                      }
+                      break
+                                
                 case .categorisationInProgress:
                     AppConfig.shared.hideSpinner {
                         self.gotoCategorisationInProgressVC()
@@ -467,7 +475,9 @@ extension MultipleChoiceViewController {
                     break
                     
                 case ._none:
-                    self.gotoHomeViewController()
+                    AppConfig.shared.hideSpinner {
+                       self.gotoHomeViewController()
+                    }
                     break
                     
                 case .actionRequiredByBank:
@@ -483,7 +493,8 @@ extension MultipleChoiceViewController {
                     break
                             
                 case .invalidCredentials:
-                    self.manageInvalidCredentialsCase()
+                    //self.manageInvalidCredentialsCase()
+                    self.getBankListFromServer()
                     break
                     
                 case .missingAccount:
@@ -506,7 +517,7 @@ extension MultipleChoiceViewController {
                     }
                     break
                     
-                case .requireMigration,.requireBankLinking, .accountReactivation:
+                case .requireMigration,.requireBankLinking, .accountReactivation, .bankLinkingUnsuccessful:
                     
 //                UserAction: RequireMigration, RequireBankLinking, AccountReactivation
 //                LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
@@ -538,7 +549,7 @@ extension MultipleChoiceViewController {
         NotificationUtil.shared.notify(UINotificationEvent.switchRoot.rawValue, key: NotificationUserInfoKey.vcInfo.rawValue, object: vcInfo)
     }
     
-    func getBankListFromServer(){
+    func getBankListFromServer() {
         self.selectedChoice = nil
         let linkedInstitutionId = self.responseGetUserActionResponse?.linkedInstitutionId
         
@@ -546,7 +557,7 @@ extension MultipleChoiceViewController {
         self.viewModel.coordinator.choices().done { choices in
             self.choices = choices
             var foundBankModel : ChoiceModel?
-            if let linkedInstitutionId = linkedInstitutionId, choices.count > 0{
+            if let linkedInstitutionId = linkedInstitutionId, linkedInstitutionId != "", choices.count > 0{
                  for obj in choices {
                       if let ref = obj.ref as? GetFinancialInstitution, ref._id == linkedInstitutionId {
                            LoggingUtil.shared.cPrint("match found = \(ref)")
@@ -623,6 +634,14 @@ extension MultipleChoiceViewController {
     
     func gotoCategorisationInProgressVC(){
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
+              vc.getUserActionResponse = self.responseGetUserActionResponse
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true)
+        }
+    }
+    
+    func gotoGenericInfoVC(){
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.GenericInfoVC.rawValue, embedInNav: false) as? GenericInfoVC {
               vc.getUserActionResponse = self.responseGetUserActionResponse
               vc.modalPresentationStyle = .fullScreen
               self.present(vc, animated: true)

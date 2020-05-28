@@ -1,17 +1,19 @@
 //
-//  CategorisationInProgressVC.swift
+//  File.swift
 //  Cheq
 //
-//  Created by Amit.Rawal on 14/05/20.
+//  Created by Amit.Rawal on 28/05/20.
 //  Copyright © 2020 Cheq. All rights reserved.
 //
 
 import UIKit
 
-//["\n>> userActionResponse = GetUserActionResponse(userAction: Optional(Cheq.GetUserActionResponse.UserAction.categorisationInProgress), title: Optional(\"We are syncing your bank transactions\"), detail: Optional(\"You will be notified once we have synced your transactions. This could take up to 30 min.\"), linkedInstitutionId: nil, canSelectBank: Optional(false), showClose: Optional(false), showReconnect: Optional(false), showChatWithUs: Optional(true), actionRequiredGuidelines: nil, link: nil)"]
+
+//["\n>> userActionResponse = GetUserActionResponse(userAction: Optional(Cheq_DEV.GetUserActionResponse.UserAction.genericInfo), title: Optional(\"Cannot connect to your bank\"), detail: Optional(\"We encountered a problem connecting to your bank. This could be due to your bank website being under maintenance. Please come back in a few hours\"), linkedInstitutionId: nil, canSelectBank: Optional(false), showClose: Optional(false), showReconnect: Optional(false), showChatWithUs: Optional(true), actionRequiredGuidelines: nil, link: nil)"]
+//2020-05-28
 
 
-class CategorisationInProgressVC: UIViewController {
+class GenericInfoVC : UIViewController {
     
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var viewTitle: UILabel!
@@ -25,7 +27,7 @@ class CategorisationInProgressVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let getUserActionResponse = getUserActionResponse, getUserActionResponse.userAction == .categorisationInProgress else{
+        guard let getUserActionResponse = getUserActionResponse, getUserActionResponse.userAction == .genericInfo else{
             self.dismiss(animated: true, completion: nil)
             return
          }
@@ -54,13 +56,13 @@ class CategorisationInProgressVC: UIViewController {
         self.btnChatWithUs.layer.masksToBounds = true
             
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+       
         //iconImage.image = viewModel.image
         //confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
-                
-        viewTitle.text = res.title ?? ""
         //viewTitle.textColor =  UIColor.white
         //viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
-        
+                
+        viewTitle.text = res.title ?? ""
         lblDetail.text = res.detail ?? ""
         
         if let canSelectBank = res.canSelectBank, canSelectBank == true {

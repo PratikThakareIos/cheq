@@ -67,7 +67,7 @@ class UserActionRequiredVC: UIViewController {
         //confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
                 
         viewTitle.text = res.title ?? ""
-        viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
+        //viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         
         lblVerificationInstructions.text = res.detail ?? ""
         

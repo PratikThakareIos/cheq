@@ -88,6 +88,8 @@ extension SpendingViewController {
                 AppConfig.shared.hideSpinner {
                     print("spending view controller = \(overview)")
                     self.renderSpending(overview)
+                    //Manish
+                    //self.registerForNotification()
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -105,5 +107,11 @@ extension SpendingViewController {
             // show transaction list screen
             AppNav.shared.pushToSpendingVC(.transactions, viewController: self)
         }
+    }
+    
+    
+    func registerForNotification(){
+        guard let application = AppData.shared.application else { return }
+        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
     }
 }

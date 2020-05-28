@@ -226,11 +226,15 @@ class DynamicFormViewController: UIViewController {
 //            }
             
         }
+        
+        if (loginId == "" || password == "") {
+            showError(ValidationError.invalidInputFormat) { }
+            return
+        }
 
         self.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId)
     }
-    
-    
+
     func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
       
 //        var isUpdate =  false
@@ -246,7 +250,6 @@ class DynamicFormViewController: UIViewController {
             AppConfig.shared.hideSpinner {
                  self.gotoConnectingToBankViewController()
             }
-            
         }.catch { err in
             //self.dismiss(animated: true) { [weak self] in
                 
@@ -469,6 +472,10 @@ class DynamicFormViewController: UIViewController {
         guard let res = self.resGetUserActionResponse else { return }
         LoggingUtil.shared.cPrint(res)
         switch (res.userAction){
+            
+            case .genericInfo:
+                 LoggingUtil.shared.cPrint("go to home screen")
+                 break
                             
             case .bankLinkingUnsuccessful:
                  break

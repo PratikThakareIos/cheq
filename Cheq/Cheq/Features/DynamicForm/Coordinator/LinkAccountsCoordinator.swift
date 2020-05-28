@@ -28,7 +28,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
    
             // login again in case we have timed out issue
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<GetAppTokenResponse> in
-                return  CheqAPIManager.shared.getBasiqConnectionTokenForBankLogin()
+                return  CheqAPIManager.shared.getBasiqConnectionTokenForBankLogin() // call on login button click
             }.done { appTokenResponse in
                 
                 LoggingUtil.shared.cPrint("appTokenResponse = \(appTokenResponse)")

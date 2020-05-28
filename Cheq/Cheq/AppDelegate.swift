@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         self.setupServices()
         
         
-        //Manish
+//        //Manish
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
        
         #if DEMO

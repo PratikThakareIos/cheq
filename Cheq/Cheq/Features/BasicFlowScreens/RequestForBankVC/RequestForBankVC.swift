@@ -31,8 +31,8 @@ class RequestForBankVC: UIViewController {
         
         showCloseButton()
         //self.txtViewComment.text = "Bank name"
-        self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
-        self.caption.font = AppConfig.shared.activeTheme.mediumMediumFont
+        //self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
+        //self.caption.font = AppConfig.shared.activeTheme.mediumMediumFont
         self.sendRequestButton.createShadowLayer()
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

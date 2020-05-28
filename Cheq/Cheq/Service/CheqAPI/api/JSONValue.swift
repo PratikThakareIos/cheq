@@ -49,7 +49,6 @@ public enum JSONValue: Codable, Equatable {
             )
         )
     }
-    
 }
 
 extension JSONValue: ExpressibleByStringLiteral {

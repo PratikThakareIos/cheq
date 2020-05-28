@@ -15,6 +15,7 @@ class CMultipleChoiceWithImageCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var disableContainerView: UIView!
     @IBOutlet weak var lblDescription: UILabel!
+    var coordinatorType: MultipleChoiceQuestionType?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +24,31 @@ class CMultipleChoiceWithImageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        if let coordinatorType = coordinatorType, coordinatorType == .financialInstitutions{
+            if selected {
+              self.containerView.layer.borderWidth = 2
+              self.containerView.layer.borderColor = UIColor(hex: "2CB4F6").cgColor
+           }
+           else {
+              self.containerView.layer.borderWidth = 2
+              self.containerView.layer.borderColor = UIColor.white.cgColor
+           }
+        }else{
+            if selected {
+                 self.containerView.backgroundColor = AppConfig.shared.activeTheme.alternativeColor3
+             }
+             else {
+                 self.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+             }
+        }
+        
+   
 
         // Configure the view for the selected state
-        if selected {
-            self.containerView.backgroundColor = AppConfig.shared.activeTheme.alternativeColor3
-        }
+//        if selected {
+//            self.containerView.backgroundColor = AppConfig.shared.activeTheme.alternativeColor3
+//        }
 //        else {
 //            self.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
 //        }

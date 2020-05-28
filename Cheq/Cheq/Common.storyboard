@@ -46,14 +46,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X9-cj-BXz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="245.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="na3-Ja-sRr">
-                                                <rect key="frame" x="0.0" y="269" width="414" height="16"/>
+                                                <rect key="frame" x="0.0" y="265.5" width="414" height="24"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-hM-SqY">
-                                                <rect key="frame" x="0.0" y="305" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="309.5" width="414" height="128"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycl-sp-tez">
                                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="128"/>
@@ -76,7 +76,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FWU-ot-Kzc">
-                                                <rect key="frame" x="0.0" y="453" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="457.5" width="414" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-vZ-uQs">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.5" height="50"/>
@@ -109,7 +109,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6J-FN-NLm">
-                                                <rect key="frame" x="0.0" y="523" width="414" height="373"/>
+                                                <rect key="frame" x="0.0" y="527.5" width="414" height="368.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -597,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5o-p0-wpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-288" y="892"/>
+            <point key="canvasLocation" x="3699" y="892"/>
         </scene>
         <!--User Action RequiredVC-->
         <scene sceneID="74t-FI-xiR">
@@ -922,21 +922,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are syncing your bank transactions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-HK-UoT">
-                                        <rect key="frame" x="50" y="272.5" width="314" height="115"/>
+                                        <rect key="frame" x="50" y="271" width="314" height="115"/>
                                         <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="32"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-F6-zA5">
-                                        <rect key="frame" x="172" y="140.5" width="70" height="92"/>
+                                        <rect key="frame" x="172" y="139" width="70" height="92"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="92" id="A3X-qA-Xht"/>
                                             <constraint firstAttribute="width" constant="70" id="f12-td-dpV"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be notified once we have synced your transactions. This could take up to 30 min." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-lr-gLY">
-                                        <rect key="frame" x="35" y="417.5" width="344" height="61"/>
-                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="17"/>
+                                        <rect key="frame" x="35" y="416" width="344" height="64.5"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -951,7 +951,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
                                                 <state key="normal" title="Chat with us">
-                                                    <color key="titleColor" red="0.29019607843137252" green="0.0" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.17254901959999999" green="0.70588235290000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="btnChatWithUsAction:" destination="yFZ-aU-b2c" eventType="touchUpInside" id="Khk-T9-rov"/>
@@ -1010,12 +1010,117 @@
             </objects>
             <point key="canvasLocation" x="2225" y="892"/>
         </scene>
+        <!--GenericInfoVC-->
+        <scene sceneID="txq-mM-lUa">
+            <objects>
+                <viewController storyboardIdentifier="GenericInfoVC" title="GenericInfoVC" id="oFd-NV-U9Y" customClass="GenericInfoVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YrQ-gt-ntC"/>
+                        <viewControllerLayoutGuide type="bottom" id="o12-gn-RQA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Rh-Md-P9o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOZ-F4-mNN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot connect to your bank" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSd-mr-91U">
+                                        <rect key="frame" x="50" y="288" width="314" height="76.5"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="32"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="eAO-oC-WBg">
+                                        <rect key="frame" x="172" y="156" width="70" height="92"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="hLn-F1-wqp"/>
+                                            <constraint firstAttribute="height" constant="92" id="mSi-Zq-x1e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-nX-F3E">
+                                        <rect key="frame" x="35" y="394.5" width="344" height="107.5"/>
+                                        <string key="text">We encountered a problem connecting to your bank. This could be due to your bank website being under maintenance. Please come back in a few hours</string>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="X15-NH-cOX">
+                                        <rect key="frame" x="62" y="782" width="290" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHa-VS-IVp">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="XuO-qk-Dvm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Chat with us">
+                                                    <color key="titleColor" red="0.17254901959999999" green="0.70588235290000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnChatWithUsAction:" destination="oFd-NV-U9Y" eventType="touchUpInside" id="EE0-xj-c40"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-LI-NQ8">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="F0b-rR-b0Z"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Try to connect again...">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnTryAgainAction:" destination="oFd-NV-U9Y" eventType="touchUpInside" id="flt-eV-C9s"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aSd-mr-91U" firstAttribute="top" secondItem="eAO-oC-WBg" secondAttribute="bottom" constant="40" id="0sY-01-sXs"/>
+                                    <constraint firstItem="X15-NH-cOX" firstAttribute="centerX" secondItem="yOZ-F4-mNN" secondAttribute="centerX" id="76A-wo-L3Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="2d1-nX-F3E" secondAttribute="trailing" constant="35" id="9Nx-tk-hx7"/>
+                                    <constraint firstItem="eAO-oC-WBg" firstAttribute="centerX" secondItem="yOZ-F4-mNN" secondAttribute="centerX" id="9XU-qo-RGi"/>
+                                    <constraint firstItem="2d1-nX-F3E" firstAttribute="leading" secondItem="yOZ-F4-mNN" secondAttribute="leading" constant="35" id="AKW-p9-2ph"/>
+                                    <constraint firstAttribute="bottom" secondItem="X15-NH-cOX" secondAttribute="bottom" constant="60" id="KAA-up-QEG"/>
+                                    <constraint firstItem="2d1-nX-F3E" firstAttribute="top" secondItem="aSd-mr-91U" secondAttribute="bottom" constant="30" id="N6U-NN-002"/>
+                                    <constraint firstItem="X15-NH-cOX" firstAttribute="width" secondItem="yOZ-F4-mNN" secondAttribute="width" multiplier="0.7" id="f0Q-Wq-4Ae"/>
+                                    <constraint firstItem="2d1-nX-F3E" firstAttribute="centerY" secondItem="yOZ-F4-mNN" secondAttribute="centerY" id="faH-Z0-q00"/>
+                                    <constraint firstItem="eAO-oC-WBg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yOZ-F4-mNN" secondAttribute="top" constant="20" id="mfX-uN-TFz"/>
+                                    <constraint firstAttribute="trailing" secondItem="aSd-mr-91U" secondAttribute="trailing" constant="50" id="tjD-kN-iPV"/>
+                                    <constraint firstItem="aSd-mr-91U" firstAttribute="leading" secondItem="yOZ-F4-mNN" secondAttribute="leading" constant="50" id="zK1-AA-2BP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yOZ-F4-mNN" firstAttribute="leading" secondItem="3Rh-Md-P9o" secondAttribute="leading" id="2Ai-39-3qs"/>
+                            <constraint firstAttribute="bottom" secondItem="yOZ-F4-mNN" secondAttribute="bottom" id="SaX-qE-ni8"/>
+                            <constraint firstItem="yOZ-F4-mNN" firstAttribute="trailing" secondItem="3Rh-Md-P9o" secondAttribute="trailing" id="dW2-tW-Wso"/>
+                            <constraint firstItem="yOZ-F4-mNN" firstAttribute="top" secondItem="3Rh-Md-P9o" secondAttribute="top" id="ghg-q3-aiX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnChatWithUs" destination="gHa-VS-IVp" id="ayz-uS-6Js"/>
+                        <outlet property="btnTryAgain" destination="MN5-LI-NQ8" id="gMq-KJ-RE7"/>
+                        <outlet property="iconImage" destination="eAO-oC-WBg" id="Hdm-yf-WF6"/>
+                        <outlet property="lblDetail" destination="2d1-nX-F3E" id="ODZ-Uk-9GF"/>
+                        <outlet property="viewTitle" destination="aSd-mr-91U" id="bi6-ui-MAu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2p-qb-Sez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2945" y="892"/>
+        </scene>
     </scenes>
     <resources>
         <image name="actionRequired" width="40" height="50"/>
         <image name="email" width="74" height="77"/>
         <image name="emojiSad" width="70" height="70"/>
-        <image name="lock" width="14" height="16"/>
+        <image name="lock" width="24" height="24"/>
         <image name="number1" width="26" height="26"/>
         <image name="number2" width="26" height="26"/>
         <image name="number3" width="26" height="26"/>
