@@ -33,7 +33,7 @@ class SalaryPaymentViewController: UIViewController {
     }
     private func getData() {
         
-        if AppData.shared.employeePaycycle == nil || AppData.shared.employeePaycycle!.count == 0 {
+        if AppData.shared.employeePaycycle == nil || AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done{ paycyles in
@@ -50,7 +50,7 @@ class SalaryPaymentViewController: UIViewController {
                     }
                 }
         }else {
-            self.tansactionDetailsArray = AppData.shared.employeePaycycle!
+            self.tansactionDetailsArray = AppData.shared.employeePaycycle
             self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
             self.tableView.reloadData()
             

@@ -32,7 +32,5 @@ public struct SalaryTransactionResponse: Codable {
         case _description = "description"
         case isSalary
     }
-
-
 }
 

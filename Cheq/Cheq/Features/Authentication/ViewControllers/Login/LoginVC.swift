@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        //self.addTestAccountDetails()
+        self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -52,8 +52,8 @@ class LoginVC: UIViewController {
     
     func addTestAccountDetails(){
         //self.emailTextField.text = "umanga.sarathchandra+38@itelasoft.com"
-        self.emailTextField.text = "ma5@gmail.com"
-        self.passwordTextField.text = "Umanga@123"
+        self.emailTextField.text = "dean+5@cheq.com.au"
+        self.passwordTextField.text = "1A@abc123"
     }
 }
 

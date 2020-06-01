@@ -20,23 +20,30 @@ class LendingViewModel: BaseTableVCViewModel {
     func render(_ lendingOverview: GetLendingOverviewResponse) {
         clearSectionIfNeeded()
         var section = TableSectionViewModel()
-       
-        //section.rows.append(IntercomChatTableViewCellViewModel())
-        self.addLoanSetting(lendingOverview, section: &section)
-        self.addCashoutButton(lendingOverview, section: &section)
-        self.addMessageBubble(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
-        self.completeDetails(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
-        // actvity
-        self.activityList(lendingOverview, section: &section)
-        section.rows.append(SpacerTableViewCellViewModel())
+        
+        
+        let isDeclineExist  = self.declineExist(lendingOverview)
+        if isDeclineExist {
+             self.addLoanSetting(lendingOverview, section: &section)
+             section.rows.append(SpacerTableViewCellViewModel())
+             self.addDeclienCell(lendingOverview, section: &section)
+        }else{
+            //section.rows.append(IntercomChatTableViewCellViewModel())
+            self.addLoanSetting(lendingOverview, section: &section)
+            self.addCashoutButton(lendingOverview, section: &section)
+            self.addMessageBubble(lendingOverview, section: &section)
+            section.rows.append(SpacerTableViewCellViewModel())
+            self.completeDetails(lendingOverview, section: &section)
+            section.rows.append(SpacerTableViewCellViewModel())
+            // actvity
+            self.activityList(lendingOverview, section: &section)
+            section.rows.append(SpacerTableViewCellViewModel())
+        }
+
         self.sections = [section]
         
         NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }
-    
-    
     
     func isKycStatusSuccess(_ kycStatus: EligibleRequirement.KycStatus)-> Bool {
         return kycStatus == EligibleRequirement.KycStatus.success
@@ -57,10 +64,41 @@ class LendingViewModel: BaseTableVCViewModel {
             return false
         }
     }
+    
+    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
+        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
+       
+        
+        let kycSuceeded = self.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
+        let kycFailed = self.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
+        
+        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
+        let kycCompleted = kycSuceeded || kycFailed
+        
+        if (eligibleRequirements.hasBankAccountDetail ?? false && eligibleRequirements.hasEmploymentDetail ?? false && kycCompleted) {
+            return false
+        }
+        //guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
+        
+        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }
+        
+        guard reason != ._none else { return false }
+        
+        return true
+    }
 }
 
 // amount select
 extension LendingViewModel {
+    
+    func addDeclienCell(_ lendingOverview: GetLendingOverviewResponse,  section: inout TableSectionViewModel) {
+        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else {
+            return }
+        AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
+        let viewModel = DeclineDetailViewModel()
+        viewModel.declineDetails = declineDetails
+        section.rows.append(viewModel)
+    }
     
     func addLoanSetting (_ lendingOverview: GetLendingOverviewResponse,  section: inout TableSectionViewModel) {
         // loan control
@@ -69,7 +107,6 @@ extension LendingViewModel {
             let maxLimit = borrowOverview.availableCashoutAmount ?? 0 //loanSetting.maximumAmount ?? 200
             amountSelect.selectedAmountIndex = 0
             amountSelect.buildAvaialbleToWithDraw(low: loanSetting.minimalAmount ?? 100, limit: Int(maxLimit), increment: loanSetting.incrementalAmount ?? 100)
-            
             section.rows.append(amountSelect)
         }
     }
@@ -124,6 +161,10 @@ extension LendingViewModel {
         if hasEmploymentDetail {
             completed = completed + 1
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
+            
+            print("\neligibleRequirement.hasPayCycle = \(eligibleRequirement.hasPayCycle)")
+            print("\neligibleRequirement.isReviewingPayCycle= \(eligibleRequirement.isReviewingPayCycle)")
+            
             completeDetailsForWork.type = .workDetails
             if (eligibleRequirement.hasPayCycle ?? false){
                 completeDetailsForWork.completionState = .done

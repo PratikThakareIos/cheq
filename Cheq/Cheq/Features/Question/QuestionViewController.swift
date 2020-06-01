@@ -105,7 +105,7 @@ class QuestionViewController: UIViewController {
     }
     
     private func getTransactionData() {
-        if AppData.shared.employeePaycycle?.count == 0 {
+        if AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done{ paycyles in
@@ -542,9 +542,9 @@ class QuestionViewController: UIViewController {
     }
     
     func incomeVerification(){
-        if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+        if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle.count) != nil) {
             showTransactions()
-        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle?.count == 0 {
+        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
             // need to show popup but for now land on lending page
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}

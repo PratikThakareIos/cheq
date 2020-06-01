@@ -181,7 +181,7 @@ class AppData {
     var employeeOverview : GetLendingOverviewResponse?
     
     // employee timesheet details fetched from /v1/Lending/salarytransactions/recent
-       var employeePaycycle : [SalaryTransactionResponse]?
+    var employeePaycycle : [SalaryTransactionResponse] = [SalaryTransactionResponse]()
    
     /// employer list fetched from company address lookup
     var employerAddressList = [GetEmployerPlaceResponse]()

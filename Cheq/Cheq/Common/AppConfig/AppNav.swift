@@ -309,11 +309,14 @@ extension AppNav {
     func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        
+        
         let introductionViewModel = IntroductionViewModel()
         let introType = IntroductionViewModel.introTypeFromDeclineReason(declineReason) ?? IntroductionType.noPayCycle
         let introCoordinator = IntroductionViewModel.coordinatorFor(introType)
         introductionViewModel.coordinator = introCoordinator
         vc.viewModel = introductionViewModel
+        
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)

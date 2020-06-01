@@ -35,6 +35,7 @@ enum IntroButtonTitle: String {
     case learnMore = "Learn more"
     case openMailApp = "Open mail app"
     case moreInformation = "More information"
+    case label_button_select_salary = "Select salary payments"
     
 }
 
@@ -100,16 +101,17 @@ class IntroductionViewModel: BaseViewModel {
         case .hasWriteOff: return .hasWriteOff
         case .identityConflict: return .identityConflict
         case .jointAccount: return .jointAccount
-//        case .kycFailed: return .kycFailed
         case .monthlyPayCycle: return .monthlyPayCycle
-//        case .noPayCycle: return .noPayCycle
-//        case .hasNameConflict: return .hasNameConflict
         case .reachedCapacity: return .hasReachedCapacity
         case .hasOverdueLoans : return .hasOverdueLoans
         case .salaryInDifferentBank : return .salaryInDifferentBank
         case .noEnoughSalaryInfo : return .noEnoughSalaryInfo
         case .selectYourSalary : return .selectYourSalary
         case .payCycleStopped:  return .payCycleStopped
+            
+            //        case .noPayCycle: return .noPayCycle
+            //        case .hasNameConflict: return .hasNameConflict
+            //        case .kycFailed: return .kycFailed
         }
     }
 

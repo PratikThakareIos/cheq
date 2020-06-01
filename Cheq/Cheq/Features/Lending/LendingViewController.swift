@@ -13,7 +13,7 @@ import PullToRefreshKit
 class LendingViewController: CTableViewController {
 
     override func registerCells() {
-        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
+        let cellModels: [TableViewCellViewModelProtocol] = [DeclineDetailViewModel(), SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
         for vm: TableViewCellViewModelProtocol in cellModels {
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
@@ -33,6 +33,7 @@ class LendingViewController: CTableViewController {
         activeTimestamp()
         registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        getTransactionData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -42,7 +43,9 @@ class LendingViewController: CTableViewController {
 
     func setupUI() {
         hideBackTitle()
-        self.tableView.addPullToRefreshAction {            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        self.tableView.addPullToRefreshAction {
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            self.getTransactionData()
         }
     }
     
@@ -93,7 +96,8 @@ extension LendingViewController {
     }
     
     func showDeclineIfNeeded(_ lendingOverview: GetLendingOverviewResponse) {
-        guard self.declineExist(lendingOverview) == false else {
+        let viewModel = self.viewModel as! LendingViewModel
+        guard viewModel.declineExist(lendingOverview) == false else {
             if let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason {
                 AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
                 AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
@@ -123,14 +127,34 @@ extension LendingViewController {
     }
     
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
-        self.showDeclineIfNeeded(lendingOverview)
-        LoggingUtil.shared.cPrint("build view model here...")
-        guard let vm = self.viewModel as? LendingViewModel else { return }
-        vm.render(lendingOverview)
+        LoggingUtil.shared.cPrint(lendingOverview)
+        guard let viewModel = self.viewModel as? LendingViewModel else { return }
+        let isDeclineExist  = viewModel.declineExist(lendingOverview)
+        if isDeclineExist {
+            if let declineDetails = lendingOverview.decline, let declineReason = declineDetails.declineReason {
+                AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
+                //AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
+                viewModel.render(lendingOverview)
+            } else {
+                self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
+            }
+        }else{
+            LoggingUtil.shared.cPrint("build view model here...")
+            viewModel.render(lendingOverview)
+        }
+
+//        let isDeclineExist  = self.declineExist(lendingOverview)
+//        if isDeclineExist {
+//            self.showDeclineIfNeeded(lendingOverview)
+//        }else{
+//            LoggingUtil.shared.cPrint("build view model here...")
+//            guard let vm = self.viewModel as? LendingViewModel else { return }
+//            vm.render(lendingOverview)
+//        }
     }
     
     @objc func lendingOverview(_ notification: NSNotification) {
-        AppConfig.shared.showSpinner()
+           AppConfig.shared.showSpinner()
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
                 AppConfig.shared.hideSpinner {
@@ -145,24 +169,25 @@ extension LendingViewController {
                 }
             }
     }
-    
-    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
-        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
-        let viewModel = self.viewModel as! LendingViewModel
-        
-        let kycSuceeded = viewModel.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
-        let kycFailed = viewModel.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
-        
-        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
-        let kycCompleted = kycSuceeded || kycFailed
-        
-        guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
-        
-        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }
-        
-        guard reason != ._none else { return false }
-        
-        return true
+  
+    private func getTransactionData() {
+         print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+        if AppData.shared.employeePaycycle.count == 0 {
+            //AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
+                .done { paycyles in
+                    print("paycyles = \(paycyles)")
+                   // AppConfig.shared.hideSpinner {
+                        print("Transaction success")
+                   // }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                        print("error")
+                    }
+                }
+            }
+        }
     }
     
     func kycHasCompleted(_ status: EligibleRequirement.KycStatus)-> Bool {
@@ -186,6 +211,29 @@ extension LendingViewController {
             AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
         }
     }
+    
+    
+//    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
+//        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
+//        let viewModel = self.viewModel as! LendingViewModel
+//
+//        let kycSuceeded = viewModel.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
+//        let kycFailed = viewModel.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
+//
+//        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
+//        let kycCompleted = kycSuceeded || kycFailed
+//
+//        if (eligibleRequirements.hasBankAccountDetail ?? false && eligibleRequirements.hasEmploymentDetail ?? false && kycCompleted) {
+//            return false
+//        }
+//        //guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
+//
+//        guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }
+//
+//        guard reason != ._none else { return false }
+//
+//        return true
+//    }
 }
 
 

@@ -57,9 +57,7 @@ class MultipleChoiceViewController: UIViewController {
         // non-zero estimated row height to trigger automatically calculation of cell height based on auto layout on tableview
         self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
         self.tableView.backgroundColor = .clear
-        
 
-        
         if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }else{
@@ -76,6 +74,7 @@ class MultipleChoiceViewController: UIViewController {
         }else{
             self.setTitleAndSubTitle(isShow:  true)
         }
+    
     }
     
     func setTitleAndSubTitle(isShow: Bool){
@@ -103,8 +102,21 @@ class MultipleChoiceViewController: UIViewController {
         getTransactionData()
         
         if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .workingLocation {
+            self.showNavBar()
             showCloseButton()
         }
+        
+        if self.viewModel.coordinator.coordinatorType == .employmentType,  AppData.shared.completingDetailsForLending {
+                  showNavBar()
+                  showCloseButton()
+        }
+        
+        if self.viewModel.coordinator.coordinatorType == .onDemand,  AppData.shared.completingDetailsForLending {
+                  self.showNavBar()
+                  self.showBackButton()
+        }
+        
+        
         
         if selectedChoice == nil {
             self.updateChoices()
@@ -116,7 +128,8 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     private func getTransactionData() {
-        if AppData.shared.employeePaycycle?.count == 0 {
+         print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+        if AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done { paycyles in
@@ -410,11 +423,27 @@ extension MultipleChoiceViewController {
     }
     
     func incomeVerification(){
+//        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+//        print(AppData.shared.employeePaycycle?.count)
+//        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+//            showTransactions()
+//        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+//            // show popup but for now navigate to lending page
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//            AppNav.shared.dismissModal(self){}
+//        }else {
+//            //             self.delegate?.refreshLendingScreen()
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//            AppNav.shared.dismissModal(self){}
+//        }
+//
+        
+        
         print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-        print(AppData.shared.employeePaycycle?.count)
-        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+        print(AppData.shared.employeePaycycle.count)
+        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && (AppData.shared.employeePaycycle.count > 0) {
             showTransactions()
-        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+        }else if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
             // show popup but for now navigate to lending page
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
@@ -423,6 +452,10 @@ extension MultipleChoiceViewController {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
+        
+        
+        
+        
         
     }
 }

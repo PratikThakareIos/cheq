@@ -101,8 +101,8 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
-        switch viewModel.coordinator.type {
         
+        switch viewModel.coordinator.type {
         case .setupBank:
             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
         case .email:
