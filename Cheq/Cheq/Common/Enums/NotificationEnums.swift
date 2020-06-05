@@ -55,6 +55,9 @@ enum UINotificationEvent: String {
     case moneysoftEvent = "moneysoftEvents"
     case basiqEvent = "basiqEvent"
     case reconnectToBank = "reconnectToBank"
+    case selectYourSalary = "selectYourSalary"
+    case creditAssessment = "creditAssessment"
+    case learnMore = "learnMore"
 }
 
 /**

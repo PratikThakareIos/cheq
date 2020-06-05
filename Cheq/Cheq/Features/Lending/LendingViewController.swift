@@ -66,11 +66,70 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.turnOnLocation(_:)), name: NSNotification.Name(UINotificationEvent.turnOnLocation.rawValue), object: nil)
+        
+        
+        //selectYourSalary
+       NotificationCenter.default.addObserver(self, selector: #selector(self.selectYourSalary(_:)), name: NSNotification.Name(UINotificationEvent.selectYourSalary.rawValue), object: nil)
+        
+        //creditAssessment
+       NotificationCenter.default.addObserver(self, selector: #selector(self.creditAssessment(_:)), name: NSNotification.Name(UINotificationEvent.creditAssessment.rawValue), object: nil)
+        
+        //learnMore
+       NotificationCenter.default.addObserver(self, selector: #selector(self.learnMore(_:)), name: NSNotification.Name(UINotificationEvent.learnMore.rawValue), object: nil)
+       
     }
 }
 
 // observable handlers
 extension LendingViewController {
+    
+    /// handle selectYourSalary notification event
+    @objc func selectYourSalary(_ notification: NSNotification) {
+       LoggingUtil.shared.cPrint("selectYourSalary clicked")
+       LoggingUtil.shared.cPrint("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+        
+          AppConfig.shared.showSpinner()
+          CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
+              .done { paycyles in
+                  print("paycyles = \(paycyles)")
+                  AppConfig.shared.hideSpinner {
+                      print("Transaction success")
+                      if AppData.shared.employeePaycycle.count == 0 {
+                        //show popup
+                        self.showNoIncomeDetectedPopUp()
+                      }else{
+                        //show salary transaction selection screen
+                      }
+                  }
+          }.catch { err in
+              AppConfig.shared.hideSpinner {
+                  self.showError(err) {
+                      print("error")
+                  }
+              }
+          }
+    }
+    
+    
+    /// handle creditAssessment notification event
+    @objc func creditAssessment(_ notification: NSNotification) {
+       LoggingUtil.shared.cPrint("creditAssessment clicked")
+        
+        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
+        guard let url = URL(string: link) else { return }
+        AppNav.shared.pushToInAppWeb(url, viewController: self)
+    }
+    
+    /// handle learnMore notification event
+    @objc func learnMore(_ notification: NSNotification) {
+        LoggingUtil.shared.cPrint("learnMore clicked")
+        
+        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
+        guard let url = URL(string: link) else { return }
+        AppNav.shared.pushToInAppWeb(url, viewController: self)
+    
+    }
+
     
     @objc func completeDetails(_ notificaton: NSNotification) {
         //["type"] as? String  is just the key set on CompleteDetailsTableViewCell for the user object
@@ -236,4 +295,39 @@ extension LendingViewController {
 //    }
 }
 
+
+//MARK: - Verification popup
+extension LendingViewController: VerificationPopupVCDelegate{
+ 
+    func showNoIncomeDetectedPopUp(){
+        self.openPopupWith(heading: "No income detected for selection",
+                           message: "Our bot can't detect an incoming transaction for you to select. Please make sure you're getting paid in the bank account that you connected",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "sucsess"))
+     }
+    
+    //
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    
+    func tappedOnSendButton(){
+ 
+    }
+    
+    func tappedOnCloseButton(){
+      
+    }
+}
 

@@ -23,7 +23,11 @@ class ForgotPasswordViewController: UIViewController {
     
     func setupUI() {
         self.forgotPasswordButton.createShadowLayer()
-        showCloseButton()
+        //showCloseButton()
+        
+        showNavBar()
+        showBackButton()
+        
         self.email.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont

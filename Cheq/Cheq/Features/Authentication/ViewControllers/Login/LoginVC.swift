@@ -51,9 +51,14 @@ class LoginVC: UIViewController {
     }
     
     func addTestAccountDetails(){
-        //self.emailTextField.text = "umanga.sarathchandra+38@itelasoft.com"
-        self.emailTextField.text = "dean+5@cheq.com.au"
-        self.passwordTextField.text = "1A@abc123"
+  
+        //self.emailTextField.text = "dean+30@cheq.com.au"
+        //self.passwordTextField.text = "1A@abc123"
+        
+        self.emailTextField.text = "um40@gmail.com"
+        self.passwordTextField.text = "Tfc@12345"
+        
+        
     }
 }
 
@@ -199,9 +204,7 @@ extension LoginVC {
         }
     }
     
-  
-  
-    
+ 
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
@@ -435,7 +438,12 @@ extension LoginVC {
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
         if viewModel.isForgotPassword(strSubstring) {
-         AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+        // AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+         AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+            
+//            let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
+//            AppNav.shared.pushToViewController(emailVc, from: self)
+            
         } else if viewModel.isSignup(strSubstring) {
             
             if let nav = self.navigationController {

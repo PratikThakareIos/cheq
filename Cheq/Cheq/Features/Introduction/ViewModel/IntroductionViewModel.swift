@@ -26,6 +26,7 @@ enum IntroEmoji: String {
     case transferFailed = "transferFailed"
 }
 
+
 enum IntroButtonTitle: String {
     case setupYourBank = "Setup your bank"
     case tellMeWhy = "Tell me why"
@@ -35,7 +36,7 @@ enum IntroButtonTitle: String {
     case learnMore = "Learn more"
     case openMailApp = "Open mail app"
     case moreInformation = "More information"
-    case label_button_select_salary = "Select salary payments"
+    case selectSalaryPayments = "Select salary payments"
     
 }
 

@@ -17,4 +17,3 @@ struct FontConstant {
     static let SFUITextBold   = "SFUIText-Bold"
 }
 
-

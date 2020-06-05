@@ -49,8 +49,7 @@ class LogViewController: UIViewController {
         }.catch { err in
             LoggingUtil.shared.cPrint(err.localizedDescription)
         }.finally {
-            AppConfig.shared.hideSpinner {
-                
+            AppConfig.shared.hideSpinner {                
             }
         }
     }

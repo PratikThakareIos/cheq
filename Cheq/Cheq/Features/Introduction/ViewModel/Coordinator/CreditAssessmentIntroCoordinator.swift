@@ -50,18 +50,11 @@ class NoEnoughSalaryInfoIntroCoordinator: IntroductionCoordinatorProtocol {
 }
 
 class SelectYourSalaryInfoIntroCoordinator: IntroductionCoordinatorProtocol {
-    
-//    var type: IntroductionType = .selectYourSalary
-//    var caption: String = AppData.shared.declineDescription
-//    var title: String = IntroductionType.selectYourSalary.rawValue
-//    var confirmTitle: String = IntroButtonTitle.tellMeWhy.rawValue
-//    var secondaryButtonTitle: String = IntroButtonTitle.chatWithUs.rawValue
-//    var imageName: String = IntroEmoji.cry.rawValue
-        
+            
     var type: IntroductionType = .selectYourSalary
     var caption: String = AppData.shared.declineDescription
     var title: String = IntroductionType.selectYourSalary.rawValue
-    var confirmTitle: String = IntroButtonTitle.label_button_select_salary.rawValue
+    var confirmTitle: String = IntroButtonTitle.selectSalaryPayments.rawValue
     var secondaryButtonTitle: String = IntroButtonTitle.learnMore.rawValue
     var imageName: String = IntroEmoji.needMoreInfo.rawValue
 }

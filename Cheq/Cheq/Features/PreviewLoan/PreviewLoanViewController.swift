@@ -125,7 +125,7 @@ extension PreviewLoanViewController {
                 section.rows.append(SpacerTableViewCellViewModel())
                 section.rows.append(SpacerTableViewCellViewModel())
                 self.viewModel.addSection(section)
-              //  self.registerCells()
+                //self.registerCells()
                 self.tableView.reloadData()
             }
         }.catch { err in

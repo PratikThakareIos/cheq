@@ -95,7 +95,12 @@ class AppNav {
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
-         
+        
+        
+        if multipleChoiceType == .onDemand {
+            vc.showNextButton = true
+        }
+        
         vc.modalPresentationStyle = .fullScreen
         nav.pushViewController(vc, animated: true)
     }

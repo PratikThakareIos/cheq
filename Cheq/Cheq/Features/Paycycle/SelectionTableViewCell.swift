@@ -12,6 +12,7 @@ class SelectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var content: UIView!
     @IBOutlet weak var title: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

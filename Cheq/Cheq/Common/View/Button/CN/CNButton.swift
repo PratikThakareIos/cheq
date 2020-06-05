@@ -54,6 +54,14 @@ class CNButton: UIButton {
         //self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         //var button = self as UIButton
         //AppConfig.shared.activeTheme.roundRectButton(&button)
+        
+        self.titleLabel?.textAlignment = .center
+        self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
+        self.titleLabel?.font = AppConfig.shared.activeTheme.headerMediumFont
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10, execute: {
+            self.layer.cornerRadius = self.frame.height/2
+            self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
+        })
     }
     
     /// When a type is set, the styling is automatically applied

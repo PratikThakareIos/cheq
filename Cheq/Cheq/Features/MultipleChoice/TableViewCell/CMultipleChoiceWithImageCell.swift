@@ -24,8 +24,8 @@ class CMultipleChoiceWithImageCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        if let coordinatorType = coordinatorType, coordinatorType == .financialInstitutions{
+       // == .onDemand
+        if let coordinatorType = coordinatorType, (coordinatorType == .financialInstitutions || coordinatorType == .onDemand ){
             if selected {
               self.containerView.layer.borderWidth = 2
               self.containerView.layer.borderColor = UIColor(hex: "2CB4F6").cgColor

@@ -105,7 +105,9 @@ class EmailVerificationViewController: UIViewController {
         }
         
         if self.viewModel.type == .passwordReset {
-            showCloseButton()
+            showNavBar()
+            showBackButton()
+            //showCloseButton()
         }
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
@@ -135,29 +137,56 @@ class EmailVerificationViewController: UIViewController {
             }
             return
         }
-                
+        
+        
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).then { _ in
-            return AuthConfig.shared.activeManager.getCurrentUser()
-        }.then { authUser in
-            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-        }.then { authUser in
-            AuthConfig.shared.activeManager.setUser(authUser)
-        }.done { _ in
-            AppConfig.shared.hideSpinner {
-                self.showMessage("New password successfully created.") {
-                    AppNav.shared.dismissModal(self)
+        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
+             AppConfig.shared.hideSpinner {
+                          self.showMessage("Password reset successfully. Please login with your new credentials") {
+                             // AppNav.shared.dismissModal(self)
+                            
+                            if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
+                                for vc in controllers {
+                                   if vc is LoginVC {
+                                     self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                                   }
+                                }
+                            }
+                          }
                 }
-            }
         }.catch { err in
             AppConfig.shared.hideSpinner {
+                LoggingUtil.shared.cPrint(err)
                 self.showError(err, completion: nil)
             }
-        } 
+        }
+        
+        
+                
+//        AppConfig.shared.showSpinner()
+//        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).then { _ in
+//            return AuthConfig.shared.activeManager.getCurrentUser()
+//        }.then { authUser in
+//            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+//        }.then { authUser in
+//            AuthConfig.shared.activeManager.setUser(authUser)
+//        }.done { _ in
+//            AppConfig.shared.hideSpinner {
+//                self.showMessage("New password successfully created.") {
+//                    AppNav.shared.dismissModal(self)
+//                }
+//            }
+//        }.catch { err in
+//            AppConfig.shared.hideSpinner {
+//                LoggingUtil.shared.cPrint(err)
+//                self.showError(err, completion: nil)
+//            }
+//        }
+        
+        
     }
     
     func showInvalidPopUpView(){
-        
         invalideCodeTryCount = invalideCodeTryCount + 1
         if invalideCodeTryCount >= 3 {
             self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
@@ -171,7 +200,6 @@ class EmailVerificationViewController: UIViewController {
     func verifyCode() {
         
         self.viewModel.code = self.codeTextField.text ?? ""
-       
         if let _ = self.viewModel.validate() {
             self.showInvalidPopUpView()
             return

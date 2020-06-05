@@ -26,6 +26,7 @@ class FirebaseAuthManager: AuthManagerProtocol {
 
 //MARK: active user management
 extension FirebaseAuthManager {
+    
     func getCurrentUser()-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             if let authUser = AuthConfig.shared.activeUser, let token = authUser.authToken(), token.isEmpty == false {

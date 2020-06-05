@@ -15,6 +15,9 @@ import PromiseKit
 class MultipleChoiceViewController: UIViewController {
     
     @IBOutlet weak var viewFooterBottom: UIView!
+    @IBOutlet weak var stackRequestForNewBank: UIStackView!
+    @IBOutlet weak var btnFooterNext: CNButton!
+    
     
     var viewModel = MultipleChoiceViewModel()
     var choices:[ChoiceModel] = []
@@ -26,7 +29,6 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var questionTitle: CLabel!
     var showNextButton = false
     
-
     var responseGetUserActionResponse : GetUserActionResponse?
     
     override func viewDidLoad() {
@@ -57,7 +59,7 @@ class MultipleChoiceViewController: UIViewController {
         // non-zero estimated row height to trigger automatically calculation of cell height based on auto layout on tableview
         self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
         self.tableView.backgroundColor = .clear
-
+        
         if AppData.shared.isOnboarding {
             AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }else{
@@ -74,7 +76,7 @@ class MultipleChoiceViewController: UIViewController {
         }else{
             self.setTitleAndSubTitle(isShow:  true)
         }
-    
+        
     }
     
     func setTitleAndSubTitle(isShow: Bool){
@@ -107,16 +109,15 @@ class MultipleChoiceViewController: UIViewController {
         }
         
         if self.viewModel.coordinator.coordinatorType == .employmentType,  AppData.shared.completingDetailsForLending {
-                  showNavBar()
-                  showCloseButton()
+            showNavBar()
+            showCloseButton()
         }
         
         if self.viewModel.coordinator.coordinatorType == .onDemand,  AppData.shared.completingDetailsForLending {
-                  self.showNavBar()
-                  self.showBackButton()
+            self.showNavBar()
+            self.showBackButton()
         }
-        
-        
+                
         
         if selectedChoice == nil {
             self.updateChoices()
@@ -128,7 +129,7 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     private func getTransactionData() {
-         print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+        print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
         if AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
@@ -157,6 +158,13 @@ class MultipleChoiceViewController: UIViewController {
                     self.choices = choices
                     self.tableView.reloadData()
                     self.setTitleAndSubTitle(isShow:  true)
+                   
+                    if self.showNextButton{
+                        self.viewFooterBottom.isHidden = false
+                        self.stackRequestForNewBank.isHidden = true
+                        self.btnFooterNext.isHidden = false
+                    }
+
                 }
                 
             }.catch { err in
@@ -168,10 +176,10 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     @IBAction func btnRequestBankAction(_ sender: Any) {
-         print("btnRequestBankAction clicked")
-         self.gotoRequestForBankVC()
+        print("btnRequestBankAction clicked")
+        self.gotoRequestForBankVC()
     }
-
+    
 }
 
 // MARK: UITableViewDelegate, UITableViewDataSource
@@ -192,9 +200,176 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
- 
+        
         let choice = self.choices[indexPath.row]
         self.selectedChoice = choice
+        switch self.viewModel.coordinator.coordinatorType {
+            
+        case .kycSelectDoc:
+            
+            let kycSelectDoc = KycDocType(fromRawValue: choice.title)
+            viewModel.savedAnswer[QuestionField.kycDocSelect.rawValue] = kycSelectDoc.rawValue
+            OnfidoManager.shared.fetchSdkToken().done { response in
+                let onfidoSdkToken = response.sdkToken ?? ""
+                AppData.shared.saveOnfidoSDKToken(onfidoSdkToken)
+                AppNav.shared.navigateToKYCFlow(kycSelectDoc, viewController: self)
+            }.catch { err in
+                self.showError(err, completion: nil)
+                return
+            }
+            
+        case .employmentType: break
+            
+            //            let employmentType = EmploymentType(fromRawValue: choice.title)
+            //            viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
+            //            AppData.shared.updateProgressAfterCompleting(.employmentType)
+            //            if employmentType == .onDemand {
+            //                AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
+            //            } else {
+            //                // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
+            //                AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+            //            }
+            
+        case .workingLocation:
+            
+            print("Location clicked")
+            if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
+                AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
+            }else{
+                if isIncomeDetected() == false {
+                    print("Upload time sheet anything other than fix location")
+                    incomeVerification()
+                }
+            }
+            
+        case .onDemand: break
+            
+            //            let vm = self.viewModel
+            //            vm.save(QuestionField.employerName.rawValue, value: choice.title)
+            //            vm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+            //            let qVm = QuestionViewModel()
+            //            qVm.loadSaved()
+            //            let req = DataHelperUtil.shared.putUserEmployerRequest()
+            //            AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+            //
+            //            if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+            //                AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+            //                return
+            //            }
+            //
+            //            /* Mark: If uber selected (demanding company other than other) */
+            //            CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+            //                AppData.shared.updateProgressAfterCompleting(.onDemand)
+            //                if AppData.shared.completingDetailsForLending, self.isModal {
+            //                    self.incomeVerification()
+            //                } else {
+            //                    AppData.shared.updateProgressAfterCompleting(.onDemand)
+            //                    //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            //                    AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+            //
+            //                }
+            //            }.catch { err in
+            //                self.showError(err) {
+            //                    AppNav.shared.dismissModal(self)
+            //                }
+            //            }
+            
+        case .financialInstitutions:
+            // storing the selected bank and bank list before pushing to the dynamicFormViewController
+            // to render the form
+            let selectedChoice = self.choices[indexPath.row]
+            if let institution = selectedChoice.ref as? GetFinancialInstitution{
+                if let isDisabled = institution.disabled, isDisabled == true{
+                    
+                }else if let isWarning = institution.isWarning, isWarning == true{
+                    
+                }else{
+                    self.gotoBankLoginScreen(choiceModel: selectedChoice)
+                }
+            }
+            
+        case .ageRange:
+            
+            let vm = self.viewModel
+            vm.save(QuestionField.ageRange.rawValue, value: choice.title)
+            AppData.shared.updateProgressAfterCompleting(.ageRange)
+            AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
+            
+        case .state:
+            
+            let vm = self.viewModel
+            vm.save(QuestionField.residentialState.rawValue, value: choice.title)
+            AppData.shared.updateProgressAfterCompleting(.state)
+            let qVm = QuestionViewModel()
+            qVm.loadSaved()
+            let putUserDetailsReq = qVm.putUserDetailsRequest()
+            AppConfig.shared.showSpinner()
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                return CheqAPIManager.shared.putUser(authUser)
+            }.then { authUser in
+                return CheqAPIManager.shared.putUserDetails(putUserDetailsReq)
+            }.done { authUser in
+                AppConfig.shared.hideSpinner {
+                    AppData.shared.updateProgressAfterCompleting(.maritalStatus)
+                    AppNav.shared.pushToIntroduction(.employee, viewController: self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
+                    }
+                }
+            }
+            
+        case .kycSelectDoc:
+            LoggingUtil.shared.cPrint("trigger onfido kyc")
+            return
+        }
+    }
+    
+    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        if showNextButton {
+//            return 100.0
+//        }else{
+//            return 0.0
+//        }
+//
+//
+//    }
+//
+//
+//
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        guard section == 0 else { return nil }
+//        var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
+//        if showNextButton {
+//            footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
+//            let nextButton = CNButton.init(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
+//            // let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
+//            // here is what you should add:
+//            nextButton.center = footerView.center
+//            nextButton.setTitle("Next", for: .normal)
+//            //            nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
+//            //            nextButton.layer.cornerRadius = 28.0
+//            nextButton.createShadowLayer()
+//            nextButton.addTarget(self, action: #selector(nextButtonAction(_:)), for: .touchUpInside)
+//            footerView.addSubview(nextButton)
+//        }
+//        return footerView
+//    }
+    
+//    @objc func nextButtonAction(_ sender: Any) {
+//
+//    }
+    
+    @IBAction func btnFooterNextAction(_ sender: Any) {
+        
+        guard let choice =  self.selectedChoice else{
+            return
+        }
+        
+        
+        print("Next");
         switch self.viewModel.coordinator.coordinatorType {
             
         case .kycSelectDoc:
@@ -217,6 +392,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             AppData.shared.updateProgressAfterCompleting(.employmentType)
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
+                
             } else {
                 // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
@@ -269,17 +445,17 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         case .financialInstitutions:
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form
-            let selectedChoice = self.choices[indexPath.row]
+            let selectedChoice = choice
             if let institution = selectedChoice.ref as? GetFinancialInstitution{
-               if let isDisabled = institution.disabled, isDisabled == true{
-                  
-               }else if let isWarning = institution.isWarning, isWarning == true{
-           
-               }else{
-                   self.gotoBankLoginScreen(choiceModel: selectedChoice)
-               }
-           }
-  
+                if let isDisabled = institution.disabled, isDisabled == true{
+                    
+                }else if let isWarning = institution.isWarning, isWarning == true{
+                    
+                }else{
+                    self.gotoBankLoginScreen(choiceModel: selectedChoice)
+                }
+            }
+            
         case .ageRange:
             
             let vm = self.viewModel
@@ -318,27 +494,10 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard section == 0 else { return nil }
-        var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
-        if showNextButton {
-            footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
-            let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
-            // here is what you should add:
-            nextButton.center = footerView.center
-            
-            nextButton.setTitle("Next", for: .normal)
-            nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
-            nextButton.layer.cornerRadius = 28.0
-            nextButton.addTarget(self, action: #selector(hello(sender:)), for: .touchUpInside)
-            footerView.addSubview(nextButton)
-        }
-        return footerView
-    }
     
-    @objc func hello(sender: UIButton!) {
-        print("Next");
-    }
+    
+    
+
 }
 
 extension MultipleChoiceViewController {
@@ -346,11 +505,26 @@ extension MultipleChoiceViewController {
     func setupCellForChoiceWithCaption(_ choice: ChoiceModel, tableView: UITableView, indexPath: IndexPath)-> UITableViewCell {
         let reuseId = String(describing: CMultipleChoiceWithCaptionCell.self)
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithCaptionCell
+        cell.coordinatorType = self.viewModel.coordinator.coordinatorType
+        
         cell.titleLabel.text = choice.title
         cell.captionLabel.text = choice.caption ?? ""
+        
+        //Manish
+        cell.titleLabel.font = AppConfig.shared.activeTheme.mediumBoldFont
+        cell.captionLabel.font = AppConfig.shared.activeTheme.defaultMediumFont
+        
         cell.captionLabel.textColor = ColorUtil.hexStringToUIColor(hex: "#999999")
         cell.backgroundColor = .clear
-        AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
+        
+        if self.viewModel.coordinator.coordinatorType == .employmentType {
+            AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: false)
+            cell.containerView.backgroundColor = .white
+        }else{
+            AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
+            cell.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        }
+        
         return cell
     }
     
@@ -362,7 +536,7 @@ extension MultipleChoiceViewController {
         cell.choiceTitleLabel.textColor = AppConfig.shared.activeTheme.textColor
         // set placeholder first
         cell.iconImageView.image = UIImage.init(named: BankLogo.placeholder.rawValue)
- 
+        
         if let imageName = choice.image, imageName.isEmpty == false {
             cell.iconImageView.isHidden = false
             
@@ -371,10 +545,6 @@ extension MultipleChoiceViewController {
                     ViewUtil.shared.circularMask(&view, radiusBy: .height)
                 }
             }
-        
-            //            cell.iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage.init(named: BankLogo.placeholder.rawValue), options: [], progress: nil, completed: { (image, error, cacheType, imageURL) in
-            //            })ll'/
-                                
             if let url = URL(string: imageName), UIApplication.shared.canOpenURL(url as URL) {
                 cell.iconImageView.setImageForURL(imageName)
             }else{
@@ -383,15 +553,19 @@ extension MultipleChoiceViewController {
                 }
             }
         }
+        
         cell.backgroundColor = .clear
         cell.lblDescription.isHidden = true
         cell.disableContainerView.isHidden = true
+        
         if (self.viewModel.coordinator.coordinatorType == .financialInstitutions){
             AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: false)
             AppConfig.shared.activeTheme.cardStyling(cell.disableContainerView, addBorder: false)
             cell.containerView.backgroundColor = .white
             cell.choiceTitleLabel.font = AppConfig.shared.activeTheme.mediumBoldFont
             self.viewFooterBottom.isHidden = false
+            self.stackRequestForNewBank.isHidden = false
+            self.btnFooterNext.isHidden = true
             
             if let institution = choice.ref as? GetFinancialInstitution{
                 if let isDisabled = institution.disabled, isDisabled == true, let msg = AppData.shared.resGetFinancialInstitutionResponse?.disableMessage {
@@ -402,16 +576,25 @@ extension MultipleChoiceViewController {
                 if let isWarning = institution.isWarning, isWarning == true, let msg = AppData.shared.resGetFinancialInstitutionResponse?.warningMessage {
                     cell.lblDescription.text = msg
                     cell.lblDescription.isHidden = false
-                  
+                    
                 }
             }
-   
-        }else{
+            
+        }else if (self.viewModel.coordinator.coordinatorType == .onDemand){
+            AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: false)
+            cell.containerView.backgroundColor = .white
+            
+            self.viewFooterBottom.isHidden = false
+            self.stackRequestForNewBank.isHidden = true
+            self.btnFooterNext.isHidden = false
+            
+        } else{
             AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: true)
             cell.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
             self.viewFooterBottom.isHidden = true
+            self.stackRequestForNewBank.isHidden = true
+            self.btnFooterNext.isHidden = true
         }
-
         return cell
     }
     
@@ -423,11 +606,29 @@ extension MultipleChoiceViewController {
     }
     
     func incomeVerification(){
+        //        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+        //        print(AppData.shared.employeePaycycle?.count)
+        //        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+        //            showTransactions()
+        //        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+        //            // show popup but for now navigate to lending page
+        //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        //            AppNav.shared.dismissModal(self){}
+        //        }else {
+        //            //             self.delegate?.refreshLendingScreen()
+        //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+        //            AppNav.shared.dismissModal(self){}
+        //        }
+        //
+        
+         showTransactions()
+        
+        
 //        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-//        print(AppData.shared.employeePaycycle?.count)
-//        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
+//        print(AppData.shared.employeePaycycle.count)
+//        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && (AppData.shared.employeePaycycle.count > 0) {
 //            showTransactions()
-//        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
+//        }else if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
 //            // show popup but for now navigate to lending page
 //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
 //            AppNav.shared.dismissModal(self){}
@@ -436,27 +637,7 @@ extension MultipleChoiceViewController {
 //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
 //            AppNav.shared.dismissModal(self){}
 //        }
-//
-        
-        
-        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-        print(AppData.shared.employeePaycycle.count)
-        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && (AppData.shared.employeePaycycle.count > 0) {
-            showTransactions()
-        }else if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
-            // show popup but for now navigate to lending page
-            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-            AppNav.shared.dismissModal(self){}
-        }else {
-            //             self.delegate?.refreshLendingScreen()
-            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-            AppNav.shared.dismissModal(self){}
-        }
-        
-        
-        
-        
-        
+          
     }
 }
 
@@ -466,7 +647,7 @@ extension MultipleChoiceViewController {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false
     }
-        
+    
     func getUsersBankConnectionStatus(){
         
         AppConfig.shared.showSpinner()
@@ -489,82 +670,82 @@ extension MultipleChoiceViewController {
              if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
              */
             
-                self.view.endEditing(true)
-                LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
-
-                self.responseGetUserActionResponse = userActionResponse
-                switch (userActionResponse.userAction){
-                    
-                case .genericInfo:
-                      AppConfig.shared.hideSpinner {
-                         self.gotoGenericInfoVC()
-                      }
-                      break
-                                
-                case .categorisationInProgress:
+            self.view.endEditing(true)
+            LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+            
+            self.responseGetUserActionResponse = userActionResponse
+            switch (userActionResponse.userAction){
+                
+            case .genericInfo:
+                AppConfig.shared.hideSpinner {
+                    self.gotoGenericInfoVC()
+                }
+                break
+                
+            case .categorisationInProgress:
+                AppConfig.shared.hideSpinner {
+                    self.gotoCategorisationInProgressVC()
+                }
+                break
+                
+            case ._none:
+                AppConfig.shared.hideSpinner {
+                    self.gotoHomeViewController()
+                }
+                break
+                
+            case .actionRequiredByBank:
+                AppConfig.shared.hideSpinner {
+                    self.gotoUserActionRequiredVC()
+                }
+                break
+                
+            case .bankNotSupported:
+                AppConfig.shared.hideSpinner {
+                    self.gotoBankNotSupportedVC()
+                }
+                break
+                
+            case .invalidCredentials:
+                //self.manageInvalidCredentialsCase()
+                self.getBankListFromServer()
+                break
+                
+            case .missingAccount:
+                
+                AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                    return CheqAPIManager.shared.putUser(authUser)
+                }.then { authUser in
+                    AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+                }.then { authUser in
+                    AuthConfig.shared.activeManager.setUser(authUser)
+                }.done { authUser in
+                    self.getUsersBankConnectionStatus()
+                }.catch { err in
                     AppConfig.shared.hideSpinner {
-                        self.gotoCategorisationInProgressVC()
-                    }
-                    break
-                    
-                case ._none:
-                    AppConfig.shared.hideSpinner {
-                       self.gotoHomeViewController()
-                    }
-                    break
-                    
-                case .actionRequiredByBank:
-                    AppConfig.shared.hideSpinner {
-                        self.gotoUserActionRequiredVC()
-                    }
-                    break
-                    
-                case .bankNotSupported:
-                    AppConfig.shared.hideSpinner {
-                        self.gotoBankNotSupportedVC()
-                    }
-                    break
-                            
-                case .invalidCredentials:
-                    //self.manageInvalidCredentialsCase()
-                    self.getBankListFromServer()
-                    break
-                    
-                case .missingAccount:
-                    
-                    AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
-                        return CheqAPIManager.shared.putUser(authUser)
-                    }.then { authUser in
-                        AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-                    }.then { authUser in
-                        AuthConfig.shared.activeManager.setUser(authUser)
-                    }.done { authUser in
-                        self.getUsersBankConnectionStatus()
-                    }.catch { err in
-                        AppConfig.shared.hideSpinner {
-                            print(err)
-                            print(err.localizedDescription)
-                            self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
-                            }
+                        print(err)
+                        print(err.localizedDescription)
+                        self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                         }
                     }
-                    break
-                    
-                case .requireMigration,.requireBankLinking, .accountReactivation, .bankLinkingUnsuccessful:
-                    
-//                UserAction: RequireMigration, RequireBankLinking, AccountReactivation
-//                LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
-//                LinkedInstitutionId is null, ask users to select institution from bank list
-                    
-                  self.getBankListFromServer()
-                  break
-             
-                case .none:
-                    
-                    AppConfig.shared.hideSpinner {
-                        LoggingUtil.shared.cPrint("none err")
-                    }
                 }
+                break
+                
+            case .requireMigration,.requireBankLinking, .accountReactivation, .bankLinkingUnsuccessful:
+                
+                //                UserAction: RequireMigration, RequireBankLinking, AccountReactivation
+                //                LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
+                //                LinkedInstitutionId is null, ask users to select institution from bank list
+                
+                self.getBankListFromServer()
+                break
+                
+            case .none:
+                
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint("none err")
+                }
+            }
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 // handle err
@@ -591,12 +772,12 @@ extension MultipleChoiceViewController {
             self.choices = choices
             var foundBankModel : ChoiceModel?
             if let linkedInstitutionId = linkedInstitutionId, linkedInstitutionId != "", choices.count > 0{
-                 for obj in choices {
-                      if let ref = obj.ref as? GetFinancialInstitution, ref._id == linkedInstitutionId {
-                           LoggingUtil.shared.cPrint("match found = \(ref)")
-                           foundBankModel = obj
-                           break
-                      }
+                for obj in choices {
+                    if let ref = obj.ref as? GetFinancialInstitution, ref._id == linkedInstitutionId {
+                        LoggingUtil.shared.cPrint("match found = \(ref)")
+                        foundBankModel = obj
+                        break
+                    }
                 }
             }
             AppConfig.shared.hideSpinner {
@@ -633,7 +814,7 @@ extension MultipleChoiceViewController {
         }.catch { [weak self] err in
             guard let self = self else { return }
             AppConfig.shared.hideSpinner {
-                 self.showError(err, completion: nil)
+                self.showError(err, completion: nil)
             }
         }
     }
@@ -641,15 +822,15 @@ extension MultipleChoiceViewController {
 
 
 extension MultipleChoiceViewController {
-   
+    
     @objc func reconnectToBank(_ notification: NSNotification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-             //self.refreshTokenAndReconnectToBankLinking()
-       })
+            //self.refreshTokenAndReconnectToBankLinking()
+        })
     }
     
     func gotoUserActionRequiredVC(){
-         //guard let nav =  self.navigationController else { return }
+        //guard let nav =  self.navigationController else { return }
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.userActionRequiredVC.rawValue, embedInNav: false) as? UserActionRequiredVC {
             vc.getUserActionResponse = self.responseGetUserActionResponse
             vc.modalPresentationStyle = .fullScreen
@@ -659,36 +840,30 @@ extension MultipleChoiceViewController {
     
     func gotoBankNotSupportedVC(){
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.BankNotSupportedVC.rawValue, embedInNav: false) as? BankNotSupportedVC {
-              vc.getUserActionResponse = self.responseGetUserActionResponse
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true)
+            vc.getUserActionResponse = self.responseGetUserActionResponse
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
     }
     
     func gotoCategorisationInProgressVC(){
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.CategorisationInProgressVC.rawValue, embedInNav: false) as? CategorisationInProgressVC {
-              vc.getUserActionResponse = self.responseGetUserActionResponse
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true)
+            vc.getUserActionResponse = self.responseGetUserActionResponse
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
     }
     
     func gotoGenericInfoVC(){
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.GenericInfoVC.rawValue, embedInNav: false) as? GenericInfoVC {
-              vc.getUserActionResponse = self.responseGetUserActionResponse
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true)
+            vc.getUserActionResponse = self.responseGetUserActionResponse
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
     }
     
     func gotoRequestForBankVC(){
-        
         AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, viewController: self)
-        
-//        if let vc = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, embedInNav: false) as? RequestForBankVC {
-//              vc.modalPresentationStyle = .fullScreen
-//              self.present(vc, animated: true)
-//        }
         
     }
 }

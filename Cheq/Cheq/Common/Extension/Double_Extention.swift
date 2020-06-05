@@ -13,7 +13,6 @@ import Foundation
 //let number = 31908551587.0
 //print(number.strWithCommas) // "31,90,85,51,587"
 
-
 extension Double {
     private static var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()

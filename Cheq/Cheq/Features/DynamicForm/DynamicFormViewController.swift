@@ -40,8 +40,7 @@ class DynamicFormViewController: UIViewController {
         
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.textColor = AppConfig.shared.activeTheme.textColor
-       
-        
+               
         self.questionTitle.text = self.viewModel.coordinator.viewTitle
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
        
@@ -52,6 +51,7 @@ class DynamicFormViewController: UIViewController {
         if let res = resGetUserActionResponse {
             self.manageCanSelectBankCase(canSelectBank : res.canSelectBank ?? false)
         }
+        
         self.addBankTitleAndLogo()
     }
     

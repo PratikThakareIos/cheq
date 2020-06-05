@@ -19,6 +19,7 @@ class CheqAPIManager {
         return Promise<Void>() { resolver in
             let req = DataHelperUtil.shared.putResetPasswordRequest(code, newPassword: newPassword)
             UsersAPI.resetPasswordWithRequestBuilder(request: req).execute( { (response, err) in
+                LoggingUtil.shared.cPrint("response = \(String(describing: response)) err = \(String(describing: err))")
                 if let error = err { resolver.reject(error); return }
                 resolver.fulfill(())
             })

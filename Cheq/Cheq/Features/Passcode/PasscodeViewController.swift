@@ -117,6 +117,7 @@ extension PasscodeViewController: UITextFieldDelegate {
             self.digit3.isEnabled = false
             self.digit4.isEnabled = false
         }
+        
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
