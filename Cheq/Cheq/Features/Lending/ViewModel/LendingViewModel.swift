@@ -148,6 +148,9 @@ extension LendingViewModel {
         let kycStatus = eligibleRequirement.kycStatus ?? .notStarted
         let kycCompleted = isKycStatusSuccess(kycStatus) || isKycStatusFailed(kycStatus)
         
+        let hasPayCycle = eligibleRequirement.hasPayCycle ?? false
+        let isReviewingPayCycle = eligibleRequirement.isReviewingPayCycle ?? false
+        
         print(lendingOverview)
        
         //Check all status
@@ -159,27 +162,24 @@ extension LendingViewModel {
         
          /// **Step-> 1** Employment details*
         if hasEmploymentDetail {
-            completed = completed + 1
+            
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
-            
-            print("\neligibleRequirement.hasPayCycle = \(eligibleRequirement.hasPayCycle)")
-            print("\neligibleRequirement.isReviewingPayCycle= \(eligibleRequirement.isReviewingPayCycle)")
-            
             completeDetailsForWork.type = .workDetails
-            if (eligibleRequirement.hasPayCycle ?? false){
+            if (hasPayCycle){
+                completed = completed + 1
                 completeDetailsForWork.completionState = .done
                 completeDetailsForWork.expanded = false
                 completeDetailsViewModels.append(completeDetailsForWork)
-            }else if (!(eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
+            }else if (!hasPayCycle && isReviewingPayCycle){
                 completeDetailsForWork.completionState = .inprogress
                 completeDetailsForWork.expanded = true
                 completeDetailsViewModels.append(completeDetailsForWork)
-            }else if ((eligibleRequirement.hasPayCycle ?? false) && eligibleRequirement.isReviewingPayCycle ?? false){
+            }else if (hasPayCycle && eligibleRequirement.isReviewingPayCycle ?? false){
                 completeDetailsForWork.completionState = .inprogress
                 completeDetailsForWork.expanded = true
                 completeDetailsViewModels.append(completeDetailsForWork)
-            }
-            else {
+            }else {
+                completed = completed + 1
                 completeDetailsForWork.completionState = .done
                 completeDetailsForWork.expanded = false
                 completeDetailsViewModels.append(completeDetailsForWork)
@@ -217,7 +217,7 @@ extension LendingViewModel {
         
         
           /// **Step-> 3** Enter your bank details*
-        if hasEmploymentDetail {
+        if hasEmploymentDetail && hasPayCycle {
             
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
             completeDetailsForBankDetails.type = .bankDetils

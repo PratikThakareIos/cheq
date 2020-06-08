@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        self.addTestAccountDetails()
+        //self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,10 +55,8 @@ class LoginVC: UIViewController {
         //self.emailTextField.text = "dean+30@cheq.com.au"
         //self.passwordTextField.text = "1A@abc123"
         
-        self.emailTextField.text = "um40@gmail.com"
+        self.emailTextField.text = "ra+332@cheq.com.au"
         self.passwordTextField.text = "Tfc@12345"
-        
-        
     }
 }
 
@@ -240,6 +238,9 @@ extension LoginVC {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+                
+                
+            
                 switch (userActionResponse.userAction){
                     
                  case .genericInfo:
@@ -577,4 +578,13 @@ extension LoginVC {
         }
     }
     
+
+    func showTransactions() {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
+        vc.isFromLendingScreen = true
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
+     }
 }

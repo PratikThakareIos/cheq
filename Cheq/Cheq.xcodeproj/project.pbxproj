@@ -808,6 +808,10 @@
 		2AAB5D322473E4D3000CC702 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */; };
 		2AAB5D332473E4D3000CC702 /* IntercomChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */; };
 		2AAB5D4124744B0D000CC702 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AAB5D4024744B0D000CC702 /* GoogleService-Info.plist */; };
+		2AADE6EA248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
+		2AADE6EB248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
+		2AADE6EC248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
+		2AADE6ED248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1948,6 +1952,7 @@
 		2AAB5D3D2473E4D3000CC702 /* Cheq-UAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheq-UAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAB5D3E2473E4D4000CC702 /* CheqUAT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CheqUAT-Info.plist"; path = "/Users/amit.rawal/Documents/Cheq_app/Cheq/CheqUAT-Info.plist"; sourceTree = "<absolute>"; };
 		2AAB5D4024744B0D000CC702 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCyclePopUpVC.swift; sourceTree = "<group>"; };
 		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
 		3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.release.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.release.xcconfig"; sourceTree = "<group>"; };
 		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2608,6 +2613,7 @@
 		2A72CF812420A9E70053C0DD /* VerificationPopup */ = {
 			isa = PBXGroup;
 			children = (
+				2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */,
 				2A72CF822420A9E70053C0DD /* VerificationPopupVC.swift */,
 				2A72CF832420A9E70053C0DD /* PopUp.storyboard */,
 			);
@@ -5588,6 +5594,7 @@
 				2A5BA4A0247E3D2D00FA816D /* UIlable_extension.swift in Sources */,
 				2AAB5B992473E4D3000CC702 /* StoryboardEnums.swift in Sources */,
 				2AAB5B9A2473E4D3000CC702 /* AuthenticatorViewModel.swift in Sources */,
+				2AADE6EB248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */,
 				2AAB5B9B2473E4D3000CC702 /* SpacerTableViewCellViewModel.swift in Sources */,
 				2AAB5B9C2473E4D3000CC702 /* TableSectionViewModel.swift in Sources */,
 				2AAB5B9D2473E4D3000CC702 /* QuestionCoordinatorProtocol.swift in Sources */,
@@ -6250,6 +6257,7 @@
 				2A44A26B2452E6ED00346FCA /* GetLendingPreviewResponse.swift in Sources */,
 				2A44A24D2452E6ED00346FCA /* APIs.swift in Sources */,
 				4F01F700237E6A5B00268423 /* DispatchUtil.swift in Sources */,
+				2AADE6ED248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */,
 				4F01F701237E6A5B00268423 /* CButtonTableViewCell.swift in Sources */,
 				4F01F702237E6A5B00268423 /* RegistrationViewController.swift in Sources */,
 				2A44A2352452E6ED00346FCA /* FirebaseAPI.swift in Sources */,
@@ -6620,6 +6628,7 @@
 				2A44A26A2452E6ED00346FCA /* GetLendingPreviewResponse.swift in Sources */,
 				2A44A24C2452E6ED00346FCA /* APIs.swift in Sources */,
 				4FBDDAD8236BC68700EDB1E9 /* DispatchUtil.swift in Sources */,
+				2AADE6EC248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */,
 				4FBDDAD9236BC68700EDB1E9 /* CButtonTableViewCell.swift in Sources */,
 				4FBDDADB236BC68700EDB1E9 /* RegistrationViewController.swift in Sources */,
 				2A44A2342452E6ED00346FCA /* FirebaseAPI.swift in Sources */,
@@ -6710,6 +6719,7 @@
 				2A5BA49F247E3D2D00FA816D /* UIlable_extension.swift in Sources */,
 				4FD7C13A232878FC00AC7A67 /* StoryboardEnums.swift in Sources */,
 				4F2E4B8E233AECD1001F1BA2 /* AuthenticatorViewModel.swift in Sources */,
+				2AADE6EA248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */,
 				4FB1CDF22356C13F00E7B224 /* SpacerTableViewCellViewModel.swift in Sources */,
 				964FA99F2352967800B07AD7 /* TableSectionViewModel.swift in Sources */,
 				4F0D71472345A8ED00AA819C /* QuestionCoordinatorProtocol.swift in Sources */,
@@ -7560,7 +7570,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.10;
+				MARKETING_VERSION = 2.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_DEV;
@@ -7615,7 +7625,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.10;
+				MARKETING_VERSION = 2.1.11;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_DEV;

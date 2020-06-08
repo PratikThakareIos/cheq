@@ -400,6 +400,7 @@ class QuestionViewController: UIViewController {
             }
             break
         case .companyName:
+           
             if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
                 let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
                 self.viewModel.save(QuestionField.employerAddress.rawValue, value: employer.address ?? "")
@@ -542,16 +543,33 @@ class QuestionViewController: UIViewController {
     }
     
     func incomeVerification(){
-        if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle.count) != nil) {
+//        if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle.count) != nil) {
+//            showTransactions()
+//        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
+//            // need to show popup but for now land on lending page
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//            AppNav.shared.dismissModal(self){}
+//        }else {
+//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+//            AppNav.shared.dismissModal(self){}
+//        }
+        
+        let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
+        
+        print("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
+
+        if !hasPayCycle && AppData.shared.employeePaycycle.count > 0 {
             showTransactions()
-        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
-            // need to show popup but for now land on lending page
+        }else if !(hasPayCycle) && AppData.shared.employeePaycycle.count == 0 {
+            // show popup but for now navigate to lending page
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }else {
+            //self.delegate?.refreshLendingScreen()
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
+
     }
 }
 

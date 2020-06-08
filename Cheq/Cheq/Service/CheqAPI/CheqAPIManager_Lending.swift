@@ -169,13 +169,11 @@ extension CheqAPIManager {
         }
     }
     
-    func postSalaryTransactions(salaryTransactionIds:[Int]?,payFrequency:PostSalaryTransactionsRequest.PayFrequency?,_noSalary:Bool?,_isInAnotherBank:Bool?)->Promise<AuthUser> {
+    func postSalaryTransactions(req : PostSalaryTransactionsRequest)->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
-                
-                let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs: salaryTransactionIds, payFrequency: payFrequency, noSalary: _noSalary, isInAnotherBank: _isInAnotherBank)
-                LendingAPI.postSalaryTransactionsWithRequestBuilder(salaryTransactions: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                LendingAPI.postSalaryTransactionsWithRequestBuilder(salaryTransactions: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)

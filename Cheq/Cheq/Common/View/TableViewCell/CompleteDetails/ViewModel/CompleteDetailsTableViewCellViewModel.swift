@@ -93,7 +93,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             case .pending:
                 return false
             case .inprogress:
-                return false
+                return true
             default:
                return false
         }
@@ -167,12 +167,25 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// headerText method that returns text corresponding to the **CompleteDetailsType** and **CompleteDetailsState**
     func headerText()-> String {
         switch type {
+        case .workDetails:
+            let header = (self.completionState == CompleteDetailsState.inprogress) ?  "Verifying employment details..." : "Employment details"
+            return header
+        
         case .bankDetils: return "Enter your bank details"
-        case .workDetails: return "Employment details"
+        
         case .workVerify: return "Verify that you've worked"
+        
         case .verifyYourDetails:
             let header = (self.completionState == CompleteDetailsState.inprogress) ?  "Verifying your identity..." : "Verify your identity"
             return header
+        }
+    }
+    
+    func headerTextColor()-> UIColor {
+        if (self.completionState == .inprogress || self.completionState == .pending){
+            return .black
+        }else{
+            return ColorUtil.hexStringToUIColor(hex: "#999999")
         }
     }
 
@@ -181,14 +194,20 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// detailsText method that returns text corresponding to the **CompleteDetailsType** and **CompleteDetailsState**
     func detailsText()-> String {
         switch type {
+       
         case .bankDetils: return "Add your bank details for a faster repayment."
-        case .workDetails: return "Complete your employment details to ensure you're eligible for same day pay."
+        
+        case .workDetails:
+            let header = (self.completionState == CompleteDetailsState.inprogress) ?  "You will be notified once we have verified your employment details. This could take up to 30 min" : "Complete your employment details to ensure you're eligible for same day pay."
+            return header
+                    
         case .workVerify:
             //Set the parameters from UserAction
             guard let caption = captionForVarifyWork else {
                 return "You don't have to do anything just turn up to work. Once you have a sufficient number of hours you will unlock up to $300 pay cycle"
             }
             return caption
+        
         case .verifyYourDetails:
             let details = (self.completionState == CompleteDetailsState.inprogress) ? "This usually takes less than 2 minutes, but can take up to 48 hours." : "Complete your details for identity verification."
             return details

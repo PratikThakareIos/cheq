@@ -18,6 +18,12 @@ enum StoryboardName: String {
     case Popup = "PopUp"
 }
 
+enum PopupStoryboardId: String {
+    case payCyclePopUpVC = "PayCyclePopUpVC"
+    case verificationPopupVC = "VerificationPopupVC"
+}
+
+
 /**
  OnboardingStoryboardId are viewController storyboard Ids inside the **onboarding** storyboard. Use these in pair with **StoryboardName.onboarding.rawValue** by **AppNav**
  */

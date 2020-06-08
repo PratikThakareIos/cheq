@@ -418,30 +418,32 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let req = DataHelperUtil.shared.putUserEmployerRequest()
-            AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+            print("putUserEmployerRequest = \(req)")
             
+            AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+   
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
                 return
-            }
-            
-            /* Mark: If uber selected (demanding company other than other) */
-            CheqAPIManager.shared.putUserEmployer(req).done { authUser in
-                AppData.shared.updateProgressAfterCompleting(.onDemand)
-                if AppData.shared.completingDetailsForLending, self.isModal {
-                    self.incomeVerification()
-                } else {
+            }else{
+                /* Mark: If uber selected (demanding company other than other) */
+                CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                     AppData.shared.updateProgressAfterCompleting(.onDemand)
-                    //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                    AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
-                    
-                }
-            }.catch { err in
-                self.showError(err) {
-                    AppNav.shared.dismissModal(self)
+                    if AppData.shared.completingDetailsForLending, self.isModal {
+                        self.incomeVerification()
+                    } else {
+                        AppData.shared.updateProgressAfterCompleting(.onDemand)
+                        //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                        AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                        
+                    }
+                }.catch { err in
+                    self.showError(err) {
+                        AppNav.shared.dismissModal(self)
+                    }
                 }
             }
-            
+     
         case .financialInstitutions:
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form
@@ -493,10 +495,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             return
         }
     }
-    
-    
-    
-    
 
 }
 
@@ -620,24 +618,23 @@ extension MultipleChoiceViewController {
         //            AppNav.shared.dismissModal(self){}
         //        }
         //
+               
+        let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
         
-         showTransactions()
+        print("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
+
+        if !hasPayCycle && AppData.shared.employeePaycycle.count > 0 {
+            showTransactions()
+        }else if !(hasPayCycle) && AppData.shared.employeePaycycle.count == 0 {
+            // show popup but for now navigate to lending page
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            AppNav.shared.dismissModal(self){}
+        }else {
+            //self.delegate?.refreshLendingScreen()
+            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+            AppNav.shared.dismissModal(self){}
+        }
         
-        
-//        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-//        print(AppData.shared.employeePaycycle.count)
-//        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && (AppData.shared.employeePaycycle.count > 0) {
-//            showTransactions()
-//        }else if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
-//            // show popup but for now navigate to lending page
-//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-//            AppNav.shared.dismissModal(self){}
-//        }else {
-//            //             self.delegate?.refreshLendingScreen()
-//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-//            AppNav.shared.dismissModal(self){}
-//        }
-          
     }
 }
 

@@ -98,7 +98,9 @@ extension LendingViewController {
                         //show popup
                         self.showNoIncomeDetectedPopUp()
                       }else{
-                        //show salary transaction selection screen
+                        //Todo : show salary transaction selection screen
+                        AppData.shared.completingDetailsForLending = true
+                        self.showTransactionSelectionScreen()
                       }
                   }
           }.catch { err in
@@ -270,6 +272,15 @@ extension LendingViewController {
             AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
         }
     }
+    
+    func showTransactionSelectionScreen() {
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SalaryPaymentViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.salaryPayments.rawValue) as! SalaryPaymentViewController
+        vc.isFromLendingScreen = true
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
+     }
     
     
 //    func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {

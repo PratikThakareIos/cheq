@@ -11,6 +11,9 @@
         <array key="SFProText-Bold.ttf">
             <string>SFProText-Bold</string>
         </array>
+        <array key="SFProText-Medium.ttf">
+            <string>SFProText-Medium</string>
+        </array>
         <array key="SFProText-Regular.ttf">
             <string>SFProText-Regular</string>
         </array>
@@ -22,7 +25,7 @@
         <!--Verification PopupVC-->
         <scene sceneID="d5W-e3-jrr">
             <objects>
-                <viewController storyboardIdentifier="VerificationPopupVC" modalPresentationStyle="overCurrentContext" id="i00-7e-GcH" customClass="VerificationPopupVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerificationPopupVC" modalPresentationStyle="overCurrentContext" id="i00-7e-GcH" customClass="VerificationPopupVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnZ-Sk-Kp8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +81,7 @@
                                                             <constraint firstItem="G8t-Xi-jSv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BFh-zg-9Uh" secondAttribute="top" constant="2" id="qL7-lq-UvT"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95F-7l-lxm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95F-7l-lxm" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="82" width="334" height="58"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="95F-7l-lxm" secondAttribute="height" multiplier="167:29" id="Cgh-Uu-Ev8"/>
@@ -159,6 +162,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt8-Xj-FIM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57" y="150"/>
+        </scene>
+        <!--PayCyclePopUpVC-->
+        <scene sceneID="1ka-Cd-LJw">
+            <objects>
+                <viewController storyboardIdentifier="PayCyclePopUpVC" title="PayCyclePopUpVC" modalPresentationStyle="overCurrentContext" id="KDX-UX-elm" customClass="PayCyclePopUpVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqa-Eo-45i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ti5-R2-FTU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Zo-I7-k8Z">
+                                        <rect key="frame" x="16" y="1388" width="382" height="230"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hA5-d9-mw9">
+                                                <rect key="frame" x="8" y="40" width="366" height="160"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-PP-DfH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="4Mt-Sz-Cao"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                                        <state key="normal" title="It's not showing my salary">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnFirstAction" destination="KDX-UX-elm" eventType="touchUpInside" id="h9R-hf-Dji"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tH-1X-xUN">
+                                                        <rect key="frame" x="0.0" y="60" width="366" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="X4W-d5-bOq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                                        <state key="normal" title="My salary is in another bank">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSecondAction" destination="KDX-UX-elm" eventType="touchUpInside" id="ad8-Sm-gUo"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-hm-bc7">
+                                                        <rect key="frame" x="0.0" y="120" width="366" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="o1V-vO-yMw"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="16"/>
+                                                        <state key="normal" title="Close">
+                                                            <color key="titleColor" red="0.17254901959999999" green="0.70588235290000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="close" destination="KDX-UX-elm" eventType="touchUpInside" id="vB9-9Q-w0t"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hA5-d9-mw9" secondAttribute="trailing" constant="8" id="1y1-fT-x9q"/>
+                                            <constraint firstItem="hA5-d9-mw9" firstAttribute="leading" secondItem="0Zo-I7-k8Z" secondAttribute="leading" constant="8" id="Ngd-2m-cjA"/>
+                                            <constraint firstAttribute="bottom" secondItem="hA5-d9-mw9" secondAttribute="bottom" constant="30" id="bM8-F3-bRU"/>
+                                            <constraint firstItem="hA5-d9-mw9" firstAttribute="top" secondItem="0Zo-I7-k8Z" secondAttribute="top" constant="40" id="cTS-oJ-1uc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0Zo-I7-k8Z" secondAttribute="bottom" constant="-800" id="7Fi-bW-M4S"/>
+                                    <constraint firstItem="0Zo-I7-k8Z" firstAttribute="leading" secondItem="ti5-R2-FTU" secondAttribute="leading" constant="16" id="D8p-Z7-x29"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Zo-I7-k8Z" secondAttribute="trailing" constant="16" id="Kj8-h4-doZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ti5-R2-FTU" firstAttribute="leading" secondItem="n7Q-Xt-sQw" secondAttribute="leading" constant="0.01" id="0tK-QB-5mn"/>
+                            <constraint firstItem="ti5-R2-FTU" firstAttribute="top" secondItem="n7Q-Xt-sQw" secondAttribute="top" constant="0.01" id="T70-S5-q1E"/>
+                            <constraint firstItem="n7Q-Xt-sQw" firstAttribute="trailing" secondItem="ti5-R2-FTU" secondAttribute="trailing" constant="0.01" id="nr9-UU-es8"/>
+                            <constraint firstItem="n7Q-Xt-sQw" firstAttribute="bottom" secondItem="ti5-R2-FTU" secondAttribute="bottom" constant="0.01" id="oy3-Os-exa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="n7Q-Xt-sQw"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnClose" destination="Ljf-hm-bc7" id="5Vi-O6-8BE"/>
+                        <outlet property="btnFirst" destination="4FX-PP-DfH" id="lbL-hJ-Pij"/>
+                        <outlet property="btnSecond" destination="9tH-1X-xUN" id="if6-Bo-d9q"/>
+                        <outlet property="popUpView" destination="0Zo-I7-k8Z" id="EWj-ni-SuH"/>
+                        <outlet property="popViewBottom" destination="7Fi-bW-M4S" id="CAd-ZB-rVC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SDJ-Xd-YA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="150"/>
         </scene>
     </scenes>
     <resources>
