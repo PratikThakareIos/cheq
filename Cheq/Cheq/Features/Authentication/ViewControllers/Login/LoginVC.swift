@@ -51,14 +51,13 @@ class LoginVC: UIViewController {
     }
     
     func addTestAccountDetails(){
-  
-        //self.emailTextField.text = "dean+30@cheq.com.au"
-        //self.passwordTextField.text = "1A@abc123"
-        
-        self.emailTextField.text = "ra+332@cheq.com.au"
-        self.passwordTextField.text = "Tfc@12345"
+        //prateek629@yopmail.com  //cashout
+        //prateek725@yopmail.com  //
+        self.emailTextField.text = "prateek629@yopmail.com"
+        self.passwordTextField.text = "Rdm@12345"
     }
 }
+
 
 // MARK: Custom Methods
 extension LoginVC {

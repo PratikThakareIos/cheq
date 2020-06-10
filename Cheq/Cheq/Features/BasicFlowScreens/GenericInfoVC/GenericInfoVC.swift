@@ -22,7 +22,6 @@ class GenericInfoVC : UIViewController {
     @IBOutlet weak var btnChatWithUs: UIButton!
     @IBOutlet weak var btnTryAgain: UIButton!
     
-
     var getUserActionResponse: GetUserActionResponse?
 
     override func viewDidLoad() {

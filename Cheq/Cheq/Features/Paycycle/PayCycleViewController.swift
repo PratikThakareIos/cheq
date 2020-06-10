@@ -32,9 +32,8 @@ class PayCycleViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = .clear
     }
-
-
 }
+
 extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,10 +48,9 @@ extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
          cell.backgroundColor = .clear
          AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: false)
          cell.content.backgroundColor = UIColor.init(hex: "FFFFFF")
-        
-        
-        // cell.contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 20, right: 0))
-        return cell
+                
+         // cell.contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 20, right: 0))
+         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

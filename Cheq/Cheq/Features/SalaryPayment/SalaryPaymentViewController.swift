@@ -14,6 +14,7 @@ public enum PopUpType: String {
 }
 
 class SalaryPaymentViewController: UIViewController {
+    
 
     @IBOutlet weak var viewMessage: UIView!
     @IBOutlet weak var tableView: UITableView!

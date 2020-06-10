@@ -33,7 +33,11 @@ class EmailVerificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //showNavBar()
+        
+        if self.viewModel.type == .email {
+            self.isShowCodeSentPopUp = false
+            self.sendVerificationCode()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,11 +102,6 @@ class EmailVerificationViewController: UIViewController {
         newPasswordField.isHidden = !viewModel.showNewPasswordField()
         newPasswordField.keyboardType = .default
         newPasswordField.reloadInputViews()
-                
-        if self.viewModel.type == .email {
-            self.isShowCodeSentPopUp = false
-            self.sendVerificationCode()
-        }
         
         if self.viewModel.type == .passwordReset {
             showNavBar()
@@ -142,18 +141,18 @@ class EmailVerificationViewController: UIViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
              AppConfig.shared.hideSpinner {
-                          self.showMessage("Password reset successfully. Please login with your new credentials") {
-                             // AppNav.shared.dismissModal(self)
-                            
-                            if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
-                                for vc in controllers {
-                                   if vc is LoginVC {
-                                     self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
-                                   }
-                                }
-                            }
-                          }
-                }
+                  self.showMessage("Password reset successfully. Please login with your new credentials") {
+                     // AppNav.shared.dismissModal(self)
+                    
+                    if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
+                        for vc in controllers {
+                           if vc is LoginVC {
+                             self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                           }
+                        }
+                    }
+                  }
+              }
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint(err)

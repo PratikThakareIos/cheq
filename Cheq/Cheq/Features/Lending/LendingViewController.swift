@@ -66,16 +66,15 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showErr(_:)), name: NSNotification.Name(UINotificationEvent.showError.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.turnOnLocation(_:)), name: NSNotification.Name(UINotificationEvent.turnOnLocation.rawValue), object: nil)
-        
-        
+                
         //selectYourSalary
-       NotificationCenter.default.addObserver(self, selector: #selector(self.selectYourSalary(_:)), name: NSNotification.Name(UINotificationEvent.selectYourSalary.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.selectYourSalary(_:)), name: NSNotification.Name(UINotificationEvent.selectYourSalary.rawValue), object: nil)
         
         //creditAssessment
-       NotificationCenter.default.addObserver(self, selector: #selector(self.creditAssessment(_:)), name: NSNotification.Name(UINotificationEvent.creditAssessment.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.creditAssessment(_:)), name: NSNotification.Name(UINotificationEvent.creditAssessment.rawValue), object: nil)
         
         //learnMore
-       NotificationCenter.default.addObserver(self, selector: #selector(self.learnMore(_:)), name: NSNotification.Name(UINotificationEvent.learnMore.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.learnMore(_:)), name: NSNotification.Name(UINotificationEvent.learnMore.rawValue), object: nil)
        
     }
 }
@@ -122,6 +121,7 @@ extension LendingViewController {
         AppNav.shared.pushToInAppWeb(url, viewController: self)
     }
     
+    
     /// handle learnMore notification event
     @objc func learnMore(_ notification: NSNotification) {
         LoggingUtil.shared.cPrint("learnMore clicked")
@@ -129,7 +129,6 @@ extension LendingViewController {
         guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
         guard let url = URL(string: link) else { return }
         AppNav.shared.pushToInAppWeb(url, viewController: self)
-    
     }
 
     
@@ -212,9 +211,11 @@ extension LendingViewController {
 //            guard let vm = self.viewModel as? LendingViewModel else { return }
 //            vm.render(lendingOverview)
 //        }
+        
     }
     
     @objc func lendingOverview(_ notification: NSNotification) {
+        
            AppConfig.shared.showSpinner()
             CheqAPIManager.shared.lendingOverview()
             .done{ overview in
@@ -232,7 +233,8 @@ extension LendingViewController {
     }
   
     private func getTransactionData() {
-         print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+        
+        print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
         if AppData.shared.employeePaycycle.count == 0 {
             //AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()

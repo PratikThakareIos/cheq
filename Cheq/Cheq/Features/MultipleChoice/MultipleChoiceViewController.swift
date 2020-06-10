@@ -366,8 +366,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         
         guard let choice =  self.selectedChoice else{
             return
-        }
-        
+        }        
         
         print("Next");
         switch self.viewModel.coordinator.coordinatorType {
@@ -501,6 +500,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
 extension MultipleChoiceViewController {
     
     func setupCellForChoiceWithCaption(_ choice: ChoiceModel, tableView: UITableView, indexPath: IndexPath)-> UITableViewCell {
+        
         let reuseId = String(describing: CMultipleChoiceWithCaptionCell.self)
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithCaptionCell
         cell.coordinatorType = self.viewModel.coordinator.coordinatorType
@@ -527,6 +527,7 @@ extension MultipleChoiceViewController {
     }
     
     func setupCellForChoiceWithIcon(_ choice: ChoiceModel, tableView: UITableView, indexPath: IndexPath)-> UITableViewCell {
+        
         let reuseId = String(describing: CMultipleChoiceWithImageCell.self)
         let cell = tableView .dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! CMultipleChoiceWithImageCell
         cell.coordinatorType = self.viewModel.coordinator.coordinatorType

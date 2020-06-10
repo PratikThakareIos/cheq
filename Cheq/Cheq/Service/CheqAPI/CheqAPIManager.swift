@@ -397,6 +397,9 @@ class CheqAPIManager {
     
     
     func postBasiqConnectionJob(req:PostConnectionJobRequest)->Promise<Bool> {
+        
+        LoggingUtil.shared.cPrint("postBasiqConnectionJob 1 Manish")
+        
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""

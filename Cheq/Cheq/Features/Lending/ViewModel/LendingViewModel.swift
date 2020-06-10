@@ -146,7 +146,7 @@ extension LendingViewModel {
         let hasEmploymentDetail = eligibleRequirement.hasEmploymentDetail ?? false
         let hasBankDetails = eligibleRequirement.hasBankAccountDetail ?? false
         let kycStatus = eligibleRequirement.kycStatus ?? .notStarted
-        let kycCompleted = isKycStatusSuccess(kycStatus) || isKycStatusFailed(kycStatus)
+        let kycCompleted = isKycStatusSuccess(kycStatus)  //|| isKycStatusFailed(kycStatus)
         
         let hasPayCycle = eligibleRequirement.hasPayCycle ?? false
         let isReviewingPayCycle = eligibleRequirement.isReviewingPayCycle ?? false
@@ -215,8 +215,9 @@ extension LendingViewModel {
 //            completeDetailsViewModels.append(verifyYouHaveWorkedDetails)
 //        }
         
+
         
-          /// **Step-> 3** Enter your bank details*
+          /// **Step-> 2** Enter your bank details*
         if hasEmploymentDetail && hasPayCycle {
             
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
@@ -234,9 +235,16 @@ extension LendingViewModel {
         }
         
         
-          /// **Step-> 4** Verify your identity*
-        if self.isKycStatusPending(kycStatus) {
+          /// **Step-> 3** Verify your identity*
+        
+        if self.isKycStatusFailed(kycStatus) {
             
+            let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
+            completeDetailsForKyc.type = .verifyYourDetails
+            completeDetailsForKyc.completionState = .failed
+            completeDetailsForKyc.expanded = true
+            completeDetailsViewModels.append(completeDetailsForKyc)
+        }else if self.isKycStatusPending(kycStatus) {
             let completeDetailsForKyc = CompleteDetailsTableViewCellViewModel()
             completeDetailsForKyc.type = .verifyYourDetails
             completeDetailsForKyc.completionState = hasBankDetails && isKycStatusPending(kycStatus) ? .pending : .inprogress
@@ -273,6 +281,11 @@ extension LendingViewModel {
 // activity list
 extension LendingViewModel {
     func activityList(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
+        
+        let kycStatus = lendingOverview.eligibleRequirement?.kycStatus ?? .notStarted
+        if self.isKycStatusFailed(kycStatus){
+            return
+        }
         
         guard let activities = lendingOverview.borrowOverview?.activities, activities.count > 0 else { return }
         

@@ -38,8 +38,7 @@ class RegistrationVC: UIViewController {
         activeTimestamp()
         hideBackTitle()
         self.setupUI()
-        self.setupHyperlables()
-        
+        self.setupHyperlables()    
         // reset this variable when we are back on sign up / login screen
         AppData.shared.migratingToNewDevice = false
     }

@@ -64,8 +64,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
                         
                      }
                     
-                   }
-        
+            }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

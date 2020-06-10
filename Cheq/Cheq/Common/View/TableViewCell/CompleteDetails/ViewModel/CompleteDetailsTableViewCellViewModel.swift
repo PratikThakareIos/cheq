@@ -28,6 +28,8 @@ enum CompleteDetailsState: String {
     case done = "Done"
     case inprogress = "Inprogress"
     
+    case failed = "Failed"  //for KYC Case
+    
     /// allowing the enum to be initialise from rawValue
     init(fromRawValue: String) {
         self = CompleteDetailsState(rawValue: fromRawValue) ?? .inactive
@@ -57,15 +59,19 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
 
     /// imageIcon method returns the image name for the icon corresponding to the "Complete Details" **CompleteDetailsType** and **CompleteDetailsState**
     func imageIcon()-> String {
-            var filename = ""
-            var suffix = ""
-            switch completionState {
+        var filename = ""
+        var suffix = ""
+        
+        
+        switch completionState {
             case .done: return "DetailsSuccess"
             case .inactive:
                 suffix = "Inactive"
             case .pending:
                 suffix = "Pending"
             case .inprogress: return "DetailsInprogress"
+            case .failed:
+               suffix =  "Failed"
         }
         
         switch type {
@@ -77,6 +83,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
                 filename = "identityVerification"
             case .workVerify:
                 filename = "workVerify"
+            
         }
         
         /// the image file name is constructed through combination of the two attributes
@@ -94,8 +101,8 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
                 return false
             case .inprogress:
                 return true
-            default:
-               return false
+            case .failed:
+                return true
         }
     }
     
@@ -130,7 +137,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             return "How does it work?"
         case .uploadRecentTimesheet:
            return "Timesheet guidlines"
-            
+  
         }
        
     }
@@ -176,13 +183,13 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
         case .workVerify: return "Verify that you've worked"
         
         case .verifyYourDetails:
-            let header = (self.completionState == CompleteDetailsState.inprogress) ?  "Verifying your identity..." : "Verify your identity"
+            let header = (self.completionState == .inprogress || self.completionState == .failed) ?  "Verifying your identity..." : "Verify your identity"
             return header
         }
     }
     
     func headerTextColor()-> UIColor {
-        if (self.completionState == .inprogress || self.completionState == .pending){
+        if (self.completionState == .inprogress || self.completionState == .pending || self.completionState == .failed){
             return .black
         }else{
             return ColorUtil.hexStringToUIColor(hex: "#999999")
@@ -210,6 +217,15 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
         
         case .verifyYourDetails:
             let details = (self.completionState == CompleteDetailsState.inprogress) ? "This usually takes less than 2 minutes, but can take up to 48 hours." : "Complete your details for identity verification."
+            switch self.completionState {
+            case .inprogress:
+                return "This usually takes less than 2 minutes, but can take up to 48 hours."
+                
+            case .failed:
+                return "We were not able to verify your identity. We only accept Drivers licenses and Passports as forms of ID. Reach out to us to resolve this and have your ID handy to speed up the process"
+            default:
+                return "Complete your details for identity verification."
+            }
             return details
         
         }

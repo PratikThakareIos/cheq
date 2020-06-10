@@ -331,6 +331,7 @@ extension AppThemeProtocol {
     // MARK: bold fonts
     var smallBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
     var defaultBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
+    var mediumBoldFont14: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 14.0) ?? UIFont.systemFont(ofSize: 14.0, weight: .bold) } }
     var mediumBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .bold) } }
     var headerBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 23.0) ?? UIFont.systemFont(ofSize: 23.0, weight: .bold) } }
     var extraLargeBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .bold) } }

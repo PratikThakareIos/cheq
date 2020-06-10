@@ -97,8 +97,7 @@ Make payments, Transfer money to/from your accounts
 //MARK: - Verification popup
 extension SetupBankVC: VerificationPopupVCDelegate{
     
-    func openPopupWith(heading:String?, message:String?, attr_message:NSMutableAttributedString, buttonTitle:String?, showSendButton:Bool?, emoji:UIImage?){
-        
+    func openPopupWith(heading:String?, message:String?, attr_message:NSMutableAttributedString, buttonTitle:String?, showSendButton:Bool?, emoji:UIImage?){        
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
         if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
@@ -118,8 +117,10 @@ extension SetupBankVC: VerificationPopupVCDelegate{
     }
     
     func tappedOnSendButton(){
+        
     }
     
     func tappedOnCloseButton(){
+        
     }
 }

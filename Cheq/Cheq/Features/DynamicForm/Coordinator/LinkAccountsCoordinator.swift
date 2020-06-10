@@ -165,6 +165,9 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
 
     
     func callAPI(url:URL, param : [String: Any], headers : [String :Any]?) -> Promise<[String: Any]> {
+         
+        LoggingUtil.shared.cPrint("callAPI 1 Manish")
+        
         return Promise<[String: Any]>() { resolver in
             Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers : headers as? HTTPHeaders)
                 .validate()
