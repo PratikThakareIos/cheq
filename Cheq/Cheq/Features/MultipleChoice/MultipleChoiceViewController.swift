@@ -282,7 +282,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                 if let isDisabled = institution.disabled, isDisabled == true{
                     
                 }else if let isWarning = institution.isWarning, isWarning == true{
-                    
+                    self.gotoBankLoginScreen(choiceModel: selectedChoice)
                 }else{
                     self.gotoBankLoginScreen(choiceModel: selectedChoice)
                 }
@@ -448,10 +448,11 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             // to render the form
             let selectedChoice = choice
             if let institution = selectedChoice.ref as? GetFinancialInstitution{
-                if let isDisabled = institution.disabled, isDisabled == true{
+               
+                if let isDisabled = institution.disabled, isDisabled == true {
                     
-                }else if let isWarning = institution.isWarning, isWarning == true{
-                    
+                }else if let isWarning = institution.isWarning, isWarning == true {
+                    self.gotoBankLoginScreen(choiceModel: selectedChoice)
                 }else{
                     self.gotoBankLoginScreen(choiceModel: selectedChoice)
                 }
@@ -575,7 +576,6 @@ extension MultipleChoiceViewController {
                 if let isWarning = institution.isWarning, isWarning == true, let msg = AppData.shared.resGetFinancialInstitutionResponse?.warningMessage {
                     cell.lblDescription.text = msg
                     cell.lblDescription.isHidden = false
-                    
                 }
             }
             

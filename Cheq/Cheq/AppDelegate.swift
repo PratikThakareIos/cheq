@@ -305,6 +305,11 @@ extension AppDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         LoggingUtil.shared.cPrint("applicationWillEnterForeground")
+        
+        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+              AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }
+        
         self.visualEffectView.removeFromSuperview()
     }
     

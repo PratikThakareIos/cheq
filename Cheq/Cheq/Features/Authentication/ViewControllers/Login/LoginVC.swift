@@ -38,7 +38,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        //self.addTestAccountDetails()
+        self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -142,6 +142,7 @@ extension LoginVC {
     }
     
     func setupUI() {
+        
         self.view.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
         self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleText.textColor = UIColor.white
@@ -238,8 +239,6 @@ extension LoginVC {
                 LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
                 
-                
-            
                 switch (userActionResponse.userAction){
                     
                  case .genericInfo:
@@ -279,6 +278,7 @@ extension LoginVC {
                 case .missingAccount:
                         LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")
                         AppConfig.shared.showSpinner()
+                        
                         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                             return CheqAPIManager.shared.putUser(authUser)
                         }.then { authUser in
@@ -440,7 +440,6 @@ extension LoginVC {
         if viewModel.isForgotPassword(strSubstring) {
         // AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
          AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
-            
 //            let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
 //            AppNav.shared.pushToViewController(emailVc, from: self)
             

@@ -83,8 +83,13 @@ extension SpendingViewController {
     
     @objc func spendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.spendingOverview()
-            .done{ overview in
+        
+  
+        AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+             AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.then { authUser in
+            CheqAPIManager.shared.spendingOverview()
+        }.done{ overview in
                 AppConfig.shared.hideSpinner {
                     print("spending view controller = \(overview)")
                     self.renderSpending(overview)
@@ -96,6 +101,21 @@ extension SpendingViewController {
                     self.showError(err) { }
             }
         }
+        
+        
+//        CheqAPIManager.shared.spendingOverview()
+//            .done{ overview in
+//                AppConfig.shared.hideSpinner {
+//                    print("spending view controller = \(overview)")
+//                    self.renderSpending(overview)
+//                    //Manish
+//                    //self.registerForNotification()
+//                }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err) { }
+//            }
+//        }
     }
     
     @objc func viewAll(_ notification: NSNotification) {

@@ -15,7 +15,6 @@ class TabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         self.view.backgroundColor = sharedAppConfig.activeTheme.backgroundColor
         self.selectedIndex = 0
@@ -24,11 +23,12 @@ class TabViewController: UITabBarController {
         })
     }
     
-
     func checkUserActions() {
-        
+
             AppConfig.shared.showSpinner()
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser->Promise<GetUserActionResponse> in
+            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+            }.then { authUser->Promise<GetUserActionResponse> in
                 //When the user opens the app the apps checks if the user has a basiq account or not
                 return CheqAPIManager.shared.getUserActions()
             }.done { userActionResponse in
@@ -85,9 +85,9 @@ class TabViewController: UITabBarController {
                            self.gotoBankListScreen(response : userActionResponse)
                            break
                         
-                    case .none:
-                          self.gotoBankListScreen(response : userActionResponse)
-                          break
+//                    case .none:
+//                          self.gotoBankListScreen(response : userActionResponse)
+//                          break
                     }
                 }
             }.catch { err in

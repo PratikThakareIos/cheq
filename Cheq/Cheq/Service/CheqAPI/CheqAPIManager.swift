@@ -10,6 +10,9 @@ import Foundation
 import PromiseKit
 import DateToolsSwift
 
+// responseValidationFailed
+// fileprivate var acceptableStatusCodes: [Int] { return Array(200..<500) }
+
 class CheqAPIManager {
     static let shared = CheqAPIManager()
     private init () {

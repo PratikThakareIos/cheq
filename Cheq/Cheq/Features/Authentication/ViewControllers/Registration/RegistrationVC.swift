@@ -119,6 +119,7 @@ extension RegistrationVC: UITextFieldDelegate {
 extension RegistrationVC {
     
     @IBAction func loginWithFacebook(_ sender: Any) {
+        
         self.view.endEditing(true)
         if AccessToken.isCurrentAccessTokenActive {
             let token = AccessToken.current?.tokenString ?? ""
@@ -142,7 +143,7 @@ extension RegistrationVC {
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
         
-      //  AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         
         //self.gotoConnectingToBankViewController()
         
@@ -305,7 +306,6 @@ extension RegistrationVC : ConnectingToBankViewControllerProtocol {
     }
 
     func showPopUpverifyingCredentialsFailed(connectionJobResponse : GetConnectionJobResponse?){
-
 
     }
 

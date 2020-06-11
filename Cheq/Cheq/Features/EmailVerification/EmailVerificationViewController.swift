@@ -143,7 +143,6 @@ class EmailVerificationViewController: UIViewController {
              AppConfig.shared.hideSpinner {
                   self.showMessage("Password reset successfully. Please login with your new credentials") {
                      // AppNav.shared.dismissModal(self)
-                    
                     if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
                         for vc in controllers {
                            if vc is LoginVC {
@@ -161,7 +160,6 @@ class EmailVerificationViewController: UIViewController {
         }
         
         
-                
 //        AppConfig.shared.showSpinner()
 //        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).then { _ in
 //            return AuthConfig.shared.activeManager.getCurrentUser()

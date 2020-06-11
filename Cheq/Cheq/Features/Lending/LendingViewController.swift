@@ -81,7 +81,6 @@ class LendingViewController: CTableViewController {
 
 // observable handlers
 extension LendingViewController {
-    
     /// handle selectYourSalary notification event
     @objc func selectYourSalary(_ notification: NSNotification) {
        LoggingUtil.shared.cPrint("selectYourSalary clicked")
@@ -216,9 +215,13 @@ extension LendingViewController {
     
     @objc func lendingOverview(_ notification: NSNotification) {
         
-           AppConfig.shared.showSpinner()
+        AppConfig.shared.showSpinner()
+        
+        AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+             AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
+        }.then { authUser in
             CheqAPIManager.shared.lendingOverview()
-            .done{ overview in
+        }.done{ overview in
                 AppConfig.shared.hideSpinner {
                     //print("\n\nLending view controller = \(overview)")
                     self.renderLending(overview)
