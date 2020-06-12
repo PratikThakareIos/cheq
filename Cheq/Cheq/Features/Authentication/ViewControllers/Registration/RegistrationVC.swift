@@ -143,6 +143,9 @@ extension RegistrationVC {
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
         
+        
+        
+        
         //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         
         //self.gotoConnectingToBankViewController()

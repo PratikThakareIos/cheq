@@ -58,12 +58,9 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
                     //Init onfido
                     self.inittiateOnFido(kycSelectDoc: kycSelectDoc)
                    }.catch { err in
-                    
-                     AppConfig.shared.hideSpinner {
-                       self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
-                        
-                     }
-                    
+                          AppConfig.shared.hideSpinner {
+                           self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
+                         }
             }
     }
     

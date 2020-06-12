@@ -8,9 +8,11 @@
 import Foundation
 import Alamofire
 
-open class FinancesAPI {
 
+
+open class FinancesAPI {
     /**
+
      - parameter accountId: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */

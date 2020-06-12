@@ -11,7 +11,7 @@ import PromiseKit
 import DateToolsSwift
 
 // responseValidationFailed
-// fileprivate var acceptableStatusCodes: [Int] { return Array(200..<500) }
+// fileprivate var acceptableStatusCodes: [Int] { return Array(200..<300) }
 
 class CheqAPIManager {
     static let shared = CheqAPIManager()
@@ -241,6 +241,7 @@ class CheqAPIManager {
         return Promise<AuthUser>() { resolver in
             let token = authUser.authToken() ?? ""
             UsersAPI.putUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                LoggingUtil.shared.cPrint(err)
                 if let error = err { resolver.reject(error); return }
                 resolver.fulfill(authUser)
             })
@@ -255,7 +256,7 @@ class CheqAPIManager {
                     let userDetails = req
                     
                     UsersAPI.putUserDetailWithRequestBuilder(request: userDetails).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
-                        
+                        LoggingUtil.shared.cPrint(err)
                         if let error = err { resolver.reject(error); return }
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
                         
@@ -282,6 +283,7 @@ class CheqAPIManager {
                 let oauthToken = authUser.authToken() ?? ""
                 UsersAPI.putKycCheckWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (resp, err) in
                     if err != nil {
+                        LoggingUtil.shared.cPrint(err)
                         resolver.reject(CheqAPIManagerError.unableToPerformKYCNow)
                         return
                     }
@@ -302,6 +304,7 @@ class CheqAPIManager {
                 oauthToken = authUser.authToken() ?? ""
                 UsersAPI.putUserOnfidoKycWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute{ (response, err) in
                     if err != nil {
+                        LoggingUtil.shared.cPrint(err)
                         // if we got an error we will do a getUserDetailsKYC incase we have existing application
                         UsersAPI.getUserOnfidoKycWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(oauthToken)").execute { (response, getKycErr) in
                             if let getKycError = getKycErr { resolver.reject(getKycError); return }

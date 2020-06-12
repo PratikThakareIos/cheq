@@ -99,9 +99,7 @@ class AppData {
     
     /// connection Job Status
     var connectionJobStatusReady = false
-    
-    
-    
+
     /// amount selected from loan setting
     var amountSelected = "0"
     
@@ -140,7 +138,6 @@ class AppData {
     /// Placeholder value for financialInstitutionsId
     let financialInstitutionsUnused = -1
     
-
     /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
     var financialInstitutions: [GetFinancialInstitution] = []
     

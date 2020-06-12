@@ -2285,10 +2285,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-N3-R4H">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="923"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="897"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-ET-j3O">
-                                                        <rect key="frame" x="30" y="50" width="69" height="30"/>
+                                                        <rect key="frame" x="30" y="30" width="69" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="FZL-o6-UaD"/>
                                                         </constraints>
@@ -2297,7 +2297,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aRx-vd-Bcc">
-                                                        <rect key="frame" x="30" y="100" width="354" height="60"/>
+                                                        <rect key="frame" x="30" y="80" width="354" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="60"/>
@@ -2321,7 +2321,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E7n-zF-0Sz">
-                                                        <rect key="frame" x="30" y="196" width="354" height="458.5"/>
+                                                        <rect key="frame" x="30" y="170" width="354" height="458.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="377"/>
@@ -2406,7 +2406,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-nZ-m9u">
-                                                        <rect key="frame" x="30" y="670.5" width="354" height="232.5"/>
+                                                        <rect key="frame" x="30" y="644.5" width="354" height="232.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-ZD-NI3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="176"/>
@@ -2436,11 +2436,11 @@
                                                 <constraints>
                                                     <constraint firstItem="E7n-zF-0Sz" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="1Za-58-qf0"/>
                                                     <constraint firstAttribute="trailing" secondItem="aRx-vd-Bcc" secondAttribute="trailing" constant="30" id="4K9-Zc-arf"/>
-                                                    <constraint firstItem="MEA-ET-j3O" firstAttribute="top" secondItem="Tlg-N3-R4H" secondAttribute="top" constant="50" id="5Qj-dm-krj"/>
+                                                    <constraint firstItem="MEA-ET-j3O" firstAttribute="top" secondItem="Tlg-N3-R4H" secondAttribute="top" constant="30" id="5Qj-dm-krj"/>
                                                     <constraint firstItem="sqK-nZ-m9u" firstAttribute="top" secondItem="E7n-zF-0Sz" secondAttribute="bottom" constant="16" id="RAD-xg-HSP"/>
                                                     <constraint firstItem="aRx-vd-Bcc" firstAttribute="top" secondItem="MEA-ET-j3O" secondAttribute="bottom" constant="20" id="V6Y-v6-vP3"/>
                                                     <constraint firstItem="sqK-nZ-m9u" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="VUj-s8-oI1"/>
-                                                    <constraint firstItem="E7n-zF-0Sz" firstAttribute="top" secondItem="aRx-vd-Bcc" secondAttribute="bottom" constant="36" id="Yjt-4e-e6P"/>
+                                                    <constraint firstItem="E7n-zF-0Sz" firstAttribute="top" secondItem="aRx-vd-Bcc" secondAttribute="bottom" constant="30" id="Yjt-4e-e6P"/>
                                                     <constraint firstItem="aRx-vd-Bcc" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="g5O-ZQ-dv7"/>
                                                     <constraint firstItem="MEA-ET-j3O" firstAttribute="leading" secondItem="Tlg-N3-R4H" secondAttribute="leading" constant="30" id="qXV-66-VJ5"/>
                                                     <constraint firstAttribute="trailing" secondItem="sqK-nZ-m9u" secondAttribute="trailing" constant="30" id="s1q-MK-6Fi"/>

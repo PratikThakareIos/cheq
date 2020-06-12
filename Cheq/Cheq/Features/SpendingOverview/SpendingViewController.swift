@@ -83,8 +83,6 @@ extension SpendingViewController {
     
     @objc func spendingOverview(_ notification: NSNotification) {
         AppConfig.shared.showSpinner()
-        
-  
         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
              AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
         }.then { authUser in

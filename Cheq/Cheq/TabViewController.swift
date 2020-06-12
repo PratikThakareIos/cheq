@@ -9,19 +9,59 @@
 import UIKit
 import PromiseKit
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController, UITabBarControllerDelegate {
 
     let theme = sharedAppConfig.activeTheme
+    var previousSelectedIndex = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delegate = self
+        
         // Do any additional setup after loading the view.
         self.view.backgroundColor = sharedAppConfig.activeTheme.backgroundColor
         self.selectedIndex = 0
+        previousSelectedIndex = self.selectedIndex
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
               self.checkUserActions()
         })
     }
+    
+    // UITabBarDelegate
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+       // print("Selected item \(String(describing: tabBar.selectedItem))")
+    }
+
+    // UITabBarControllerDelegate
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+                
+        let tabBarIndex = tabBarController.selectedIndex
+        if previousSelectedIndex == tabBarIndex {
+            //when tap on the same Tab then refresh the API on selected controller
+            print("previousSelectedIndex \(previousSelectedIndex)")
+            
+            switch tabBarIndex {
+                 case 0:
+                         //Spending
+                         NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
+                
+                 case 1:
+                        //Lending
+                        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                       
+                 case 2:
+                        //Account
+                        NotificationUtil.shared.notify(UINotificationEvent.accountInfo.rawValue, key: "", value: "")
+                
+                 default:
+                         break
+            }
+        }
+        previousSelectedIndex = tabBarIndex
+    }
+
     
     func checkUserActions() {
 
@@ -51,7 +91,7 @@ class TabViewController: UITabBarController {
                     switch (userActionResponse.userAction) {
                                                 
                     case ._none:
-                            break
+                           break
                         
                     case .genericInfo:
                             self.gotoBankListScreen(response : userActionResponse)
@@ -85,9 +125,9 @@ class TabViewController: UITabBarController {
                            self.gotoBankListScreen(response : userActionResponse)
                            break
                         
-//                    case .none:
-//                          self.gotoBankListScreen(response : userActionResponse)
-//                          break
+                    case .none:
+
+                          break
                     }
                 }
             }.catch { err in

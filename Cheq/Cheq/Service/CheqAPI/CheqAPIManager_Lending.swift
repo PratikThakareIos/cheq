@@ -126,11 +126,9 @@ extension CheqAPIManager {
                 let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
                 print(putBankAccountRequest)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
-                    
+                    LoggingUtil.shared.cPrint(response)
                     if let error = err {
-                        LoggingUtil.shared.cPrint(error.localizedDescription)
-                         LoggingUtil.shared.cPrint(error)
-                        
+                        LoggingUtil.shared.cPrint(error)
                         resolver.reject(error)
                         //resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
                         return

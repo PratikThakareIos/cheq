@@ -41,7 +41,8 @@ def shared_pods
 	pod 'PromisesObjC'
 	pod 'FMDB'
 	pod 'REValidation'
-	# pod 'MIHCrypto'
+	
+  # pod 'MIHCrypto'
 	pod 'Obfuscator'
 	pod 'SQLCipher'
 	pod 'sqlite3','~> 3.27.2'

@@ -65,8 +65,12 @@ class AccountViewController: CTableViewController {
 //MARK: notification handlers
 extension AccountViewController {
     @objc func accountInfo(_ notification: NSNotification) {
-        let vm = self.viewModel as! AccountViewModel
-        vm.render()
+//        let vm = self.viewModel as! AccountViewModel
+//        vm.render()
+        
+        if let vm = self.viewModel as? AccountViewModel {
+             vm.render()
+        }
     }
 }
 

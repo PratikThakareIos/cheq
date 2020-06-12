@@ -951,15 +951,17 @@ extension QuestionViewController{
     }
     
     func setupResidentialAddressLookup() {
-        let qvm = QuestionViewModel()
-        qvm.loadSaved()
-        let address = qvm.fieldValue(.residentialAddress)
-        searchTextField.text = address
-        
         
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
+        
+        
+        let qvm = QuestionViewModel()
+        qvm.loadSaved()
+        let address = qvm.fieldValue(.residentialAddress)
+        searchTextField.text = address
+
         
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
@@ -979,13 +981,13 @@ extension QuestionViewController{
         }
     }
 }
+
 extension QuestionViewController {
     func isIncomeDetected() -> Bool {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return false
     }
 }
-
 
 //MARK: - Verification popup
 extension QuestionViewController: VerificationPopupVCDelegate{
