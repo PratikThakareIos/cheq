@@ -53,6 +53,7 @@ class LoginVC: UIViewController {
     func addTestAccountDetails(){
         //prateek629@yopmail.com  //cashout
         //prateek725@yopmail.com  //
+        //"dean+1005@cheq.com.au"  //bsb
         self.emailTextField.text = "prateek629@yopmail.com"
         self.passwordTextField.text = "Rdm@12345"
     }

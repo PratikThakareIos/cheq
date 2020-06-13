@@ -11,6 +11,8 @@ import PromiseKit
 import PullToRefreshKit
 
 class LendingViewController: CTableViewController {
+    
+    var lendingOverviewResponse : GetLendingOverviewResponse?
 
     override func registerCells() {
         let cellModels: [TableViewCellViewModelProtocol] = [DeclineDetailViewModel(), SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
@@ -187,6 +189,8 @@ extension LendingViewController {
     
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
         LoggingUtil.shared.cPrint(lendingOverview)
+        self.lendingOverviewResponse = lendingOverview
+        
         guard let viewModel = self.viewModel as? LendingViewModel else { return }
         let isDeclineExist  = viewModel.declineExist(lendingOverview)
         if isDeclineExist {
@@ -269,12 +273,22 @@ extension LendingViewController {
     
         if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
             // go to preview loan
-            let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
-            guard borrowAmount > 0.0 else {
-                showMessage("Please select loan amount", completion: nil)
-                return
+            
+            if let lendingOverview =  self.lendingOverviewResponse, let borrowOverview = lendingOverview.borrowOverview  {
+                  let availableCashoutAmount = borrowOverview.availableCashoutAmount ?? 0
+                
+                if (availableCashoutAmount > 0){
+                    let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
+                    if borrowAmount > 0.0 {
+                        AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
+                    }else{
+                        showMessage("Please select loan amount", completion: nil)
+                    }
+
+                }else{
+                    self.popup_NotEnoughCashToWithdraw()
+                }
             }
-            AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
         }
     }
     
@@ -314,7 +328,7 @@ extension LendingViewController {
 
 //MARK: - Verification popup
 extension LendingViewController: VerificationPopupVCDelegate{
- 
+    
     func showNoIncomeDetectedPopUp(){
         self.openPopupWith(heading: "No income detected for selection",
                            message: "Our bot can't detect an incoming transaction for you to select. Please make sure you're getting paid in the bank account that you connected",
@@ -322,8 +336,16 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            showSendButton: false,
                            emoji: UIImage(named: "sucsess"))
      }
+ 
+    func popup_NotEnoughCashToWithdraw(){
+        self.openPopupWith(heading: "Not enough cash to withdraw",
+                           message: "You don’t have an available balance to be able to cash out at the moment",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "transferFailed"))
+     }
     
-    //
+    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -334,7 +356,7 @@ extension LendingViewController: VerificationPopupVCDelegate{
             popupVC.buttonTitle = buttonTitle ?? ""
             popupVC.showSendButton = showSendButton ?? false
             popupVC.emojiImage = emoji ?? UIImage()
-            self.present(popupVC, animated: false, completion: nil)
+            self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
     
@@ -346,4 +368,5 @@ extension LendingViewController: VerificationPopupVCDelegate{
       
     }
 }
+
 

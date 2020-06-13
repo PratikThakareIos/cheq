@@ -101,7 +101,10 @@ class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         setupUI()
         self.setupLookupIfNeeded()
-        getTransactionData()
+        
+        if (self.viewModel.coordinator.type == .companyName || self.viewModel.coordinator.type == .companyAddress){
+            self.getTransactionData()
+        }
     }
     
     private func getTransactionData() {
@@ -247,7 +250,7 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func populatePopup(){
+    func populatePopup_BankDetailsAlreadyInUse(){
 //        let transactionModal: CustomSubViewPopup = UIView.fromNib()
 //        transactionModal.viewModel.data = CustomPopupModel(description: "We've detected these bank details have been used by another user. Please ensure these details belong to you", imageName: "accountEmoji", modalHeight: 400, headerTitle: "Bank Details Already in use")
 //        transactionModal.setupUI()
@@ -303,6 +306,9 @@ class QuestionViewController: UIViewController {
             showError(error, completion: nil)
             return
         }
+        
+       
+        
         
         switch self.viewModel.coordinator.type {
         case .legalName:
@@ -499,15 +505,16 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.bankIsJoint.rawValue, value: String(switchWithLabel.switchValue()))
             
             AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.updateDirectDebitBankAccount().done { authUser in
+            CheqAPIManager.shared.updateDirectDebitBankAccount().done { res in
                 AppConfig.shared.hideSpinner {
                     NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                     AppNav.shared.dismissModal(self)
+                    
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     print(err)
-                    self.populatePopup()
+                    self.populatePopup_BankDetailsAlreadyInUse()
                     
 //                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
 //                    transactionModal.viewModel.data = CustomPopupModel(description: "We have detected these bank details have been used by another user. Please ensure these detailsbelong to you", imageName: "", modalHeight: 300, headerTitle: "Bank details already in use")
@@ -517,7 +524,7 @@ class QuestionViewController: UIViewController {
                     // self.showError(err, completion: nil)
                 }
             }
-        // AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
+        
             
         case .verifyName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -543,16 +550,6 @@ class QuestionViewController: UIViewController {
     }
     
     func incomeVerification(){
-//        if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle.count) != nil) {
-//            showTransactions()
-//        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle.count == 0 {
-//            // need to show popup but for now land on lending page
-//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-//            AppNav.shared.dismissModal(self){}
-//        }else {
-//            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-//            AppNav.shared.dismissModal(self){}
-//        }
         
         let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
         
@@ -1000,7 +997,7 @@ extension QuestionViewController: VerificationPopupVCDelegate{
                            emoji: UIImage(named: "transferFailed"))
      }
     
-    //
+    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)

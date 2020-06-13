@@ -969,6 +969,32 @@
                                             <outlet property="delegate" destination="Ewf-b5-eHF" id="1V5-0q-KZe"/>
                                         </connections>
                                     </tableView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-2p-yIB">
+                                        <rect key="frame" x="0.0" y="754" width="374" height="72"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpP-iu-In6" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                <rect key="frame" x="2" y="8" width="370" height="56"/>
+                                                <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="Dur-Tt-bQp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Next">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnFooterNextAction:" destination="Ewf-b5-eHF" eventType="touchUpInside" id="SJF-M8-Est"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="RpP-iu-In6" firstAttribute="leading" secondItem="CHK-2p-yIB" secondAttribute="leading" constant="2" id="53A-BI-cU2"/>
+                                            <constraint firstAttribute="bottom" secondItem="RpP-iu-In6" secondAttribute="bottom" constant="8" id="KUW-zn-Lp1"/>
+                                            <constraint firstItem="RpP-iu-In6" firstAttribute="top" secondItem="CHK-2p-yIB" secondAttribute="top" constant="8" id="OPd-Gh-sJg"/>
+                                            <constraint firstAttribute="trailing" secondItem="RpP-iu-In6" secondAttribute="trailing" constant="2" id="ZgN-Kt-AIt"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -984,12 +1010,14 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnFooterNext" destination="VJS-eX-TB1" id="O3Q-Tn-P8d"/>
+                        <outlet property="btnFooterNextOuterTable" destination="RpP-iu-In6" id="Mk6-IR-XJz"/>
                         <outlet property="lblOtherInfo" destination="1ww-QH-Nhz" id="6d7-6S-Rch"/>
                         <outlet property="questionTitle" destination="c4L-A2-6Vb" id="obI-Qp-5pw"/>
                         <outlet property="sectionTitle" destination="hZh-sk-dVw" id="9z8-Ns-Z6v"/>
                         <outlet property="stackRequestForNewBank" destination="vtx-Ce-xFO" id="kfk-oB-VME"/>
                         <outlet property="tableView" destination="b9m-8q-r6V" id="ryZ-MY-uYh"/>
                         <outlet property="viewFooterBottom" destination="Ly2-ax-VSZ" id="Ot9-iw-8eI"/>
+                        <outlet property="viewFooterOuterTable" destination="CHK-2p-yIB" id="QXv-kd-fs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL7-Cq-v4s" userLabel="First Responder" sceneMemberID="firstResponder"/>

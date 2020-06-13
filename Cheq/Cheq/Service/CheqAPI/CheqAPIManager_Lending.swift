@@ -8,9 +8,9 @@
 
 import UIKit
 import PromiseKit
+import Alamofire
 
 //manish
-
 //resolveNameConflict()
 
 
@@ -114,6 +114,7 @@ extension CheqAPIManager {
 //        }
 //    }
     
+    
     func updateDirectDebitBankAccount()->Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
@@ -127,16 +128,117 @@ extension CheqAPIManager {
                 print(putBankAccountRequest)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                     LoggingUtil.shared.cPrint(response)
+                    LoggingUtil.shared.cPrint(err)
+
                     if let error = err {
-                        LoggingUtil.shared.cPrint(error)
+
                         resolver.reject(error)
-                        //resolver.reject(CheqAPIManagerError_Lending.unableToPutBankDetails);
-                        return
+
+                        if let code = error.code() {
+                               if code == 400 {
+                                   resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                                   return
+                               } else {
+                                   resolver.reject(error)
+                                   return
+                               }
+                        }
                     }
                     resolver.fulfill(authUser)
                 }
             }.catch { err in
                 resolver.reject(err)
+            }
+        }
+    }
+    
+    
+//
+//    func updateDirectDebitBankAccount()->Promise<Any> {
+//        return Promise<Any>() { resolver in
+//
+//            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//
+//                let qvm = QuestionViewModel()
+//                qvm.loadSaved()
+//                let account = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname))"
+//                print(account)
+//                let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
+//                let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
+//                LoggingUtil.shared.cPrint(putBankAccountRequest)
+//
+//
+//                let path = "/v1/Lending/bankaccount"
+//                let URLString = SwaggerClientAPI.basePath + path
+//                let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: putBankAccountRequest)
+//                //let url = URLComponents(string: URLString)
+//
+//
+//                let token = authUser.authToken() ?? ""
+//                let headers = [ "Content-Type" : "application/json", HttpHeaderKeyword.authorization.rawValue: "\(HttpHeaderKeyword.bearer.rawValue) \(token)"]
+//
+//                Alamofire.request(URLString, method: .put, parameters: parameters,encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
+//                     LoggingUtil.shared.cPrint(response)
+//
+//
+//                        switch response.result {
+//                                case .success(let json):
+//                                    LoggingUtil.shared.cPrint(json)
+//                                    resolver.fulfill(json)
+//
+//                                case .failure(let error):
+//                                    LoggingUtil.shared.cPrint(error)
+//                                    resolver.reject(error)
+//                        }
+//                   }
+//
+////
+////                Alamofire.request(URLString, method: .put, parameters: parameters, headers : headers)
+////                    .validate().responseJSON { response in
+////
+////                                switch response.result {
+////                                case .success(let json):
+////
+////                                    LoggingUtil.shared.cPrint(json)
+////
+//////                                    guard let dictionary = json as? [String: Any] else {
+//////                                        //resolver.reject(ActivityError.malformed("not a dictionary"))
+//////                                        return
+//////                                    }
+////                                    resolver.fulfill(json)
+////                                case .failure(let error):
+////                                    LoggingUtil.shared.cPrint(error)
+////                                    resolver.reject(error)
+////                                }
+////                  }
+//
+//            }.catch { err in
+//                resolver.reject(err)
+//            }
+//        }
+//    }
+    
+    func callAPI(url:URL, param : [String: Any], headers : [String :Any]?) -> Promise<[String: Any]> {
+
+        return Promise<[String: Any]>() { resolver in
+            Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers : headers as? HTTPHeaders)
+                .validate()
+                .responseJSON { response in
+    
+                    switch response.result {
+                    case .success(let json):
+                        
+                        LoggingUtil.shared.cPrint(json)
+                          
+                        guard let dictionary = json as? [String: Any] else {
+                            //resolver.reject(ActivityError.malformed("not a dictionary"))
+                            return
+                        }
+                        resolver.fulfill(dictionary)
+                    case .failure(let error):
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(error)
+                    }
             }
         }
     }

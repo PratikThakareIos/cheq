@@ -18,6 +18,9 @@ class MultipleChoiceViewController: UIViewController {
     @IBOutlet weak var stackRequestForNewBank: UIStackView!
     @IBOutlet weak var btnFooterNext: CNButton!
     
+    @IBOutlet weak var viewFooterOuterTable: UIView!
+    @IBOutlet weak var btnFooterNextOuterTable: CNButton!
+    
     
     var viewModel = MultipleChoiceViewModel()
     var choices:[ChoiceModel] = []
@@ -160,9 +163,22 @@ class MultipleChoiceViewController: UIViewController {
                     self.setTitleAndSubTitle(isShow:  true)
                    
                     if self.showNextButton{
-                        self.viewFooterBottom.isHidden = false
-                        self.stackRequestForNewBank.isHidden = true
-                        self.btnFooterNext.isHidden = false
+                        
+                        if self.viewModel.coordinator.coordinatorType == .employmentType {
+                            //hide next button in table bottom and show Next button fixed in bottom
+                            self.viewFooterBottom.isHidden = true
+                            self.stackRequestForNewBank.isHidden = true
+                            self.btnFooterNext.isHidden = true
+                                                        
+                            self.viewFooterOuterTable.isHidden = false
+                            self.btnFooterNextOuterTable.isHidden = false
+                            
+                        }else{
+                            self.viewFooterBottom.isHidden = false
+                            self.stackRequestForNewBank.isHidden = true
+                            self.btnFooterNext.isHidden = false
+                        }
+                    
                     }
 
                 }
