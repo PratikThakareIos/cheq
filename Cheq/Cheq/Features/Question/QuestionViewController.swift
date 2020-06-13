@@ -174,7 +174,15 @@ class QuestionViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         //self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
-        self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+        
+        let coordinatorType = self.viewModel.coordinator.type
+        if  AppData.shared.completingDetailsForLending && (coordinatorType == .legalName ||  coordinatorType == .verifyHomeAddress ||  coordinatorType == .dateOfBirth ) {
+            self.sectionTitle.text = Section.verifyMyIdentity.rawValue
+        }else{
+            self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+        }
+        
+        
         self.questionDescription.isHidden = true
         self.nextButton.createShadowLayer()
         self.hideBackTitle()
@@ -306,9 +314,7 @@ class QuestionViewController: UIViewController {
             showError(error, completion: nil)
             return
         }
-        
-       
-        
+    
         
         switch self.viewModel.coordinator.type {
         case .legalName:
@@ -317,16 +323,15 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             
             //This will hit only in the lending flow
-            guard AppData.shared.completingDetailsForLending == false else {
+            if AppData.shared.completingDetailsForLending {
                 // AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
                 AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
                 return
+            }else{
+                AppData.shared.updateProgressAfterCompleting(.legalName)
+                AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             }
-            
-            AppData.shared.updateProgressAfterCompleting(.legalName)
-            //AppNav.shared.pushToMultipleChoice(.ageRange, viewController: self)
-            AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
-            
+    
         //manish
         case .dateOfBirth:
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")

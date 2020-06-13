@@ -33,6 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
         
+        // setup singleton and SDKs
+        self.registerNotificationObservers()
+        self.setupServices()
+        
+        // keep a reference for re-use
+        AppData.shared.application = application
+        
         //Moneysoft  Configure method goes here
         let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
                                                                     apiReferrer: API_REFERRER,
@@ -40,10 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
                                                                     isDebug: true,
                                                                     isBeta: true, serviceProvider: .EWISE);
         MoneysoftApi.configure(config);
-        
-        // keep a reference for re-use
-        AppData.shared.application = application
-        
+
         let _ = VDotManager.shared //manish
         
         // to setup VDot again
@@ -74,13 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-        // setup singleton and SDKs
-        self.registerNotificationObservers()
-        self.setupServices()
-        
-        
+
 //        //Manish
-        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
        
         #if DEMO
             self.setupSpendingViewController()

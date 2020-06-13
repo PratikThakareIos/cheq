@@ -146,8 +146,8 @@ extension LendingViewController {
             // banking details flow
             AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
         case .verifyYourDetails:
-            AppData.shared.completingDetailsForLending = true
             // verification flow
+            AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
@@ -273,10 +273,9 @@ extension LendingViewController {
     
         if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
             // go to preview loan
-            
             if let lendingOverview =  self.lendingOverviewResponse, let borrowOverview = lendingOverview.borrowOverview  {
                   let availableCashoutAmount = borrowOverview.availableCashoutAmount ?? 0
-                
+
                 if (availableCashoutAmount > 0){
                     let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
                     if borrowAmount > 0.0 {
@@ -284,7 +283,6 @@ extension LendingViewController {
                     }else{
                         showMessage("Please select loan amount", completion: nil)
                     }
-
                 }else{
                     self.popup_NotEnoughCashToWithdraw()
                 }

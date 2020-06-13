@@ -112,9 +112,8 @@ class DynamicFormViewController: UIViewController {
     
     func addTestAccountDetails(){
             guard let selectedFinancialInstitution = AppData.shared.selectedFinancialInstitution else { LoggingUtil.shared.cPrint(ValidationError.unableToMapSelectedBank); return }
-    
-            for view in self.stackView.subviews {
-                
+            
+          for view in self.stackView.subviews {
                 if let textField = view as? CTextField {
                     let key = textField.placeholder ?? ""
 

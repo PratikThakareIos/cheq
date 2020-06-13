@@ -79,6 +79,11 @@ extension SpendingViewController {
         LoggingUtil.shared.cPrint("renderSpending")
         guard let vm = self.viewModel as? SpendingViewModel else { return }
         vm.render(spendingOverview)
+        
+        //Manish
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+              self.registerForNotification()
+        })
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
@@ -91,8 +96,6 @@ extension SpendingViewController {
                 AppConfig.shared.hideSpinner {
                     print("spending view controller = \(overview)")
                     self.renderSpending(overview)
-                    //Manish
-                    //self.registerForNotification()
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -106,8 +109,6 @@ extension SpendingViewController {
 //                AppConfig.shared.hideSpinner {
 //                    print("spending view controller = \(overview)")
 //                    self.renderSpending(overview)
-//                    //Manish
-//                    //self.registerForNotification()
 //                }
 //            }.catch { err in
 //                AppConfig.shared.hideSpinner {
@@ -131,5 +132,11 @@ extension SpendingViewController {
     func registerForNotification(){
         guard let application = AppData.shared.application else { return }
         AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+    }
+    
+    func enableNotification(_ completion: @escaping ()-> Void) {
+        LoggingUtil.shared.cPrint("enableNotification")
+        AppDelegate.setupRemoteNotifications()
+        completion()
     }
 }

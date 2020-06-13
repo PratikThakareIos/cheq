@@ -305,7 +305,5 @@ extension FirebaseAuthManager {
         }
         
         application.registerForRemoteNotifications()
-
-        
     }
 }

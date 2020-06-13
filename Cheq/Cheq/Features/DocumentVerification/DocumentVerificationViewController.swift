@@ -14,6 +14,7 @@ class DocumentVerificationViewController: UIViewController {
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
     let cellSpacingHeight: CGFloat = 25
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableview.separatorStyle = .none
@@ -32,10 +33,13 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell", for: indexPath) as! DocumentVerifyTableViewCell
-         cell.selectionStyle = .none
-        cell.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-      
-        cell.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        
+        cell.selectionStyle = .none
+        cell.backgroundColor = .clear //AppConfig.shared.activeTheme.backgroundColor
+        cell.content.backgroundColor = .white
+        //cell.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: true)
+        
         cell.DocumnerVerifyLabel.text =  indexPath.row == 0 ? "Passport":"Driver license"
         return cell
     }

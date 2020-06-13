@@ -53,9 +53,10 @@ class LoginVC: UIViewController {
     func addTestAccountDetails(){
         //prateek629@yopmail.com  //cashout
         //prateek725@yopmail.com  //
-        //"dean+1005@cheq.com.au"  //bsb
-        self.emailTextField.text = "prateek629@yopmail.com"
-        self.passwordTextField.text = "Rdm@12345"
+        //"dean+1005@cheq.com.au" // "1A@abc123" //bsb
+        
+        self.emailTextField.text = "prateek765@yopmail.com"
+        self.passwordTextField.text =  "Rdm@12345"
     }
 }
 
@@ -253,12 +254,17 @@ extension LoginVC {
                         break
                     
                 case ._none:
-                        LoggingUtil.shared.cPrint("go to home screen")
-                        // Load to dashboard
-                        AppData.shared.isOnboarding = false
-                        AppData.shared.migratingToNewDevice = false
-                        AppData.shared.completingDetailsForLending = false
-                        self.navigateToDashboard()
+                    
+                        AppData.shared.completingDetailsForLending = true
+                        AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+                     
+                
+//                        LoggingUtil.shared.cPrint("go to home screen")
+//                        // Load to dashboard
+//                        AppData.shared.isOnboarding = false
+//                        AppData.shared.migratingToNewDevice = false
+//                        AppData.shared.completingDetailsForLending = false
+//                        self.navigateToDashboard()
                         break
                     
                 case .actionRequiredByBank:

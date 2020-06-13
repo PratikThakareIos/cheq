@@ -177,6 +177,9 @@ class MultipleChoiceViewController: UIViewController {
                             self.viewFooterBottom.isHidden = false
                             self.stackRequestForNewBank.isHidden = true
                             self.btnFooterNext.isHidden = false
+                                                        
+                            self.viewFooterOuterTable.isHidden = true
+                            self.btnFooterNextOuterTable.isHidden = true
                         }
                     
                     }
