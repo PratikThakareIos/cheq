@@ -46,7 +46,7 @@ enum CheqAPIManagerError: Error, Equatable {
     case onboardingRequiredFromGetUserDetails
     case errorFromGetUserDetails
     case errorFromGetUserAction
-    
+    case errorInvalidBSB
 }
 
 enum CheqAPIManagerError_Budget: Error {
@@ -258,7 +258,8 @@ extension CheqAPIManagerError: LocalizedError {
             return NSLocalizedString("Error from get user details", comment: "")
         case .errorFromGetUserAction:
             return NSLocalizedString("Error from get User Action", comment: "")
-            
+        case .errorInvalidBSB:
+            return NSLocalizedString("Invalid bsb and account number", comment: "")
         }
     }
 }

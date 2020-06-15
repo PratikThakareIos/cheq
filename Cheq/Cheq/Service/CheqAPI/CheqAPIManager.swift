@@ -510,4 +510,29 @@ class CheqAPIManager {
             }
         }
     }
+    
+    
+     //   LoggingUtil.shared.cPrint(fileContent)
+        
+    //       let req = PostLogRequest(deviceId: UUID().uuidString, type: .error, message: "Failed with error code :\(String(describing: error?.code)), with description: \(String(describing: error?.description)), and with additional reasons: \( String(describing: error?.messages))", event: event, bankName: bankName)
+        
+        func postLogs(requestParam:[PostLogRequest]?) ->Promise<AuthUser> {
+            return Promise<AuthUser>() { resolver in
+                       AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                           let token = authUser.authToken() ?? ""
+                         
+                        LoggingAPI.postLogsWithRequestBuilder(requests: requestParam).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                               
+                               if let error = err {
+                                   LoggingUtil.shared.cPrint(error)
+                                   resolver.reject(AuthManagerError.unknown);
+                                   return
+                               }
+                               resolver.fulfill(authUser)
+                           }
+                       }.catch { err in
+                           resolver.reject(err)
+                       }
+                }
+        }
 }

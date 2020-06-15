@@ -46,6 +46,7 @@ class DataHelperUtil {
      - Returns: **PUT** request payload to put user defailts for Onfido KYC validation
      */
     func retrieveUserDetailsKycReq()-> PutUserOnfidoKycRequest {
+       
         let qVm = QuestionViewModel()
         /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
         qVm.loadSaved()
@@ -56,7 +57,14 @@ class DataHelperUtil {
         let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
         
         /// Notice that **fieldValue** is used to access the saved answers instead of directly accessing the answer map inside **QuestionViewModel**
-        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname), lastName: qVm.fieldValue(.lastname), dateOfBirth: dob, unitApartmentNumber: "", residentialAddress: qVm.fieldValue(.residentialAddress), suburb: qVm.fieldValue(.residentialSuburb), postCode: qVm.fieldValue(.residentialPostcode), state: "")
+        let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname),
+                                          lastName: qVm.fieldValue(.lastname),
+                                          dateOfBirth: dob,
+                                          unitApartmentNumber: "",
+                                          residentialAddress: qVm.fieldValue(.residentialAddress),
+                                          suburb: qVm.fieldValue(.residentialSuburb),
+                                          postCode: qVm.fieldValue(.residentialPostcode),
+                                          state: "")
         
         return req
     }

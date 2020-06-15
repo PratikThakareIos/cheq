@@ -29,6 +29,8 @@ class RegistrationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppData.shared.resetAllData()
+        
         self.setupDelegate()
         hideNavBar()
     }

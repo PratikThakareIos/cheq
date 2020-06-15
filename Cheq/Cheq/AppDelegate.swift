@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         AppData.shared.resetAllData()
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
@@ -444,6 +445,7 @@ extension AppDelegate {
 
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
+        AppData.shared.resetAllData()
         AppData.shared.completingDetailsForLending = false
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
@@ -454,8 +456,7 @@ extension AppDelegate {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
         } else {
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplash.rawValue, embedInNav: true)
-        }
-        
+        }        
         self.window?.makeKeyAndVisible()
     }
 }

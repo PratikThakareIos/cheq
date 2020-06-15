@@ -36,7 +36,7 @@ class AppNav {
     /// This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the **minsToShowPasscode** threshold. If user has been idle for more than **minsToShowPasscode** threshold, then **presentPasscodeViewController** is called.
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
         if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
-             //manish
+            //manish
             // presentPasscodeViewController()
         }
     }
@@ -64,7 +64,7 @@ class AppNav {
         let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
-
+    
     /**
      pushToQuestionForm abstract the logics to initialise a new **QuestionViewController** based on **QuestionType** and performs a navigation push from given ViewController
      - parameter questionType: QuestionType determines how **QuestionViewController** renders the to the corresponding screen.
@@ -83,10 +83,10 @@ class AppNav {
     }
     
     /**
-    pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
-    - parameter multipleChoiceType: MultipleChoiceQuestionType determines how **MultipleChoiceViewController** renders the to the corresponding screen.
-    - parameter viewController: the current source viewController for the navigation action
-    */
+     pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
+     - parameter multipleChoiceType: MultipleChoiceQuestionType determines how **MultipleChoiceViewController** renders the to the corresponding screen.
+     - parameter viewController: the current source viewController for the navigation action
+     */
     func pushToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -106,7 +106,7 @@ class AppNav {
     }
     
     /**
-    Dynamic form view UI is driven by **GetFinancialInstitution**. Push to dynamic form view for linking bank account using MoneySoft SDK
+     Dynamic form view UI is driven by **GetFinancialInstitution**. Push to dynamic form view for linking bank account using MoneySoft SDK
      - parameter institutionModel: GetFinancialInstitution is retrieved from selecting the destination bank/institution
      - parameter viewController: The source viewController for current navigation action
      */
@@ -230,7 +230,7 @@ class AppNav {
         transition.type = CATransitionType.fade;
         transition.subtype = CATransitionSubtype.fromTop;
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-
+        
         nav.view.layer.add(transition, forKey: "kCATransition")
         nav.pushViewController(vc, animated: false)
     }
@@ -280,11 +280,11 @@ extension AppNav {
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-//        if storyboardId == CommonStoryboardId.connecting.rawValue {
-//            let nav = UINavigationController(rootViewController: vc)
-//            nav.modalPresentationStyle = .fullScreen
-//            vc.present(nav, animated: true)
-//        }
+        //        if storyboardId == CommonStoryboardId.connecting.rawValue {
+        //            let nav = UINavigationController(rootViewController: vc)
+        //            nav.modalPresentationStyle = .fullScreen
+        //            vc.present(nav, animated: true)
+        //        }
         if embedInNav {
             let nav = UINavigationController(rootViewController: vc)
             return nav
@@ -306,7 +306,7 @@ extension AppNav {
         nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true)
     }
-
+    
     /**
      present **decline** viewController is actually initialising **IntroductionViewController** based on provided **declineReason** enum. **presentDeclineViewController** is actually a special case for presenting **IntroductionViewController**
      - parameter declineReason: **DeclineDetail.DeclineReason** the enum mapping to the corresponding decline message.
@@ -373,10 +373,10 @@ extension AppNav {
     }
     
     /**
-    Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
+     Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
      - parameter multipleChoiceType: MultipleChoiceQuestionType which drives the appearance of the **MultipleChoiceViewController**
      - parameter viewController: source viewController of the current navigation action
-    */
+     */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         print(multipleChoiceType)
         
@@ -417,6 +417,7 @@ extension AppNav {
      - parameter viewController: source viewController of the navigation action
      */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
+        
         /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
         let sdkToken = AppData.shared.loadOnfidoSDKToken()
         guard sdkToken.isEmpty == false else {
@@ -426,9 +427,24 @@ extension AppNav {
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
+        
         /// customising the appearance of Onfido SDK viewControllers to fit activeTheme
-        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
+//        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor,
+//                                    primaryTitleColor: AppConfig.shared.activeTheme.altTextColor,
+//                                    primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
+//                                    secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
+//                                    fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName,
+//                                    fontBold: AppConfig.shared.activeTheme.mediumFont.fontName,
+//                                    supportDarkMode: false )
+        
+        let appearance = Appearance(
+         primaryColor:  AppConfig.shared.activeTheme.primaryColor,
+         primaryTitleColor: AppConfig.shared.activeTheme.altTextColor,
+         primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
+         supportDarkMode : true)
+        
         let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
+        
         let config = try! OnfidoConfig.builder()
             .withAppearance(appearance)
             .withSDKToken(AppData.shared.onfidoSdkToken)
@@ -447,14 +463,14 @@ extension AppNav {
                         LoggingUtil.shared.cPrint("kyc checked")
                         guard AppData.shared.completingDetailsForLending else { return }
                         viewController.dismiss(animated: true, completion:nil)
-                        }.catch{ err in
-                            let error = err
-                            guard AppData.shared.completingDetailsForLending else {
-                                return
-                            }
-                            viewController.dismiss(animated: true, completion: {
-                                NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
-                            })
+                    }.catch{ err in
+                        let error = err
+                        guard AppData.shared.completingDetailsForLending else {
+                            return
+                        }
+                        viewController.dismiss(animated: true, completion: {
+                            NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
+                        })
                     }
                     
                 /// error case handling
@@ -477,6 +493,7 @@ extension AppNav {
         /// presenting onfido viewController to start the flow
         do {
             let onfidoRun = try onfidoFlow.run()
+            onfidoRun.modalPresentationStyle = .fullScreen
             viewController.present(onfidoRun, animated: true) { }
         } catch let err {
             LoggingUtil.shared.cPrint(err)

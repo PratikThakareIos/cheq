@@ -1428,7 +1428,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wge-Gw-EdP">
-                                        <rect key="frame" x="20" y="80" width="111" height="22"/>
+                                        <rect key="frame" x="20" y="16" width="111" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="111" id="3DE-AF-3wv"/>
                                             <constraint firstAttribute="height" constant="22" id="LbK-Fv-wvD"/>
@@ -1438,7 +1438,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a document for verification" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6b-zk-Zf4">
-                                        <rect key="frame" x="20" y="117" width="335" height="66"/>
+                                        <rect key="frame" x="20" y="53" width="335" height="66"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="WDK-ik-gF0"/>
                                         </constraints>
@@ -1447,7 +1447,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-mt-k1G">
-                                        <rect key="frame" x="20" y="368" width="335" height="291"/>
+                                        <rect key="frame" x="20" y="304" width="335" height="355"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DocumentCell" rowHeight="70" id="hkJ-cK-NYH" customClass="DocumentVerifyTableViewCell" customModule="CheqDemo" customModuleProvider="target">
@@ -1520,7 +1520,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="hcg-mt-k1G" secondAttribute="bottom" constant="8" id="FoA-sj-LFI"/>
                                     <constraint firstItem="m6b-zk-Zf4" firstAttribute="top" secondItem="wge-Gw-EdP" secondAttribute="bottom" constant="15" id="Ndr-PR-Miq"/>
-                                    <constraint firstItem="wge-Gw-EdP" firstAttribute="top" secondItem="bhS-sc-0ii" secondAttribute="top" constant="80" id="OXe-ue-H3p"/>
+                                    <constraint firstItem="wge-Gw-EdP" firstAttribute="top" secondItem="bhS-sc-0ii" secondAttribute="top" constant="16" id="OXe-ue-H3p"/>
                                     <constraint firstAttribute="trailing" secondItem="hcg-mt-k1G" secondAttribute="trailing" constant="20" id="kct-HY-0oh"/>
                                     <constraint firstItem="m6b-zk-Zf4" firstAttribute="leading" secondItem="bhS-sc-0ii" secondAttribute="leading" constant="20" id="q1z-UH-xcV"/>
                                     <constraint firstItem="hcg-mt-k1G" firstAttribute="leading" secondItem="bhS-sc-0ii" secondAttribute="leading" constant="20" id="uDZ-kE-5Vb"/>
@@ -1529,7 +1529,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzj-Gg-6o7" userLabel="GuidlinesView">
-                                <rect key="frame" x="20" y="199" width="335" height="149"/>
+                                <rect key="frame" x="20" y="135" width="335" height="149"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheq only accepts the following documents" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-ZQ-rLQ">
                                         <rect key="frame" x="0.0" y="8" width="335" height="17"/>
@@ -1614,14 +1614,15 @@
                             <constraint firstItem="Pzj-Gg-6o7" firstAttribute="top" secondItem="m6b-zk-Zf4" secondAttribute="bottom" constant="16" id="2ub-8L-7Fn"/>
                             <constraint firstItem="09V-VT-zxu" firstAttribute="trailing" secondItem="Pzj-Gg-6o7" secondAttribute="trailing" constant="20" id="F3M-wq-Hea"/>
                             <constraint firstItem="hcg-mt-k1G" firstAttribute="top" secondItem="Pzj-Gg-6o7" secondAttribute="bottom" constant="20" id="LUD-50-0rg"/>
+                            <constraint firstItem="bhS-sc-0ii" firstAttribute="top" secondItem="09V-VT-zxu" secondAttribute="top" id="Q3E-3V-ymg"/>
                             <constraint firstItem="bhS-sc-0ii" firstAttribute="leading" secondItem="09V-VT-zxu" secondAttribute="leading" id="aIx-vy-dc5"/>
                             <constraint firstItem="bhS-sc-0ii" firstAttribute="bottom" secondItem="09V-VT-zxu" secondAttribute="bottom" id="bJv-au-7CO"/>
                             <constraint firstItem="Pzj-Gg-6o7" firstAttribute="leading" secondItem="09V-VT-zxu" secondAttribute="leading" constant="20" id="bWf-6n-iCi"/>
-                            <constraint firstItem="bhS-sc-0ii" firstAttribute="top" secondItem="6Yk-NJ-ekT" secondAttribute="top" id="dU1-vu-hdE"/>
                             <constraint firstItem="bhS-sc-0ii" firstAttribute="trailing" secondItem="09V-VT-zxu" secondAttribute="trailing" id="oIg-t0-Hzh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="09V-VT-zxu"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="guidLineView" destination="Pzj-Gg-6o7" id="2M7-PP-s56"/>
                         <outlet property="mainContainer" destination="bhS-sc-0ii" id="704-qc-L4h"/>
@@ -1630,7 +1631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZv-wO-aXr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="-173"/>
+            <point key="canvasLocation" x="3082" y="-191"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="rrZ-A5-wgQ">
@@ -1737,7 +1738,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="verify identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-dp-gfk">
-                                <rect key="frame" x="26" y="48" width="88" height="17"/>
+                                <rect key="frame" x="26" y="48" width="72" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="BZc-mP-kzG"/>
                                     <constraint firstAttribute="height" constant="17" id="bpD-bR-Mzq"/>
@@ -1747,7 +1748,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-D4-7yM">
-                                <rect key="frame" x="26" y="166" width="340" height="501"/>
+                                <rect key="frame" x="26" y="166" width="324" height="501"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -2365,20 +2366,20 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="344"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="2Wy-5y-tQx" secondAttribute="height" multiplier="167:28" id="PjI-bJ-xxB"/>
+                                                                            <constraint firstAttribute="width" secondItem="Z1H-Ek-01Y" secondAttribute="height" multiplier="167:28" id="mGG-rk-Rxo"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="CheqDemo" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="73" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="Z1H-Ek-01Y" secondAttribute="height" multiplier="167:28" id="mGG-rk-Rxo"/>
+                                                                            <constraint firstAttribute="width" secondItem="2Wy-5y-tQx" secondAttribute="height" multiplier="167:28" id="PjI-bJ-xxB"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>

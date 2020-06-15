@@ -166,8 +166,9 @@ extension ConnectingToBankViewController {
         self.viewModel.jobId = jobId
         self.viewModel.checkJobStatus { result in
               // dismiss "connecting to bank" viewcontroller when we are ready to move to the next screen
-              switch result {
               
+             
+            switch result {
               case .success(true):
                 self.dismiss(animated: true) {
                     AppData.shared.isOnboarding = false
@@ -179,6 +180,7 @@ extension ConnectingToBankViewController {
                 
                 LoggingUtil.shared.cPrint("print failed message")
                 LoggingUtil.shared.cPrint(">> failed == \(self.viewModel.connectionJobResponse)")
+                LoggingUtil.shared.addLogsToServer()
                 
                 self.dismiss(animated: true) {
                     self.delegate!.dismissViewController(connectionJobResponse: self.viewModel.connectionJobResponse)
@@ -187,6 +189,7 @@ extension ConnectingToBankViewController {
                 break
 
               case .failure(let err):
+                 LoggingUtil.shared.addLogsToServer()
                   self.dismiss(animated: true) {
                       self.showError(err, completion: nil)
                   }

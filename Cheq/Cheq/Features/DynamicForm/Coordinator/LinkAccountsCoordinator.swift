@@ -97,17 +97,36 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
         
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<[String:Any]> in
+                
+                let strMessage = "bankLogin - start calling basiq createconnection - \(Date().timeStamp())"
+                let strEvent = "CreateBasiqConnection"
+                let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                LoggingUtil.shared.addLog(log: log)
+                
+
                 activeAuthUser = authUser
                 let url = URL.init(string: self.appTokenResponse?.apiConnectionUrl ?? "")
                 let headers = [ "Content-Type" : "application/json", "Authorization": "Bearer \(self.appTokenResponse?.accessToken ?? "")"]
                 return self.callAPI(url: url!, param: dict, headers: headers)
             }.then{ dict -> Promise<BasiqConnectionResponse> in
+                
                 let basiqConnectionResponse = try! DictionaryDecoder().decode(BasiqConnectionResponse.self, from: dict)
                 return Promise<BasiqConnectionResponse>() { res in
                      res.fulfill(basiqConnectionResponse)
                 }
+                
+                
             }.then{ basiqConnectionResponse -> Promise<Bool> in
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
+                
+                
+                 let strMessage = "bankLogin - End calling basiq createconnection - jobId \( basiqConnectionResponse.id) - \(Date().timeStamp())"
+                 let strEvent = "CreateBasiqConnection"
+                 let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                 LoggingUtil.shared.addLog(log: log)
+                
+                
+                
                 self.jobId = basiqConnectionResponse.id ?? ""
                 AppData.shared.bankJobId = basiqConnectionResponse.id ?? ""                
                 let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "" )
@@ -146,9 +165,27 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     func checkConnectionJobStatus() -> Promise<GetConnectionJobResponse> {
         return Promise<GetConnectionJobResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<GetConnectionJobResponse> in
+                
+                let strMessage = "bankLogin - start calling BasiqConnectionJobStatus - jobId \(self.jobId) - \(Date().timeStamp())"
+                let strEvent = "BasiqConnectionJobStatus"
+                let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                LoggingUtil.shared.addLog(log: log)
+
+                
+                
+                
                 return  CheqAPIManager.shared.getBasiqConnectionJobStatus(jobId: self.jobId)
             }.done { getConnectionJobResponse  in
                 LoggingUtil.shared.cPrint("getConnectionJobResponse = \(getConnectionJobResponse)")
+                
+               
+                let strMessage = "bankLogin - End calling BasiqConnectionJobStatus - jobId \(self.jobId) - step \(getConnectionJobResponse.step) stepStatus \(getConnectionJobResponse.stepStatus) \(Date().timeStamp())"
+                let strEvent = "BasiqConnectionJobStatus"
+                let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                LoggingUtil.shared.addLog(log: log)
+
+                
+                
                 resolver.fulfill(getConnectionJobResponse)
             }.catch { err in
                 resolver.reject(err)
@@ -350,3 +387,5 @@ extension LinkAccountsCoordinator {
         }
     }
 }
+
+

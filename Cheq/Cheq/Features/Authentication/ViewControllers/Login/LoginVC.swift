@@ -27,6 +27,7 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppData.shared.resetAllData()
         hideNavBar()
         setupDelegate()
         setupUI()
@@ -38,7 +39,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        self.addTestAccountDetails()
+        //self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -221,9 +222,10 @@ extension LoginVC {
         // whenever we successfully login, we post notification token
         viewModel.login(email, password: password).then { authUser->Promise<GetUserActionResponse> in
             //When the user opens the app the apps checks if the user has a basiq account or not
+            self.addLog_callingGetUserActions()
             return CheqAPIManager.shared.getUserActions()
         }.done { userActionResponse in
-            
+            self.addLog_EndCallingGetUserActions(strRes: "\(String(describing: userActionResponse.userAction))")
             /*
             The backend will return one of these condition
 
@@ -240,7 +242,7 @@ extension LoginVC {
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
-                
+
                 switch (userActionResponse.userAction){
                     
                  case .genericInfo:
@@ -255,16 +257,22 @@ extension LoginVC {
                     
                 case ._none:
                     
-                        AppData.shared.completingDetailsForLending = true
-                        AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
-                     
+//                      AppData.shared.completingDetailsForLending = true
+//                      AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
                 
-//                        LoggingUtil.shared.cPrint("go to home screen")
-//                        // Load to dashboard
-//                        AppData.shared.isOnboarding = false
-//                        AppData.shared.migratingToNewDevice = false
-//                        AppData.shared.completingDetailsForLending = false
-//                        self.navigateToDashboard()
+//                      AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
+                
+//                      AppData.shared.completingDetailsForLending = true
+//                      AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+                                                
+                    
+                        LoggingUtil.shared.cPrint("go to home screen")
+                        // Load to dashboard
+                        AppData.shared.isOnboarding = false
+                        AppData.shared.migratingToNewDevice = false
+                        AppData.shared.completingDetailsForLending = false
+                        self.navigateToDashboard()
+                          
                         break
                     
                 case .actionRequiredByBank:
@@ -592,4 +600,24 @@ extension LoginVC {
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
      }
+
+}
+
+
+extension LoginVC {
+    
+    func addLog_callingGetUserActions(){
+        let strMessage = "On Login - start calling  getUserActions - \(Date().timeStamp())"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+    
+    func addLog_EndCallingGetUserActions(strRes : String){
+        let strMessage = "On Login - End calling getUserActions - \(Date().timeStamp()) - respense \(strRes)"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+
 }

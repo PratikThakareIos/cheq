@@ -597,3 +597,23 @@ class DynamicFormViewController: UIViewController {
 
  
  
+ extension DynamicFormViewController {
+    
+//        guard let institution = AppData.shared.selectedFinancialInstitution else { return }
+//        self.lblBankName.text = institution.shortName ?? "N/A"
+     
+     func addLog_callingGetUserActions(){
+         let strMessage = "bankLogin - start calling  getUserActions - \(Date().timeStamp())"
+         let strEvent = "getUserActions"
+         let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+         LoggingUtil.shared.addLog(log: log)
+     }
+     
+     func addLog_EndCallingGetUserActions(strRes : String){
+         let strMessage = "bankLogin - End calling getUserActions - \(Date().timeStamp()) - respense \(strRes)"
+         let strEvent = "getUserActions"
+         let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+         LoggingUtil.shared.addLog(log: log)
+     }
+
+ }

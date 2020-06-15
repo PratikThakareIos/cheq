@@ -134,6 +134,8 @@ class QuestionViewController: UIViewController {
             setupEmployerNameLookup()
         } else if viewModel.coordinator.type == .companyAddress {
             setupEmployerAddressLookup()
+        }else if viewModel.coordinator.type == .verifyHomeAddress {
+            setupHomeAddressLookup()
         }
     }
     
@@ -209,7 +211,8 @@ class QuestionViewController: UIViewController {
         case .verifyName:
             self.hideImageContainer()
         case .verifyHomeAddress:
-            self.hideImageContainer()
+            self.setupHomeAddressLookup()
+            //self.hideImageContainer()
         case .legalName:
             self.legalNameAutoFill()
         default: break
@@ -222,10 +225,10 @@ class QuestionViewController: UIViewController {
 
         }
         
-        //manish to hide nav bar
-        if AppData.shared.isOnboarding {
-            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
-        }
+//        //manish to hide nav bar
+//        if AppData.shared.isOnboarding {
+//            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+//        }
         
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
@@ -239,23 +242,23 @@ class QuestionViewController: UIViewController {
     }
     
     func prePopulateEntry() {
-        viewModel.loadSaved()
-        switch viewModel.coordinator.type {
-        case .companyAddress:
-            self.searchTextField.text = ""
-            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
-                let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
-                let employerName = employer.name ?? ""
-                let employerAddress = employer.address ?? ""
-                if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
-                    self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-                    AppData.shared.employerAddressList = AppData.shared.employerList
-                    AppData.shared.selectedEmployerAddress = AppData.shared.selectedEmployer
-                }
-            }
-            self.searchTextField.keyboardType = .default
-        default: break
-        }
+//        viewModel.loadSaved()
+//        switch viewModel.coordinator.type {
+//        case .companyAddress:
+//            self.searchTextField.text = ""
+//            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
+//                let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
+//                let employerName = employer.name ?? ""
+//                let employerAddress = employer.address ?? ""
+//                if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
+//                    self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
+//                    AppData.shared.employerAddressList = AppData.shared.employerList
+//                    AppData.shared.selectedEmployerAddress = AppData.shared.selectedEmployer
+//                }
+//            }
+//            self.searchTextField.keyboardType = .default
+//        default: break
+//        }
     }
     
     func populatePopup_BankDetailsAlreadyInUse(){
@@ -271,6 +274,15 @@ class QuestionViewController: UIViewController {
                            showSendButton: false,
                            emoji: UIImage(named: "transferFailed"))
     }
+    
+        func populatePopup_InvalidBSB(){
+            self.openPopupWith(heading: "Something went wrong",
+                               message: "Invalid bsb and account number",
+                               buttonTitle: "",
+                               showSendButton: false,
+                               emoji: UIImage(named: "transferFailed"))
+        }
+    
     
     //    func prePopulateEntry() {
     //        viewModel.loadSaved()
@@ -309,13 +321,11 @@ class QuestionViewController: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
-
         if let error = self.validateInput() {
             showError(error, completion: nil)
             return
         }
-    
-        
+            
         switch self.viewModel.coordinator.type {
         case .legalName:
             
@@ -324,7 +334,7 @@ class QuestionViewController: UIViewController {
             
             //This will hit only in the lending flow
             if AppData.shared.completingDetailsForLending {
-                // AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+                 //AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
                 AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
                 return
             }else{
@@ -344,6 +354,7 @@ class QuestionViewController: UIViewController {
                 // AppNav.shared.pushToMultipleChoice(.kycSelectDoc, viewController:self)
                 return
             }
+            
             
             AppData.shared.updateProgressAfterCompleting(.dateOfBirth)
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
@@ -519,8 +530,12 @@ class QuestionViewController: UIViewController {
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     print(err)
-                    self.populatePopup_BankDetailsAlreadyInUse()
+                  
+                    //self.populatePopup_BankDetailsAlreadyInUse()
                     
+                    self.populatePopup_InvalidBSB()
+                    
+                            
 //                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
 //                    transactionModal.viewModel.data = CustomPopupModel(description: "We have detected these bank details have been used by another user. Please ensure these detailsbelong to you", imageName: "", modalHeight: 300, headerTitle: "Bank details already in use")
 //                    transactionModal.setupUI()
@@ -537,13 +552,31 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.verifyHomeAddress, viewController: self)
         
         case .verifyHomeAddress:
+//            self.viewModel.save(QuestionField.unitNumber.rawValue, value: textField1.text ?? "")
+//            self.viewModel.save(QuestionField.homeAddress.rawValue, value: textField2.text ?? "")
+//            guard AppData.shared.completingDetailsForLending == false else {
+//                AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
+//                return
+//            }
+//            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            
+            
+        
             self.viewModel.save(QuestionField.unitNumber.rawValue, value: textField1.text ?? "")
-            self.viewModel.save(QuestionField.homeAddress.rawValue, value: textField2.text ?? "")
+            self.viewModel.save(QuestionField.homeAddress.rawValue, value: searchTextField.text ?? "")
             guard AppData.shared.completingDetailsForLending == false else {
                 AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
                 return
             }
+            
+//            if AppData.shared.residentialAddressList.count > 0 {
+//                let address = AppData.shared.residentialAddressList[AppData.shared.selectedResidentialAddress]
+//                self.saveResidentialAddress(address)
+//            }
+           
+            
             AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+
         }
     }
     
@@ -586,7 +619,7 @@ extension QuestionViewController {
         self.viewModel.save(QuestionField.residentialCountry.rawValue, value: address.country ?? "")
     }
     
-    func saveEmployerAddress(_ address: GetEmployerPlaceResponse) {
+    func saveEmployerAddress(_ address: GetAddressResponse) {
         self.viewModel.save(QuestionField.employerAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.employerPostcode.rawValue, value: address.postCode ?? "")
         let latitude = address.latitude ?? 0.0
@@ -920,6 +953,39 @@ extension QuestionViewController{
         //        }
     }
     
+//    func setupEmployerAddressLookup() {
+//
+//        self.hideNormalTextFields()
+//        self.hideCheckbox()
+//        self.hideImageContainer()
+//
+//        searchTextField.placeholder = self.viewModel.placeHolder(0)
+//        searchTextField.isUserInteractionEnabled = true
+//
+//        searchTextField.itemSelectionHandler = { item, itemPosition in
+//            AppData.shared.selectedEmployerAddress = itemPosition
+//            let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
+//            VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
+//                , longitude: employerAddress.longitude ?? 0.0)
+//            self.searchTextField.text = item[itemPosition].title
+//            //self.searchTextField.resignFirstResponder()
+//        }
+//
+//        searchTextField.userStoppedTypingHandler = {
+//            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
+//                CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
+//                    // keep the address list
+//                    AppData.shared.employerAddressList = addressList
+//                    self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
+//                }.catch {err in
+//                    LoggingUtil.shared.cPrint(err)
+//                }
+//            }
+//        }
+//
+//    }
+    
+    
     func setupEmployerAddressLookup() {
         
         self.hideNormalTextFields()
@@ -931,16 +997,19 @@ extension QuestionViewController{
         
         searchTextField.itemSelectionHandler = { item, itemPosition in
             AppData.shared.selectedEmployerAddress = itemPosition
-            let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
-            VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
-                , longitude: employerAddress.longitude ?? 0.0)
+            
+            if (AppData.shared.employerAddressList.count > AppData.shared.selectedEmployerAddress) {
+                let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
+                VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
+                    , longitude: employerAddress.longitude ?? 0.0)
+            }
+                        
             self.searchTextField.text = item[itemPosition].title
-            //self.searchTextField.resignFirstResponder()
         }
         
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
-                CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
+                CheqAPIManager.shared.residentialAddressLookup(query).done { addressList in
                     // keep the address list
                     AppData.shared.employerAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
@@ -949,7 +1018,6 @@ extension QuestionViewController{
                 }
             }
         }
-        
     }
     
     func setupResidentialAddressLookup() {
@@ -957,16 +1025,15 @@ extension QuestionViewController{
         self.hideNormalTextFields()
         self.hideCheckbox()
         self.hideImageContainer()
-        
-        
+                
         let qvm = QuestionViewModel()
         qvm.loadSaved()
         let address = qvm.fieldValue(.residentialAddress)
         searchTextField.text = address
-
         
         searchTextField.placeholder = self.viewModel.placeHolder(0)
         searchTextField.isUserInteractionEnabled = true
+        
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
             AppData.shared.selectedResidentialAddress = itemPosition
             self.searchTextField.text = item[itemPosition].title
@@ -982,6 +1049,46 @@ extension QuestionViewController{
             }
         }
     }
+    
+    func setupHomeAddressLookup() {
+        
+        self.hideNormalTextFields()
+        self.hideCheckbox()
+        self.hideImageContainer()
+        
+        self.textField1.isHidden = false
+        self.searchTextField.isHidden = false
+       
+//        let qvm = QuestionViewModel()
+//        qvm.loadSaved()
+//        let unit = qvm.fieldValue(.unitNumber)
+//        let address = qvm.fieldValue(.homeAddress)
+//        textField1.text = unit
+//        searchTextField.text = address
+        
+        
+        self.textField1.placeholder = self.viewModel.placeHolder(0)
+        searchTextField.placeholder = self.viewModel.placeHolder(1)
+        searchTextField.isUserInteractionEnabled = true
+        
+        searchTextField.itemSelectionHandler  = { item, itemPosition  in
+            AppData.shared.selectedResidentialAddress = itemPosition
+            self.searchTextField.text = item[itemPosition].title
+        }
+        searchTextField.userStoppedTypingHandler = {
+            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
+                CheqAPIManager.shared.residentialAddressLookup(query).done { addressList in
+                    AppData.shared.residentialAddressList = addressList
+                    self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
+                }.catch {err in
+                    LoggingUtil.shared.cPrint(err)
+                }
+            }
+        }
+    }
+    
+    
+    
 }
 
 extension QuestionViewController {

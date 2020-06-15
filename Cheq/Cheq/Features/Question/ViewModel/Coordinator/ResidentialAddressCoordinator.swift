@@ -15,7 +15,7 @@ class ResidentialAddressCoordinator: QuestionCoordinatorProtocol {
     var question: String = "What is your residential address?"
     
     func placeHolder(_ index: Int)->String {
-        return "123 Example Street"
+        return "11 York Street, Sydney NSW 2000"
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {

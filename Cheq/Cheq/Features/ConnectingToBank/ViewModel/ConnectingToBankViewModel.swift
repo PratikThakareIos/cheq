@@ -23,9 +23,27 @@ class ConnectingToBankViewModel {
     func checkConnectionJobStatus() -> Promise<GetConnectionJobResponse> {
         return Promise<GetConnectionJobResponse>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<GetConnectionJobResponse> in
+                
+                
+                let strMessage = "bankLogin - start calling BasiqConnectionJobStatus - jobId \(self.jobId) - \(Date().timeStamp())"
+                let strEvent = "BasiqConnectionJobStatus"
+                let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                LoggingUtil.shared.addLog(log: log)
+                
+                
                 return  CheqAPIManager.shared.getBasiqConnectionJobStatus(jobId: self.jobId)
             }.done { getConnectionJobResponse  in
                 LoggingUtil.shared.cPrint("getConnectionJobResponse = \(getConnectionJobResponse)")
+                
+                
+                let strMessage = "bankLogin - End calling BasiqConnectionJobStatus - jobId \(self.jobId) - step \(getConnectionJobResponse.step) stepStatus \(getConnectionJobResponse.stepStatus) \(Date().timeStamp())"
+                let strEvent = "BasiqConnectionJobStatus"
+                let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+                LoggingUtil.shared.addLog(log: log)
+                
+                
+                
+                
                 resolver.fulfill(getConnectionJobResponse)
             }.catch { err in
                 resolver.reject(err)

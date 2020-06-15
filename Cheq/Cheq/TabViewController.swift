@@ -70,6 +70,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
                 AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.then { authUser->Promise<GetUserActionResponse> in
                 //When the user opens the app the apps checks if the user has a basiq account or not
+                self.addLog_callingGetUserActions()
                 return CheqAPIManager.shared.getUserActions()
             }.done { userActionResponse in
                 /*
@@ -84,6 +85,9 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
                  
                 if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
                 */
+                
+                self.addLog_EndCallingGetUserActions(strRes: "\(String(describing: userActionResponse.userAction))")
+                LoggingUtil.shared.addLogsToServer()
                 
                 AppConfig.shared.hideSpinner {
                     LoggingUtil.shared.cPrint("\n>> TabViewController = \(userActionResponse)")
@@ -146,4 +150,22 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
           }
     }
  
+}
+
+extension TabViewController {
+    
+    func addLog_callingGetUserActions(){
+        let strMessage = "On Tab - start calling  getUserActions - \(Date().timeStamp())"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+    
+    func addLog_EndCallingGetUserActions(strRes : String){
+        let strMessage = "On Tab - End calling getUserActions - \(Date().timeStamp()) - respense \(strRes)"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+
 }

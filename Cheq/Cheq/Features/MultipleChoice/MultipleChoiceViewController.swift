@@ -675,6 +675,7 @@ extension MultipleChoiceViewController {
         
         AuthConfig.shared.activeManager.getCurrentUser().then{ authUser-> Promise<GetUserActionResponse> in
             //When the user opens the app the apps checks if the user has a basiq account or not
+            self.addLog_callingGetUserActions()
             return CheqAPIManager.shared.getUserActions()
         }.done { userActionResponse in
             
@@ -693,6 +694,8 @@ extension MultipleChoiceViewController {
             
             self.view.endEditing(true)
             LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
+            
+            self.addLog_EndCallingGetUserActions(strRes: "\(String(describing: userActionResponse.userAction))")
             
             self.responseGetUserActionResponse = userActionResponse
             switch (userActionResponse.userAction){
@@ -887,4 +890,23 @@ extension MultipleChoiceViewController {
         AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, viewController: self)
         
     }
+}
+
+
+extension MultipleChoiceViewController {
+    
+    func addLog_callingGetUserActions(){
+        let strMessage = "financialInstitutions - start calling  getUserActions - \(Date().timeStamp())"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+    
+    func addLog_EndCallingGetUserActions(strRes : String){
+        let strMessage = "financialInstitutions - End calling getUserActions - \(Date().timeStamp()) - respense \(strRes)"
+        let strEvent = "getUserActions"
+        let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
+        LoggingUtil.shared.addLog(log: log)
+    }
+
 }

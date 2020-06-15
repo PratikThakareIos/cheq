@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 /**
  LoggingUtil is a utility class to abstract the logics in logging to console and to file. When we release the app to production, we can disable the logging easily by altering the logic encapsulated inside **LoggingUtil** rather than change the logics everywhere else.
@@ -18,6 +19,8 @@ class LoggingUtil {
     
     /// Singleton instance of **LoggingUtil**
     static let shared = LoggingUtil()
+    
+    var arrLogs : [PostLogRequest] = []
     
     /// private init to implement the Singleton pattern
     private init() {
@@ -95,5 +98,35 @@ class LoggingUtil {
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    
+    func addLog(log: PostLogRequest) {
+        arrLogs.append(log)
+    }
+
+    func getLogs() -> [PostLogRequest]{
+        return arrLogs
+    }
+
+    func clearLogs() {
+          arrLogs.removeAll()
+    }
+    
+    func addLogsToServer(){
+        
+        AuthConfig.shared.activeManager.getCurrentUser().then { authUser -> Promise<AuthUser>  in
+            let logs = self.getLogs()
+            self.cPrint(logs)
+            return CheqAPIManager.shared.postLogs(requestParam: logs)
+        }.done { authUser in
+            self.clearLogs()
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                // handle err
+                LoggingUtil.shared.cPrint("err")
+            }
+        }
+      
     }
 }

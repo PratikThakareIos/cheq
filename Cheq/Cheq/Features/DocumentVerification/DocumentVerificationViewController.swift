@@ -9,7 +9,7 @@
 import UIKit
 
 class DocumentVerificationViewController: UIViewController {
-
+    
     @IBOutlet weak var guidLineView: UIView!
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
@@ -17,12 +17,27 @@ class DocumentVerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showNavBar()
+        showBackButton()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        
+        
         self.tableview.separatorStyle = .none
         self.mainContainer.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.guidLineView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.backgroundView?.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableview.reloadData()
     }
 }
 
@@ -39,33 +54,37 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         cell.content.backgroundColor = .white
         //cell.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: true)
-        
-        cell.DocumnerVerifyLabel.text =  indexPath.row == 0 ? "Passport":"Driver license"
+        cell.DocumnerVerifyLabel.text =  indexPath.row == 0 ? "Passport" : "Driver license"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         AppConfig.shared.showSpinner()
+        AppConfig.shared.showSpinner()
+        
         var kycSelectDoc : KycDocType?
         if indexPath.row == 0 {
-            kycSelectDoc = KycDocType(fromRawValue: "Passport")
+            kycSelectDoc = .Passport //KycDocType(fromRawValue: "Passport")
         }else{
-            kycSelectDoc = KycDocType(fromRawValue:"Driver's license")
+            kycSelectDoc = .DriversLicense //KycDocType(fromRawValue:"Driver license")
         }
+        
         let qVm = QuestionViewModel()
-                   qVm.loadSaved()
-                   let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-                   CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
-                       let sdkToken = response.sdkToken ?? ""
-                       AppData.shared.saveOnfidoSDKToken(sdkToken)
-                       let kycSelectDoc = KycDocType(fromRawValue: qVm.fieldValue(QuestionField.kycDocSelect))
-                    //Init onfido
-                    self.inittiateOnFido(kycSelectDoc: kycSelectDoc)
-                   }.catch { err in
-                          AppConfig.shared.hideSpinner {
-                           self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
-                         }
+        qVm.loadSaved()
+        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+        
+        CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
+            
+            let sdkToken = response.sdkToken ?? ""
+            AppData.shared.saveOnfidoSDKToken(sdkToken)
+            let kycSelectDoc = KycDocType(fromRawValue: qVm.fieldValue(QuestionField.kycDocSelect))
+            //Init onfido
+            self.inittiateOnFido(kycSelectDoc: kycSelectDoc)
+            
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
             }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,10 +101,10 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
             
         }.catch { err in
             AppConfig.shared.hideSpinner {
-             self.showError(err, completion: nil)
-             return
+                self.showError(err, completion: nil)
+                return
             }
         }
     }
-
+    
 }

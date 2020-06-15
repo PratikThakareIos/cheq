@@ -27,6 +27,7 @@ extension UIViewController {
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
+        navBar.backgroundColor = .clear
     }
 
     /// style nav bar to show logout button

@@ -172,7 +172,7 @@ class AppData {
     var onDemandType: OnDemandType = .other
     
     /// employer list fetched from company name lookup
-    var employerList = [GetEmployerPlaceResponse]()
+    var employerList = [GetAddressResponse]()
     
     // employee overview details fetched from /v1/Lending/overview
     var employeeOverview : GetLendingOverviewResponse?
@@ -181,7 +181,8 @@ class AppData {
     var employeePaycycle : [SalaryTransactionResponse] = [SalaryTransactionResponse]()
    
     /// employer list fetched from company address lookup
-    var employerAddressList = [GetEmployerPlaceResponse]()
+    var employerAddressList = [GetAddressResponse]()
+
     
     /// residential address list fetched from home address lookup
     var residentialAddressList = [GetAddressResponse]()
@@ -265,4 +266,109 @@ class AppData {
         default: break
         }
     }
+    
+    
+    func resetAllData(){
+        
+         /// spending overview status
+          spendingOverviewReady = false
+         
+         /// connection Job Status
+          connectionJobStatusReady = false
+
+         /// amount selected from loan setting
+          amountSelected = "0"
+         
+         /// loan fee and accepted  agreement boolean, we use this when we want to finalise lending
+          loanFee = 0.0
+         
+         /// this toggle is used to track if agreement has been accepted
+          acceptedAgreement = false
+         
+         /// forgot password email
+          forgotPasswordEmail = ""
+    
+         /// lending description from backend
+          declineDescription = ""
+         
+         /// Instance of CProgress which we globally reference and update. This is useful for our onboarding.
+          progress = CProgress()
+
+         /// Variable to keep track of linked account fetched from MoneySoft SDK.
+          storedAccounts = []
+         
+         /// Variable to keep track of transactions fetched from MoneySoft SDK.
+          financialTransactions = []
+                  
+         /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
+          financialInstitutions = []
+         
+          resGetFinancialInstitutionResponse = nil
+         
+         /// Keep track of the selected institution
+          selectedFinancialInstitution = nil
+         
+          bankJobId = nil
+         
+         /// financial login form from MoneySoft SDK
+          financialSignInForm = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
+         
+         /// use for keeping track of the provider institution id to map which bank user selected
+          existingProviderInstitutionId = ""
+         
+         /// use for keeping track of the financial institution id to map which bank user selected
+          existingFinancialInstitutionId  = -1
+
+         /// bank logo mapping from remote config
+          remoteBankMapping = [String: RemoteBank]()
+         
+         /// Employment flow related data
+          employmentType = .fulltime
+         
+         /// if employment type is **On Demand**, we use this variable to keep track of the selected value
+          onDemandType = .other
+         
+         /// employer list fetched from company name lookup
+          employerList = [GetAddressResponse]()
+         
+         // employee overview details fetched from /v1/Lending/overview
+          employeeOverview  = nil
+         
+         // employee timesheet details fetched from /v1/Lending/salarytransactions/recent
+          employeePaycycle = [SalaryTransactionResponse]()
+        
+         /// employer list fetched from company address lookup
+          employerAddressList = [GetAddressResponse]()
+         
+         /// residential address list fetched from home address lookup
+          residentialAddressList = [GetAddressResponse]()
+         
+         /// selected employer index from **employerList**
+          selectedEmployer = 0
+         
+         /// selected employer address index from **employerAddressList**
+          selectedEmployerAddress = 0
+         
+         /// seleced home address index from **residentialAddressList**
+          selectedResidentialAddress = 0
+         
+         /// selected employer address from **employerAddressList**
+          selectedEmployerAddressString = ""
+         
+         /// Selected category, we track this in SpendingViewController's interactions
+          selectedCategory = nil
+
+         /// When we are in LendingViewController, if we launch other onboarding screens, like Employment details, we use this variable to indicate that we are showing it for lending flow instead of onboarding flow
+          completingDetailsForLending = false
+         
+         /// If we are doing migration of MoneySoft accounts on new device, we set this boolean as true
+          migratingToNewDevice = false
+         
+         /// Boolean to indicate app is performing onboarding flow
+          isOnboarding = false
+         
+         /// When a person fills in employment type as **On Demand** and is **Other**, then we set this flag to true, so our flow knows that we need to further ask for company name by showing company name screen
+          completingOnDemandOther = false
+    }
+    
 }

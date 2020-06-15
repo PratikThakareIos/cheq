@@ -127,16 +127,14 @@ extension CheqAPIManager {
                 let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
                 print(putBankAccountRequest)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                  
                     LoggingUtil.shared.cPrint(response)
                     LoggingUtil.shared.cPrint(err)
-
+        
                     if let error = err {
-
-                        resolver.reject(error)
-
                         if let code = error.code() {
                                if code == 400 {
-                                   resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)
+                                   resolver.reject(CheqAPIManagerError.errorInvalidBSB)
                                    return
                                } else {
                                    resolver.reject(error)
@@ -310,6 +308,10 @@ extension CheqAPIManager {
                    }
             }
     }
+    
+
+    
+    
     
 }
 

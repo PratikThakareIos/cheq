@@ -16,7 +16,7 @@ class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     var question: String = "Company Address"
     
     func placeHolder(_ index: Int)->String {
-        return "123 Example Street"
+        return "11 York Street, Sydney NSW 2000"
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
