@@ -34,6 +34,7 @@ enum ValidationError: Error {
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
     case autoCompleteIsMandatory
+    case autoCompleteHomeAddressIsMandatory
     case invalidCompanyName
     case invalidBBSandAccountNO
 }
@@ -287,6 +288,8 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Only numeric characteres is allowed", comment: "")
         case .autoCompleteIsMandatory:
             return NSLocalizedString("Please enter your Company Address", comment: "")
+        case .autoCompleteHomeAddressIsMandatory:
+            return NSLocalizedString("Please enter your residential address", comment: "")
         case .invalidCompanyName:
             return NSLocalizedString("Please enter the Company Name", comment: "")
         case .invalidBBSandAccountNO:

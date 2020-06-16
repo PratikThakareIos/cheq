@@ -20,7 +20,6 @@ enum QuestionType: String {
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
-    case verifyHomeAddress = "verifyHomeAddress"
 }
 
 enum QuestionField: String {
@@ -37,7 +36,7 @@ enum QuestionField: String {
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
     case unitNumber = "unitNo"
-    case homeAddress = "homeAddress"
+    //case homeAddress = "homeAddress"
 
     // kyc
     case kycDocSelect = "KycDocSelect"
@@ -204,8 +203,6 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
-        case .verifyHomeAddress:
-            coordinator = HomeAddressCoordinator()
         }
         return coordinator
     }

@@ -62,7 +62,6 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         previousSelectedIndex = tabBarIndex
     }
 
-    
     func checkUserActions() {
 
             AppConfig.shared.showSpinner()

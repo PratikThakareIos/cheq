@@ -20,11 +20,12 @@ class DocumentVerificationViewController: UIViewController {
         
         showNavBar()
         showBackButton()
+        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.backgroundColor = .clear
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.navigationBar.backgroundColor = .clear
         
         
         self.tableview.separatorStyle = .none
@@ -59,7 +60,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AppConfig.shared.showSpinner()
+       
         
         var kycSelectDoc : KycDocType?
         if indexPath.row == 0 {
@@ -68,16 +69,11 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
             kycSelectDoc = .DriversLicense //KycDocType(fromRawValue:"Driver license")
         }
         
-        let qVm = QuestionViewModel()
-        qVm.loadSaved()
+        AppConfig.shared.showSpinner()
         let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-        
         CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
-            
             let sdkToken = response.sdkToken ?? ""
             AppData.shared.saveOnfidoSDKToken(sdkToken)
-            let kycSelectDoc = KycDocType(fromRawValue: qVm.fieldValue(QuestionField.kycDocSelect))
-            //Init onfido
             self.inittiateOnFido(kycSelectDoc: kycSelectDoc)
             
         }.catch { err in

@@ -219,12 +219,15 @@ class CheqAPIManager {
                             viewModel.save(QuestionField.lastname.rawValue, value: userDetail.lastName ?? "")
                             viewModel.save(QuestionField.dateOfBirth.rawValue, value: userDetail.dateOfBirth ?? "")
                             viewModel.save(QuestionField.contactDetails.rawValue, value: userDetail.mobile ?? "")
+                            viewModel.save(QuestionField.unitNumber.rawValue, value: userDetail.unitApartmentNumber ?? "")
                             viewModel.save(QuestionField.residentialAddress.rawValue, value: userDetail.residentialAddress ?? "")
                         }
                         
                         viewModel.save(QuestionField.employerName.rawValue, value: resp.employer?.employerName ?? "")
                         viewModel.save(QuestionField.employerAddress.rawValue, value: resp.employer?.address ?? "")
-                        
+                        viewModel.save(QuestionField.employerType.rawValue, value: (resp.employer?.employmentType).map { $0.rawValue } ?? "")
+                        viewModel.save(QuestionField.employerAddress.rawValue, value: resp.employer?.address ?? "")
+                    
                         AuthConfig.shared.activeManager.setUser(authUser).done{ updateUser in
                             resolver.fulfill(updateUser)
                         }.catch {err in
@@ -314,6 +317,7 @@ class CheqAPIManager {
                         return
                     }
                     guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
+                    LoggingUtil.shared.cPrint(resp)
                     resolver.fulfill(resp)
                 }
             }.catch { err in

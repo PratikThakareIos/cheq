@@ -459,18 +459,32 @@ extension AppNav {
                 switch results {
                 /// successful case
                 case .success(_):
+                    AppConfig.shared.showSpinner()
                     CheqAPIManager.shared.putKycCheck().done {
-                        LoggingUtil.shared.cPrint("kyc checked")
-                        guard AppData.shared.completingDetailsForLending else { return }
-                        viewController.dismiss(animated: true, completion:nil)
-                    }.catch{ err in
-                        let error = err
-                        guard AppData.shared.completingDetailsForLending else {
-                            return
+                        
+                        AppConfig.shared.hideSpinner {
+                            LoggingUtil.shared.cPrint("kyc checked")
+                            guard AppData.shared.completingDetailsForLending else { return }
+                            
+                            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                            AppNav.shared.dismissModal(viewController){}
+                            
+                            //viewController.dismiss(animated: true, completion:nil)
                         }
-                        viewController.dismiss(animated: true, completion: {
-                            NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
-                        })
+                        
+
+                    }.catch{ err in
+                        
+                        AppConfig.shared.hideSpinner {
+                            let error = err
+                            guard AppData.shared.completingDetailsForLending else {
+                                return
+                            }
+                            viewController.dismiss(animated: true, completion: {
+                                NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
+                            })
+                            
+                        }
                     }
                     
                 /// error case handling

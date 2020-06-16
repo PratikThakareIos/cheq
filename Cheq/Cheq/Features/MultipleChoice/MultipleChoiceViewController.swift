@@ -415,9 +415,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                 
                 
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
-                
-                //temp
-                //AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            
             }
             
         case .workingLocation:

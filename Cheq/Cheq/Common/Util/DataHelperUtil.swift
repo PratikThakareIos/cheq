@@ -60,11 +60,11 @@ class DataHelperUtil {
         let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname),
                                           lastName: qVm.fieldValue(.lastname),
                                           dateOfBirth: dob,
-                                          unitApartmentNumber: "",
+                                          unitApartmentNumber: qVm.fieldValue(.unitNumber),
                                           residentialAddress: qVm.fieldValue(.residentialAddress),
                                           suburb: qVm.fieldValue(.residentialSuburb),
                                           postCode: qVm.fieldValue(.residentialPostcode),
-                                          state: "")
+                                          state: qVm.fieldValue(.residentialState))
         
         return req
     }
@@ -93,7 +93,6 @@ class DataHelperUtil {
         
         /// To retrieve the stored question answers, first initialise a **QuestionViewModel**
         let qVm = QuestionViewModel()
-       
         /// Call the method **loadSaved**, so the saved answer values are loaded onto this **QuestionViewModel** instance.
         qVm.loadSaved()
         
@@ -102,7 +101,15 @@ class DataHelperUtil {
         
         let putReqEmploymentType = MultipleChoiceViewModel.cheqAPIEmploymentType(employmentType)
         let noFixedAddress = employmentType == .onDemand ? true : false
-        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, workingLocation: .fromFixedLocation,latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 , longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0, address:  qVm.fieldValue(QuestionField.employerAddress), state: qVm.fieldValue(.employerPostcode), country: qVm.fieldValue(.employerState), postCode: qVm.fieldValue(.employerCountry))
+        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
+                                         employmentType: putReqEmploymentType,
+                                         workingLocation: .fromFixedLocation,
+                                         latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 ,
+                                         longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0,
+                                         address:  qVm.fieldValue(QuestionField.employerAddress),
+                                         state: qVm.fieldValue(.employerPostcode),
+                                         country: qVm.fieldValue(.employerState),
+                                         postCode: qVm.fieldValue(.employerCountry))
         return req
     }
    
