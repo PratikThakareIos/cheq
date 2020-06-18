@@ -406,6 +406,17 @@ extension AppNav {
             viewController.present(nav, animated: true, completion: nil)
         }
     }
+    
+    func presentPreviewLoanViewController(viewController: UIViewController) {
+
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
+
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: KYC

@@ -279,7 +279,8 @@ extension LendingViewController {
                 if (availableCashoutAmount > 0){
                     let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
                     if borrowAmount > 0.0 {
-                        AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
+                        AppNav.shared.presentPreviewLoanViewController(viewController: self)
+                        //AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
                     }else{
                         showMessage("Please select loan amount", completion: nil)
                     }

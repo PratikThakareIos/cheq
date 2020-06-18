@@ -49,27 +49,41 @@ class AgreementItemTableViewCell: CTableViewCell {
     /// called **setupConfig** whenever we want to have updated UI
     override func setupConfig() {
         self.backgroundColor = .clear
+        
+        self.webView.navigationDelegate = self
+        self.webView.uiDelegate = self
+        self.webView.scrollView.delegate = self
+        
+        self.webView.isOpaque = false
+        self.webView.backgroundColor = UIColor.clear
+        self.webView.scrollView.backgroundColor = UIColor.clear
+        
+
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
-        self.agreementTitle.text = vm.title
-        self.agreementTitle.font = AppConfig.shared.activeTheme.mediumFont
-   
-      // html content
+       
+        // html content
         self.webView.loadHTMLString(vm.message, baseURL: nil)
-        self.webViewHeight.constant = vm.message != "" ? 185:0
+        self.webViewHeight.constant = vm.message != "" ? 800:0
         self.webView.scrollView.isScrollEnabled = false
-        
-        
+
         //Submit Button
         self.submitButton.isHidden = true
         
-        if vm.expanded {
-           // self.readMore.setTitle(vm.readLessTitle, for: .normal)
-        } else {
-            self.readMore.setTitle(vm.readMoreTitle, for: .normal)
-        }
-        self.readMore.setTitleColor(AppConfig.shared.activeTheme.linksColor, for: .normal)
-        self.readMore.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
-        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
+        
+        
+//        if vm.expanded {
+//           // self.readMore.setTitle(vm.readLessTitle, for: .normal)
+//        } else {
+//            self.readMore.setTitle(vm.readMoreTitle, for: .normal)
+//        }
+        
+        // self.agreementTitle.text = vm.title
+        // self.agreementTitle.font = AppConfig.shared.activeTheme.mediumFont
+        
+//        self.readMore.setTitleColor(AppConfig.shared.activeTheme.linksColor, for: .normal)
+//        self.readMore.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
+//        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
+        
     }
     
     /// action called when the **readMore** button is pressed for expand/compress
@@ -98,8 +112,8 @@ class AgreementItemTableViewCell: CTableViewCell {
             self.submitButton.isHidden = true
 
 //        }
+        
         self.setNeedsLayout()
-
         NotificationUtil.shared.notify(UINotificationEvent.openLink.rawValue, key: NotificationUserInfoKey.link.rawValue, value: vm.message)
         /// send a notification for table view to reload
         NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
@@ -110,11 +124,34 @@ class AgreementItemTableViewCell: CTableViewCell {
          vm.expanded = false
          self.webViewHeight.constant = vm.message != "" ? 185:0
          self.setNeedsLayout()
-        
-        NotificationUtil.shared.notify(UINotificationEvent.agreemntAccepted.rawValue, key: "", value: "")
-        
-        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
-        
+         NotificationUtil.shared.notify(UINotificationEvent.agreemntAccepted.rawValue, key: "", value: "")
+         NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
     }
-    
+
 }
+
+extension AgreementItemTableViewCell: WKNavigationDelegate, WKUIDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+         webView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+             if complete != nil {
+                 webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
+                     // Here is your height
+                    print("scrollHeight height = \(String(describing: height))")
+                    self.webViewHeight.constant = height as! CGFloat
+                    self.setNeedsLayout()
+                         /// send a notification for table view to reload
+                    NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
+                    
+                 })
+             }
+         })
+     }
+}
+
+extension AgreementItemTableViewCell: UIScrollViewDelegate {
+    
+     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+         return nil
+     }
+ }

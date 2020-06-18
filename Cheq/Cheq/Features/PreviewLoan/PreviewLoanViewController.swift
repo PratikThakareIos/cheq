@@ -16,9 +16,7 @@ class PreviewLoanViewController: CTableViewController {
         self.viewModel = PreviewLoanViewModel()
         setupUI()
         setupDelegate()
-        self.title = "Cash out summary "
-        showNavBar()
-        showCloseButton()
+
     }
     
     override func registerCells() {
@@ -47,6 +45,13 @@ class PreviewLoanViewController: CTableViewController {
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
         }
+        
+        showNavBar()
+        showCloseButton()
+        
+        self.title = "Cash out summary "
+        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        
     }
     
     func registerObservables() {
@@ -136,20 +141,26 @@ extension PreviewLoanViewController {
 
                 vm.addTransferToCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
+                
                 vm.addRepaymemtCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
+                
                 vm.addLoanAgreementCard(loanPreview, section: &section)
                 section.rows.append(SpacerTableViewCellViewModel())
-                vm.addDirectDebitAgreementCard(loanPreview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
-                section.rows.append(SpacerTableViewCellViewModel())
-                section.rows.append(SpacerTableViewCellViewModel())
-                section.rows.append(SpacerTableViewCellViewModel())
-                section.rows.append(SpacerTableViewCellViewModel())
-                section.rows.append(SpacerTableViewCellViewModel())
+                
+//                vm.addDirectDebitAgreementCard(loanPreview, section: &section)
+//                section.rows.append(SpacerTableViewCellViewModel())
+                
+                  section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
+                
                 section.rows.append(SwipeToConfirmTableViewCellViewModel())
                 section.rows.append(SpacerTableViewCellViewModel())
                 section.rows.append(SpacerTableViewCellViewModel())
+                
                 self.viewModel.addSection(section)
                 //self.registerCells()
                 self.tableView.reloadData()

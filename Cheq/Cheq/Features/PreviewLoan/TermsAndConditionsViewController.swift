@@ -18,8 +18,8 @@ class TermsAndConditionsViewController: UIViewController {
         super.viewDidLoad()
         self.webView.loadHTMLString(url ?? "", baseURL: nil)
         print(webView.scrollView.contentSize.height)
-         let scrollPoint = CGPoint(x: 0, y:7000)
-         webView.scrollView.setContentOffset(scrollPoint, animated: true)
+        let scrollPoint = CGPoint(x: 0, y:7000)
+        webView.scrollView.setContentOffset(scrollPoint, animated: true)
     }
     
     @IBAction func acceptedBtnClick(_ sender: Any) {
