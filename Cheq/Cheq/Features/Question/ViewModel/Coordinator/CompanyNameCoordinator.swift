@@ -12,7 +12,7 @@ class CompanyNameCoordinator: QuestionCoordinatorProtocol {
 
     var type: QuestionType = .companyName
     var sectionTitle: String = Section.employmentDetails.rawValue
-    var question: String = "Company name?"
+    var question: String = "Company name"
     
     func placeHolder(_ index: Int)->String {
         return "Company name"

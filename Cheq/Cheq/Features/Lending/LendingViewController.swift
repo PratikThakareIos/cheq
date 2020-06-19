@@ -13,9 +13,14 @@ import PullToRefreshKit
 class LendingViewController: CTableViewController {
     
     var lendingOverviewResponse : GetLendingOverviewResponse?
+    var isShowCashoutSuccessPopup = false
+    var cashOutAmount : Int = 0
+    
 
     override func registerCells() {
+        
         let cellModels: [TableViewCellViewModelProtocol] = [DeclineDetailViewModel(), SpacerTableViewCellViewModel(), SwipeToConfirmTableViewCellViewModel(), AgreementItemTableViewCellViewModel(), AmountSelectTableViewCellViewModel(), HistoryItemTableViewCellViewModel(), CButtonTableViewCellViewModel(), HeaderTableViewCellViewModel(), CompleteDetailsTableViewCellViewModel(), CompletionProgressTableViewCellViewModel(), IntercomChatTableViewCellViewModel(), BottomTableViewCellViewModel(), TransferCardTableViewCellViewModel(), MessageBubbleTableViewCellViewModel(), TopTableViewCellViewModel()]
+        
         for vm: TableViewCellViewModelProtocol in cellModels {
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)
@@ -77,6 +82,13 @@ class LendingViewController: CTableViewController {
         
         //learnMore
         NotificationCenter.default.addObserver(self, selector: #selector(self.learnMore(_:)), name: NSNotification.Name(UINotificationEvent.learnMore.rawValue), object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loanActivityClicked(_:)), name: NSNotification.Name(UINotificationEvent.clickedOnActivity.rawValue), object: nil)
+        
+        
+        
+        
        
     }
 }
@@ -85,8 +97,9 @@ class LendingViewController: CTableViewController {
 extension LendingViewController {
     /// handle selectYourSalary notification event
     @objc func selectYourSalary(_ notification: NSNotification) {
-       LoggingUtil.shared.cPrint("selectYourSalary clicked")
-       LoggingUtil.shared.cPrint("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+         
+          LoggingUtil.shared.cPrint("selectYourSalary clicked")
+          LoggingUtil.shared.cPrint("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
         
           AppConfig.shared.showSpinner()
           CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
@@ -187,6 +200,15 @@ extension LendingViewController {
        }        
     }
     
+    @objc func loanActivityClicked(_ notification: NSNotification) {
+//        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
+//            self.showNoIncomeDetectedPopUp()
+//        }
+    }
+    
+    
+   
+    
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
         LoggingUtil.shared.cPrint(lendingOverview)
         self.lendingOverviewResponse = lendingOverview
@@ -229,6 +251,12 @@ extension LendingViewController {
                 AppConfig.shared.hideSpinner {
                     //print("\n\nLending view controller = \(overview)")
                     self.renderLending(overview)
+                    
+                    if (self.isShowCashoutSuccessPopup){
+                         self.popup_CashOutSuccess()
+                         self.isShowCashoutSuccessPopup  = false
+                    }
+
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
@@ -270,25 +298,35 @@ extension LendingViewController {
     @objc func button(_ notification: NSNotification) {
         
         guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
-    
+
         if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
             // go to preview loan
             if let lendingOverview =  self.lendingOverviewResponse, let borrowOverview = lendingOverview.borrowOverview  {
-                  let availableCashoutAmount = borrowOverview.availableCashoutAmount ?? 0
-
+                let availableCashoutAmount = borrowOverview.availableCashoutAmount ?? 0
                 if (availableCashoutAmount > 0){
                     let borrowAmount = Double(AppData.shared.amountSelected) ?? 0.0
                     if borrowAmount > 0.0 {
-                        AppNav.shared.presentPreviewLoanViewController(viewController: self)
-                        //AppNav.shared.pushToViewController(StoryboardName.main.rawValue, storyboardId: MainStoryboardId.preview.rawValue, viewController: self)
+                        self.presentPreviewLoanViewController()
                     }else{
                         showMessage("Please select loan amount", completion: nil)
                     }
                 }else{
-                    self.popup_NotEnoughCashToWithdraw()
+                    //self.popup_NotEnoughCashToWithdraw()
+                    self.popup_RepaymentInProgress()
                 }
             }
         }
+        
+    }
+    
+    func presentPreviewLoanViewController(){
+        
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {
@@ -331,12 +369,25 @@ extension LendingViewController {
 extension LendingViewController: VerificationPopupVCDelegate{
     
     func showNoIncomeDetectedPopUp(){
+        
         self.openPopupWith(heading: "No income detected for selection",
                            message: "Our bot can't detect an incoming transaction for you to select. Please make sure you're getting paid in the bank account that you connected",
                            buttonTitle: "",
                            showSendButton: false,
                            emoji: UIImage(named: "sucsess"))
      }
+    
+    //Repayment in progress
+    //You can cash out again once all your payments are settled
+    
+    func popup_RepaymentInProgress(){
+        self.openPopupWith(heading: "Repayment in progress",
+                           message: "You can cash out again once all your payments are settled",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "transferFailed"))
+    }
+    
  
     func popup_NotEnoughCashToWithdraw(){
         self.openPopupWith(heading: "Not enough cash to withdraw",
@@ -344,6 +395,14 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            buttonTitle: "",
                            showSendButton: false,
                            emoji: UIImage(named: "transferFailed"))
+    }
+    
+    func popup_CashOutSuccess(){
+        self.openPopupWith(heading: "Cash out Success!",
+                           message: "$\(self.cashOutAmount) will be transferred to your account shortly",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "success"))
      }
     
     
@@ -371,3 +430,11 @@ extension LendingViewController: VerificationPopupVCDelegate{
 }
 
 
+extension LendingViewController: PreviewLoanViewControllerProtocol{
+    func previewLoanViewControllerDismissedWithSucess(cashOutAmount: Int) {
+        self.isShowCashoutSuccessPopup  = true
+        self.cashOutAmount = cashOutAmount
+    }
+    
+   
+}

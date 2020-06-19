@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="745" translatesAutoresizingMaskIntoConstraints="NO" id="gYF-z6-s7W">
-                        <rect key="frame" x="0.0" y="0.0" width="541" height="376"/>
+                        <rect key="frame" x="20" y="0.0" width="501" height="376"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VeE-UT-5un" userLabel="container">
-                                <rect key="frame" x="0.0" y="0.0" width="541" height="376"/>
+                                <rect key="frame" x="0.0" y="0.0" width="501" height="376"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Loan agreement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsf-KU-3XE" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-25" width="541" height="25"/>
+                                        <rect key="frame" x="0.0" y="-25" width="501" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="BzA-s1-2nd"/>
                                         </constraints>
@@ -33,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-6N-R9E">
-                                        <rect key="frame" x="0.0" y="0.0" width="541" height="376"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="501" height="376"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="PeE-7d-gJ4"/>
@@ -44,7 +44,7 @@
                                         </wkWebViewConfiguration>
                                     </wkWebView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-LN-34z">
-                                        <rect key="frame" x="0.0" y="376" width="541" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="376" width="501" height="0.0"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Proceed">
                                             <color key="titleColor" red="0.32343434049999997" green="0.15068288969999999" blue="0.57052820920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -54,7 +54,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="754" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWz-i6-F3W">
-                                        <rect key="frame" x="0.0" y="376" width="541" height="25"/>
+                                        <rect key="frame" x="0.0" y="376" width="501" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Bty-GC-A4i"/>
                                         </constraints>
@@ -76,12 +76,12 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="gYF-z6-s7W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BBI-fx-n9C"/>
+                    <constraint firstItem="gYF-z6-s7W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BBI-fx-n9C"/>
                     <constraint firstAttribute="bottom" secondItem="gYF-z6-s7W" secondAttribute="bottom" id="FpU-JD-heE"/>
                     <constraint firstItem="gYF-z6-s7W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mfk-P4-mbt"/>
-                    <constraint firstAttribute="trailing" secondItem="gYF-z6-s7W" secondAttribute="trailing" id="nPY-1M-Hfw"/>
+                    <constraint firstAttribute="trailing" secondItem="gYF-z6-s7W" secondAttribute="trailing" constant="20" id="nPY-1M-Hfw"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

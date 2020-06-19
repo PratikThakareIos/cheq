@@ -13,6 +13,4 @@ ViewModel for **TopTableViewCell**. **TopTableViewCell** represents the top bord
 */
 class TopTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "TopTableViewCell"
-
-
 }

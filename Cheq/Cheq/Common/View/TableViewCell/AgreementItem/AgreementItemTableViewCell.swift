@@ -54,17 +54,18 @@ class AgreementItemTableViewCell: CTableViewCell {
         self.webView.uiDelegate = self
         self.webView.scrollView.delegate = self
         
-        self.webView.isOpaque = false
-        self.webView.backgroundColor = UIColor.clear
-        self.webView.scrollView.backgroundColor = UIColor.clear
-        
-
         let vm = self.viewModel as! AgreementItemTableViewCellViewModel
        
         // html content
         self.webView.loadHTMLString(vm.message, baseURL: nil)
         self.webViewHeight.constant = vm.message != "" ? 800:0
         self.webView.scrollView.isScrollEnabled = false
+        
+        
+        self.webView.isOpaque = false
+        self.webView.backgroundColor = UIColor.white
+        self.webView.scrollView.backgroundColor = UIColor.white
+        
 
         //Submit Button
         self.submitButton.isHidden = true
@@ -142,7 +143,7 @@ extension AgreementItemTableViewCell: WKNavigationDelegate, WKUIDelegate {
                     self.setNeedsLayout()
                          /// send a notification for table view to reload
                     NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: NotificationUserInfoKey.cell.rawValue, object: self)
-                    
+                    NotificationUtil.shared.notify(UINotificationEvent.webViewLoaded.rawValue, key: "", value: "")
                  })
              }
          })

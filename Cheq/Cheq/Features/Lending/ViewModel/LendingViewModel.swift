@@ -291,24 +291,37 @@ extension LendingViewModel {
         
         let header = HeaderTableViewCellViewModel()
         section.rows.append(header)
-        let top = TopTableViewCellViewModel()
-        section.rows.append(top)
+        
+        //let top = TopTableViewCellViewModel()
+        //section.rows.append(top)
+        
+        section.rows.append(SpacerTableViewCellViewModel())
         
         for loanActivity: LoanActivity in activities {
+            
             let activityItem = HistoryItemTableViewCellViewModel()
+            activityItem.loanActivity = loanActivity
             let amount = loanActivity.amount ?? 0.0
             let amountString = FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
             activityItem.amount = String("\(amountString)")
             activityItem.itemCaption = loanActivity.date ?? ""
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
-            activityItem.itemTitle = type.rawValue
+            
+            if(type == .cashout){
+                 activityItem.itemTitle = "Cash out"
+            }else{
+                 activityItem.itemTitle = type.rawValue
+            }
+           
             activityItem.fee = ""
             activityItem.cashDirection = (type == .repayment) ? .debit : .credit
             section.rows.append(activityItem)
         }
         
-        let bottom = BottomTableViewCellViewModel()
-        section.rows.append(bottom)
+        section.rows.append(SpacerTableViewCellViewModel())
+        
+       // let bottom = BottomTableViewCellViewModel()
+       // section.rows.append(bottom)
     }
 }
 

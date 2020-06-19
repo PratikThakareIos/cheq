@@ -13,6 +13,8 @@ import UIKit
  */
 class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     
+    var loanActivity: LoanActivity?
+    
     /// reuse identifier
     var identifier: String = "HistoryItemTableViewCell"
     
@@ -35,4 +37,23 @@ class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     func imageIcon()->String {
         return self.cashDirection == .debit ? "debit" : "credit"
     }
+    
+    func getFormattedDate()->String{
+        if let strDate = self.convertDateFormater(self.itemCaption){
+            return strDate
+        }
+        return itemCaption
+    }
+    
+    func convertDateFormater(_ date: String) -> String? {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd"
+         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+         
+         if let date = dateFormatter.date(from: date) {
+             dateFormatter.dateFormat = "E, d MMM"
+             return  dateFormatter.string(from: date)
+         }
+         return nil
+     }
 }

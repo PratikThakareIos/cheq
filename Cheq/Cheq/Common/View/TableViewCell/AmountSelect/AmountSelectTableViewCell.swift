@@ -114,6 +114,7 @@ class AmountSelectTableViewCell: CTableViewCell {
        
         let amount: String = amountSelectViewModel.currentSelectedAmount()
         AppData.shared.amountSelected = amount 
+        
         let loanAmount = String("\(CurrencySymbol.dollar.rawValue)\(amount)")
         let attributedString = NSMutableAttributedString(string: loanAmount)
         attributedString.applyHighlight(loanAmount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeBoldFont)

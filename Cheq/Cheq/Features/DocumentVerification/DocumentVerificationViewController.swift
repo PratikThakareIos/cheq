@@ -21,13 +21,7 @@ class DocumentVerificationViewController: UIViewController {
         showNavBar()
         showBackButton()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.navigationBar.backgroundColor = .clear
-        
-        
+            
         self.tableview.separatorStyle = .none
         self.mainContainer.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.guidLineView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

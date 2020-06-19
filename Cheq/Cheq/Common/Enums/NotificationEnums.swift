@@ -58,6 +58,10 @@ enum UINotificationEvent: String {
     case selectYourSalary = "selectYourSalary"
     case creditAssessment = "creditAssessment"
     case learnMore = "learnMore"
+    case scrollDownToButtom = "scrollDownToButtom"
+    case scrolledToButtom = "scrolledToButtom"
+    case webViewLoaded = "webViewLoaded"
+    case clickedOnActivity = "clickedOnActivity"
 }
 
 /**
@@ -79,4 +83,7 @@ enum NotificationUserInfoKey: String {
     case turnOnLocation = "turnOnLocation"
     case moneysoftProgress = "moneysoftProgress"
     case basiqProgress = "basiqProgress"
+    case loanActivity = "loanActivity"
+    
+    
 }

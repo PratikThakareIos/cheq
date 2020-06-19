@@ -64,9 +64,11 @@ class TransferCardTableViewCell: CTableViewCell {
         
         if vm.direction == .credit {
            self.amountLabel.textColor = AppConfig.shared.activeTheme.splashBgColor2
+           self.amountLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 24.0) ?? UIFont.systemFont(ofSize: 24.0, weight: .bold)
            self.fundClearanceLabel.isHidden = false
         }else{
            self.amountLabel.textColor = UIColor(hex: "059AEC")
+           self.amountLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0, weight: .bold)
            self.fundClearanceLabel.isHidden = true
         }
         
@@ -79,7 +81,7 @@ class TransferCardTableViewCell: CTableViewCell {
         self.feeLabel.text = vm.feeAmountText
         self.feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.feeLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor
-        self.dateString.text = vm.dateString
+        self.dateString.text = vm.getFormattedDate() //vm.dateString
         let transferImage = vm.imageIcon()
         self.transferIcon.image = UIImage(named: transferImage)
 

@@ -9,14 +9,23 @@
 import UIKit
 import PullToRefreshKit
 
+
+protocol PreviewLoanViewControllerProtocol {
+    func previewLoanViewControllerDismissedWithSucess(cashOutAmount : Int)
+}
+
 class PreviewLoanViewController: CTableViewController {
 
+    @IBOutlet weak var viewForGradient: UIView!
+    @IBOutlet weak var viewForScrollDown: UIView!
+    @IBOutlet weak var btnScrollDown: UIButton!
+    var delegate: PreviewLoanViewControllerProtocol!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = PreviewLoanViewModel()
         setupUI()
         setupDelegate()
-
     }
     
     override func registerCells() {
@@ -41,6 +50,11 @@ class PreviewLoanViewController: CTableViewController {
         removeObservables()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         AppData.shared.acceptedAgreement = false
+    }
+    
     func setupUI() {
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.previewLoan.rawValue, key: "", value: "")
@@ -52,6 +66,24 @@ class PreviewLoanViewController: CTableViewController {
         self.title = "Cash out summary "
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         
+        viewForGradient.backgroundColor = .clear
+
+        self.viewForGradient.isHidden = true
+        self.viewForScrollDown.isHidden = true
+        
+        let fistColor =  UIColor(red: 244/255.0, green: 243/255.0, blue: 245/255.0, alpha: 0.1)
+        let lastColor =  UIColor(red: 244/255.0, green: 243/255.0, blue: 245/255.0, alpha: 1.0)//rgba(244,243,245,1)
+        let gradient = CAGradientLayer(start: .topCenter, end: .bottomCenter, colors: [fistColor.cgColor, lastColor.cgColor], type: .axial)
+        gradient.frame = viewForGradient.bounds
+        viewForGradient.layer.addSublayer(gradient)
+    
+        self.btnScrollDown.layer.masksToBounds = false
+        self.btnScrollDown.layer.cornerRadius = 25.0 //self.frame.height/2
+        self.btnScrollDown.layer.shadowColor = UIColor(red: 74/255.0, green: 0/255.0, blue: 103/255.0, alpha: 0.5).cgColor
+        self.btnScrollDown.layer.shadowPath = UIBezierPath(roundedRect: self.btnScrollDown.bounds, cornerRadius: self.btnScrollDown.layer.cornerRadius).cgPath
+        self.btnScrollDown.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.btnScrollDown.layer.shadowOpacity = 0.5
+        self.btnScrollDown.layer.shadowRadius = 1.0
     }
     
     func registerObservables() {
@@ -65,61 +97,47 @@ class PreviewLoanViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableLayout(_:)), name: NSNotification.Name(UINotificationEvent.reloadTableLayout.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(openAgreement(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(scrolledToButtom(_:)), name: NSNotification.Name(UINotificationEvent.scrolledToButtom.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(webViewLoaded(_:)), name: NSNotification.Name(UINotificationEvent.webViewLoaded.rawValue), object: nil)
+        
+        
     }
+    
     
     //Upon swiping the agreement this will evoke
     @objc func confirm(_ notification: NSNotification) {
         
-        LoggingUtil.shared.cPrint("confirm loan")
-        AppData.shared.acceptedAgreement = true
-        AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.borrow().done { _ in
-            AppConfig.shared.hideSpinner {
-                // return to LendingViewController and load
-                // backend should tell LendingViewController to show successfully borrow screen
-                let amount = Int(AppData.shared.amountSelected) ?? 0
-                self.showImageMessage("Cash out success! $\(amount) will be transferred to your account shortly", image: "success", completion: {
-                    AppNav.shared.dismiss(self)
-                })
-            }
-        }.catch { err in
+        if (AppData.shared.acceptedAgreement == false){
+            AppData.shared.acceptedAgreement = true
+            LoggingUtil.shared.cPrint("confirm loan")
+            
+            // return to LendingViewController and load
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.borrow().done { _ in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err) {
-                        NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+                    // return to LendingViewController and load
+                    self.dismiss(animated: true) {
+                        AppData.shared.acceptedAgreement = true
+                        let borrowAmount = Int(AppData.shared.amountSelected) ?? 0
+                        self.delegate!.previewLoanViewControllerDismissedWithSucess(cashOutAmount: borrowAmount)
                     }
                 }
+            }.catch { err in
+                    AppData.shared.acceptedAgreement = false
+                    AppConfig.shared.hideSpinner {
+                        self.showError(err) {
+                            NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
+                        }
+                    }
+            }
+            
+            
         }
-        
-        
-//        showDecision("Do you accept all the Terms and Conditions?", confirmCb: {
-//            LoggingUtil.shared.cPrint("confirm loan")
-//            AppData.shared.acceptedAgreement = true
-//            AppConfig.shared.showSpinner()
-//            CheqAPIManager.shared.borrow().done { _ in
-//                AppConfig.shared.hideSpinner {
-//                    // return to LendingViewController and load
-//                    // backend should tell LendingViewController to show successfully borrow screen
-//                    let amount = Int(AppData.shared.amountSelected) ?? 0
-//                    self.showImageMessage("Cash out success! $\(amount) will be transferred to your account shortly", image: "success", completion: {
-//                        AppNav.shared.dismiss(self)
-//                    })
-//                }
-//            }.catch { err in
-//                    AppConfig.shared.hideSpinner {
-//                        self.showError(err) {
-//                            NotificationUtil.shared.notify(UINotificationEvent.reloadTableLayout.rawValue, key: "", value: "")
-//                        }
-//                    }
-//            }
-//        }, cancelCb: {
-//            NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
-//        })
-        
-        
     }
-    
-    
 }
+
 
 extension PreviewLoanViewController {
     
@@ -146,12 +164,12 @@ extension PreviewLoanViewController {
                 section.rows.append(SpacerTableViewCellViewModel())
                 
                 vm.addLoanAgreementCard(loanPreview, section: &section)
-                section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
                 
 //                vm.addDirectDebitAgreementCard(loanPreview, section: &section)
 //                section.rows.append(SpacerTableViewCellViewModel())
                 
-                  section.rows.append(SpacerTableViewCellViewModel())
+//                section.rows.append(SpacerTableViewCellViewModel())
 //                section.rows.append(SpacerTableViewCellViewModel())
 //                section.rows.append(SpacerTableViewCellViewModel())
 //                section.rows.append(SpacerTableViewCellViewModel())
@@ -162,8 +180,14 @@ extension PreviewLoanViewController {
                 section.rows.append(SpacerTableViewCellViewModel())
                 
                 self.viewModel.addSection(section)
-                //self.registerCells()
                 self.tableView.reloadData()
+                
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+//                    self.viewForGradient.isHidden = false
+//                    self.viewForScrollDown.isHidden = false
+//
+//                }
+                    
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -182,5 +206,33 @@ extension PreviewLoanViewController {
         termsViewController.url = link as? String
         termsViewController.modalPresentationStyle = .fullScreen
         self.present(termsViewController, animated:true, completion:nil)
+    }
+    
+    @objc func webViewLoaded(_ notification: NSNotification) {
+        self.viewForGradient.isHidden = false
+        self.viewForScrollDown.isHidden = false
+    }
+}
+extension PreviewLoanViewController {
+    
+    @IBAction func btnScrollDownAction(_ sender: Any) {
+        NotificationUtil.shared.notify(UINotificationEvent.scrollDownToButtom.rawValue, key: "", value: "")
+//        UIView.animate(withDuration: 0.7, delay: 0.25, options: .curveEaseOut, animations: {
+//
+//        }, completion: { finished in
+//          self.viewForGradient.isHidden = true
+//          self.viewForScrollDown.isHidden = true
+//          self.view.layoutIfNeeded()
+//        })
+    }
+    
+    @objc func scrolledToButtom(_ notification: NSNotification) {
+        UIView.animate(withDuration: 0.7, delay: 0.25, options: .curveEaseOut, animations: {
+
+        }, completion: { finished in
+          self.viewForGradient.isHidden = true
+          self.viewForScrollDown.isHidden = true
+          self.view.layoutIfNeeded()
+        })
     }
 }

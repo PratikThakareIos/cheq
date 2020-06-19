@@ -24,13 +24,13 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     @IBOutlet weak var backgroundTextContainerView: UIView!
     
     /// refer to **xib**
-    @IBOutlet weak var backgroundText: CLabel!
+    @IBOutlet weak var backgroundText: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var draggableText: CLabel!
+    @IBOutlet weak var draggableText: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var footerText: CLabel!
+    @IBOutlet weak var footerText: UILabel!
     
     /// refer to **xib**
     @IBOutlet weak var containerView: UIView!
@@ -62,36 +62,45 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     /// event with **UINotificationEvent.swipeReset** will trigger **swipeReset** method
     func registerObservables() {
         NotificationCenter.default.addObserver(self, selector: #selector(swipeReset(_:)), name: NSNotification.Name(UINotificationEvent.swipeReset.rawValue), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(agreemntAccepted(_:)), name: NSNotification.Name(UINotificationEvent.agreemntAccepted.rawValue), object: nil)
     }
     
     /// method to update the styling whenever viewModel is updated
     override func setupConfig() {
         self.backgroundColor = .clear
+        
+        self.grayView.isHidden = true
+        self.agreementAcceptanceLabel.isHidden = true
+        
         let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
-        self.grayView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        //self.grayView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = .clear
-        self.backgroundTextContainerView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
+        //self.backgroundTextContainerView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
        
         self.backgroundText.text = vm.textInBackground
         self.backgroundText.textColor = AppConfig.shared.activeTheme.altTextColor
-        self.backgroundText.font = AppConfig.shared.activeTheme.smallBoldFont
+        //self.backgroundText.font = AppConfig.shared.activeTheme.smallBoldFont
         
-        self.footerText.textColor = AppConfig.shared.activeTheme.lightestGrayColor
+        //self.footerText.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         self.footerText.text = vm.footerText
-        self.footerText.font = AppConfig.shared.activeTheme.smallFont
+        //self.footerText.font = AppConfig.shared.activeTheme.smallFont
         
         self.agreementAcceptanceLabel.text = vm.headerText
-        self.agreementAcceptanceLabel.font = AppConfig.shared.activeTheme.defaultBoldFont
+        //self.agreementAcceptanceLabel.font = AppConfig.shared.activeTheme.defaultBoldFont
         self.agreementAcceptanceLabel.numberOfLines = 0
         
         self.draggableText.text = vm.buttonTitle
-        self.draggableText.font = AppConfig.shared.activeTheme.mediumBoldFont
-        self.draggable.backgroundColor = AppConfig.shared.activeTheme.altTextColor
+        //self.draggableText.font = AppConfig.shared.activeTheme.mediumBoldFont
+        //self.draggable.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         
-        AppConfig.shared.activeTheme.cardStyling(self.backgroundTextContainerView, addBorder: false)
-        AppConfig.shared.activeTheme.cardStyling(self.draggable, addBorder: false)
+        self.backgroundTextContainerView.layer.masksToBounds = true
+        self.backgroundTextContainerView.layer.cornerRadius = 30
+        
+        self.draggable.layer.masksToBounds = true
+        self.draggable.layer.cornerRadius = 24
+        
+        //AppConfig.shared.activeTheme.cardStyling(self.backgroundTextContainerView, addBorder: false)
+        //AppConfig.shared.activeTheme.cardStyling(self.draggable, addBorder: false)
         
         /// leveraging on Apple's **UIPanGestureRecognizer** to implement draggable logics
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(drag(_:)))
@@ -106,11 +115,12 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
             self.draggable.center = self.draggableOrigin
             self.backgroundText.alpha = 1.0
             AppData.shared.acceptedAgreement = false
+            let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
+            vm.isSwipeConfirmaed = false
         }
     }
     
     @objc func agreemntAccepted(_ notification: NSNotification) {
-        
         self.grayView.isHidden = true
         self.agreementAcceptanceLabel.isHidden = true
     }
@@ -122,23 +132,53 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
      Otherwise, we will have accumulated translation tracked in **gestureRecognizer**
     */
     @objc func drag(_ gestureRecognizer : UIPanGestureRecognizer) {
-        LoggingUtil.shared.cPrint("drag")
+       
         guard gestureRecognizer.view != nil else { return }
         guard let draggableView = gestureRecognizer.view else { return }
         guard let draggableViewContainer = draggableView.superview else { return }
         
         let translation = gestureRecognizer.translation(in: draggableViewContainer)
         if gestureRecognizer.state == .began {
+            LoggingUtil.shared.cPrint("stureRecognizer.state == .began")
             self.draggableCenter = draggableView.center
         }
         if gestureRecognizer.state == .changed {
-            LoggingUtil.shared.cPrint("translation x - \(translation.x)")
+            LoggingUtil.shared.cPrint("estureRecognizer.state == .changed translation x - \(translation.x)")
             let newCenter = CGPoint(x: self.draggableCenter.x + translation.x, y: self.draggableCenter.y)
             self.draggableCenter = newCenter
             self.draggable.center = draggableCenter
             gestureRecognizer.setTranslation(CGPoint.zero, in: draggableViewContainer)
             edgeDetection(draggableView, draggableViewContainer: draggableViewContainer)
         }
+        
+        if (gestureRecognizer.state == .ended || gestureRecognizer.state == .cancelled || gestureRecognizer.state == .failed ) {
+                 
+            if (gestureRecognizer.state == .ended){
+                LoggingUtil.shared.cPrint("stureRecognizer.state == .ended")
+            }
+            
+            if (gestureRecognizer.state == .cancelled){
+                LoggingUtil.shared.cPrint("stureRecognizer.state == .cancelled")
+            }
+            
+            if (gestureRecognizer.state == .failed){
+                LoggingUtil.shared.cPrint("stureRecognizer.state == .failed")
+            }
+            
+              let rightEdge = draggableView.center.x + draggableView.frame.size.width/2
+              let leftEdge = draggableView.center.x - draggableView.frame.size.width/2
+          
+              if rightEdge >= draggableViewContainer.frame.width {
+                  LoggingUtil.shared.cPrint("right edge reached")
+              }else{
+                 LoggingUtil.shared.cPrint("swipeReset")
+                let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
+                if (vm.isSwipeConfirmaed == false) {
+                    NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+                }
+              }
+        }
+    
     }
     
     /// inside the **drag** callback method, **edgeDetection** is always called to avoid the draggable button to go outside our containerView for the drag area
@@ -149,6 +189,8 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
         if rightEdge >= draggableViewContainer.frame.width {
             LoggingUtil.shared.cPrint("right edge reached")
             draggableView.center = CGPoint(x: draggableViewContainer.frame.width - draggableView.frame.width/2 - 10, y: draggableView.center.y)
+            let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
+            vm.isSwipeConfirmaed = true
             NotificationUtil.shared.notify(UINotificationEvent.swipeConfirmation.rawValue, key: "", value: "")
         }
         

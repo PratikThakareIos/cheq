@@ -39,6 +39,25 @@ class TransferCardTableViewCellViewModel: TableViewCellViewModelProtocol {
         let iconName = self.direction == .debit ? "debit" : "credit"
         return iconName
     }
+    
+    func getFormattedDate()->String{
+        if let strDate = self.convertDateFormater(self.dateString){
+            return strDate
+        }
+        return dateString
+    }
+    
+    func convertDateFormater(_ date: String) -> String? {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd"
+         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+         
+         if let date = dateFormatter.date(from: date) {
+             dateFormatter.dateFormat = "E, d MMM"
+             return  dateFormatter.string(from: date)
+         }
+         return nil
+     }
 }
 
 
