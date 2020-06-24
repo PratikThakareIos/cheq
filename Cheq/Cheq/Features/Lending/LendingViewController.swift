@@ -15,6 +15,7 @@ class LendingViewController: CTableViewController {
     var lendingOverviewResponse : GetLendingOverviewResponse?
     var isShowCashoutSuccessPopup = false
     var cashOutAmount : Int = 0
+    var selectedloanActivity: LoanActivity?
     
 
     override func registerCells() {
@@ -87,14 +88,33 @@ class LendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.loanActivityClicked(_:)), name: NSNotification.Name(UINotificationEvent.clickedOnActivity.rawValue), object: nil)
         
         
+        NotificationCenter.default.addObserver(self, selector: #selector(openAgreement(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
         
-        
-       
+
     }
 }
 
+//guard let nav = viewController.navigationController else { return }
+//let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+//let webVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.web.rawValue) as! WebViewController
+//webVC.viewModel.url = url.absoluteString
+//nav.pushViewController(webVC, animated: true)
+
 // observable handlers
 extension LendingViewController {
+    
+    ///This will open up theterms and conditions one a webview
+    @objc func openAgreement(_ notification: NSNotification) {
+//        guard let link =  notification.userInfo?[NotificationUserInfoKey.link.rawValue] else {
+//            return
+//        }
+//        let storyBoard : UIStoryboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle:Bundle.main)
+//        let webVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.web.rawValue) as! WebViewController
+//         webVC.viewModel.url = url.absoluteString
+//        self.present(termsViewController, animated:true, completion:nil)
+    }
+    
+    
     /// handle selectYourSalary notification event
     @objc func selectYourSalary(_ notification: NSNotification) {
          
@@ -201,14 +221,11 @@ extension LendingViewController {
     }
     
     @objc func loanActivityClicked(_ notification: NSNotification) {
-//        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
-//            self.showNoIncomeDetectedPopUp()
-//        }
+        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
+            self.openCashOutActivityPopUpWith(loanActivity: obj)
+        }
     }
-    
-    
-   
-    
+
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
         LoggingUtil.shared.cPrint(lendingOverview)
         self.lendingOverviewResponse = lendingOverview
@@ -435,6 +452,70 @@ extension LendingViewController: PreviewLoanViewControllerProtocol{
         self.isShowCashoutSuccessPopup  = true
         self.cashOutAmount = cashOutAmount
     }
-    
+}
+
+
+//MARK: - Verification popup
+extension LendingViewController: CashOutActivityPopUpDelegate{
    
+    func tappedOnTermConditionButton() {
+        if let selectedloanActivity = self.selectedloanActivity {
+            print("tappedOnTermConditionButton")
+            if let msg = selectedloanActivity.loanAgreement {
+               // NotificationUtil.shared.notify(UINotificationEvent.openLink.rawValue, key: NotificationUserInfoKey.link.rawValue, value: msg)
+                               
+                let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+                let webVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.web.rawValue) as! WebViewController
+                webVC.viewModel.message = msg
+                webVC.viewModel.isLoadHTML = true
+                webVC.viewModel.loanActivity = selectedloanActivity
+                webVC.delegate = self
+                self.dismiss(animated: false) {
+                    self.tabBarController?.present(webVC, animated:true, completion:nil)
+                }
+            }
+        }
+    }
+
+    func openCashOutActivityPopUpWith(loanActivity: LoanActivity){
+       
+         self.view.endEditing(true)
+        
+         guard let _ = loanActivity.type, let _ = loanActivity.status else {
+            return
+         }
+        
+        self.selectedloanActivity = loanActivity
+        
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.cashOutActivityPopUp.rawValue) as? CashOutActivityPopUp{
+        
+            //if let popupVC = storyboard.instantiateInitialViewController() as? CashOutActivityPopUp{
+            
+           
+              
+              popupVC.delegate = self
+              popupVC.loanActivity = loanActivity
+            
+//              popupVC.emojiImage = emoji ?? UIImage()
+//              popupVC.strHeading = ""
+//              popupVC.strDate = ""
+//              popupVC.strAmount = ""
+//              popupVC.strFees = ""
+//              popupVC.strReference = ""
+//
+//              popupVC.isShowFeesLable = false
+//              popupVC.isShowTermButton = false
+            
+             self.tabBarController?.present(popupVC, animated: false, completion: nil)
+        }
+    }
+}
+
+extension LendingViewController : WebViewControllerProtocol {
+    func dismissViewController(loanActivity: LoanActivity?) {
+        if let loanActivity = loanActivity{
+             self.openCashOutActivityPopUpWith(loanActivity: loanActivity)
+        }
+    }
 }

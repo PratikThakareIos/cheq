@@ -12,5 +12,10 @@ class WebViewModel: BaseViewModel {
     
     var url: String = ""
     
+    var isLoadHTML : Bool = false
+    var message: String = ""
+    var loanActivity: LoanActivity?
+    
+    
     override func load(_ complete: @escaping () -> Void) {}
 }

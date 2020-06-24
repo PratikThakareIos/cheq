@@ -21,6 +21,8 @@ enum StoryboardName: String {
 enum PopupStoryboardId: String {
     case payCyclePopUpVC = "PayCyclePopUpVC"
     case verificationPopupVC = "VerificationPopupVC"
+    case cashOutActivityPopUp = "CashOutActivityPopUp"
+    
 }
 
 

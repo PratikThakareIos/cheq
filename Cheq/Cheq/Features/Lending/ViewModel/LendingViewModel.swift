@@ -302,16 +302,28 @@ extension LendingViewModel {
             let activityItem = HistoryItemTableViewCellViewModel()
             activityItem.loanActivity = loanActivity
             let amount = loanActivity.amount ?? 0.0
-            let amountString = FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
-            activityItem.amount = String("\(amountString)")
-            activityItem.itemCaption = loanActivity.date ?? ""
+
+            
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
+            
+             let amt = floor(amount)
+             let strAmount = String(format: "$%.1f", amt)
+            
+            let amountString = strAmount
+            //FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
+            
             
             if(type == .cashout){
                  activityItem.itemTitle = "Cash out"
+                 activityItem.amount = String("\(amountString)")
+                 activityItem.itemCaption = loanActivity.date ?? ""
             }else{
                  activityItem.itemTitle = type.rawValue
+                 activityItem.amount = String("-\(amountString)")
+                 activityItem.itemCaption = loanActivity.repaymentDate ?? ""
             }
+            
+            activityItem.itemTitleStatus = self.getItemTitleStatus(loanActivity: loanActivity)
            
             activityItem.fee = ""
             activityItem.cashDirection = (type == .repayment) ? .debit : .credit
@@ -322,6 +334,27 @@ extension LendingViewModel {
         
        // let bottom = BottomTableViewCellViewModel()
        // section.rows.append(bottom)
+    }
+    
+    func getItemTitleStatus(loanActivity : LoanActivity?) -> String {
+        guard let loanActivity = loanActivity, let type = loanActivity.type, let status = loanActivity.status else { return "" }
+              
+        var strStatus = ""
+
+        switch status {
+            case .credited:
+                strStatus = ""
+            case .debited:
+                strStatus = ""
+            case .failed:
+                strStatus = "Failed"
+            case .unprocessed:
+                strStatus = "Unprocessed"
+            case .pending, .unsuccessfulAttempt:
+                strStatus = "Pending..."
+        }
+    
+        return strStatus
     }
 }
 

@@ -9,15 +9,27 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController {
+protocol WebViewControllerProtocol {
+    func dismissViewController(loanActivity: LoanActivity?)
+}
 
+
+class WebViewController: UIViewController {
+    
+    var delegate: WebViewControllerProtocol?
+    
     @IBOutlet weak var webView: WKWebView!
     let viewModel = WebViewModel()
+    
+    @IBOutlet weak var vwClose: UIView!
+    @IBOutlet weak var btnClose: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showNavBar()
         self.hideBackTitle()
+        self.vwClose.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,13 +44,31 @@ class WebViewController: UIViewController {
     }
     
     func reloadUrl() {
+        
+//        var isLoadHTML : Bool = true
+//        var message: String = ""
+        
+        self.webView.navigationDelegate = self
+        
+        if viewModel.isLoadHTML {
+            self.vwClose.isHidden = false
+            self.webView.loadHTMLString(viewModel.message, baseURL: nil)
+            return
+        }
+        
         if viewModel.url.isEmpty == false {
-            webView.navigationDelegate = self
             if let url = URL(string: viewModel.url) {
                 let req = URLRequest(url: url)
                 webView.load(req)
             }
         }
+        
+    }
+    
+    @IBAction func btnCloseAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            self.delegate?.dismissViewController(loanActivity: self.viewModel.loanActivity)
+        })
     }
 }
 

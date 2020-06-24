@@ -46,14 +46,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5X9-cj-BXz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="245.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="249"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="na3-Ja-sRr">
-                                                <rect key="frame" x="0.0" y="265.5" width="414" height="24"/>
+                                                <rect key="frame" x="0.0" y="269" width="414" height="16"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-hM-SqY">
-                                                <rect key="frame" x="0.0" y="309.5" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="305" width="414" height="128"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycl-sp-tez">
                                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="128"/>
@@ -76,7 +76,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FWU-ot-Kzc">
-                                                <rect key="frame" x="0.0" y="457.5" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="453" width="414" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-vZ-uQs">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.5" height="50"/>
@@ -109,7 +109,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6J-FN-NLm">
-                                                <rect key="frame" x="0.0" y="527.5" width="414" height="368.5"/>
+                                                <rect key="frame" x="0.0" y="523" width="414" height="373"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="3107" y="70"/>
         </scene>
-        <!--Web View Controller-->
+        <!--WebViewController-->
         <scene sceneID="jYG-bY-1hJ">
             <objects>
-                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vvr-Tq-c6f" customClass="WebViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" title="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vvr-Tq-c6f" customClass="WebViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DAc-rt-wOe"/>
                         <viewControllerLayoutGuide type="bottom" id="i6Z-fn-r24"/>
@@ -271,24 +271,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMa-t8-iu8">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IGj-9l-nCY">
+                                <rect key="frame" x="20" y="45" width="374" height="816"/>
+                                <subviews>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VMa-t8-iu8">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="816"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjs-sm-JY9">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-Nq-M5c">
+                                                <rect key="frame" x="30" y="8" width="314" height="64"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="18"/>
+                                                <state key="normal" title="Close">
+                                                    <color key="titleColor" red="0.17254901960784313" green="0.70588235294117641" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnCloseAction:" destination="vvr-Tq-c6f" eventType="touchUpInside" id="Ye3-Ta-09m"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="6yh-Nq-M5c" secondAttribute="trailing" constant="30" id="3h0-cC-Ric"/>
+                                            <constraint firstAttribute="bottom" secondItem="6yh-Nq-M5c" secondAttribute="bottom" constant="8" id="47E-Ne-FWb"/>
+                                            <constraint firstItem="6yh-Nq-M5c" firstAttribute="top" secondItem="mjs-sm-JY9" secondAttribute="top" constant="8" id="HZg-YA-fVK"/>
+                                            <constraint firstAttribute="height" constant="80" id="aVb-le-ofn"/>
+                                            <constraint firstItem="6yh-Nq-M5c" firstAttribute="leading" secondItem="mjs-sm-JY9" secondAttribute="leading" constant="30" id="lMc-jX-gRg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="VMa-t8-iu8" firstAttribute="leading" secondItem="yom-j6-IXt" secondAttribute="leading" id="Shg-vz-qq3"/>
-                            <constraint firstItem="VMa-t8-iu8" firstAttribute="top" secondItem="DAc-rt-wOe" secondAttribute="bottom" id="XbA-Zd-RPq"/>
-                            <constraint firstAttribute="trailing" secondItem="VMa-t8-iu8" secondAttribute="trailing" id="ijQ-GY-2aF"/>
-                            <constraint firstItem="i6Z-fn-r24" firstAttribute="top" secondItem="VMa-t8-iu8" secondAttribute="bottom" id="rzc-ps-bsK"/>
+                            <constraint firstItem="i6Z-fn-r24" firstAttribute="top" secondItem="IGj-9l-nCY" secondAttribute="bottom" constant="1" id="I0X-zS-d32"/>
+                            <constraint firstItem="IGj-9l-nCY" firstAttribute="top" secondItem="DAc-rt-wOe" secondAttribute="bottom" constant="1" id="Jqw-Cd-6Xf"/>
+                            <constraint firstItem="IGj-9l-nCY" firstAttribute="leading" secondItem="yom-j6-IXt" secondAttribute="leading" constant="20" id="WGc-LK-Ydr"/>
+                            <constraint firstAttribute="trailing" secondItem="IGj-9l-nCY" secondAttribute="trailing" constant="20" id="ix9-bM-sOB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="6yh-Nq-M5c" id="t64-ht-ne6"/>
+                        <outlet property="vwClose" destination="mjs-sm-JY9" id="zWk-Nh-Rk6"/>
                         <outlet property="webView" destination="VMa-t8-iu8" id="Se4-NA-G6W"/>
                     </connections>
                 </viewController>
@@ -1120,7 +1150,7 @@
         <image name="actionRequired" width="40" height="50"/>
         <image name="email" width="74" height="77"/>
         <image name="emojiSad" width="70" height="70"/>
-        <image name="lock" width="24" height="24"/>
+        <image name="lock" width="14" height="16"/>
         <image name="number1" width="26" height="26"/>
         <image name="number2" width="26" height="26"/>
         <image name="number3" width="26" height="26"/>

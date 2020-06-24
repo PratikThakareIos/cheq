@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
         //prateek725@yopmail.com  "Rdm@12345" //
         //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
         
-        self.emailTextField.text = "gkk@g.com" //"way@g.com"
+        self.emailTextField.text = "tomtum@cheq.test" //"gkk@g.com" //"way@g.com"
         self.passwordTextField.text =  "Tfc@12345"
     }
 }
@@ -590,7 +590,6 @@ extension LoginVC {
               self.present(vc, animated: true)
         }
     }
-    
 
     func showTransactions() {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -599,7 +598,7 @@ extension LoginVC {
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
-     }
+    }
 
 }
 

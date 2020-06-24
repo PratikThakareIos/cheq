@@ -103,7 +103,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
                 LoggingUtil.shared.addLog(log: log)
                 
-
                 activeAuthUser = authUser
                 let url = URL.init(string: self.appTokenResponse?.apiConnectionUrl ?? "")
                 let headers = [ "Content-Type" : "application/json", "Authorization": "Bearer \(self.appTokenResponse?.accessToken ?? "")"]
@@ -114,8 +113,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 return Promise<BasiqConnectionResponse>() { res in
                      res.fulfill(basiqConnectionResponse)
                 }
-                
-                
+            
             }.then{ basiqConnectionResponse -> Promise<Bool> in
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
                 
@@ -124,9 +122,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                  let strEvent = "CreateBasiqConnection"
                  let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
                  LoggingUtil.shared.addLog(log: log)
-                
-                
-                
+
                 self.jobId = basiqConnectionResponse.id ?? ""
                 AppData.shared.bankJobId = basiqConnectionResponse.id ?? ""                
                 let request = PostConnectionJobRequest.init(jobId: self.jobId, institutionId: AppData.shared.selectedFinancialInstitution?._id ?? "" )
@@ -171,9 +167,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
                 LoggingUtil.shared.addLog(log: log)
 
-                
-                
-                
                 return  CheqAPIManager.shared.getBasiqConnectionJobStatus(jobId: self.jobId)
             }.done { getConnectionJobResponse  in
                 LoggingUtil.shared.cPrint("getConnectionJobResponse = \(getConnectionJobResponse)")
@@ -184,8 +177,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
                 LoggingUtil.shared.addLog(log: log)
 
-                
-                
+                                
                 resolver.fulfill(getConnectionJobResponse)
             }.catch { err in
                 resolver.reject(err)
@@ -203,8 +195,6 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
     
     func callAPI(url:URL, param : [String: Any], headers : [String :Any]?) -> Promise<[String: Any]> {
          
-        LoggingUtil.shared.cPrint("callAPI 1 Manish")
-        
         return Promise<[String: Any]>() { resolver in
             Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers : headers as? HTTPHeaders)
                 .validate()
@@ -288,7 +278,7 @@ extension LinkAccountsCoordinator {
         return Promise<Bool>() { resolver in
             let form = AppData.shared.financialSignInForm
             let concurrentQueue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
-            printForm(form)
+                printForm(form)
                 AuthConfig.shared.activeManager.getCurrentUser().then(on: concurrentQueue) { authUser->Promise<[FinancialAccountModel]> in
                     self.printAuthUser(authUser)
                     return MoneySoftManager.shared.getAccounts()

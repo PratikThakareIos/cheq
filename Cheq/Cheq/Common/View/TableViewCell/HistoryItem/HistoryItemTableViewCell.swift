@@ -18,6 +18,8 @@ class HistoryItemTableViewCell: CTableViewCell {
     
     /// refer to **xib** for layout
     @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemTitleStatus: UILabel!
+    
     
     /// refer to **xib** for layout
     @IBOutlet weak var itemCaption: UILabel!
@@ -47,12 +49,20 @@ class HistoryItemTableViewCell: CTableViewCell {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
         //self.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         //itemTitle.font = AppConfig.shared.activeTheme.mediumFont
+        
         itemTitle.text = historyItemVm.itemTitle
+        itemTitleStatus.text = historyItemVm.itemTitleStatus
+        
+        
+        
+        
         //itemCaption.font = AppConfig.shared.activeTheme.defaultFont
         itemCaption.text = historyItemVm.getFormattedDate()//historyItemVm.itemCaption
         //amountLabel.font = AppConfig.shared.activeTheme.mediumFont
         amountLabel.text = historyItemVm.amount
-        amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor : AppConfig.shared.activeTheme.monetaryColor
+        amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor :  UIColor(hex: "00B662")
+        
+        
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
         iconImage.image = UIImage(named: historyItemVm.imageIcon())
@@ -62,8 +72,7 @@ class HistoryItemTableViewCell: CTableViewCell {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
         LoggingUtil.shared.cPrint("btnClickedOnCell")
         //LoggingUtil.shared.cPrint(historyItemVm.loanActivity as Any)
-
-       // NotificationUtil.shared.notify(UINotificationEvent.clickedOnActivity.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
+        NotificationUtil.shared.notify(UINotificationEvent.clickedOnActivity.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
     }
     
 }

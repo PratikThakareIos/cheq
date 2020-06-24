@@ -26,6 +26,7 @@ class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     /// itemItem is description header, this is driven by **cashDirection** variable
     var itemTitle: String = "Cash out"
+    var itemTitleStatus : String = ""
     
     /// caption text for further details about the history item, can be Date string
     var itemCaption: String = "Today"
@@ -33,11 +34,26 @@ class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// fee value for fee label on table view cell
     var fee: String = "fee $10"
     
-    /// image name of **HistoryItemTableViewCell** depending on **cashDirection** 
-    func imageIcon()->String {
-        return self.cashDirection == .debit ? "debit" : "credit"
+//    /// image name of **HistoryItemTableViewCell** depending on **cashDirection**
+//    func imageIcon()->String {
+//        return self.cashDirection == .debit ? "debit" : "credit"
+//    }
+    
+    func imageIcon() -> String {
+        guard let loanActivity = loanActivity, let type = loanActivity.type, let status = loanActivity.status else { return "" }
+        switch status {
+            case .credited:
+                return "icon-withdrawal"
+            case .debited:
+                return "icon-repayment"
+            case .failed:
+                return "icon-repaymentFailed"
+            case .unprocessed, .pending, .unsuccessfulAttempt:
+                return "icon-pendingRepayment"
+        }
     }
     
+
     func getFormattedDate()->String{
         if let strDate = self.convertDateFormater(self.itemCaption){
             return strDate

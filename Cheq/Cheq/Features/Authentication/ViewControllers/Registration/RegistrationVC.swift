@@ -145,16 +145,14 @@ extension RegistrationVC {
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
         
-        
-        
-        
         //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         
         //self.gotoConnectingToBankViewController()
         
-//        let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
-//          connectingFailed.modalPresentationStyle = .fullScreen
-//        self.present(connectingFailed, animated: true)
+        //        let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+        //          connectingFailed.modalPresentationStyle = .fullScreen
+        //        self.present(connectingFailed, animated: true)
+        
     }
     
     @IBAction func register(_ sender: Any) {
@@ -234,7 +232,6 @@ extension RegistrationVC {
         }
         
         self.lblTerms.setLinksForSubstrings(["Terms of Use", "Privacy Policy"], withLinkHandler: handler)
-        
     }
     
     func setupHyperlable_lblLogin(){

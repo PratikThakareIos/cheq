@@ -32,10 +32,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="32" height="68"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="W7I-KW-J3G">
-                                        <rect key="frame" x="1" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="4" y="0.0" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="M1d-GM-MMe"/>
-                                            <constraint firstAttribute="width" constant="30" id="to4-xe-Ztu"/>
+                                            <constraint firstAttribute="height" constant="24" id="M1d-GM-MMe"/>
+                                            <constraint firstAttribute="width" constant="24" id="to4-xe-Ztu"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -49,13 +49,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8Al-9Z-sfy">
                                 <rect key="frame" x="48" y="0.0" width="154" height="40.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMH-Lj-Wvf">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lfz-E8-X7p">
                                         <rect key="frame" x="0.0" y="0.0" width="154" height="19.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Cash out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMH-Lj-Wvf">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="19.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-vZ-IFO">
+                                                <rect key="frame" x="73" y="0.0" width="81" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="14"/>
+                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFD-Ln-a0U">
                                         <rect key="frame" x="0.0" y="23.5" width="154" height="17"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,6 +131,7 @@
                 <outlet property="iconImage" destination="W7I-KW-J3G" id="a5Z-0Y-8l7"/>
                 <outlet property="itemCaption" destination="YFD-Ln-a0U" id="0Sq-aG-5GM"/>
                 <outlet property="itemTitle" destination="EMH-Lj-Wvf" id="XMs-Ir-mrc"/>
+                <outlet property="itemTitleStatus" destination="vKV-vZ-IFO" id="SuU-Ok-vKL"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="103.125"/>
         </tableViewCell>
