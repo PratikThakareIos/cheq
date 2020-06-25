@@ -56,7 +56,7 @@ class LoginVC: UIViewController {
         //prateek725@yopmail.com  "Rdm@12345" //
         //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
         
-        self.emailTextField.text = "tomtum@cheq.test" //"gkk@g.com" //"way@g.com"
+        self.emailTextField.text =  "tomtum@cheq.test"//"gkk@g.com" //"way@g.com" //
         self.passwordTextField.text =  "Tfc@12345"
     }
 }

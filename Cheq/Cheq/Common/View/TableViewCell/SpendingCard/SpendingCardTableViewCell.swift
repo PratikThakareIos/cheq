@@ -43,7 +43,7 @@ class SpendingCardTableViewCell: CTableViewCell {
     var gradient: CAGradientLayer = CAGradientLayer()
     
     /// constant value for calculation purpose
-    let payCycleDays: Double = 14.0
+    var payCycleDays: Double = 30.0
     
     
     /// init method from **xib**
@@ -89,7 +89,8 @@ class SpendingCardTableViewCell: CTableViewCell {
         
 
         let balanceDouble = vm.data.allAccountCashBalance ?? 0.0
-        headerLabel.text = "$" + balanceDouble.strWithCommas
+        let balanceInInt = Int(balanceDouble)
+        headerLabel.text = "$" + balanceInInt.strWithCommas
         
         if let startDate = vm.data.payCycleStartDate, let endDate = vm.data.payCycleEndDate, startDate.isEmpty == false, endDate.isEmpty == false {
             
@@ -100,10 +101,21 @@ class SpendingCardTableViewCell: CTableViewCell {
             nextPayCycleLabel.text = ""
         }
         
+        
+        if let startDate = vm.data.payCycleStartDate, let endDate = vm.data.payCycleEndDate, startDate.isEmpty == false, endDate.isEmpty == false {
+            if let converted_startDate = getDateFromString(startDate), let  converted_endDate = getDateFromString(endDate){
+                let diff = converted_endDate.interval(ofComponent: .day, fromDate: converted_startDate)
+                LoggingUtil.shared.cPrint(diff)
+                payCycleDays = Double(diff)
+            }
+        }
+        
+        
         if let remaining = vm.data.numberOfDaysTillPayday {
             countDownLabel.text = "\(remaining) days till payday"
             progressBarView.mode = .gradientMonetary
-            progressBarView.progress = Float(Double(remaining) / payCycleDays)
+            let totalDaysCompleted = payCycleDays - Double(remaining)
+            progressBarView.progress = Float(Double(totalDaysCompleted) / payCycleDays)
             progressBarView.setupConfig()
         } else {
             countDownLabel.text = ""
@@ -133,6 +145,18 @@ class SpendingCardTableViewCell: CTableViewCell {
         return nil
     }
     
+    
+    func getDateFromString(_ strDate: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        if let date = dateFormatter.date(from: strDate) {
+             return date
+        }
+        return nil
+    }
+    
     func setShadowOnCard() {
         //rgba(146,146,210,0.05)
         containerView.layer.masksToBounds = false;
@@ -141,5 +165,8 @@ class SpendingCardTableViewCell: CTableViewCell {
         containerView.layer.shadowOffset  = CGSize(width: 2.0, height: 4.0);
         containerView.layer.shadowOpacity = 0.05;
     }
-    
 }
+
+
+
+

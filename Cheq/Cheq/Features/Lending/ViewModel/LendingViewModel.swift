@@ -186,6 +186,7 @@ extension LendingViewModel {
             }
             
         } else {
+            
             let completeDetailsForWork = CompleteDetailsTableViewCellViewModel()
             completeDetailsForWork.type = .workDetails
             completeDetailsForWork.completionState = .pending
@@ -227,6 +228,7 @@ extension LendingViewModel {
             completeDetailsForBankDetails.expanded = hasBankDetails ? false : true
             completeDetailsViewModels.append(completeDetailsForBankDetails)
         } else {
+            
             let completeDetailsForBankDetails = CompleteDetailsTableViewCellViewModel()
             completeDetailsForBankDetails.type = .bankDetils
             completeDetailsForBankDetails.completionState = .inactive
@@ -276,10 +278,12 @@ extension LendingViewModel {
         let bottom = BottomTableViewCellViewModel()
         section.rows.append(bottom)
     }
+    
 }
 
 // activity list
 extension LendingViewModel {
+    
     func activityList(_ lendingOverview: GetLendingOverviewResponse, section: inout TableSectionViewModel) {
         
         let kycStatus = lendingOverview.eligibleRequirement?.kycStatus ?? .notStarted
@@ -306,8 +310,8 @@ extension LendingViewModel {
             
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
             
-             let amt = floor(amount)
-             let strAmount = String(format: "$%.1f", amt)
+            let amt = floor(amount)
+            let strAmount = String(format: "$%.1f", amt)
             
             let amountString = strAmount
             //FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)

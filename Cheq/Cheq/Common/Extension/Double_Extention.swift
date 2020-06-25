@@ -18,7 +18,7 @@ extension Double {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.groupingSize = 3
-        numberFormatter.secondaryGroupingSize = 2
+        numberFormatter.secondaryGroupingSize = 3
         return numberFormatter
     }()
 
@@ -45,7 +45,7 @@ extension Int {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.groupingSize = 3
-        numberFormatter.secondaryGroupingSize = 2
+        numberFormatter.secondaryGroupingSize = 3
         return numberFormatter
     }()
 

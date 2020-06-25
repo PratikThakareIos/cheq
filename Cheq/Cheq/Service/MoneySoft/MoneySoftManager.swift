@@ -59,8 +59,7 @@ class MoneySoftManager {
     func getProfile()-> Promise<UserProfileModel> {
         return Promise<UserProfileModel>() { resolver in
             let msApi: MoneysoftApi = MoneysoftApi();
-            do {
-               
+            do {               
                 try msApi.user().profile(listener: ApiListener<UserProfileModel>(successHandler: { profileModel in
                      let profile = profileModel
                     resolver.fulfill(profile)

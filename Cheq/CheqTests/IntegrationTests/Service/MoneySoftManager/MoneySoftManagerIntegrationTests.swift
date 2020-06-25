@@ -20,6 +20,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let firebaseAuth = FirebaseAuthManager.shared
     
     func testMoneySoftSDK() {
+        
         let dataUtil = TestUtil.shared 
         let testBank = "Demobank"
         var storedAccounts: [FinancialAccountModel] = []

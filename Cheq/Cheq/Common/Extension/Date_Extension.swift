@@ -33,6 +33,30 @@ extension Date {
     }
 }
 
+extension Date {
+    ///Find number of calendar days between two dates
+    ///Comparing the ordinality of the two dates should be within the same era instead of the same year, since naturally the two dates may fall in different years.
+
+    func interval(ofComponent comp: Calendar.Component, fromDate date: Date) -> Int {
+
+        let currentCalendar = Calendar.current
+
+        guard let start = currentCalendar.ordinality(of: comp, in: .era, for: date) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: comp, in: .era, for: self) else { return 0 }
+
+        return end - start
+    }
+    
+    
+//    //Usage
+//    let yesterday = Date(timeInterval: -86400, since: Date())
+//    let tomorrow = Date(timeInterval: 86400, since: Date())
+//
+//
+//    let diff = tomorrow.interval(ofComponent: .day, fromDate: yesterday)
+//    // return 2
+}
+
 
 
 
