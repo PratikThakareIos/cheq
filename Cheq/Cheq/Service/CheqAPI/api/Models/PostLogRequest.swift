@@ -16,7 +16,6 @@ public struct PostLogRequest: Codable {
         case error = "Error"
         case info = "Info"
     }
-    
     public var deviceId: String?
     public var type: ModelType?
     public var message: String?
@@ -30,6 +29,7 @@ public struct PostLogRequest: Codable {
         self.event = event
         self.bankName = bankName
     }
-    
+
+
 }
 

@@ -39,7 +39,7 @@ class LoginVC: UIViewController {
         setupUI()
         activeTimestamp()
         //Manish
-        //self.addTestAccountDetails()
+        self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

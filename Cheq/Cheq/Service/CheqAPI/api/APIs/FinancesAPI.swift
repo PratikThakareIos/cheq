@@ -71,21 +71,13 @@ open class FinancesAPI {
      - examples: [{contentType=application/json, example=[ {
   "number" : "number",
   "isSalaryAccount" : true,
-  "accountType" : "accountType",
   "name" : "name",
-  "nickname" : "nickname",
-  "financialInstitutionName" : "financialInstitutionName",
-  "financialAccountId" : 0,
-  "assetType" : "assetType"
+  "financialInstitutionName" : "financialInstitutionName"
 }, {
   "number" : "number",
   "isSalaryAccount" : true,
-  "accountType" : "accountType",
   "name" : "name",
-  "nickname" : "nickname",
-  "financialInstitutionName" : "financialInstitutionName",
-  "financialAccountId" : 0,
-  "assetType" : "assetType"
+  "financialInstitutionName" : "financialInstitutionName"
 } ]}]
 
      - returns: RequestBuilder<[FinancialAccountSlim]> 

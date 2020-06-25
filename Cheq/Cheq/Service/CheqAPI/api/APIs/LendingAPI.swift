@@ -460,8 +460,8 @@ open class LendingAPI {
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
-    
     /**
+
      - parameter request: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -490,12 +490,12 @@ open class LendingAPI {
         let path = "/v1/Lending/bankaccount"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
         let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
-    
 
 }

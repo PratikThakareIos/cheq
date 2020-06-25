@@ -19,5 +19,6 @@ public struct GetUserResponse: Codable {
         self.employer = employer
     }
 
+
 }
 
