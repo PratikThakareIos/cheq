@@ -78,7 +78,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransactionPopup(_:))
             , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
     
@@ -103,6 +103,42 @@ class SpendingSpecificCategoryViewController: CTableViewController {
                     self.dismiss(animated: true)
                 }
             }
+        }
+    }
+}
+
+//MARK: -  popup
+extension SpendingSpecificCategoryViewController: RecentActivityPopUpVCDelegate{
+    
+    
+    @objc func showTransactionPopup(_ notification: NSNotification) {
+            LoggingUtil.shared.cPrint("showTransaction")
+            guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
+            guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
+        
+            let response : SlimTransactionResponse = transactionViewModel.data
+            self.openRecentActivityPopUpWith(slimTransactionResponse: response)
+     }
+    
+    func recentActivityPopUpClosed() {
+        LoggingUtil.shared.cPrint("recentActivityPopUpClosed")
+    }
+    
+    func openRecentActivityPopUpWith(slimTransactionResponse: SlimTransactionResponse?){
+       
+         self.view.endEditing(true)
+        
+         guard let _ = slimTransactionResponse else{
+            return
+         }
+
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.recentActivityPopUpVC.rawValue) as? RecentActivityPopUpVC{
+
+              popupVC.delegate = self
+              popupVC.slimTransactionResponse = slimTransactionResponse
+            
+              self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
 }

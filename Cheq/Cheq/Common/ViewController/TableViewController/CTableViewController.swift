@@ -75,17 +75,16 @@ extension CTableViewController {
         AppNav.shared.pushToViewController(vc, from: self)
     }
     
-    /// handling the modal to show **Transaction Details**, **CPopupView** is a wrapper to conveniently do popups. We grab the transaction object from notification first, then extract the **data** from transaction object and apply it to **TransactionModal**
     @objc func showTransaction(_ notification: NSNotification) {
         LoggingUtil.shared.cPrint("showTransaction")
         guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
         guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
-    
+
         let transactionModal: TransactionModal = UIView.fromNib()
         transactionModal.viewModel.data = transactionViewModel.data
         transactionModal.setupUI()
         let popupView = CPopupView(transactionModal)
-        
+
         popupView.show()
     }
     

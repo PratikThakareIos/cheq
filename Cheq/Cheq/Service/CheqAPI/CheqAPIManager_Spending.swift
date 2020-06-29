@@ -57,8 +57,8 @@ extension CheqAPIManager {
         }
     }
 
-    func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
-        return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
+    func spendingTransactions()->Promise<[DailyTransactionsResponse]> {
+        return Promise<[DailyTransactionsResponse]>() { resolver in
             #if DEMO
             let spendingTransactions: GetSpendingSpecificCategoryResponse = TestUtil.shared.testSpendingCategoryById()
             resolver.fulfill(spendingTransactions)

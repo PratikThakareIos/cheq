@@ -58,9 +58,9 @@ enum ScreenName: String {
     
     /// spending
     case spending = "Overview"
-    case spendingCategories = "Money Spent"
-    case spendingCategoryById = "Spending Category"
-    case spendingTransactions = "All Transactions"
+    case spendingCategories = "Money spent"
+    case spendingCategoryById = "Spending category"
+    case spendingTransactions = "Transactions"
     
     // account
     case accountInfo = "Account" 

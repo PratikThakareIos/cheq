@@ -56,8 +56,9 @@ class TransactionGroupTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        self.progressView.mode = .gradientMonetary
-        self.progressView.setupConfig()
+        
+
+       
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
         self.categoryTitle.font = AppConfig.shared.activeTheme.mediumMediumFont
@@ -72,7 +73,10 @@ class TransactionGroupTableViewCell: CTableViewCell {
         let iconName = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)
         self.categoryIcon.image = UIImage.init(named: iconName)
         let amount = vm.data.categoryAmount ?? 0.0
-        let total = vm.data.totalAmount ?? 100.0
+        let total = vm.data.totalAmount ?? 0.0
+        
+        self.progressView.mode = .gradientMoneySpent
+        self.progressView.setupConfig()
         self.progressView.progress = Float(amount / total)
     }
     

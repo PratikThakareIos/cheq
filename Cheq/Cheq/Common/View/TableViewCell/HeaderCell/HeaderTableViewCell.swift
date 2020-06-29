@@ -38,10 +38,17 @@ class HeaderTableViewCell: CTableViewCell {
         // customise UI
         let vm = self.viewModel as! HeaderTableViewCellViewModel
         self.backgroundColor = .clear
-        self.headerTitle.font = AppConfig.shared.activeTheme.mediumBoldFont
-        self.headerTitle.text = vm.title
-        self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.linksColor, for: .normal)
-        self.viewAllButton.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
+        
+         self.headerTitle.text = vm.title
+        if let headerFont = vm.titleFont {
+           self.headerTitle.font = headerFont
+        }else{
+           self.headerTitle.font = UIFont.init(name: FontConstant.SFProTextSemibold, size: 18.0) ?? UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+        }
+        
+       
+        self.viewAllButton.setTitleColor(AppConfig.shared.activeTheme.splashBgColor3, for: .normal)
+        //self.viewAllButton.titleLabel?.font = AppConfig.shared.activeTheme.defaultFont
         self.viewAllButton.isHidden = !vm.showViewAll
         self.tag = vm.tag
     }

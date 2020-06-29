@@ -28,16 +28,16 @@ class SpendingCardTableViewCell: CTableViewCell {
     @IBOutlet weak var progressBarView: CProgressView!
     
     /// refer to **xib**
-    @IBOutlet weak var headerLabel: CLabel!
+    @IBOutlet weak var headerLabel: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var countDownLabel: CLabel!
+    @IBOutlet weak var countDownLabel: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var nextPayCycleLabel: CLabel!
+    @IBOutlet weak var nextPayCycleLabel: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var subHeaderLabel: CLabel!
+    @IBOutlet weak var subHeaderLabel: UILabel!
     
     /// gradient layer for background
     var gradient: CAGradientLayer = CAGradientLayer()
@@ -58,36 +58,40 @@ class SpendingCardTableViewCell: CTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    /// the intrinsic height for the card, we don't need to define this if we want to purely rely on autolayout constraints
-    override open var intrinsicContentSize: CGSize {
-        get {
-            return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultTextFieldHeight*2)
-        }
-    }
+//    /// the intrinsic height for the card, we don't need to define this if we want to purely rely on autolayout constraints
+//    override open var intrinsicContentSize: CGSize {
+//        get {
+//            return CGSize(width: super.intrinsicContentSize.width, height: AppConfig.shared.activeTheme.defaultTextFieldHeight*2)
+//        }
+//    }
     
     ///  method to style and update the UI 
     override func setupConfig() {
         self.backgroundColor = .clear
-        headerLabel.font = AppConfig.shared.activeTheme.extraLargeBoldFont
-        headerLabel.textColor = AppConfig.shared.activeTheme.altTextColor
-        subHeaderLabel.font = AppConfig.shared.activeTheme.mediumFont
-        subHeaderLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.75)//AppConfig.shared.activeTheme.altTextColor
-        countDownLabel.font = AppConfig.shared.activeTheme.defaultFont
-        //countDownLabel.textColor = AppConfig.shared.activeTheme.altTextColor
-        countDownLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.9)
-        nextPayCycleLabel.font = AppConfig.shared.activeTheme.defaultFont
-        //nextPayCycleLabel.textColor = AppConfig.shared.activeTheme.altTextColor
-        nextPayCycleLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.9)
         
-        let gradientSet = AppConfig.shared.activeTheme.gradientSet4
-        containerView.startColor = gradientSet.first ??  UIColor(hex: "BD004F") //AppConfig.shared.activeTheme.lightGrayScaleColor
-        containerView.endColor = gradientSet.last ??  UIColor(hex: "E07843") //AppConfig.shared.activeTheme.lightGrayScaleColor
+    
+        //headerLabel.font = AppConfig.shared.activeTheme.extraLargeBoldFont
+        //headerLabel.textColor = AppConfig.shared.activeTheme.altTextColor
+        
+        //subHeaderLabel.font = AppConfig.shared.activeTheme.mediumFont
+        subHeaderLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.75)
+        
+        //countDownLabel.font = AppConfig.shared.activeTheme.defaultFont
+        countDownLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.9)
+        
+        nextPayCycleLabel.font = AppConfig.shared.activeTheme.defaultFont
+        nextPayCycleLabel.textColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255/255.0, alpha:  0.9)
+
+
 
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
+        
+        let gradientSet = AppConfig.shared.activeTheme.gradientSet4
+        containerView.startColor = gradientSet.first ??  UIColor(hex: "BD004F")
+        containerView.endColor = gradientSet.last ??  UIColor(hex: "E07843")
                
         let vm = self.viewModel as! SpendingCardTableViewCellViewModel
         
-
         let balanceDouble = vm.data.allAccountCashBalance ?? 0.0
         let balanceInInt = Int(balanceDouble)
         headerLabel.text = "$" + balanceInInt.strWithCommas
@@ -112,7 +116,12 @@ class SpendingCardTableViewCell: CTableViewCell {
         
         
         if let remaining = vm.data.numberOfDaysTillPayday {
-            countDownLabel.text = "\(remaining) days till payday"
+            
+            if remaining == 1 || remaining == 0 {
+                countDownLabel.text = "\(remaining) day till payday"
+            }else{
+                countDownLabel.text = "\(remaining) days till payday"
+            }
             progressBarView.mode = .gradientMonetary
             let totalDaysCompleted = payCycleDays - Double(remaining)
             progressBarView.progress = Float(Double(totalDaysCompleted) / payCycleDays)
@@ -123,7 +132,7 @@ class SpendingCardTableViewCell: CTableViewCell {
         }
         
         self.containerView.bringSubviewToFront(progressBarView)
-        self.setShadowOnCard()
+        //self.setShadowOnCard()
     }
     
     override func layoutSubviews() {
@@ -145,7 +154,6 @@ class SpendingCardTableViewCell: CTableViewCell {
         return nil
     }
     
-    
     func getDateFromString(_ strDate: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -160,13 +168,20 @@ class SpendingCardTableViewCell: CTableViewCell {
     func setShadowOnCard() {
         //rgba(146,146,210,0.05)
         containerView.layer.masksToBounds = false;
-        containerView.layer.shadowRadius  = 3.0;
+        containerView.layer.shadowRadius  = 5.0;
         containerView.layer.shadowColor   = UIColor.init(r: 249, g: 75, b: 109).cgColor;
-        containerView.layer.shadowOffset  = CGSize(width: 2.0, height: 4.0);
-        containerView.layer.shadowOpacity = 0.05;
+        containerView.layer.shadowOffset  = .zero //CGSize(width: 2.0, height: 4.0);
+        containerView.layer.shadowOpacity = 0.35;
+        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
     }
+    
 }
 
+//shadowColor: controls the color of the shadow, and can be used to make shadows (dark colors) or glows (light colors). This defaults to black.
+//shadowOffset: controls how far the shadow is moved away from its view. This defaults to 3 points up from the view.
+//shadowOpacity: controls how transparent the shadow is. This defaults to 0, meaning “invisible”.
+//shadowPath: controls the shape of the shadow. This defaults to nil, which causes UIKit to render the view offscreen to figure out the shadow shape.
+//shadowRadius: controls how blurred the shadow is. This defaults to 3 points.
 
 
 

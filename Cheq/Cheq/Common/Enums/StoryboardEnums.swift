@@ -22,6 +22,7 @@ enum PopupStoryboardId: String {
     case payCyclePopUpVC = "PayCyclePopUpVC"
     case verificationPopupVC = "VerificationPopupVC"
     case cashOutActivityPopUp = "CashOutActivityPopUp"
+    case recentActivityPopUpVC = "RecentActivityPopUpVC"
     
 }
 

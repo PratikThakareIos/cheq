@@ -36,6 +36,8 @@ class HeaderTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// toggle for showing/hiding the **viewAll** link on the right hand side
     var showViewAll: Bool = false
     
+    var titleFont : UIFont?
+    
     /// default tag, tag value is needed for handler to recognise which Header it needs to handle 
     var tag: Int = HeaderTableViewCellTag.recentActivity.rawValue
 }

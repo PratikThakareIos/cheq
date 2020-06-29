@@ -66,7 +66,7 @@ class SpendingViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(categoryById(_:))
             , name: NSNotification.Name(UINotificationEvent.selectedCategoryById.rawValue), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransactionPopup(_:))
             , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
 }
@@ -87,6 +87,7 @@ extension SpendingViewController {
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
+        
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
              AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
@@ -118,7 +119,6 @@ extension SpendingViewController {
     }
     
     @objc func viewAll(_ notification: NSNotification) {
-        
         guard let headerTableViewCell = notification.userInfo?[NotificationUserInfoKey.viewAll.rawValue] as? HeaderTableViewCell else { return }
         if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
             AppNav.shared.pushToSpendingVC(.categories, viewController: self)
@@ -127,7 +127,6 @@ extension SpendingViewController {
             AppNav.shared.pushToSpendingVC(.transactions, viewController: self)
         }
     }
-    
     
     func registerForNotification(){
         guard let application = AppData.shared.application else { return }
@@ -138,5 +137,42 @@ extension SpendingViewController {
         LoggingUtil.shared.cPrint("enableNotification")
         AppDelegate.setupRemoteNotifications()
         completion()
+    }
+
+}
+
+//MARK: -  popup
+extension SpendingViewController: RecentActivityPopUpVCDelegate{
+    
+    
+    @objc func showTransactionPopup(_ notification: NSNotification) {
+            LoggingUtil.shared.cPrint("showTransaction")
+            guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
+            guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
+        
+            let response : SlimTransactionResponse = transactionViewModel.data
+            self.openRecentActivityPopUpWith(slimTransactionResponse: response)
+     }
+    
+    func recentActivityPopUpClosed() {
+        LoggingUtil.shared.cPrint("recentActivityPopUpClosed")
+    }
+    
+    func openRecentActivityPopUpWith(slimTransactionResponse: SlimTransactionResponse?){
+       
+         self.view.endEditing(true)
+        
+         guard let _ = slimTransactionResponse else{
+            return
+         }
+
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.recentActivityPopUpVC.rawValue) as? RecentActivityPopUpVC{
+
+              popupVC.delegate = self
+              popupVC.slimTransactionResponse = slimTransactionResponse
+            
+              self.tabBarController?.present(popupVC, animated: false, completion: nil)
+        }
     }
 }

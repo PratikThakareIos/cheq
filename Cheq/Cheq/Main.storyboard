@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yp2-j7-bRX">
-                                <rect key="frame" x="10" y="88" width="394" height="675"/>
+                                <rect key="frame" x="20" y="88" width="374" height="675"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3M-co-NkD" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
@@ -36,10 +36,10 @@
                             <constraint firstItem="T3M-co-NkD" firstAttribute="leading" secondItem="dcE-pI-91v" secondAttribute="leading" constant="20" id="1rt-23-cGj"/>
                             <constraint firstItem="Yp2-j7-bRX" firstAttribute="top" secondItem="NqP-xb-Omo" secondAttribute="bottom" id="LLB-Uk-thJ"/>
                             <constraint firstItem="C15-J5-Gdd" firstAttribute="top" secondItem="Yp2-j7-bRX" secondAttribute="bottom" constant="50" id="Q1T-FP-N2q"/>
-                            <constraint firstItem="Yp2-j7-bRX" firstAttribute="leading" secondItem="dcE-pI-91v" secondAttribute="leading" constant="10" id="Sgr-r3-bOK"/>
+                            <constraint firstItem="Yp2-j7-bRX" firstAttribute="leading" secondItem="dcE-pI-91v" secondAttribute="leading" constant="20" id="Sgr-r3-bOK"/>
                             <constraint firstItem="T3M-co-NkD" firstAttribute="bottom" secondItem="C15-J5-Gdd" secondAttribute="top" constant="4" id="ZPD-jV-5IE"/>
                             <constraint firstItem="T3M-co-NkD" firstAttribute="top" secondItem="Yp2-j7-bRX" secondAttribute="bottom" constant="4" id="jba-3T-VMd"/>
-                            <constraint firstAttribute="trailing" secondItem="Yp2-j7-bRX" secondAttribute="trailing" constant="10" id="kIo-kt-K3i"/>
+                            <constraint firstAttribute="trailing" secondItem="Yp2-j7-bRX" secondAttribute="trailing" constant="20" id="kIo-kt-K3i"/>
                             <constraint firstAttribute="trailing" secondItem="T3M-co-NkD" secondAttribute="trailing" constant="20" id="rPR-jR-t7x"/>
                         </constraints>
                     </view>
@@ -134,16 +134,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-cD-oQt">
-                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CLp-cD-oQt">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84644777199999999" blue="0.336507416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Oi8-D7-Vwe" firstAttribute="top" secondItem="CLp-cD-oQt" secondAttribute="bottom" id="1PJ-v9-fgp"/>
-                            <constraint firstItem="CLp-cD-oQt" firstAttribute="leading" secondItem="p8r-za-xkG" secondAttribute="leading" constant="10" id="8aM-xO-VDK"/>
-                            <constraint firstAttribute="trailing" secondItem="CLp-cD-oQt" secondAttribute="trailing" constant="10" id="AIX-3X-oed"/>
+                            <constraint firstItem="CLp-cD-oQt" firstAttribute="leading" secondItem="p8r-za-xkG" secondAttribute="leading" constant="20" id="8aM-xO-VDK"/>
+                            <constraint firstAttribute="trailing" secondItem="CLp-cD-oQt" secondAttribute="trailing" constant="20" id="AIX-3X-oed"/>
                             <constraint firstItem="CLp-cD-oQt" firstAttribute="top" secondItem="XPA-cx-KV2" secondAttribute="bottom" id="wid-Wm-kWe"/>
                         </constraints>
                     </view>
@@ -167,16 +167,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0W-0z-Cfc">
-                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p0W-0z-Cfc">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.39841526849999997" green="1" blue="0.21989714129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Jnw-HI-O3E" firstAttribute="top" secondItem="p0W-0z-Cfc" secondAttribute="bottom" id="5v9-hx-hhm"/>
-                            <constraint firstItem="p0W-0z-Cfc" firstAttribute="leading" secondItem="9p5-HF-Zpy" secondAttribute="leading" constant="10" id="CQK-Pb-53E"/>
-                            <constraint firstAttribute="trailing" secondItem="p0W-0z-Cfc" secondAttribute="trailing" constant="10" id="OJu-I2-HtG"/>
+                            <constraint firstItem="p0W-0z-Cfc" firstAttribute="leading" secondItem="9p5-HF-Zpy" secondAttribute="leading" constant="20" id="CQK-Pb-53E"/>
+                            <constraint firstAttribute="trailing" secondItem="p0W-0z-Cfc" secondAttribute="trailing" constant="20" id="OJu-I2-HtG"/>
                             <constraint firstItem="p0W-0z-Cfc" firstAttribute="top" secondItem="CCN-Jx-esv" secondAttribute="bottom" id="rex-Va-kMT"/>
                         </constraints>
                     </view>
@@ -200,8 +200,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-xe-GeL">
-                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-xe-GeL">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -209,8 +209,8 @@
                         <constraints>
                             <constraint firstItem="e5p-xe-GeL" firstAttribute="top" secondItem="3aJ-al-Lrx" secondAttribute="bottom" id="0ca-xP-Sog"/>
                             <constraint firstItem="3bx-Zr-YVN" firstAttribute="top" secondItem="e5p-xe-GeL" secondAttribute="bottom" id="Bc9-m7-bMC"/>
-                            <constraint firstAttribute="trailing" secondItem="e5p-xe-GeL" secondAttribute="trailing" constant="10" id="Bjb-Nm-VgK"/>
-                            <constraint firstItem="e5p-xe-GeL" firstAttribute="leading" secondItem="RLn-Ak-MqQ" secondAttribute="leading" constant="10" id="oLH-rG-bhj"/>
+                            <constraint firstAttribute="trailing" secondItem="e5p-xe-GeL" secondAttribute="trailing" constant="20" id="Bjb-Nm-VgK"/>
+                            <constraint firstItem="e5p-xe-GeL" firstAttribute="leading" secondItem="RLn-Ak-MqQ" secondAttribute="leading" constant="20" id="oLH-rG-bhj"/>
                         </constraints>
                     </view>
                     <connections>

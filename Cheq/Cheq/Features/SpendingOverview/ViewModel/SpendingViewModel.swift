@@ -102,6 +102,8 @@ extension SpendingViewModel {
             recentTransactionHeader.tag = HeaderTableViewCellTag.recentTransactions.rawValue
             recentTransactionHeader.title = Header.recentActivity.rawValue
             recentTransactionHeader.showViewAll = true
+           
+            section.rows.append(spacer)
             section.rows.append(recentTransactionHeader)
             section.rows.append(spacer)
             transactionList(recentTransactionList, hideIcon: false, section: &section)

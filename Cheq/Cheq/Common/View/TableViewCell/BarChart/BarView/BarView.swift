@@ -14,10 +14,10 @@ import UIKit
 class BarView: UIView {
     
     /// The amount label, which shows at the top of the bar. Refer to **xib** layout
-    @IBOutlet weak var amountLabel: CLabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     /// Refer to **xib** layout
-    @IBOutlet weak var label: CLabel!
+    @IBOutlet weak var label: UILabel!
     
     /// Refer to **xib** layout. BarView background is gradient view by design.
     @IBOutlet weak var barTint: CGradientView!
@@ -47,16 +47,37 @@ class BarView: UIView {
     func setupConfig() {
         self.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.amountLabel.font = AppConfig.shared.activeTheme.mediumFont
-        self.amountLabel.textColor = AppConfig.shared.activeTheme.textColor
+        
+        self.amountLabel.font = UIFont.init(name: FontConstant.SFProTextMedium, size: 13.0) ?? UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        self.amountLabel.textColor = viewModel.barViewState == BarViewState.active ?  UIColor(hex: "111111") :  UIColor(hex: "333333").withAlphaComponent(0.75)
         self.amountLabel.text = FormatterUtil.shared.currencyFormat(viewModel.amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: true)
-        var barTint = self.barTint ?? UIView()
-        ViewUtil.shared.circularMask(&barTint, radiusBy: .width)
-        barTint.alpha = viewModel.barViewState == BarViewState.active ? 1.0 : AppConfig.shared.activeTheme.nonActiveAlpha
-        self.label.font = AppConfig.shared.activeTheme.defaultFont
-        self.label.textColor = AppConfig.shared.activeTheme.textColor
+                
+        self.label.font = UIFont.init(name: FontConstant.SFProTextMedium, size: 13.0) ?? UIFont.systemFont(ofSize: 13.0, weight: .medium)
+        self.label.textColor = viewModel.barViewState == BarViewState.active ?  UIColor(hex: "111111") :  UIColor(hex: "111111").withAlphaComponent(0.75)
         self.label.text = viewModel.label
+        
         self.progress.constant = self.viewModel.progress * barHeight
         self.progressBarWidth.constant = self.viewModel.barWidth
+        self.layoutIfNeeded()
+        
+        var barTint = self.barTint ?? UIView()
+        ViewUtil.shared.circularMask(&barTint, radiusBy: .width)
+        barTint.alpha = viewModel.barViewState == BarViewState.active ? 1.0 : 0.75
+        barTint.backgroundColor = .clear
+       
+                
+//        var fistColor =  UIColor(hex: "FF8141")
+//        var lastColor =  UIColor(hex: "D60A5F")
+//
+//        if viewModel.barViewState == BarViewState.active {
+//            fistColor =  UIColor(hex: "F1663C")
+//            lastColor =  UIColor(hex: "D52955")
+//        }
+//
+//
+//        let gradient = CAGradientLayer(start: .topCenter, end: .bottomCenter, colors: [fistColor.cgColor, lastColor.cgColor], type: .axial)
+//        gradient.frame = barTint.bounds
+//        barTint.layer.addSublayer(gradient)
+        
     }
 }

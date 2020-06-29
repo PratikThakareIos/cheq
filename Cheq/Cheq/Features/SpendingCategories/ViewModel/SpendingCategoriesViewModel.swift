@@ -31,6 +31,7 @@ extension SpendingCategoriesViewModel {
     func categoryAmounts(_ spendingCategories: GetSpendingCategoryResponse, section: inout TableSectionViewModel) {
         let top = TopTableViewCellViewModel()
         let bottom = BottomTableViewCellViewModel()
+        let spacer = SpacerTableViewCellViewModel()
         if let categoryAmountStatResponseList = spendingCategories.categoryAmountStats {
             section.rows.append(top)
             for categoryAmount in categoryAmountStatResponseList {
@@ -40,5 +41,6 @@ extension SpendingCategoriesViewModel {
             }
             section.rows.append(bottom)
         }
+        section.rows.append(spacer)
     }
 }

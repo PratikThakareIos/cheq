@@ -42,7 +42,7 @@ class BarChartTableViewCell: CTableViewCell {
         for existingSubviews in horizontalStackView.arrangedSubviews {
             self.horizontalStackView.removeArrangedSubview(existingSubviews)
         }
-        
+
         for barViewModel in vm.barViewModel() {
             
             let barView: BarView = UIView.fromNib()

@@ -24,6 +24,6 @@ class BarViewModel {
     var barTintStartColor: UIColor = AppConfig.shared.activeTheme.gradientSet4.first ?? .cyan
     var barTintEndColor: UIColor = AppConfig.shared.activeTheme.gradientSet4.last ?? .cyan
     var progress: CGFloat = 0.5
-    var barWidth: CGFloat = AppConfig.shared.screenWidth() * 0.05
+    var barWidth: CGFloat = 18 //AppConfig.shared.screenWidth() * 0.05
     var barViewState: BarViewState = .nonActive
 }
