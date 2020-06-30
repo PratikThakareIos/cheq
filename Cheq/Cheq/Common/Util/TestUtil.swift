@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import MobileSDK
+
 import PromiseKit
 import DateToolsSwift
+
+//import MobileSDK
+
 
 /**
  TestUtil is a singleton class used across the app for generating **test data** for testing and development phases. Please note that data from **TestUtil** shouldn't be used for production. **TestUtil** encapsulates many test data generating methods thats useful during development phase.

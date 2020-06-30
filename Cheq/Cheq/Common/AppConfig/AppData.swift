@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileSDK
+//import MobileSDK
 
 /**
 ScreenName enum is where we keep for names of screen that we want to track. Update as we add more viewContollers. Do not hardcode anywhere else for screen names.
@@ -130,10 +130,10 @@ class AppData {
     var progress = CProgress()
 
     /// Variable to keep track of linked account fetched from MoneySoft SDK.
-    var storedAccounts: [FinancialAccountModel] = []
+    //var storedAccounts: [FinancialAccountModel] = []
     
     /// Variable to keep track of transactions fetched from MoneySoft SDK.
-    var financialTransactions: [FinancialTransactionModel] = []
+    //var financialTransactions: [FinancialTransactionModel] = []
     
     /// Placeholder value for financialInstitutionsId
     let financialInstitutionsUnused = -1
@@ -150,7 +150,7 @@ class AppData {
     var bankJobId :String?
     
     /// financial login form from MoneySoft SDK
-    var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
+    //var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
     
     /// use for keeping track of the provider institution id to map which bank user selected
     var existingProviderInstitutionId: String = ""
@@ -159,7 +159,7 @@ class AppData {
     var existingFinancialInstitutionId: Int  = -1
     
     /// disabledAccount is used when we check if we need to migrate MoneySoft linked account instead of onboarding
-    var disabledAccount: FinancialAccountModel!
+    //var disabledAccount: FinancialAccountModel!
     
     /// bank logo mapping from remote config
     var remoteBankMapping = [String: RemoteBank]()
@@ -295,10 +295,10 @@ class AppData {
           progress = CProgress()
 
          /// Variable to keep track of linked account fetched from MoneySoft SDK.
-          storedAccounts = []
+          //storedAccounts = []
          
          /// Variable to keep track of transactions fetched from MoneySoft SDK.
-          financialTransactions = []
+          //financialTransactions = []
                   
          /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
           financialInstitutions = []
@@ -311,7 +311,7 @@ class AppData {
           bankJobId = nil
          
          /// financial login form from MoneySoft SDK
-          financialSignInForm = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
+          //financialSignInForm = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
          
          /// use for keeping track of the provider institution id to map which bank user selected
           existingProviderInstitutionId = ""

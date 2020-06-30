@@ -9,7 +9,7 @@
 import UIKit
 import Onfido
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 
 class IntroductionViewController: UIViewController {
 

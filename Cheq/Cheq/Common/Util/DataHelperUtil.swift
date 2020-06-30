@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileSDK
+//import MobileSDK
 
 /**
  DataHelperUtil is a helper class to build request payload and perform data transformation for API calls. When we want to build a complicated request payload, we encapsulate the logics in this class. So that it's resuable later on. Some API request payload requires repeated data transformation logics.
@@ -131,41 +131,41 @@ class DataHelperUtil {
      - parameter transactions: list of **FinancialTransactionModel** from MoneySoft SDK
      - Returns: list of transaction types that is use for posting back to Cheq backend
      */
-    func postFinancialTransactionsReq(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
-        let postFinancialTransactionsRequest = transactions.map {
-            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name ?? "", type: convertTransactionType($0.type), source: "")
-        }
-        return postFinancialTransactionsRequest
-    }
+//    func postFinancialTransactionsReq(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
+//        let postFinancialTransactionsRequest = transactions.map {
+//            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name ?? "", type: convertTransactionType($0.type), source: "")
+//        }
+//        return postFinancialTransactionsRequest
+//    }
     
     /**
      Helper method converting **MobileSDK.TransactionType** to String
      */
-    func convertTransactionType(_ transactionType: MobileSDK.TransactionType)-> String {
-        let value = transactionType.rawValue
-        return String(value)
-    }
+//    func convertTransactionType(_ transactionType: MobileSDK.TransactionType)-> String {
+//        let value = transactionType.rawValue
+//        return String(value)
+//    }
     
     /**
      Helper method to build a post request payload with retrieved accounts from MoneySoft SDK.
      - parameter accounts: list of **FinancialAccountModel** retrieved from MoneySoft SDK
      - Returns: list of account types for posting to Cheq backend
      */
-    func postFinancialAccountsReq(_ accounts: [FinancialAccountModel])-> [PostFinancialAccountRequest] {
-        
-        let postFinancialAccountsRequest = accounts.map { PostFinancialAccountRequest(financialAccountId: $0.financialAccountId , providerAccountId: $0.providerAccountId ?? "", financialInstitutionId:$0.financialInstitution?.financialInstitutionId , providerInstitutionId: Int($0.providerInstitutionId ?? "-1"), providerContainerId: $0.providerContainerId ?? "", name: $0.name , nickname: $0.nickname ?? "", number: $0.number, balance: $0.balance, disabled: $0.disabled, type: $0.type.name().uppercased(), assetType: $0.assetType.name().uppercased(), source: "") }
-        return postFinancialAccountsRequest
-    }
+//    func postFinancialAccountsReq(_ accounts: [FinancialAccountModel])-> [PostFinancialAccountRequest] {
+//
+//        let postFinancialAccountsRequest = accounts.map { PostFinancialAccountRequest(financialAccountId: $0.financialAccountId , providerAccountId: $0.providerAccountId ?? "", financialInstitutionId:$0.financialInstitution?.financialInstitutionId , providerInstitutionId: Int($0.providerInstitutionId ?? "-1"), providerContainerId: $0.providerContainerId ?? "", name: $0.name , nickname: $0.nickname ?? "", number: $0.number, balance: $0.balance, disabled: $0.disabled, type: $0.type.name().uppercased(), assetType: $0.assetType.name().uppercased(), source: "") }
+//        return postFinancialAccountsRequest
+//    }
     
     /**
      Helper method to build a post request payload with retrieved banks from MoneySoft SDK.
      - parameter institutions: list of **FinancialInstitutionModel** retreived from MoneySoft SDK
      - Returns: list of institution types for positng to Cheq backend
      */
-    func postFinancialInstitutionsRequest(_ institutions: [FinancialInstitutionModel])-> [PostFinancialInstitutionRequest] {
-        let postFinancialInstitutionsRequest = institutions.map{ PostFinancialInstitutionRequest(financialInstitutionId: $0.financialInstitutionId, providerInstitutionId: $0.providerInstitutionId, name: $0.name ?? "", alias: $0.alias ?? "", displayName: $0.name ?? "", order: $0.order, isActive: $0.isActive(), financialServiceId: -1, isMFA: $0.isMFA(), providerId: -1) }
-        return postFinancialInstitutionsRequest
-    }
+//    func postFinancialInstitutionsRequest(_ institutions: [FinancialInstitutionModel])-> [PostFinancialInstitutionRequest] {
+//        let postFinancialInstitutionsRequest = institutions.map{ PostFinancialInstitutionRequest(financialInstitutionId: $0.financialInstitutionId, providerInstitutionId: $0.providerInstitutionId, name: $0.name ?? "", alias: $0.alias ?? "", displayName: $0.name ?? "", order: $0.order, isActive: $0.isActive(), financialServiceId: -1, isMFA: $0.isMFA(), providerId: -1) }
+//        return postFinancialInstitutionsRequest
+//    }
     
 
     /**
@@ -173,14 +173,14 @@ class DataHelperUtil {
     - parameter transactions: list of **FinancialTransactionModel** from MoneySoft SDK
     - Returns: list of transaction types that is use for posting back to Cheq backend
     */
-    func postFinancialTransactionsRequest(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
-        let postFinancialTransactionsRequest = transactions.map {
-            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name, type: convertTransactionType($0.type), source: "")
-        }
-
-        return postFinancialTransactionsRequest
-    }
-    
+//    func postFinancialTransactionsRequest(_ transactions: [FinancialTransactionModel])-> [PostFinancialTransactionRequest] {
+//        let postFinancialTransactionsRequest = transactions.map {
+//            PostFinancialTransactionRequest(transactionId: $0.transactionId, accountId: $0.accountId, categoryId: $0.categoryId, amount: $0.amount, date: $0.date, isDeleted: $0.isDeleted, isVerified: $0.isVerified, merchant: $0.merchant ?? "", _description: $0.name, type: convertTransactionType($0.type), source: "")
+//        }
+//
+//        return postFinancialTransactionsRequest
+//    }
+//
     /**
      Helper method to convert **GetUpcomingBillResponse.CategoryCode** to **CategoryAmountStatResponse.CategoryCode**
      - parameter code: These code types are actually for same purpose, but the backend Swagger definition as of the time of documenting has not been consolidated yet.

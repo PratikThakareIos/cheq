@@ -10,8 +10,9 @@ import UIKit
 import PromiseKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import MobileSDK
 import FRHyperLabel
+
+//import MobileSDK
 
 class LoginVC: UIViewController {
     

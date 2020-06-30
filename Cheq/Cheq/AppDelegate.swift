@@ -14,7 +14,7 @@ import Fabric
 import Crashlytics
 import FBSDKLoginKit
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 import IQKeyboardManagerSwift
 
 
@@ -41,13 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // keep a reference for re-use
         AppData.shared.application = application
         
-        //Moneysoft  Configure method goes here
-        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
-                                                                    apiReferrer: API_REFERRER,
-                                                                    view: UIView(),
-                                                                    isDebug: true,
-                                                                    isBeta: true, serviceProvider: .EWISE);
-        MoneysoftApi.configure(config);
+//        //Moneysoft  Configure method goes here
+//        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
+//                                                                    apiReferrer: API_REFERRER,
+//                                                                    view: UIView(),
+//                                                                    isDebug: true,
+//                                                                    isBeta: true, serviceProvider: .EWISE);
+//        MoneysoftApi.configure(config);
 
         let _ = VDotManager.shared //manish
         
@@ -229,14 +229,15 @@ extension AppDelegate {
 //        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "\(dateString)")
 //        LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile,newText: "message received \(dateString)")
         
-        MoneySoftManager.shared.handleNotification(data).done { success in
-            LoggingUtil.shared.cPrint("handle notification success")
-        }.catch { err in
-            LoggingUtil.shared.cPrint("handle notification failed")
-            LoggingUtil.shared.cPrint(err.localizedDescription)
-        }.finally {
-            completion()
-        }
+//        MoneySoftManager.shared.handleNotification(data).done { success in
+//            LoggingUtil.shared.cPrint("handle notification success")
+//        }.catch { err in
+//            LoggingUtil.shared.cPrint("handle notification failed")
+//            LoggingUtil.shared.cPrint(err.localizedDescription)
+//        }.finally {
+//            completion()
+//        }
+        
     }
 }
 

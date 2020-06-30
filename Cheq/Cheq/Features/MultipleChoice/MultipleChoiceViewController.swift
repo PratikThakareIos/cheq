@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileSDK
+//import MobileSDK
 import Onfido
 import SDWebImage
 import PromiseKit

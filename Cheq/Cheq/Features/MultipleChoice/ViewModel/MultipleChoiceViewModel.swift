@@ -8,7 +8,7 @@
 
 import UIKit
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 
 enum MultipleChoiceQuestionType: String {
     case employmentType = "Employment type"

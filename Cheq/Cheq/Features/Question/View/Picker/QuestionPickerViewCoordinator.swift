@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileSDK
+//import MobileSDK
 
 enum MaritalStatus: String {
     case single = "Single"

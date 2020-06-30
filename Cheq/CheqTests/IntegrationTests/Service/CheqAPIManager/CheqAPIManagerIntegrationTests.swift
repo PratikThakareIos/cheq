@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 import DateToolsSwift
 @testable import Cheq
 

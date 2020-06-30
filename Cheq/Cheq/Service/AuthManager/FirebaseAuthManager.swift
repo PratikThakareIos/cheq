@@ -202,14 +202,23 @@ extension FirebaseAuthManager {
                 LoggingUtil.shared.cPrint("fcm \(fcm)")
                
                 let req = DataHelperUtil.shared.postPushNotificationRequest()
+//                CheqAPIManager.shared.postNotificationToken(req)
+//                .then { success->Promise<Bool> in
+//                    return MoneySoftManager.shared.postNotificationToken()
+//                }.done { success in
+//                    resolver.fulfill(authUser)
+//                }.catch { err in
+//                    resolver.reject(err)
+//                }
+                
                 CheqAPIManager.shared.postNotificationToken(req)
-                .then { success->Promise<Bool> in
-                    return MoneySoftManager.shared.postNotificationToken()
-                }.done { success in
+                .done { success in
                     resolver.fulfill(authUser)
                 }.catch { err in
                     resolver.reject(err)
                 }
+                
+                
             }.catch {err in
                 resolver.reject(err)
             }

@@ -9,7 +9,7 @@
 import XCTest
 import PromiseKit
 import Firebase
-import MobileSDK
+//import MobileSDK
 import DateToolsSwift
 @testable import Cheq 
 

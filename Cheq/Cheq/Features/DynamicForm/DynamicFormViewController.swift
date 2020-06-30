@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileSDK
+//import MobileSDK
 import PromiseKit
 
 class DynamicFormViewController: UIViewController {

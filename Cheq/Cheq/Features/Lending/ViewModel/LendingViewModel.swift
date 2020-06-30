@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import MobileSDK
+
+//import MobileSDK
 
 
 class LendingViewModel: BaseTableVCViewModel {

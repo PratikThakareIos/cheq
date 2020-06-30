@@ -8,7 +8,7 @@
 
 import UIKit
 import Onfido
-import MobileSDK
+//import MobileSDK
 
 /**
  AppNav is Singleton class which contains all our viewController intialisation and navigation logics. So we don't have adhoc code scatter everywhere. This class is the single place for viewController initialisation and navigation.

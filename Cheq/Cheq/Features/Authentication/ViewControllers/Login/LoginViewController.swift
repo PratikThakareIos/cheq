@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import MobileSDK
+//import MobileSDK
 
 class LoginViewController: RegistrationViewController {
 
