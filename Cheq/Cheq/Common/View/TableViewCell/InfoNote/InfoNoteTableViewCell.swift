@@ -44,14 +44,18 @@ class InfoNoteTableViewCell: CTableViewCell {
     
     /// Call **setupConfig** when viewModel is updated 
     override func setupConfig() {
+        
         self.backgroundColor = .clear
         self.containerView.backgroundColor = .clear 
+        
         informationNoteLabel.font = AppConfig.shared.activeTheme.defaultFont
-        informationNoteLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        informationNoteLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor
         infoIconSpacing.constant = CGFloat(AppConfig.shared.activeTheme.xxlPadding)
+       
         let vm = self.viewModel as! InfoNoteTableViewCellViewModel
         informationNoteLabel.textAlignment = vm.textAlignment
-        self.infoIconContainer.isHidden = !vm.showIcon
+        //self.infoIconContainer.isHidden = !vm.showIcon
+        self.infoIconContainer.isHidden = true
         self.informationNoteLabel.text = vm.data
     }
 }

@@ -81,9 +81,10 @@ class CProgressView: UIProgressView {
         }
         
        
-       
-        AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
-        layer.cornerRadius = 5.0
+        layer.masksToBounds = true
+        layer.cornerRadius = 3.0
+        //AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
+        //layer.cornerRadius = 5.0
     }
     
     

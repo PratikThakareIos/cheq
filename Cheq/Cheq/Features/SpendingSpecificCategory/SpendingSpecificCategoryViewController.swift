@@ -11,7 +11,7 @@ import UIKit
 class SpendingSpecificCategoryViewController: CTableViewController {
 
     override func registerCells() {
-        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),  HeaderTableViewCellViewModel(), TransactionTableViewCellViewModel(), LineSeparatorTableViewCellViewModel(), BarChartTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel()]
+        let cellModels: [TableViewCellViewModelProtocol] = [SpacerTableViewCellViewModel(),NoMoreActivityViewModel(), HeaderTableViewCellViewModel(), TransactionTableViewCellViewModel(), LineSeparatorTableViewCellViewModel(), BarChartTableViewCellViewModel(), BottomTableViewCellViewModel(), TopTableViewCellViewModel()]
         for vm: TableViewCellViewModelProtocol in cellModels {
             let nib = UINib(nibName: vm.identifier, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: vm.identifier)

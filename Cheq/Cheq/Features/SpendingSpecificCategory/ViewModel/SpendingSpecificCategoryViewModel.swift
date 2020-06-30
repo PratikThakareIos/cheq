@@ -16,14 +16,15 @@ class SpendingSpecificCategoryViewModel: BaseTableVCViewModel {
     }
     
     func render(_ spendingSpecificCategoryResponse: GetSpendingSpecificCategoryResponse) {
-        
-        
+    
         if self.sections.count > 0 {
             self.sections.removeAll()
         }
         
         let spacer = SpacerTableViewCellViewModel()
         var section = TableSectionViewModel()
+        let noMoreMoreActivityVM = NoMoreActivityViewModel()
+        
         categoryMonthlyStats(spendingSpecificCategoryResponse.monthAmountStats, section: &section)
         for dailyTransaction: DailyTransactionsResponse in spendingSpecificCategoryResponse.dailyTransactions ?? [] {
             let header = HeaderTableViewCellViewModel()
@@ -34,6 +35,9 @@ class SpendingSpecificCategoryViewModel: BaseTableVCViewModel {
             transactionList(dailyTransaction.transactions ?? [], hideIcon: true,  section: &section)
             section.rows.append(spacer)
         }
+        section.rows.append(noMoreMoreActivityVM)
+        section.rows.append(spacer)
+        
         self.sections = [section]
         NotificationUtil.shared.notify(UINotificationEvent.reloadTable.rawValue, key: "", value: "")
     }

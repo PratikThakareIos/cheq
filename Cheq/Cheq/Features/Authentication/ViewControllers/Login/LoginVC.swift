@@ -38,8 +38,9 @@ class LoginVC: UIViewController {
         super.viewDidAppear(animated)
         setupUI()
         activeTimestamp()
+      
         //Manish
-        self.addTestAccountDetails()
+        //self.addTestAccountDetails()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -51,16 +52,16 @@ class LoginVC: UIViewController {
         return .lightContent
     }
     
-    func addTestAccountDetails(){
-        //prateek629@yopmail.com  //cashout
-        //prateek725@yopmail.com  "Rdm@12345" //
-        //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
-        
-        self.emailTextField.text =  "um31@gmail.com"//"tomtum@cheq.test"//"gkk@g.com" //"way@g.com" //
-        self.passwordTextField.text =  "Umanga@123" //"Tfc@12345"
-    }
+//    func addTestAccountDetails(){
+//        //prateek629@yopmail.com  //cashout
+//        //prateek725@yopmail.com  "Rdm@12345" //
+//        //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
+//
+//        self.emailTextField.text =  "jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
+//        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
+//    }
+    
 }
-
 
 // MARK: Custom Methods
 extension LoginVC {

@@ -18,25 +18,32 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpendingCardTableViewCell" customModule="CheqDemo" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SpendingCardTableViewCell" id="KGk-i7-Jjw" customClass="SpendingCardTableViewCell" customModule="CheqDemo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="197"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SpendingCardTableViewCell" rowHeight="190" id="KGk-i7-Jjw" customClass="SpendingCardTableViewCell" customModule="CheqDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="190"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="335" height="197"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1X-Cb-IVe" userLabel="ViewShadow">
+                        <rect key="frame" x="0.0" y="1" width="335" height="191"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="191" id="WRv-eI-mJs"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bt-cC-Qif" customClass="CGradientView" customModule="CheqDemo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="2" width="335" height="189"/>
+                        <rect key="frame" x="1" y="2" width="333" height="189"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H39-au-6pt">
-                                <rect key="frame" x="20" y="0.0" width="295" height="169"/>
+                                <rect key="frame" x="20" y="0.0" width="293" height="169"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-gI-u2t">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1,225" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="jRW-Rj-e99">
-                                        <rect key="frame" x="0.0" y="46" width="295" height="32"/>
+                                        <rect key="frame" x="0.0" y="46" width="293" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="Fnj-fb-BFu"/>
                                         </constraints>
@@ -45,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cash balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-xE-A7c">
-                                        <rect key="frame" x="0.0" y="88" width="295" height="20"/>
+                                        <rect key="frame" x="0.0" y="88" width="293" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="y6f-cm-wBR"/>
                                         </constraints>
@@ -54,29 +61,29 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fx1-lu-gvz">
-                                        <rect key="frame" x="0.0" y="118" width="295" height="7"/>
+                                        <rect key="frame" x="0.0" y="118" width="293" height="7"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="7" id="wzh-zr-PH4"/>
                                         </constraints>
                                     </view>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Xh-KH-EuY" customClass="CProgressView" customModule="CheqDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="135" width="295" height="9"/>
+                                        <rect key="frame" x="0.0" y="135" width="293" height="9"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="YOY-jw-JTq"/>
                                         </constraints>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gsv-qq-qwp">
-                                        <rect key="frame" x="0.0" y="153" width="295" height="16"/>
+                                        <rect key="frame" x="0.0" y="153" width="293" height="16"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5 days til payday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYm-0j-hQC">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="181" height="16"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="0.902618838028169" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="13 Mar - 13 Mar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3W-Ke-c0F">
-                                                <rect key="frame" x="191" y="0.0" width="104" height="16"/>
+                                                <rect key="frame" x="189" y="0.0" width="104" height="16"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="0.902618838028169" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -108,10 +115,14 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="u1X-Cb-IVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="6MP-SN-e4k"/>
+                    <constraint firstAttribute="bottom" secondItem="u1X-Cb-IVe" secondAttribute="bottom" constant="1" id="HPB-Eh-bM1"/>
                     <constraint firstItem="8Bt-cC-Qif" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="HeN-m7-9tU"/>
-                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Pgu-cs-1IJ"/>
+                    <constraint firstItem="8Bt-cC-Qif" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="1" id="Pgu-cs-1IJ"/>
                     <constraint firstAttribute="bottom" secondItem="8Bt-cC-Qif" secondAttribute="bottom" constant="2" id="Q3l-Ry-CAq"/>
-                    <constraint firstAttribute="trailing" secondItem="8Bt-cC-Qif" secondAttribute="trailing" id="wHJ-UP-xxF"/>
+                    <constraint firstAttribute="trailing" secondItem="u1X-Cb-IVe" secondAttribute="trailing" constant="0.01" id="lCY-iM-wVY"/>
+                    <constraint firstItem="u1X-Cb-IVe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="0.01" id="smF-tO-LyE"/>
+                    <constraint firstAttribute="trailing" secondItem="8Bt-cC-Qif" secondAttribute="trailing" constant="1" id="wHJ-UP-xxF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -122,8 +133,9 @@
                 <outlet property="nextPayCycleLabel" destination="L3W-Ke-c0F" id="Ox7-sf-rbG"/>
                 <outlet property="progressBarView" destination="6Xh-KH-EuY" id="uwM-IO-q0i"/>
                 <outlet property="subHeaderLabel" destination="X5y-xE-A7c" id="jkK-SZ-L2I"/>
+                <outlet property="vwShadow" destination="u1X-Cb-IVe" id="zb5-Dq-cLm"/>
             </connections>
-            <point key="canvasLocation" x="107.24637681159422" y="180.13392857142856"/>
+            <point key="canvasLocation" x="106.5217391304348" y="177.45535714285714"/>
         </tableViewCell>
     </objects>
 </document>

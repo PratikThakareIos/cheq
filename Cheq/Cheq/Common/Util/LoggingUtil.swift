@@ -33,7 +33,7 @@ class LoggingUtil {
         #elseif UAT
             print(msg)
         #else
-            print("")
+            print(msg) //print("")
         #endif
     }
     

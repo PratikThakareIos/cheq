@@ -57,7 +57,6 @@ class TransactionGroupTableViewCell: CTableViewCell {
         self.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.containerView.backgroundColor = AppConfig.shared.activeTheme.altTextColor
         
-
        
         let vm = self.viewModel as! TransactionGroupTableViewCellViewModel
         self.categoryTitle.text = vm.data.categoryTitle
@@ -68,12 +67,14 @@ class TransactionGroupTableViewCell: CTableViewCell {
         amountStr = amountStr.replacingOccurrences(of: "-", with: "")
         self.categoryAmount.text = amountStr
         
+        
         self.categoryAmount.font = AppConfig.shared.activeTheme.mediumMediumFont
         let code = vm.data.categoryCode ?? CategoryAmountStatResponse.CategoryCode.others
         let iconName = DataHelperUtil.shared.iconFromCategory(code, largeIcon: true)
         self.categoryIcon.image = UIImage.init(named: iconName)
         let amount = vm.data.categoryAmount ?? 0.0
         let total = vm.data.totalAmount ?? 0.0
+        
         
         self.progressView.mode = .gradientMoneySpent
         self.progressView.setupConfig()

@@ -14,6 +14,8 @@ import UIKit
  */
 class SpendingCardTableViewCell: CTableViewCell {
     
+    @IBOutlet weak var vwShadow: UIView!
+    
     /// update background and margins using containerView
     @IBOutlet weak var containerView: CGradientView!
     
@@ -167,12 +169,18 @@ class SpendingCardTableViewCell: CTableViewCell {
     
     func setShadowOnCard() {
         //rgba(146,146,210,0.05)
-        containerView.layer.masksToBounds = false;
-        containerView.layer.shadowRadius  = 5.0;
-        containerView.layer.shadowColor   = UIColor.init(r: 249, g: 75, b: 109).cgColor;
-        containerView.layer.shadowOffset  = .zero //CGSize(width: 2.0, height: 4.0);
-        containerView.layer.shadowOpacity = 0.35;
-        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        
+//        AppConfig.shared.activeTheme.cardStyling(self.vwShadow, addBorder: false)
+//
+//        vwShadow.backgroundColor = .clear
+//        //vwShadow.layer.masksToBounds = false;
+//
+//        vwShadow.layer.shadowColor   = UIColor.init(r: 249, g: 75, b: 109).cgColor;
+//        vwShadow.layer.shadowPath = UIBezierPath(rect: vwShadow.bounds).cgPath
+//        vwShadow.layer.shadowRadius  = 3.0;
+//        //vwShadow.layer.shadowOffset  = CGSize(width: 1.0, height: 4.0);
+//        vwShadow.layer.shadowOpacity = 1;
+ 
     }
     
 }

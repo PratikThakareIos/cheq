@@ -55,11 +55,14 @@ extension SpendingViewModel {
     func upcomingBills(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
         let spacer = SpacerTableViewCellViewModel()
         if let upcomingBillsResponse = spendingOverview.upcomingBills, upcomingBillsResponse.count > 0 {
+            
             let upcomingBillsHeader = HeaderTableViewCellViewModel()
             upcomingBillsHeader.title = Header.upcomingBills.rawValue
             upcomingBillsHeader.showViewAll = false
+            
             section.rows.append(upcomingBillsHeader)
             section.rows.append(spacer)
+            
             let upcomingBillsCollection = UpcomingBillsTableViewCellViewModel()
             for upcoming in upcomingBillsResponse {
                 let upcomingBill = UpcomingBillCollectionViewCellViewModel()

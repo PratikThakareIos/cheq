@@ -17,13 +17,13 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
     @IBOutlet weak var icon: UIImageView!
     
     /// merchant name
-    @IBOutlet weak var merchanLabel: CLabel!
+    @IBOutlet weak var merchanLabel: UILabel!
     
     /// remaining time to pay the upcoming bill
-    @IBOutlet weak var remainingTimeLabel: CLabel!
+    @IBOutlet weak var remainingTimeLabel: UILabel!
     
     /// upcoming bill amount
-    @IBOutlet weak var amountLabel: CLabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     /// container view of cell, for maintaining background color and margins
     @IBOutlet weak var containerView: UIView!
@@ -44,11 +44,16 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
         
         self.contentView.backgroundColor = .clear
         self.backgroundColor = AppConfig.shared.activeTheme.textBackgroundColor
-        self.merchanLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
-        self.remainingTimeLabel.font = AppConfig.shared.activeTheme.defaultFont
+        
+        //self.merchanLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
+        //self.remainingTimeLabel.font = AppConfig.shared.activeTheme.defaultFont
+        //self.amountLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
+        
         self.remainingTimeLabel.textColor = AppConfig.shared.activeTheme.lightGrayColor
-        self.amountLabel.font = AppConfig.shared.activeTheme.mediumMediumFont
+        
+        
         AppConfig.shared.activeTheme.cardStyling(self.containerView, addBorder: false)
+        
         self.setShadow()
         
         //containerView.layer.cornerRadius = 6.0
@@ -66,9 +71,19 @@ class UpcomingBillCollectionViewCell: CCollectionViewCell {
 //        containerView.layer.backgroundColor = UIColor.clear.cgColor
         
         
+        
+//        upcomingBills: Optional([Cheq_DEV.GetUpcomingBillResponse(
+//        _description: Optional("Vodafone Mobile"),
+//        merchant: nil,
+//        merchantLogoUrl: nil,
+//        amount: Optional(86.2),
+//        dueDate: Optional("2020-07-01"),
+//        daysToDueDate: Optional(2)
+        
+        
         /// notice that by default viewModel is **CollectionViewCellViewModelProtocol**, so we have to cast to **UpcomingBillCollectionViewCellViewModel** first in order to read the variables we want from **UpcomingBillCollectionViewCellViewModel**
         let vm = self.viewModel as! UpcomingBillCollectionViewCellViewModel
-        self.merchanLabel.text = vm.data._description //vm.data.merchant //manish
+        self.merchanLabel.text = vm.data._description //vm.data.merchant
         self.remainingTimeLabel.text = String("in \(vm.data.daysToDueDate ?? -1) days")
         self.amountLabel.text = FormatterUtil.shared.currencyFormat(vm.data.amount ?? 0.0, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
         

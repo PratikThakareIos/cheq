@@ -32,7 +32,7 @@ class BarView: UIView {
     @IBOutlet weak var progressBarWidth: NSLayoutConstraint! 
     
     /// The container is set to 25% of screen height
-    let barHeight = AppConfig.shared.screenHeight() * 0.25
+    let barHeight : CGFloat = 110.0 //AppConfig.shared.screenHeight() * 0.25
     
     /// Initialise viewModel which comes with dummy values
     var viewModel = BarViewModel()
@@ -56,7 +56,8 @@ class BarView: UIView {
         self.label.textColor = viewModel.barViewState == BarViewState.active ?  UIColor(hex: "111111") :  UIColor(hex: "111111").withAlphaComponent(0.75)
         self.label.text = viewModel.label
         
-        self.progress.constant = self.viewModel.progress * barHeight
+        let heightOfBar = self.viewModel.progress * barHeight
+        self.progress.constant = heightOfBar < 8 ? 8 : heightOfBar
         self.progressBarWidth.constant = self.viewModel.barWidth
         self.layoutIfNeeded()
         

@@ -9,7 +9,7 @@
 import UIKit
 
 
-//[Cheq_DEV.SlimTransactionResponse(
+//[SlimTransactionResponse(
 //    _description: Optional("LIQUOR EMPORIUM ALEXANDRIA NS AUS Card xx3481 Value Date: 24/06/2020"),
 //    amount: Optional(-109.85),
 //    date: Optional("2020-06-25"),
@@ -19,7 +19,8 @@ import UIKit
 //    merchantLogoUrl: nil,
 //    financialAccountName:
 //    Optional("Credit Card"),
-//    financialInstitutionLogoUrl: Optional("https://d388vpyfrt4zrj.cloudfront.net/AU00001.svg")),
+//    financialInstitutionLogoUrl: Optional("https://d388vpyfrt4zrj.cloudfront.net/AU00001.svg")
+//    ),
 
 
 @objc protocol RecentActivityPopUpVCDelegate {
