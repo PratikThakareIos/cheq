@@ -329,7 +329,8 @@ extension LendingViewController {
                     }
                 }else{
                     //self.popup_NotEnoughCashToWithdraw()
-                    self.popup_RepaymentInProgress()
+                    //self.popup_RepaymentInProgress()
+                    self.popup_LimitReached()
                 }
             }
         }
@@ -394,8 +395,18 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            emoji: UIImage(named: "sucsess"))
      }
     
-    //Repayment in progress
-    //You can cash out again once all your payments are settled
+
+ 
+
+    
+    
+    func popup_LimitReached(){
+        self.openPopupWith(heading: "Limit reached",
+                           message: "Pay On demand™ will be available again after your repayment",
+                           buttonTitle: "",
+                           showSendButton: false,
+                           emoji: UIImage(named: "transferFailed"))
+    }
     
     func popup_RepaymentInProgress(){
         self.openPopupWith(heading: "Repayment in progress",

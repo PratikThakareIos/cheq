@@ -126,4 +126,5 @@ extension SpendingCategoriesViewController: RecentActivityPopUpVCDelegate{
               self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
+    
 }

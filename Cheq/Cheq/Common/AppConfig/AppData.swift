@@ -164,6 +164,11 @@ class AppData {
     /// bank logo mapping from remote config
     var remoteBankMapping = [String: RemoteBank]()
     
+    var remote_appVersionNumberIos: String = ""
+    var remote_forceAppVersionUpgradeIos : Bool = false
+    var remote_isUnderMaintenance : Bool = false
+
+
     
     /// Employment flow related data
     var employmentType: EmploymentType = .fulltime

@@ -58,7 +58,6 @@ class UserActionRequiredVC: UIViewController {
         removeObservables()
     }
     
-    
     func setupUI(_ res : GetUserActionResponse) {
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor

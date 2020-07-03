@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4FBDDA11236BC68700EDB1E9"
-               BuildableName = "Cheq-Prod.app"
+               BuildableName = "Cheq.app"
                BlueprintName = "CheqProd"
                ReferencedContainer = "container:Cheq.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FBDDA11236BC68700EDB1E9"
-            BuildableName = "Cheq-Prod.app"
+            BuildableName = "Cheq.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">
          </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FBDDA11236BC68700EDB1E9"
-            BuildableName = "Cheq-Prod.app"
+            BuildableName = "Cheq.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">
          </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4FBDDA11236BC68700EDB1E9"
-            BuildableName = "Cheq-Prod.app"
+            BuildableName = "Cheq.app"
             BlueprintName = "CheqProd"
             ReferencedContainer = "container:Cheq.xcodeproj">
          </BuildableReference>

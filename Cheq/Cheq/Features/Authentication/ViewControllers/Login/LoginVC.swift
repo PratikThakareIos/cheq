@@ -44,6 +44,11 @@ class LoginVC: UIViewController {
         //self.addTestAccountDetails()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getApplicationStatusFromRemoteConfig()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         setupUI()
@@ -53,14 +58,14 @@ class LoginVC: UIViewController {
         return .lightContent
     }
     
-//    func addTestAccountDetails(){
-//        //prateek629@yopmail.com  //cashout
-//        //prateek725@yopmail.com  "Rdm@12345" //
-//        //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
-//
-//        self.emailTextField.text =  "jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
-//        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
-//    }
+    func addTestAccountDetails(){
+        //prateek629@yopmail.com  //cashout
+        //prateek725@yopmail.com  "Rdm@12345" //
+        //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
+
+        self.emailTextField.text =  "way@g.com" //"jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
+        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
+    }
     
 }
 
@@ -258,6 +263,11 @@ extension LoginVC {
                         break
                     
                 case ._none:
+                     
+                        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                    
+                       //self.goto_MaintenanceVC()
+                       //self.goto_UpdateAppVC()
                     
 //                      AppData.shared.completingDetailsForLending = true
 //                      AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
@@ -420,6 +430,9 @@ extension LoginVC {
 
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
+        
+        //self.goto_MaintenanceVC()
+        //self.goto_UpdateAppVC()
     }
 }
 
@@ -583,7 +596,7 @@ extension LoginVC {
             self.present(vc, animated: true)
         }
     }
-    
+
     func gotoGenericInfoVC(response : GetUserActionResponse){
         self.view.endEditing(true)
         if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.GenericInfoVC.rawValue, embedInNav: false) as? GenericInfoVC {
@@ -621,4 +634,60 @@ extension LoginVC {
         LoggingUtil.shared.addLog(log: log)
     }
 
+}
+
+
+extension LoginVC {
+    
+    func goto_MaintenanceVC(){
+        self.view.endEditing(true)
+         //guard let nav =  self.navigationController else { return }
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, embedInNav: false) as? MaintenanceVC {
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func goto_UpdateAppVC(){
+        self.view.endEditing(true)
+         //guard let nav =  self.navigationController else { return }
+        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, embedInNav: false) as? UpdateAppVC {
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+    func getApplicationStatusFromRemoteConfig(){
+        
+        RemoteConfigManager.shared.getRemoteConfigData().done { _ in
+                 
+          print(" AppData.shared.remote_appVersionNumberIos = \( AppData.shared.remote_appVersionNumberIos)")
+          print(" AppData.shared.remote_forceAppVersionUpgradeIos = \( AppData.shared.remote_forceAppVersionUpgradeIos)")
+          print(" AppData.shared.remote_isUnderMaintenance = \( AppData.shared.remote_isUnderMaintenance)")
+            
+            if (AppData.shared.remote_isUnderMaintenance){
+                LoggingUtil.shared.cPrint("goto_MaintenanceVC")
+                self.goto_MaintenanceVC()
+            }else if (AppData.shared.remote_forceAppVersionUpgradeIos){
+                            
+                 if let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                     LoggingUtil.shared.cPrint("currentAppVersion \(currentAppVersion)")
+                     LoggingUtil.shared.cPrint(currentAppVersion)
+                    
+                    if AppData.shared.remote_appVersionNumberIos != "" {
+                       
+                       let isNeedUpdate = AppData.shared.remote_appVersionNumberIos.isVersion(greaterThan: currentAppVersion)
+                        
+                        LoggingUtil.shared.cPrint("isNeedUpdate \(isNeedUpdate)")
+                        if (isNeedUpdate){
+                            self.goto_UpdateAppVC()
+                        }
+                    }
+                 }
+            }
+            
+        }.catch { [weak self] err in
+            LoggingUtil.shared.cPrint(err)
+        }
+    }
 }

@@ -31,7 +31,7 @@
         <!--Splash View Controller-->
         <scene sceneID="mvA-x4-hBH">
             <objects>
-                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2IP-cq-6fu" customClass="SplashViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2IP-cq-6fu" customClass="SplashViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ues-Go-vaC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,7 @@
                                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BenefitCollectionViewCell" id="pHQ-hc-U2e" customClass="BenefitCollectionViewCell" customModule="CheqDemo" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BenefitCollectionViewCell" id="pHQ-hc-U2e" customClass="BenefitCollectionViewCell" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="74.5" width="335" height="297"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -123,7 +123,7 @@
                                                     <outlet property="delegate" destination="2IP-cq-6fu" id="1uU-9Y-siS"/>
                                                 </connections>
                                             </collectionView>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-8O-py5" customClass="CPageControl" customModule="CheqDemo" customModuleProvider="target">
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-8O-py5" customClass="CPageControl" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="466" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="qhZ-9g-xWC"/>
@@ -131,7 +131,7 @@
                                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </pageControl>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-zf-1qG" customClass="CButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-zf-1qG" customClass="CButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="162.5" y="526" width="50" height="50"/>
                                                 <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -197,7 +197,7 @@
         <!--Registration View Controller-->
         <scene sceneID="TqH-9v-5hr">
             <objects>
-                <viewController storyboardIdentifier="RegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x8l-us-DxU" customClass="RegistrationViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x8l-us-DxU" customClass="RegistrationViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KhG-mp-Gex">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Sp-pZ-Yo9">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="61"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to Cheq" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uke-vw-MrW" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to Cheq" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uke-vw-MrW" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="81" width="335" height="36"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -221,7 +221,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwX-fS-rGd">
                                                 <rect key="frame" x="0.0" y="137" width="335" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get loan approved instantly for a fee equivalent to a cup of coffee." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbO-Ag-iAy" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get loan approved instantly for a fee equivalent to a cup of coffee." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbO-Ag-iAy" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -240,7 +240,7 @@
                                                     <constraint firstItem="hbO-Ag-iAy" firstAttribute="leading" secondItem="PwX-fS-rGd" secondAttribute="leading" id="NQ6-pa-Hrs"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-XO-qnQ" customClass="CFacebookButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-XO-qnQ" customClass="CFacebookButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="207" width="335" height="22"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Continue with Facbeook" image="fbIcon">
@@ -250,23 +250,23 @@
                                                     <action selector="loginWithFacebook:" destination="x8l-us-DxU" eventType="touchUpInside" id="ILe-GL-paa"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al3-0Y-LN4" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al3-0Y-LN4" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="249" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dMP-gS-U8Q" customClass="CTextField" customModule="CheqDemo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dMP-gS-U8Q" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="289.5" width="335" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2N-3Z-KZC" customClass="CTextField" customModule="CheqDemo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2N-3Z-KZC" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="343.5" width="335" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMQ-CZ-9ny" customClass="CButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMQ-CZ-9ny" customClass="CButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="397.5" width="335" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Sign up with email">
@@ -276,7 +276,7 @@
                                                     <action selector="register:" destination="x8l-us-DxU" eventType="touchUpInside" id="s8Y-4f-TfV"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEZ-rf-C7w" customClass="CTextView" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEZ-rf-C7w" customClass="CTextView" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="447.5" width="335" height="41"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="By creating an account, you accept Cheq's Terms of Use and Private Policy">
@@ -288,7 +288,7 @@
                                                 </attributedString>
                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXv-Vq-p43" customClass="CTextView" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXv-Vq-p43" customClass="CTextView" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="508.5" width="335" height="20.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Already have an account? Log in">
@@ -302,7 +302,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ2-wd-ne0" customClass="CPasswordToggleButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZ2-wd-ne0" customClass="CPasswordToggleButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="321" y="363.5" width="34" height="34"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" image="showPassword"/>
@@ -356,7 +356,7 @@
         <!--Introduction View Controller-->
         <scene sceneID="Rz2-NC-l6e">
             <objects>
-                <viewController storyboardIdentifier="IntroductionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Snq-uQ-PGm" customClass="IntroductionViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroductionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Snq-uQ-PGm" customClass="IntroductionViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sc6-hW-5KT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,19 +371,19 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="rXm-Vm-YGt">
                                         <rect key="frame" x="0.0" y="27" width="335" height="77"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-nL-CNQ" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZz-nL-CNQ" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent an email to you at xuwei@cheq.com.au. It has a link that'll activate your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr0-4f-QWX" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent an email to you at xuwei@cheq.com.au. It has a link that'll activate your account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pr0-4f-QWX" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="164.5" width="335" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-VH-tgm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="245.5" width="335" height="53.5"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -396,7 +396,7 @@
                                             <action selector="confirm:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="ucr-Yc-ixZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5BD-RF-Mk8" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="319" width="335" height="53.5"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -409,7 +409,7 @@
                                             <action selector="secondaryButton:" destination="Snq-uQ-PGm" eventType="touchUpInside" id="rC8-RO-8Bn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2L-Kh-v1Q" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="392.5" width="335" height="53.5"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -485,7 +485,7 @@
         <!--Terms And Conditions View Controller-->
         <scene sceneID="TO7-zl-uKM">
             <objects>
-                <viewController storyboardIdentifier="TermsAndConditionsViewController" id="OEl-QW-vWI" customClass="TermsAndConditionsViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsAndConditionsViewController" id="OEl-QW-vWI" customClass="TermsAndConditionsViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TsO-1A-sdQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,7 +547,7 @@
         <!--Login View Controller-->
         <scene sceneID="vcP-NB-ihF">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="psq-gt-b5V" customClass="LoginViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="psq-gt-b5V" customClass="LoginViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f1s-TL-UZq" userLabel="Login" customClass="Loging">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +561,7 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AV8-5Q-rku">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="61"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRB-KB-786" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRB-KB-786" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="81" width="335" height="36"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -571,7 +571,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FI7-NU-E5c">
                                                 <rect key="frame" x="0.0" y="137" width="335" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-he-DMu" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-he-DMu" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -590,7 +590,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="KI5-he-DMu" secondAttribute="bottom" id="jez-S1-q0R"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ry-Nu-R2q" customClass="CFacebookButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ry-Nu-R2q" customClass="CFacebookButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="207" width="335" height="22"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Login with Facbeook" image="fbIcon">
@@ -600,23 +600,23 @@
                                                     <action selector="loginWithFacebook:" destination="psq-gt-b5V" eventType="touchUpInside" id="pCX-kU-hxr"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-ye-stV" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE0-ye-stV" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="249" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-2O-tFI" customClass="CTextField" customModule="CheqDemo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8H7-2O-tFI" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="289.5" width="335" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-my-pmg" customClass="CTextField" customModule="CheqDemo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-my-pmg" customClass="CTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="343.5" width="335" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKf-gi-SUM" customClass="CButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKf-gi-SUM" customClass="CButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="397.5" width="335" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Login">
@@ -626,7 +626,7 @@
                                                     <action selector="login:" destination="psq-gt-b5V" eventType="touchUpInside" id="kVx-D8-jIX"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS3-Bt-sOD" customClass="CTextView" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gS3-Bt-sOD" customClass="CTextView" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="447.5" width="335" height="20.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Forgot your password?">
@@ -639,7 +639,7 @@
                                                 </attributedString>
                                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns5-93-3Us" customClass="CTextView" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns5-93-3Us" customClass="CTextView" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="488" width="335" height="20.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Don't have an account? Sign up">
@@ -654,7 +654,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5u-bG-pPG" customClass="CPasswordToggleButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5u-bG-pPG" customClass="CPasswordToggleButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="321" y="363.5" width="34" height="34"/>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" image="showPassword"/>
@@ -742,7 +742,7 @@
         <!--Multiple Choice View Controller-->
         <scene sceneID="6YU-eW-FsO">
             <objects>
-                <viewController storyboardIdentifier="MultipleChoiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ewf-b5-eHF" customClass="MultipleChoiceViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MultipleChoiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ewf-b5-eHF" customClass="MultipleChoiceViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dtL-sW-vTu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -750,13 +750,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="A0a-jJ-HtL">
                                 <rect key="frame" x="20" y="64" width="335" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZh-sk-dVw" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZh-sk-dVw" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="17"/>
                                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="14"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4L-A2-6Vb" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4L-A2-6Vb" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="33" width="335" height="55"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -807,7 +807,7 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-eX-TB1" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJS-eX-TB1" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="158" height="56"/>
                                                             <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -833,7 +833,7 @@
                                             </constraints>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithCaptionCell" id="p1G-Fj-JZV" customClass="CMultipleChoiceWithCaptionCell" customModule="CheqDemo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithCaptionCell" id="p1G-Fj-JZV" customClass="CMultipleChoiceWithCaptionCell" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="335" height="117"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p1G-Fj-JZV" id="uxj-5y-sAm">
@@ -846,7 +846,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ebf-6L-TnM">
                                                                     <rect key="frame" x="20" y="20" width="295" height="57"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Full time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWM-gQ-3we" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Full time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWM-gQ-3we" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -887,7 +887,7 @@
                                                     <outlet property="titleLabel" destination="EWM-gQ-3we" id="oLk-rc-mt9"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CMultipleChoiceWithImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithImageCell" id="IS6-SX-A3h" customClass="CMultipleChoiceWithImageCell" customModule="CheqDemo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CMultipleChoiceWithImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithImageCell" id="IS6-SX-A3h" customClass="CMultipleChoiceWithImageCell" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="145" width="335" height="157.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IS6-SX-A3h" id="Qdz-Xr-ASD">
@@ -910,7 +910,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WXp-jF-Poo">
                                                                             <rect key="frame" x="40" y="0.0" width="253" height="97.5"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Uber eats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-gn-VhI" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Uber eats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMk-gn-VhI" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="253" height="20.5"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20.5" id="y5x-x6-ISF"/>
@@ -972,7 +972,7 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-2p-yIB">
                                         <rect key="frame" x="0.0" y="603" width="335" height="64"/>
                                         <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpP-iu-In6" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpP-iu-In6" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="2" y="0.0" width="331" height="56"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1027,7 +1027,7 @@
         <!--Dynamic Form View Controller-->
         <scene sceneID="lTe-cS-HPJ">
             <objects>
-                <viewController storyboardIdentifier="DynamicFormViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6HP-Lb-Afe" customClass="DynamicFormViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DynamicFormViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6HP-Lb-Afe" customClass="DynamicFormViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="duI-4X-Lp6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1070,7 +1070,7 @@
                                                     <constraint firstItem="n4P-D0-w1O" firstAttribute="leading" secondItem="wLU-Rz-hAD" secondAttribute="leading" constant="1" id="zUs-BR-jjI"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-FK-p3B" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-FK-p3B" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="79" width="335" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="23"/>
@@ -1124,7 +1124,7 @@
         <!--Salary Payment View Controller-->
         <scene sceneID="PVm-si-Ooj">
             <objects>
-                <viewController storyboardIdentifier="SalaryPaymentViewController" id="8tl-Xd-lc9" customClass="SalaryPaymentViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SalaryPaymentViewController" id="8tl-Xd-lc9" customClass="SalaryPaymentViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="puo-tu-cF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1244,7 +1244,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-eo-IbC">
                                                 <rect key="frame" x="0.0" y="4" width="335" height="102"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaI-SI-lHf" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaI-SI-lHf" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="46"/>
                                                         <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -1307,7 +1307,7 @@
         <!--Pay Cycle View Controller-->
         <scene sceneID="V93-de-y5N">
             <objects>
-                <viewController storyboardIdentifier="PayCycleViewController" id="C2D-yo-5Ar" customClass="PayCycleViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PayCycleViewController" id="C2D-yo-5Ar" customClass="PayCycleViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yma-uc-gMP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1334,7 +1334,7 @@
                                         <rect key="frame" x="0.0" y="109.5" width="335" height="425.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayCycleCell" rowHeight="79" id="BZF-Z5-GOH" customClass="SelectionTableViewCell" customModule="CheqDemo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PayCycleCell" rowHeight="79" id="BZF-Z5-GOH" customClass="SelectionTableViewCell" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="335" height="79"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BZF-Z5-GOH" id="CJs-i9-Jwg">
@@ -1381,7 +1381,7 @@
                                             <outlet property="delegate" destination="C2D-yo-5Ar" id="0lx-GA-Wtw"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-CL-tfl" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m2-CL-tfl" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="551" width="335" height="56"/>
                                         <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Confirm">
@@ -1419,7 +1419,7 @@
         <!--Document Verification View Controller-->
         <scene sceneID="jgb-f9-NcZ">
             <objects>
-                <viewController storyboardIdentifier="DocumentVerificationViewController" id="NGs-cg-ygL" customClass="DocumentVerificationViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocumentVerificationViewController" id="NGs-cg-ygL" customClass="DocumentVerificationViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Yk-NJ-ekT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1450,7 +1450,7 @@
                                         <rect key="frame" x="20" y="304" width="335" height="311"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DocumentCell" rowHeight="70" id="hkJ-cK-NYH" customClass="DocumentVerifyTableViewCell" customModule="CheqDemo" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DocumentCell" rowHeight="70" id="hkJ-cK-NYH" customClass="DocumentVerifyTableViewCell" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="335" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hkJ-cK-NYH" id="wOe-3i-ajI">
@@ -1650,7 +1650,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithImageCell" rowHeight="78" id="dJi-ja-IUh" customClass="CMultipleChoiceWithImageCell" customModule="CheqDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CMultipleChoiceWithImageCell" rowHeight="78" id="dJi-ja-IUh" customClass="CMultipleChoiceWithImageCell" customModule="Cheq" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="71.5" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dJi-ja-IUh" id="vX9-Ac-h66">
@@ -1670,7 +1670,7 @@
                                                                 <constraint firstAttribute="height" constant="20" id="tYK-tz-pwX"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uber eats" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-Ve-rGE" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uber eats" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCQ-Ve-rGE" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                             <rect key="frame" x="40" y="0.0" width="295" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -1722,7 +1722,7 @@
         <!--Verify Docs View Controller-->
         <scene sceneID="1HL-cs-Dn8">
             <objects>
-                <viewController storyboardIdentifier="VerifyDocsViewController" id="IRX-TE-hhe" customClass="VerifyDocsViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerifyDocsViewController" id="IRX-TE-hhe" customClass="VerifyDocsViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PLY-BK-cyZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1774,7 +1774,7 @@
         <!--Forgot Password View Controller-->
         <scene sceneID="oVV-dg-q0v">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="an0-0s-BGc" customClass="ForgotPasswordViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="an0-0s-BGc" customClass="ForgotPasswordViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="40B-pM-aAk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1788,14 +1788,14 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="nih-PF-70K">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="61"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ln3-At-2Iy" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ln3-At-2Iy" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="91" width="315" height="36"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-dH-TWu" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-dH-TWu" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="157" width="315" height="53"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -1804,7 +1804,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-f9-Gz0" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsX-f9-Gz0" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="240" width="315" height="52.5"/>
                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -1852,7 +1852,7 @@
         <!--RegistrationVC-->
         <scene sceneID="LW2-Vw-jun">
             <objects>
-                <viewController storyboardIdentifier="RegistrationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FgW-cR-se2" customClass="RegistrationVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FgW-cR-se2" customClass="RegistrationVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nYX-cn-fmB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1884,7 +1884,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="uJc-1I-tJv" secondAttribute="bottom" constant="16" id="tMh-GR-nM8"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register to Cheq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILF-3J-AWY" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register to Cheq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILF-3J-AWY" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="91" y="128.5" width="193" height="27.5"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="23"/>
                                                         <nil key="textColor"/>
@@ -1899,7 +1899,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dwg-Kb-Mtf">
                                                         <rect key="frame" x="30" y="221.5" width="315" height="121.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-B0-Uz5" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-B0-Uz5" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="52.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -1908,7 +1908,7 @@
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="19"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Create password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-hi-o1Z" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Create password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-hi-o1Z" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="68.5" width="315" height="53"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="19"/>
@@ -1916,7 +1916,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-Kw-zkM" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CE-Kw-zkM" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="368" width="315" height="53"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1947,7 +1947,7 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-pC-fa0" customClass="CPasswordToggleButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-pC-fa0" customClass="CPasswordToggleButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="305" y="290" width="40" height="53"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="sbA-Va-HLe"/>
@@ -2032,7 +2032,7 @@
         <!--LoginVC-->
         <scene sceneID="zZo-Yq-uWm">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D7c-Tx-w1u" customClass="LoginVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D7c-Tx-w1u" customClass="LoginVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNT-uc-y1T" userLabel="ViewMain">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2064,7 +2064,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="kGt-KR-9hd" secondAttribute="bottom" constant="16" id="yP3-o0-xsM"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Cheq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Hl-LE2" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Cheq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Hl-LE2" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="108" y="128.5" width="159.5" height="27.5"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="23"/>
                                                         <color key="textColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2079,7 +2079,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="S1v-aq-7PZ">
                                                         <rect key="frame" x="30" y="221.5" width="315" height="121.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ei0-0b-pAI" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ei0-0b-pAI" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="52.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -2089,7 +2089,7 @@
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="19"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wh6-1l-KTy" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wh6-1l-KTy" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="68.5" width="315" height="53"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2098,7 +2098,7 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-lG-KCn" customClass="AutoSizeShadowButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-lG-KCn" customClass="AutoSizeShadowButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="368" width="315" height="53"/>
                                                         <color key="backgroundColor" red="0.01176470588" green="0.65098039220000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2112,7 +2112,7 @@
                                                             <action selector="login:" destination="D7c-Tx-w1u" eventType="touchUpInside" id="pWL-0h-PHf"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcM-DO-fTd" customClass="CPasswordToggleButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="center" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcM-DO-fTd" customClass="CPasswordToggleButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="305" y="290" width="40" height="53"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="1dz-Zc-2O6"/>
@@ -2204,7 +2204,7 @@
         <!--CSplashViewController-->
         <scene sceneID="gkm-wb-Rgd">
             <objects>
-                <viewController storyboardIdentifier="CSplashViewController" title="CSplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uws-Yl-BFZ" customClass="CSplashViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CSplashViewController" title="CSplashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uws-Yl-BFZ" customClass="CSplashViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69t-GK-fne">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2218,7 +2218,7 @@
                                 <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5v-rh-khv" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5v-rh-khv" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                 <rect key="frame" x="75" y="599" width="225" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B5v-rh-khv" secondAttribute="height" multiplier="125:29" id="yCK-Iy-XLS"/>
@@ -2253,7 +2253,7 @@
         <!--Splash Page View Controller-->
         <scene sceneID="AVy-Kp-aMt">
             <objects>
-                <viewController storyboardIdentifier="CSplashPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rsf-wJ-yE0" customClass="CSplashPageViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CSplashPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rsf-wJ-yE0" customClass="CSplashPageViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T8a-7A-UaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2270,7 +2270,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjT-wd-vQg">
                                         <rect key="frame" x="0.0" y="553.5" width="375" height="113.5"/>
                                         <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7j-dP-91B" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7j-dP-91B" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                 <rect key="frame" x="75" y="53.5" width="225" height="52"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="n7j-dP-91B" secondAttribute="height" multiplier="125:29" id="xV8-0o-ahU"/>
@@ -2313,7 +2313,7 @@
         <!--Question View Controller-->
         <scene sceneID="GWf-IK-hSp">
             <objects>
-                <viewController storyboardIdentifier="QuestionViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NDN-GT-V9u" customClass="QuestionViewController" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NDN-GT-V9u" customClass="QuestionViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UEZ-9i-59w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2339,7 +2339,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aRx-vd-Bcc">
                                                         <rect key="frame" x="30" y="68" width="315" height="60"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Please enter your legal name as it appears on your ID" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-k7-WXH" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="60"/>
                                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -2366,7 +2366,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="344"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -2375,7 +2375,7 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="73" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -2384,7 +2384,7 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-Jc-11z" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-Jc-11z" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="145.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -2393,7 +2393,7 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADS-tW-c1O" userLabel="Text Field3" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADS-tW-c1O" userLabel="Text Field3" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="218.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -2402,7 +2402,7 @@
                                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="CheqDemo" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="291.5" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -2413,7 +2413,7 @@
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-cu-Vba" customClass="CSwitchWithLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-cu-Vba" customClass="CSwitchWithLabel" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="360" width="315" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -2455,7 +2455,7 @@
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ATL-ak-Yu4"/>
                                                                 </constraints>
                                                             </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-K7-3se" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-K7-3se" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="176" width="315" height="50.5"/>
                                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -2541,10 +2541,10 @@
             </objects>
             <point key="canvasLocation" x="1445" y="-1081"/>
         </scene>
-        <!--Setup BankVC-->
+        <!--View Controller-->
         <scene sceneID="fIl-Ul-BmT">
             <objects>
-                <viewController storyboardIdentifier="SetupBankVC" id="r6I-9t-HvX" customClass="SetupBankVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r6I-9t-HvX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kpa-So-2Sm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2553,35 +2553,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trb-nO-7s9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="803"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="650"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ah2-Wh-zvn">
-                                                <rect key="frame" x="20" y="8" width="335" height="787"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ah2-Wh-zvn">
+                                                <rect key="frame" x="20" y="16" width="335" height="618"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="DuT-BG-izA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="25"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="DuT-BG-izA" secondAttribute="height" multiplier="27:2" id="uhb-72-ZEV"/>
-                                                        </constraints>
-                                                    </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="SbH-tf-pBK">
-                                                        <rect key="frame" x="0.0" y="45" width="335" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="yYe-Tu-fFT"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to your bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khF-Qk-urD" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="125" width="335" height="35"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to your bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khF-Qk-urD" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="76" width="335" height="32"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="I8L-Im-9jC"/>
+                                                            <constraint firstAttribute="height" constant="32" id="I8L-Im-9jC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheq connects with your bank to sync your transactions so we can" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-rX-ZhE" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="180" width="335" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheq connects with your bank to sync your transactions so we can" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-rX-ZhE" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="124" width="335" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="tg3-F8-BXw"/>
                                                         </constraints>
@@ -2590,10 +2583,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9s-G2-B7n">
-                                                        <rect key="frame" x="0.0" y="240" width="335" height="257"/>
+                                                        <rect key="frame" x="0.0" y="180" width="335" height="200"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="sab-Im-fqP">
-                                                                <rect key="frame" x="17.5" y="47.5" width="300" height="162"/>
+                                                                <rect key="frame" x="17.5" y="19" width="300" height="162"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" id="USm-t8-H9W">
                                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="24"/>
@@ -2662,7 +2655,7 @@
                                                                                     <constraint firstAttribute="width" constant="24" id="kOf-5s-efx"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide On Demand Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-Jh-cbE">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide Pay On demand™" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVg-Jh-cbE">
                                                                                 <rect key="frame" x="40" y="0.0" width="260" height="24"/>
                                                                                 <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
                                                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -2680,6 +2673,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="sab-Im-fqP" firstAttribute="centerY" secondItem="J9s-G2-B7n" secondAttribute="centerY" id="6Q2-Ys-ei8"/>
+                                                            <constraint firstAttribute="height" constant="200" id="ErJ-GG-1w9"/>
                                                             <constraint firstItem="sab-Im-fqP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J9s-G2-B7n" secondAttribute="leading" constant="8" id="GBA-PG-pPN"/>
                                                             <constraint firstItem="sab-Im-fqP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="J9s-G2-B7n" secondAttribute="top" constant="8" id="N0E-70-MUK"/>
                                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sab-Im-fqP" secondAttribute="trailing" constant="8" id="cLg-ME-rDR"/>
@@ -2687,8 +2681,8 @@
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sab-Im-fqP" secondAttribute="bottom" constant="8" id="za3-Ve-oKF"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKt-g6-7Ql" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="517" width="335" height="53.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKt-g6-7Ql" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="396" width="335" height="53.5"/>
                                                         <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="LKt-g6-7Ql" secondAttribute="height" multiplier="175:28" id="sCz-Tw-jwx"/>
@@ -2702,7 +2696,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbh-Fi-D50">
-                                                        <rect key="frame" x="0.0" y="590.5" width="335" height="53.5"/>
+                                                        <rect key="frame" x="0.0" y="465.5" width="335" height="53.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="tbh-Fi-D50" secondAttribute="height" multiplier="175:28" id="Nsv-Vp-1Ur"/>
@@ -2715,8 +2709,8 @@
                                                             <action selector="secondaryButton:" destination="r6I-9t-HvX" eventType="touchUpInside" id="J7A-7S-OpR"/>
                                                         </connections>
                                                     </button>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q11-hF-3Bl">
-                                                        <rect key="frame" x="0.0" y="664" width="335" height="123"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="q11-hF-3Bl">
+                                                        <rect key="frame" x="0.0" y="535" width="335" height="83"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use Bank-grade security to protect your data. Our system is as secure as a vault!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32o-XY-aSw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
@@ -2728,23 +2722,25 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyn-ja-Shd">
-                                                                <rect key="frame" x="78.5" y="43" width="178" height="80"/>
+                                                                <rect key="frame" x="78.5" y="51" width="178" height="32"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="rv5-LD-BP7">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="32"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="70" id="Kbk-VL-bIb"/>
-                                                                            <constraint firstAttribute="height" constant="80" id="qBi-Pe-IU7"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ssl" translatesAutoresizingMaskIntoConstraints="NO" id="wf1-h7-3QG">
-                                                                        <rect key="frame" x="70" y="0.0" width="108" height="80"/>
+                                                                        <rect key="frame" x="70" y="0.0" width="108" height="32"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="80" id="har-7r-NXc"/>
+                                                                            <constraint firstAttribute="height" constant="32" id="har-7r-NXc"/>
                                                                             <constraint firstAttribute="width" constant="108" id="ziH-57-ou2"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32" id="OF5-hQ-9cE"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
@@ -2754,10 +2750,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ah2-Wh-zvn" secondAttribute="trailing" constant="20" id="LSd-iP-zj6"/>
-                                            <constraint firstAttribute="bottom" secondItem="ah2-Wh-zvn" secondAttribute="bottom" constant="8" id="N5o-e2-P0C"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ah2-Wh-zvn" secondAttribute="bottom" constant="8" id="N5o-e2-P0C"/>
                                             <constraint firstItem="ah2-Wh-zvn" firstAttribute="centerX" secondItem="Trb-nO-7s9" secondAttribute="centerX" id="ZlB-CJ-EXj"/>
+                                            <constraint firstItem="ah2-Wh-zvn" firstAttribute="centerY" secondItem="Trb-nO-7s9" secondAttribute="centerY" id="lI1-5C-kxb"/>
                                             <constraint firstItem="ah2-Wh-zvn" firstAttribute="leading" secondItem="Trb-nO-7s9" secondAttribute="leading" constant="20" id="pKc-XB-deY"/>
-                                            <constraint firstItem="ah2-Wh-zvn" firstAttribute="top" secondItem="Trb-nO-7s9" secondAttribute="top" constant="8" id="ycZ-C2-TJa"/>
+                                            <constraint firstItem="ah2-Wh-zvn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Trb-nO-7s9" secondAttribute="top" constant="16" id="ycZ-C2-TJa"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2794,12 +2791,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6W-rz-79W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="-1081"/>
+            <point key="canvasLocation" x="2425" y="-1889"/>
         </scene>
         <!--Request For BankVC-->
         <scene sceneID="lpR-Ts-ngD">
             <objects>
-                <viewController storyboardIdentifier="RequestForBankVC" id="xaS-rL-nd2" customClass="RequestForBankVC" customModule="CheqDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RequestForBankVC" id="xaS-rL-nd2" customClass="RequestForBankVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zhw-ZP-eJ1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2813,7 +2810,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="njV-aE-Zg8">
                                                 <rect key="frame" x="30" y="60" width="315" height="443.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us which bank you are with" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-ji-5Ch" customClass="CLabel" customModule="CheqDemo" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tell us which bank you are with" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-ji-5Ch" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="72"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -2860,7 +2857,7 @@
                                                             <constraint firstItem="Nkc-ZH-1kx" firstAttribute="top" secondItem="eF6-Y6-LfL" secondAttribute="top" constant="8" id="uZp-fX-H8i"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-aS-gfC" customClass="CNButton" customModule="CheqDemo" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-aS-gfC" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="390.5" width="315" height="53"/>
                                                         <color key="backgroundColor" red="0.29019607843137252" green="0.0" blue="0.40392156862745099" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2920,7 +2917,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wui-jE-VWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="-1081"/>
+            <point key="canvasLocation" x="3006" y="-1083"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="d7q-b8-s9p">
@@ -2966,7 +2963,242 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhY-pg-KqD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="-1081"/>
+            <point key="canvasLocation" x="3729" y="-1084"/>
+        </scene>
+        <!--Setup BankVC-->
+        <scene sceneID="29w-ie-Pem">
+            <objects>
+                <viewController storyboardIdentifier="SetupBankVC" id="Ecq-l0-aE7" customClass="SetupBankVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x0M-Rk-KuL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nNR-al-zxD">
+                                <rect key="frame" x="20" y="20" width="335" height="631"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="xfe-gj-VqV">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="A5a-Rw-l9n"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to your bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KV-d0-Qvk" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="335" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="m02-cG-oBI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheq connects with your bank to sync your transactions so we can" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baW-Yt-sSa" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="335" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Ru3-5g-kov"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="16"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUu-6S-emn">
+                                        <rect key="frame" x="0.0" y="185" width="335" height="2.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lt-Og-GuW">
+                                        <rect key="frame" x="0.0" y="203.5" width="335" height="180"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="PgB-iU-L4d">
+                                                <rect key="frame" x="17.5" y="9" width="300" height="162"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" id="MyL-Yy-82s">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checklist-success" translatesAutoresizingMaskIntoConstraints="NO" id="UVR-E0-ggD">
+                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="8us-HL-IUU"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="dyH-66-LdA"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorise your expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-lb-qHj">
+                                                                <rect key="frame" x="40" y="0.0" width="260" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" id="nTG-XI-UcC">
+                                                        <rect key="frame" x="0.0" y="46" width="300" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checklist-success" translatesAutoresizingMaskIntoConstraints="NO" id="hfY-TF-Pka">
+                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="m72-8P-4Gb"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="mXn-F4-Ga6"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predict your upcoming bills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMq-QO-mPi">
+                                                                <rect key="frame" x="40" y="0.0" width="260" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" id="xeG-zZ-Rg5">
+                                                        <rect key="frame" x="0.0" y="92" width="300" height="24"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checklist-success" translatesAutoresizingMaskIntoConstraints="NO" id="jLI-lK-qUw">
+                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="43r-dS-eUI"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="qcZ-NA-YP0"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLb-tj-wWN">
+                                                                <rect key="frame" x="40" y="0.0" width="260" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cRw-dB-H0H">
+                                                        <rect key="frame" x="0.0" y="138" width="300" height="24"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checklist-success" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-tA-ggP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="24" id="U9A-gG-zRk"/>
+                                                                    <constraint firstAttribute="height" constant="24" id="jL2-ZF-tmo"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide Pay On demand™" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcn-rk-orc">
+                                                                <rect key="frame" x="40" y="0.0" width="260" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="16"/>
+                                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="162" id="XDl-Y1-IXf"/>
+                                                    <constraint firstAttribute="width" constant="300" id="zub-pH-gxW"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="PgB-iU-L4d" firstAttribute="centerX" secondItem="4lt-Og-GuW" secondAttribute="centerX" id="62W-cK-f9R"/>
+                                            <constraint firstItem="PgB-iU-L4d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4lt-Og-GuW" secondAttribute="leading" constant="8" id="7S7-3f-mQv"/>
+                                            <constraint firstItem="PgB-iU-L4d" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4lt-Og-GuW" secondAttribute="top" constant="8" id="iTg-Ts-NTt"/>
+                                            <constraint firstAttribute="height" constant="180" id="jk2-I2-xvu"/>
+                                            <constraint firstItem="PgB-iU-L4d" firstAttribute="centerY" secondItem="4lt-Og-GuW" secondAttribute="centerY" id="kbw-Qh-akX"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PgB-iU-L4d" secondAttribute="trailing" constant="8" id="odg-p8-ZTl"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PgB-iU-L4d" secondAttribute="bottom" constant="8" id="wTr-Vx-jbp"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1i5-Fb-2to">
+                                        <rect key="frame" x="0.0" y="399.5" width="335" height="3"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpK-58-QCk" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="418.5" width="335" height="53.5"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FpK-58-QCk" secondAttribute="height" multiplier="175:28" id="Tw5-kT-Hdv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                        <state key="normal" title="Set up your bank">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirm:" destination="Ecq-l0-aE7" eventType="touchUpInside" id="dG4-8p-myf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-Oo-38p">
+                                        <rect key="frame" x="0.0" y="488" width="335" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="f9W-Oo-38p" secondAttribute="height" multiplier="175:23" id="DIU-vX-ZTL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                        <state key="normal" title="More information">
+                                            <color key="titleColor" red="0.17254901959999999" green="0.70588235290000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="secondaryButton:" destination="Ecq-l0-aE7" eventType="touchUpInside" id="Fmc-iS-1Sr"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="JaG-mj-UOI">
+                                        <rect key="frame" x="0.0" y="548" width="335" height="83"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use Bank-grade security to protect your data. Our system is as secure as a vault!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBR-L6-mAT">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WQ6-S6-eN0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="14"/>
+                                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYK-uL-Hkj">
+                                                <rect key="frame" x="78.5" y="51" width="178" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-sd-hVt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="IYz-TL-N0j"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ssl" translatesAutoresizingMaskIntoConstraints="NO" id="9S8-9y-qdk">
+                                                        <rect key="frame" x="70" y="0.0" width="108" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="108" id="1cQ-LB-DEe"/>
+                                                            <constraint firstAttribute="height" constant="32" id="Eq9-Zi-xI7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="snM-3o-tFI"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="83" id="cfA-vd-ztf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1i5-Fb-2to" firstAttribute="height" secondItem="SUu-6S-emn" secondAttribute="height" id="nbd-mO-qQf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nNR-al-zxD" secondAttribute="trailing" constant="20" id="6do-6x-yaM"/>
+                            <constraint firstItem="nNR-al-zxD" firstAttribute="top" secondItem="M5b-s7-u0g" secondAttribute="top" constant="20" id="D0z-He-EFY"/>
+                            <constraint firstAttribute="bottom" secondItem="nNR-al-zxD" secondAttribute="bottom" constant="16" id="gEI-a9-s6Z"/>
+                            <constraint firstItem="nNR-al-zxD" firstAttribute="leading" secondItem="M5b-s7-u0g" secondAttribute="leading" constant="20" id="iOa-9d-BnA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="M5b-s7-u0g"/>
+                    </view>
+                    <connections>
+                        <outlet property="caption" destination="baW-Yt-sSa" id="Xmm-Gi-5q9"/>
+                        <outlet property="confirmButton" destination="FpK-58-QCk" id="QSg-CV-9Td"/>
+                        <outlet property="imageViiew" destination="xfe-gj-VqV" id="DOa-WP-dXj"/>
+                        <outlet property="secondaryButton" destination="f9W-Oo-38p" id="uJ9-k2-mNF"/>
+                        <outlet property="titleLabel" destination="6KV-d0-Qvk" id="Zl5-8m-k3s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIX-R1-eWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2286" y="-1082"/>
         </scene>
     </scenes>
     <resources>

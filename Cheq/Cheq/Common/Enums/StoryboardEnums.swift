@@ -80,4 +80,10 @@ enum CommonStoryboardId: String {
     case BankNotSupportedVC = "BankNotSupportedVC"
     case CategorisationInProgressVC = "CategorisationInProgressVC"
     case GenericInfoVC = "GenericInfoVC"
+    case maintenanceVC = "MaintenanceVC"
+    case updateAppVC = "UpdateAppVC"
+    
+    
+    
+    
 }
