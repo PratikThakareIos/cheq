@@ -47,6 +47,9 @@ enum OnboardingStoryboardId: String {
     case setupBankVC = "SetupBankVC"
     case bankDetailLearnMoreVC = "BankDetailLearnMoreVC"
     case requestForBankVC = "RequestForBankVC"
+    case splashVC = "SplashVC"
+    
+    
 }
 
 /**

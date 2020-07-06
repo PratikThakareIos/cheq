@@ -400,13 +400,29 @@ extension AppDelegate {
 extension AppDelegate {
     
     func setupInitialViewController() {
-        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
-            let vc = AppNav.shared.initViewController(.legalName)
+        
+        if AppConfig.shared.isUserLoggedIn() {
+            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
             self.window?.rootViewController = vc ?? UIViewController()
             self.window?.makeKeyAndVisible()
-        }.catch { err in
-            self.handleNotLoggedIn()
+        }else{
+            //self.handleNotLoggedIn()
+            
+            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
+            self.window?.rootViewController = vc ?? UIViewController()
+            self.window?.makeKeyAndVisible()
         }
+        
+//        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+//            let vc = AppNav.shared.initViewController(.legalName)
+//            self.window?.rootViewController = vc ?? UIViewController()
+//            self.window?.makeKeyAndVisible()
+//        }.catch { err in
+//            self.handleNotLoggedIn()
+//        }
+        
     }
     
     @objc func handleSwitch(notification: NSNotification) {
@@ -458,5 +474,7 @@ extension AppDelegate {
         }        
         self.window?.makeKeyAndVisible()
     }
+    
+
 }
 

@@ -144,11 +144,28 @@ extension AppConfig {
     
     /// this method is used by Splash screen, to marked the first installation so that we know that we have completed the first installation run
     func markFirstInstall() {
-       
         CKeychain.shared.clearKeychain()
         UserDefaults.standard.set(true, forKey: installId())
         UserDefaults.standard.synchronize()
     }
+    
+    /// Method to check if we are first time runnning the app after installation
+    func isUserLoggedIn()-> Bool {
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "cheqIsUserLoggedIn") ?? false
+        return isUserLoggedIn
+    }
+    
+    func markUserLoggedIn() {
+        UserDefaults.standard.set(true, forKey: "cheqIsUserLoggedIn" )
+        UserDefaults.standard.synchronize()
+    }
+    
+    func markUserLoggedOut() {
+        UserDefaults.standard.set(false, forKey: "cheqIsUserLoggedIn" )
+        UserDefaults.standard.synchronize()
+    }
+    
+    
 }
 
 // MARK: Spinner
