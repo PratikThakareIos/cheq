@@ -41,6 +41,7 @@ extension Double {
 }
 
 extension Int {
+    
     private static var numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal

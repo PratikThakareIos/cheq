@@ -8,6 +8,13 @@
 
 import Foundation
 
+
+struct UserDefaultKeys {
+    static let emailID = "cheq_emailID"
+    static let password = "cheq_password"
+}
+
+
 /**
  StoryboardName is String enum of all the storyboards in use. This enum is used by AppNav and whenever we want to refer to the storyboard name we want to load. Update the enum when new Storyboard is added.
 */
@@ -25,7 +32,6 @@ enum PopupStoryboardId: String {
     case recentActivityPopUpVC = "RecentActivityPopUpVC"
     
 }
-
 
 /**
  OnboardingStoryboardId are viewController storyboard Ids inside the **onboarding** storyboard. Use these in pair with **StoryboardName.onboarding.rawValue** by **AppNav**

@@ -303,12 +303,18 @@ extension AppNav {
      - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
      - parameter viewController:
      */
-    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
+    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController, embedInNav: Bool) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        viewController.present(nav, animated: true)
+        
+        if embedInNav {
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            viewController.present(nav, animated: true)
+        } else {
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: true)
+        }
     }
     
     /**

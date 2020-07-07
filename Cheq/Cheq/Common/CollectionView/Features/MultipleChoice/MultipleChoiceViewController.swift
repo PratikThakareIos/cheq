@@ -885,7 +885,7 @@ extension MultipleChoiceViewController {
     }
     
     func gotoRequestForBankVC(){
-        AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, viewController: self)
+        AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.requestForBankVC.rawValue, viewController: self, embedInNav: true)
         
     }
 }

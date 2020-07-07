@@ -740,6 +740,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oNu-Wi-lQE"/>
                     </view>
+                    <connections>
+                        <outlet property="loaderImageVw" destination="KX1-Za-j2C" id="b5u-lQ-gA0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OoN-nr-MBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

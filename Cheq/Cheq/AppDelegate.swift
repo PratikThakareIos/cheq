@@ -402,17 +402,22 @@ extension AppDelegate {
     func setupInitialViewController() {
         
         if AppConfig.shared.isUserLoggedIn() {
-            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
-            self.window?.rootViewController = vc ?? UIViewController()
-            self.window?.makeKeyAndVisible()
-        }else{
-            //self.handleNotLoggedIn()
             
-            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
-            self.window?.rootViewController = vc ?? UIViewController()
-            self.window?.makeKeyAndVisible()
+//            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+//            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
+//            self.window?.rootViewController = vc
+            
+            window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splashVC.rawValue, embedInNav: true)
+            window?.makeKeyAndVisible()
+            
+            
+            
+        }else{
+            self.handleNotLoggedIn()
+//            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+//            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
+//            self.window?.rootViewController = vc
+//            self.window?.makeKeyAndVisible()
         }
         
 //        AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
@@ -426,6 +431,7 @@ extension AppDelegate {
     }
     
     @objc func handleSwitch(notification: NSNotification) {
+        
         LoggingUtil.shared.cPrint("handle login")
         let dict = notification.userInfo?[NotificationUserInfoKey.vcInfo.rawValue] as? Dictionary<String, Any>
         let storyname = dict?[NotificationUserInfoKey.storyboardName.rawValue] as? String ?? ""
@@ -461,6 +467,7 @@ extension AppDelegate {
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
         AppData.shared.resetAllData()
+        AppConfig.shared.markUserLoggedOut()
         AppData.shared.completingDetailsForLending = false
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
     }
@@ -474,7 +481,5 @@ extension AppDelegate {
         }        
         self.window?.makeKeyAndVisible()
     }
-    
-
 }
 

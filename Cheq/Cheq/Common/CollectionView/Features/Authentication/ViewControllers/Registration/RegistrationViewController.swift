@@ -199,7 +199,7 @@ extension RegistrationViewController: UITextViewDelegate {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
         if viewModel.isForgotPassword(URL.absoluteString) {
-            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self, embedInNav: true)
         } else if viewModel.isLogin(URL.absoluteString) {
             AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
         } else if viewModel.isSignup(URL.absoluteString) {

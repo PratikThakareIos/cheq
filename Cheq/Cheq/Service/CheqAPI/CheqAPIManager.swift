@@ -190,6 +190,7 @@ class CheqAPIManager {
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser()
                 .done { authUser in
+                    
                     let token = authUser.authToken() ?? ""
                     UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
                         
@@ -210,7 +211,6 @@ class CheqAPIManager {
                         }
                         
                         guard let resp = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                        
                         let viewModel = QuestionViewModel()
                         
                         //Manish
@@ -233,7 +233,9 @@ class CheqAPIManager {
                         }.catch {err in
                             resolver.reject(err)
                         }
+                        
                     })
+                    
             }.catch {err in
                 resolver.reject(err)
             }

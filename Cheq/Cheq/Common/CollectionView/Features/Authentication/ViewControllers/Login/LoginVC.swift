@@ -175,7 +175,6 @@ extension LoginVC {
         if self.isRootViewControllerUnderNav {
             self.lblSignUpLinkText.isHidden = true
         }
-        
         self.emailTextField.keyboardType = .emailAddress
         self.passwordTextField.keyboardType = .default
     }
@@ -229,10 +228,19 @@ extension LoginVC {
         // whenever we successfully login, we post notification token
         viewModel.login(email, password: password).then { authUser->Promise<GetUserActionResponse> in
             //When the user opens the app the apps checks if the user has a basiq account or not
+            
+            UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
+            UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
+            UserDefaults.standard.synchronize()
+            
+            AppConfig.shared.markUserLoggedIn()
+            
             self.addLog_callingGetUserActions()
             return CheqAPIManager.shared.getUserActions()
         }.done { userActionResponse in
+            
             self.addLog_EndCallingGetUserActions(strRes: "\(String(describing: userActionResponse.userAction))")
+            
             /*
             The backend will return one of these condition
 
@@ -430,9 +438,6 @@ extension LoginVC {
 
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
-        
-        //self.goto_MaintenanceVC()
-        //self.goto_UpdateAppVC()
     }
 }
 
@@ -468,10 +473,8 @@ extension LoginVC {
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
         if viewModel.isForgotPassword(strSubstring) {
-        // AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+      
          AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
-//            let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
-//            AppNav.shared.pushToViewController(emailVc, from: self)
             
         } else if viewModel.isSignup(strSubstring) {
             
@@ -540,6 +543,7 @@ extension LoginVC {
     
     func beginOnboarding() {
         self.view.endEditing(true)
+        AppConfig.shared.markUserLoggedIn()
         AppData.shared.isOnboarding = true
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
@@ -633,7 +637,6 @@ extension LoginVC {
         let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
         LoggingUtil.shared.addLog(log: log)
     }
-
 }
 
 
@@ -685,7 +688,6 @@ extension LoginVC {
                     }
                  }
             }
-            
         }.catch { [weak self] err in
             LoggingUtil.shared.cPrint(err)
         }

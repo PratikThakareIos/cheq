@@ -47,7 +47,7 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getApplicationStatusFromRemoteConfig()
+        RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -172,6 +172,7 @@ extension RegistrationVC {
                 AuthConfig.shared.activeManager.setUser(authUser)
         }.done { success in
             QuestionViewModel().clearAllSavedData()
+            AppConfig.shared.markUserLoggedIn()
             self.beginOnboarding()
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
@@ -212,6 +213,7 @@ extension RegistrationVC {
         let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(emailVc, from: self)
     }
+    
 }
 
 // MARK: Hyperlable Setup
@@ -250,8 +252,8 @@ extension RegistrationVC {
             self.didSelectLinkWithName(strSubstring: strSubstring)
         }        
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
+        
     }
-    
     
     func setupHyperlables(){
         self.setupHyperlable_lblTerms()
@@ -259,10 +261,11 @@ extension RegistrationVC {
     }
     
     func didSelectLinkWithName(strSubstring : String = ""){
+        
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
         if viewModel.isForgotPassword(strSubstring) {
-            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self, embedInNav: true)
         } else if viewModel.isLogin(strSubstring) {
             //Manish
             AppNav.shared.pushToViewControllerWithAnimation(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
@@ -322,60 +325,18 @@ extension RegistrationVC : ConnectingToBankViewControllerProtocol {
             self.hideBackButton()
         }
     }
- }
+}
 
 
 extension RegistrationVC {
     
     func goto_MaintenanceVC(){
         self.view.endEditing(true)
-         //guard let nav =  self.navigationController else { return }
-        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, embedInNav: false) as? MaintenanceVC {
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }
+        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false)
     }
     
     func goto_UpdateAppVC(){
         self.view.endEditing(true)
-         //guard let nav =  self.navigationController else { return }
-        if let vc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, embedInNav: false) as? UpdateAppVC {
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        }
-    }
-    
-    func getApplicationStatusFromRemoteConfig(){
-        
-        RemoteConfigManager.shared.getRemoteConfigData().done { _ in
-                 
-          print(" AppData.shared.remote_appVersionNumberIos = \( AppData.shared.remote_appVersionNumberIos)")
-          print(" AppData.shared.remote_forceAppVersionUpgradeIos = \( AppData.shared.remote_forceAppVersionUpgradeIos)")
-          print(" AppData.shared.remote_isUnderMaintenance = \( AppData.shared.remote_isUnderMaintenance)")
-            
-            if (AppData.shared.remote_isUnderMaintenance){
-                LoggingUtil.shared.cPrint("goto_MaintenanceVC")
-                self.goto_MaintenanceVC()
-            }else if (AppData.shared.remote_forceAppVersionUpgradeIos){
-                            
-                 if let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                     LoggingUtil.shared.cPrint("currentAppVersion \(currentAppVersion)")
-                     LoggingUtil.shared.cPrint(currentAppVersion)
-                    
-                    if AppData.shared.remote_appVersionNumberIos != "" {
-                       
-                       let isNeedUpdate = AppData.shared.remote_appVersionNumberIos.isVersion(greaterThan: currentAppVersion)
-                        
-                        LoggingUtil.shared.cPrint("isNeedUpdate \(isNeedUpdate)")
-                        if (isNeedUpdate){
-                            self.goto_UpdateAppVC()
-                        }
-                    }
-                 }
-            }
-            
-        }.catch { [weak self] err in
-            LoggingUtil.shared.cPrint(err)
-        }
+        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false)
     }
 }

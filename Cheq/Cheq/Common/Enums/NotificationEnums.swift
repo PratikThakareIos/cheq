@@ -62,6 +62,10 @@ enum UINotificationEvent: String {
     case scrolledToButtom = "scrolledToButtom"
     case webViewLoaded = "webViewLoaded"
     case clickedOnActivity = "clickedOnActivity"
+    
+    case showMaintenanceVC = "showMaintenanceVC"
+    case showUpdateAppVC = "showUpdateAppVC"
+
 }
 
 /**

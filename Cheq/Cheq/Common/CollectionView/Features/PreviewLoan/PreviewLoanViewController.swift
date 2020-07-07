@@ -101,8 +101,6 @@ class PreviewLoanViewController: CTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(scrolledToButtom(_:)), name: NSNotification.Name(UINotificationEvent.scrolledToButtom.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(webViewLoaded(_:)), name: NSNotification.Name(UINotificationEvent.webViewLoaded.rawValue), object: nil)
-        
-        
     }
     
     
@@ -132,8 +130,6 @@ class PreviewLoanViewController: CTableViewController {
                         }
                     }
             }
-            
-            
         }
     }
 }

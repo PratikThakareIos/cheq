@@ -13,6 +13,8 @@ enum CollectionViewType {
     case carousel, grid
 }
 
+
+
 // this is an implementation of AppThemeProtocol
 // we can create more for different themes. e.g. DarkModeTheme, CBATheme, etc
 

@@ -15,6 +15,7 @@ import PromiseKit
 //https://console.firebase.google.com/project/dev-cheqapi/config
 
 
+
 enum RemoteConfigParameters: String, CaseIterable {
     case financialInstitutions = "FinancialInstitutionsNew"
     case financialInstituitonsWithDemo = "FinancialInstitutionsWithDemoBank"
@@ -91,31 +92,70 @@ class RemoteConfigManager {
                 do {
                     
                     let appVersionNumberIos = self.remoteConfig.configValue(forKey: RemoteConfigParameters.AppVersionNumberIos.rawValue).stringValue ?? "0"
-                    print("\n\nappVersionNumberIos: \(appVersionNumberIos)")
                     
-                    let forceAppVersionUpgradeIos = self.remoteConfig.configValue(forKey: RemoteConfigParameters.ForceAppVersionUpgradeIos.rawValue).boolValue ?? false
-                    print("\n\nForceAppVersionUpgradeIos:\(forceAppVersionUpgradeIos)")
-                    
+                    let forceAppVersionUpgradeIos = self.remoteConfig.configValue(forKey: RemoteConfigParameters.ForceAppVersionUpgradeIos.rawValue).boolValue
 
-                    let isUnderMaintenance = self.remoteConfig.configValue(forKey: RemoteConfigParameters.IsUnderMaintenance.rawValue).boolValue ?? false
-                    print("\n\nIsUnderMaintenance:\(isUnderMaintenance)")
+                    let isUnderMaintenance = self.remoteConfig.configValue(forKey: RemoteConfigParameters.IsUnderMaintenance.rawValue).boolValue
+                    
+//                  LoggingUtil.shared.cPrint("appVersionNumberIos: \(appVersionNumberIos)")
+//                  LoggingUtil.shared.cPrint("ForceAppVersionUpgradeIos:\(forceAppVersionUpgradeIos)")
+//                  LoggingUtil.shared.cPrint("IsUnderMaintenance:\(isUnderMaintenance)")
                     
                     AppData.shared.remote_appVersionNumberIos = appVersionNumberIos
                     AppData.shared.remote_forceAppVersionUpgradeIos = forceAppVersionUpgradeIos
                     AppData.shared.remote_isUnderMaintenance  = isUnderMaintenance
                     
                     resolver.fulfill(())
-                }
-                catch let error {
-                    print("Error occured in",error)
+                    
+                } catch let error {
+                    LoggingUtil.shared.cPrint("Error occured in \(error)")
                     resolver.reject(error)
                 }
+                
             }.catch { err in
                 resolver.reject(RemoteConfigError.unableToFetchAndActivateRemoteConfig)
             }
         }
     }
-    
-    
-    
+ 
+    func getApplicationStatusFromRemoteConfig()-> Promise<Bool> {
+        
+         return Promise<Bool>() { resolver in
+              
+            RemoteConfigManager.shared.getRemoteConfigData().done { _ in
+                     
+              LoggingUtil.shared.cPrint(" AppData.shared.remote_appVersionNumberIos = \( AppData.shared.remote_appVersionNumberIos)")
+              LoggingUtil.shared.cPrint(" AppData.shared.remote_forceAppVersionUpgradeIos = \( AppData.shared.remote_forceAppVersionUpgradeIos)")
+              LoggingUtil.shared.cPrint(" AppData.shared.remote_isUnderMaintenance = \( AppData.shared.remote_isUnderMaintenance)")
+                
+                if (AppData.shared.remote_isUnderMaintenance){
+                    LoggingUtil.shared.cPrint("goto_MaintenanceVC")
+                    NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
+                    resolver.fulfill(true)
+                }else if (AppData.shared.remote_forceAppVersionUpgradeIos){
+                                
+                     if let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                         LoggingUtil.shared.cPrint("currentAppVersion \(currentAppVersion)")
+                         LoggingUtil.shared.cPrint(currentAppVersion)
+                        
+                        if AppData.shared.remote_appVersionNumberIos != "" {
+                           let isNeedUpdate = AppData.shared.remote_appVersionNumberIos.isVersion(greaterThan: currentAppVersion)
+                            LoggingUtil.shared.cPrint("isNeedUpdate \(isNeedUpdate)")
+                            if (isNeedUpdate){
+                                NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
+                                resolver.fulfill(true)
+                            }
+                        }
+                     }
+                }
+                
+                resolver.fulfill(false)
+                
+            }.catch { [weak self] err in
+                LoggingUtil.shared.cPrint("Err in getApplicationStatusFromRemoteConfig")
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(RemoteConfigError.unableToFetchAndActivateRemoteConfig)
+            }
+         }
+    }
 }
