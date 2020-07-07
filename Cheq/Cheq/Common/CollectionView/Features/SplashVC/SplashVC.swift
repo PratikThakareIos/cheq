@@ -44,7 +44,7 @@ extension SplashVC {
     }
     
     @objc func applicationWillEnterForeground(_ notification: NSNotification){
-        LoggingUtil.shared.cPrint("SplashVC applicationWillEnterForeground")
+        LoggingUtil.shared.cPrint("SplashVC_applicationWillEnterForeground")
         self.stopSpinning()
         self.startSpinning()
     }
@@ -213,7 +213,7 @@ extension SplashVC {
     
     func gotoHome(){
         
-        LoggingUtil.shared.cPrint("go to home screen")
+        LoggingUtil.shared.cPrint("go to home screen from splash")
         // Load to dashboard
         AppData.shared.isOnboarding = false
         AppData.shared.migratingToNewDevice = false
