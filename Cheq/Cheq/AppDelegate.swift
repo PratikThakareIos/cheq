@@ -29,7 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         AppData.shared.resetAllData()
+         
+        AppData.shared.resetAllData()
+        
+        //RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108

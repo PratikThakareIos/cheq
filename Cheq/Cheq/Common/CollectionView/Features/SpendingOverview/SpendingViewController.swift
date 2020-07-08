@@ -27,6 +27,9 @@ class SpendingViewController: CTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
+         self.addNotificationsForRemoteConfig()
+         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
+        
          self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
     }
 
@@ -34,6 +37,12 @@ class SpendingViewController: CTableViewController {
         super.viewDidAppear(animated)
         activeTimestamp()
         registerObservables()
+        
+        //Temp
+        //NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
+        //NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
+        
+        
         if let vm = self.viewModel as? SpendingViewModel, vm.sections.count == 0 {
             NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
         }
@@ -175,4 +184,31 @@ extension SpendingViewController: RecentActivityPopUpVCDelegate{
               self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
+}
+
+
+//MARK: -  Remote config status Action
+extension SpendingViewController {
+    
+    func addNotificationsForRemoteConfig() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_MaintenanceVC(_:)), name: NSNotification.Name(UINotificationEvent.showMaintenanceVC.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_UpdateAppVC(_:)), name: NSNotification.Name(UINotificationEvent.showUpdateAppVC.rawValue), object: nil)
+    }
+    
+    
+    @objc func goto_MaintenanceVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+         AppConfig.shared.hideSpinner {
+           AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false, animated: false)
+         }
+      }
+      
+       @objc func goto_UpdateAppVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+          AppConfig.shared.hideSpinner {
+             AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false, animated: false)
+         }
+      }
 }

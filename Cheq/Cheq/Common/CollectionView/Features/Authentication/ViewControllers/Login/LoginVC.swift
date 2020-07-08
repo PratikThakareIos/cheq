@@ -32,6 +32,7 @@ class LoginVC: UIViewController {
         hideNavBar()
         setupDelegate()
         setupUI()
+        
         self.setupHyperlablesForLoginScreen()
     }
     
@@ -39,15 +40,17 @@ class LoginVC: UIViewController {
         super.viewDidAppear(animated)
         setupUI()
         activeTimestamp()
-      
-        //Manish
-        //self.addTestAccountDetails()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
+        
+        //Temp
+        //NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
+        //NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -64,8 +67,8 @@ class LoginVC: UIViewController {
         //prateek725@yopmail.com  "Rdm@12345" //
         //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
 
-        self.emailTextField.text =  "way@g.com" //"jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
-        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
+//        self.emailTextField.text =  "way@g.com" //"jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
+//        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
     }
     
 }

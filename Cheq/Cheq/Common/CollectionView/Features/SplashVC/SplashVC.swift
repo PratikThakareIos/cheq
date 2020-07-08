@@ -16,12 +16,12 @@ class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavBar()
-        self.addNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.startSpinning()
+        self.addNotifications()
         self.checkRemoteConfigStatus()
     }
     
@@ -88,7 +88,7 @@ extension SplashVC {
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig().done { isShowScreenForRemoteConfig in
             if isShowScreenForRemoteConfig {
                 //do nothing - notification already fired to show screens - MaintenanceVC or UpdateAppVC
-                
+                LoggingUtil.shared.cPrint("do nothing - notification already fired to show screens")
             }else{
                 //check further conditions
                 LoggingUtil.shared.cPrint("check further conditions")
@@ -96,6 +96,7 @@ extension SplashVC {
             }
         }.catch { err in
             LoggingUtil.shared.cPrint(err)
+            self.callLoginAction()
         }
     }
      
@@ -208,6 +209,10 @@ extension SplashVC {
             self.beginOnboarding()
         default:
             LoggingUtil.shared.cPrint(err)
+            
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
         }
     }
 }

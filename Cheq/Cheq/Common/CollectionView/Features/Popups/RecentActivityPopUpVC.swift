@@ -97,7 +97,13 @@ class RecentActivityPopUpVC: UIViewController {
                 
         //ToDo : need to add bank logo name in response
         //financialInstitutionLogoUrl: Optional("https://d388vpyfrt4zrj.cloudfront.net/AU00001.svg")
-        self.imgVwAccountLogo.image =  UIImage.init(named: BankLogo.placeholder.rawValue)
+        
+        if let img = UIImage.init(named: data.financialInstitutionId ?? ""){
+            self.imgVwAccountLogo.image = img
+        }else{
+            self.imgVwAccountLogo.image =  UIImage.init(named: BankLogo.placeholder.rawValue)
+        }
+        
         self.lblAccountName.text = data.financialAccountName ?? ""
                 
     }

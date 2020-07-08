@@ -48,9 +48,9 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -323,7 +323,6 @@ extension RegistrationVC : ConnectingToBankViewControllerProtocol {
         }
     }
 }
-
 
 
 //MARK: -  Remote config status Action

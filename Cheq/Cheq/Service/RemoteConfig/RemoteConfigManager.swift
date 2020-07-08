@@ -13,9 +13,6 @@ import PromiseKit
 
 
 //https://console.firebase.google.com/project/dev-cheqapi/config
-
-
-
 enum RemoteConfigParameters: String, CaseIterable {
     case financialInstitutions = "FinancialInstitutionsNew"
     case financialInstituitonsWithDemo = "FinancialInstitutionsWithDemoBank"
@@ -31,10 +28,11 @@ enum RemoteConfigParameters: String, CaseIterable {
 class RemoteConfigManager {
     static let shared = RemoteConfigManager()
     let remoteConfig = RemoteConfig.remoteConfig()
+
     private init() {
        
         // WARNING: Don't actually do this in production!
-        let fetchDuration: TimeInterval = 0
+        let fetchDuration: TimeInterval = 60 * 5 // 5 mins.
         
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = fetchDuration
@@ -107,7 +105,7 @@ class RemoteConfigManager {
                     
                     resolver.fulfill(())
                     
-                } catch let error {
+                }catch let error {
                     LoggingUtil.shared.cPrint("Error occured in \(error)")
                     resolver.reject(error)
                 }
@@ -119,11 +117,7 @@ class RemoteConfigManager {
     }
  
     func getApplicationStatusFromRemoteConfig()-> Promise<Bool> {
-        
-        AppData.shared.remote_appVersionNumberIos = ""
-        AppData.shared.remote_forceAppVersionUpgradeIos = false
-        AppData.shared.remote_isUnderMaintenance  = false
-        
+    
          return Promise<Bool>() { resolver in
               
             RemoteConfigManager.shared.getRemoteConfigData().done { _ in
@@ -163,3 +157,5 @@ class RemoteConfigManager {
          }
     }
 }
+
+

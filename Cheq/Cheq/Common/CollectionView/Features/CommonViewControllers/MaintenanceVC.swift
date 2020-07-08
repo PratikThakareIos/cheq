@@ -41,17 +41,17 @@ class MaintenanceVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        RemoteConfigManager.shared.getRemoteConfigData().done { _ in
-
-            print(" AppData.shared.remote_isUnderMaintenance = \( AppData.shared.remote_isUnderMaintenance)")
-            
-            if (AppData.shared.remote_isUnderMaintenance == false){
-                self.dismiss(animated: true, completion: nil)
-            }
-            
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err)
-        }
+//        RemoteConfigManager.shared.getRemoteConfigData().done { _ in
+//
+//            print(" AppData.shared.remote_isUnderMaintenance = \( AppData.shared.remote_isUnderMaintenance)")
+//
+//            if (AppData.shared.remote_isUnderMaintenance == false){
+//                //self.dismiss(animated: true, completion: nil)
+//            }
+//
+//        }.catch { err in
+//            LoggingUtil.shared.cPrint(err)
+//        }
     }
 }
 
