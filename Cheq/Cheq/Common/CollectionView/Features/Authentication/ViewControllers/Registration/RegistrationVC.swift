@@ -40,14 +40,17 @@ class RegistrationVC: UIViewController {
         activeTimestamp()
         hideBackTitle()
         self.setupUI()
-        self.setupHyperlables()    
+        self.setupHyperlables()
+
         // reset this variable when we are back on sign up / login screen
         AppData.shared.migratingToNewDevice = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -145,15 +148,9 @@ extension RegistrationVC {
     
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
-
-       // AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         
-        //self.gotoConnectingToBankViewController()
-        
-        //        let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
-        //          connectingFailed.modalPresentationStyle = .fullScreen
-        //        self.present(connectingFailed, animated: true)
-        
+        //temp
+        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
     }
     
     @IBAction func register(_ sender: Any) {
@@ -328,15 +325,24 @@ extension RegistrationVC : ConnectingToBankViewControllerProtocol {
 }
 
 
+
+//MARK: -  Remote config status Action
 extension RegistrationVC {
     
-    func goto_MaintenanceVC(){
-        self.view.endEditing(true)
-        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false)
+    func addNotificationsForRemoteConfig() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_MaintenanceVC(_:)), name: NSNotification.Name(UINotificationEvent.showMaintenanceVC.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_UpdateAppVC(_:)), name: NSNotification.Name(UINotificationEvent.showUpdateAppVC.rawValue), object: nil)
     }
     
-    func goto_UpdateAppVC(){
-        self.view.endEditing(true)
-        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false)
+     @objc func goto_MaintenanceVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+          AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false, animated: false)
+     }
+      
+     @objc func goto_UpdateAppVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+          AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false, animated: false)
     }
 }

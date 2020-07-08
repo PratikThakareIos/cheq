@@ -339,7 +339,16 @@ class TestUtil {
             let code = self.slimTransactionCategoryCode(self.randomCategoryCode())
             let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: TestUtil.shared.randomDate())
             let randomBank = TestUtil.shared.randomRemoteBank()
-            let slimTransactionResponse = SlimTransactionResponse(_description: TestUtil.shared.randomString(100), amount: TestUtil.shared.randomAmount(), date: dateString, categoryTitle: code.rawValue, categoryCode: code, merchant: TestUtil.shared.randomString(30), merchantLogoUrl: "", financialAccountName: randomBank.name, financialInstitutionLogoUrl: randomBank.logoUrl)
+            let slimTransactionResponse = SlimTransactionResponse(_description: TestUtil.shared.randomString(100),
+                                                                  amount: TestUtil.shared.randomAmount(),
+                                                                  date: dateString,
+                                                                  categoryTitle: code.rawValue,
+                                                                  categoryCode: code,
+                                                                  merchant: TestUtil.shared.randomString(30),
+                                                                  merchantLogoUrl: "",
+                                                                  financialAccountName: randomBank.name,
+                                                                  financialInstitutionLogoUrl: randomBank.logoUrl,
+                                                                  financialInstitutionId: "")
             transactions.append(slimTransactionResponse)
         }
         return transactions

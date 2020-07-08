@@ -65,6 +65,7 @@ class AppNav {
         return !passcode.isEmpty
     }
     
+    
     /**
      pushToQuestionForm abstract the logics to initialise a new **QuestionViewController** based on **QuestionType** and performs a navigation push from given ViewController
      - parameter questionType: QuestionType determines how **QuestionViewController** renders the to the corresponding screen.
@@ -81,6 +82,7 @@ class AppNav {
         vc.viewModel.screenName = ScreenName(fromRawValue: questionType.rawValue)
         nav.pushViewController(vc, animated: true)
     }
+    
     
     /**
      pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
@@ -303,17 +305,17 @@ extension AppNav {
      - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
      - parameter viewController:
      */
-    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController, embedInNav: Bool) {
+    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController, embedInNav: Bool, animated: Bool = true) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
         
         if embedInNav {
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
-            viewController.present(nav, animated: true)
+            viewController.present(nav, animated: animated)
         } else {
             vc.modalPresentationStyle = .fullScreen
-            viewController.present(vc, animated: true)
+            viewController.present(vc, animated: animated)
         }
     }
     

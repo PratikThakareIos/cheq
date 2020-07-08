@@ -48,15 +48,19 @@ extension SplashVC {
         self.stopSpinning()
         self.startSpinning()
     }
+}
+
+//MARK: -  Remote config status Action
+extension SplashVC {
     
-    @objc func goto_MaintenanceVC(_ notification: NSNotification){
+     @objc func goto_MaintenanceVC(_ notification: NSNotification){
         self.view.endEditing(true)
-        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false)
+        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false, animated: false)
     }
     
-    @objc func goto_UpdateAppVC(_ notification: NSNotification){
+     @objc func goto_UpdateAppVC(_ notification: NSNotification){
         self.view.endEditing(true)
-        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false)
+        AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false, animated: false)
     }
 }
 

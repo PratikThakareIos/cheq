@@ -120,6 +120,10 @@ class RemoteConfigManager {
  
     func getApplicationStatusFromRemoteConfig()-> Promise<Bool> {
         
+        AppData.shared.remote_appVersionNumberIos = ""
+        AppData.shared.remote_forceAppVersionUpgradeIos = false
+        AppData.shared.remote_isUnderMaintenance  = false
+        
          return Promise<Bool>() { resolver in
               
             RemoteConfigManager.shared.getRemoteConfigData().done { _ in

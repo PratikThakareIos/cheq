@@ -118,6 +118,7 @@ open class UsersAPI {
      - examples: [{contentType=application/json, example={
   "showReconnect" : true,
   "userAction" : "None",
+  "linkedInstitutionName" : "linkedInstitutionName",
   "showClose" : true,
   "actionRequiredGuidelines" : [ "actionRequiredGuidelines", "actionRequiredGuidelines" ],
   "link" : "link",

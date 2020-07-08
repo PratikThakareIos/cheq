@@ -402,16 +402,8 @@ extension AppDelegate {
     func setupInitialViewController() {
         
         if AppConfig.shared.isUserLoggedIn() {
-            
-//            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-//            let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.splashVC.rawValue)
-//            self.window?.rootViewController = vc
-            
             window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.splashVC.rawValue, embedInNav: true)
             window?.makeKeyAndVisible()
-            
-            
-            
         }else{
             self.handleNotLoggedIn()
 //            let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
