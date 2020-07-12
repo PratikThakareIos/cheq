@@ -13,6 +13,7 @@ import PromiseKit
 
 
 //https://console.firebase.google.com/project/dev-cheqapi/config
+
 enum RemoteConfigParameters: String, CaseIterable {
     case financialInstitutions = "FinancialInstitutionsNew"
     case financialInstituitonsWithDemo = "FinancialInstitutionsWithDemoBank"

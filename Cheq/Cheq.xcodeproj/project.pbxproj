@@ -338,6 +338,18 @@
 		2A5C74D5244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C74D6244861FD0031B172 /* Double_Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C74D3244861FD0031B172 /* Double_Extention.swift */; };
 		2A5C88C52469A89F00C1C771 /* BankNotSupportedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */; };
+		2A61CA1024B747FD003BD850 /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */; };
+		2A61CA1124B747FD003BD850 /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */; };
+		2A61CA1224B747FD003BD850 /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */; };
+		2A61CA1324B747FD003BD850 /* SFUIText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */; };
+		2A61CA1424B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */; };
+		2A61CA1524B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */; };
+		2A61CA1624B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */; };
+		2A61CA1724B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */; };
+		2A61CA1924B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
+		2A61CA1A24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
+		2A61CA1B24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
+		2A61CA1C24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
 		2A62746424A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
 		2A62746524A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
 		2A62746624A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
@@ -432,6 +444,8 @@
 		2A72CFA12420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
 		2A72CFA22420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
 		2A72CFA32420ADB80053C0DD /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */; };
+		2AA1DB2A24BB8AD6001A0975 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA1DB2924BB8AD6001A0975 /* NotificationService.swift */; };
+		2AA1DB2E24BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2AA1DB2724BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2AAB5B8D2473E4D3000CC702 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		2AAB5B8E2473E4D3000CC702 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		2AAB5B8F2473E4D3000CC702 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1745,6 +1759,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2AA1DB2C24BB8AD6001A0975 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9676520822FAFD01001E43E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AA1DB2624BB8AD6001A0975;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
 		9676522722FAFD04001E43E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9676520822FAFD01001E43E0 /* Project object */;
@@ -1791,6 +1812,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2AA1DB2E24BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1946,6 +1968,9 @@
 		2A5BA4B0247EC4DE00FA816D /* RequestForBankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForBankViewModel.swift; sourceTree = "<group>"; };
 		2A5C74D3244861FD0031B172 /* Double_Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Double_Extention.swift; path = Cheq/Common/Extension/Double_Extention.swift; sourceTree = SOURCE_ROOT; };
 		2A5C88C42469A89F00C1C771 /* BankNotSupportedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankNotSupportedVC.swift; sourceTree = "<group>"; };
+		2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
 		2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOutActivityPopUp.swift; sourceTree = "<group>"; };
 		2A63FAEF24AE5D3E00C44271 /* String+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Version.swift"; sourceTree = "<group>"; };
 		2A64BDC52482812800998311 /* DeclineDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -1973,6 +1998,22 @@
 		2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
+		2AA1DAFB24BB834D001A0975 /* dev_ios_push_certificate.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dev_ios_push_certificate.pem; sourceTree = "<group>"; };
+		2AA1DAFC24BB834D001A0975 /* dev_ios_push_certificate_zddyuvitgi.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_ios_push_certificate_zddyuvitgi.p12; sourceTree = "<group>"; };
+		2AA1DAFD24BB834D001A0975 /* dev_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_ios_push_certificate.cer; sourceTree = "<group>"; };
+		2AA1DB0B24BB840B001A0975 /* uat_ios_push_certificate.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uat_ios_push_certificate.pem; sourceTree = "<group>"; };
+		2AA1DB0C24BB840C001A0975 /* uat_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = uat_ios_push_certificate.cer; sourceTree = "<group>"; };
+		2AA1DB0D24BB840C001A0975 /* uat_ios_push_certificate_ pwdhlbhtci.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uat_ios_push_certificate_ pwdhlbhtci.p12"; sourceTree = "<group>"; };
+		2AA1DB1C24BB8549001A0975 /* pro_ios_push_certificate.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = pro_ios_push_certificate.pem; sourceTree = "<group>"; };
+		2AA1DB1D24BB854A001A0975 /* pro_ios_push_certificate_ xhicjndzhm.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pro_ios_push_certificate_ xhicjndzhm.p12"; sourceTree = "<group>"; };
+		2AA1DB1E24BB854A001A0975 /* pro_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = pro_ios_push_certificate.cer; sourceTree = "<group>"; };
+		2AA1DB1F24BB869C001A0975 /* Cheq_DEV-4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cheq_DEV-4.mobileprovision"; sourceTree = "<group>"; };
+		2AA1DB2024BB86A3001A0975 /* Cheq_UAT-2.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cheq_UAT-2.mobileprovision"; sourceTree = "<group>"; };
+		2AA1DB2124BB86B0001A0975 /* cheq_production.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = cheq_production.mobileprovision; sourceTree = "<group>"; };
+		2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = cheq_Imp_info.rtf; sourceTree = "<group>"; };
+		2AA1DB2724BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA1DB2924BB8AD6001A0975 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		2AA1DB2B24BB8AD6001A0975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AAB5D3D2473E4D3000CC702 /* Cheq-UAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheq-UAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAB5D3E2473E4D4000CC702 /* CheqUAT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CheqUAT-Info.plist"; path = "/Users/amit.rawal/Documents/Cheq_app/Cheq/CheqUAT-Info.plist"; sourceTree = "<absolute>"; };
 		2AAB5D4024744B0D000CC702 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2324,6 +2365,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2AA1DB2424BB8AD6001A0975 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AAB5CFC2473E4D3000CC702 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2584,6 +2632,29 @@
 			path = BankNotSupportedVC;
 			sourceTree = "<group>";
 		};
+		2A61CA0C24B74774003BD850 /* SFUIText */ = {
+			isa = PBXGroup;
+			children = (
+				2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */,
+				2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */,
+				2A65AABA247D76D5004D6239 /* SFUIText-Bold.ttf */,
+				2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */,
+				2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */,
+			);
+			path = SFUIText;
+			sourceTree = "<group>";
+		};
+		2A61CA0D24B747A8003BD850 /* SFProText */ = {
+			isa = PBXGroup;
+			children = (
+				2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */,
+				2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */,
+				2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */,
+				2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */,
+			);
+			path = SFProText;
+			sourceTree = "<group>";
+		};
 		2A64BDC1248280A500998311 /* DeclineDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -2671,6 +2742,8 @@
 		2A72CF8A2420ADB80053C0DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */,
+				2AA1DAF924BB831B001A0975 /* AppleCertificates */,
 				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
 				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A5888AD2478085600419149 /* Certificates */,
@@ -2682,16 +2755,64 @@
 		2A72CF8C2420ADB80053C0DD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				2A65AAC4247D94F2004D6239 /* Montserrat-Bold.ttf */,
 				2A65AAC5247D94F3004D6239 /* Montserrat-Regular.ttf */,
-				2A72CF8D2420ADB80053C0DD /* SFProText-Medium.ttf */,
-				2A72CF8E2420ADB80053C0DD /* SFUIText-Medium.ttf */,
-				2A65AABA247D76D5004D6239 /* SFUIText-Bold.ttf */,
-				2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */,
-				2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */,
-				2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */,
+				2A65AAC4247D94F2004D6239 /* Montserrat-Bold.ttf */,
+				2A61CA0D24B747A8003BD850 /* SFProText */,
+				2A61CA0C24B74774003BD850 /* SFUIText */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2AA1DAF924BB831B001A0975 /* AppleCertificates */ = {
+			isa = PBXGroup;
+			children = (
+				2AA1DB1B24BB853A001A0975 /* production */,
+				2AA1DB0A24BB8402001A0975 /* UAT */,
+				2AA1DAFA24BB8337001A0975 /* Dev */,
+			);
+			path = AppleCertificates;
+			sourceTree = "<group>";
+		};
+		2AA1DAFA24BB8337001A0975 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				2AA1DB1F24BB869C001A0975 /* Cheq_DEV-4.mobileprovision */,
+				2AA1DAFC24BB834D001A0975 /* dev_ios_push_certificate_zddyuvitgi.p12 */,
+				2AA1DAFD24BB834D001A0975 /* dev_ios_push_certificate.cer */,
+				2AA1DAFB24BB834D001A0975 /* dev_ios_push_certificate.pem */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
+		2AA1DB0A24BB8402001A0975 /* UAT */ = {
+			isa = PBXGroup;
+			children = (
+				2AA1DB2024BB86A3001A0975 /* Cheq_UAT-2.mobileprovision */,
+				2AA1DB0D24BB840C001A0975 /* uat_ios_push_certificate_ pwdhlbhtci.p12 */,
+				2AA1DB0C24BB840C001A0975 /* uat_ios_push_certificate.cer */,
+				2AA1DB0B24BB840B001A0975 /* uat_ios_push_certificate.pem */,
+			);
+			path = UAT;
+			sourceTree = "<group>";
+		};
+		2AA1DB1B24BB853A001A0975 /* production */ = {
+			isa = PBXGroup;
+			children = (
+				2AA1DB2124BB86B0001A0975 /* cheq_production.mobileprovision */,
+				2AA1DB1D24BB854A001A0975 /* pro_ios_push_certificate_ xhicjndzhm.p12 */,
+				2AA1DB1E24BB854A001A0975 /* pro_ios_push_certificate.cer */,
+				2AA1DB1C24BB8549001A0975 /* pro_ios_push_certificate.pem */,
+			);
+			path = production;
+			sourceTree = "<group>";
+		};
+		2AA1DB2824BB8AD6001A0975 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2AA1DB2924BB8AD6001A0975 /* NotificationService.swift */,
+				2AA1DB2B24BB8AD6001A0975 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		2AAB5D3F24744AC4000CC702 /* UAT */ = {
@@ -4062,6 +4183,7 @@
 			children = (
 				9676521222FAFD01001E43E0 /* Cheq */,
 				9676522922FAFD04001E43E0 /* CheqTests */,
+				2AA1DB2824BB8AD6001A0975 /* OneSignalNotificationServiceExtension */,
 				9676521122FAFD01001E43E0 /* Products */,
 				2CD776E6BCD57CA70EFE0360 /* Pods */,
 				60F74BD8DC9F25DD4CC2B10B /* Frameworks */,
@@ -4077,6 +4199,7 @@
 				4FBDDB3F236BC68700EDB1E9 /* Cheq.app */,
 				4F01F779237E6A5B00268423 /* CheqDemo.app */,
 				2AAB5D3D2473E4D3000CC702 /* Cheq-UAT.app */,
+				2AA1DB2724BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4087,6 +4210,7 @@
 				2A72CF8A2420ADB80053C0DD /* Resources */,
 				4FD839A023626ADD0069EB30 /* Environment */,
 				9676525722FB080F001E43E0 /* Service */,
+				9676523722FB0136001E43E0 /* Features */,
 				9676524322FB061B001E43E0 /* Common */,
 				9676521322FAFD01001E43E0 /* AppDelegate.swift */,
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
@@ -4212,7 +4336,6 @@
 		9676524822FB06B6001E43E0 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				9676523722FB0136001E43E0 /* Features */,
 				9676524622FB0691001E43E0 /* ChartCollectionViewCellProtocol.swift */,
 				963D62ED22FB1DE0006344C9 /* CollectionViewProtocol.swift */,
 			);
@@ -4631,6 +4754,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2AA1DB2624BB8AD6001A0975 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AA1DB2F24BB8AD6001A0975 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				2AA1DB2324BB8AD6001A0975 /* Sources */,
+				2AA1DB2424BB8AD6001A0975 /* Frameworks */,
+				2AA1DB2524BB8AD6001A0975 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 2AA1DB2724BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2AAB5B8A2473E4D3000CC702 /* CheqUAT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AAB5D3A2473E4D3000CC702 /* Build configuration list for PBXNativeTarget "CheqUAT" */;
@@ -4723,6 +4863,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2AA1DB2D24BB8AD6001A0975 /* PBXTargetDependency */,
 			);
 			name = CheqDev;
 			productName = CheqDemo;
@@ -4756,10 +4897,13 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Cheq;
 				TargetAttributes = {
+					2AA1DB2624BB8AD6001A0975 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					9676520F22FAFD01001E43E0 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1030;
@@ -4891,11 +5035,19 @@
 				4FBDDA11236BC68700EDB1E9 /* CheqProd */,
 				4F01F61E237E6A5B00268423 /* CheqDemo */,
 				9676522522FAFD04001E43E0 /* CheqTests */,
+				2AA1DB2624BB8AD6001A0975 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2AA1DB2524BB8AD6001A0975 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AAB5D032473E4D3000CC702 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4911,10 +5063,12 @@
 				2AAB5D0B2473E4D3000CC702 /* CustomSubViewPopup.xib in Resources */,
 				2AAB5D0C2473E4D3000CC702 /* CButtonTableViewCell.xib in Resources */,
 				2AAB5D0D2473E4D3000CC702 /* SFProText-Semibold.ttf in Resources */,
+				2A61CA1124B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				2AAB5D0E2473E4D3000CC702 /* DocumentAccessCell.xib in Resources */,
 				2AAB5D0F2473E4D3000CC702 /* CustomProgressBar.xib in Resources */,
 				2AAB5D102473E4D3000CC702 /* AmountSelectTableViewCell.xib in Resources */,
 				2AAB5D112473E4D3000CC702 /* TransactionGroupTableViewCell.xib in Resources */,
+				2A61CA1A24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */,
 				2AAB5D122473E4D3000CC702 /* Onboarding.storyboard in Resources */,
 				2AAB5D132473E4D3000CC702 /* BarChartTableViewCell.xib in Resources */,
 				2AAB5D152473E4D3000CC702 /* CompleteDetailsTableViewCell.xib in Resources */,
@@ -4948,6 +5102,7 @@
 				2AAB5D2B2473E4D3000CC702 /* Emoji.xcassets in Resources */,
 				2AAB5D2C2473E4D3000CC702 /* UpcomingBillsTableViewCell.xib in Resources */,
 				2AAB5D2D2473E4D3000CC702 /* UpcomingBillCollectionViewCell.xib in Resources */,
+				2A61CA1524B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */,
 				2AAB5D2E2473E4D3000CC702 /* SpendingCardTableViewCell.xib in Resources */,
 				2AAB5D2F2473E4D3000CC702 /* SpacerTableViewCell.xib in Resources */,
 				2AAB5D302473E4D3000CC702 /* Assets.xcassets in Resources */,
@@ -4967,6 +5122,7 @@
 				4F01F750237E6A5B00268423 /* MessageBubbleTableViewCell.xib in Resources */,
 				4F01F8BC2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4F01F751237E6A5B00268423 /* TopTableViewCell.xib in Resources */,
+				2A61CA1724B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */,
 				4F01F752237E6A5B00268423 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F323E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4F01F753237E6A5B00268423 /* CButtonTableViewCell.xib in Resources */,
@@ -4977,6 +5133,7 @@
 				4F01F755237E6A5B00268423 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F01F756237E6A5B00268423 /* Onboarding.storyboard in Resources */,
 				4F01F757237E6A5B00268423 /* BarChartTableViewCell.xib in Resources */,
+				2A61CA1324B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				4F01F758237E6A5B00268423 /* GoogleService-Info.plist in Resources */,
 				4F01F759237E6A5B00268423 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4F01F75A237E6A5B00268423 /* BarView.xib in Resources */,
@@ -4989,6 +5146,7 @@
 				4F01F760237E6A5B00268423 /* AgreementItemTableViewCell.xib in Resources */,
 				2A110BCD24AA566800CA1EFD /* NoMoreActivityCell.xib in Resources */,
 				4F01F761237E6A5B00268423 /* BottomTableViewCell.xib in Resources */,
+				2A61CA1C24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */,
 				4F01F762237E6A5B00268423 /* Cheq.plist in Resources */,
 				4F01F763237E6A5B00268423 /* Main.storyboard in Resources */,
 				2A72CF972420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
@@ -5024,6 +5182,7 @@
 				4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */,
 				4F01F8BB2384A81000268423 /* LinkTableViewCell.xib in Resources */,
 				4FBDDB20236BC68700EDB1E9 /* TopTableViewCell.xib in Resources */,
+				2A61CA1624B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */,
 				4FBDDB21236BC68700EDB1E9 /* HeaderTableViewCell.xib in Resources */,
 				BD0D58F223E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				4FBDDB22236BC68700EDB1E9 /* CButtonTableViewCell.xib in Resources */,
@@ -5034,6 +5193,7 @@
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
+				2A61CA1224B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */,
 				4F2325A12379323000BF3F21 /* BarView.xib in Resources */,
@@ -5046,6 +5206,7 @@
 				4F2325882378D8DE00BF3F21 /* Cheq.plist in Resources */,
 				2A110BCC24AA566800CA1EFD /* NoMoreActivityCell.xib in Resources */,
 				4FBDDB2B236BC68700EDB1E9 /* BottomTableViewCell.xib in Resources */,
+				2A61CA1B24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */,
 				4FBDDB2D236BC68700EDB1E9 /* Main.storyboard in Resources */,
 				2A110BD724AA72A900CA1EFD /* GoogleService-Info.plist in Resources */,
 				2A72CF962420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
@@ -5087,10 +5248,12 @@
 				BD0D58F123E99D4B009193CD /* CustomSubViewPopup.xib in Resources */,
 				9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */,
 				2A72CF9B2420ADB80053C0DD /* SFProText-Semibold.ttf in Resources */,
+				2A61CA1024B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				9F3ACB8C23EFEC9700466953 /* DocumentAccessCell.xib in Resources */,
 				BD3C962D2428F7B100927055 /* CustomProgressBar.xib in Resources */,
 				964FA995235287D100B07AD7 /* AmountSelectTableViewCell.xib in Resources */,
 				4FD228FA2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
+				2A61CA1924B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */,
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96FADE97230ECA2400AE6CBB /* GoogleService-Info.plist in Resources */,
@@ -5124,6 +5287,7 @@
 				2A72CF872420A9E70053C0DD /* PopUp.storyboard in Resources */,
 				4F2323F92374E5AF00BF3F21 /* Emoji.xcassets in Resources */,
 				4FD228A22372789E00045662 /* UpcomingBillsTableViewCell.xib in Resources */,
+				2A61CA1424B747FD003BD850 /* SFUIText-Semibold.ttf in Resources */,
 				4F2323E32374DD2200BF3F21 /* UpcomingBillCollectionViewCell.xib in Resources */,
 				4FD2288E2372689C00045662 /* SpendingCardTableViewCell.xib in Resources */,
 				4FB1CDEF2356C11E00E7B224 /* SpacerTableViewCell.xib in Resources */,
@@ -5595,6 +5759,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2AA1DB2324BB8AD6001A0975 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA1DB2A24BB8AD6001A0975 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AAB5B8C2473E4D3000CC702 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7148,6 +7320,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2AA1DB2D24BB8AD6001A0975 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AA1DB2624BB8AD6001A0975 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 2AA1DB2C24BB8AD6001A0975 /* PBXContainerItemProxy */;
+		};
 		9676522822FAFD04001E43E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9676520F22FAFD01001E43E0 /* CheqDev */;
@@ -7175,6 +7352,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2AA1DB3024BB8AD6001A0975 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QRN52F553;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AA1DB3124BB8AD6001A0975 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8QRN52F553;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2AAB5D3B2473E4D3000CC702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */;
@@ -7580,6 +7802,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 979EB1EA776745E8B5808D7E /* Pods-CheqDev.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -7636,6 +7859,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -7748,6 +7972,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2AA1DB2F24BB8AD6001A0975 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA1DB3024BB8AD6001A0975 /* Debug */,
+				2AA1DB3124BB8AD6001A0975 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2AAB5D3A2473E4D3000CC702 /* Build configuration list for PBXNativeTarget "CheqUAT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

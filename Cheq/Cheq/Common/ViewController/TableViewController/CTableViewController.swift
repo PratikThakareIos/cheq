@@ -88,30 +88,31 @@ extension CTableViewController {
         popupView.show()
     }
     
-    /// if we get notification to open **link**, it is not always just for real web links, there are instances where we use a **link** UI to trigger opening of App setting, trigger logout and any other actions if needed.
-    @objc func openWebLink(_ notification: NSNotification) {
-        LoggingUtil.shared.cPrint("open link")
-        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
-        
-        // check if it's log out, we treat it differently
-        if link == links.logout.rawValue {
-            logout()
-            return
-        }
-        
-        if link == links.appSetting.rawValue {
-            AppNav.shared.pushToAppSetting()
-            return 
-        }
-        
-//        if link == links.helpAndSupport.rawValue {
-//            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+//    /// if we get notification to open **link**, it is not always just for real web links, there are instances where we use a **link** UI to trigger opening of App setting, trigger logout and any other actions if needed.
+//    @objc func openWebLink(_ notification: NSNotification) {
+//        LoggingUtil.shared.cPrint("open link")
+//        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
+//        
+//        // check if it's log out, we treat it differently
+//        if link == links.logout.rawValue {
+//            logout()
 //            return
 //        }
-        
-        guard let url = URL(string: link) else { return }
-        AppNav.shared.pushToInAppWeb(url, viewController: self)
-    }
+//        
+//        if link == links.appSetting.rawValue {
+//            AppNav.shared.pushToAppSetting()
+//            return 
+//        }
+//        
+////        if link == links.helpAndSupport.rawValue {
+////            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+////            return
+////        }
+//        
+//        guard let url = URL(string: link) else { return }
+//        AppNav.shared.pushToInAppWeb(url, viewController: self)
+//    }
+    
 }
 
 extension CTableViewController {

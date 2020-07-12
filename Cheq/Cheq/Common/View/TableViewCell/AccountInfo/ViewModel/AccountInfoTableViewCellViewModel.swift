@@ -21,5 +21,9 @@ class AccountInfoTableViewCellViewModel: TableViewCellViewModelProtocol {
     var subHeader: String = "Full name"
     
     /// actual value that subHeader is referring to
-    var information: String = "Chris Bacon" 
+    var information: String = "Chris Bacon"
+    
+    /// boolean to toggle if we show the disclosure arrow
+    var showDisclosureIcon: Bool = false
+    
 }

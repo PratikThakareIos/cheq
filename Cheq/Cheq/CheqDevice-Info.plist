@@ -4,6 +4,9 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SFUIText-Heavy.ttf</string>
+		<string>SFUIText-Semibold.ttf</string>
+		<string>SFUIText-Regular.ttf</string>
 		<string>Montserrat-Regular.ttf</string>
 		<string>Montserrat-Bold.ttf</string>
 		<string>SFUIText-Bold.ttf</string>

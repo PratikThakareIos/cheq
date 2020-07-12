@@ -3073,7 +3073,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lt-Og-GuW">
-                                                                <rect key="frame" x="0.0" y="218" width="335" height="178"/>
+                                                                <rect key="frame" x="0.0" y="217.5" width="335" height="178"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="PgB-iU-L4d">
                                                                         <rect key="frame" x="17.5" y="8" width="300" height="162"/>
@@ -3205,7 +3205,7 @@
                                                                         <rect key="frame" x="0.0" y="133" width="335" height="83"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use Bank-grade security to protect your data. Our system is as secure as a vault!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBR-L6-mAT">
-                                                                                <rect key="frame" x="11.5" y="0.0" width="312" height="35"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="WQ6-S6-eN0"/>
                                                                                 </constraints>

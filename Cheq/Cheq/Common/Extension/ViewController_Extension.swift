@@ -308,16 +308,25 @@ extension UIViewController {
 // Logout method
 extension UIViewController {
     @objc func logout() {
-        showDecision("You want to logout?", confirmCb: {
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
-                AuthConfig.shared.activeManager.logout(authUser)
-                }.done {
-                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
-                }.catch { err in
-                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
-            }
-            
-        }, cancelCb: nil)
+       
+        AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                       AuthConfig.shared.activeManager.logout(authUser)
+                       }.done {
+                           NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+                       }.catch { err in
+                           NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+        }
+    
+//        showDecision("You want to logout?", confirmCb: {
+//            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+//                AuthConfig.shared.activeManager.logout(authUser)
+//                }.done {
+//                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+//                }.catch { err in
+//                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+//            }
+//
+//        }, cancelCb: nil)
     }
     
     @objc func tapToDismiss() {
