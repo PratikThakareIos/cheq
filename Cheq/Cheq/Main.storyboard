@@ -229,10 +229,11 @@
                 <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CxM-bx-Nzq" customClass="TabViewController" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="P4Y-tc-Z55">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="redraw" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="P4Y-tc-Z55">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Sfi-gR-bCw" kind="relationship" relationship="viewControllers" id="tJa-cv-pNy"/>
@@ -248,7 +249,7 @@
         <scene sceneID="z6G-Zh-bY4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCA-g3-tzo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-lend" selectedImage="tab-lend" id="eMQ-MP-TEQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-payondemand" selectedImage="tab-payondemand-active" id="eMQ-MP-TEQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wGs-fp-jRe">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -267,7 +268,7 @@
         <scene sceneID="dfW-76-Q4Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sfi-gR-bCw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-overview" selectedImage="tab-overview" id="QDd-tr-hz7"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-overview" selectedImage="tab-overview-active" id="QDd-tr-hz7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QYS-f0-J5J">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -286,7 +287,7 @@
         <scene sceneID="FvH-wu-sMb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcr-8f-oVW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab-profile" selectedImage="tab-profile" id="5Ts-ET-dEX"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab-profile" selectedImage="tab-profile-active" id="5Ts-ET-dEX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CUn-52-blZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -376,8 +377,11 @@
     </scenes>
     <resources>
         <image name="down-arrow" width="24" height="14"/>
-        <image name="tab-lend" width="20" height="25"/>
-        <image name="tab-overview" width="24" height="18.5"/>
-        <image name="tab-profile" width="24" height="25"/>
+        <image name="tab-overview" width="32" height="32"/>
+        <image name="tab-overview-active" width="32" height="32"/>
+        <image name="tab-payondemand" width="32" height="32"/>
+        <image name="tab-payondemand-active" width="32" height="32"/>
+        <image name="tab-profile" width="32" height="32"/>
+        <image name="tab-profile-active" width="32" height="32"/>
     </resources>
 </document>

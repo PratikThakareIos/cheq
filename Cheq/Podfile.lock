@@ -159,6 +159,7 @@ PODS:
   - nanopb/encode (0.3.901)
   - NavigationDropdownMenu (5.0.0)
   - Obfuscator (2.0.0)
+  - OneSignal (2.14.3)
   - Onfido (16.0.0)
   - OpenSSL-Universal (1.0.2.18):
     - OpenSSL-Universal/Static (= 1.0.2.18)
@@ -225,6 +226,7 @@ DEPENDENCIES:
   - Mixpanel-swift
   - NavigationDropdownMenu
   - Obfuscator
+  - OneSignal (< 3.0, >= 2.11.2)
   - Onfido
   - OpenSSL-Universal
   - PopOverMenu
@@ -306,6 +308,7 @@ SPEC REPOS:
     - FRHyperLabel
     - IQKeyboardManagerSwift
     - Mixpanel-swift
+    - OneSignal
     - Onfido
     - "UITextView+Placeholder"
 
@@ -349,6 +352,7 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
+  OneSignal: 7dfe466265c05f02b95a274b9c997a0619ad2117
   Onfido: 6d16470843f73b10eff14d9221964b16ee5d0798
   OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
   PopOverMenu: 0a5cbb60b38fa86f5fd8a703e51fa1b51d181215
@@ -371,6 +375,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 96ab9d551ad770269fac3b4721d47dab83b2f16f
+PODFILE CHECKSUM: 9d39df7ed0ed3711a9006eeedfda438453c7e96d
 
 COCOAPODS: 1.8.4

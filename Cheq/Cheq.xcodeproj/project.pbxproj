@@ -861,6 +861,7 @@
 		2AADE6EB248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
 		2AADE6EC248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
 		2AADE6ED248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
+		356ACDA56251B2956AF88456 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1998,22 +1999,11 @@
 		2A72CF8F2420ADB80053C0DD /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		2A72CF902420ADB80053C0DD /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		2A72CF912420ADB80053C0DD /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
-		2AA1DAFB24BB834D001A0975 /* dev_ios_push_certificate.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dev_ios_push_certificate.pem; sourceTree = "<group>"; };
-		2AA1DAFC24BB834D001A0975 /* dev_ios_push_certificate_zddyuvitgi.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_ios_push_certificate_zddyuvitgi.p12; sourceTree = "<group>"; };
-		2AA1DAFD24BB834D001A0975 /* dev_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_ios_push_certificate.cer; sourceTree = "<group>"; };
-		2AA1DB0B24BB840B001A0975 /* uat_ios_push_certificate.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uat_ios_push_certificate.pem; sourceTree = "<group>"; };
-		2AA1DB0C24BB840C001A0975 /* uat_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = uat_ios_push_certificate.cer; sourceTree = "<group>"; };
-		2AA1DB0D24BB840C001A0975 /* uat_ios_push_certificate_ pwdhlbhtci.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "uat_ios_push_certificate_ pwdhlbhtci.p12"; sourceTree = "<group>"; };
-		2AA1DB1C24BB8549001A0975 /* pro_ios_push_certificate.pem */ = {isa = PBXFileReference; lastKnownFileType = text; path = pro_ios_push_certificate.pem; sourceTree = "<group>"; };
-		2AA1DB1D24BB854A001A0975 /* pro_ios_push_certificate_ xhicjndzhm.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pro_ios_push_certificate_ xhicjndzhm.p12"; sourceTree = "<group>"; };
-		2AA1DB1E24BB854A001A0975 /* pro_ios_push_certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = pro_ios_push_certificate.cer; sourceTree = "<group>"; };
-		2AA1DB1F24BB869C001A0975 /* Cheq_DEV-4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cheq_DEV-4.mobileprovision"; sourceTree = "<group>"; };
-		2AA1DB2024BB86A3001A0975 /* Cheq_UAT-2.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cheq_UAT-2.mobileprovision"; sourceTree = "<group>"; };
-		2AA1DB2124BB86B0001A0975 /* cheq_production.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = cheq_production.mobileprovision; sourceTree = "<group>"; };
 		2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = cheq_Imp_info.rtf; sourceTree = "<group>"; };
 		2AA1DB2724BB8AD6001A0975 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA1DB2924BB8AD6001A0975 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		2AA1DB2B24BB8AD6001A0975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA1DB3224BB8F82001A0975 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		2AAB5D3D2473E4D3000CC702 /* Cheq-UAT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheq-UAT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAB5D3E2473E4D4000CC702 /* CheqUAT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CheqUAT-Info.plist"; path = "/Users/amit.rawal/Documents/Cheq_app/Cheq/CheqUAT-Info.plist"; sourceTree = "<absolute>"; };
 		2AAB5D4024744B0D000CC702 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2218,6 +2208,7 @@
 		5F0380E0B4BAE53341988819 /* Pods_CheqDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDeviceProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A2968A1267FBA36D03738 /* Pods-CheqUAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.release.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.release.xcconfig"; sourceTree = "<group>"; };
 		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -2335,8 +2326,10 @@
 		9FB5921923EC250D00B7DB0F /* HomeAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressCoordinator.swift; sourceTree = "<group>"; };
 		A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDevice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
+		AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.debug.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.debug.xcconfig"; sourceTree = "<group>"; };
 		B9A798937400978A89B7D0C0 /* Pods_CheqUAT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqUAT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0D58D823E815C4009193CD /* PayCycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCycleViewController.swift; sourceTree = "<group>"; };
 		BD0D58DD23E93043009193CD /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		BD0D58EE23E99D03009193CD /* CustomSubViewPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubViewPopup.swift; sourceTree = "<group>"; };
@@ -2369,6 +2362,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356ACDA56251B2956AF88456 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2743,7 +2737,6 @@
 			isa = PBXGroup;
 			children = (
 				2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */,
-				2AA1DAF924BB831B001A0975 /* AppleCertificates */,
 				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
 				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A5888AD2478085600419149 /* Certificates */,
@@ -2763,52 +2756,10 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		2AA1DAF924BB831B001A0975 /* AppleCertificates */ = {
-			isa = PBXGroup;
-			children = (
-				2AA1DB1B24BB853A001A0975 /* production */,
-				2AA1DB0A24BB8402001A0975 /* UAT */,
-				2AA1DAFA24BB8337001A0975 /* Dev */,
-			);
-			path = AppleCertificates;
-			sourceTree = "<group>";
-		};
-		2AA1DAFA24BB8337001A0975 /* Dev */ = {
-			isa = PBXGroup;
-			children = (
-				2AA1DB1F24BB869C001A0975 /* Cheq_DEV-4.mobileprovision */,
-				2AA1DAFC24BB834D001A0975 /* dev_ios_push_certificate_zddyuvitgi.p12 */,
-				2AA1DAFD24BB834D001A0975 /* dev_ios_push_certificate.cer */,
-				2AA1DAFB24BB834D001A0975 /* dev_ios_push_certificate.pem */,
-			);
-			path = Dev;
-			sourceTree = "<group>";
-		};
-		2AA1DB0A24BB8402001A0975 /* UAT */ = {
-			isa = PBXGroup;
-			children = (
-				2AA1DB2024BB86A3001A0975 /* Cheq_UAT-2.mobileprovision */,
-				2AA1DB0D24BB840C001A0975 /* uat_ios_push_certificate_ pwdhlbhtci.p12 */,
-				2AA1DB0C24BB840C001A0975 /* uat_ios_push_certificate.cer */,
-				2AA1DB0B24BB840B001A0975 /* uat_ios_push_certificate.pem */,
-			);
-			path = UAT;
-			sourceTree = "<group>";
-		};
-		2AA1DB1B24BB853A001A0975 /* production */ = {
-			isa = PBXGroup;
-			children = (
-				2AA1DB2124BB86B0001A0975 /* cheq_production.mobileprovision */,
-				2AA1DB1D24BB854A001A0975 /* pro_ios_push_certificate_ xhicjndzhm.p12 */,
-				2AA1DB1E24BB854A001A0975 /* pro_ios_push_certificate.cer */,
-				2AA1DB1C24BB8549001A0975 /* pro_ios_push_certificate.pem */,
-			);
-			path = production;
-			sourceTree = "<group>";
-		};
 		2AA1DB2824BB8AD6001A0975 /* OneSignalNotificationServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				2AA1DB3224BB8F82001A0975 /* OneSignalNotificationServiceExtension.entitlements */,
 				2AA1DB2924BB8AD6001A0975 /* NotificationService.swift */,
 				2AA1DB2B24BB8AD6001A0975 /* Info.plist */,
 			);
@@ -2842,6 +2793,8 @@
 				3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */,
 				B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */,
 				860A2968A1267FBA36D03738 /* Pods-CheqUAT.release.xcconfig */,
+				BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -3944,6 +3897,7 @@
 				41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */,
 				5F0380E0B4BAE53341988819 /* Pods_CheqDev.framework */,
 				B9A798937400978A89B7D0C0 /* Pods_CheqUAT.framework */,
+				7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4758,6 +4712,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AA1DB2F24BB8AD6001A0975 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
+				0F2095C3F25806A94361D7C7 /* [CP] Check Pods Manifest.lock */,
 				2AA1DB2324BB8AD6001A0975 /* Sources */,
 				2AA1DB2424BB8AD6001A0975 /* Frameworks */,
 				2AA1DB2524BB8AD6001A0975 /* Resources */,
@@ -5309,6 +5264,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F2095C3F25806A94361D7C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1A3654E5B429F0E727BB426B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -7354,7 +7331,9 @@
 /* Begin XCBuildConfiguration section */
 		2AA1DB3024BB8AD6001A0975 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
@@ -7377,7 +7356,9 @@
 		};
 		2AA1DB3124BB8AD6001A0975 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8QRN52F553;
@@ -7405,8 +7386,8 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
@@ -7444,7 +7425,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.uat;
 				PRODUCT_NAME = "Cheq-UAT";
-				PROVISIONING_PROFILE_SPECIFIER = Cheq_UAT;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG UAT";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -7461,8 +7442,8 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -7499,7 +7480,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.uat;
 				PRODUCT_NAME = "Cheq-UAT";
-				PROVISIONING_PROFILE_SPECIFIER = Cheq_UAT;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = UAT;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
@@ -7807,8 +7788,8 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
@@ -7846,7 +7827,7 @@
 				MARKETING_VERSION = 2.1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
-				PROVISIONING_PROFILE_SPECIFIER = Cheq_DEV;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEV";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -7864,8 +7845,8 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -7902,7 +7883,7 @@
 				MARKETING_VERSION = 2.1.15;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
-				PROVISIONING_PROFILE_SPECIFIER = Cheq_DEV;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
