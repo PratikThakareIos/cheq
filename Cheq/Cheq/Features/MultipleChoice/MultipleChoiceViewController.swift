@@ -410,12 +410,8 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             AppData.shared.updateProgressAfterCompleting(.employmentType)
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
-                
             } else {
-                
-                
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
-            
             }
             
         case .workingLocation:
@@ -435,8 +431,14 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             let vm = self.viewModel
             vm.save(QuestionField.employerName.rawValue, value: choice.title)
             vm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+            
             let qVm = QuestionViewModel()
+            //manish
+            qVm.save(QuestionField.employerName.rawValue, value: choice.title)
+            qVm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+            //manish
             qVm.loadSaved()
+            
             let req = DataHelperUtil.shared.putUserEmployerRequest()
             print("putUserEmployerRequest = \(req)")
             

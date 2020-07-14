@@ -171,17 +171,21 @@ extension LendingViewController {
         guard let completeDetailsType = notificaton.userInfo?["type"] as? String else { return }
         let type: CompleteDetailsType = CompleteDetailsType(fromRawValue: completeDetailsType)
         switch type {
+        
         case .workDetails:
             AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
+        
         case .bankDetils:
             AppData.shared.completingDetailsForLending = true
             // banking details flow
             AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
+        
         case .verifyYourDetails:
             // verification flow
             AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+        
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
             print("verify work details")

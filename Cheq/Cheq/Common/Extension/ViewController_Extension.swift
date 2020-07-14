@@ -33,6 +33,7 @@ extension UIViewController {
     /// style nav bar to show logout button
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
+        
     }
     
     
@@ -40,6 +41,7 @@ extension UIViewController {
     func showBackButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     /// style to add logout button on right, it's debug purpose
@@ -77,6 +79,7 @@ extension UIViewController {
     func showCloseButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navClose"), style: .plain, target: self, action: #selector(closeButton))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
 
     /// when close button is pressed, calls **AppNav.shared.dismissModal**, which abstracts the logic behind dismissing the current view controller
@@ -301,6 +304,7 @@ extension UIViewController {
             })
         }
         datePicker?.picker.date = initialDate
+        datePicker?.picker.datePicker.maximumDate = initialDate
         datePicker?.present(self)
     }
 }

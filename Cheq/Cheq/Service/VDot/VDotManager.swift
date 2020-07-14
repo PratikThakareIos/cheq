@@ -126,12 +126,14 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 extension VDotManager {
 
     func cleanWorksheets()-> Bool {
+        
         var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
         dictionary[VDotLogKey.worksheets.rawValue] = []
         return CKeychain.shared.setDictionary(CKey.vDotLog.rawValue, dictionary: dictionary)
     }
 
     func loadWorksheets()-> PostWorksheetRequest {
+        
         let dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
         let email =  CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
         let workSheetsDictionaryArray = dictionary[VDotLogKey.worksheets.rawValue] as? Array<[String:Any]> ?? []

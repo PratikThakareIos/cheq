@@ -38,6 +38,12 @@ class AccountViewController: CTableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideNavBar()
+        hideBackTitle()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeObservables()
@@ -121,9 +127,7 @@ extension AccountViewController: VerificationPopupVCDelegate{
             popupVC.buttonCloseTitle = "Cancel"
             popupVC.showSendButton = true
             popupVC.emojiImage = UIImage(named: "image-moreInfo") ?? UIImage()
-            
 
-            
             self.present(popupVC, animated: false, completion: nil)
         }
     }

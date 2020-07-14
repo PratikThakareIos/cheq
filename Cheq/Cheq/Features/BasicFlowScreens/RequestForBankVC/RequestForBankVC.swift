@@ -26,7 +26,6 @@ class RequestForBankVC: UIViewController {
     
     func setupUI() {
         
-        
         txtViewComment.placeholder = "Bank name"
         txtViewComment.placeholderColor = AppConfig.shared.activeTheme.placeHolderColor
         

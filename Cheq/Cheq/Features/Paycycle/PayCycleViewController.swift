@@ -13,6 +13,7 @@ class PayCycleViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var selectedRow:PostSalaryTransactionsRequest.PayFrequency? = .weekly
     @IBOutlet weak var btnConfirm: CNButton!
+    @IBOutlet weak var lblSubTitle: UILabel!
     
     enum choises: CaseIterable {
         case weekly, fortnightly, monthly
@@ -31,6 +32,12 @@ class PayCycleViewController: UIViewController {
         btnConfirm.createShadowLayer()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = .clear
+        
+
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
+        self.lblSubTitle.text = "How often do you get  paid from \(companyName)?"
     }
 }
 

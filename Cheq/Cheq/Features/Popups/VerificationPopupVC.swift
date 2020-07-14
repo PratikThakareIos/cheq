@@ -108,5 +108,4 @@ private extension VerificationPopupVC{
             self.dismiss(animated: false, completion: nil)
         }
     }
-    
 }

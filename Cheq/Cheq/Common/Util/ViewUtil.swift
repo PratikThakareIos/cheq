@@ -46,7 +46,6 @@ class ViewUtil {
         }
     }
     
-    
     /**
      This method modifies the given **CButton** with rounded edges. The cornerRadius amount is defaulted to be based on height, because we don't have vertical buttons. But this logic is subjected to change if vertical button is introduced.
      */

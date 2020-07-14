@@ -162,6 +162,7 @@ extension RegistrationVC {
         }
 
         LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
+        
 
         AppConfig.shared.showSpinner()
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
@@ -169,8 +170,16 @@ extension RegistrationVC {
                 AuthConfig.shared.activeManager.setUser(authUser)
         }.done { success in
             QuestionViewModel().clearAllSavedData()
-            AppConfig.shared.markUserLoggedIn()
+            
+            let email = self.emailTextField.text ?? ""
+            let password = self.passwordTextField.text ?? ""
+            
+            UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
+            UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
+            UserDefaults.standard.synchronize()
+            
             self.beginOnboarding()
+            
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
                 guard let self = self else { return }

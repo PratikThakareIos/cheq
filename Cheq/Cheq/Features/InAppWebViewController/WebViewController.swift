@@ -28,6 +28,9 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hidesBottomBarWhenPushed = true
+       
         self.showNavBar()
         self.hideBackTitle()
         self.vwClose.isHidden = true

@@ -195,7 +195,7 @@ class IntroductionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         case .employee:
             AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
-           // AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+           //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
              AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         case .enableLocation:
             if (CompleteDetailsTableViewCellViewModel.turnOnlocation){

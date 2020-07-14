@@ -13,7 +13,7 @@ class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     var type: QuestionType = .companyAddress
     var sectionTitle: String = Section.employmentDetails.rawValue
     
-    var question: String = "Company Address"
+    var question: String = "Company address"
     
     func placeHolder(_ index: Int)->String {
         return "11 York Street, Sydney NSW 2000"

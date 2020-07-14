@@ -77,7 +77,7 @@ class UserActionRequiredVC: UIViewController {
         }
         
         if let showClose = res.showClose, showClose == true {
-                showCloseButton()
+            showCloseButton()
         }else{
                 
         }

@@ -86,7 +86,7 @@ extension AppConfig {
     /// setup the global appearance for Navigation bar
     func setupNavBarUI() {
         // hide nav bar
-        UINavigationBar.appearance().tintColor = AppConfig.shared.activeTheme.primaryColor
+        UINavigationBar.appearance().tintColor = UIColor.black //AppConfig.shared.activeTheme.primaryColor
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear

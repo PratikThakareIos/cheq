@@ -180,6 +180,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let webVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.web.rawValue) as! WebViewController
         webVC.viewModel.url = url.absoluteString
+        webVC.hidesBottomBarWhenPushed = true
         nav.pushViewController(webVC, animated: true)
     }
     

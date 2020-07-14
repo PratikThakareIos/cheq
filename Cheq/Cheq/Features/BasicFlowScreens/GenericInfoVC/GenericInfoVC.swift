@@ -75,8 +75,7 @@ class GenericInfoVC : UIViewController {
         }else{
             
         }
-        
-        
+                
         if let showReconnect = res.showReconnect, showReconnect == true {
             btnTryAgain.isHidden = false
         }else{
@@ -99,7 +98,7 @@ class GenericInfoVC : UIViewController {
     @IBAction func btnChatWithUsAction(_ sender: Any) {
         IntercomManager.shared.loginIntercom().done { authUser in
             IntercomManager.shared.present(str_cErrorStep : "CategorisationInProgress")
-            }.catch { err in
+          }.catch { err in
                 self.showError(err, completion: nil)
         }
     }

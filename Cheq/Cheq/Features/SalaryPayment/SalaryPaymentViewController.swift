@@ -19,6 +19,7 @@ class SalaryPaymentViewController: UIViewController {
     @IBOutlet weak var viewMessage: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnNextAction: CNButton!
+    @IBOutlet weak var lblSubTitle: UILabel!
     
     private let TABLE_CELL_TAGS = (checkbox:10, title:20, value:30)
     private var sateOfNewTansactionArray = [Bool]()
@@ -42,6 +43,11 @@ class SalaryPaymentViewController: UIViewController {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         btnNextAction.createShadowLayer()
         
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
+        self.lblSubTitle.text = "Help our bot detect your salary from \(companyName)"
+        
         showNavBar()
         if isFromLendingScreen {
             showCloseButton()
@@ -58,6 +64,7 @@ class SalaryPaymentViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         SalaryPaymentViewController.selectedTansactionList.removeAll()
         getData()
     }

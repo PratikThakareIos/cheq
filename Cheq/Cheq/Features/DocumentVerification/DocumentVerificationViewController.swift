@@ -37,6 +37,7 @@ class DocumentVerificationViewController: UIViewController {
 }
 
 extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -54,8 +55,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        
+    
         var kycSelectDoc : KycDocType?
         if indexPath.row == 0 {
             kycSelectDoc = .Passport //KycDocType(fromRawValue: "Passport")
@@ -78,10 +78,12 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 78
     }
     
     func inittiateOnFido(kycSelectDoc:KycDocType?)  {
+        
         OnfidoManager.shared.fetchSdkToken().done { response in
             AppConfig.shared.hideSpinner {
                 let onfidoSdkToken = response.sdkToken ?? ""
@@ -96,5 +98,4 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
             }
         }
     }
-    
 }

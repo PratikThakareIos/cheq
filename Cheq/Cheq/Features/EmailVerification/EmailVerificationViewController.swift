@@ -211,6 +211,7 @@ class EmailVerificationViewController: UIViewController {
         }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     //self.handleSuccessVerification()
+                    AppConfig.shared.markUserLoggedIn()
                     AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
         }.catch { err in

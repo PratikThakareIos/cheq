@@ -35,7 +35,6 @@ class MaintenanceVC: UIViewController {
         if let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             self.lblVersion.text = "version \(currentAppVersion)"
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +51,7 @@ class MaintenanceVC: UIViewController {
 //        }.catch { err in
 //            LoggingUtil.shared.cPrint(err)
 //        }
+        
     }
 }
 

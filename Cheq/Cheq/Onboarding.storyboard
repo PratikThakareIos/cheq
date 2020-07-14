@@ -1177,7 +1177,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6Jx-KM-569">
                                 <rect key="frame" x="20" y="60" width="335" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee detalis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zm-3q-aTL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employment details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zm-3q-aTL">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="bpD-gB-YXe"/>
@@ -1341,6 +1341,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnNextAction" destination="zaI-SI-lHf" id="cEx-Li-YyL"/>
+                        <outlet property="lblSubTitle" destination="Chx-PQ-GGi" id="cUh-0Z-G5N"/>
                         <outlet property="tableView" destination="m6f-tW-g3c" id="fjc-O8-zy2"/>
                         <outlet property="viewMessage" destination="zT0-Gl-Uod" id="YrR-fc-ACM"/>
                     </connections>
@@ -1360,7 +1361,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-l5-zme">
                                 <rect key="frame" x="20" y="52" width="335" height="607"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee detalis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bN-O4-FBu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employment details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bN-O4-FBu">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Zn9-bH-feB"/>
@@ -1454,6 +1455,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnConfirm" destination="3m2-CL-tfl" id="b6R-b1-MlO"/>
+                        <outlet property="lblSubTitle" destination="0n8-xK-7dP" id="Vbb-zb-D16"/>
                         <outlet property="tableView" destination="zlj-Hg-RMq" id="wmK-Xg-uC0"/>
                     </connections>
                 </viewController>
@@ -2586,10 +2588,10 @@
             </objects>
             <point key="canvasLocation" x="1445" y="-1081"/>
         </scene>
-        <!--View Controller-->
+        <!--Setup BankVC-->
         <scene sceneID="fIl-Ul-BmT">
             <objects>
-                <viewController id="r6I-9t-HvX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupBankVC" id="r6I-9t-HvX" customClass="SetupBankVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kpa-So-2Sm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2603,7 +2605,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ah2-Wh-zvn">
                                                 <rect key="frame" x="20" y="16" width="335" height="613"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SbH-tf-pBK">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="SbH-tf-pBK">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="55" id="yYe-Tu-fFT"/>
@@ -3010,10 +3012,10 @@
             </objects>
             <point key="canvasLocation" x="3729" y="-1084"/>
         </scene>
-        <!--Setup BankVC-->
+        <!--View Controller-->
         <scene sceneID="29w-ie-Pem">
             <objects>
-                <viewController storyboardIdentifier="SetupBankVC" id="Ecq-l0-aE7" customClass="SetupBankVC" customModule="Cheq" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ecq-l0-aE7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x0M-Rk-KuL" userLabel="ViewMain">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

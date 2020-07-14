@@ -59,8 +59,8 @@ class QuestionViewController: UIViewController {
             }else{
                 //is from lending screen - verify details               
                 showCloseButton()
-                textField1.text = firstname
-                textField2.text = lastname
+                //textField1.text = firstname
+                //textField2.text = lastname
             }
             
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName{
@@ -69,6 +69,8 @@ class QuestionViewController: UIViewController {
             
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
+            self.textField3.keyboardType = .numberPad
+            self.textField4.keyboardType = .numberPad
         }
     }
     
@@ -166,8 +168,8 @@ class QuestionViewController: UIViewController {
         qvm.loadSaved()
         let firstname = qvm.fieldValue(.firstname)
         let lastname = qvm.fieldValue(.lastname)
-        textField1.text = firstname
-        textField2.text = lastname
+        //textField1.text = firstname
+        //textField2.text = lastname
     }
     
     func setupUI() {
@@ -391,11 +393,13 @@ class QuestionViewController: UIViewController {
                 let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
                 self.viewModel.save(QuestionField.employerAddress.rawValue, value: employer.address ?? "")
             }
+            
             self.viewModel.save(QuestionField.employerName.rawValue, value: searchTextField.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.companyName)
             
             // check if we are onboarding or completing details for lending if other option selected
             if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther  {
+                
                 AppData.shared.completingDetailsForLending = false
                 AppData.shared.completingOnDemandOther = false
                 let req = DataHelperUtil.shared.putUserEmployerRequest()
@@ -451,7 +455,7 @@ class QuestionViewController: UIViewController {
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
                         AppData.shared.completingDetailsForLending = false
-                        //                        self.delegate?.refreshLendingScreen()
+                        //self.delegate?.refreshLendingScreen()
                         self.incomeVerification()
                     } else {
                        // AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
