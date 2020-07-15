@@ -157,7 +157,12 @@ extension RegistrationVC {
             
         self.view.endEditing(true)
         if let error = self.validateInputs() {
-            showError(error) { }
+            // showError(error) { } // OLD
+            if error == ValidationError.invalidEmailFormat{
+                validationAlertPopup(error: error, isPasswordField: false)
+            } else {
+                validationAlertPopup(error: error, isPasswordField: true)
+            }
             return
         }
 
@@ -183,7 +188,10 @@ extension RegistrationVC {
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
-                self.showError(err, completion: nil)
+                //self.showError(err, completion: nil)
+                self.validationAlertPopup(error: err, isPasswordField: false)
+                
+                
             }
         }
     }
@@ -352,5 +360,51 @@ extension RegistrationVC {
      @objc func goto_UpdateAppVC(_ notification: NSNotification){
           self.view.endEditing(true)
           AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false, animated: false)
+    }
+}
+
+
+
+
+// MARK:-
+extension RegistrationVC : VerificationPopupVCDelegate {
+    
+    func validationAlertPopup(error:Error,isPasswordField:Bool) {
+        
+        
+        if isPasswordField {
+            openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+        }
+        
+        let errMessage = "The email address is already in use by another account."
+        
+        if errMessage == error.localizedDescription {
+            openPopupWith(heading: "Sorry, the email address is already in use", message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+        }else{
+            openPopupWith(heading: error.localizedDescription, message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+        }
+    
+    }
+    
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+        
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    func tappedOnSendButton() {
+        
+    }
+    
+    func tappedOnCloseButton() {
+        
     }
 }

@@ -105,7 +105,6 @@ class RecentActivityPopUpVC: UIViewController {
         }
         
         self.lblAccountName.text = data.financialAccountName ?? ""
-                
     }
     
     override func viewDidAppear(_ animated: Bool) {

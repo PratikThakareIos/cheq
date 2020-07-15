@@ -30,6 +30,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         AppData.shared.resetAllData()
         hideNavBar()
+        hideBackButton()
         setupDelegate()
         setupUI()
         
@@ -45,6 +46,9 @@ class LoginVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideNavBar()
+        hideBackButton()
+
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
         
@@ -112,9 +116,11 @@ extension LoginVC {
             self.beginOnboarding()
         default:
             LoggingUtil.shared.cPrint(err)
-            self.showError(AuthManagerError.invalidLoginFields, completion: {
-                self.passwordTextField.text = ""
-            })
+            self.validationAlertPopup(error: AuthManagerError.invalidLoginFields, isPasswordField: false)
+            
+//            self.showError(AuthManagerError.invalidLoginFields, completion: {
+//                self.passwordTextField.text = ""
+//            })
         }
     }
     
@@ -220,7 +226,14 @@ extension LoginVC {
         self.view.endEditing(true)
         
         if let error = self.validateInputs() {
-            showError(error) { }
+            
+            if error == ValidationError.invalidEmailFormat{ //PRASHANT
+                           validationAlertPopup(error: error, isPasswordField: false)
+                       } else {
+                           validationAlertPopup(error: error, isPasswordField: true)
+                       }
+            
+           // showError(error) { }
             return
         }
         
@@ -492,7 +505,6 @@ extension LoginVC {
                
                 nav.view.layer.add(transition, forKey:kCATransition)
                 nav.popViewController(animated: false)
-                
             }
             
 //            if isModal == false, let nav = self.navigationController {
@@ -547,11 +559,13 @@ extension LoginVC {
     
     func beginOnboarding() {
         self.view.endEditing(true)
-        AppConfig.shared.markUserLoggedIn()
         AppData.shared.isOnboarding = true
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
-                self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
+                //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
+                
+                self.validationAlertPopup(error: AuthManagerError.unableToRetrieveCurrentUser, isPasswordField: false)
+                
                 return
             }
             
@@ -666,5 +680,35 @@ extension LoginVC {
 }
 
 
-
-
+// MARK:- VerificationPopupVCDelegate
+extension LoginVC : VerificationPopupVCDelegate {
+    
+    func validationAlertPopup(error:Error,isPasswordField:Bool) {
+        if isPasswordField {
+            openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+        }
+        openPopupWith(heading: error.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+    }
+    
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    
+    func tappedOnSendButton() {
+        
+    }
+    
+    func tappedOnCloseButton() {
+        
+    }
+}

@@ -38,6 +38,7 @@ class ForgotPasswordViewController: UIViewController {
         self.viewModel.resetEmail = email.text ?? ""
         if let error = self.viewModel.validateInput() {
             showError(error, completion: nil)
+            //self.validationAlertPopup(error: error)//Manish
             return 
         }
         
@@ -56,7 +57,36 @@ class ForgotPasswordViewController: UIViewController {
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 self.showError(err, completion: nil)
+                //self.validationAlertPopup(error: err)//Manish
             }
         }
+    }
+}
+
+
+extension ForgotPasswordViewController: VerificationPopupVCDelegate {
+    
+    func validationAlertPopup(error:Error) {
+        openPopupWith(heading: error.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+    }
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    func tappedOnSendButton() {
+        
+    }
+    
+    func tappedOnCloseButton() {
+        
     }
 }

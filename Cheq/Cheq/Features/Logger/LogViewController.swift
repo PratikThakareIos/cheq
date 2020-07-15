@@ -55,7 +55,6 @@ class LogViewController: UIViewController {
 //            }
 //        }
         
-        
     }
     
     func setup() {        

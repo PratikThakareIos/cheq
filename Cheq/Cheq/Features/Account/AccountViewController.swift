@@ -128,7 +128,8 @@ extension AccountViewController: VerificationPopupVCDelegate{
             popupVC.showSendButton = true
             popupVC.emojiImage = UIImage(named: "image-moreInfo") ?? UIImage()
 
-            self.present(popupVC, animated: false, completion: nil)
+            //self.present(popupVC, animated: false, completion: nil)
+            self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
     

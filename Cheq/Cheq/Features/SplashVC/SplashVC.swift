@@ -231,7 +231,6 @@ extension SplashVC {
     
     func beginOnboarding() {
         self.view.endEditing(true)
-        AppConfig.shared.markUserLoggedIn()
         AppData.shared.isOnboarding = true
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {

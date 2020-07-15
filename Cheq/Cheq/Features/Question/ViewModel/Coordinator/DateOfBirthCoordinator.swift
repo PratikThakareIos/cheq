@@ -21,6 +21,9 @@ class DateOfBirthCoordinator: QuestionCoordinatorProtocol {
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
+        
+        guard let strInput = inputs[placeHolder(0)] as? String, strInput.count > 0 else { return ValidationError.dobIsMandatory }
+    
         return nil
     }
 }

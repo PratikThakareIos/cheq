@@ -301,9 +301,12 @@ extension LendingViewController {
                    // }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err) {
-                        print("error")
-                    }
+                    print("err")
+                    
+//                    self.showError(err) {
+//                        print("error")
+//                    }
+                    
                 }
             }
         }
@@ -319,7 +322,7 @@ extension LendingViewController {
     @objc func button(_ notification: NSNotification) {
         
         guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
-
+        
         if buttonCell.button.titleLabel?.text == keyButtonTitle.Cashout.rawValue {
             // go to preview loan
             if let lendingOverview =  self.lendingOverviewResponse, let borrowOverview = lendingOverview.borrowOverview  {
@@ -338,10 +341,9 @@ extension LendingViewController {
                 }
             }
         }
-        
     }
     
-    func presentPreviewLoanViewController(){
+    func presentPreviewLoanViewController() {
         
         let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
         let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController

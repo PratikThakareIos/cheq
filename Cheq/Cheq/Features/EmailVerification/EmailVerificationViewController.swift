@@ -25,7 +25,7 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var confirmButton: CNButton!
     @IBOutlet weak var iconImage: UIImageView!
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     var invalideCodeTryCount = 0
     var isShowCodeSentPopUp = false
@@ -47,14 +47,14 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         activeTimestamp()
         self.setupHyperlables()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        removeObservables()
+        //removeObservables()
     }
     
     func sendVerificationCode() {
@@ -87,6 +87,7 @@ class EmailVerificationViewController: UIViewController {
         
         self.confirmButton.createShadowLayer()
         self.setupHyperlables()
+        
         codeTextField.setShadow()
         codeTextField.setupLeftPadding()
         codeTextField.isSecureTextEntry = true

@@ -46,12 +46,21 @@ class StringUtil {
         return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
     }
     
+//    /// Validate if a given String is a valid email format
+//    func isValidEmail(_ string: String) -> Bool {
+//        // here, `try!` will always succeed because the pattern is valid
+//        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+//        return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+//    }
+    
+    
     /// Validate if a given String is a valid email format
-    func isValidEmail(_ string: String) -> Bool {
-        // here, `try!` will always succeed because the pattern is valid
-        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-        return regex.firstMatch(in: string, options: [], range: NSRange(location: 0, length: string.count)) != nil
+    func isValidEmail(_ string: String) -> Bool  {
+        let REGEX: String
+        REGEX = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", REGEX).evaluate(with: string)
     }
+    
     
     /// Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)
     func isValidPassword(_ string: String)-> Bool {

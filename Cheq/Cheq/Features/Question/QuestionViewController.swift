@@ -317,7 +317,17 @@ class QuestionViewController: UIViewController {
     @IBAction func next(_ sender: Any) {
         
         if let error = self.validateInput() {
-            showError(error, completion: nil)
+            
+            if (self.viewModel.coordinator.type == .dateOfBirth || error.localizedDescription == ValidationError.dobIsMandatory.localizedDescription) {
+                self.openPopupWith(heading: error.localizedDescription,
+                              message:"",
+                              buttonTitle: "",
+                              showSendButton: false,
+                              emoji: UIImage.init(named:"image-moreInfo"))
+            }else{
+              showError(error, completion: nil)
+            }
+            
             return
         }
             
@@ -338,6 +348,7 @@ class QuestionViewController: UIViewController {
     
         //manish
         case .dateOfBirth:
+            
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
             
             guard AppData.shared.completingDetailsForLending == false else {
@@ -1111,3 +1122,5 @@ extension QuestionViewController: VerificationPopupVCDelegate{
     }
     
 }
+
+

@@ -52,9 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
          })
          //END OneSignal initializataion code
         
-        
-        
-         
+ 
         AppData.shared.resetAllData()
         
         //RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()

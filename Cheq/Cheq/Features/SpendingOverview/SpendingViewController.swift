@@ -125,6 +125,7 @@ extension SpendingViewController {
 //                    self.showError(err) { }
 //            }
 //        }
+        
     }
     
     @objc func viewAll(_ notification: NSNotification) {
