@@ -39,7 +39,7 @@ class SetupBankVC: UIViewController {
     }
     
     func registerObservables() {
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     
@@ -122,6 +122,9 @@ extension SetupBankVC: VerificationPopupVCDelegate{
     }
     
     func tappedOnCloseButton(){
+        
+    }
+    func tappedOnLearnMoreButton() {
         
     }
 }

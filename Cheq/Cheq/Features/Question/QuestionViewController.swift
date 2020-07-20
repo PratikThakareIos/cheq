@@ -139,6 +139,7 @@ class QuestionViewController: UIViewController {
     }
     
     func setupPicker() {
+        
         let maritalStatusPicker = CPickerView(.maritalStatus)
         maritalStatusPicker.delegate = self.pickerViewCoordinator
         maritalStatusPicker.dataSource = self.pickerViewCoordinator
@@ -231,6 +232,15 @@ class QuestionViewController: UIViewController {
     }
     
     func updateKeyboardViews() {
+        
+        //include ' symbol to Regular Expressions
+        //https://stackoverflow.com/questions/46162500/i-cant-include-symbol-to-regular-expressions
+        self.textField1.smartQuotesType = .no
+        self.textField2.smartQuotesType = .no
+        self.textField3.smartQuotesType = .no
+        self.textField4.smartQuotesType = .no
+        
+        
         self.textField1.reloadInputViews()
         self.textField2.reloadInputViews()
         self.searchTextField.reloadInputViews()
@@ -316,17 +326,30 @@ class QuestionViewController: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         
+        textField1.text = textField1.text?.trim()
+        textField2.text = textField2.text?.trim()
+        textField3.text = textField3.text?.trim()
+        textField4.text = textField4.text?.trim()
+        searchTextField.text = searchTextField.text?.trim()
+        
         if let error = self.validateInput() {
             
-            if (self.viewModel.coordinator.type == .dateOfBirth || error.localizedDescription == ValidationError.dobIsMandatory.localizedDescription) {
-                self.openPopupWith(heading: error.localizedDescription,
-                              message:"",
-                              buttonTitle: "",
-                              showSendButton: false,
-                              emoji: UIImage.init(named:"image-moreInfo"))
-            }else{
-              showError(error, completion: nil)
-            }
+//            if (self.viewModel.coordinator.type == .dateOfBirth || error.localizedDescription == ValidationError.dobIsMandatory.localizedDescription) {
+//                self.openPopupWith(heading: error.localizedDescription,
+//                              message:"",
+//                              buttonTitle: "",
+//                              showSendButton: false,
+//                              emoji: UIImage.init(named:"image-moreInfo"))
+//            }else{
+//              showError(error, completion: nil)
+//            }
+            
+            self.openPopupWith(
+                heading: error.localizedDescription,
+                message:"",
+                buttonTitle: "",
+                showSendButton: false,
+                emoji: UIImage.init(named:"image-moreInfo"))
             
             return
         }
@@ -465,12 +488,12 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
-                        AppData.shared.completingDetailsForLending = false
+                        //AppData.shared.completingDetailsForLending = false
                         //self.delegate?.refreshLendingScreen()
                         self.incomeVerification()
                     } else {
                        // AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                         AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                       // AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
                     }
                 }
             }.catch { err in
@@ -587,10 +610,12 @@ class QuestionViewController: UIViewController {
             showTransactions()
         }else if !(hasPayCycle) && AppData.shared.employeePaycycle.count == 0 {
             // show popup but for now navigate to lending page
+            AppData.shared.completingDetailsForLending = false
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }else {
             //self.delegate?.refreshLendingScreen()
+            AppData.shared.completingDetailsForLending = false
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
@@ -1119,6 +1144,9 @@ extension QuestionViewController: VerificationPopupVCDelegate{
     
     func tappedOnCloseButton(){
       
+    }
+    func tappedOnLearnMoreButton() {
+        
     }
     
 }

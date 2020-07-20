@@ -288,6 +288,8 @@ extension EmailVerificationViewController: UITextFieldDelegate {
 //MARK: - Verification popup
 extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
+    
+    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -311,6 +313,10 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
     func tappedOnCloseButton(){
         self.codeTextField.text = ""
+    }
+    
+    func tappedOnLearnMoreButton() {
+        
     }
 }
 

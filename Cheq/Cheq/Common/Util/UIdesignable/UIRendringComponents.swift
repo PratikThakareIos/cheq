@@ -31,7 +31,7 @@ final class AutoSizeShadowButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         if shadowLayer != nil {
-            shadowLayer.fillColor = UIColor(hex: "4A0067").cgColor
+            shadowLayer.fillColor = UIColor(hex: "4A0067").cgColor //AppConfig.shared.activeTheme.primaryColor
             self.reloadText()
         }
     }

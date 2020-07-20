@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-5Q-r2w">
-                                        <rect key="frame" x="16" y="1231.5" width="382" height="386.5"/>
+                                        <rect key="frame" x="16" y="411.5" width="382" height="386.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rHU-wk-3RS">
                                                 <rect key="frame" x="0.0" y="36" width="382" height="60.5"/>
@@ -93,6 +93,19 @@
                                                             <action selector="sendButtonAction" destination="i00-7e-GcH" eventType="touchUpInside" id="wr8-Op-lga"/>
                                                         </connections>
                                                     </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXL-9d-JnG">
+                                                        <rect key="frame" x="0.0" y="152" width="334" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="jQY-LF-Jua"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="18"/>
+                                                        <state key="normal" title="Learn more">
+                                                            <color key="titleColor" red="0.17254901959999999" green="0.70588235290000001" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnLearnMoreAction" destination="i00-7e-GcH" eventType="touchUpInside" id="Y6y-rG-auu"/>
+                                                        </connections>
+                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgt-Dn-1gu">
                                                         <rect key="frame" x="0.0" y="164" width="334" height="36"/>
                                                         <constraints>
@@ -136,7 +149,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5Qr-5Q-r2w" firstAttribute="leading" secondItem="fOe-DD-cAT" secondAttribute="leading" constant="16" id="I3z-IV-haP"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Qr-5Q-r2w" secondAttribute="bottom" constant="-800" id="arG-pb-h3X"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Qr-5Q-r2w" secondAttribute="bottom" constant="20" id="arG-pb-h3X"/>
                                     <constraint firstAttribute="trailing" secondItem="5Qr-5Q-r2w" secondAttribute="trailing" constant="16" id="b23-Vf-bIK"/>
                                 </constraints>
                             </view>
@@ -152,12 +165,14 @@
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="cgt-Dn-1gu" id="c4E-cC-Qb7"/>
+                        <outlet property="btnLearnMore" destination="NXL-9d-JnG" id="CA4-kC-Xe9"/>
                         <outlet property="imgEmoji" destination="rHU-wk-3RS" id="ycL-O2-xHA"/>
                         <outlet property="lblHeading" destination="y8J-ea-oB5" id="bI7-Mj-SHW"/>
                         <outlet property="lblMessage" destination="VWm-oe-Gex" id="DuY-ND-eQj"/>
                         <outlet property="popViewBottom" destination="arG-pb-h3X" id="rX7-he-jCO"/>
                         <outlet property="sendButton" destination="95F-7l-lxm" id="yn1-6y-dwT"/>
                         <outlet property="viewSecurityImage" destination="BFh-zg-9Uh" id="3eo-Po-3d8"/>
+                        <outlet property="vwContainer" destination="fOe-DD-cAT" id="4gH-DK-zEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt8-Xj-FIM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

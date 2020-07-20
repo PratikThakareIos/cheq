@@ -11,9 +11,12 @@ import UIKit
 @objc protocol VerificationPopupVCDelegate {
     @objc func tappedOnSendButton()
     @objc func tappedOnCloseButton()
+    @objc func tappedOnLearnMoreButton()
 }
 
 class VerificationPopupVC: UIViewController {
+    
+    @IBOutlet weak var vwContainer: UIView!
 
     @IBOutlet weak var lblHeading:UILabel!
     @IBOutlet weak var lblMessage:UILabel!
@@ -22,6 +25,7 @@ class VerificationPopupVC: UIViewController {
     @IBOutlet weak var viewSecurityImage: UIView!
     
     @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var btnLearnMore: UIButton!
     @IBOutlet weak var popViewBottom: NSLayoutConstraint!
     
     var delegate:VerificationPopupVCDelegate?
@@ -35,6 +39,8 @@ class VerificationPopupVC: UIViewController {
     var buttonCloseTitle = ""
     var isShowViewSecurityImage = false
     var isChangeLineHight = false
+    var isShowLearnMoreButton = false
+    var isShowCloseButton = true
     
     
     override func viewDidLoad() {
@@ -44,6 +50,12 @@ class VerificationPopupVC: UIViewController {
     }
     
     private func setupUI(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        vwContainer.addGestureRecognizer(tap)
+        vwContainer.isUserInteractionEnabled = true
+        
+        
         self.lblHeading.text = heading
         
         if attributedMessage.length > 0 {
@@ -55,8 +67,11 @@ class VerificationPopupVC: UIViewController {
         if isChangeLineHight {
           self.lblMessage.setLineSpacing(lineSpacing: 8.0)
         }
-       
+        
+        self.btnLearnMore.isHidden = !isShowLearnMoreButton
         self.sendButton.isHidden = !showSendButton
+        self.btnClose.isHidden = !isShowCloseButton
+        
         self.imgEmoji.image = emojiImage
         self.viewSecurityImage.isHidden = !isShowViewSecurityImage
     }
@@ -74,6 +89,15 @@ class VerificationPopupVC: UIViewController {
         
         self.sendButton.createShadowLayer()
         self.showPopup()
+    }
+    
+    // function which is triggered when handleTap is called
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+         self.hidePopup()
+         self.delegate?.tappedOnCloseButton()
+         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+               self.dismiss(animated: false, completion: nil)
+         }
     }
     
     private func showPopup(){
@@ -96,16 +120,25 @@ private extension VerificationPopupVC{
     @IBAction func close(){
         self.hidePopup()
         self.delegate?.tappedOnCloseButton()
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.25) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
             self.dismiss(animated: false, completion: nil)
         }
     }
     
     @IBAction func sendButtonAction(){
         self.hidePopup()
-        self.delegate?.tappedOnSendButton()
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.25) {
-            self.dismiss(animated: false, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+            self.dismiss(animated: false, completion: {
+                self.delegate?.tappedOnSendButton()
+            })
         }
+    }
+    
+    @IBAction func btnLearnMoreAction(){
+          self.hidePopup()
+          self.delegate?.tappedOnLearnMoreButton()
+          DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+              self.dismiss(animated: false, completion: nil)
+          }
     }
 }

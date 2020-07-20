@@ -21,7 +21,7 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         setupDelegate()
         setupUI()
     }

@@ -67,12 +67,13 @@ class AccountViewController: CTableViewController {
     }
     
     func registerObservables() {
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(accountInfo(_:)), name: NSNotification.Name(UINotificationEvent.accountInfo.rawValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openWebLink(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
+    
 }
 
 //MARK: notification handlers
@@ -139,6 +140,9 @@ extension AccountViewController: VerificationPopupVCDelegate{
     }
     
     func tappedOnCloseButton(){
+        
+    }
+    func tappedOnLearnMoreButton() {
         
     }
 }

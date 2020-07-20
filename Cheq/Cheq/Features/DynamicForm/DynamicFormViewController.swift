@@ -88,7 +88,7 @@ class DynamicFormViewController: UIViewController {
         super.viewDidAppear(animated)
         registerObservables()
         activeTimestamp()
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         if built { return }
 
         AppConfig.shared.showSpinner()
@@ -558,6 +558,10 @@ class DynamicFormViewController: UIViewController {
      func tappedOnCloseButton(){
        
      }
+    
+    func tappedOnLearnMoreButton() {
+        
+    }
  }
  
  extension DynamicFormViewController : ConnectingToBankViewControllerProtocol {

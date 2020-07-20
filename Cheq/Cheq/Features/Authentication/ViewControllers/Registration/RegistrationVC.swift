@@ -407,4 +407,8 @@ extension RegistrationVC : VerificationPopupVCDelegate {
     func tappedOnCloseButton() {
         
     }
+    
+    func tappedOnLearnMoreButton() {
+        
+    }
 }

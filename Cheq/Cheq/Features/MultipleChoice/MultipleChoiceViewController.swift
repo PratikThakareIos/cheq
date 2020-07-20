@@ -454,9 +454,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                     if AppData.shared.completingDetailsForLending, self.isModal {
                         self.incomeVerification()
                     } else {
-                        AppData.shared.updateProgressAfterCompleting(.onDemand)
+                        //AppData.shared.updateProgressAfterCompleting(.onDemand)
                         //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                        AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
                         
                     }
                 }.catch { err in

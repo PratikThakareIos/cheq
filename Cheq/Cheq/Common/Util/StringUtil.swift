@@ -40,11 +40,21 @@ class StringUtil {
         return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
     }
     
-    /// Validate if a given String is alphabet, full stop, dash and space
-    func isAlphaOnly(_ string: String)-> Bool {
-        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ.- ")
-        return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
+//    /// Validate if a given String is alphabet, full stop, dash and space
+//    func isAlphaOnly(_ string: String)-> Bool {
+//        let alphaOnlySet = CharacterSet.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ.- ")
+//        return !string.isEmpty && string.rangeOfCharacter(from: alphaOnlySet.inverted) == nil
+//    }
+    
+    func isAlphaOnly(_ string: String)-> Bool{
+           ///valid name accept english characters , space, (-) and (') symbols
+           let nameRegEx = "[a-zA-Z'-][a-zA-Z' -]*"   //"[a-zA-Z][a-zA-Z ]*"
+           let nameTest = NSPredicate (format:"SELF MATCHES %@",nameRegEx)
+           let result = nameTest.evaluate(with: string)
+           return result
     }
+    
+
     
 //    /// Validate if a given String is a valid email format
 //    func isValidEmail(_ string: String) -> Bool {

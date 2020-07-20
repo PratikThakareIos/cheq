@@ -133,6 +133,7 @@ class ViewUtil {
                nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
                nextButton.layer.cornerRadius = 28.0
                footerView.addSubview(nextButton)
+        
         return footerView
     }
     

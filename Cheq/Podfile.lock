@@ -160,7 +160,7 @@ PODS:
   - NavigationDropdownMenu (5.0.0)
   - Obfuscator (2.0.0)
   - OneSignal (2.14.3)
-  - Onfido (16.0.0)
+  - Onfido (18.3.0)
   - OpenSSL-Universal (1.0.2.18):
     - OpenSSL-Universal/Static (= 1.0.2.18)
   - OpenSSL-Universal/Static (1.0.2.18)
@@ -353,7 +353,7 @@ SPEC CHECKSUMS:
   NavigationDropdownMenu: 02a0e0ab71abd174396ab84ef27863d27e6ac2b9
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
   OneSignal: 7dfe466265c05f02b95a274b9c997a0619ad2117
-  Onfido: 6d16470843f73b10eff14d9221964b16ee5d0798
+  Onfido: 572cb9c1ab40277318528584363cac22cc1ada21
   OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
   PopOverMenu: 0a5cbb60b38fa86f5fd8a703e51fa1b51d181215
   PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2

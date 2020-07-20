@@ -19,7 +19,6 @@ class OnfidoManager {
         return AuthConfig.shared.activeManager.getCurrentUser()
             .then { authUser->Promise<GetUserKycResponse> in
                 return Promise<GetUserKycResponse>() { resolver in
-                    
                     let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
                     CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
                         resolver.fulfill(response)

@@ -121,10 +121,12 @@ extension CheqAPIManager {
             resolver.fulfill(getSpendingOverviewResponse)
             return
             #else
+            
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 SpendingAPI.getSpendingOverviewWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({
                     (spendingOverviewResponse, err) in
+                    
                     if let error = err {
                         resolver.reject(error); return
                     }

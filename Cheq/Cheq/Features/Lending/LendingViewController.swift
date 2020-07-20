@@ -59,7 +59,7 @@ class LendingViewController: CTableViewController {
     
     func registerObservables() {
         
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
@@ -302,11 +302,9 @@ extension LendingViewController {
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     print("err")
-                    
 //                    self.showError(err) {
 //                        print("error")
 //                    }
-                    
                 }
             }
         }
@@ -385,7 +383,6 @@ extension LendingViewController {
 //        return true
 //    }
     
-    
 }
 
 
@@ -400,12 +397,7 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            showSendButton: false,
                            emoji: UIImage(named: "sucsess"))
      }
-    
-
- 
-
-    
-    
+      
     func popup_LimitReached(){
         self.openPopupWith(heading: "Limit reached",
                            message: "Pay On demand™ will be available again after your repayment",
@@ -439,7 +431,6 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            emoji: UIImage(named: "success"))
      }
     
-    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -460,6 +451,10 @@ extension LendingViewController: VerificationPopupVCDelegate{
     
     func tappedOnCloseButton(){
       
+    }
+    
+    func tappedOnLearnMoreButton() {
+        
     }
 }
 
@@ -507,10 +502,6 @@ extension LendingViewController: CashOutActivityPopUpDelegate{
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
         if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.cashOutActivityPopUp.rawValue) as? CashOutActivityPopUp{
         
-            //if let popupVC = storyboard.instantiateInitialViewController() as? CashOutActivityPopUp{
-            
-           
-              
               popupVC.delegate = self
               popupVC.loanActivity = loanActivity
             

@@ -163,7 +163,7 @@ extension LoginVC {
     
     func setupUI() {
         
-        self.view.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
+        self.view.backgroundColor = AppConfig.shared.activeTheme.primaryColor //ColorUtil.hexStringToUIColor(hex: "#4A0067")
         self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
         self.titleText.textColor = UIColor.white
         
@@ -709,6 +709,10 @@ extension LoginVC : VerificationPopupVCDelegate {
     }
     
     func tappedOnCloseButton() {
+        
+    }
+    
+    func tappedOnLearnMoreButton() {
         
     }
 }

@@ -49,7 +49,7 @@ class SpendingTransactionsViewController: CTableViewController {
     
     func registerObservables() {
         
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadTransactions(_:)), name: NSNotification.Name(UINotificationEvent.spendingTransactions.rawValue), object: nil)
         
@@ -72,9 +72,7 @@ class SpendingTransactionsViewController: CTableViewController {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.spendingTransactions().done { specificCategory in
             AppConfig.shared.hideSpinner {
-                
                 self.renderTransactions(specificCategory)
-                
                // [DailyTransactionsResponse]
             }
         }.catch { err in
@@ -107,9 +105,9 @@ extension SpendingTransactionsViewController: RecentActivityPopUpVCDelegate{
        
          self.view.endEditing(true)
         
-         guard let _ = slimTransactionResponse else{
+        guard let _ = slimTransactionResponse else{
             return
-         }
+        }
 
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
         if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.recentActivityPopUpVC.rawValue) as? RecentActivityPopUpVC{

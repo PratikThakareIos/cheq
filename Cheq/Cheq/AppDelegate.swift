@@ -44,13 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
            handleNotificationAction: nil,
            settings: onesignalInitSettings)
 
-         OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
 
-         // The promptForPushNotifications function code will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 6)
-         OneSignal.promptForPushNotifications(userResponse: { accepted in
-           print("User accepted notifications: \(accepted)")
-         })
-         //END OneSignal initializataion code
+        // The promptForPushNotifications function code will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 6)
+                
+        //         OneSignal.promptForPushNotifications(userResponse: { accepted in
+        //           print("User accepted notifications: \(accepted)")
+        //         })
+                
+        //END OneSignal initializataion code
         
  
         AppData.shared.resetAllData()
@@ -74,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //                                                                    isDebug: true,
 //                                                                    isBeta: true, serviceProvider: .EWISE);
 //        MoneysoftApi.configure(config);
+        
 
         let _ = VDotManager.shared //manish
         

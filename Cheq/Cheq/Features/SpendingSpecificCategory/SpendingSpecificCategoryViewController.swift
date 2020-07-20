@@ -72,7 +72,7 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     
     func registerObservables() {
         
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadCategoryTransactions(_:)), name: NSNotification.Name(UINotificationEvent.loadCategoryById.rawValue), object: nil)
         

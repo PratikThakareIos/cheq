@@ -451,31 +451,32 @@ extension AppNav {
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
-        
-        /// customising the appearance of Onfido SDK viewControllers to fit activeTheme
-//        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor,
-//                                    primaryTitleColor: AppConfig.shared.activeTheme.altTextColor,
-//                                    primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
-//                                    secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
-//                                    fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName,
-//                                    fontBold: AppConfig.shared.activeTheme.mediumFont.fontName,
-//                                    supportDarkMode: false )
-        
+
         let appearance = Appearance(
          primaryColor:  AppConfig.shared.activeTheme.primaryColor,
          primaryTitleColor: AppConfig.shared.activeTheme.altTextColor,
          primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
          supportDarkMode : true)
         
-        let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
+        //let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
+        let drivingLicenceConfiguration = DrivingLicenceConfiguration.init(country: CountryCode.AU.rawValue)
+        let docType: DocumentType = (type == .Passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
         
         let config = try! OnfidoConfig.builder()
-            .withAppearance(appearance)
-            .withSDKToken(AppData.shared.onfidoSdkToken)
-            .withWelcomeStep()
-            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
-            .withFaceStep(ofVariant: .photo(withConfiguration: nil))
-            .build()
+                  .withAppearance(appearance)
+                  .withSDKToken(AppData.shared.onfidoSdkToken)
+                  .withWelcomeStep()
+                  .withDocumentStep(ofType: docType)
+                  .withFaceStep(ofVariant: .photo(withConfiguration: nil))
+                  .build()
+        
+//        let config = try! OnfidoConfig.builder()
+//            .withAppearance(appearance)
+//            .withSDKToken(AppData.shared.onfidoSdkToken)
+//            .withWelcomeStep()
+//            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
+//            .withFaceStep(ofVariant: .photo(withConfiguration: nil))
+//            .build()
         
         /// define the handling of the end of Onfido flow
         let onfidoFlow = OnfidoFlow(withConfiguration: config)
@@ -483,9 +484,10 @@ extension AppNav {
                 switch results {
                 /// successful case
                 case .success(_):
+                    
+                    //SDK flow has been completed successfully
                     AppConfig.shared.showSpinner()
                     CheqAPIManager.shared.putKycCheck().done {
-                        
                         AppConfig.shared.hideSpinner {
                             LoggingUtil.shared.cPrint("kyc checked")
                             guard AppData.shared.completingDetailsForLending else { return }
@@ -495,8 +497,6 @@ extension AppNav {
                             
                             //viewController.dismiss(animated: true, completion:nil)
                         }
-                        
-
                     }.catch{ err in
                         
                         AppConfig.shared.hideSpinner {
@@ -511,31 +511,80 @@ extension AppNav {
                         }
                     }
                     
+                    
                 /// error case handling
                 case let OnfidoResponse.error(err):
                     switch err {
-                    case OnfidoFlowError.cameraPermission:
-                        LoggingUtil.shared.cPrint("cameraPermission")
-                    case OnfidoFlowError.failedToWriteToDisk:
-                        LoggingUtil.shared.cPrint("failedToWriteToDisk")
-                    case OnfidoFlowError.microphonePermission:
-                        LoggingUtil.shared.cPrint("microphonePermission")
-                    case OnfidoFlowError.upload(_):
-                        LoggingUtil.shared.cPrint("upload")
-                    default: LoggingUtil.shared.cPrint(err)
+                        case OnfidoFlowError.cameraPermission:
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.cameraPermission")
+                        
+                        case OnfidoFlowError.failedToWriteToDisk:
+                            LoggingUtil.shared.cPrint("nfidoFlowError.failedToWriteToDisk")
+                        
+                        case OnfidoFlowError.microphonePermission:
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.microphonePermission")
+                        
+                        case OnfidoFlowError.upload(_):
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.upload")
+                        
+                        case OnfidoFlowError.exception(withError: let error, withMessage: let message):
+                           LoggingUtil.shared.cPrint(error ?? "")
+                           LoggingUtil.shared.cPrint(message ?? "")
+                                                
+                        default: LoggingUtil.shared.cPrint(err)
                     }
+                    
+                case OnfidoResponse.cancel:
+                    LoggingUtil.shared.cPrint("flow canceled by user")
+                                        
                 default: break
                 }
             })
         
+       
         /// presenting onfido viewController to start the flow
         do {
             let onfidoRun = try onfidoFlow.run()
-            onfidoRun.modalPresentationStyle = .fullScreen
+            /*
+             Supported presentation styles are:
+             For iPhones: .fullScreen
+             For iPads: .fullScreen and .formSheet
+             */
+            var modalPresentationStyle: UIModalPresentationStyle = .fullScreen
+            // due to iOS 13 you must specify .fullScreen as the default is now .pageSheet
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                modalPresentationStyle = .formSheet // to present modally on iPads
+            }
+            
+            onfidoRun.modalPresentationStyle = modalPresentationStyle
             viewController.present(onfidoRun, animated: true) { }
         } catch let err {
+            // cannot execute the flow
             LoggingUtil.shared.cPrint(err)
             viewController.showError(err, completion: nil)
+            
+            switch err {
+                case OnfidoFlowError.cameraPermission:
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.cameraPermission")
+                
+                case OnfidoFlowError.failedToWriteToDisk:
+                    LoggingUtil.shared.cPrint("nfidoFlowError.failedToWriteToDisk")
+                
+                case OnfidoFlowError.microphonePermission:
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.microphonePermission")
+                
+                case OnfidoFlowError.upload(_):
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.upload")
+                
+                case OnfidoFlowError.exception(withError: let error, withMessage: let message):
+                   LoggingUtil.shared.cPrint(error ?? "")
+                   LoggingUtil.shared.cPrint(message ?? "")
+                                        
+                default: LoggingUtil.shared.cPrint(err)
+            }
+            
+            //Onfido.OnfidoFlowError.cameraPermission
         }
     }
 }
@@ -582,3 +631,74 @@ extension AppNav {
         }
     }
 }
+
+
+
+/*
+func cameraSelected() {
+    // First we check if the device has a camera (otherwise will crash in Simulator - also, some iPod touch models do not have a camera).
+    if let deviceHasCamera = UIImagePickerController.isSourceTypeAvailable(.camera) {
+        let authStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        switch authStatus {
+            case .authorized:
+                showCameraPicker()
+            case .denied:
+                alertPromptToAllowCameraAccessViaSettings()
+            case .notDetermined:
+                permissionPrimeCameraAccess()
+            default:
+                permissionPrimeCameraAccess()
+        }
+    } else {
+        let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+            Analytics.track(event: .permissionsPrimeCameraNoCamera)
+        })
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+
+func alertPromptToAllowCameraAccessViaSettings() {
+    let alert = UIAlertController(title: "\"<Your App>\" Would Like To Access the Camera", message: "Please grant permission to use the Camera so that you can  <customer benefit>.", preferredStyle: .alert )
+    alert.addAction(UIAlertAction(title: "Open Settings", style: .cancel) { alert in
+        Analytics.track(event: .permissionsPrimeCameraOpenSettings)
+        if let appSettingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
+          UIApplication.shared.openURL(appSettingsURL)
+        }
+    })
+    present(alert, animated: true, completion: nil)
+}
+
+
+func permissionPrimeCameraAccess() {
+    let alert = UIAlertController( title: "\"<Your App>\" Would Like To Access the Camera", message: "<Your App> would like to access your Camera so that you can <customer benefit>.", preferredStyle: .alert )
+    let allowAction = UIAlertAction(title: "Allow", style: .default, handler: { (alert) -> Void in
+        Analytics.track(event: .permissionsPrimeCameraAccepted)
+        if AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).count > 0 {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self] granted in
+                DispatchQueue.main.async {
+                    self?.cameraSelected() // try again
+                }
+            })
+        }
+    })
+    alert.addAction(allowAction)
+    let declineAction = UIAlertAction(title: "Not Now", style: .cancel) { (alert) in
+        Analytics.track(event: .permissionsPrimeCameraCancelled)
+    }
+    alert.addAction(declineAction)
+    present(alert, animated: true, completion: nil)
+}
+
+
+func showCameraPicker() {
+    let picker = UIImagePickerController()
+    picker.delegate = self
+    picker.modalPresentationStyle = UIModalPresentationStyle.currentContext
+    picker.allowsEditing = false
+    picker.sourceType = UIImagePickerControllerSourceType.camera
+    present(picker, animated: true, completion: nil)
+}
+*/

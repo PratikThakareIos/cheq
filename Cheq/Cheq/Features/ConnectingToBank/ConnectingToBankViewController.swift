@@ -51,7 +51,7 @@ class ConnectingToBankViewController: UIViewController {
     }
     
     func registerObservables() {
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
 //        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.moneysoftEvent.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.basiqEvent.rawValue), object: nil)
@@ -128,7 +128,8 @@ extension ConnectingToBankViewController {
 
         DispatchQueue.main.async {
               switch step {
-                case .verifyingCredentials:
+               
+              case .verifyingCredentials:
                        self.loadingLabel.text = "Connecting to \(self.bankName).."
                        self.progressBar.setProgress(0.25, animated: true)
                 case .retrievingAccounts:
