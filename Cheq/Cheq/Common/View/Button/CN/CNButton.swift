@@ -29,7 +29,7 @@ class CNButton: UIButton {
         self.titleLabel?.textAlignment = .center
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
         self.titleLabel?.font = AppConfig.shared.activeTheme.headerMediumFont
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02, execute: {
             self.layer.cornerRadius = self.frame.height/2
             self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         })
@@ -58,7 +58,7 @@ class CNButton: UIButton {
         self.titleLabel?.textAlignment = .center
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
         self.titleLabel?.font = AppConfig.shared.activeTheme.headerMediumFont
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02, execute: {
             self.layer.cornerRadius = self.frame.height/2
             self.backgroundColor = AppConfig.shared.activeTheme.primaryColor
         })

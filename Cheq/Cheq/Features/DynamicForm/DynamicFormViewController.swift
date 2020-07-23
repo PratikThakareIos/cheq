@@ -32,6 +32,12 @@ class DynamicFormViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+        self.loadDynamicForm()
+    }
+    
     func setupUI() {
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         
@@ -89,8 +95,13 @@ class DynamicFormViewController: UIViewController {
         registerObservables()
         activeTimestamp()
         //setupKeyboardHandling()
-        if built { return }
+        //self.loadDynamicForm()
 
+    }
+    
+    
+    func loadDynamicForm(){
+        if built { return }
         AppConfig.shared.showSpinner()
         viewModel.coordinator.loadForm().done { form in
             AppConfig.shared.hideSpinner {

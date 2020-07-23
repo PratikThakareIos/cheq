@@ -48,7 +48,7 @@ class LoginVC: UIViewController {
         super.viewWillAppear(animated)
         hideNavBar()
         hideBackButton()
-
+        setupUI()
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
         
@@ -228,10 +228,10 @@ extension LoginVC {
         if let error = self.validateInputs() {
             
             if error == ValidationError.invalidEmailFormat{ //PRASHANT
-                           validationAlertPopup(error: error, isPasswordField: false)
-                       } else {
-                           validationAlertPopup(error: error, isPasswordField: true)
-                       }
+                   validationAlertPopup(error: error, isPasswordField: false)
+               } else {
+                   validationAlertPopup(error: error, isPasswordField: true)
+               }
             
            // showError(error) { }
             return
@@ -249,11 +249,11 @@ extension LoginVC {
             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
             UserDefaults.standard.synchronize()
-            
             AppConfig.shared.markUserLoggedIn()
-            
             self.addLog_callingGetUserActions()
+            
             return CheqAPIManager.shared.getUserActions()
+            
         }.done { userActionResponse in
             
             self.addLog_EndCallingGetUserActions(strRes: "\(String(describing: userActionResponse.userAction))")
@@ -562,13 +562,10 @@ extension LoginVC {
         AppData.shared.isOnboarding = true
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
-                //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
-                
+                //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)                
                 self.validationAlertPopup(error: AuthManagerError.unableToRetrieveCurrentUser, isPasswordField: false)
-                
                 return
             }
-            
             if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
                 self.toEmailVerification()
             } else {

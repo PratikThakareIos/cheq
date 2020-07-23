@@ -30,7 +30,6 @@ class RegistrationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AppData.shared.resetAllData()
-        
         self.setupDelegate()
         hideNavBar()
     }
@@ -48,15 +47,12 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.setupUI()
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-    
+   
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -175,25 +171,56 @@ extension RegistrationVC {
                 AuthConfig.shared.activeManager.setUser(authUser)
         }.done { success in
             QuestionViewModel().clearAllSavedData()
-            
+
             let email = self.emailTextField.text ?? ""
             let password = self.passwordTextField.text ?? ""
-            
+
             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
             UserDefaults.standard.synchronize()
-            
+
             self.beginOnboarding()
-            
+
         }.catch { [weak self] err in
             AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
                 //self.showError(err, completion: nil)
                 self.validationAlertPopup(error: err, isPasswordField: false)
-                
-                
+
+
             }
         }
+        
+        
+//        AppConfig.shared.showSpinner()
+//        viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
+//             .then { authUser in
+//                 AuthConfig.shared.activeManager.setUser(authUser)
+//        }.then { authUser in
+//            CheqAPIManager.shared.requestEmailVerificationCode()
+//        }.done { _ in
+//             QuestionViewModel().clearAllSavedData()
+//
+//             let email = self.emailTextField.text ?? ""
+//             let password = self.passwordTextField.text ?? ""
+//
+//             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
+//             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
+//             UserDefaults.standard.synchronize()
+//
+//             self.beginOnboarding()
+//
+//         }.catch { [weak self] err in
+//             AppConfig.shared.hideSpinner {
+//                 guard let self = self else { return }
+//                 //self.showError(err, completion: nil)
+//                 self.validationAlertPopup(error: err, isPasswordField: false)
+//
+//
+//             }
+//         }
+        
+        
     }
 }
 
@@ -207,7 +234,6 @@ extension RegistrationVC {
                 self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
                 return
             }
-            
             if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
                 self.toEmailVerification()
             } else {

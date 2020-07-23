@@ -42,6 +42,7 @@ class SpendingCategoriesViewController: CTableViewController {
         self.title = ScreenName.spendingCategories.rawValue
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.spendingCategories.rawValue, key: "", value: "")
         }

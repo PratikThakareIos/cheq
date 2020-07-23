@@ -52,7 +52,7 @@ class CButton: UIButton {
         var button = self as UIButton
         //AppConfig.shared.activeTheme.roundRectButton(&button)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.10, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02, execute: {
             self.layer.cornerRadius = self.frame.height/2
         })
     }

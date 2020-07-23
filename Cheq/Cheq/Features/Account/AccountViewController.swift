@@ -95,18 +95,18 @@ extension AccountViewController {
             return
         }
         
-//        if link == links.helpAndSupport.rawValue {
-//            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
-//            return
-//        }
+        //        if link == links.helpAndSupport.rawValue {
+        //            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+        //            return
+        //        }
         
         guard let url = URL(string: link) else { return }
         AppNav.shared.pushToInAppWeb(url, viewController: self)
     }
     
     @objc func accountInfo(_ notification: NSNotification) {
-//        let vm = self.viewModel as! AccountViewModel
-//        vm.render()
+        // let vm = self.viewModel as! AccountViewModel
+        // vm.render()
         
         if let vm = self.viewModel as? AccountViewModel {
              vm.render()
@@ -134,7 +134,6 @@ extension AccountViewController: VerificationPopupVCDelegate{
         }
     }
     
-    
     func tappedOnSendButton(){
         self.logout()
     }
@@ -142,7 +141,8 @@ extension AccountViewController: VerificationPopupVCDelegate{
     func tappedOnCloseButton(){
         
     }
-    func tappedOnLearnMoreButton() {
+    
+    func tappedOnLearnMoreButton(){
         
     }
 }

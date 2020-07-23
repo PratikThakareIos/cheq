@@ -37,10 +37,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
          //START OneSignal initialization code
          let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false]
+        
+        
+//        Cheq-Dev
+//        52a86023-ec61-47f6-9f2b-7de3e4906e82
+//
+//        12:03
+//        Cheq-UAT
+//        4ff7560e-be04-4a7b-829c-31b9235dc94e
+//
+//        12:08
+//        Cheq-Prod
+//        e978954b-8bde-4e45-9c6d-5e284efe9a30
          
          // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
          OneSignal.initWithLaunchOptions(launchOptions,
-           appId: "52a86023-ec61-47f6-9f2b-7de3e4906e82", //"361c802d-82c5-42eb-8765-068dd2c36149", //"YOUR_ONESIGNAL_APP_ID",
+           appId: "e978954b-8bde-4e45-9c6d-5e284efe9a30", //"361c802d-82c5-42eb-8765-068dd2c36149", //"YOUR_ONESIGNAL_APP_ID",
            handleNotificationAction: nil,
            settings: onesignalInitSettings)
 

@@ -36,7 +36,15 @@ class EmailVerificationViewController: UIViewController {
         
         if self.viewModel.type == .email {
             self.isShowCodeSentPopUp = false
-            self.sendVerificationCode()
+            CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
+                   
+               }.catch { err in
+                   AppConfig.shared.hideSpinner {
+                    //self.showError(err, completion: nil)
+                    self.openPopupWith(heading: err.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
+               }
+            }
+            
         }
     }
     
@@ -60,11 +68,12 @@ class EmailVerificationViewController: UIViewController {
     func sendVerificationCode() {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
-            AppConfig.shared.hideSpinner {}
+                AppConfig.shared.hideSpinner {}
                 self.showVerificationCodeSentPopUp()
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
+                    //self.showError(err, completion: nil)
+                    self.openPopupWith(heading: err.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             }
         }
     }
@@ -289,7 +298,6 @@ extension EmailVerificationViewController: UITextFieldDelegate {
 extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
     
-    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -427,4 +435,5 @@ extension EmailVerificationViewController {
 //        return self.scrollView
 //    }
 //}
+
 
