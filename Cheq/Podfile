@@ -50,8 +50,8 @@ def shared_pods
 	pod 'OpenSSL-Universal'
   
   #Fabrics + Crashlytics
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.14.0'
+  #pod 'Fabric', '~> 1.10.2'
+  #pod 'Crashlytics', '~> 3.14.0'
   
   # Firebase pods
   pod 'Firebase/Auth'
@@ -76,6 +76,13 @@ def shared_pods
   pod 'IQKeyboardManagerSwift'
   pod 'UITextView+Placeholder'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
+  pod 'lottie-ios'
+  
+  # Add the pod for Firebase Crashlytics
+  pod 'Firebase/Crashlytics'
+
+  # Recommended: Add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
   
   
   

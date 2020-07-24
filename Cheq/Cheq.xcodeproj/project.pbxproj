@@ -350,6 +350,10 @@
 		2A61CA1A24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
 		2A61CA1B24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
 		2A61CA1C24B7481A003BD850 /* SFUIText-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */; };
+		2A61FF8824CA965700C678A8 /* loader_dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A61FF8724CA965700C678A8 /* loader_dots.json */; };
+		2A61FF8924CA965700C678A8 /* loader_dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A61FF8724CA965700C678A8 /* loader_dots.json */; };
+		2A61FF8A24CA965700C678A8 /* loader_dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A61FF8724CA965700C678A8 /* loader_dots.json */; };
+		2A61FF8B24CA965700C678A8 /* loader_dots.json in Resources */ = {isa = PBXBuildFile; fileRef = 2A61FF8724CA965700C678A8 /* loader_dots.json */; };
 		2A62746424A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
 		2A62746524A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
 		2A62746624A22FF300839EA9 /* CashOutActivityPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */; };
@@ -1972,6 +1976,7 @@
 		2A61CA0E24B747FD003BD850 /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
 		2A61CA0F24B747FD003BD850 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
 		2A61CA1824B7481A003BD850 /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
+		2A61FF8724CA965700C678A8 /* loader_dots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader_dots.json; sourceTree = "<group>"; };
 		2A62746324A22FF300839EA9 /* CashOutActivityPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashOutActivityPopUp.swift; sourceTree = "<group>"; };
 		2A63FAEF24AE5D3E00C44271 /* String+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Version.swift"; sourceTree = "<group>"; };
 		2A64BDC52482812800998311 /* DeclineDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclineDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -2736,6 +2741,7 @@
 		2A72CF8A2420ADB80053C0DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A61FF8724CA965700C678A8 /* loader_dots.json */,
 				2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */,
 				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
 				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
@@ -4737,10 +4743,10 @@
 				2AAB5D032473E4D3000CC702 /* Resources */,
 				2AAB5D342473E4D3000CC702 /* Embed App Extensions */,
 				2AAB5D352473E4D3000CC702 /* [CP] Copy Pods Resources */,
-				2AAB5D362473E4D3000CC702 /* Fabrics Run Script */,
 				2AAB5D372473E4D3000CC702 /* [CP] Embed Pods Frameworks */,
 				2AAB5D382473E4D3000CC702 /* Run Script */,
 				2AAB5D392473E4D3000CC702 /* Migrate Moneysoft Framework bundle */,
+				2A61FF8D24CAB5CE00C678A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4762,9 +4768,9 @@
 				4F01F771237E6A5B00268423 /* Embed App Extensions */,
 				4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */,
 				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
-				4F01F775237E6A5B00268423 /* Fabrics Run Script */,
 				4F449563238DFBB5000E9DAA /* Embed Frameworks */,
 				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
+				2A61FF9024CAB5FB00C678A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4786,9 +4792,9 @@
 				4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */,
 				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
 				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
-				4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */,
 				4F449560238DFBAE000E9DAA /* Embed Frameworks */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
+				2A61FF8E24CAB5DB00C678A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -4810,10 +4816,10 @@
 				9676520E22FAFD01001E43E0 /* Resources */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
 				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
-				4F57BB1823263BEE00B95C06 /* Fabrics Run Script */,
 				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				BD3FDF4E24120516007D3A8B /* Run Script */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
+				2A61FF8C24CAB5B900C678A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -5049,6 +5055,7 @@
 				2A65AABC247D76D5004D6239 /* SFUIText-Bold.ttf in Resources */,
 				2A5AAD42247BD1FE00D55B14 /* Cheq_UAT.mobileprovision in Resources */,
 				2AAB5D262473E4D3000CC702 /* DocPlaceHolderCell.xib in Resources */,
+				2A61FF8924CA965700C678A8 /* loader_dots.json in Resources */,
 				2AAB5D272473E4D3000CC702 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				2AAB5D282473E4D3000CC702 /* AvatarTableViewCell.xib in Resources */,
 				2AAB5D292473E4D3000CC702 /* TransactionModal.xib in Resources */,
@@ -5088,6 +5095,7 @@
 				4F01F755237E6A5B00268423 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F01F756237E6A5B00268423 /* Onboarding.storyboard in Resources */,
 				4F01F757237E6A5B00268423 /* BarChartTableViewCell.xib in Resources */,
+				2A61FF8B24CA965700C678A8 /* loader_dots.json in Resources */,
 				2A61CA1324B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				4F01F758237E6A5B00268423 /* GoogleService-Info.plist in Resources */,
 				4F01F759237E6A5B00268423 /* CompleteDetailsTableViewCell.xib in Resources */,
@@ -5148,6 +5156,7 @@
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
+				2A61FF8A24CA965700C678A8 /* loader_dots.json in Resources */,
 				2A61CA1224B747FD003BD850 /* SFUIText-Regular.ttf in Resources */,
 				4FBDDB26236BC68700EDB1E9 /* CompleteDetailsTableViewCell.xib in Resources */,
 				4FBDDB27236BC68700EDB1E9 /* Common.storyboard in Resources */,
@@ -5234,6 +5243,7 @@
 				2A65AABB247D76D5004D6239 /* SFUIText-Bold.ttf in Resources */,
 				2A5AAD3B247BCFBE00D55B14 /* Cheq_UAT.mobileprovision in Resources */,
 				4F01F8B22384A14800268423 /* AccountInfoTableViewCell.xib in Resources */,
+				2A61FF8824CA965700C678A8 /* loader_dots.json in Resources */,
 				9F3ACB8423EFE4C700466953 /* DocPlaceHolderCell.xib in Resources */,
 				4FB1CC5623554CCD00E7B224 /* SwipeToConfirmTableViewCell.xib in Resources */,
 				4F01F8A623849AFC00268423 /* AvatarTableViewCell.xib in Resources */,
@@ -5308,6 +5318,78 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2A61FF8C24CAB5B900C678A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		2A61FF8D24CAB5CE00C678A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		2A61FF8E24CAB5DB00C678A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		2A61FF9024CAB5FB00C678A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		2AAB5B8B2473E4D3000CC702 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5347,25 +5429,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2AAB5D362473E4D3000CC702 /* Fabrics Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Fabrics Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
-		};
 		2AAB5D372473E4D3000CC702 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5391,6 +5454,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Run Script";
 			outputFileListPaths = (
@@ -5510,25 +5575,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
-		4F01F775237E6A5B00268423 /* Fabrics Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Fabrics Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
-		};
 		4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5547,25 +5593,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
-		4F57BB1823263BEE00B95C06 /* Fabrics Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Fabrics Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" \n";
-		};
 		4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5583,25 +5610,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
-		};
-		4FBDDB3B236BC68700EDB1E9 /* Fabrics Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Fabrics Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

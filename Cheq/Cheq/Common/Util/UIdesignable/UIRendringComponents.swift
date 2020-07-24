@@ -27,7 +27,6 @@ final class AutoSizeShadowButton: UIButton {
         })
     }
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         if shadowLayer != nil {
@@ -35,9 +34,6 @@ final class AutoSizeShadowButton: UIButton {
             self.reloadText()
         }
     }
-    
-    
-    
     
     fileprivate func createShadowLayer(){
         if shadowLayer == nil {

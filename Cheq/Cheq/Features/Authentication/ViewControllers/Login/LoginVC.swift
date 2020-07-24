@@ -249,6 +249,9 @@ extension LoginVC {
             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
             UserDefaults.standard.synchronize()
+            
+            AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
+            
             AppConfig.shared.markUserLoggedIn()
             self.addLog_callingGetUserActions()
             

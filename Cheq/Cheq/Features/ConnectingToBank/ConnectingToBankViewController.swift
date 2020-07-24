@@ -47,7 +47,7 @@ class ConnectingToBankViewController: UIViewController {
         rootVc.view.bringSubviewToFront(transparentView)
         AutoLayoutUtil.pinToSuperview(transparentView, padding: 0.0)
         registerObservables()
-        self.checkBankLinkingStatus()
+        //self.checkBankLinkingStatus(_:)
     }
     
     func registerObservables() {
@@ -55,6 +55,8 @@ class ConnectingToBankViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.moneysoftEvent.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.basiqEvent.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkBankLinkingStatus(_:)), name: NSNotification.Name(UINotificationEvent.checkBankLinkingStatus.rawValue), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -156,7 +158,7 @@ extension ConnectingToBankViewController {
 
 extension ConnectingToBankViewController {
     
-    func checkBankLinkingStatus(){
+    @objc func checkBankLinkingStatus(_ notification: NSNotification){
         
         guard let jobId = self.jobId else {
             LoggingUtil.shared.cPrint("jobId should not be nil")

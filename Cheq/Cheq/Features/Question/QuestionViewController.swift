@@ -619,7 +619,6 @@ class QuestionViewController: UIViewController {
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
         }
-
     }
 }
 

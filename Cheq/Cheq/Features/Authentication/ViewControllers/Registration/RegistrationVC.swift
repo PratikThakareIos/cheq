@@ -150,6 +150,8 @@ extension RegistrationVC {
     }
     
     @IBAction func register(_ sender: Any) {
+        
+        fatalError()
             
         self.view.endEditing(true)
         if let error = self.validateInputs() {
@@ -177,6 +179,9 @@ extension RegistrationVC {
 
             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
+            
+            AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
+            
             UserDefaults.standard.synchronize()
 
             self.beginOnboarding()
@@ -219,8 +224,6 @@ extension RegistrationVC {
 //
 //             }
 //         }
-        
-        
     }
 }
 

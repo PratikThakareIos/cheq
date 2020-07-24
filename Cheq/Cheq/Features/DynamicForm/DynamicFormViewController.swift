@@ -245,41 +245,84 @@ class DynamicFormViewController: UIViewController {
         self.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId)
     }
 
-    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
-      
-//        var isUpdate =  false
-//        if let res = self.resGetUserActionResponse, res.userAction == .invalidCredentials {
-//               isUpdate = true
+//    func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
+//
+//        NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+//        //guard let nav =  self.navigationController else { return }
+//        AppConfig.shared.showSpinner()
+//        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
+//            AppConfig.shared.hideSpinner {
+//                 self.gotoConnectingToBankViewController()
+//            }
+//        }.catch { err in
+//            //self.dismiss(animated: true) { [weak self] in
+//
+//            AppConfig.shared.hideSpinner {
+//                //Show if wrong account credentials
+//                if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
+//                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
+//                    transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+//                                     transactionModal.setupUI()
+//                    let popupView = CPopupView(transactionModal)
+//                    popupView.show()
+//
+//                }else{
+//                    let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+//                    connectingFailed.modalPresentationStyle = .fullScreen
+//                    self.present(connectingFailed, animated: true)
+//                }
+//            }
 //        }
-        
-        
-        NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
-        //guard let nav =  self.navigationController else { return }
-        AppConfig.shared.showSpinner()
-        self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
-            AppConfig.shared.hideSpinner {
-                 self.gotoConnectingToBankViewController()
-            }
-        }.catch { err in
-            //self.dismiss(animated: true) { [weak self] in
-                
-            AppConfig.shared.hideSpinner {
-                //Show if wrong account credentials
-                if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
-                    let transactionModal: CustomSubViewPopup = UIView.fromNib()
-                    transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
-                                     transactionModal.setupUI()
-                    let popupView = CPopupView(transactionModal)
-                    popupView.show()
+//    }
+    
+    
+    
+      func submitFormWith(loginId : String?, password : String?, securityCode : String?, secondaryLoginId : String?) {
+    
+          NotificationUtil.shared.notify(NotificationEvent.dismissKeyboard.rawValue, key: "", value: "")
+         
+          let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as! ConnectingToBankViewController
 
-                }else{
-                    let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
-                    connectingFailed.modalPresentationStyle = .fullScreen
-                    self.present(connectingFailed, animated: true)
+              
+             self.present(connectingToBank, animated: true, completion:  { [weak self] in
+                guard let self = self else { return }
+
+                self.viewModel.coordinator.submitFormWith(loginId: loginId, password: password, securityCode: securityCode, secondaryLoginId: secondaryLoginId).done { success in
+                    
+                    connectingToBank.modalPresentationStyle = .fullScreen
+                    connectingToBank.delegate = self
+                    connectingToBank.jobId = AppData.shared.bankJobId
+                     
+                    NotificationUtil.shared.notify(UINotificationEvent.checkBankLinkingStatus.rawValue, key: "", value: "")
+                    
+                }.catch { err in
+                    self.dismiss(animated: true) { [weak self] in
+                    guard let self = self else { return }
+                    AppConfig.shared.hideSpinner {
+                        //Show if wrong account credentials
+                        if err.localizedDescription ==  MoneySoftManagerError.wrongUserNameOrPasswordLinkableAccounts.errorDescription {
+                            let transactionModal: CustomSubViewPopup = UIView.fromNib()
+                            transactionModal.viewModel.data = CustomPopupModel(description:MoneySoftManagerError.invalidCredentials.localizedDescription , imageName: "needMoreInfo", modalHeight: 350, headerTitle: "Invalid bank account credentials")
+                                             transactionModal.setupUI()
+                            let popupView = CPopupView(transactionModal)
+                            popupView.show()
+
+                        }else{
+                            let connectingFailed =  AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.reTryConnecting.rawValue, embedInNav: false)
+                            connectingFailed.modalPresentationStyle = .fullScreen
+                            self.present(connectingFailed, animated: true)
+                        }
+                    }
                 }
+                
             }
-        }
-    }
+        })
+
+      }
+    
+    
+    
+    
     
     func gotoConnectingToBankViewController(){
         

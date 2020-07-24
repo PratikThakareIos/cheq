@@ -146,13 +146,11 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                 
                 LoggingUtil.shared.cPrint("appTokenResponse = \(appTokenResponse)")
                 self.appTokenResponse = appTokenResponse
-
                 let strMessage = "bankLogin - start calling basiq createconnection - \(Date().timeStamp())"
                 let strEvent = "CreateBasiqConnection"
                 let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")
                 LoggingUtil.shared.addLog(log: log)
-                
-                
+                                
                 let url = URL.init(string: self.appTokenResponse?.apiConnectionUrl ?? "")
                 let headers = [ "Content-Type" : "application/json", "Authorization": "Bearer \(self.appTokenResponse?.accessToken ?? "")"]
                 return self.callAPI(url: url!, param: dict, headers: headers)
@@ -165,8 +163,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
             
             }.then{ basiqConnectionResponse -> Promise<Bool> in
                 LoggingUtil.shared.cPrint("basiqConnectionResponse = \(basiqConnectionResponse)")
-                
-                
+                                
                  let strMessage = "bankLogin - End calling basiq createconnection - jobId \( basiqConnectionResponse.id) - \(Date().timeStamp())"
                  let strEvent = "CreateBasiqConnection"
                  let log = PostLogRequest(deviceId: UUID().uuidString, type: .info, message: strMessage, event: strEvent, bankName: "")

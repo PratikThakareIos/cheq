@@ -105,6 +105,8 @@ extension SplashVC {
         let email = UserDefaults.standard.value(forKey: UserDefaultKeys.emailID) as? String ?? ""  //"way@g.com"
         let password = UserDefaults.standard.value(forKey: UserDefaultKeys.password)  as? String ?? "" //"Tfc@12345"
         
+        AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
+        
         let viewModel = AuthenticatorViewModel()
         viewModel.login(email, password: password).then { authUser -> Promise<GetUserActionResponse> in
             return CheqAPIManager.shared.getUserActions()

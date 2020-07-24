@@ -11,7 +11,8 @@ import UserNotifications
 import Firebase
 import FirebaseMessaging
 import Fabric
-import Crashlytics
+//import Crashlytics
+import FirebaseCrashlytics
 import FBSDKLoginKit
 import PromiseKit
 //import MobileSDK
@@ -29,30 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     let API_BASE_URL = "https://api.beta.moneysoft.com.au"
     let API_REFERRER = "https://cheq.beta.moneysoft.com.au"
     
+    #if DEV
+        public static var ONESIGNAL_APP_ID = "52a86023-ec61-47f6-9f2b-7de3e4906e82"
+    #elseif UAT
+        public static var ONESIGNAL_APP_ID = "4ff7560e-be04-4a7b-829c-31b9235dc94e"
+    #else
+        public static var ONESIGNAL_APP_ID = "e978954b-8bde-4e45-9c6d-5e284efe9a30"
+    #endif
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+         
+        // Use Firebase library to configure APIs
+         FirebaseApp.configure()
         
-        
-        //Remove this method to stop OneSignal Debugging
+         //Remove this method to stop OneSignal Debugging
          OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
 
          //START OneSignal initialization code
          let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false]
         
-        
-//        Cheq-Dev
-//        52a86023-ec61-47f6-9f2b-7de3e4906e82
-//
-//        12:03
-//        Cheq-UAT
-//        4ff7560e-be04-4a7b-829c-31b9235dc94e
-//
-//        12:08
-//        Cheq-Prod
-//        e978954b-8bde-4e45-9c6d-5e284efe9a30
          
          // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
          OneSignal.initWithLaunchOptions(launchOptions,
-           appId: "e978954b-8bde-4e45-9c6d-5e284efe9a30", //"361c802d-82c5-42eb-8765-068dd2c36149", //"YOUR_ONESIGNAL_APP_ID",
+                                         appId: AppDelegate.ONESIGNAL_APP_ID, //"361c802d-82c5-42eb-8765-068dd2c36149", //"YOUR_ONESIGNAL_APP_ID",
            handleNotificationAction: nil,
            settings: onesignalInitSettings)
 
@@ -105,8 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
         
-        // Use Firebase library to configure APIs
-        FirebaseApp.configure()
+
         
         // Firebase Message delegate
         //To receive registration tokens, implement the messaging delegate protocol and set FIRMessaging's delegate property after calling [FIRApp configure].
@@ -306,7 +305,7 @@ extension AppDelegate {
     // trigger the first initiation of AppConfig singleton
     func setupServices() {
         guard let _ = AppData.shared.application else { return }
-        Fabric.with([Crashlytics.self])
+        //Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
@@ -315,7 +314,7 @@ extension AppDelegate {
     
     func setupServicesForDev() {
         guard let _ = AppData.shared.application else { return }
-        Fabric.with([Crashlytics.self])
+        //Fabric.with([Crashlytics.self])
         let _ = CheqAPIManager.shared
         let _ = AppConfig.shared
         let _ = AuthConfig.shared
@@ -500,6 +499,7 @@ extension AppDelegate {
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
         AppData.shared.resetAllData()
+        AppData.shared.oneSignal_removeExternalUserId()
         AppConfig.shared.markUserLoggedOut()
         AppData.shared.completingDetailsForLending = false
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)

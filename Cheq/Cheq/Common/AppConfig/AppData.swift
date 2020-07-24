@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OneSignal
 //import MobileSDK
 
 /**
@@ -374,6 +375,52 @@ class AppData {
          
          /// When a person fills in employment type as **On Demand** and is **Other**, then we set this flag to true, so our flow knows that we need to further ask for company name by showing company name screen
           completingOnDemandOther = false
+    }
+    
+    /*
+      If your system assigns unique identifiers to users, it can be to have to also remember their OneSignal Player Id's as well. To make things easier, OneSignal now allows you to set an external_user_id for your users. Simply call this method, pass in your custom user Id (as a string), and from now on when you send a push notification, you can use include_external_user_ids instead of include_player_ids.
+    */
+    func oneSignal_setExternalUserId(externalUserId : String){
+        
+        //let externalUserId = "123456789" // You will supply the external user id to the OneSignal SDK
+
+        // Setting External User Id with Callback Available in SDK Version 2.13.1+
+        OneSignal.setExternalUserId(externalUserId, withCompletion: { results in
+          // The results will contain push and email success statuses
+          print("External user id update complete with results: ", results!.description)
+          // Push can be expected in almost every situation with a success status, but
+          // as a pre-caution its good to verify it exists
+          if let pushResults = results!["push"] {
+            print("Set external user id push status: ", pushResults)
+          }
+          if let emailResults = results!["email"] {
+              print("Set external user id email status: ", emailResults)
+          }
+        })
+
+        //Available in SDK Version 2.13.0-
+        //OneSignal.setExternalUserId(myCustomUniqueUserId)
+    }
+    
+    func oneSignal_removeExternalUserId(){
+        
+        // Removing External User Id with Callback Available in SDK Version 2.13.1+
+        OneSignal.removeExternalUserId({ results in
+            // The results will contain push and email success statuses
+            print("External user id update complete with results: ", results!.description)
+            // Push can be expected in almost every situation with a success status, but
+            // as a pre-caution its good to verify it exists
+            if let pushResults = results!["push"] {
+                print("Remove external user id push status: ", pushResults)
+            }
+            // Verify the email is set or check that the results have an email success status
+            if let emailResults = results!["email"] {
+                print("Remove external user id email status: ", emailResults)
+            }
+        })
+
+        //Available in SDK Version 2.13.0-
+        //OneSignal.removeExternalUserId()
     }
     
 }
