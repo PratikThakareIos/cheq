@@ -33,8 +33,7 @@ class LoginVC: UIViewController {
         hideBackButton()
         setupDelegate()
         setupUI()
-        
-        self.setupHyperlablesForLoginScreen()
+  
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,7 +58,6 @@ class LoginVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        setupUI()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -187,6 +185,8 @@ extension LoginVC {
         }
         self.emailTextField.keyboardType = .emailAddress
         self.passwordTextField.keyboardType = .default
+        
+        self.setupHyperlablesForLoginScreen()
     }
 }
 

@@ -12,11 +12,12 @@ import AVFoundation
 
 class DocumentVerificationViewController: UIViewController {
     
-    @IBOutlet weak var guidLineView: UIView!
+    //@IBOutlet weak var guidLineView: UIView!
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
-    let cellSpacingHeight: CGFloat = 25
+    @IBOutlet weak var lblDetail: UILabel!
     
+    let cellSpacingHeight: CGFloat = 25
     var errOnfido : Error?
     
     override func viewDidLoad() {
@@ -28,10 +29,18 @@ class DocumentVerificationViewController: UIViewController {
             
         self.tableview.separatorStyle = .none
         self.mainContainer.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        self.guidLineView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        //self.guidLineView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.backgroundView?.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.tableFooterView = UIView()
+        
+        
+        let strMessage = "Cheq only accepts the documents above. All other ID’s will be rejected"
+        let attributedString = NSMutableAttributedString(string: strMessage)
+        attributedString.applyHighlight("All other ID’s will be rejected", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont)
+        self.lblDetail.attributedText = attributedString
+        self.lblDetail.setLineSpacing(lineSpacing: 8.0)
+        self.lblDetail.textAlignment = .left
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +63,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         cell.content.backgroundColor = .white
         //cell.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: true)
-        cell.DocumnerVerifyLabel.text =  indexPath.row == 0 ? "Passport" : "Driver license"
+        cell.DocumnerVerifyLabel.text =  indexPath.row == 0 ? "Passport" : "Driver's licence"
         return cell
     }
     

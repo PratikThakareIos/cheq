@@ -29,7 +29,7 @@ class SpendingViewController: CTableViewController {
          super.viewWillAppear(animated)
          self.addNotificationsForRemoteConfig()
          RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
-        
+         self.showNavBar()
          self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
     }
 

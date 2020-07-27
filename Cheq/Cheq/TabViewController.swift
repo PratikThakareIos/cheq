@@ -26,8 +26,40 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         previousSelectedIndex = self.selectedIndex
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
               self.checkUserActions()
+              //self.setbackGroundImage()
         })
+
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//       DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+//              self.setbackGroundImage()
+//        })
+    }
+    
+//    func setbackGroundImage() {
+//
+//        let img = UIImage(named: "Rectangle")
+//        if let image = img {
+//            let centerImage: Bool = false
+//            var resizeImage: UIImage?
+//            let size = CGSize(width: UIScreen.main.bounds.size.width, height: 98)
+//            UIGraphicsBeginImageContextWithOptions(size, false, 0)
+//            if centerImage {
+//                //if you want to center image, use this code
+//                image.draw(in: CGRect(origin: CGPoint(x: (size.width-image.size.width)/2, y: 0), size: image.size))
+//            }
+//            else {
+//                //stretch image
+//                image.draw(in: CGRect(origin: CGPoint.zero, size: size))
+//            }
+//            resizeImage = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//            tabBar.backgroundImage = resizeImage?.withRenderingMode(.alwaysOriginal)
+//        }
+//    }
+    
+    
     
     // UITabBarDelegate
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

@@ -39,7 +39,7 @@ class RegistrationVC: UIViewController {
         activeTimestamp()
         hideBackTitle()
         self.setupUI()
-        self.setupHyperlables()
+        
 
         // reset this variable when we are back on sign up / login screen
         AppData.shared.migratingToNewDevice = false
@@ -75,6 +75,8 @@ extension RegistrationVC {
         self.emailTextField.setShadow()
         self.passwordTextField.setShadow()
         self.viewModel.screenName = .registration
+        
+        self.setupHyperlables()
     }
     
     func continueWithLoggedInFB(_ token: String) {
@@ -150,9 +152,7 @@ extension RegistrationVC {
     }
     
     @IBAction func register(_ sender: Any) {
-        
-        fatalError()
-            
+    
         self.view.endEditing(true)
         if let error = self.validateInputs() {
             // showError(error) { } // OLD
@@ -191,8 +191,6 @@ extension RegistrationVC {
                 guard let self = self else { return }
                 //self.showError(err, completion: nil)
                 self.validationAlertPopup(error: err, isPasswordField: false)
-
-
             }
         }
         
@@ -224,6 +222,7 @@ extension RegistrationVC {
 //
 //             }
 //         }
+        
     }
 }
 
@@ -295,7 +294,6 @@ extension RegistrationVC {
             self.didSelectLinkWithName(strSubstring: strSubstring)
         }        
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
-        
     }
     
     func setupHyperlables(){
@@ -393,14 +391,11 @@ extension RegistrationVC {
 }
 
 
-
-
 // MARK:-
 extension RegistrationVC : VerificationPopupVCDelegate {
     
     func validationAlertPopup(error:Error,isPasswordField:Bool) {
-        
-        
+                
         if isPasswordField {
             openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
         }
@@ -411,8 +406,7 @@ extension RegistrationVC : VerificationPopupVCDelegate {
             openPopupWith(heading: "Sorry, the email address is already in use", message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
         }else{
             openPopupWith(heading: error.localizedDescription, message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
-        }
-    
+        }    
     }
     
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){

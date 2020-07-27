@@ -49,21 +49,7 @@ def shared_pods
 	pod 'CocoaLumberjack', '<= 3.4.2'
 	pod 'OpenSSL-Universal'
   
-  #Fabrics + Crashlytics
-  #pod 'Fabric', '~> 1.10.2'
-  #pod 'Crashlytics', '~> 3.14.0'
-  
-  # Firebase pods
-  pod 'Firebase/Auth'
-  pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/InAppMessagingDisplay'
-  pod 'Firebase/Analytics'
-  pod 'FirebaseUI/Auth'
-  pod 'FirebaseUI/Facebook'
-  pod 'Firebase/RemoteConfig'
-  
-    # Onfido pod
+  # Onfido pod
   pod 'Onfido'
   
   # Mixpanel pod
@@ -78,15 +64,21 @@ def shared_pods
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
   pod 'lottie-ios'
   
-  # Add the pod for Firebase Crashlytics
+  
+  # Firebase pods
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/InAppMessagingDisplay'
+  pod 'Firebase/Analytics'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Facebook'
+  pod 'Firebase/RemoteConfig'
   pod 'Firebase/Crashlytics'
-
-  # Recommended: Add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
   
   
-  
-  
+
   #Use can use RadioButton and CheckboxButton same as UIButton.
   #pod 'MBRadioCheckboxButton'
   

@@ -159,7 +159,7 @@ extension SalaryPaymentViewController {
               let vc: PayCycleViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.payCycleViewController.rawValue) as! PayCycleViewController
               nav.pushViewController(vc, animated: true)
           }else{
-                self.openPopupWith(strFirst: "Please select atleast 2 salary payments", strSecond: nil , type : .minTransactionSelection)
+                self.openPopupWith(strFirst: "Please select at least 2 salary payments", strSecond: nil , type : .minTransactionSelection)
           }
         }
     }

@@ -18,9 +18,9 @@ class FirebaseAuthManager: AuthManagerProtocol {
 
     static let shared = FirebaseAuthManager()
     private init() {
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
+       // if FirebaseApp.app() == nil {
+          //  FirebaseApp.configure()
+       // }
     }
 }
 

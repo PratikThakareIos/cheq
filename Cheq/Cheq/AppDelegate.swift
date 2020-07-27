@@ -10,15 +10,14 @@ import UIKit
 import UserNotifications
 import Firebase
 import FirebaseMessaging
-import Fabric
-//import Crashlytics
 import FirebaseCrashlytics
 import FBSDKLoginKit
 import PromiseKit
-//import MobileSDK
 import IQKeyboardManagerSwift
 import OneSignal
-
+//import MobileSDK
+//import Fabric
+//import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
@@ -122,11 +121,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
 //        //Manish
 //        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
-       
+              
         #if DEMO
             self.setupSpendingViewController()
         #else
-            self.setupInitialViewController()
+           self.setupInitialViewController()
         #endif
         
 //        self.setupIntroDevController()

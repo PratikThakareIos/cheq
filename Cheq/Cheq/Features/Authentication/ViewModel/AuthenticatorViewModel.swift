@@ -30,9 +30,8 @@ enum links: String {
     //http://app.helpAndSupport.cheq.com.au"
     case appSetting = "http://app.setting.cheq.com.au"
     
-     case whatFormsOfIdDoesCheqAccept = "https://help.cheq.com.au/en/articles/3594785-what-forms-of-id-does-cheq-accept"
+    case whatFormsOfIdDoesCheqAccept = "https://help.cheq.com.au/en/articles/3594785-what-forms-of-id-does-cheq-accept"
 }
-
 
 
 class AuthenticatorViewModel: BaseViewModel {

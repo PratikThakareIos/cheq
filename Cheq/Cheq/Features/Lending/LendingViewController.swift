@@ -159,7 +159,6 @@ extension LendingViewController {
     /// handle learnMore notification event
     @objc func learnMore(_ notification: NSNotification) {
         LoggingUtil.shared.cPrint("learnMore clicked")
-        
         guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
         guard let url = URL(string: link) else { return }
         AppNav.shared.pushToInAppWeb(url, viewController: self)

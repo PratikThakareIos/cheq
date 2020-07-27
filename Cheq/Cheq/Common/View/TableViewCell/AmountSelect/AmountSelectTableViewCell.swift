@@ -43,7 +43,13 @@ class AmountSelectTableViewCell: CTableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.viewModel = AmountSelectTableViewCellViewModel()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+        
+        
+        ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
+        ViewUtil.shared.circularMask(&self.infoView, radiusBy: .width)
+        ViewUtil.shared.circularMask(&self.infoViewInternale, radiusBy: .width)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             ViewUtil.shared.circularMask(&self.controlView, radiusBy: .height)
             ViewUtil.shared.circularMask(&self.infoView, radiusBy: .width)
             ViewUtil.shared.circularMask(&self.infoViewInternale, radiusBy: .width)
@@ -119,6 +125,5 @@ class AmountSelectTableViewCell: CTableViewCell {
         let attributedString = NSMutableAttributedString(string: loanAmount)
         attributedString.applyHighlight(loanAmount, color: AppConfig.shared.activeTheme.textColor, font: AppConfig.shared.activeTheme.extraLargeBoldFont)
         self.loanAmount.attributedText = attributedString
-        
     }
 }
