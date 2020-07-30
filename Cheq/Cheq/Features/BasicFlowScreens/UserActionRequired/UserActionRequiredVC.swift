@@ -82,7 +82,6 @@ class UserActionRequiredVC: UIViewController {
                 
         }
         
-        
         if let showReconnect = res.showReconnect, showReconnect == true {
                        
         }else{
@@ -102,9 +101,11 @@ class UserActionRequiredVC: UIViewController {
             lblInfo3.text = arrActionRequiredGuidelines[2]
         
         }else{
+            
             lblInfo1.text = ""
             lblInfo2.text = ""
             lblInfo3.text = ""
+            
         }
 
         if let link = res.link {

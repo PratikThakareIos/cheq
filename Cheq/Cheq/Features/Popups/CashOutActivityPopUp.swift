@@ -30,19 +30,7 @@ class CashOutActivityPopUp: UIViewController {
     var delegate : CashOutActivityPopUpDelegate?
     
     var loanActivity: LoanActivity?
-    
-    
-//    var emojiImage = UIImage()
-//    var strHeading = ""
-//    var strDate = ""
-//    var strAmount = ""
-//    var strFees = ""
-//    var strReference = ""
-//
-//    var isShowFeesLable = false
-//    var isShowTermButton = false
-  
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()

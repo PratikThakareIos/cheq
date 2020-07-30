@@ -14,6 +14,9 @@ import UserNotifications
 import CoreLocation
 import SearchTextField
 
+//self.nextButton.showLoadingOnButton(self)
+//self.nextButton.hideLoadingOnButton(self)
+
 class QuestionViewController: UIViewController {
     
     @IBOutlet weak var ImageViewContainer: UIView!
@@ -394,7 +397,10 @@ class QuestionViewController: UIViewController {
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let putUserDetailsReq = qVm.putUserDetailsRequest()
-            AppConfig.shared.showSpinner()
+            
+            //AppConfig.shared.showSpinner()
+            self.nextButton.showLoadingOnButton(self)
+            
             AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                 return CheqAPIManager.shared.putUser(authUser)
             }.then { authUser in
@@ -407,12 +413,14 @@ class QuestionViewController: UIViewController {
                 let req = DataHelperUtil.shared.postPushNotificationRequest()
                 return CheqAPIManager.shared.postNotificationToken(req)
             }.done { success in
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.contactDetails)
                     //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
                     AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
                 }
             }.catch { err in
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     print(err)
                     print(err.localizedDescription)
@@ -437,13 +445,21 @@ class QuestionViewController: UIViewController {
                 AppData.shared.completingDetailsForLending = false
                 AppData.shared.completingOnDemandOther = false
                 let req = DataHelperUtil.shared.putUserEmployerRequest()
-                AppConfig.shared.showSpinner()
+                
+                
+                //AppConfig.shared.showSpinner()
+                self.nextButton.showLoadingOnButton(self)
+                
                 print(req.address)
                 CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+                    
+                    self.nextButton.hideLoadingOnButton(self)
                     AppConfig.shared.hideSpinner {
                         self.incomeVerification()
                     }
                 }.catch { err in
+                    
+                    self.nextButton.hideLoadingOnButton(self)
                     AppConfig.shared.hideSpinner {
                         print(err.code())
                         print(err.localizedDescription)
@@ -478,7 +494,10 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.employerAddress.rawValue, value: searchTextField.text ?? "")
             LoggingUtil.shared.cPrint("Go to some other UI component here")
             AppData.shared.updateProgressAfterCompleting(.companyAddress)
-            AppConfig.shared.showSpinner()
+            
+            //AppConfig.shared.showSpinner()
+            self.nextButton.showLoadingOnButton(self)
+            
             let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
             saveEmployerAddress(employerAddress)
             let req = DataHelperUtil.shared.putUserEmployerRequest()
@@ -486,6 +505,8 @@ class QuestionViewController: UIViewController {
             
             //Company addresss from a fix location
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     if AppData.shared.completingDetailsForLending {
                         //AppData.shared.completingDetailsForLending = false
@@ -497,6 +518,8 @@ class QuestionViewController: UIViewController {
                     }
                 }
             }.catch { err in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     print(err.code())
                     print(err.localizedDescription)
@@ -523,14 +546,20 @@ class QuestionViewController: UIViewController {
             // enter other values
             self.viewModel.save(QuestionField.bankIsJoint.rawValue, value: String(switchWithLabel.switchValue()))
             
-            AppConfig.shared.showSpinner()
+            //AppConfig.shared.showSpinner()
+            self.nextButton.showLoadingOnButton(self)
+            
             CheqAPIManager.shared.updateDirectDebitBankAccount().done { res in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                     AppNav.shared.dismissModal(self)
                     
                 }
             }.catch { err in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     print(err)
                   
@@ -574,14 +603,20 @@ class QuestionViewController: UIViewController {
                 return
             }
             
-            AppConfig.shared.showSpinner()
+            //AppConfig.shared.showSpinner()
+            self.nextButton.showLoadingOnButton(self)
+            
             let putUserDetailsReq = self.viewModel.putUserDetailsRequest()
             CheqAPIManager.shared.putUserDetails(putUserDetailsReq).done { authUser in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     AppData.shared.updateProgressAfterCompleting(.residentialAddress)
                     AppNav.shared.pushToIntroduction(.employee, viewController: self)
                 }
             }.catch { err in
+                
+                self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                         LoggingUtil.shared.cPrint(err.localizedDescription)

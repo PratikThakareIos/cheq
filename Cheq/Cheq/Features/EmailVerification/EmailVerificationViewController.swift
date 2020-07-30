@@ -11,6 +11,9 @@ import PromiseKit
 import FRHyperLabel
 
 
+//self.confirmButton.showLoadingOnButton(self)
+//self.confirmButton.hideLoadingOnButton(self)
+
 class EmailVerificationViewController: UIViewController {
   
     var viewModel: VerificationViewModel = EmailVerificationViewModel()
@@ -125,6 +128,9 @@ class EmailVerificationViewController: UIViewController {
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
+        
+        confirmButton.setTitle(viewModel.confirmButtonTitle)
+        
     }
     
     func verifyCodeAndResetPassword() {
@@ -148,9 +154,13 @@ class EmailVerificationViewController: UIViewController {
         }
         
         
-        AppConfig.shared.showSpinner()
+        //AppConfig.shared.showSpinner()
+        self.confirmButton.showLoadingOnButton(self)
+        
+        
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
-             AppConfig.shared.hideSpinner {
+            self.confirmButton.hideLoadingOnButton(self)
+            AppConfig.shared.hideSpinner {
                   self.showMessage("Password reset successfully. Please login with your new credentials") {
                      // AppNav.shared.dismissModal(self)
                     if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
@@ -168,29 +178,7 @@ class EmailVerificationViewController: UIViewController {
                 self.showError(err, completion: nil)
             }
         }
-        
-        
-//        AppConfig.shared.showSpinner()
-//        CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).then { _ in
-//            return AuthConfig.shared.activeManager.getCurrentUser()
-//        }.then { authUser in
-//            AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-//        }.then { authUser in
-//            AuthConfig.shared.activeManager.setUser(authUser)
-//        }.done { _ in
-//            AppConfig.shared.hideSpinner {
-//                self.showMessage("New password successfully created.") {
-//                    AppNav.shared.dismissModal(self)
-//                }
-//            }
-//        }.catch { err in
-//            AppConfig.shared.hideSpinner {
-//                LoggingUtil.shared.cPrint(err)
-//                self.showError(err, completion: nil)
-//            }
-//        }
-        
-        
+
     }
     
     func showInvalidPopUpView(){
@@ -206,6 +194,9 @@ class EmailVerificationViewController: UIViewController {
     
     func verifyCode() {
         
+        //self.confirmButton.showLoadingOnButton(self)
+        //self.confirmButton.hideLoadingOnButton(self)
+        
         self.viewModel.code = self.codeTextField.text ?? ""
         if let _ = self.viewModel.validate() {
             self.showInvalidPopUpView()
@@ -213,18 +204,23 @@ class EmailVerificationViewController: UIViewController {
         }
         
         // TODO : verify code api call
-        AppConfig.shared.showSpinner()
+        
+        //AppConfig.shared.showSpinner()
+        self.confirmButton.showLoadingOnButton(self)
+        
         let req = PutUserSingupVerificationCodeRequest(code: viewModel.code)
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
         }.done { authUser in
+                self.confirmButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     //self.handleSuccessVerification()
                     AppConfig.shared.markUserLoggedIn()
                     AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
         }.catch { err in
+                self.confirmButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     self.showInvalidPopUpView()
                     //self.showError(err, completion: nil)
@@ -414,6 +410,7 @@ extension EmailVerificationViewController {
     
      func resendCodeForSetupNewPassword(){
          self.view.endEditing(true)
+        
          AppConfig.shared.showSpinner()
          ForgotPasswordViewModel().resetEmail = AppData.shared.forgotPasswordEmail
          ForgotPasswordViewModel().forgotPassword().done { _ in

@@ -100,6 +100,7 @@ extension FirebaseAuthManager {
     }
 
     func login(_ credentials:[LoginCredentialType: String])-> Promise<AuthUser> {
+        
         return Promise<AuthUser>() { resolver in
             let email = credentials[.email] ?? ""
             let password = credentials[.password] ?? ""

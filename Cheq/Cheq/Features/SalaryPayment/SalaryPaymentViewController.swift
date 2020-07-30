@@ -15,11 +15,14 @@ public enum PopUpType: String {
 
 class SalaryPaymentViewController: UIViewController {
     
-
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+   
     @IBOutlet weak var viewMessage: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnNextAction: CNButton!
     @IBOutlet weak var lblSubTitle: UILabel!
+    
+    @IBOutlet weak var lblSelectYourSalary: UILabel!
     
     private let TABLE_CELL_TAGS = (checkbox:10, title:20, value:30)
     private var sateOfNewTansactionArray = [Bool]()
@@ -48,6 +51,13 @@ class SalaryPaymentViewController: UIViewController {
         let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
         self.lblSubTitle.text = "Help our bot detect your salary from \(companyName)"
         
+        let message = "Select your salary transactions for us to verify. We do not support Centrelink benefits, ATM deposits, work leave, or bank transfers"
+        let attributedString = NSMutableAttributedString(string: message)
+        self.lblSelectYourSalary.font = AppConfig.shared.activeTheme.defaultMediumFont //14
+        self.lblSelectYourSalary.attributedText = attributedString
+        self.lblSelectYourSalary.setLineSpacing(lineSpacing: 6.0)
+        
+    
         showNavBar()
         if isFromLendingScreen {
             showCloseButton()
@@ -79,6 +89,7 @@ class SalaryPaymentViewController: UIViewController {
                         self.tansactionDetailsArray = paycyles as [SalaryTransactionResponse]
                         self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
                         self.tableView.reloadData()
+                        self.setTableViewHeight()
                     }
                 }.catch { err in
                     AppConfig.shared.hideSpinner {
@@ -91,7 +102,7 @@ class SalaryPaymentViewController: UIViewController {
             self.tansactionDetailsArray = AppData.shared.employeePaycycle
             self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
             self.tableView.reloadData()
-            
+            self.setTableViewHeight()
         }
     }
     
@@ -243,6 +254,19 @@ extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
                     }
                 }
             }
+    }
+    
+    
+    func setTableViewHeight() {
+        DispatchQueue.main.async {
+              var height = CGFloat((self.tansactionDetailsArray.count) * 84)//Here 30 is my cell height
+              if height < 160 {
+                 height = 160
+              }
+              self.tableViewHeight.constant = height
+              self.tableView.reloadData()
+              self.view.layoutIfNeeded()
+        }
     }
 
 }

@@ -444,7 +444,7 @@
                                                             <action selector="btnResendCodeTapped" destination="4GN-dV-u6O" eventType="touchUpInside" id="mdb-Xo-Ugo"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-bm-pOm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-bm-pOm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="487" width="354" height="59"/>
                                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -690,6 +690,13 @@
                                                             <constraint firstAttribute="height" constant="25" id="iTu-iN-MfU"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number2" translatesAutoresizingMaskIntoConstraints="NO" id="NFt-kj-vYl">
+                                                        <rect key="frame" x="20" y="376" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="Is0-QM-rE5"/>
+                                                            <constraint firstAttribute="width" constant="25" id="dYV-pA-tcf"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number3" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-n1-lgM">
                                                         <rect key="frame" x="20" y="434.5" width="25" height="25"/>
                                                         <constraints>
@@ -715,13 +722,6 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number2" translatesAutoresizingMaskIntoConstraints="NO" id="NFt-kj-vYl">
-                                                        <rect key="frame" x="20" y="376" width="25" height="25"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="Is0-QM-rE5"/>
-                                                            <constraint firstAttribute="width" constant="25" id="dYV-pA-tcf"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goY-Lt-mzb" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="672" width="352" height="59"/>
                                                         <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>

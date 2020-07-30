@@ -120,8 +120,7 @@ class MultipleChoiceViewController: UIViewController {
             self.showNavBar()
             self.showBackButton()
         }
-                
-        
+                        
         if selectedChoice == nil {
             self.updateChoices()
         }else{
@@ -664,6 +663,7 @@ extension MultipleChoiceViewController {
 
 
 extension MultipleChoiceViewController {
+    
     func isIncomeDetected() -> Bool {
         print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false

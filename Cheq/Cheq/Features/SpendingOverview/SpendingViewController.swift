@@ -38,6 +38,8 @@ class SpendingViewController: CTableViewController {
         activeTimestamp()
         registerObservables()
         
+        self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
+        
         //Temp
         //NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
         //NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
@@ -46,6 +48,9 @@ class SpendingViewController: CTableViewController {
         if let vm = self.viewModel as? SpendingViewModel, vm.sections.count == 0 {
             NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
         }
+    }
+    override func viewDidLayoutSubviews() {
+        self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

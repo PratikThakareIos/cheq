@@ -9,6 +9,9 @@
 import UIKit
 import PromiseKit
 
+//self.forgotPasswordButton.showLoadingOnButton(self)
+//self.forgotPasswordButton.hideLoadingOnButton(self)
+
 class ForgotPasswordViewController: UIViewController {
     
     //@IBOutlet weak var titleLabel: CLabel!
@@ -32,12 +35,12 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     func setupUI() {
-        self.forgotPasswordButton.createShadowLayer()
-        //showCloseButton()
-        
         showNavBar()
         showBackButton()
         
+        self.forgotPasswordButton.createShadowLayer()
+        self.forgotPasswordButton.setTitle("Email me the code")
+
         self.email.setupLeftPadding()
         //self.email.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
         
@@ -55,8 +58,10 @@ class ForgotPasswordViewController: UIViewController {
         }
         
         AppData.shared.forgotPasswordEmail = self.viewModel.resetEmail
-        AppConfig.shared.showSpinner()
+        //AppConfig.shared.showSpinner()
+        self.forgotPasswordButton.showLoadingOnButton(self)
         self.viewModel.forgotPassword().done { _ in
+            self.forgotPasswordButton.hideLoadingOnButton(self)
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint("show email verification + new password screen")
                 
@@ -67,6 +72,7 @@ class ForgotPasswordViewController: UIViewController {
                 AppNav.shared.pushToViewController(vc, from: self)
             }
         }.catch { err in
+            self.forgotPasswordButton.hideLoadingOnButton(self)
             AppConfig.shared.hideSpinner {
                 //self.showError(err, completion: nil)
                 self.validationAlertPopup(error: err)//Manish

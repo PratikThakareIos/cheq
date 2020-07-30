@@ -46,7 +46,6 @@ class VerificationPopupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        // Do any additional setup after loading the view.
     }
     
     private func setupUI(){
@@ -54,8 +53,7 @@ class VerificationPopupVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         vwContainer.addGestureRecognizer(tap)
         vwContainer.isUserInteractionEnabled = true
-        
-        
+                
         self.lblHeading.text = heading
         
         if attributedMessage.length > 0 {
@@ -74,20 +72,24 @@ class VerificationPopupVC: UIViewController {
         
         self.imgEmoji.image = emojiImage
         self.viewSecurityImage.isHidden = !isShowViewSecurityImage
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.sendButton.setTitle(buttonTitle, for: .normal)
         
+        self.sendButton.setTitle(buttonTitle, for: .normal)
         if buttonCloseTitle != "" {
             self.btnClose.setTitle(buttonCloseTitle, for: .normal)
         }else{
             self.btnClose.setTitle("Close", for: .normal)
         }
-        
-        
         self.sendButton.createShadowLayer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupUI()
         self.showPopup()
     }
     

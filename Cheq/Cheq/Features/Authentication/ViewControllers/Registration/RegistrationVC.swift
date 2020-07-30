@@ -15,6 +15,9 @@ import FBSDKCoreKit
 import PromiseKit
 import FRHyperLabel
 
+//self.registerButton.showLoadingOnButton(self)
+//self.registerButton.hideLoadingOnButton(self)
+
 class RegistrationVC: UIViewController {
     
     @IBOutlet weak var emailTextField: CNTextField!
@@ -40,7 +43,6 @@ class RegistrationVC: UIViewController {
         hideBackTitle()
         self.setupUI()
         
-
         // reset this variable when we are back on sign up / login screen
         AppData.shared.migratingToNewDevice = false
     }
@@ -51,8 +53,7 @@ class RegistrationVC: UIViewController {
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
     }
-    
-   
+       
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -166,8 +167,12 @@ extension RegistrationVC {
 
         LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
         
+        //self.registerButton.showLoadingOnButton(self)
+        //self.registerButton.hideLoadingOnButton(self)
 
-        AppConfig.shared.showSpinner()
+        //AppConfig.shared.showSpinner()
+        self.registerButton.showLoadingOnButton(self)
+        
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
             .then { authUser in
                 AuthConfig.shared.activeManager.setUser(authUser)
@@ -187,42 +192,14 @@ extension RegistrationVC {
             self.beginOnboarding()
 
         }.catch { [weak self] err in
-            AppConfig.shared.hideSpinner {
+            
+            //AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
+                self.registerButton.hideLoadingOnButton(self)
                 //self.showError(err, completion: nil)
                 self.validationAlertPopup(error: err, isPasswordField: false)
-            }
+            //}
         }
-        
-        
-//        AppConfig.shared.showSpinner()
-//        viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
-//             .then { authUser in
-//                 AuthConfig.shared.activeManager.setUser(authUser)
-//        }.then { authUser in
-//            CheqAPIManager.shared.requestEmailVerificationCode()
-//        }.done { _ in
-//             QuestionViewModel().clearAllSavedData()
-//
-//             let email = self.emailTextField.text ?? ""
-//             let password = self.passwordTextField.text ?? ""
-//
-//             UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
-//             UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
-//             UserDefaults.standard.synchronize()
-//
-//             self.beginOnboarding()
-//
-//         }.catch { [weak self] err in
-//             AppConfig.shared.hideSpinner {
-//                 guard let self = self else { return }
-//                 //self.showError(err, completion: nil)
-//                 self.validationAlertPopup(error: err, isPasswordField: false)
-//
-//
-//             }
-//         }
-        
     }
 }
 
@@ -231,6 +208,7 @@ extension RegistrationVC {
     
     func beginOnboarding() {
         AppData.shared.isOnboarding = true
+        self.registerButton.hideLoadingOnButton(self)
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
                 self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)

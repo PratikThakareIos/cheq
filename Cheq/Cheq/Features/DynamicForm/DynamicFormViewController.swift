@@ -51,7 +51,8 @@ class DynamicFormViewController: UIViewController {
         self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
        
         if AppData.shared.isOnboarding {
-            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+            //Manish
+            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
         
         if let res = resGetUserActionResponse {
@@ -66,9 +67,11 @@ class DynamicFormViewController: UIViewController {
         self.viewBank.isHidden = false
         self.lblBankName.text = institution.shortName ?? "N/A"
         self.imgVWBankLogo.image = UIImage.init(named: BankLogo.placeholder.rawValue)
-         if var view: UIView = self.imgVWBankLogo {
+        
+        if var view: UIView = self.imgVWBankLogo {
               ViewUtil.shared.circularMask(&view, radiusBy: .height)
-         }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
                 self.imgVWBankLogo.layer.cornerRadius =  self.imgVWBankLogo.frame.height/2
         })
@@ -645,7 +648,7 @@ class DynamicFormViewController: UIViewController {
         if canSelectBank {
             showNavBar()
             showBackButton()
-            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }else{
             self.hideNavBar()
             self.hideBackButton()

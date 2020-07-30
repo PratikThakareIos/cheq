@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import FRHyperLabel
 
-//import MobileSDK
+
 
 class LoginVC: UIViewController {
     
@@ -33,14 +33,12 @@ class LoginVC: UIViewController {
         hideBackButton()
         setupDelegate()
         setupUI()
-  
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupUI()
         activeTimestamp()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +49,6 @@ class LoginVC: UIViewController {
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
         
-        //Temp
-        //NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
-        //NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,8 +64,8 @@ class LoginVC: UIViewController {
         //prateek725@yopmail.com  "Rdm@12345" //
         //"dean+1005@cheq.com.au"  "1A@abc123" //bsb
 
-//        self.emailTextField.text =  "way@g.com" //"jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
-//        self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
+        //self.emailTextField.text =  "md121@g.com" //"jim@g.com"//"tomtum@cheq.test" //"um31@gmail.com"//"gkk@g.com" //"way@g.com" //
+        //self.passwordTextField.text =  "Tfc@12345" //"Umanga@123"
     }
     
 }
@@ -134,6 +129,7 @@ extension LoginVC {
         }.then { authUser in
             CheqAPIManager.shared.getUserDetails()
         }.done { authUser in
+            
             AppConfig.shared.hideSpinner {
                 guard authUser.email.isEmpty == false, let msUsername = authUser.msCredential[.msUsername], msUsername.isEmpty == false, let msPassword = authUser.msCredential[.msPassword], msPassword.isEmpty == false else {
                     self.beginOnboarding()
@@ -143,6 +139,7 @@ extension LoginVC {
             }
         }.catch { [weak self] err in
             guard let self = self else { return }
+        
             AppConfig.shared.hideSpinner {
                 switch err {
                 case CheqAPIManagerError.onboardingRequiredFromGetUserDetails:
@@ -174,7 +171,7 @@ extension LoginVC {
         self.emailTextField.setShadow()
         self.passwordTextField.setShadow()
         
-        self.loginButton.backgroundColor = AppConfig.shared.activeTheme.splashBgColor3
+        //self.loginButton.backgroundColor = AppConfig.shared.activeTheme.splashBgColor3
         // ColorUtil.hexStringToUIColor(hex: "#2cb4f6")
         //AppConfig.shared.activeTheme.splashBgColor3
         
@@ -225,20 +222,24 @@ extension LoginVC {
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
+        //Test your Crashlytics implementation
+        //fatalError()
+                
         if let error = self.validateInputs() {
-            
             if error == ValidationError.invalidEmailFormat{ //PRASHANT
                    validationAlertPopup(error: error, isPasswordField: false)
                } else {
                    validationAlertPopup(error: error, isPasswordField: true)
                }
-            
            // showError(error) { }
             return
         }
         
-        AppConfig.shared.showSpinner()
+        //AppConfig.shared.showSpinner()
         
+        self.loginButton.showLoadingOnButton(self)
+        
+       
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
                 
@@ -251,8 +252,7 @@ extension LoginVC {
             UserDefaults.standard.synchronize()
             
             AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
-            
-            AppConfig.shared.markUserLoggedIn()
+            //AppConfig.shared.markUserLoggedIn()
             self.addLog_callingGetUserActions()
             
             return CheqAPIManager.shared.getUserActions()
@@ -274,7 +274,10 @@ extension LoginVC {
             if there is no issue with the user (none of these states are active) then the user proceeds to the spending dashboard as normal.
             */
             
-            AppConfig.shared.hideSpinner {
+            
+            self.loginButton.hideLoadingOnButton(self)
+            //AppConfig.shared.hideSpinner {
+                
                 LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
                 LoggingUtil.shared.cPrint("\n>> userActionResponse = \(userActionResponse)")
 
@@ -291,21 +294,7 @@ extension LoginVC {
                         break
                     
                 case ._none:
-                     
-                        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
-                    
-                       //self.goto_MaintenanceVC()
-                       //self.goto_UpdateAppVC()
-                    
-//                      AppData.shared.completingDetailsForLending = true
-//                      AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
-                
-//                      AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
-                
-//                      AppData.shared.completingDetailsForLending = true
-//                      AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
-                                                
-                    
+
                         LoggingUtil.shared.cPrint("go to home screen")
                         // Load to dashboard
                         AppData.shared.isOnboarding = false
@@ -332,7 +321,9 @@ extension LoginVC {
                     
                 case .missingAccount:
                         LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")
-                        AppConfig.shared.showSpinner()
+                        
+                        //AppConfig.shared.showSpinner()
+                        self.loginButton.showLoadingOnButton(self)
                         
                         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
                             return CheqAPIManager.shared.putUser(authUser)
@@ -341,18 +332,20 @@ extension LoginVC {
                         }.then { authUser in
                             AuthConfig.shared.activeManager.setUser(authUser)
                         }.done { authUser in
-                            AppConfig.shared.hideSpinner {
+                            self.loginButton.hideLoadingOnButton(self)
+                            //AppConfig.shared.hideSpinner {
                                 AppData.shared.completingDetailsForLending = false
                                 AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                                 //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                            }
+                            //}
                         }.catch { err in
-                            AppConfig.shared.hideSpinner {
+                            self.loginButton.hideLoadingOnButton(self)
+                            //AppConfig.shared.hideSpinner {
                                  print(err)
                                  print(err.localizedDescription)
                                  self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                                 }
-                            }
+                            //}
                         }
                         break
                     
@@ -361,99 +354,27 @@ extension LoginVC {
 //                    LinkedInstitutionId is not null, auto-select the bank by LinkedInstitutionId
 //                    LinkedInstitutionId is null, ask users to select institution from bank list
 
-                       AppConfig.shared.hideSpinner {
+                       self.loginButton.hideLoadingOnButton(self)
+                       //AppConfig.shared.hideSpinner {
                             AppData.shared.completingDetailsForLending = false
                             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                             //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-                       }
+                       //}
                        break
                     
                 case .none:
                      LoggingUtil.shared.cPrint("err")
                 }
-            }
+            //}
             
         }.catch { err in
-            AppConfig.shared.hideSpinner {
+            self.loginButton.hideLoadingOnButton(self)
+            //AppConfig.shared.hideSpinner {
                 // handle err
                 self.handleLoginErr(err)
-            }
+            //}
         }
     }
-    
-    
-//    @IBAction func login(_ sender: Any) {
-//        self.view.endEditing(true)
-//
-//        if let error = self.validateInputs() {
-//            showError(error) { }
-//            return
-//        }
-//
-//        AppConfig.shared.showSpinner()
-//
-//        let email = emailTextField.text ?? ""
-//        let password = passwordTextField.text ?? ""
-//
-//        // whenever we successfully login, we post notification token
-//        viewModel.login(email, password: password).then { authUser->Promise<AuthenticationModel> in
-//            return MoneySoftManager.shared.login(authUser.msCredential)
-//        }.then { authModel->Promise<[FinancialAccountModel]> in
-//            return MoneySoftManager.shared.getAccounts()
-//        }.done { accounts in
-//            AppConfig.shared.hideSpinner {
-//
-//                guard accounts.isEmpty == false else {
-//                    AppData.shared.completingDetailsForLending = false
-//                    AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-//                    return
-//                }
-//                let financialAccounts: [FinancialAccountModel] = accounts
-//                if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
-//                    // when we have disabled linked acccount, we need to get user
-//                    // to dynamic form view and link their bank account
-//                    AppData.shared.existingProviderInstitutionId = disabledAccount.providerInstitutionId ?? ""
-//                    AppData.shared.existingFinancialInstitutionId = disabledAccount.financialInstitution?.financialInstitutionId ?? 0
-//                    AppData.shared.disabledAccount = disabledAccount
-//
-//                    MoneySoftManager.shared.getInstitutions().done { institutions in
-//                        AppData.shared.financialInstitutions = institutions
-//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-//                        guard let selected = AppData.shared.selectedFinancialInstitution else {
-//                            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
-//                            return
-//                        }
-//
-//                        AppData.shared.isOnboarding = false
-//                        AppData.shared.migratingToNewDevice = true
-//                        AppNav.shared.pushToDynamicForm(selected, viewController: self)
-//                    }.catch { err in
-//                        self.showError(err, completion: nil)
-//                        return
-//                    }
-//                } else {
-//                    AppData.shared.existingFinancialInstitutionId = financialAccounts.first?.financialInstitution?.financialInstitutionId ?? -1
-//                    MoneySoftManager.shared.getInstitutions().done { institutions in
-//                        AppData.shared.financialInstitutions = institutions
-//                        AppData.shared.selectedFinancialInstitution = institutions.first(where: { $0.financialInstitutionId == AppData.shared.existingFinancialInstitutionId })
-//                        // Load to dashboard
-//                        AppData.shared.isOnboarding = false
-//                        AppData.shared.migratingToNewDevice = false
-//                        AppData.shared.completingDetailsForLending = false
-//                        self.navigateToDashboard()
-//                    }.catch { err in
-//                        self.showError(err, completion: nil)
-//                        return
-//                    }
-//                }
-//            }
-//        }.catch { err in
-//            AppConfig.shared.hideSpinner {
-//                // handle err
-//                self.handleLoginErr(err)
-//            }
-//        }
-//    }
     
 
     @IBAction func togglePasswordField(_ sender: Any) {
@@ -563,7 +484,9 @@ extension LoginVC {
     func beginOnboarding() {
         self.view.endEditing(true)
         AppData.shared.isOnboarding = true
+        self.loginButton.hideLoadingOnButton(self)
         AppConfig.shared.hideSpinner {
+            
             guard let activeUser = AuthConfig.shared.activeUser else {
                 //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)                
                 self.validationAlertPopup(error: AuthManagerError.unableToRetrieveCurrentUser, isPasswordField: false)
@@ -636,7 +559,6 @@ extension LoginVC {
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
     }
-
 }
 
 
@@ -716,3 +638,23 @@ extension LoginVC : VerificationPopupVCDelegate {
         
     }
 }
+
+
+
+                     
+//AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                    
+//self.goto_MaintenanceVC()
+//self.goto_UpdateAppVC()
+                    
+//                      AppData.shared.completingDetailsForLending = true
+//                      AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
+                
+//                      AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
+                
+//                      AppData.shared.completingDetailsForLending = true
+//                      AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+                                                
+                    
+       //self.loginButton.showLoader(userInteraction: true)
+       //self.loginButton.hideLoader()

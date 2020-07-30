@@ -62,7 +62,8 @@ def shared_pods
   pod 'IQKeyboardManagerSwift'
   pod 'UITextView+Placeholder'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
-  pod 'lottie-ios'
+  #pod 'lottie-ios'
+  pod 'MHLoadingButton'
   
   
   # Firebase pods
