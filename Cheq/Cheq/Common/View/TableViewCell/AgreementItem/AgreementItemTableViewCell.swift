@@ -138,7 +138,7 @@ extension AgreementItemTableViewCell: WKNavigationDelegate, WKUIDelegate {
              if complete != nil {
                  webView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (height, error) in
                      // Here is your height
-                    print("scrollHeight height = \(String(describing: height))")
+                     LoggingUtil.shared.cPrint("scrollHeight height = \(String(describing: height))")
                     self.webViewHeight.constant = height as! CGFloat
                     self.setNeedsLayout()
                          /// send a notification for table view to reload

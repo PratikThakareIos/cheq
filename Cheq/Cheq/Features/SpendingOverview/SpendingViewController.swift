@@ -21,33 +21,27 @@ class SpendingViewController: CTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = SpendingViewModel()
-        self.setupUI()
         setupDelegate()
+        showNavBar()
+        registerObservables()
+        self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          self.addNotificationsForRemoteConfig()
          RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
-         self.showNavBar()
-         self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
         registerObservables()
-        
         self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
-        
-        //Temp
-        //NotificationUtil.shared.notify(UINotificationEvent.showUpdateAppVC.rawValue, key: "", value: "")
-        //NotificationUtil.shared.notify(UINotificationEvent.showMaintenanceVC.rawValue, key: "", value: "")
-        
-        
         if let vm = self.viewModel as? SpendingViewModel, vm.sections.count == 0 {
             NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
         }
+        
     }
     override func viewDidLayoutSubviews() {
         self.setLeftAlignedNavigationItemTitle(text: ScreenName.spending.rawValue, color: AppConfig.shared.activeTheme.textColor, margin: 30)
@@ -101,7 +95,7 @@ extension SpendingViewController {
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
-        
+        LoggingUtil.shared.cPrint("spendingOverview called")
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
              AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
@@ -109,7 +103,7 @@ extension SpendingViewController {
             CheqAPIManager.shared.spendingOverview()
         }.done{ overview in
                 AppConfig.shared.hideSpinner {
-                    print("spending view controller = \(overview)")
+                     LoggingUtil.shared.cPrint("spending view controller = \(overview)")
                     self.renderSpending(overview)
                 }
             }.catch { err in
@@ -117,20 +111,6 @@ extension SpendingViewController {
                     self.showError(err) { }
             }
         }
-        
-        
-//        CheqAPIManager.shared.spendingOverview()
-//            .done{ overview in
-//                AppConfig.shared.hideSpinner {
-//                    print("spending view controller = \(overview)")
-//                    self.renderSpending(overview)
-//                }
-//            }.catch { err in
-//                AppConfig.shared.hideSpinner {
-//                    self.showError(err) { }
-//            }
-//        }
-        
     }
     
     @objc func viewAll(_ notification: NSNotification) {

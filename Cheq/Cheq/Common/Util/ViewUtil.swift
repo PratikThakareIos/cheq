@@ -136,6 +136,5 @@ class ViewUtil {
         
         return footerView
     }
-    
 }
 

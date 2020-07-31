@@ -17,7 +17,7 @@ class TermsAndConditionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.webView.loadHTMLString(url ?? "", baseURL: nil)
-        print(webView.scrollView.contentSize.height)
+         LoggingUtil.shared.cPrint(webView.scrollView.contentSize.height)
         let scrollPoint = CGPoint(x: 0, y:7000)
         webView.scrollView.setContentOffset(scrollPoint, animated: true)
     }
@@ -29,7 +29,7 @@ class TermsAndConditionsViewController: UIViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == webView {
-            print("Scrolled")
+             LoggingUtil.shared.cPrint("Scrolled")
         }
     }
 }

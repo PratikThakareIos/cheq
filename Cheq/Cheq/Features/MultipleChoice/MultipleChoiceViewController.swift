@@ -131,18 +131,18 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     private func getTransactionData() {
-        print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+         LoggingUtil.shared.cPrint("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
         if AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done { paycyles in
                     AppConfig.shared.hideSpinner {
-                        print("Transaction success")
+                         LoggingUtil.shared.cPrint("Transaction success")
                     }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err) {
-                        print("error")
+                         LoggingUtil.shared.cPrint("error")
                     }
                 }
             }
@@ -194,7 +194,7 @@ class MultipleChoiceViewController: UIViewController {
     }
     
     @IBAction func btnRequestBankAction(_ sender: Any) {
-        print("btnRequestBankAction clicked")
+         LoggingUtil.shared.cPrint("btnRequestBankAction clicked")
         self.gotoRequestForBankVC()
     }
     
@@ -250,12 +250,12 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             
         case .workingLocation:
             
-            print("Location clicked")
+             LoggingUtil.shared.cPrint("Location clicked")
             if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }else{
                 if isIncomeDetected() == false {
-                    print("Upload time sheet anything other than fix location")
+                     LoggingUtil.shared.cPrint("Upload time sheet anything other than fix location")
                     incomeVerification()
                 }
             }
@@ -386,7 +386,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             return
         }        
         
-        print("Next");
+         LoggingUtil.shared.cPrint("Next");
         switch self.viewModel.coordinator.coordinatorType {
             
         case .kycSelectDoc:
@@ -415,12 +415,12 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             
         case .workingLocation:
             
-            print("Location clicked")
+             LoggingUtil.shared.cPrint("Location clicked")
             if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }else{
                 if isIncomeDetected() == false {
-                    print("Upload time sheet anything other than fix location")
+                     LoggingUtil.shared.cPrint("Upload time sheet anything other than fix location")
                     incomeVerification()
                 }
             }
@@ -439,7 +439,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             qVm.loadSaved()
             
             let req = DataHelperUtil.shared.putUserEmployerRequest()
-            print("putUserEmployerRequest = \(req)")
+             LoggingUtil.shared.cPrint("putUserEmployerRequest = \(req)")
             
             AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
    
@@ -627,8 +627,8 @@ extension MultipleChoiceViewController {
     }
     
     func incomeVerification(){
-        //        print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-        //        print(AppData.shared.employeePaycycle?.count)
+        //         LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+        //         LoggingUtil.shared.cPrint(AppData.shared.employeePaycycle?.count)
         //        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
         //            showTransactions()
         //        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
@@ -644,7 +644,7 @@ extension MultipleChoiceViewController {
                
         let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
         
-        print("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
+         LoggingUtil.shared.cPrint("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
 
         if !hasPayCycle && AppData.shared.employeePaycycle.count > 0 {
             showTransactions()
@@ -665,7 +665,7 @@ extension MultipleChoiceViewController {
 extension MultipleChoiceViewController {
     
     func isIncomeDetected() -> Bool {
-        print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
+         LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle ?? false
     }
     
@@ -747,8 +747,8 @@ extension MultipleChoiceViewController {
                     self.getUsersBankConnectionStatus()
                 }.catch { err in
                     AppConfig.shared.hideSpinner {
-                        print(err)
-                        print(err.localizedDescription)
+                         LoggingUtil.shared.cPrint(err)
+                         LoggingUtil.shared.cPrint(err.localizedDescription)
                         self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                         }
                     }
@@ -773,7 +773,7 @@ extension MultipleChoiceViewController {
         }.catch { err in
             AppConfig.shared.hideSpinner {
                 // handle err
-                print(err.localizedDescription)
+                 LoggingUtil.shared.cPrint(err.localizedDescription)
                 self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                 }
             }

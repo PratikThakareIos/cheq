@@ -25,6 +25,7 @@ class UserActionRequiredVC: UIViewController {
     @IBOutlet weak var lblInfo1: UILabel!
     @IBOutlet weak var lblInfo2: UILabel!
     @IBOutlet weak var lblInfo3: UILabel!
+    @IBOutlet weak var lblInfo4: UILabel!
     
     var getUserActionResponse: GetUserActionResponse?
     
@@ -94,17 +95,19 @@ class UserActionRequiredVC: UIViewController {
                        
         }
         
-        if let arrActionRequiredGuidelines = res.actionRequiredGuidelines, arrActionRequiredGuidelines.count > 2 {
+        if let arrActionRequiredGuidelines = res.actionRequiredGuidelines, arrActionRequiredGuidelines.count > 3 {
            
             lblInfo1.text = arrActionRequiredGuidelines[0]
             lblInfo2.text = arrActionRequiredGuidelines[1]
             lblInfo3.text = arrActionRequiredGuidelines[2]
+            lblInfo4.text = arrActionRequiredGuidelines[4]
         
         }else{
             
             lblInfo1.text = ""
             lblInfo2.text = ""
             lblInfo3.text = ""
+            lblInfo4.text = ""
             
         }
 
@@ -140,7 +143,7 @@ class UserActionRequiredVC: UIViewController {
     //        * then calling job status.
             
             
-            print("refreshTokenAndReconnectToBankLinking called")
+             LoggingUtil.shared.cPrint("refreshTokenAndReconnectToBankLinking called")
 
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getJobIdAfterRefreshConnection().done { getRefreshConnectionResponse in

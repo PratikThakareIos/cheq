@@ -9,6 +9,7 @@
 import UIKit 
 import UserNotifications
 import Firebase
+import FirebaseCore
 import FirebaseMessaging
 import FirebaseCrashlytics
 import FBSDKLoginKit
@@ -121,12 +122,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
 //        //Manish
 //        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
+        
+        
+        self.setupInitialViewController()
               
-        #if DEMO
-            self.setupSpendingViewController()
-        #else
-           self.setupInitialViewController()
-        #endif
+//        #if DEMO
+//            self.setupSpendingViewController()
+//        #else
+//           self.setupInitialViewController()
+//        #endif
         
 //        self.setupIntroDevController()
 //        self.setupInitDevController()

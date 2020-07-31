@@ -156,7 +156,7 @@ extension CTableViewController {
             
             let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
             if indexPath.row + 1 == section.rows.count {
-                print("do something")
+                 LoggingUtil.shared.cPrint("do something")
                 NotificationUtil.shared.notify(UINotificationEvent.scrolledToButtom.rawValue, key: "", value: "")
             }
         }

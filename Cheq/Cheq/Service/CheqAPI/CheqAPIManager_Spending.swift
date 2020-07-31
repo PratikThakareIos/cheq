@@ -103,7 +103,6 @@ extension CheqAPIManager {
                         resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview)
                         return
                     }
-
                     resolver.fulfill(response)
                 })
             }.catch { err in
@@ -134,7 +133,6 @@ extension CheqAPIManager {
                     guard let response = spendingOverviewResponse?.body else {
                         resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview); return
                     }
-
                     resolver.fulfill(response)
                 })
             }.catch { err in

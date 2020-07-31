@@ -40,7 +40,7 @@ final class AutoSizeShadowButton: LoadingButton {
         self.titleLabel?.textColor = AppConfig.shared.activeTheme.altTextColor
         self.titleLabel?.font = AppConfig.shared.activeTheme.headerMediumFont
         
-        print("self.frame.height/2 = \(self.frame.height/2)")
+         LoggingUtil.shared.cPrint("self.frame.height/2 = \(self.frame.height/2)")
         
         self.cornerRadius = self.frame.height/2
         

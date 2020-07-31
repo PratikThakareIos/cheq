@@ -116,16 +116,17 @@ extension CheqAPIManager {
     
     
     func updateDirectDebitBankAccount()->Promise<AuthUser> {
+       
         return Promise<AuthUser>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 let qvm = QuestionViewModel()
                 qvm.loadSaved()
                 let account = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname))"
-                print(account)
+                 LoggingUtil.shared.cPrint(account)
                 let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
                 let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
-                print(putBankAccountRequest)
+                 LoggingUtil.shared.cPrint(putBankAccountRequest)
                 LendingAPI.putBankAccountWithRequestBuilder(request: putBankAccountRequest).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                   
                     LoggingUtil.shared.cPrint(response)
@@ -160,7 +161,7 @@ extension CheqAPIManager {
 //                let qvm = QuestionViewModel()
 //                qvm.loadSaved()
 //                let account = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname))"
-//                print(account)
+//                 LoggingUtil.shared.cPrint(account)
 //                let isJoint = Bool(qvm.fieldValue(.bankIsJoint))
 //                let putBankAccountRequest = PutBankAccountRequest(accountName:account, bsb: qvm.fieldValue(.bankBSB), accountNumber: qvm.fieldValue(.bankAccNo), isJointAccount: isJoint)
 //                LoggingUtil.shared.cPrint(putBankAccountRequest)
@@ -263,7 +264,6 @@ extension CheqAPIManager {
                 LoggingUtil.shared.cPrint(err)
                 resolver.reject(CheqAPIManagerError_Lending.unableToGetTimeSheets)
             }
-            
         }
     }
     
@@ -308,10 +308,6 @@ extension CheqAPIManager {
                    }
             }
     }
-    
-
-    
-    
     
 }
 

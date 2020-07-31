@@ -44,7 +44,7 @@ class PayCycleViewController: UIViewController {
 extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("choises.allCases.count = \(choises.allCases.count)")
+         LoggingUtil.shared.cPrint("choises.allCases.count = \(choises.allCases.count)")
         return choises.allCases.count
     }
     
@@ -85,20 +85,20 @@ extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
 
        let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs:  SalaryPaymentViewController.selectedTansactionList, payFrequency: selectedRow, noSalary:false, isInAnotherBank: false)
         
-        print("putBankAccountRequest = \(putBankAccountRequest)")
+         LoggingUtil.shared.cPrint("putBankAccountRequest = \(putBankAccountRequest)")
         
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.postSalaryTransactions(req : putBankAccountRequest)
        .done{ success in
                 AppConfig.shared.hideSpinner {
-                   print(success)
+                    LoggingUtil.shared.cPrint(success)
                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                    AppNav.shared.dismissModal(self)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err) {
-                      print("error")
+                       LoggingUtil.shared.cPrint("error")
                     }
                 }
             }

@@ -131,7 +131,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
     
     //tap guesture for teh whole view
     @objc func clickView(_ sender: UIView) {
-        print("You clicked on view")
+         LoggingUtil.shared.cPrint("You clicked on view")
         guard let vm = self.viewModel as? CompleteDetailsTableViewCellViewModel else { return }
            if vm.completionState == .pending {
                /// In fact, this is triggering a **UINotificationEvent.completeDetails** event that tells the observing viewController to update the tableview to render this cell

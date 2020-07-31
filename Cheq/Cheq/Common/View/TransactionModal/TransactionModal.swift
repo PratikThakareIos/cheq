@@ -67,6 +67,7 @@ class TransactionModal: UIView {
      SetupUI should be called again once the **viewModel** is populated with the desired values. So **TransactionModal** renders the updated values
      */
     func setupUI() {
+        
         LoggingUtil.shared.cPrint("TransactionModal setupUI")
         
         /// make **categoryIcon** round with **ViewUtil**

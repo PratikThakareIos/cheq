@@ -194,6 +194,8 @@ class CheqAPIManager {
                     let token = authUser.authToken() ?? ""
                     UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
                         
+                        LoggingUtil.shared.cPrint(err)
+                        
                         // http code 400 indicates bad req, we will indicate user needs to do onboarding again
                         if response?.statusCode == 400 {
                             resolver.reject(CheqAPIManagerError.onboardingRequiredFromGetUserDetails)

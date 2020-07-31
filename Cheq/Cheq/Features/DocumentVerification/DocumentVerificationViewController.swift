@@ -114,7 +114,6 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
 }
 
 
-
 extension DocumentVerificationViewController {
         /**
          Helper method to initiate KYC flow using the onfido SDK

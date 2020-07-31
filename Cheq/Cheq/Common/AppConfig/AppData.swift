@@ -387,14 +387,14 @@ class AppData {
         // Setting External User Id with Callback Available in SDK Version 2.13.1+
         OneSignal.setExternalUserId(externalUserId, withCompletion: { results in
           // The results will contain push and email success statuses
-          print("External user id update complete with results: ", results!.description)
+           LoggingUtil.shared.cPrint("External user id update complete with results: ", results!.description)
           // Push can be expected in almost every situation with a success status, but
           // as a pre-caution its good to verify it exists
           if let pushResults = results!["push"] {
-            print("Set external user id push status: ", pushResults)
+             LoggingUtil.shared.cPrint("Set external user id push status: ", pushResults)
           }
           if let emailResults = results!["email"] {
-              print("Set external user id email status: ", emailResults)
+               LoggingUtil.shared.cPrint("Set external user id email status: ", emailResults)
           }
         })
 
@@ -407,15 +407,15 @@ class AppData {
         // Removing External User Id with Callback Available in SDK Version 2.13.1+
         OneSignal.removeExternalUserId({ results in
             // The results will contain push and email success statuses
-            print("External user id update complete with results: ", results!.description)
+             LoggingUtil.shared.cPrint("External user id update complete with results: ", results!.description)
             // Push can be expected in almost every situation with a success status, but
             // as a pre-caution its good to verify it exists
             if let pushResults = results!["push"] {
-                print("Remove external user id push status: ", pushResults)
+                 LoggingUtil.shared.cPrint("Remove external user id push status: ", pushResults)
             }
             // Verify the email is set or check that the results have an email success status
             if let emailResults = results!["email"] {
-                print("Remove external user id email status: ", emailResults)
+                 LoggingUtil.shared.cPrint("Remove external user id email status: ", emailResults)
             }
         })
 

@@ -94,7 +94,7 @@ class SalaryPaymentViewController: UIViewController {
                 }.catch { err in
                     AppConfig.shared.hideSpinner {
                         self.showError(err) {
-                          print("error")
+                           LoggingUtil.shared.cPrint("error")
                         }
                     }
                 }
@@ -152,7 +152,7 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
             for (index, element) in self.sateOfNewTansactionArray.enumerated() {
                    if element{
                       SalaryPaymentViewController.selectedTansactionList.append(tansactionDetailsArray[index].transactionId ?? 0)
-                      print("selectedSongList :",SalaryPaymentViewController.selectedTansactionList)
+                       LoggingUtil.shared.cPrint("selectedSongList :",SalaryPaymentViewController.selectedTansactionList)
                    }
             }
             tableView.reloadData()
@@ -192,7 +192,7 @@ extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
     }
     
     func tappedOnBtnFirst(popUpType: PopUpType) {
-        print("tappedOnBtnFirst")
+         LoggingUtil.shared.cPrint("tappedOnBtnFirst")
         if (popUpType == .salaryTransactionNotAvailable){
             //"It's not showing my salary"
             SalaryPaymentViewController.selectedSalaryOption[0] = true
@@ -208,7 +208,7 @@ extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
     }
     
     func tappedOnBtnSecond(popUpType: PopUpType) {
-        print("tappedOnBtnSecond")
+         LoggingUtil.shared.cPrint("tappedOnBtnSecond")
         if (popUpType == .salaryTransactionNotAvailable){
             //"My salary is in another bank"
             SalaryPaymentViewController.selectedSalaryOption[0] = false
@@ -224,7 +224,7 @@ extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
     }
     
     func tappedOnCloseButton(popUpType: PopUpType) {
-        print("tappedOnCloseButton")
+         LoggingUtil.shared.cPrint("tappedOnCloseButton")
         if (popUpType == .salaryTransactionNotAvailable){
             SalaryPaymentViewController.selectedSalaryOption[0] = false
             SalaryPaymentViewController.selectedSalaryOption[1] = false
@@ -237,20 +237,20 @@ extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
         
 //       let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs:  SalaryPaymentViewController.selectedTansactionList, payFrequency: selectedRow, noSalary: SalaryPaymentViewController.selectedSalaryOption[0], isInAnotherBank: SalaryPaymentViewController.selectedSalaryOption[1])
         
-        print("putBankAccountRequest = \(putBankAccountRequest)")
+         LoggingUtil.shared.cPrint("putBankAccountRequest = \(putBankAccountRequest)")
         
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.postSalaryTransactions(req : putBankAccountRequest)
        .done{ success in
                 AppConfig.shared.hideSpinner {
-                   print(success)
+                    LoggingUtil.shared.cPrint(success)
                     NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                    AppNav.shared.dismissModal(self)
                 }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err) {
-                      print("error")
+                       LoggingUtil.shared.cPrint("error")
                     }
                 }
             }

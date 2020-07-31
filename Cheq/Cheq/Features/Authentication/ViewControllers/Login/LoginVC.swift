@@ -252,7 +252,7 @@ extension LoginVC {
             UserDefaults.standard.synchronize()
             
             AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
-            //AppConfig.shared.markUserLoggedIn()
+            AppConfig.shared.markUserLoggedIn()
             self.addLog_callingGetUserActions()
             
             return CheqAPIManager.shared.getUserActions()
@@ -341,8 +341,8 @@ extension LoginVC {
                         }.catch { err in
                             self.loginButton.hideLoadingOnButton(self)
                             //AppConfig.shared.hideSpinner {
-                                 print(err)
-                                 print(err.localizedDescription)
+                                  LoggingUtil.shared.cPrint(err)
+                                  LoggingUtil.shared.cPrint(err.localizedDescription)
                                  self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                                 }
                             //}
@@ -400,7 +400,7 @@ extension LoginVC {
             guard let strSubstring = substring else {
                 return
             }
-            print("substring =\(strSubstring)")
+             LoggingUtil.shared.cPrint("substring =\(strSubstring)")
             self.didSelectLinkWithNameOnLogin(strSubstring: strSubstring)
         }
         

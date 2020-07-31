@@ -57,7 +57,7 @@ class IntroductionViewController: UIViewController {
         self.secondaryButton.createShadowLayer()
         self.refreshButton.createShadowLayer()
         
-        print(self.viewModel.coordinator.type)
+         LoggingUtil.shared.cPrint(self.viewModel.coordinator.type)
         let declineReasons = IntroductionViewModel.declineReasons()
         if declineReasons.contains(self.viewModel.coordinator.type) {
             self.refreshButton.isHidden = false

@@ -52,7 +52,7 @@ class DynamicFormViewController: UIViewController {
        
         if AppData.shared.isOnboarding {
             //Manish
-            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }
         
         if let res = resGetUserActionResponse {
@@ -648,7 +648,7 @@ class DynamicFormViewController: UIViewController {
         if canSelectBank {
             showNavBar()
             showBackButton()
-            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
         }else{
             self.hideNavBar()
             self.hideBackButton()

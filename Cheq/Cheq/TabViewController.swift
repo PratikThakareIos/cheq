@@ -28,14 +28,13 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
               self.checkUserActions()
               //self.setbackGroundImage()
         })
-
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//       DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
-//              self.setbackGroundImage()
-//        })
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+////       DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+////              self.setbackGroundImage()
+////        })
+//    }
     
 //    func setbackGroundImage() {
 //

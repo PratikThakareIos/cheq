@@ -391,7 +391,7 @@ extension AppNav {
      - parameter viewController: source viewController of the current navigation action
      */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
-        print(multipleChoiceType)
+         LoggingUtil.shared.cPrint(multipleChoiceType)
         
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
@@ -409,7 +409,7 @@ extension AppNav {
         
         if multipleChoiceType == .workingLocation {
             vc.showNextButton = true
-            print(vc.showNextButton)
+             LoggingUtil.shared.cPrint(vc.showNextButton)
             guard let nav = viewController.navigationController else { return }
             vc.modalPresentationStyle = .fullScreen
             nav.pushViewController(vc, animated: true)

@@ -152,7 +152,7 @@ extension LendingViewModel {
         let hasPayCycle = eligibleRequirement.hasPayCycle ?? false
         let isReviewingPayCycle = eligibleRequirement.isReviewingPayCycle ?? false
         
-        print(lendingOverview)
+         LoggingUtil.shared.cPrint(lendingOverview)
        
         //Check all status
         if hasEmploymentDetail == true, hasBankDetails == true, kycCompleted {
@@ -198,7 +198,7 @@ extension LendingViewModel {
 
 //          /// **Step-> 2** Verify that you have worked*
 //        if hasEmploymentDetail {
-//            print(eligibleRequirement.userAction)
+//             LoggingUtil.shared.cPrint(eligibleRequirement.userAction)
 //            let verifyYouHaveWorkedDetails = CompleteDetailsTableViewCellViewModel()
 //            verifyYouHaveWorkedDetails.type = .workVerify
 //            verifyYouHaveWorkedDetails.userAction = (eligibleRequirement.userAction?.action) ?? UserAction.Action.turnOnLocation

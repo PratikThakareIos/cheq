@@ -89,15 +89,15 @@ class WebViewController: UIViewController {
 extension WebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("webView didStartProvisionalNavigation")
+         LoggingUtil.shared.cPrint("webView didStartProvisionalNavigation")
         AppConfig.shared.showSpinner()
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("webView didFinish navigation")
+         LoggingUtil.shared.cPrint("webView didFinish navigation")
         AppConfig.shared.hideSpinner()
     }    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("webView didFail navigation")
+         LoggingUtil.shared.cPrint("webView didFail navigation")
         AppConfig.shared.hideSpinner()
     }
 }

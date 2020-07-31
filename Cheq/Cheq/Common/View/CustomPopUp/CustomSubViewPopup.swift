@@ -31,7 +31,7 @@ class CustomSubViewPopup: UIView {
         self.label.text = viewModel.data.description
         self.popupHeight.constant = viewModel.data.modalheight ?? 502.0
         self.headerLabel.text =  viewModel.data.headerTitle
-        if viewModel.data.imageName != ""{
+        if viewModel.data.imageName != "" {
             self.popupImageView.image = UIImage(named: viewModel.data.imageName!)
         }
     }

@@ -82,12 +82,12 @@ class DeclineDetailTableViewCell: CTableViewCell {
 extension DeclineDetailTableViewCell {
     
     @IBAction func btnFirstAction(_ sender: Any) {
-        print("btnFirstAction")
+         LoggingUtil.shared.cPrint("btnFirstAction")
         confirmButtonAction()
     }
     
     @IBAction func btnSecondAction(_ sender: Any) {
-        print("btnSecondAction")
+         LoggingUtil.shared.cPrint("btnSecondAction")
         secondaryButtonAction()
     }
 }

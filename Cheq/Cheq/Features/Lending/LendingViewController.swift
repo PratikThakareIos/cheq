@@ -124,9 +124,9 @@ extension LendingViewController {
           AppConfig.shared.showSpinner()
           CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
               .done { paycyles in
-                  print("paycyles = \(paycyles)")
+                   LoggingUtil.shared.cPrint("paycyles = \(paycyles)")
                   AppConfig.shared.hideSpinner {
-                      print("Transaction success")
+                       LoggingUtil.shared.cPrint("Transaction success")
                       if AppData.shared.employeePaycycle.count == 0 {
                         //show popup
                         self.showNoIncomeDetectedPopUp()
@@ -139,7 +139,7 @@ extension LendingViewController {
           }.catch { err in
               AppConfig.shared.hideSpinner {
                   self.showError(err) {
-                      print("error")
+                       LoggingUtil.shared.cPrint("error")
                   }
               }
           }
@@ -187,7 +187,7 @@ extension LendingViewController {
         
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
-            print("verify work details")
+             LoggingUtil.shared.cPrint("verify work details")
             //Needs to pass the screen
         }
     }
@@ -269,7 +269,7 @@ extension LendingViewController {
             CheqAPIManager.shared.lendingOverview()
         }.done{ overview in
                 AppConfig.shared.hideSpinner {
-                    //print("\n\nLending view controller = \(overview)")
+                    // LoggingUtil.shared.cPrint("\n\nLending view controller = \(overview)")
                     self.renderLending(overview)
                     
                     if (self.isShowCashoutSuccessPopup){
@@ -289,20 +289,20 @@ extension LendingViewController {
   
     private func getTransactionData() {
         
-        print("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
+         LoggingUtil.shared.cPrint("\nAppData.shared.employeePaycycle = \(AppData.shared.employeePaycycle)")
         if AppData.shared.employeePaycycle.count == 0 {
             //AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done { paycyles in
-                    print("paycyles = \(paycyles)")
+                     LoggingUtil.shared.cPrint("paycyles = \(paycyles)")
                    // AppConfig.shared.hideSpinner {
-                        print("Transaction success")
+                         LoggingUtil.shared.cPrint("Transaction success")
                    // }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    print("err")
+                     LoggingUtil.shared.cPrint("err")
 //                    self.showError(err) {
-//                        print("error")
+//                         LoggingUtil.shared.cPrint("error")
 //                    }
                 }
             }
@@ -471,7 +471,7 @@ extension LendingViewController: CashOutActivityPopUpDelegate{
    
     func tappedOnTermConditionButton() {
         if let selectedloanActivity = self.selectedloanActivity {
-            print("tappedOnTermConditionButton")
+             LoggingUtil.shared.cPrint("tappedOnTermConditionButton")
             if let msg = selectedloanActivity.loanAgreement {
                // NotificationUtil.shared.notify(UINotificationEvent.openLink.rawValue, key: NotificationUserInfoKey.link.rawValue, value: msg)
                                

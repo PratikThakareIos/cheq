@@ -117,17 +117,17 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done{ paycyles in
                     AppConfig.shared.hideSpinner {
-                        print("Transaction success")
+                         LoggingUtil.shared.cPrint("Transaction success")
                     }
             }.catch { err in
                 AppConfig.shared.hideSpinner {
                     self.showError(err) {
-                        print("error")
+                         LoggingUtil.shared.cPrint("error")
                     }
                 }
             }
         }else {
-            print(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
+             LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
         }
     }
     
@@ -422,8 +422,8 @@ class QuestionViewController: UIViewController {
             }.catch { err in
                 self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
-                    print(err)
-                    print(err.localizedDescription)
+                     LoggingUtil.shared.cPrint(err)
+                     LoggingUtil.shared.cPrint(err.localizedDescription)
                     self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                     }
                 }
@@ -450,7 +450,7 @@ class QuestionViewController: UIViewController {
                 //AppConfig.shared.showSpinner()
                 self.nextButton.showLoadingOnButton(self)
                 
-                print(req.address)
+                 LoggingUtil.shared.cPrint(req.address)
                 CheqAPIManager.shared.putUserEmployer(req).done { authUser in
                     
                     self.nextButton.hideLoadingOnButton(self)
@@ -461,15 +461,15 @@ class QuestionViewController: UIViewController {
                     
                     self.nextButton.hideLoadingOnButton(self)
                     AppConfig.shared.hideSpinner {
-                        print(err.code())
-                        print(err.localizedDescription)
+                         LoggingUtil.shared.cPrint(err.code())
+                         LoggingUtil.shared.cPrint(err.localizedDescription)
                         self.showError(err) { }
                     }
                 }
                 
                 //Other option selcted
                 if (isIncomeDetected()){
-                    print("Update time sheet")
+                     LoggingUtil.shared.cPrint("Update time sheet")
                 }
                 
             } else {
@@ -501,7 +501,7 @@ class QuestionViewController: UIViewController {
             let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
             saveEmployerAddress(employerAddress)
             let req = DataHelperUtil.shared.putUserEmployerRequest()
-            print(req.workingLocation)
+             LoggingUtil.shared.cPrint(req.workingLocation)
             
             //Company addresss from a fix location
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
@@ -521,8 +521,8 @@ class QuestionViewController: UIViewController {
                 
                 self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
-                    print(err.code())
-                    print(err.localizedDescription)
+                     LoggingUtil.shared.cPrint(err.code())
+                     LoggingUtil.shared.cPrint(err.localizedDescription)
                     self.showError(err, completion: nil)
                 }
             }
@@ -561,7 +561,7 @@ class QuestionViewController: UIViewController {
                 
                 self.nextButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
-                    print(err)
+                     LoggingUtil.shared.cPrint(err)
                   
                     //self.populatePopup_BankDetailsAlreadyInUse()
                     self.populatePopup_InvalidBSB()
@@ -639,7 +639,7 @@ class QuestionViewController: UIViewController {
         
         let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
         
-        print("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
+         LoggingUtil.shared.cPrint("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )
 
         if !hasPayCycle && AppData.shared.employeePaycycle.count > 0 {
             showTransactions()
@@ -1141,7 +1141,7 @@ extension QuestionViewController{
 
 extension QuestionViewController {
     func isIncomeDetected() -> Bool {
-        print(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
+         LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return false
     }
 }

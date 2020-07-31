@@ -268,7 +268,7 @@ extension RegistrationVC {
             guard let strSubstring = substring else {
                 return
             }
-            print("substring =\(strSubstring)")
+             LoggingUtil.shared.cPrint("substring =\(strSubstring)")
             self.didSelectLinkWithName(strSubstring: strSubstring)
         }        
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)

@@ -252,7 +252,7 @@ class LinkAccountsCoordinator: DynamicFormViewModelCoordinator {
                             //resolver.reject(ActivityError.malformed("not a dictionary"))
                             return
                         }
-                        print(dictionary)
+                         LoggingUtil.shared.cPrint(dictionary)
                         resolver.fulfill(dictionary)
                     case .failure(let error):
                         resolver.reject(error)

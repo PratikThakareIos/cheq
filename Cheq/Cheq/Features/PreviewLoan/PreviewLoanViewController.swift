@@ -144,7 +144,7 @@ extension PreviewLoanViewController {
             AppData.shared.loanFee = loanPreview.fee ?? 0.0
             AppConfig.shared.hideSpinner {
                 
-                print("\n\n>>loanPreview = \(loanPreview)")
+                 LoggingUtil.shared.cPrint("\n\n>>loanPreview = \(loanPreview)")
                 
                 self.viewModel.sections.removeAll()
                 var section = TableSectionViewModel()

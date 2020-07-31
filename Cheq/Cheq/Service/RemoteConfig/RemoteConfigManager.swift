@@ -44,7 +44,7 @@ class RemoteConfigManager {
         return Promise<Void>() { resolver in
             self.remoteConfig.fetchAndActivate(completionHandler: { (status, err) in
                 if let error = err {
-                    print("Uh-oh. Got an error fetching remote values \(error)")
+                     LoggingUtil.shared.cPrint("Uh-oh. Got an error fetching remote values \(error)")
                     LoggingUtil.shared.cPrint(error)
                     resolver.reject(RemoteConfigError.unableToFetchAndActivateRemoteConfig)
                     return
@@ -64,7 +64,7 @@ class RemoteConfigManager {
         return Promise<RemoteBankList>() { resolver in
             self.fetchAndActivate().done { _ in
                 let banks = self.remoteConfig.configValue(forKey: RemoteConfigParameters.financialInstitutions.rawValue)
-                print("Banks:",banks)
+                 LoggingUtil.shared.cPrint("Banks:",banks)
                 let decoder = JSONDecoder()
                 do {
                     let remoteBanks = try decoder.decode([RemoteBank].self, from: banks.dataValue)
@@ -74,7 +74,7 @@ class RemoteConfigManager {
                     resolver.fulfill(remoteBankList)
                 }
                 catch let error {
-                    print("Error occured in",error)
+                     LoggingUtil.shared.cPrint("Error occured in",error)
                     resolver.reject(error)
                 }
             }.catch { err in

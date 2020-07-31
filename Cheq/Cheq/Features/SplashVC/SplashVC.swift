@@ -169,8 +169,8 @@ extension SplashVC {
                         }
                     }.catch { err in
                         AppConfig.shared.hideSpinner {
-                                print(err)
-                                print(err.localizedDescription)
+                                 LoggingUtil.shared.cPrint(err)
+                                 LoggingUtil.shared.cPrint(err.localizedDescription)
                                 self.showError(CheqAPIManagerError.errorHasOccurredOnServer) {
                                 
                              }

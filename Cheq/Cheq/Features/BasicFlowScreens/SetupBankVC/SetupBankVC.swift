@@ -23,6 +23,8 @@ class SetupBankVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideNavBar()
+        hideBackButton()
         setupUI()
     }
     
