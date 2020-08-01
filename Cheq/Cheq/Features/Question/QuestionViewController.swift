@@ -120,10 +120,11 @@ class QuestionViewController: UIViewController {
                          LoggingUtil.shared.cPrint("Transaction success")
                     }
             }.catch { err in
+                LoggingUtil.shared.cPrint(err)
                 AppConfig.shared.hideSpinner {
-                    self.showError(err) {
-                         LoggingUtil.shared.cPrint("error")
-                    }
+//                    self.showError(err) {
+//                         LoggingUtil.shared.cPrint("error")
+//                    }
                 }
             }
         }else {
@@ -242,7 +243,6 @@ class QuestionViewController: UIViewController {
         self.textField2.smartQuotesType = .no
         self.textField3.smartQuotesType = .no
         self.textField4.smartQuotesType = .no
-        
         
         self.textField1.reloadInputViews()
         self.textField2.reloadInputViews()

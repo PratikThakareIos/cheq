@@ -92,10 +92,11 @@ class SalaryPaymentViewController: UIViewController {
                         self.setTableViewHeight()
                     }
                 }.catch { err in
-                    AppConfig.shared.hideSpinner {
-                        self.showError(err) {
-                           LoggingUtil.shared.cPrint("error")
-                        }
+                     LoggingUtil.shared.cPrint(err)
+                     AppConfig.shared.hideSpinner {
+//                        self.showError(err) {
+//                           LoggingUtil.shared.cPrint("error")
+//                        }
                     }
                 }
         }else {

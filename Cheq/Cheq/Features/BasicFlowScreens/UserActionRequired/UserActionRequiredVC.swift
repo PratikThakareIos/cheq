@@ -100,7 +100,7 @@ class UserActionRequiredVC: UIViewController {
             lblInfo1.text = arrActionRequiredGuidelines[0]
             lblInfo2.text = arrActionRequiredGuidelines[1]
             lblInfo3.text = arrActionRequiredGuidelines[2]
-            lblInfo4.text = arrActionRequiredGuidelines[4]
+            lblInfo4.text = arrActionRequiredGuidelines[3]
         
         }else{
             

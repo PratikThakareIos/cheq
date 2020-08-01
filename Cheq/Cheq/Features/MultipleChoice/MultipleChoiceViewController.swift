@@ -140,10 +140,11 @@ class MultipleChoiceViewController: UIViewController {
                          LoggingUtil.shared.cPrint("Transaction success")
                     }
             }.catch { err in
+                LoggingUtil.shared.cPrint(err)
                 AppConfig.shared.hideSpinner {
-                    self.showError(err) {
-                         LoggingUtil.shared.cPrint("error")
-                    }
+//                    self.showError(err) {
+//                         LoggingUtil.shared.cPrint("error")
+//                    }
                 }
             }
         }
@@ -256,7 +257,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }else{
                 if isIncomeDetected() == false {
                      LoggingUtil.shared.cPrint("Upload time sheet anything other than fix location")
-                    incomeVerification()
+                     incomeVerification()
                 }
             }
             
@@ -627,21 +628,6 @@ extension MultipleChoiceViewController {
     }
     
     func incomeVerification(){
-        //         LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)
-        //         LoggingUtil.shared.cPrint(AppData.shared.employeePaycycle?.count)
-        //        if !(AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && ((AppData.shared.employeePaycycle?.count) != nil) {
-        //            showTransactions()
-        //        }else if (AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle)! && AppData.shared.employeePaycycle == nil {
-        //            // show popup but for now navigate to lending page
-        //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-        //            AppNav.shared.dismissModal(self){}
-        //        }else {
-        //            //             self.delegate?.refreshLendingScreen()
-        //            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-        //            AppNav.shared.dismissModal(self){}
-        //        }
-        //
-               
         let hasPayCycle : Bool = AppData.shared.employeeOverview?.eligibleRequirement!.hasPayCycle ?? false
         
          LoggingUtil.shared.cPrint("hasPayCycle = \(hasPayCycle), Paycycle.count = \(AppData.shared.employeePaycycle.count)" )

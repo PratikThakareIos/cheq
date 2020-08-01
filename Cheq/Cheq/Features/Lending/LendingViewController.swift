@@ -137,10 +137,11 @@ extension LendingViewController {
                       }
                   }
           }.catch { err in
+             LoggingUtil.shared.cPrint(err)
               AppConfig.shared.hideSpinner {
-                  self.showError(err) {
-                       LoggingUtil.shared.cPrint("error")
-                  }
+//                  self.showError(err) {
+//                       LoggingUtil.shared.cPrint("error")
+//                  }
               }
           }
     }
