@@ -222,7 +222,7 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
                 return "This usually takes less than 2 minutes, but can take up to 48 hours."
                 
             case .failed:
-                return "We were not able to verify your identity. We only accept Drivers licenses and Passports as forms of ID. Reach out to us to resolve this and have your ID handy to speed up the process"
+                return "We were not able to verify your identity. We only accept Driver licences and Passports as forms of ID. Reach out to us to resolve this and have your ID handy to speed up the process"
             default:
                 return "Complete your details for identity verification."
             }

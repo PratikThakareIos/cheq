@@ -105,12 +105,12 @@ class CompleteDetailsTableViewCell: CTableViewCell {
             self.detailsText.textColor =  AppConfig.shared.activeTheme.mediumGrayColor
             
             let attributedString = NSMutableAttributedString(string:  self.detailsText.text ?? "")
-            attributedString.applyHighlightTwo(text1: "Drivers licenses", text2: "Passports", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont14)
+            attributedString.applyHighlightTwo(text1: "Driver licences", text2: "Passports", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont14)
             self.detailsText.attributedText = attributedString
             self.detailsText.setLineSpacing(lineSpacing: 8.0)
                      
             self.icon.image = UIImage(named: "workVerifyFailed")
-            //detailsSection.heightAnchor.constraint(equalToConstant: 350).isActive = true
+            detailsSection.heightAnchor.constraint(greaterThanOrEqualToConstant: 350).isActive = true
             self.verifyWorkimageView.image =  UIImage(named: "verifyIdentity")
             self.verifyWorkimageView.isHidden = false
             self.linkButton.setTitle("Learn more", for: .normal)

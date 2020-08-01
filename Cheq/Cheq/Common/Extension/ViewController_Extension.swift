@@ -375,6 +375,7 @@ extension UIViewController {
         let contentOffset = tableView.contentOffset
         tableView.reloadData()
         tableView.layoutIfNeeded()
+        tableView.layoutSubviews()
         tableView.setContentOffset(contentOffset, animated: false)
         
     }

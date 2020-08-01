@@ -147,6 +147,10 @@ extension CTableViewController {
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
         cell.viewModel = cellViewModel
         cell.setupConfig()
+        
+        cell.layoutSubviews()
+        cell.layoutIfNeeded()
+        
         return cell
     }
     

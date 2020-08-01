@@ -152,7 +152,10 @@ class UserActionRequiredVC: UIViewController {
                            connectingToBank.modalPresentationStyle = .fullScreen
                            AppData.shared.bankJobId = getRefreshConnectionResponse.jobId
                            connectingToBank.jobId = AppData.shared.bankJobId
-                           self.present(connectingToBank, animated: true, completion: nil)
+                                                     
+                           self.present(connectingToBank, animated: true, completion: {
+                               NotificationUtil.shared.notify(UINotificationEvent.checkBankLinkingStatus.rawValue, key: "", value: "")
+                           })
                        }
                 }
             }.catch { [weak self] err in

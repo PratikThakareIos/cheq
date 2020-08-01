@@ -36,6 +36,10 @@ class LendingViewController: CTableViewController {
         setupDelegate()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.layoutSubviews()
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
@@ -241,6 +245,7 @@ extension LendingViewController {
                 AppData.shared.declineDescription = declineDetails.declineDescription ?? ""
                 //AppNav.shared.presentDeclineViewController(declineReason, viewController: self)
                 viewModel.render(lendingOverview)
+                
             } else {
                 self.showError(CheqAPIManagerError.errorHasOccurredOnServer, completion: nil)
             }

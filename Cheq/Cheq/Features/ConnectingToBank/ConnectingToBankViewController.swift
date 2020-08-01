@@ -37,6 +37,7 @@ class ConnectingToBankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        registerObservables()
     }
     
     override func viewDidAppear(_ animated: Bool) {
