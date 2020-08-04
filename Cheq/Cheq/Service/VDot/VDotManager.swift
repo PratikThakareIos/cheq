@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
+//import CoreLocation
 import UserNotifications
 import DateToolsSwift
 import PromiseKit
@@ -21,10 +21,12 @@ enum VDotLogKey: String {
     case longitude = "longitude"
 }
 
-class VDotManager: NSObject, CLLocationManagerDelegate {
+class VDotManager: NSObject {
+
+//class VDotManager: NSObject, CLLocationManagerDelegate {
     
     static let shared = VDotManager()
-    var locationManager = CLLocationManager()
+    //var locationManager = CLLocationManager()
 
     // date formatter
     let dateFormatter = DateFormatter()
@@ -40,8 +42,7 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
     let flushInterval = 10800 // 3hrs
     // center reference for geo fencing
     // markedLocation gets updated when user fills Employer details
-    var markedLocation = CLLocation(latitude: -33.8653556
-, longitude: 151.205377)
+    //var markedLocation = CLLocation(latitude: -33.8653556, longitude: 151.205377)
     // set to a date long back so we start tracking initially
     var lastTracked: Date = 100.years.earlier
     var lastFlush: Date = 100.years.earlier
@@ -77,28 +78,28 @@ class VDotManager: NSObject, CLLocationManagerDelegate {
 //        }
     }
     
-    func isAtWork(_ location: CLLocation)-> Bool {
-        let distance = self.markedLocation.distance(from: location)
-        return distance <= self.geoFence ? true : false
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // get the last location
-        guard let currentLocation = locations.last else { return }
-
-        let now = Date()
-        if self.timeToLog() {
-            self.lastTracked = now
-            let nowString = self.dateFormatter.string(from: now)
-            self.atWork = self.isAtWork(currentLocation)
-            self.logData(self.atWork, dateString: nowString, latitude: self.markedLocation.coordinate.latitude, longitude: self.markedLocation.coordinate.longitude)
-        }
-        
-        if self.timeToFlush() {
-            self.lastFlush = now
-            self.flushStoredData()
-        }
-    }
+//    func isAtWork(_ location: CLLocation)-> Bool {
+//        let distance = self.markedLocation.distance(from: location)
+//        return distance <= self.geoFence ? true : false
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        // get the last location
+//        guard let currentLocation = locations.last else { return }
+//
+//        let now = Date()
+//        if self.timeToLog() {
+//            self.lastTracked = now
+//            let nowString = self.dateFormatter.string(from: now)
+//            self.atWork = self.isAtWork(currentLocation)
+//            self.logData(self.atWork, dateString: nowString, latitude: self.markedLocation.coordinate.latitude, longitude: self.markedLocation.coordinate.longitude)
+//        }
+//
+//        if self.timeToFlush() {
+//            self.lastFlush = now
+//            self.flushStoredData()
+//        }
+//    }
 
     func logData(_ atWork: Bool, dateString: String, latitude: Double, longitude: Double) {
         var dictionary = CKeychain.shared.getDictionaryByKey(CKey.vDotLog.rawValue)
@@ -146,6 +147,6 @@ extension VDotManager {
             let workSheet = Worksheet(atWork: atWork, dateTime: dateTime,distanceMeters:nil)
             workSheets.append(workSheet)
         }
-        return PostWorksheetRequest(email: email, worksheets: workSheets,geolocationDisabled: false)
+        return PostWorksheetRequest(email: email, worksheets: workSheets, geolocationDisabled: false)
     }
 }

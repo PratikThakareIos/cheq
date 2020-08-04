@@ -157,7 +157,7 @@ class CompleteDetailsTableViewCell: CTableViewCell {
             LoggingUtil.shared.cPrint("present intercom")
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         }else{
-            NotificationUtil.shared.notify(UINotificationEvent.turnOnLocation.rawValue, key: "turnOnLocation", value: vm.userAction.rawValue)
+            //NotificationUtil.shared.notify(UINotificationEvent.turnOnLocation.rawValue, key: "turnOnLocation", value: vm.userAction.rawValue)
         }
     }
     

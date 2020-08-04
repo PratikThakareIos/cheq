@@ -242,7 +242,7 @@ extension IntroductionViewController {
     
     // enable location then dismiss
     func enableLocation(_ completion: @escaping ()-> Void) {
-        let _ = VDotManager.shared
+        //let _ = VDotManager.shared
         completion()
     }
     

@@ -11,7 +11,7 @@ import DateToolsSwift
 import PromiseKit
 import UDatePicker
 import UserNotifications
-import CoreLocation
+//import CoreLocation
 import SearchTextField
 
 //self.nextButton.showLoadingOnButton(self)
@@ -674,7 +674,7 @@ extension QuestionViewController {
         let longitude = address.longitude ?? 0.0
         self.viewModel.save(QuestionField.employerLatitude.rawValue, value: String(latitude))
         self.viewModel.save(QuestionField.employerLongitude.rawValue, value: String(longitude))
-        VDotManager.shared.markedLocation = CLLocation(latitude: latitude, longitude: longitude)
+        //VDotManager.shared.markedLocation = CLLocation(latitude: latitude, longitude: longitude)
     }
     
     func inputsFromTextFields(textFields: [UITextField])-> [String: Any] {
@@ -1082,8 +1082,7 @@ extension QuestionViewController{
             
             if (AppData.shared.employerAddressList.count > AppData.shared.selectedEmployerAddress) {
                 let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
-                VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
-                    , longitude: employerAddress.longitude ?? 0.0)
+                //VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0,longitude: employerAddress.longitude ?? 0.0)
             }
             self.searchTextField.text = item[itemPosition].title
         }

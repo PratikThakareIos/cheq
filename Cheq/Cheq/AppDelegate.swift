@@ -91,13 +91,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
 
         let _ = VDotManager.shared //manish
-        
-        // to setup VDot again
-        if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
-            let timestamp = Date().timeStamp()
-            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
-            let _ = VDotManager.shared
-        }
+//        
+//        // to setup VDot again
+//        if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
+//            let timestamp = Date().timeStamp()
+//            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
+//            let _ = VDotManager.shared
+//        }
         
         let fileContent = LoggingUtil.shared.printLocationFile(LoggingUtil.shared.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)
