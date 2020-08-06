@@ -12,8 +12,6 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import FRHyperLabel
 
-
-
 class LoginVC: UIViewController {
     
     @IBOutlet weak var lblSignUpLinkText: FRHyperLabel!
@@ -89,15 +87,23 @@ extension LoginVC {
     //    }
 
     func validateInputs()-> ValidationError? {
+        
         let email = self.emailTextField.text ?? ""
+        let password = self.passwordTextField.text ?? ""
+        
+        if email.isEmpty || password.isEmpty {
+            return ValidationError.associatedEmailPassword
+        }
+         
         if StringUtil.shared.isValidEmail(email) == false {
             return ValidationError.invalidEmailFormat
         }
         
-        let password = self.passwordTextField.text ?? ""
-        if StringUtil.shared.isValidPassword(password) == false {
-            return ValidationError.invalidPasswordFormat
-        }
+//        let password = self.passwordTextField.text ?? ""
+//        if StringUtil.shared.isValidPassword(password) == false {
+//            return ValidationError.invalidPasswordFormat
+//        }
+    
         return nil
     }
     
@@ -109,7 +115,7 @@ extension LoginVC {
             self.beginOnboarding()
         default:
             LoggingUtil.shared.cPrint(err)
-            self.validationAlertPopup(error: AuthManagerError.invalidLoginFields, isPasswordField: false)
+            self.validationAlertPopup(error: AuthManagerError.invalidLoginFields)
             
 //            self.showError(AuthManagerError.invalidLoginFields, completion: {
 //                self.passwordTextField.text = ""
@@ -222,23 +228,15 @@ extension LoginVC {
     @IBAction func login(_ sender: Any) {
         self.view.endEditing(true)
         
-        //Test your Crashlytics implementation
-        //fatalError()
-                
+        emailTextField.text = emailTextField.text?.trim()
+        passwordTextField.text = passwordTextField.text?.trim()
+        
         if let error = self.validateInputs() {
-            if error == ValidationError.invalidEmailFormat{ //PRASHANT
-                   validationAlertPopup(error: error, isPasswordField: false)
-               } else {
-                   validationAlertPopup(error: error, isPasswordField: true)
-               }
-           // showError(error) { }
+            validationAlertPopup(error: error)
             return
         }
-        
-        //AppConfig.shared.showSpinner()
-        
+                
         self.loginButton.showLoadingOnButton(self)
-        
        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
@@ -284,11 +282,13 @@ extension LoginVC {
                 switch (userActionResponse.userAction){
                     
                  case .genericInfo:
+                        
                         AppData.shared.completingDetailsForLending = false
                         self.gotoGenericInfoVC(response : userActionResponse)
                         break
                                     
                 case .categorisationInProgress:
+                        
                         AppData.shared.completingDetailsForLending = false
                         self.gotoCategorisationInProgressVC(response : userActionResponse)
                         break
@@ -301,25 +301,28 @@ extension LoginVC {
                         AppData.shared.migratingToNewDevice = false
                         AppData.shared.completingDetailsForLending = false
                         self.navigateToDashboard()
-                          
                         break
                     
                 case .actionRequiredByBank:
+                        
                         AppData.shared.completingDetailsForLending = false
                         self.gotoUserActionRequiredVC(response : userActionResponse)
                         break
                     
                 case .bankNotSupported:
+                    
                         AppData.shared.completingDetailsForLending = false
                         self.gotoBankNotSupportedVC(response : userActionResponse)
                         break
                     
                 case .invalidCredentials:
+                    
                         AppData.shared.completingDetailsForLending = false
                         AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
                         break
                     
                 case .missingAccount:
+                    
                         LoggingUtil.shared.cPrint("MissingAccount - this needs to call PUT v1/users to create basiq accounts")
                         
                         //AppConfig.shared.showSpinner()
@@ -488,8 +491,8 @@ extension LoginVC {
         AppConfig.shared.hideSpinner {
             
             guard let activeUser = AuthConfig.shared.activeUser else {
-                //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)                
-                self.validationAlertPopup(error: AuthManagerError.unableToRetrieveCurrentUser, isPasswordField: false)
+                //self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
+                self.validationAlertPopup(error: AuthManagerError.unableToRetrieveCurrentUser)
                 return
             }
             if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
@@ -605,10 +608,7 @@ extension LoginVC {
 // MARK:- VerificationPopupVCDelegate
 extension LoginVC : VerificationPopupVCDelegate {
     
-    func validationAlertPopup(error:Error,isPasswordField:Bool) {
-        if isPasswordField {
-            openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
-        }
+    func validationAlertPopup(error:Error) {
         openPopupWith(heading: error.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
     }
     
@@ -638,23 +638,3 @@ extension LoginVC : VerificationPopupVCDelegate {
         
     }
 }
-
-
-
-                     
-//AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
-                    
-//self.goto_MaintenanceVC()
-//self.goto_UpdateAppVC()
-                    
-//                      AppData.shared.completingDetailsForLending = true
-//                      AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
-                
-//                      AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
-                
-//                      AppData.shared.completingDetailsForLending = true
-//                      AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
-                                                
-                    
-       //self.loginButton.showLoader(userInteraction: true)
-       //self.loginButton.hideLoader()

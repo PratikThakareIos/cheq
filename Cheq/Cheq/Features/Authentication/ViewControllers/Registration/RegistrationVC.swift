@@ -64,11 +64,13 @@ class RegistrationVC: UIViewController {
 extension RegistrationVC {
     
     func setupDelegate() {
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
     
     func setupUI() {
+        
         self.registerButton.createShadowLayer()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.emailTextField.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
@@ -76,11 +78,11 @@ extension RegistrationVC {
         self.emailTextField.setShadow()
         self.passwordTextField.setShadow()
         self.viewModel.screenName = .registration
-        
         self.setupHyperlables()
     }
     
     func continueWithLoggedInFB(_ token: String) {
+        
         AppConfig.shared.showSpinner()
         viewModel.fetchProfileWithFBAccessToken().then { ()->Promise<AuthUser> in
             self.viewModel.registerWithFBAccessToken(token)
@@ -270,7 +272,7 @@ extension RegistrationVC {
             }
              LoggingUtil.shared.cPrint("substring =\(strSubstring)")
             self.didSelectLinkWithName(strSubstring: strSubstring)
-        }        
+        }
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
     }
     
@@ -376,6 +378,7 @@ extension RegistrationVC : VerificationPopupVCDelegate {
                 
         if isPasswordField {
             openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+          
         }
         
         let errMessage = "The email address is already in use by another account."
@@ -384,7 +387,7 @@ extension RegistrationVC : VerificationPopupVCDelegate {
             openPopupWith(heading: "Sorry, the email address is already in use", message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
         }else{
             openPopupWith(heading: error.localizedDescription, message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
-        }    
+        }
     }
     
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
@@ -413,3 +416,4 @@ extension RegistrationVC : VerificationPopupVCDelegate {
         
     }
 }
+

@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 
 protocol DynamicFormViewModelCoordinator {
+    
     var sectionTitle: String { get }
     var viewTitle: String { get }
     

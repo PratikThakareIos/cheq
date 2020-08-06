@@ -38,6 +38,10 @@ enum ValidationError: Error {
     case invalidCompanyName
     case invalidBBSandAccountNO
     case dobIsMandatory
+    //NNN
+     case associatedEmailPassword
+   
+    
 }
 
 enum CheqAPIManagerError: Error, Equatable {
@@ -93,7 +97,7 @@ enum MoneySoftManagerError: Error {
     case unableToRefreshTransactions
     case unableToRegisterNotificationToken
     case errorFromHandleNotification
-    case unableToGetAccounts 
+    case unableToGetAccounts
     case unableToRefreshAccounts
     case unableToLoginWithBankCredentials
     case unableToUpdateDisabledAccountCredentials
@@ -123,6 +127,7 @@ enum AuthManagerError: Error {
     case unableToDeleteCurrentUserAccount
     case unableToUpdatePassword
     case unableToSendPasswordResetLink
+    
     case unknown
 }
 
@@ -283,8 +288,8 @@ extension ValidationError: LocalizedError {
         
         case .invalidPasswordFormat:
             //return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-            return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-            
+          //  return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")///NNN
             
             
         case .unableToMapSelectedBank:
@@ -306,6 +311,13 @@ extension ValidationError: LocalizedError {
         case .invalidBBSandAccountNO:
             return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
             
+            ///NNN
+        case .associatedEmailPassword:
+            return NSLocalizedString("Please enter the email address and password associated with your account", comment: "")
+      
+                 
+            
+            
         }
     }
 }
@@ -316,7 +328,10 @@ extension AuthManagerError: LocalizedError {
         case .invalidRegistrationFields:
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
-        return NSLocalizedString("The email or password you entered is incorrect", comment: "")
+        //return NSLocalizedString("The email or password you entered is incorrect", comment: "")
+            
+        return NSLocalizedString("The email address / password combination you entered does not exist", comment: "")
+       
         case .invalidFinancialInstitutionSelected:
         return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:
@@ -355,6 +370,9 @@ extension AuthManagerError: LocalizedError {
         return NSLocalizedString("Unable to validate verification code", comment: "")
         case .unableToRequestPasswordResetEmail:
         return NSLocalizedString("Unable to send password reset email", comment: "")
+     
+            
+            
         }
     }
 }
@@ -394,3 +412,4 @@ enum EmployerType: String {
     case latitude = "latitude"
     case longitude = "longitude"
 }
+

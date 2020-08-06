@@ -1737,7 +1737,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="verify identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-dp-gfk">
-                                <rect key="frame" x="26" y="48" width="72" height="17"/>
+                                <rect key="frame" x="26" y="48" width="88" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="BZc-mP-kzG"/>
                                     <constraint firstAttribute="height" constant="17" id="bpD-bR-Mzq"/>
@@ -1747,7 +1747,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-D4-7yM">
-                                <rect key="frame" x="26" y="166" width="324" height="501"/>
+                                <rect key="frame" x="26" y="166" width="340" height="501"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>

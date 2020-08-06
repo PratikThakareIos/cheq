@@ -73,9 +73,71 @@ class StringUtil {
     
     
     /// Password must be more than 6 characters, with at least one capital, numeric or special character (@,!,#,$,%,&,?)
+    /*
     func isValidPassword(_ string: String)-> Bool {
        // let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[@!#$%&?\"]).*$"
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,}"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: string)
     }
+    */
+    
+    
+    ///NNN
+//    func isValidPassword(_ string: String)-> Bool {
+//         // let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[@!#$%&?\"]).*$"
+//           let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,40}"
+//           return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: string)
+//
+//    }
+    
+    
+   func isValidPassword(_ string: String)-> Bool {
+      //“At least 6 characters long with 1 upper case character and 1 number”
+      
+      let isValidLenght = isValidPasswordLenght(string)
+      let isUpperCase = isContainUpperCase(string)
+      let isContainNumber = isContainAnyNumber(string)
+       
+//       print("isValidLenght = \(isValidLenght)")
+//       print("isUpperCase = \(isUpperCase)")
+//       print("isContainNumber = \(isContainNumber)")
+       
+       if (isValidLenght && isUpperCase && isContainNumber){
+           return true
+       }
+       return false
+   }
+
+   func isContainAnyNumber(_ string: String)-> Bool{
+
+       let decimalCharacters = CharacterSet.decimalDigits
+       let decimalRange = string.rangeOfCharacter(from: decimalCharacters)
+
+       if decimalRange != nil {
+           //"Numbers found"
+           return true
+       }
+       return false
+   }
+
+   func isContainUpperCase(_ string: String)-> Bool{
+       
+       let uppercaseRegex = ".*[A-Z].*"
+       let nameTest = NSPredicate (format:"SELF MATCHES %@",uppercaseRegex)
+       let result = nameTest.evaluate(with: string)
+       return result
+   }
+
+   func isValidPasswordLenght(_ string: String)-> Bool{
+       
+       let min_VALID_PASSWORD_LENGTH =  6
+       let max_VALID_PASSWORD_LENGTH =  40
+       
+       if (string.count >= min_VALID_PASSWORD_LENGTH && string.count <= max_VALID_PASSWORD_LENGTH) {
+           return true
+       }
+       return false
+   }
+
 }
+

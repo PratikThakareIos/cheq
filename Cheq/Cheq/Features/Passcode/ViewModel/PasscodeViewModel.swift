@@ -37,8 +37,12 @@ class PasscodeViewModel: BaseViewModel {
     
     func validate()-> VerificationValidationError? {
         if passcode.isEmpty { return VerificationValidationError.emptyInput }
-        if !StringUtil.shared.isNumericOnly(passcode) { return VerificationValidationError.nonNumeric }
-        if passcode.count != passcodeLength { return VerificationValidationError.invalidLength }
+        if !StringUtil.shared.isNumericOnly(passcode) { return VerificationValidationError.nonNumeric
+            
+        }
+        if passcode.count != passcodeLength { return VerificationValidationError.invalidLength
+            
+        }
         
         switch type {
         case .confirm:
@@ -80,3 +84,4 @@ class PasscodeViewModel: BaseViewModel {
         }
     }
 }
+

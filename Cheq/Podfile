@@ -75,6 +75,7 @@ def shared_pods
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
   pod 'Firebase/RemoteConfig'
+  
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   
