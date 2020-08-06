@@ -55,11 +55,14 @@ extension SpendingViewModel {
     func upcomingBills(_ spendingOverview: GetSpendingOverviewResponse, section: inout TableSectionViewModel) {
         let spacer = SpacerTableViewCellViewModel()
         if let upcomingBillsResponse = spendingOverview.upcomingBills, upcomingBillsResponse.count > 0 {
+            
             let upcomingBillsHeader = HeaderTableViewCellViewModel()
             upcomingBillsHeader.title = Header.upcomingBills.rawValue
             upcomingBillsHeader.showViewAll = false
+            
             section.rows.append(upcomingBillsHeader)
             section.rows.append(spacer)
+            
             let upcomingBillsCollection = UpcomingBillsTableViewCellViewModel()
             for upcoming in upcomingBillsResponse {
                 let upcomingBill = UpcomingBillCollectionViewCellViewModel()
@@ -73,8 +76,6 @@ extension SpendingViewModel {
             section.rows.append(spacer)
             section.rows.append(spacer)
         }
-        
-        
     }
 }
 
@@ -104,6 +105,8 @@ extension SpendingViewModel {
             recentTransactionHeader.tag = HeaderTableViewCellTag.recentTransactions.rawValue
             recentTransactionHeader.title = Header.recentActivity.rawValue
             recentTransactionHeader.showViewAll = true
+           
+            section.rows.append(spacer)
             section.rows.append(recentTransactionHeader)
             section.rows.append(spacer)
             transactionList(recentTransactionList, hideIcon: false, section: &section)

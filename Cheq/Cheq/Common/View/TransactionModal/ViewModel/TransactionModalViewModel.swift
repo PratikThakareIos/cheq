@@ -14,5 +14,13 @@ import UIKit
 class TransactionModalViewModel {
     
     /// **SlimTransactionResponse** contains the data that drives the UI for TransactionModal 
-    var data: SlimTransactionResponse = SlimTransactionResponse(_description: "", amount: 0.0, date: "", categoryTitle: "", categoryCode: .others, merchant: "", merchantLogoUrl: "", financialAccountName: "", financialInstitutionLogoUrl: "")
+    var data: SlimTransactionResponse = SlimTransactionResponse(_description: "",
+                                                                amount: 0.0, date: "",
+                                                                categoryTitle: "",
+                                                                categoryCode: .others,
+                                                                merchant: "",
+                                                                merchantLogoUrl: "",
+                                                                financialAccountName: "",
+                                                                financialInstitutionLogoUrl: "",
+                                                                financialInstitutionId: "")
 }

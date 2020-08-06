@@ -45,6 +45,7 @@ enum UINotificationEvent: String {
     case previewLoan = "previewLoan" 
     case intercom = "intercom"
     case switchRoot = "switchRoot"
+    case switchRootToBank = "switchRootToBank"
     case showError = "showError"
     case showTransaction = "showTransaction"
     case openLink = "openLink" 
@@ -52,6 +53,24 @@ enum UINotificationEvent: String {
     case resubmitForm = "resubmitForm"
     case mixPanelEvent = "mixPanelEvent"
     case moneysoftEvent = "moneysoftEvents"
+    case basiqEvent = "basiqEvent"
+    case checkBankLinkingStatus = "CheckBankLinkingStatus"
+    
+    
+    
+    
+    case reconnectToBank = "reconnectToBank"
+    case selectYourSalary = "selectYourSalary"
+    case creditAssessment = "creditAssessment"
+    case learnMore = "learnMore"
+    case scrollDownToButtom = "scrollDownToButtom"
+    case scrolledToButtom = "scrolledToButtom"
+    case webViewLoaded = "webViewLoaded"
+    case clickedOnActivity = "clickedOnActivity"
+    
+    case showMaintenanceVC = "showMaintenanceVC"
+    case showUpdateAppVC = "showUpdateAppVC"
+
 }
 
 /**
@@ -72,4 +91,8 @@ enum NotificationUserInfoKey: String {
     case mixpanel = "mixpanel"
     case turnOnLocation = "turnOnLocation"
     case moneysoftProgress = "moneysoftProgress"
+    case basiqProgress = "basiqProgress"
+    case loanActivity = "loanActivity"
+    
+    
 }

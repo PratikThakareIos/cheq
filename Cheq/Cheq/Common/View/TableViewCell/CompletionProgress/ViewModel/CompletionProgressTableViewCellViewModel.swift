@@ -20,7 +20,7 @@ class CompletionProgressTableViewCellViewModel: TableViewCellViewModelProtocol {
     var mode: CProgressColorMode = .information
     
     /// title above the progress bar
-    var header: String = "Complete"
+    var header: String = "Completed"
     
     /// this variable determines the text display how many items is completed
     var completedItem: Int = 0

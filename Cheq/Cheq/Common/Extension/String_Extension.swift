@@ -25,3 +25,14 @@ extension String {
         return htmlToAttributedString?.string ?? ""
     }
 }
+
+
+///USE:  "test   name   ".trim()
+extension String
+{
+    func trim() -> String{
+      return self.trimmingCharacters(in: CharacterSet.whitespaces)
+   }
+}
+
+

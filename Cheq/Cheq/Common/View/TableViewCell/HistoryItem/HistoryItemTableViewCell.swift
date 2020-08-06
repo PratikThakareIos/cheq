@@ -17,17 +17,20 @@ class HistoryItemTableViewCell: CTableViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     
     /// refer to **xib** for layout
-    @IBOutlet weak var itemTitle: CLabel!
+    @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemTitleStatus: UILabel!
+    
     
     /// refer to **xib** for layout
-    @IBOutlet weak var itemCaption: CLabel!
+    @IBOutlet weak var itemCaption: UILabel!
     
     /// refer to **xib** for layout
-    @IBOutlet weak var amountLabel: CLabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     /// refer to **xib** for layout
-    @IBOutlet weak var feeLabel: CLabel!
+    @IBOutlet weak var feeLabel: UILabel!
     
+
     /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,17 +47,32 @@ class HistoryItemTableViewCell: CTableViewCell {
     /// call **setupConfig** whenever we updated viewModel 
     override func setupConfig() {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
-        self.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        itemTitle.font = AppConfig.shared.activeTheme.mediumFont
+        //self.backgroundColor = AppConfig.shared.activeTheme.altTextColor
+        //itemTitle.font = AppConfig.shared.activeTheme.mediumFont
+        
         itemTitle.text = historyItemVm.itemTitle
-        itemCaption.font = AppConfig.shared.activeTheme.defaultFont
-        itemCaption.text = historyItemVm.itemCaption
-        amountLabel.font = AppConfig.shared.activeTheme.mediumFont
+        itemTitleStatus.text = historyItemVm.itemTitleStatus
+        
+        
+        
+        
+        //itemCaption.font = AppConfig.shared.activeTheme.defaultFont
+        itemCaption.text = historyItemVm.getFormattedDate()//historyItemVm.itemCaption
+        //amountLabel.font = AppConfig.shared.activeTheme.mediumFont
         amountLabel.text = historyItemVm.amount
-        amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor : AppConfig.shared.activeTheme.monetaryColor
+        amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor :  UIColor(hex: "00B662")
+        
+        
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
         iconImage.image = UIImage(named: historyItemVm.imageIcon())
+    }
+    
+    @IBAction func btnClickedOnCell(_ sender: Any) {
+        let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
+        LoggingUtil.shared.cPrint("btnClickedOnCell")
+        //LoggingUtil.shared.cPrint(historyItemVm.loanActivity as Any)
+        NotificationUtil.shared.notify(UINotificationEvent.clickedOnActivity.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
     }
     
 }

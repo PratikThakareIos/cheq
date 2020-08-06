@@ -29,6 +29,7 @@ class CTableViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.separatorStyle = .none
         self.registerCells()
+        NotificationCenter.default.addObserver(self, selector: #selector(scrollToBottomRow(_:)), name: NSNotification.Name(UINotificationEvent.scrollDownToButtom.rawValue), object: nil)
     }
     
     /**
@@ -74,48 +75,47 @@ extension CTableViewController {
         AppNav.shared.pushToViewController(vc, from: self)
     }
     
-    /// handling the modal to show **Transaction Details**, **CPopupView** is a wrapper to conveniently do popups. We grab the transaction object from notification first, then extract the **data** from transaction object and apply it to **TransactionModal**
     @objc func showTransaction(_ notification: NSNotification) {
         LoggingUtil.shared.cPrint("showTransaction")
         guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
         guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
-    
+
         let transactionModal: TransactionModal = UIView.fromNib()
         transactionModal.viewModel.data = transactionViewModel.data
         transactionModal.setupUI()
         let popupView = CPopupView(transactionModal)
-        
+
         popupView.show()
     }
     
-    /// if we get notification to open **link**, it is not always just for real web links, there are instances where we use a **link** UI to trigger opening of App setting, trigger logout and any other actions if needed.
-    @objc func openWebLink(_ notification: NSNotification) {
-        LoggingUtil.shared.cPrint("open link")
-        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
-        
-        // check if it's log out, we treat it differently
-        if link == links.logout.rawValue {
-            logout()
-            return
-        }
-        
-        if link == links.appSetting.rawValue {
-            AppNav.shared.pushToAppSetting()
-            return 
-        }
-        
-        if link == links.helpAndSupport.rawValue {
-            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
-            return
-        }
-        
-        guard let url = URL(string: link) else { return }
-        AppNav.shared.pushToInAppWeb(url, viewController: self)
-    }
+//    /// if we get notification to open **link**, it is not always just for real web links, there are instances where we use a **link** UI to trigger opening of App setting, trigger logout and any other actions if needed.
+//    @objc func openWebLink(_ notification: NSNotification) {
+//        LoggingUtil.shared.cPrint("open link")
+//        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
+//        
+//        // check if it's log out, we treat it differently
+//        if link == links.logout.rawValue {
+//            logout()
+//            return
+//        }
+//        
+//        if link == links.appSetting.rawValue {
+//            AppNav.shared.pushToAppSetting()
+//            return 
+//        }
+//        
+////        if link == links.helpAndSupport.rawValue {
+////            NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
+////            return
+////        }
+//        
+//        guard let url = URL(string: link) else { return }
+//        AppNav.shared.pushToInAppWeb(url, viewController: self)
+//    }
+    
 }
 
 extension CTableViewController {
-    
     /**
      registerCells method is empty in **CTableViewController**
      make sure subclass is overriding this accordingly. e.g. **SpendingViewController**, **LendingViewController**
@@ -141,13 +141,96 @@ extension CTableViewController {
     
     /// cellForRow method is where we **dequeue reusable cell** which are registered using **registerCell** method. After we dequeued a **CTableViewCell** subclass, we always firstly set the viewModel, then call **setupConfig** which updates the cell's UI according to its viewModel.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // setup cell
         let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
         let cellViewModel: TableViewCellViewModelProtocol = section.rows[indexPath.row]
         let cell: CTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.identifier, for: indexPath) as! CTableViewCell
         cell.viewModel = cellViewModel
         cell.setupConfig()
+        
+        cell.layoutSubviews()
+        cell.layoutIfNeeded()
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == self.viewModel.sections.count - 1 {
+            
+            let section: TableSectionViewModel = self.viewModel.sections[indexPath.section]
+            if indexPath.row + 1 == section.rows.count {
+                 LoggingUtil.shared.cPrint("do something")
+                NotificationUtil.shared.notify(UINotificationEvent.scrolledToButtom.rawValue, key: "", value: "")
+            }
+        }
+    }
+}
+
+
+//extension CTableViewController {
+//    func scrollToBottom(){
+//        DispatchQueue.main.async {
+//
+//            self.tableView.numberOfRows(inSection: <#T##Int#>)
+//
+//            let numberOfSections = self.viewModel.sections.count
+//            let numberOfRowsInLastSection = self.viewModel.sections[numberOfSections - 1]
+//            guard numberOfSections > 0 else { return }
+//
+//             // Make an attempt to use the bottom-most section with at least one row
+//             var section = max(numberOfSections - 1, 0)
+//             var row = max(numberOfRowsInLastSection - 1, 0)
+//             var indexPath = IndexPath(row: row, section: section)
+//             self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+//        }
+//    }
+//
+//    func scrollToTop() {
+//
+//        DispatchQueue.main.async {
+//            let indexPath = IndexPath(row: 0, section: 0)
+//            self.scrollToRow(at: indexPath, at: .top, animated: false)
+//        }
+//    }
+//}
+
+extension CTableViewController {
+    
+    @objc func scrollToBottomRow(_ notification: NSNotification) {
+        DispatchQueue.main.async {
+            guard self.tableView.numberOfSections > 0 else { return }
+
+            // Make an attempt to use the bottom-most section with at least one row
+            var section = max(self.tableView.numberOfSections - 1, 0)
+            var row = max(self.tableView.numberOfRows(inSection: section) - 1, 0)
+            var indexPath = IndexPath(row: row, section: section)
+
+            // Ensure the index path is valid, otherwise use the section above (sections can
+            // contain 0 rows which leads to an invalid index path)
+            while !self.indexPathIsValid(indexPath) {
+                section = max(section - 1, 0)
+                row = max(self.tableView.numberOfRows(inSection: section) - 1, 0)
+                indexPath = IndexPath(row: row, section: section)
+
+                // If we're down to the last section, attempt to use the first row
+                if indexPath.section == 0 {
+                    indexPath = IndexPath(row: 0, section: 0)
+                    break
+                }
+            }
+
+            // In the case that [0, 0] is valid (perhaps no data source?), ensure we don't encounter an
+            // exception here
+            guard self.indexPathIsValid(indexPath) else { return }
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            NotificationUtil.shared.notify(UINotificationEvent.scrolledToButtom.rawValue, key: "", value: "")
+        }
+    }
+
+    func indexPathIsValid(_ indexPath: IndexPath) -> Bool {
+        let section = indexPath.section
+        let row = indexPath.row
+        return section < self.tableView.numberOfSections && row < self.tableView.numberOfRows(inSection: section)
     }
 }

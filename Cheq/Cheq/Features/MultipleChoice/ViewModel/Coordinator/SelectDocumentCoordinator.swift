@@ -11,7 +11,7 @@ import PromiseKit
 
 enum KycDocType: String {
     case Passport = "Passport"
-    case DriversLicense = "Driver's license"
+    case DriversLicense = "Driver license"
     
     init(fromRawValue: String) {
         self = KycDocType(rawValue: fromRawValue) ?? .Passport

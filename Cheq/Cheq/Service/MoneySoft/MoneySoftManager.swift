@@ -22,8 +22,6 @@ class MoneySoftManager {
        // self.msApi = MoneysoftApi()
     }
     
-    
-    
     func handleNotification(_ data: [AnyHashable : Any])-> Promise<Bool> {
         return Promise<Bool>() { resolver in
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
@@ -61,8 +59,7 @@ class MoneySoftManager {
     func getProfile()-> Promise<UserProfileModel> {
         return Promise<UserProfileModel>() { resolver in
             let msApi: MoneysoftApi = MoneysoftApi();
-            do {
-               
+            do {               
                 try msApi.user().profile(listener: ApiListener<UserProfileModel>(successHandler: { profileModel in
                      let profile = profileModel
                     resolver.fulfill(profile)
@@ -96,7 +93,6 @@ class MoneySoftManager {
             do {
                 try msApi.user().login(details: loginModel, listener:ApiListener<AuthenticationModel>(successHandler: { authModel in
                      let model = authModel
-                    
                     resolver.fulfill(model)
                 }, errorHandler: { errorModel in
                     // throw error for verification code
@@ -383,8 +379,8 @@ extension MoneySoftManager {
             UsersAPI.getUserWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: String("\(HttpHeaderKeyword.bearer.rawValue) \(token)")).execute() { (response, error) in
                 
                 guard let msUser: GetUserResponse = response?.body else { resolver.reject(error ?? MoneySoftManagerError.unableToRetrieveMoneySoftCredential); return}
-                let username = msUser.moneySoftCredential?.msUsername ?? ""
-                let password = msUser.moneySoftCredential?.msPassword ?? ""
+                let username = ""//msUser.moneySoftCredential?.msUsername ?? ""
+                let password = ""//msUser.moneySoftCredential?.msPassword ?? ""
                 let moneySoftUser = MoneySoftUser(username: username, passwd: password, otp: "")
                 resolver.fulfill(moneySoftUser)
             }

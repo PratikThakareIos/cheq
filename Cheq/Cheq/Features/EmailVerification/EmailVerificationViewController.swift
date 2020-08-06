@@ -11,6 +11,9 @@ import PromiseKit
 import FRHyperLabel
 
 
+//self.confirmButton.showLoadingOnButton(self)
+//self.confirmButton.hideLoadingOnButton(self)
+
 class EmailVerificationViewController: UIViewController {
   
     var viewModel: VerificationViewModel = EmailVerificationViewModel()
@@ -25,7 +28,7 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var confirmButton: CNButton!
     @IBOutlet weak var iconImage: UIImageView!
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     var invalideCodeTryCount = 0
     var isShowCodeSentPopUp = false
@@ -33,7 +36,19 @@ class EmailVerificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        //showNavBar()
+        
+        if self.viewModel.type == .email {
+            self.isShowCodeSentPopUp = false
+            CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
+                   
+               }.catch { err in
+                   AppConfig.shared.hideSpinner {
+                    //self.showError(err, completion: nil)
+                    self.openPopupWith(heading: err.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
+               }
+            }
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,30 +58,32 @@ class EmailVerificationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         activeTimestamp()
         self.setupHyperlables()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        removeObservables()
+        //removeObservables()
     }
     
     func sendVerificationCode() {
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.requestEmailVerificationCode().done { _ in
-            AppConfig.shared.hideSpinner {}
-              self.showVerificationCodeSentPopUp()
+                AppConfig.shared.hideSpinner {}
+                self.showVerificationCodeSentPopUp()
             }.catch { err in
                 AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
+                    //self.showError(err, completion: nil)
+                    self.openPopupWith(heading: err.localizedDescription, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             }
         }
     }
     
     func showVerificationCodeSentPopUp(){
-        if (isShowCodeSentPopUp){
+        
+        if (isShowCodeSentPopUp) {
             self.isShowCodeSentPopUp = false
             var email = ""
             if self.viewModel.type == .passwordReset {
@@ -74,7 +91,6 @@ class EmailVerificationViewController: UIViewController {
             }else{
                email = CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
             }
-            
             self.openPopupWith(heading: "Verification sent", message: "We sent a new 6 digit verification code to you at \(email)", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-verificationSent"))
         }
     }
@@ -83,6 +99,7 @@ class EmailVerificationViewController: UIViewController {
         
         self.confirmButton.createShadowLayer()
         self.setupHyperlables()
+        
         codeTextField.setShadow()
         codeTextField.setupLeftPadding()
         codeTextField.isSecureTextEntry = true
@@ -99,23 +116,21 @@ class EmailVerificationViewController: UIViewController {
         newPasswordField.keyboardType = .default
         newPasswordField.reloadInputViews()
         
-    
-        if self.viewModel.type == .email {
-            self.isShowCodeSentPopUp = false
-            self.sendVerificationCode()
-        }
-        
         if self.viewModel.type == .passwordReset {
-            showCloseButton()
+            showNavBar()
+            showBackButton()
+            //showCloseButton()
         }
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         iconImage.image = viewModel.image
-
         
         viewTitle.text = viewModel.header
         viewTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         confirmButton.setTitle(viewModel.confirmButtonTitle, for: .normal)
+        
+        confirmButton.setTitle(viewModel.confirmButtonTitle)
+        
     }
     
     func verifyCodeAndResetPassword() {
@@ -125,12 +140,10 @@ class EmailVerificationViewController: UIViewController {
         
         if let err = self.viewModel.validate() {
             if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat || err == VerificationValidationError.allInputEmpty ){
-                 
                     showInvalidPasswordError(err) {
                         //self.codeTextField.text = ""
                         self.newPasswordField.text = ""
                     }
-                
             }else{
                 showError(err) {
                     //self.codeTextField.text = ""
@@ -141,56 +154,73 @@ class EmailVerificationViewController: UIViewController {
         }
         
         
-        AppConfig.shared.showSpinner()
+        //AppConfig.shared.showSpinner()
+        self.confirmButton.showLoadingOnButton(self)
+        
+        
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
+            self.confirmButton.hideLoadingOnButton(self)
             AppConfig.shared.hideSpinner {
-                self.showMessage("New password successfully created.") {
-                    AppNav.shared.dismissModal(self)
-                }
-            }
+                  self.showMessage("Password reset successfully. Please login with your new credentials") {
+                     // AppNav.shared.dismissModal(self)
+                    if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
+                        for vc in controllers {
+                           if vc is LoginVC {
+                             self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                           }
+                        }
+                    }
+                  }
+              }
         }.catch { err in
             AppConfig.shared.hideSpinner {
+                LoggingUtil.shared.cPrint(err)
                 self.showError(err, completion: nil)
             }
         }
+
     }
     
     func showInvalidPopUpView(){
-        
         invalideCodeTryCount = invalideCodeTryCount + 1
-        if invalideCodeTryCount >= 3{
+        if invalideCodeTryCount >= 3 {
             self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
             return
-        }else{
+        }else {
             self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             return
         }
     }
     
     func verifyCode() {
+        
+        //self.confirmButton.showLoadingOnButton(self)
+        //self.confirmButton.hideLoadingOnButton(self)
+        
         self.viewModel.code = self.codeTextField.text ?? ""
-        if let err = self.viewModel.validate() {
-
+        if let _ = self.viewModel.validate() {
             self.showInvalidPopUpView()
             return
-//            showError(err) {
-//                self.codeTextField.text = ""
-//            }
-            
         }
         
         // TODO : verify code api call
-        AppConfig.shared.showSpinner()
+        
+        //AppConfig.shared.showSpinner()
+        self.confirmButton.showLoadingOnButton(self)
+        
         let req = PutUserSingupVerificationCodeRequest(code: viewModel.code)
         // send signup confrm
         CheqAPIManager.shared.validateEmailVerificationCode(req).then { authUser in
             return AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
-            }.done { authUser in
+        }.done { authUser in
+                self.confirmButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     //self.handleSuccessVerification()
+                    AppConfig.shared.markUserLoggedIn()
                     AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
                 }
-            }.catch { err in
+        }.catch { err in
+                self.confirmButton.hideLoadingOnButton(self)
                 AppConfig.shared.hideSpinner {
                     self.showInvalidPopUpView()
                     //self.showError(err, completion: nil)
@@ -263,6 +293,7 @@ extension EmailVerificationViewController: UITextFieldDelegate {
 //MARK: - Verification popup
 extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
+    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -288,12 +319,13 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
         self.codeTextField.text = ""
     }
     
-
+    func tappedOnLearnMoreButton() {
+        
+    }
 }
 
 extension EmailVerificationViewController {
-    
- 
+     
     func setupHyperlables(){
         self.setupHyperlable_lblVerificationInstructions()
         self.setupHyperlable_lblFooterText()
@@ -336,7 +368,6 @@ extension EmailVerificationViewController {
              }
              self.didSelectLinkWithName(strSubstring: strSubstring)
          }
-         
          self.lblFooterText.setLinksForSubstrings(["Resend"], withLinkHandler: handler2)
      }
     
@@ -379,6 +410,7 @@ extension EmailVerificationViewController {
     
      func resendCodeForSetupNewPassword(){
          self.view.endEditing(true)
+        
          AppConfig.shared.showSpinner()
          ForgotPasswordViewModel().resetEmail = AppData.shared.forgotPasswordEmail
          ForgotPasswordViewModel().forgotPassword().done { _ in
@@ -395,10 +427,10 @@ extension EmailVerificationViewController {
 }
 
 
-
 //extension EmailVerificationViewController {
 //    override func baseScrollView() -> UIScrollView? {
 //        return self.scrollView
 //    }
 //}
+
 

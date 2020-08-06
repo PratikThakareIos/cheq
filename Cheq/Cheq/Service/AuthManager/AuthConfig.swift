@@ -9,6 +9,7 @@
 import UIKit
 
 class AuthConfig {
+
     static let shared = AuthConfig()
     private init() {}
 

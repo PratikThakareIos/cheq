@@ -66,7 +66,7 @@ func togglePasswordVisibility() {
         selectedTextRange = nil
         selectedTextRange = existingSelectedTextRange
     }
-}
+  }
 }
 
 

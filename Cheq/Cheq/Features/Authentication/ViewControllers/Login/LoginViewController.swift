@@ -10,7 +10,7 @@ import UIKit
 import PromiseKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import MobileSDK
+//import MobileSDK
 
 class LoginViewController: RegistrationViewController {
 
@@ -47,6 +47,7 @@ class LoginViewController: RegistrationViewController {
     }
     
     override func setupUI() {
+        
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.orText.font = AppConfig.shared.activeTheme.mediumFont
         self.titleText.font = AppConfig.shared.activeTheme.headerBoldFont
@@ -73,6 +74,7 @@ class LoginViewController: RegistrationViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        /*
         self.view.endEditing(true)
         
         if let error = self.validateInputs() {
@@ -100,7 +102,6 @@ class LoginViewController: RegistrationViewController {
                     }
                     
                     let financialAccounts: [FinancialAccountModel] = accounts
-                    
                     if let disabledAccount = financialAccounts.first(where: { $0.disabled == true }) {
                         // when we have disabled linked acccount, we need to get user
                         // to dynamic form view and link their bank account
@@ -145,6 +146,8 @@ class LoginViewController: RegistrationViewController {
                     self.handleLoginErr(err)
                 }
             }
+ 
+      */
     }
     
     func handleLoginErr(_ err: Error) {
@@ -171,6 +174,8 @@ class LoginViewController: RegistrationViewController {
                 AuthConfig.shared.activeManager.setUser(authUser)
             }.then { authUser in
                 CheqAPIManager.shared.getUserDetails()
+            }.then { authUser in
+                AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
             }.done { authUser in
                 AppConfig.shared.hideSpinner {
                     guard authUser.email.isEmpty == false, let msUsername = authUser.msCredential[.msUsername], msUsername.isEmpty == false, let msPassword = authUser.msCredential[.msPassword], msPassword.isEmpty == false else {
@@ -233,7 +238,7 @@ extension LoginViewController {
         
         LoggingUtil.shared.cPrint(URL.absoluteString)
         if viewModel.isForgotPassword(URL.absoluteString) {
-            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self, embedInNav: true)
         } else if viewModel.isSignup(URL.absoluteString) {
             
             if isModal == false, let nav = self.navigationController {

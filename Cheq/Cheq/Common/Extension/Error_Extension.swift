@@ -14,22 +14,36 @@ extension Error {
     func code()->Int? {
         if let error = self as? ErrorResponse {
             switch error {
-            case .error(let code, _, _):
-                return code
+                case .error(let code, _, _):
+                    return code
             }
         }
         return nil
     }
-    
-    
+        
     /// extract the message from this Error. If it is **ErrorResponse** 
     func message()->String? {
         if let error = self as? ErrorResponse {
             switch error {
-            case .error(_, _, let err):
-                return err.localizedDescription
+                case .error(_, _, let err):
+                    return err.localizedDescription
             }
         }
         return nil
     }
+    
+    /// extract the message from this Error. If it is **ErrorResponse**
+    func messageFromData()->String? {
+        if let error = self as? ErrorResponse {
+            switch error {
+                case .error(_, let data, _):
+                    if let errorMessageData = data, let errorMessage = String(data: errorMessageData, encoding: String.Encoding.utf8) {
+                          LoggingUtil.shared.cPrint(errorMessage)
+                          return errorMessage
+                    }
+            }
+        }
+        return nil
+    }
+
 }

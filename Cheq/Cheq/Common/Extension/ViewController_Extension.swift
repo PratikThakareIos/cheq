@@ -27,11 +27,13 @@ extension UIViewController {
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
+        navBar.backgroundColor = .clear
     }
 
     /// style nav bar to show logout button
     func showLogoutButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title:"Logout", style:.plain, target:self, action:#selector(logout))
+        
     }
     
     
@@ -39,6 +41,7 @@ extension UIViewController {
     func showBackButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navBack"), style: .plain, target: self, action: #selector(back))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     /// style to add logout button on right, it's debug purpose
@@ -76,6 +79,7 @@ extension UIViewController {
     func showCloseButton() {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.init(named: "navClose"), style: .plain, target: self, action: #selector(closeButton))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
 
     /// when close button is pressed, calls **AppNav.shared.dismissModal**, which abstracts the logic behind dismissing the current view controller
@@ -300,6 +304,7 @@ extension UIViewController {
             })
         }
         datePicker?.picker.date = initialDate
+        datePicker?.picker.datePicker.maximumDate = initialDate
         datePicker?.present(self)
     }
 }
@@ -307,16 +312,25 @@ extension UIViewController {
 // Logout method
 extension UIViewController {
     @objc func logout() {
-        showDecision("You want to logout?", confirmCb: {
-            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
-                AuthConfig.shared.activeManager.logout(authUser)
-                }.done {
-                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
-                }.catch { err in
-                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
-            }
-            
-        }, cancelCb: nil)
+       
+        AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+                       AuthConfig.shared.activeManager.logout(authUser)
+                       }.done {
+                           NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+                       }.catch { err in
+                           NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+        }
+    
+//        showDecision("You want to logout?", confirmCb: {
+//            AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
+//                AuthConfig.shared.activeManager.logout(authUser)
+//                }.done {
+//                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+//                }.catch { err in
+//                    NotificationUtil.shared.notify(NotificationEvent.logout.rawValue, key: "", value: "")
+//            }
+//
+//        }, cancelCb: nil)
     }
     
     @objc func tapToDismiss() {
@@ -361,6 +375,7 @@ extension UIViewController {
         let contentOffset = tableView.contentOffset
         tableView.reloadData()
         tableView.layoutIfNeeded()
+        tableView.layoutSubviews()
         tableView.setContentOffset(contentOffset, animated: false)
         
     }
@@ -397,25 +412,3 @@ extension UIViewController
         ])
     }
 }
-
-
-//        //self.title = ScreenName.spending.rawValue
-//        let label = UILabel()
-//        //label.text = ScreenName.spending.rawValue
-//        //label.textColor = AppConfig.shared.activeTheme.textColor
-//        //label.font = AppConfig.shared.activeTheme.headerBoldFont
-//        label.textAlignment = .left
-//        label.sizeToFit()
-//
-//        let style = NSMutableParagraphStyle()
-//        style.alignment = .left
-//        let myString = ScreenName.spending.rawValue
-//        let myAttribute = [NSAttributedString.Key.foregroundColor:AppConfig.shared.activeTheme.textColor,
-//                           NSAttributedString.Key.font: AppConfig.shared.activeTheme.headerBoldFont,
-//                           NSAttributedString.Key.paragraphStyle:style
-//                          ]
-//        let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
-//
-//        label.attributedText = myAttrString
-//
-//        self.navigationItem.titleView = label

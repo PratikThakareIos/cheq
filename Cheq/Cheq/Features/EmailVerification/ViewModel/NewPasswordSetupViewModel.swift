@@ -29,7 +29,7 @@ class NewPasswordSetupViewModel: VerificationViewModel {
             let email = AppData.shared.forgotPasswordEmail //CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)
             let string = "We sent a 6 digit verification code to you at \(email)"
             let font = AppConfig.shared.activeTheme.mediumMediumFont
-            print("font = \(font.fontDescriptor)")
+             LoggingUtil.shared.cPrint("font = \(font.fontDescriptor)")
             let attributes = [NSAttributedString.Key.foregroundColor: AppConfig.shared.activeTheme.mediumGrayColor,
                                    NSAttributedString.Key.font: font]
             let text = NSMutableAttributedString(string: string, attributes: attributes)

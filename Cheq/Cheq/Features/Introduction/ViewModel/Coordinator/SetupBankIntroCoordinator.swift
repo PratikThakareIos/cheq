@@ -11,9 +11,9 @@ import UIKit
 class SetupBankIntroCoordinator: IntroductionCoordinatorProtocol {
 
     var type: IntroductionType = .setupBank
-    var caption = "Cheq requires your Bank details so we can verify your income and expenses to create your budget, spending insights and provide you with On Demand Pay"
+    var caption = "Cheq connects with your bank to sync your transactions so we can"
     var title = IntroductionType.setupBank.rawValue
     var confirmTitle = IntroButtonTitle.setupYourBank.rawValue
-    var secondaryButtonTitle = IntroButtonTitle.learnMore.rawValue
+    var secondaryButtonTitle = IntroButtonTitle.moreInformation.rawValue
     var imageName = IntroEmoji.bank.rawValue
 }

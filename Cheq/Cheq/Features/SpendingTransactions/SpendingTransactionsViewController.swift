@@ -49,17 +49,17 @@ class SpendingTransactionsViewController: CTableViewController {
     
     func registerObservables() {
         
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadTransactions(_:)), name: NSNotification.Name(UINotificationEvent.spendingTransactions.rawValue), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable(_:)), name: NSNotification.Name(UINotificationEvent.reloadTable.rawValue), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showTransaction(_:))
+        NotificationCenter.default.addObserver(self, selector: #selector(showTransactionPopup(_:))
             , name: NSNotification.Name(UINotificationEvent.showTransaction.rawValue), object: nil)
     }
     
-    func renderTransactions(_ transactions: GetSpendingSpecificCategoryResponse) {
+    func renderTransactions(_ transactions: [DailyTransactionsResponse]) {
         
         // build the spending view model based on response here
         LoggingUtil.shared.cPrint("renderSpendingCategories")
@@ -73,6 +73,7 @@ class SpendingTransactionsViewController: CTableViewController {
         CheqAPIManager.shared.spendingTransactions().done { specificCategory in
             AppConfig.shared.hideSpinner {
                 self.renderTransactions(specificCategory)
+               // [DailyTransactionsResponse]
             }
         }.catch { err in
             AppConfig.shared.hideSpinner {
@@ -82,5 +83,39 @@ class SpendingTransactionsViewController: CTableViewController {
             }
         }
     }
+    
+    @objc func showTransactionPopup(_ notification: NSNotification) {
+            LoggingUtil.shared.cPrint("showTransaction")
+            guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
+            guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
+        
+            let response : SlimTransactionResponse = transactionViewModel.data
+            self.openRecentActivityPopUpWith(slimTransactionResponse: response)
+     }
 }
 
+//MARK: -  popup
+extension SpendingTransactionsViewController: RecentActivityPopUpVCDelegate{
+    
+    func recentActivityPopUpClosed() {
+        LoggingUtil.shared.cPrint("recentActivityPopUpClosed")
+    }
+    
+    func openRecentActivityPopUpWith(slimTransactionResponse: SlimTransactionResponse?){
+       
+         self.view.endEditing(true)
+        
+        guard let _ = slimTransactionResponse else{
+            return
+        }
+
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.recentActivityPopUpVC.rawValue) as? RecentActivityPopUpVC{
+
+              popupVC.delegate = self
+              popupVC.slimTransactionResponse = slimTransactionResponse
+            
+              self.tabBarController?.present(popupVC, animated: false, completion: nil)
+        }
+    }
+}

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Cheq</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
 	<string>2855589534666837</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>
@@ -50,6 +50,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>anz.com</key>
@@ -170,20 +172,15 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Required for document and facial capture</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don't worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Required for video capture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Send photo to solve app issues</string>
+	<key>OneSignal_app_groups_key</key>
+	<string>group.com.cheqApp.onesignal</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
-		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

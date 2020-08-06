@@ -6,8 +6,10 @@
 	<string>799482705846-l2abircp9k467a3ren9s0b6qhsoealfh.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.799482705846-l2abircp9k467a3ren9s0b6qhsoealfh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>799482705846-bpapjfunh2kkbhc3aaa0hrlqsd9vu86q.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAdfQLgzVB-DEFNcDP5v9XBGiRL6_ZXglw</string>
+	<string>AIzaSyCKbw2sivnoBonbTCv1kbDuD60AcRB9H0w</string>
 	<key>GCM_SENDER_ID</key>
 	<string>799482705846</string>
 	<key>PLIST_VERSION</key>
@@ -19,17 +21,17 @@
 	<key>STORAGE_BUCKET</key>
 	<string>prod-cheqapi.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:799482705846:ios:6a98d03028a89bd6f83317</string>
+	<string>1:799482705846:ios:2fdd02f6f61cde95f83317</string>
 	<key>DATABASE_URL</key>
 	<string>https://prod-cheqapi.firebaseio.com</string>
 </dict>

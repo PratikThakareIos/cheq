@@ -9,7 +9,6 @@
 import UIKit
 
 enum VerificatonType {
-    
     case email
     case passwordReset
 }
@@ -43,12 +42,13 @@ extension VerificationValidationError: LocalizedError {
             return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
         case .invalidPasswordFormat:
             return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-
+            //return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
         }
     }
 }
 
 protocol VerificationViewModel {
+    
     var type: VerificatonType { get } 
     var code: String { get set }
     var newPassword: String { get set }
@@ -66,6 +66,7 @@ protocol VerificationViewModel {
     func showCodeField()->Bool
     func showNewPasswordField()->Bool
 }
+
 
 extension VerificationViewModel {
     func validate()->VerificationValidationError? {

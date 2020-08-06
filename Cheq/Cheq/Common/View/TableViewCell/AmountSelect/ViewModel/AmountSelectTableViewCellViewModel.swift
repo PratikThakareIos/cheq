@@ -35,6 +35,7 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
             range.append(String(current))
         }
         availableToWithdraw = range
+        selectedAmountIndex = availableToWithdraw.count - 1 //manish
     }
     
     
@@ -43,7 +44,10 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
         if selectedAmountIndex >= 0, selectedAmountIndex < availableToWithdraw.count  {
             return availableToWithdraw[selectedAmountIndex]
         } else {
-            return availableToWithdraw[0]
+            if (availableToWithdraw.count > 0){
+                return availableToWithdraw[0]
+            }
+            return "0"
         }
     }
     
@@ -70,11 +74,17 @@ class AmountSelectTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     /// method to abstract the logic for checking whether the plus button should be disabled
     func shouldDisablePlus()->Bool {
+        if (availableToWithdraw.count == 0){
+            return true
+        }
         return selectedAmountIndex == availableToWithdraw.count - 1
     }
     
     /// method to abstract the logic for checking whether the minus button should be disabled
     func shouldDisableMinus()->Bool {
+        if (availableToWithdraw.count == 0){
+             return true
+        }
         return selectedAmountIndex == 0
     }
 }

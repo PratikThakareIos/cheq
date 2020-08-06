@@ -15,7 +15,6 @@ extension CheqAPIManager {
     func getBugets()->Promise<GetUserBudgetResponse> {
 
         return Promise<GetUserBudgetResponse>() { resolver in
-            
             #if DEMO
             let getUserBudgetResponse = TestUtil.shared.testGetBudgets()
             resolver.fulfill(getUserBudgetResponse)
@@ -24,6 +23,7 @@ extension CheqAPIManager {
                 let token = authUser.authToken() ?? ""
                 
                 BudgetingAPI.getBudgetsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (getUserBudgetResponse, err) in
+                    
                     if let error = err {
                         LoggingUtil.shared.cPrint(error)
                         resolver.reject(CheqAPIManagerError_Budget.unableToRetrieveBudgets)
@@ -32,6 +32,7 @@ extension CheqAPIManager {
                     guard let response = getUserBudgetResponse?.body else {
                         resolver.reject(CheqAPIManagerError_Budget.unableToRetrieveBudgets); return
                     }
+                    
                     resolver.fulfill(response)
                 })
             }.catch { err in
@@ -39,13 +40,10 @@ extension CheqAPIManager {
             }
             #endif
         }
-        
     }
     
     func putBudgets(_ req: PutUserBudgetsRequest)->Promise<Void> {
-        
-        return Promise<Void>() { resolver in
-            
+        return Promise<Void>() { resolver in            
             #if DEMO
             resolver.fulfill(())
             #else
@@ -56,7 +54,6 @@ extension CheqAPIManager {
                         LoggingUtil.shared.cPrint(error)
                         resolver.reject(CheqAPIManagerError_Budget.unableToPutBudgets)
                     }
-                    
                     resolver.fulfill(())
                 })
             }.catch { err in

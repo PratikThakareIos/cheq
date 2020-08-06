@@ -20,7 +20,6 @@ enum QuestionType: String {
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
-    case verifyHomeAddress = "verifyHomeAddress"
 }
 
 enum QuestionField: String {
@@ -37,7 +36,7 @@ enum QuestionField: String {
     case residentialState = "residentialState"
     case residentialCountry = "residentialCountry"
     case unitNumber = "unitNo"
-    case homeAddress = "homeAddress"
+    //case homeAddress = "homeAddress"
 
     // kyc
     case kycDocSelect = "KycDocSelect"
@@ -125,6 +124,10 @@ class QuestionViewModel: BaseViewModel {
         #endif
     }
     
+    func clearAllSavedData(){
+        UserDefaults.standard.set([:], forKey: self.viewModelKey())
+    }
+    
     func fieldValue(_ questionField: QuestionField)-> String {
         if (self.savedAnswer.count == 0) { loadSaved() }
         return self.savedAnswer[questionField.rawValue] ?? ""
@@ -135,7 +138,7 @@ extension QuestionViewModel {
     
     func putUserDetailsRequest()-> PutUserDetailRequest {
         self.loadSaved()
-        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails),ageRange:.from25To34,state:.nsw)
+        let putUserDetailsReq = PutUserDetailRequest(firstName: self.fieldValue(.firstname), lastName: self.fieldValue(.lastname), mobile: self.fieldValue(.contactDetails))
         return putUserDetailsReq
     }
     
@@ -200,8 +203,6 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
-        case .verifyHomeAddress:
-            coordinator = HomeAddressCoordinator()
         }
         return coordinator
     }

@@ -8,6 +8,13 @@
 
 import Foundation
 
+
+struct UserDefaultKeys {
+    static let emailID = "cheq_emailID"
+    static let password = "cheq_password"
+}
+
+
 /**
  StoryboardName is String enum of all the storyboards in use. This enum is used by AppNav and whenever we want to refer to the storyboard name we want to load. Update the enum when new Storyboard is added.
 */
@@ -16,6 +23,14 @@ enum StoryboardName: String {
     case main = "Main"
     case common = "Common"
     case Popup = "PopUp"
+}
+
+enum PopupStoryboardId: String {
+    case payCyclePopUpVC = "PayCyclePopUpVC"
+    case verificationPopupVC = "VerificationPopupVC"
+    case cashOutActivityPopUp = "CashOutActivityPopUp"
+    case recentActivityPopUpVC = "RecentActivityPopUpVC"
+    
 }
 
 /**
@@ -35,6 +50,12 @@ enum OnboardingStoryboardId: String {
     case salaryPayments = "SalaryPaymentViewController"
     case payCycleViewController = "PayCycleViewController"
     case verifyDocs = "DocumentVerificationViewController"
+    case setupBankVC = "SetupBankVC"
+    case bankDetailLearnMoreVC = "BankDetailLearnMoreVC"
+    case requestForBankVC = "RequestForBankVC"
+    case splashVC = "SplashVC"
+    
+    
 }
 
 /**
@@ -64,4 +85,14 @@ enum CommonStoryboardId: String {
     case passcode = "PasscodeViewController"
     case connecting = "ConnectingToBankViewController"
     case reTryConnecting = "ConnectingTobankFalilsViewController"
+    case userActionRequiredVC = "UserActionRequiredVC"
+    case BankNotSupportedVC = "BankNotSupportedVC"
+    case CategorisationInProgressVC = "CategorisationInProgressVC"
+    case GenericInfoVC = "GenericInfoVC"
+    case maintenanceVC = "MaintenanceVC"
+    case updateAppVC = "UpdateAppVC"
+    
+    
+    
+    
 }

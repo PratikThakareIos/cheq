@@ -14,7 +14,10 @@ import UIKit
 class LinkTableViewCell: CTableViewCell {
     
     /// header of the link, refer to **xib** for layout
-    @IBOutlet weak var header: CLabel!
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var imgVwArrow: UIImageView!
+    
+
 
     /// method call from **xib** initialisation
     override func awakeFromNib() {
@@ -34,16 +37,18 @@ class LinkTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear
         let vm = self.viewModel as! LinkTableViewCellViewModel
-        header.font = AppConfig.shared.activeTheme.mediumBoldFont
+        //header.font = AppConfig.shared.activeTheme.mediumBoldFont
         header.textColor = vm.linkColor
         header.text = vm.header
         
         /// use the default **disclosureIndicator** if **showDisclosureIcon** is true
-        if vm.showDisclosureIcon {
-            self.accessoryType = .disclosureIndicator
-        } else {
-            self.accessoryType = .none
-        }
+
+        imgVwArrow.isHidden = !vm.showDisclosureIcon
+//        if vm.showDisclosureIcon {
+//            self.accessoryType = .disclosureIndicator
+//        } else {
+//            self.accessoryType = .none
+//        }
     }
     
     /// this method sets up tap gesture for cell to call **openLink** when it's tapped once

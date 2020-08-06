@@ -35,22 +35,19 @@ class AnalyticsService {
     func initAnalytics(withOptions:[Analytics]) {
         
         for eventType in withOptions {
-            switch eventType {
-                
+            switch eventType {                
             case .firebase:
-                print("Firebase Initialized")
+                 LoggingUtil.shared.cPrint("Firebase Initialized")
                  break;
             case .mixpanel:
                 MixpanelService.shared.initMixpanel()
                  break;
             case .all:
-                 print("Firebase Initialized")
+                  LoggingUtil.shared.cPrint("Firebase Initialized")
                  MixpanelService.shared.initMixpanel()
                  break;
             }
-            
         }
-        
     }
     
     
@@ -61,13 +58,13 @@ class AnalyticsService {
             switch eventType {
                 
             case .firebase:
-                 print("Firebase log")
+                  LoggingUtil.shared.cPrint("Firebase log")
                  break;
             case .mixpanel:
                  MixpanelService.shared.trackEvent(tab: tab)
                  break;
             case .all:
-                 print("Firebase Initialized")
+                  LoggingUtil.shared.cPrint("Firebase Initialized")
                  MixpanelService.shared.trackEvent(tab: tab)
                  break;
             }

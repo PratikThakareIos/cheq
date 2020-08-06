@@ -8,7 +8,7 @@
 
 import UIKit
 import Onfido
-import MobileSDK
+//import MobileSDK
 
 /**
  AppNav is Singleton class which contains all our viewController intialisation and navigation logics. So we don't have adhoc code scatter everywhere. This class is the single place for viewController initialisation and navigation.
@@ -36,7 +36,7 @@ class AppNav {
     /// This method gets called whenever app is active again, then we check if passcode is setup, if so, has user been idle for more than the **minsToShowPasscode** threshold. If user has been idle for more than **minsToShowPasscode** threshold, then **presentPasscodeViewController** is called.
     @objc func showPasscodeIfNeeded(notification: NSNotification) {
         if passcodeExist(), isTimeToShowPasscode(), AuthConfig.shared.activeUser != nil {
-             //manish
+            //manish
             // presentPasscodeViewController()
         }
     }
@@ -64,13 +64,13 @@ class AppNav {
         let passcode = CKeychain.shared.getValueByKey(CKey.confirmPasscodeLock.rawValue)
         return !passcode.isEmpty
     }
-
+    
+    
     /**
      pushToQuestionForm abstract the logics to initialise a new **QuestionViewController** based on **QuestionType** and performs a navigation push from given ViewController
      - parameter questionType: QuestionType determines how **QuestionViewController** renders the to the corresponding screen.
      - parameter viewController: the current source viewController for the navigation action
      */
-    
     func pushToQuestionForm(_ questionType: QuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -83,11 +83,12 @@ class AppNav {
         nav.pushViewController(vc, animated: true)
     }
     
+    
     /**
-    pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
-    - parameter multipleChoiceType: MultipleChoiceQuestionType determines how **MultipleChoiceViewController** renders the to the corresponding screen.
-    - parameter viewController: the current source viewController for the navigation action
-    */
+     pushToMultipleChoice abstract the logics to initialise a new **MultipleChoiceViewController** based on **MultipleChoiceQuestionType** and performs a navigation push from given ViewController
+     - parameter multipleChoiceType: MultipleChoiceQuestionType determines how **MultipleChoiceViewController** renders the to the corresponding screen.
+     - parameter viewController: the current source viewController for the navigation action
+     */
     func pushToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -96,20 +97,26 @@ class AppNav {
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
-         
+        
+        
+        if multipleChoiceType == .onDemand {
+            vc.showNextButton = true
+        }
+        
         vc.modalPresentationStyle = .fullScreen
         nav.pushViewController(vc, animated: true)
     }
     
     /**
-    Dynamic form view UI is driven by **FinancialInstitutionModel**. Push to dynamic form view for linking bank account using MoneySoft SDK
-     - parameter institutionModel: FinancialInstitutionModel is retrieved from selecting the destination bank/institution
+     Dynamic form view UI is driven by **GetFinancialInstitution**. Push to dynamic form view for linking bank account using MoneySoft SDK
+     - parameter institutionModel: GetFinancialInstitution is retrieved from selecting the destination bank/institution
      - parameter viewController: The source viewController for current navigation action
      */
-    func pushToDynamicForm(_ institutionModel: FinancialInstitutionModel, viewController: UIViewController) {
+    func pushToDynamicForm(_ institutionModel: GetFinancialInstitution, response : GetUserActionResponse?, viewController: UIViewController) {
         guard let nav = viewController.navigationController else { return }
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: DynamicFormViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.dynamic.rawValue) as! DynamicFormViewController
+        vc.resGetUserActionResponse = response
         vc.viewModel.screenName = .bankLogin
         nav.pushViewController(vc, animated: true)
     }
@@ -128,6 +135,17 @@ class AppNav {
         vc.viewModel = introductionViewModel
         nav.pushViewController(vc, animated: true)
     }
+    
+    func pushToSetupBank(_ introductionType: IntroductionType, viewController: UIViewController) {
+        guard let nav = viewController.navigationController else { return }
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc: SetupBankVC = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.setupBankVC.rawValue) as! SetupBankVC
+        let introductionViewModel = IntroductionViewModel()
+        introductionViewModel.coordinator = IntroductionViewModel.coordinatorFor(introductionType)
+        vc.viewModel = introductionViewModel
+        nav.pushViewController(vc, animated: true)
+    }
+    
     /**
      SpendingViewController is reused for different scenarios of displaying spending data. Use **SpendingVCType** to drive how the UI on **SpendingViewController**
      - parameter spendingVCType: **SpendingVCType** supports scenarios for overview, categories list, specific category and transactions list
@@ -162,6 +180,7 @@ class AppNav {
         let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
         let webVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.web.rawValue) as! WebViewController
         webVC.viewModel.url = url.absoluteString
+        webVC.hidesBottomBarWhenPushed = true
         nav.pushViewController(webVC, animated: true)
     }
     
@@ -214,7 +233,7 @@ class AppNav {
         transition.type = CATransitionType.fade;
         transition.subtype = CATransitionSubtype.fromTop;
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-
+        
         nav.view.layer.add(transition, forKey: "kCATransition")
         nav.pushViewController(vc, animated: false)
     }
@@ -246,6 +265,10 @@ extension AppNav {
         return vc
     }
     
+
+    
+    
+    
     /**
      After onboarding/login process, the app's main view controllers is embedded inside tabs. We use **initTabViewController** to initialise the parent tab view controller.
      */
@@ -264,11 +287,11 @@ extension AppNav {
     func initViewController(_ storyboardName: String, storyboardId: String, embedInNav: Bool)-> UIViewController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-//        if storyboardId == CommonStoryboardId.connecting.rawValue {
-//            let nav = UINavigationController(rootViewController: vc)
-//            nav.modalPresentationStyle = .fullScreen
-//            vc.present(nav, animated: true)
-//        }
+        //        if storyboardId == CommonStoryboardId.connecting.rawValue {
+        //            let nav = UINavigationController(rootViewController: vc)
+        //            nav.modalPresentationStyle = .fullScreen
+        //            vc.present(nav, animated: true)
+        //        }
         if embedInNav {
             let nav = UINavigationController(rootViewController: vc)
             return nav
@@ -283,14 +306,20 @@ extension AppNav {
      - parameter storyboardId: storyboard id rawValue from **OnboardingStoryboardId**, **MainStoryboardId**, **CommonStoryboardId** or from any future storyboard id group
      - parameter viewController:
      */
-    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController) {
+    func presentViewController(_ storyboardName: String, storyboardId: String, viewController: UIViewController, embedInNav: Bool, animated: Bool = true) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
         let vc = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        viewController.present(nav, animated: true)
+        
+        if embedInNav {
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            viewController.present(nav, animated: animated)
+        } else {
+            vc.modalPresentationStyle = .fullScreen
+            viewController.present(vc, animated: animated)
+        }
     }
-
+    
     /**
      present **decline** viewController is actually initialising **IntroductionViewController** based on provided **declineReason** enum. **presentDeclineViewController** is actually a special case for presenting **IntroductionViewController**
      - parameter declineReason: **DeclineDetail.DeclineReason** the enum mapping to the corresponding decline message.
@@ -298,12 +327,16 @@ extension AppNav {
     func presentDeclineViewController(_ declineReason: DeclineDetail.DeclineReason, viewController: UIViewController) {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: IntroductionViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.intro.rawValue) as! IntroductionViewController
+        
+        
         let introductionViewModel = IntroductionViewModel()
         let introType = IntroductionViewModel.introTypeFromDeclineReason(declineReason) ?? IntroductionType.noPayCycle
         let introCoordinator = IntroductionViewModel.coordinatorFor(introType)
         introductionViewModel.coordinator = introCoordinator
         vc.viewModel = introductionViewModel
+        
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
@@ -320,6 +353,7 @@ extension AppNav {
         introductionViewModel.coordinator = introCoordinator
         vc.viewModel = introductionViewModel
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
@@ -331,6 +365,7 @@ extension AppNav {
         let vc: PasscodeViewController = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.passcode.rawValue) as! PasscodeViewController
         vc.viewModel.type = .validate
         guard let currentRootVc = UIApplication.shared.keyWindow!.rootViewController else { return }
+        vc.modalPresentationStyle = .fullScreen
         currentRootVc.present(vc, animated: true, completion: nil)
     }
     
@@ -346,31 +381,35 @@ extension AppNav {
         questionViewModel.coordinator = QuestionViewModel.coordinatorFor(questionType)
         vc.viewModel = questionViewModel
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         viewController.present(nav, animated: true, completion: nil)
     }
     
     /**
-    Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
+     Present a multiple choice view controller. Built on top of the initialisation helper method for **MultipleChoiceViewController**
      - parameter multipleChoiceType: MultipleChoiceQuestionType which drives the appearance of the **MultipleChoiceViewController**
      - parameter viewController: source viewController of the current navigation action
-    */
+     */
     func presentToMultipleChoice(_ multipleChoiceType: MultipleChoiceQuestionType, viewController: UIViewController) {
-        print(multipleChoiceType)
+         LoggingUtil.shared.cPrint(multipleChoiceType)
+        
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let vc: MultipleChoiceViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.multipleChoice.rawValue) as! MultipleChoiceViewController
+        
         let multipleChoiceViewModel = MultipleChoiceViewModel()
         multipleChoiceViewModel.coordinator = MultipleChoiceViewModel.coordinatorfor(multipleChoiceType)
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
+        
         if multipleChoiceType == .employmentType {
             vc.showNextButton = true
         }else {
-             vc.showNextButton = false
+            vc.showNextButton = false
         }
         
         if multipleChoiceType == .workingLocation {
             vc.showNextButton = true
-            print(vc.showNextButton)
+             LoggingUtil.shared.cPrint(vc.showNextButton)
             guard let nav = viewController.navigationController else { return }
             vc.modalPresentationStyle = .fullScreen
             nav.pushViewController(vc, animated: true)
@@ -380,6 +419,17 @@ extension AppNav {
             viewController.present(nav, animated: true, completion: nil)
         }
     }
+    
+    func presentPreviewLoanViewController(viewController: UIViewController) {
+
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
+
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: KYC
@@ -391,26 +441,42 @@ extension AppNav {
      - parameter viewController: source viewController of the navigation action
      */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
+        
         /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
         let sdkToken = AppData.shared.loadOnfidoSDKToken()
         guard sdkToken.isEmpty == false else {
-            
             /// if the sdk token is empty, then the logic cannot continue
             viewController.showMessage("Sdk token must be available", completion: nil)
             return
         }
         
         LoggingUtil.shared.cPrint("KYC flow")
-        /// customising the appearance of Onfido SDK viewControllers to fit activeTheme
-        let appearance = Appearance(primaryColor: AppConfig.shared.activeTheme.primaryColor, primaryTitleColor: AppConfig.shared.activeTheme.altTextColor, primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, secondaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor, fontRegular: AppConfig.shared.activeTheme.defaultFont.fontName, fontBold: AppConfig.shared.activeTheme.mediumFont.fontName, supportDarkMode: false )
-        let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
+
+        let appearance = Appearance(
+         primaryColor:  AppConfig.shared.activeTheme.primaryColor,
+         primaryTitleColor: AppConfig.shared.activeTheme.altTextColor,
+         primaryBackgroundPressedColor: AppConfig.shared.activeTheme.textBackgroundColor,
+         supportDarkMode : true)
+        
+        //let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
+        let drivingLicenceConfiguration = DrivingLicenceConfiguration.init(country: CountryCode.AU.rawValue)
+        let docType: DocumentType = (type == .Passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
+        
         let config = try! OnfidoConfig.builder()
-            .withAppearance(appearance)
-            .withSDKToken(AppData.shared.onfidoSdkToken)
-            .withWelcomeStep()
-            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
-            .withFaceStep(ofVariant: .photo(withConfiguration: nil))
-            .build()
+                  .withAppearance(appearance)
+                  .withSDKToken(AppData.shared.onfidoSdkToken)
+                  .withWelcomeStep()
+                  .withDocumentStep(ofType: docType)
+                  .withFaceStep(ofVariant: .photo(withConfiguration: nil))
+                  .build()
+        
+//        let config = try! OnfidoConfig.builder()
+//            .withAppearance(appearance)
+//            .withSDKToken(AppData.shared.onfidoSdkToken)
+//            .withWelcomeStep()
+//            .withDocumentStep(ofType: docType, andCountryCode: CountryCode.AU.rawValue)
+//            .withFaceStep(ofVariant: .photo(withConfiguration: nil))
+//            .build()
         
         /// define the handling of the end of Onfido flow
         let onfidoFlow = OnfidoFlow(withConfiguration: config)
@@ -418,11 +484,22 @@ extension AppNav {
                 switch results {
                 /// successful case
                 case .success(_):
+                    
+                    //SDK flow has been completed successfully
+                    AppConfig.shared.showSpinner()
                     CheqAPIManager.shared.putKycCheck().done {
-                        LoggingUtil.shared.cPrint("kyc checked")
-                        guard AppData.shared.completingDetailsForLending else { return }
-                        viewController.dismiss(animated: true, completion:nil)
-                        }.catch{ err in
+                        AppConfig.shared.hideSpinner {
+                            LoggingUtil.shared.cPrint("kyc checked")
+                            guard AppData.shared.completingDetailsForLending else { return }
+                            
+                            NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                            AppNav.shared.dismissModal(viewController){}
+                            
+                            //viewController.dismiss(animated: true, completion:nil)
+                        }
+                    }.catch{ err in
+                        
+                        AppConfig.shared.hideSpinner {
                             let error = err
                             guard AppData.shared.completingDetailsForLending else {
                                 return
@@ -430,32 +507,84 @@ extension AppNav {
                             viewController.dismiss(animated: true, completion: {
                                 NotificationUtil.shared.notify(UINotificationEvent.showError.rawValue, key: "", object: error)
                             })
+                            
+                        }
                     }
+                    
                     
                 /// error case handling
                 case let OnfidoResponse.error(err):
                     switch err {
-                    case OnfidoFlowError.cameraPermission:
-                        LoggingUtil.shared.cPrint("cameraPermission")
-                    case OnfidoFlowError.failedToWriteToDisk:
-                        LoggingUtil.shared.cPrint("failedToWriteToDisk")
-                    case OnfidoFlowError.microphonePermission:
-                        LoggingUtil.shared.cPrint("microphonePermission")
-                    case OnfidoFlowError.upload(_):
-                        LoggingUtil.shared.cPrint("upload")
-                    default: LoggingUtil.shared.cPrint(err)
+                        case OnfidoFlowError.cameraPermission:
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.cameraPermission")
+                        
+                        case OnfidoFlowError.failedToWriteToDisk:
+                            LoggingUtil.shared.cPrint("nfidoFlowError.failedToWriteToDisk")
+                        
+                        case OnfidoFlowError.microphonePermission:
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.microphonePermission")
+                        
+                        case OnfidoFlowError.upload(_):
+                            LoggingUtil.shared.cPrint("OnfidoFlowError.upload")
+                        
+                        case OnfidoFlowError.exception(withError: let error, withMessage: let message):
+                           LoggingUtil.shared.cPrint(error ?? "")
+                           LoggingUtil.shared.cPrint(message ?? "")
+                                                
+                        default: LoggingUtil.shared.cPrint(err)
                     }
+                    
+                case OnfidoResponse.cancel:
+                    LoggingUtil.shared.cPrint("flow canceled by user")
+                                        
                 default: break
                 }
             })
         
+       
         /// presenting onfido viewController to start the flow
         do {
             let onfidoRun = try onfidoFlow.run()
+            /*
+             Supported presentation styles are:
+             For iPhones: .fullScreen
+             For iPads: .fullScreen and .formSheet
+             */
+            var modalPresentationStyle: UIModalPresentationStyle = .fullScreen
+            // due to iOS 13 you must specify .fullScreen as the default is now .pageSheet
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                modalPresentationStyle = .formSheet // to present modally on iPads
+            }
+            
+            onfidoRun.modalPresentationStyle = modalPresentationStyle
             viewController.present(onfidoRun, animated: true) { }
         } catch let err {
+            // cannot execute the flow
             LoggingUtil.shared.cPrint(err)
             viewController.showError(err, completion: nil)
+            
+            switch err {
+                case OnfidoFlowError.cameraPermission:
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.cameraPermission")
+                
+                case OnfidoFlowError.failedToWriteToDisk:
+                    LoggingUtil.shared.cPrint("nfidoFlowError.failedToWriteToDisk")
+                
+                case OnfidoFlowError.microphonePermission:
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.microphonePermission")
+                
+                case OnfidoFlowError.upload(_):
+                    LoggingUtil.shared.cPrint("OnfidoFlowError.upload")
+                
+                case OnfidoFlowError.exception(withError: let error, withMessage: let message):
+                   LoggingUtil.shared.cPrint(error ?? "")
+                   LoggingUtil.shared.cPrint(message ?? "")
+                                        
+                default: LoggingUtil.shared.cPrint(err)
+            }
+            
+            //Onfido.OnfidoFlowError.cameraPermission
         }
     }
 }
@@ -502,3 +631,74 @@ extension AppNav {
         }
     }
 }
+
+
+
+/*
+func cameraSelected() {
+    // First we check if the device has a camera (otherwise will crash in Simulator - also, some iPod touch models do not have a camera).
+    if let deviceHasCamera = UIImagePickerController.isSourceTypeAvailable(.camera) {
+        let authStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        switch authStatus {
+            case .authorized:
+                showCameraPicker()
+            case .denied:
+                alertPromptToAllowCameraAccessViaSettings()
+            case .notDetermined:
+                permissionPrimeCameraAccess()
+            default:
+                permissionPrimeCameraAccess()
+        }
+    } else {
+        let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+            Analytics.track(event: .permissionsPrimeCameraNoCamera)
+        })
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+
+func alertPromptToAllowCameraAccessViaSettings() {
+    let alert = UIAlertController(title: "\"<Your App>\" Would Like To Access the Camera", message: "Please grant permission to use the Camera so that you can  <customer benefit>.", preferredStyle: .alert )
+    alert.addAction(UIAlertAction(title: "Open Settings", style: .cancel) { alert in
+        Analytics.track(event: .permissionsPrimeCameraOpenSettings)
+        if let appSettingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
+          UIApplication.shared.openURL(appSettingsURL)
+        }
+    })
+    present(alert, animated: true, completion: nil)
+}
+
+
+func permissionPrimeCameraAccess() {
+    let alert = UIAlertController( title: "\"<Your App>\" Would Like To Access the Camera", message: "<Your App> would like to access your Camera so that you can <customer benefit>.", preferredStyle: .alert )
+    let allowAction = UIAlertAction(title: "Allow", style: .default, handler: { (alert) -> Void in
+        Analytics.track(event: .permissionsPrimeCameraAccepted)
+        if AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).count > 0 {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self] granted in
+                DispatchQueue.main.async {
+                    self?.cameraSelected() // try again
+                }
+            })
+        }
+    })
+    alert.addAction(allowAction)
+    let declineAction = UIAlertAction(title: "Not Now", style: .cancel) { (alert) in
+        Analytics.track(event: .permissionsPrimeCameraCancelled)
+    }
+    alert.addAction(declineAction)
+    present(alert, animated: true, completion: nil)
+}
+
+
+func showCameraPicker() {
+    let picker = UIImagePickerController()
+    picker.delegate = self
+    picker.modalPresentationStyle = UIModalPresentationStyle.currentContext
+    picker.allowsEditing = false
+    picker.sourceType = UIImagePickerControllerSourceType.camera
+    present(picker, animated: true, completion: nil)
+}
+*/

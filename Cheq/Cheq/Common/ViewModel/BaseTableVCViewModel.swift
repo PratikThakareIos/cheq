@@ -53,6 +53,7 @@ extension BaseTableVCViewModel {
         let barChart = BarChartTableViewCellViewModel()
         let spacer = SpacerTableViewCellViewModel()
         barChart.data = stats
+        section.rows.append(spacer)
         section.rows.append(barChart)
         section.rows.append(spacer)
     }

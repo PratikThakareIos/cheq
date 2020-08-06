@@ -14,22 +14,25 @@ TransferCardTableViewCell is UI implementation of transfer card on Lending scree
 class TransferCardTableViewCell: CTableViewCell {
 
     /// refer to **xib**
-    @IBOutlet weak var amountLabel: CLabel!
+    @IBOutlet weak var amountLabel: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var feeLabel: CLabel!
+    @IBOutlet weak var feeLabel: UILabel!
     
     /// refer to **xib**
     @IBOutlet weak var transferIcon: UIImageView!
     
     /// refer to **xib**
-    @IBOutlet weak var descriptionLabel: CLabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     /// refer to **xib**
-    @IBOutlet weak var dateString: CLabel!
+    @IBOutlet weak var dateString: UILabel!
     
     /// refer to **xib**
     @IBOutlet weak var containerView: UIView!
+    
+    
+     @IBOutlet weak var fundClearanceLabel: UILabel!
 
     /// method executed when init from **xib**
     override func awakeFromNib() {
@@ -46,19 +49,41 @@ class TransferCardTableViewCell: CTableViewCell {
 
     /// setupConfig applies the UI update to the tableview cell, call this after we updated viewModel 
     override func setupConfig() {
-        self.backgroundColor = .clear
+        
         let vm = self.viewModel as! TransferCardTableViewCellViewModel
-        let bgColor: UIColor = (vm.direction == .debit) ? AppConfig.shared.activeTheme.alternativeColor3 : AppConfig.shared.activeTheme.monetaryColor
-        AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: bgColor.withAlphaComponent(0.05), applyShadow: false)
-        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
+        self.backgroundColor = .clear
+                
+//        let bgColor: UIColor = (vm.direction == .debit) ? AppConfig.shared.activeTheme.alternativeColor3 : AppConfig.shared.activeTheme.monetaryColor
+//
+//        AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: bgColor.withAlphaComponent(0.05), applyShadow: false)
+//        AppConfig.shared.activeTheme.cardStyling(self.containerView, borderColor: AppConfig.shared.activeTheme.lightGrayBorderColor)
+        
+        self.containerView.backgroundColor = .white
+        
+        AppConfig.shared.activeTheme.cardStyling(self.containerView, bgColor: .white, applyShadow: false)
+        
+        if vm.direction == .credit {
+           self.amountLabel.textColor = AppConfig.shared.activeTheme.splashBgColor2
+           self.amountLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 24.0) ?? UIFont.systemFont(ofSize: 24.0, weight: .bold)
+           self.fundClearanceLabel.isHidden = false
+        }else{
+           self.amountLabel.textColor = UIColor(hex: "059AEC")
+           self.amountLabel.font = UIFont.init(name: FontConstant.SFProTextBold, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0, weight: .bold)
+           self.fundClearanceLabel.isHidden = true
+        }
+        
         self.amountLabel.text = vm.transferAmount
         self.amountLabel.font = AppConfig.shared.activeTheme.headerBoldFont
+        
+        self.descriptionLabel.text = vm.descriptionText()
+        //self.descriptionLabel.font = AppConfig.shared.activeTheme.mediumFont
+        
         self.feeLabel.text = vm.feeAmountText
         self.feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         self.feeLabel.textColor = AppConfig.shared.activeTheme.lightestGrayColor
-        self.dateString.text = vm.dateString
+        self.dateString.text = vm.getFormattedDate() //vm.dateString
         let transferImage = vm.imageIcon()
         self.transferIcon.image = UIImage(named: transferImage)
-        self.descriptionLabel.text = vm.descriptionText()
+
     }
 }

@@ -9,14 +9,14 @@
 import UIKit
 
 class PayCycleViewController: UIViewController {
+   
     @IBOutlet weak var tableView: UITableView!
-    
     var selectedRow:PostSalaryTransactionsRequest.PayFrequency? = .weekly
+    @IBOutlet weak var btnConfirm: CNButton!
+    @IBOutlet weak var lblSubTitle: UILabel!
     
     enum choises: CaseIterable {
-        
         case weekly, fortnightly, monthly
-        
         var string: String {
             switch self {
             case .weekly: return "Weekly"
@@ -25,44 +25,41 @@ class PayCycleViewController: UIViewController {
             }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       showBackButton()
-    }
+        showBackButton()
+        btnConfirm.createShadowLayer()
+        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        self.tableView.backgroundColor = .clear
+        
 
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
+        self.lblSubTitle.text = "How often do you get  paid from \(companyName)?"
+    }
 }
+
 extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         LoggingUtil.shared.cPrint("choises.allCases.count = \(choises.allCases.count)")
         return choises.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PayCycleCell", for: indexPath) as! SelectionTableViewCell
-         cell.selectionStyle = .none
-        cell.title.text = choises.allCases[indexPath.row].string
-         cell.contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 20, right: 0))
-        return cell
+         //cell.selectionStyle = .none
+         cell.title.text = choises.allCases[indexPath.row].string
+         cell.backgroundColor = .clear
+         AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: false)
+         cell.content.backgroundColor = UIColor.init(hex: "FFFFFF")
+                
+         // cell.contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 8, bottom: 20, right: 0))
+         return cell
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard section == 0 else { return nil }
-        var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
 
-        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
-    
-        let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
-        // here is what you should add:
-        nextButton.center = footerView.center
-
-        nextButton.setTitle("Confirm", for: .normal)
-        nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
-        nextButton.layer.cornerRadius = 28.0
-        nextButton.addTarget(self, action: #selector(confirmButtonClick(sender:)), for: .touchUpInside)
-        footerView.addSubview(nextButton)
-        
-        return footerView
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let choice = choises.allCases[indexPath.row]
         switch choice {
@@ -78,32 +75,32 @@ extension PayCycleViewController: UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 150
-    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
-    @objc func confirmButtonClick(sender: UIButton!) {
-        print("clicked",selectedRow!)
-         AppConfig.shared.showSpinner()
-        CheqAPIManager.shared.postSalaryTransactions(salaryTransactionIds: SalaryPaymentViewController.selectedTansactionList, payFrequency: selectedRow, _noSalary: SalaryPaymentViewController.selectedSalaryOption[0], _isInAnotherBank: SalaryPaymentViewController.selectedSalaryOption[1])
-        .done{ success in
-                 AppConfig.shared.hideSpinner {
-                    print(success)
-                    AppNav.shared.dismissModal(self)
-                 }
-             }.catch { err in
-                 AppConfig.shared.hideSpinner {
-                     self.showError(err) {
-                       print("error")
-                     }
-                 }
-             }
+    @IBAction func btnConfirmAction(_ sender: Any) {
         
-     }
-    
+      //  putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs: Optional([353719, 352714]), payFrequency: Optional(Cheq_DEV.PostSalaryTransactionsRequest.PayFrequency.weekly), noSalary: Optional(false), isInAnotherBank: Optional(false))
 
-    
+       let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs:  SalaryPaymentViewController.selectedTansactionList, payFrequency: selectedRow, noSalary:false, isInAnotherBank: false)
+        
+         LoggingUtil.shared.cPrint("putBankAccountRequest = \(putBankAccountRequest)")
+        
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.postSalaryTransactions(req : putBankAccountRequest)
+       .done{ success in
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(success)
+                   NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                   AppNav.shared.dismissModal(self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                       LoggingUtil.shared.cPrint("error")
+                    }
+                }
+            }
+    }
 }

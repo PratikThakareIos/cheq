@@ -17,16 +17,15 @@ class OnfidoManager {
     // so there is an assumption that we will only use OnfidoManager after we logged in
     func fetchSdkToken()-> Promise<GetUserKycResponse> {
         return AuthConfig.shared.activeManager.getCurrentUser()
-                .then { authUser->Promise<GetUserKycResponse> in
-                    return Promise<GetUserKycResponse>() { resolver in
-                        
-                        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-                        CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
-                            resolver.fulfill(response)
-                        }.catch { err in
-                            resolver.reject(err)
-                        }
+            .then { authUser->Promise<GetUserKycResponse> in
+                return Promise<GetUserKycResponse>() { resolver in
+                    let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+                    CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
+                        resolver.fulfill(response)
+                    }.catch { err in
+                        resolver.reject(err)
                     }
+                }
         }
     }
 }

@@ -17,21 +17,19 @@ class TermsAndConditionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.webView.loadHTMLString(url ?? "", baseURL: nil)
-        print(webView.scrollView.contentSize.height)
-         let scrollPoint = CGPoint(x: 0, y:7000)
-         webView.scrollView.setContentOffset(scrollPoint, animated: true)
+         LoggingUtil.shared.cPrint(webView.scrollView.contentSize.height)
+        let scrollPoint = CGPoint(x: 0, y:7000)
+        webView.scrollView.setContentOffset(scrollPoint, animated: true)
     }
     
     @IBAction func acceptedBtnClick(_ sender: Any) {
-        
         AppNav.shared.dismiss(self)
         NotificationUtil.shared.notify(UINotificationEvent.agreemntAccepted.rawValue, key: "", value: "")
-        
     }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == webView {
-            print("Scrolled")
+             LoggingUtil.shared.cPrint("Scrolled")
         }
     }
-
 }

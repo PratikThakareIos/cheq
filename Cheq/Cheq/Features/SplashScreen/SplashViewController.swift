@@ -21,7 +21,7 @@ class SplashViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         setupDelegate()
         setupUI()
     }
@@ -47,11 +47,10 @@ class SplashViewController: UIViewController {
     }
 }
 
-
 // MARK: IBActions
 extension SplashViewController {
+    
     @IBAction func registration(_ sender: Any) {
-        
         var current = pageControl.currentPage
         guard current == viewModel.benefitList.count - 1 else {
             current = current + 1
@@ -63,8 +62,8 @@ extension SplashViewController {
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC
         let nav = UINavigationController(rootViewController: regViewController)
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
-
     }
 }
 

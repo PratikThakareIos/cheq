@@ -33,7 +33,7 @@ class BottomTableViewCell: CTableViewCell {
     override func setupConfig() {
         self.backgroundColor = .clear
         self.bottom.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        self.bottom.layer.cornerRadius = AppConfig.shared.activeTheme.defaultCornerRadius
+        self.bottom.layer.cornerRadius = bottom.frame.size.height / 2 //AppConfig.shared.activeTheme.defaultCornerRadius
         self.bottom.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
     }
 }

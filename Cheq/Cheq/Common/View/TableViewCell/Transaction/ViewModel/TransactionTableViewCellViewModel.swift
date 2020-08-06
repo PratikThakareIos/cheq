@@ -17,8 +17,27 @@ class TransactionTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "TransactionTableViewCell"
     
     /// data is **SlimTransactionResponse** which is a model class from Cheq API
-    var data: SlimTransactionResponse = SlimTransactionResponse(_description: "", amount: 0.0, date: "", categoryTitle: "", categoryCode: .others, merchant: "", merchantLogoUrl: "", financialAccountName: "", financialInstitutionLogoUrl: "")
+    var data: SlimTransactionResponse = SlimTransactionResponse(_description: "", amount: 0.0, date: "", categoryTitle: "", categoryCode: .others, merchant: "", merchantLogoUrl: "", financialAccountName: "", financialInstitutionLogoUrl: "", financialInstitutionId: "")
     
     /// on transaction screen for one category, we don't need to show category icon 
-    var hideIcon: Bool = false 
+    var hideIcon: Bool = false
+    
+    func getFormattedDate()->String{
+        if let strDate = self.convertDateFormater(self.data.date ?? ""){
+             return strDate
+         }
+        return self.data.date ?? ""
+     }
+     
+     func convertDateFormater(_ date: String) -> String? {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+          dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+          
+          if let date = dateFormatter.date(from: date) {
+              dateFormatter.dateFormat = "E, d MMM"
+              return  dateFormatter.string(from: date)
+          }
+          return nil
+      }
 }

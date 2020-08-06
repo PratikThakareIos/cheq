@@ -8,7 +8,8 @@
 
 import UIKit
 import PromiseKit
-import MobileSDK
+
+//import MobileSDK
 
 class LogViewController: UIViewController {
     
@@ -28,31 +29,32 @@ class LogViewController: UIViewController {
     }
     
     func apiTest() {
-        var credentials = [LoginCredentialType: String] ()
-        credentials[.email] = "hellotest4@gmail.com"
-        credentials[.password] = TestUtil.shared.randomPassword()
-        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser -> Promise<AuthUser> in
-            let req = TestUtil.shared.putUserDetailsReq()
-            return CheqAPIManager.shared.putUserDetails(req)
-        }.then { authUser->Promise<AuthenticationModel> in
-            return MoneySoftManager.shared.login(authUser.msCredential)
-        }.then { authModel->Promise<Bool> in
-            return MoneySoftManager.shared.postNotificationToken()
-        }.then { success->Promise<Bool> in
-            let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
-            let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
-            let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
-            return CheqAPIManager.shared.postNotificationToken(req)
-        }.done { success in
-            let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
-            let _ = LoggingUtil.shared.printLocationFile("token : \(fcmToken), posted to moneySoft\n")
-        }.catch { err in
-            LoggingUtil.shared.cPrint(err.localizedDescription)
-        }.finally {
-            AppConfig.shared.hideSpinner {
-                
-            }
-        }
+        
+//        var credentials = [LoginCredentialType: String] ()
+//        credentials[.email] = "hellotest4@gmail.com"
+//        credentials[.password] = TestUtil.shared.randomPassword()
+//        AuthConfig.shared.activeManager.register(.socialLoginEmail, credentials: credentials).then { authUser -> Promise<AuthUser> in
+//            let req = TestUtil.shared.putUserDetailsReq()
+//            return CheqAPIManager.shared.putUserDetails(req)
+//        }.then { authUser->Promise<AuthenticationModel> in
+//            return MoneySoftManager.shared.login(authUser.msCredential)
+//        }.then { authModel->Promise<Bool> in
+//            return MoneySoftManager.shared.postNotificationToken()
+//        }.then { success->Promise<Bool> in
+//            let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+//            let apns = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
+//            let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apns, deviceType: .ios)
+//            return CheqAPIManager.shared.postNotificationToken(req)
+//        }.done { success in
+//            let fcmToken = CKeychain.shared.getValueByKey(CKey.fcmToken.rawValue)
+//            let _ = LoggingUtil.shared.printLocationFile("token : \(fcmToken), posted to moneySoft\n")
+//        }.catch { err in
+//            LoggingUtil.shared.cPrint(err.localizedDescription)
+//        }.finally {
+//            AppConfig.shared.hideSpinner {
+//            }
+//        }
+        
     }
     
     func setup() {        

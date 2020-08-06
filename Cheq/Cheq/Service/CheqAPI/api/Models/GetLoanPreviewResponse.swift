@@ -34,7 +34,7 @@ public struct GetLoanPreviewResponse: Codable {
         self.companyName = companyName
         self.acnAbn = acnAbn
     }
-
-
 }
+
+
 

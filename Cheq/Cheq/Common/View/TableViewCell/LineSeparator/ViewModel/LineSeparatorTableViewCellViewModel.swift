@@ -17,5 +17,6 @@ class LineSeparatorTableViewCellViewModel: TableViewCellViewModelProtocol {
     var identifier: String = "LineSeparatorTableViewCell"
     
     /// the height for line sepearator is adjustable by updating this value on ViewModel 
-    var height: CGFloat = 0.5
+    var height: CGFloat = 1.0
+    
 }

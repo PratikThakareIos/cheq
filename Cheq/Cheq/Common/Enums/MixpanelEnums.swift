@@ -20,7 +20,6 @@ enum MixpanelEvents: String {
 }
 
 enum MixpanelIDs: String {
-
     //IDs
     case mixpanel_ID = "Mixpanel ID"
 //    case organization_ID = "iTelaSoft Pvt Ltd"

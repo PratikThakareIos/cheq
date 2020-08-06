@@ -17,10 +17,15 @@ import UIKit
 class AccountInfoTableViewCell: CTableViewCell {
     
     /// subHeader lies on top of information, we use this for labelling the nature of information. e.g. First name, Last name
-    @IBOutlet weak var subHeader: CLabel!
+    @IBOutlet weak var subHeader: UILabel!
     
     /// information is the content that subHeader is referring to
-    @IBOutlet weak var information: CLabel!
+    @IBOutlet weak var information: UILabel!
+    
+    
+    @IBOutlet weak var imgVwArrow: UIImageView!
+    
+    
 
     /// this method is called when cell is loaded from XIB
     override func awakeFromNib() {
@@ -37,12 +42,18 @@ class AccountInfoTableViewCell: CTableViewCell {
      */
     override func setupConfig() {
         self.backgroundColor = .clear 
-        subHeader.textColor = AppConfig.shared.activeTheme.lightestGrayColor
+        
+        //subHeader.font = AppConfig.shared.activeTheme.mediumBoldFont
+        subHeader.textColor = AppConfig.shared.activeTheme.lightGrayColor
+        
         information.font = AppConfig.shared.activeTheme.mediumBoldFont
         information.textColor = AppConfig.shared.activeTheme.textColor
+       
         let vm = self.viewModel as! AccountInfoTableViewCellViewModel
         subHeader.text = vm.subHeader
         information.text = vm.information
+
+        imgVwArrow.isHidden = !vm.showDisclosureIcon
+
     }
-    
 }

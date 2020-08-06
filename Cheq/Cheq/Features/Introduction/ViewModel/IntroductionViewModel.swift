@@ -26,6 +26,7 @@ enum IntroEmoji: String {
     case transferFailed = "transferFailed"
 }
 
+
 enum IntroButtonTitle: String {
     case setupYourBank = "Setup your bank"
     case tellMeWhy = "Tell me why"
@@ -34,12 +35,15 @@ enum IntroButtonTitle: String {
     case close = "Close"
     case learnMore = "Learn more"
     case openMailApp = "Open mail app"
+    case moreInformation = "More information"
+    case selectSalaryPayments = "Select salary payments"
+    
 }
 
 enum IntroductionType: String {
     case email = "Check your email"
     case employee = "Employee details"
-    case setupBank = "Set up your bank"
+    case setupBank = "Connect to your bank" //Set up your bank"
     case enableLocation = "Enable location"
     case notification = "Notification"
     case verifyIdentity = "Verify your identity"
@@ -98,16 +102,17 @@ class IntroductionViewModel: BaseViewModel {
         case .hasWriteOff: return .hasWriteOff
         case .identityConflict: return .identityConflict
         case .jointAccount: return .jointAccount
-//        case .kycFailed: return .kycFailed
         case .monthlyPayCycle: return .monthlyPayCycle
-//        case .noPayCycle: return .noPayCycle
-//        case .hasNameConflict: return .hasNameConflict
         case .reachedCapacity: return .hasReachedCapacity
         case .hasOverdueLoans : return .hasOverdueLoans
         case .salaryInDifferentBank : return .salaryInDifferentBank
         case .noEnoughSalaryInfo : return .noEnoughSalaryInfo
         case .selectYourSalary : return .selectYourSalary
         case .payCycleStopped:  return .payCycleStopped
+            
+            //        case .noPayCycle: return .noPayCycle
+            //        case .hasNameConflict: return .hasNameConflict
+            //        case .kycFailed: return .kycFailed
         }
     }
 

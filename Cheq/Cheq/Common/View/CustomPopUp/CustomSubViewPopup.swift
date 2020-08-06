@@ -18,8 +18,8 @@ class CustomSubViewPopup: UIView {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var popupImageView: UIImageView!
     
-     /// viewModel is always initialised, so it's not nil
-      var viewModel = CustomPopupViewModel()
+    /// viewModel is always initialised, so it's not nil
+    var viewModel = CustomPopupViewModel()
     
     override func awakeFromNib() {
          setupUI()
@@ -31,12 +31,11 @@ class CustomSubViewPopup: UIView {
         self.label.text = viewModel.data.description
         self.popupHeight.constant = viewModel.data.modalheight ?? 502.0
         self.headerLabel.text =  viewModel.data.headerTitle
-        if viewModel.data.imageName != ""{
+        if viewModel.data.imageName != "" {
             self.popupImageView.image = UIImage(named: viewModel.data.imageName!)
         }
     }
 
-    
     func setupTapToDismiss() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAction))
         tap.numberOfTapsRequired = 1
@@ -45,7 +44,7 @@ class CustomSubViewPopup: UIView {
     
     @objc func dismissAction() {
           SwiftEntryKit.dismiss()
-      }
+    }
 }
 
 

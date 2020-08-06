@@ -17,14 +17,18 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     var currentViewControllerIndex = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.title = ""
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.pageControl.pageIndicatorTintColor = AppConfig.shared.activeTheme.lightGrayColor.withAlphaComponent(AppConfig.shared.activeTheme.nonActiveAlpha)
         self.pageControl.currentPageIndicatorTintColor = AppConfig.shared.activeTheme.primaryColor
+        
         let budgetPage = CSplashPageViewModel()
         budgetPage.splashImage = .budget
         budgetPage.splashText = .budget
         budgetPage.bgColor = AppConfig.shared.activeTheme.splashBgColor1
+        
         let budgetPageViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplashPage.rawValue, embedInNav: false) as! CSplashPageViewController
         budgetPageViewController.viewModel = budgetPage
         budgetPageViewController.view.tag = 0
@@ -33,6 +37,7 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         spendingPage.splashImage = .spending
         spendingPage.splashText = .spending
         spendingPage.bgColor = AppConfig.shared.activeTheme.splashBgColor2
+        
         let spendingPageViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplashPage.rawValue, embedInNav: false) as! CSplashPageViewController
         spendingPageViewController.viewModel = spendingPage
         spendingPageViewController.view.tag = 1
@@ -41,6 +46,7 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         cheqPayPage.splashImage = .cheqpay
         cheqPayPage.splashText = .cheqpay
         cheqPayPage.bgColor = AppConfig.shared.activeTheme.splashBgColor3
+        
         let cheqPayPageViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.cSplashPage.rawValue, embedInNav: false) as! CSplashPageViewController
         cheqPayPageViewController.viewModel = cheqPayPage
         cheqPayPageViewController.view.tag = 2

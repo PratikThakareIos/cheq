@@ -15,7 +15,7 @@ open class SpendingAPI {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSpendingAllTransactions(completion: @escaping ((_ data: GetSpendingSpecificCategoryResponse?,_ error: Error?) -> Void)) {
+    open class func getSpendingAllTransactions(completion: @escaping ((_ data: [DailyTransactionsResponse]?,_ error: Error?) -> Void)) {
         getSpendingAllTransactionsWithRequestBuilder().execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -27,73 +27,68 @@ open class SpendingAPI {
      - API Key:
        - type: apiKey Authorization 
        - name: Bearer
-     - examples: [{contentType=application/json, example={
-  "dailyTransactions" : [ {
+     - examples: [{contentType=application/json, example=[ {
+  "date" : "date",
+  "transactions" : [ {
     "date" : "date",
-    "transactions" : [ {
-      "date" : "date",
-      "amount" : 0.8008281904610115,
-      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
-      "categoryTitle" : "categoryTitle",
-      "financialAccountName" : "financialAccountName",
-      "description" : "description",
-      "merchant" : "merchant",
-      "categoryCode" : "Benefits",
-      "merchantLogoUrl" : "merchantLogoUrl"
-    }, {
-      "date" : "date",
-      "amount" : 0.8008281904610115,
-      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
-      "categoryTitle" : "categoryTitle",
-      "financialAccountName" : "financialAccountName",
-      "description" : "description",
-      "merchant" : "merchant",
-      "categoryCode" : "Benefits",
-      "merchantLogoUrl" : "merchantLogoUrl"
-    } ]
+    "amount" : 0.8008281904610115,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
   }, {
     "date" : "date",
-    "transactions" : [ {
-      "date" : "date",
-      "amount" : 0.8008281904610115,
-      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
-      "categoryTitle" : "categoryTitle",
-      "financialAccountName" : "financialAccountName",
-      "description" : "description",
-      "merchant" : "merchant",
-      "categoryCode" : "Benefits",
-      "merchantLogoUrl" : "merchantLogoUrl"
-    }, {
-      "date" : "date",
-      "amount" : 0.8008281904610115,
-      "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
-      "categoryTitle" : "categoryTitle",
-      "financialAccountName" : "financialAccountName",
-      "description" : "description",
-      "merchant" : "merchant",
-      "categoryCode" : "Benefits",
-      "merchantLogoUrl" : "merchantLogoUrl"
-    } ]
-  } ],
-  "monthAmountStats" : [ {
     "amount" : 0.8008281904610115,
-    "month" : "month"
-  }, {
-    "amount" : 0.8008281904610115,
-    "month" : "month"
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
   } ]
-}}]
+}, {
+  "date" : "date",
+  "transactions" : [ {
+    "date" : "date",
+    "amount" : 0.8008281904610115,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
+  }, {
+    "date" : "date",
+    "amount" : 0.8008281904610115,
+    "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
+    "categoryTitle" : "categoryTitle",
+    "financialAccountName" : "financialAccountName",
+    "description" : "description",
+    "merchant" : "merchant",
+    "categoryCode" : "Benefits",
+    "merchantLogoUrl" : "merchantLogoUrl"
+  } ]
+} ]}]
 
-     - returns: RequestBuilder<GetSpendingSpecificCategoryResponse> 
+     - returns: RequestBuilder<[DailyTransactionsResponse]> 
      */
-    open class func getSpendingAllTransactionsWithRequestBuilder() -> RequestBuilder<GetSpendingSpecificCategoryResponse> {
+    open class func getSpendingAllTransactionsWithRequestBuilder() -> RequestBuilder<[DailyTransactionsResponse]> {
         let path = "/v1/Spending/transactions"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<GetSpendingSpecificCategoryResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<[DailyTransactionsResponse]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -172,6 +167,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -182,6 +178,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -210,6 +207,8 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
+  "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -267,6 +266,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -277,6 +277,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -305,6 +306,8 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
+  "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -362,6 +365,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -372,6 +376,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -400,6 +405,8 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
+  "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -457,6 +464,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -467,6 +475,7 @@ open class SpendingAPI {
     "date" : "date",
     "amount" : 0.8008281904610115,
     "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+    "financialInstitutionId" : "financialInstitutionId",
     "categoryTitle" : "categoryTitle",
     "financialAccountName" : "financialAccountName",
     "description" : "description",
@@ -495,6 +504,8 @@ open class SpendingAPI {
     "merchantLogoUrl" : "merchantLogoUrl",
     "categoryCode" : "Benefits"
   } ],
+  "currentDateTimeUtc" : "currentDateTimeUtc",
+  "lastSuccessfulUpdatedAtUtc" : "lastSuccessfulUpdatedAtUtc",
   "overviewCard" : {
     "infoIcon" : "infoIcon",
     "numberOfDaysTillPayday" : 6,
@@ -555,6 +566,7 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialInstitutionId" : "financialInstitutionId",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
@@ -565,6 +577,7 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialInstitutionId" : "financialInstitutionId",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
@@ -578,6 +591,7 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialInstitutionId" : "financialInstitutionId",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",
@@ -588,6 +602,7 @@ open class SpendingAPI {
       "date" : "date",
       "amount" : 0.8008281904610115,
       "financialInstitutionLogoUrl" : "financialInstitutionLogoUrl",
+      "financialInstitutionId" : "financialInstitutionId",
       "categoryTitle" : "categoryTitle",
       "financialAccountName" : "financialAccountName",
       "description" : "description",

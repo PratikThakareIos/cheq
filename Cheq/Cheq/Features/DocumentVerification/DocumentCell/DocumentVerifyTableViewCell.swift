@@ -8,39 +8,46 @@
 
 import UIKit
 
-class DocumentVerifyTableViewCell: UITableViewCell {
+class DocumentVerifyTableViewCell : UITableViewCell {
 
     @IBOutlet weak var DocumnerVerifyLabel: UILabel!
     @IBOutlet weak var content: UIView!
-    
     @IBOutlet weak var documentVerifyImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        self.backgroundColor = .white
+        //self.contentView.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         content.backgroundColor = .white
-               content.layer.cornerRadius = 22.0
+        
 
-               //cardView.layer.shadowColor = UIColor.gray.cgColor
-
-               content.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-
-               content.layer.shadowRadius = 2.0
-
-               content.layer.shadowOpacity = 0.7
-               self.content.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-        // Initialization code
+       //cardView.layer.shadowColor = UIColor.gray.cgColor
+       //content.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+       //content.layer.shadowRadius = 2.0
+       //content.layer.shadowOpacity = 0.7
+       //self.content.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-       if selected {
-                   self.content.backgroundColor = AppConfig.shared.activeTheme.alternativeColor3
-               } else {
-        self.content.backgroundColor = .white
+        
+         if selected {
+           self.content.layer.borderWidth = 2
+           self.content.layer.borderColor = UIColor(hex: "2CB4F6").cgColor
         }
-        // Configure the view for the selected state
+        else {
+           self.content.layer.borderWidth = 2
+           self.content.layer.borderColor = UIColor.white.cgColor
+        }
+        
+        
+//       if selected {
+//                   self.content.backgroundColor = AppConfig.shared.activeTheme.alternativeColor3
+//               } else {
+//                 self.content.backgroundColor = .white
+//        }
+      
     }
     
   override func layoutSubviews() {

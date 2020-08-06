@@ -13,21 +13,20 @@ class ConnectingTobankFalilsViewController: UIViewController {
 
     @IBOutlet weak var trytoConnectAgainBtn: UIButton!
     @IBOutlet weak var backgroundView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-       
     }
     
     private func setupUI() {
-        trytoConnectAgainBtn.layer.cornerRadius = 25
+        trytoConnectAgainBtn.layer.cornerRadius = 27
         backgroundView.backgroundColor = AppConfig.shared.activeTheme.primaryColor
     }
 
-
     @IBAction func tryTocoeenctAgainBtnClick(_ sender: Any) {
-        NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
-        self.dismiss(animated: true, completion: nil)
+       NotificationUtil.shared.notify(UINotificationEvent.resubmitForm.rawValue, key: "", object: "")
+       self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func chatWithUsBtnClick(_ sender: Any) {
@@ -36,6 +35,5 @@ class ConnectingTobankFalilsViewController: UIViewController {
              }.catch { err in
                  self.showError(err, completion: nil)
          }
-    }
-    
+    }    
 }

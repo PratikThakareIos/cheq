@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import MobileSDK
+import OneSignal
+//import MobileSDK
 
 /**
 ScreenName enum is where we keep for names of screen that we want to track. Update as we add more viewContollers. Do not hardcode anywhere else for screen names.
@@ -58,9 +59,9 @@ enum ScreenName: String {
     
     /// spending
     case spending = "Overview"
-    case spendingCategories = "Money Spent"
-    case spendingCategoryById = "Spending Category"
-    case spendingTransactions = "All Transactions"
+    case spendingCategories = "Money spent"
+    case spendingCategoryById = "Spending category"
+    case spendingTransactions = "Transactions"
     
     // account
     case accountInfo = "Account" 
@@ -95,8 +96,11 @@ class AppData {
     var expirationDuration = TimeInterval(3600)
     
     /// spending overview status
-    var spendingOverviewReady = false 
+    var spendingOverviewReady = false
     
+    /// connection Job Status
+    var connectionJobStatusReady = false
+
     /// amount selected from loan setting
     var amountSelected = "0"
     
@@ -127,22 +131,27 @@ class AppData {
     var progress = CProgress()
 
     /// Variable to keep track of linked account fetched from MoneySoft SDK.
-    var storedAccounts: [FinancialAccountModel] = []
+    //var storedAccounts: [FinancialAccountModel] = []
     
     /// Variable to keep track of transactions fetched from MoneySoft SDK.
-    var financialTransactions: [FinancialTransactionModel] = []
+    //var financialTransactions: [FinancialTransactionModel] = []
     
     /// Placeholder value for financialInstitutionsId
     let financialInstitutionsUnused = -1
     
-    /// FinancialInstitutionModel represent a bank/intitution from MoneySoft SDK. **financialInstitutions** is the list we fetched from MoneySoft SDK.
-    var financialInstitutions: [FinancialInstitutionModel] = []
+    /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
+    var financialInstitutions: [GetFinancialInstitution] = []
+    
+    var resGetFinancialInstitutionResponse: GetFinancialInstitutionResponse?
     
     /// Keep track of the selected institution
-    var selectedFinancialInstitution: FinancialInstitutionModel?
+    var selectedFinancialInstitution: GetFinancialInstitution?
+    
+    
+    var bankJobId :String?
     
     /// financial login form from MoneySoft SDK
-    var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
+    //var financialSignInForm: InstitutionCredentialsFormModel = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
     
     /// use for keeping track of the provider institution id to map which bank user selected
     var existingProviderInstitutionId: String = ""
@@ -151,11 +160,16 @@ class AppData {
     var existingFinancialInstitutionId: Int  = -1
     
     /// disabledAccount is used when we check if we need to migrate MoneySoft linked account instead of onboarding
-    var disabledAccount: FinancialAccountModel!
+    //var disabledAccount: FinancialAccountModel!
     
     /// bank logo mapping from remote config
     var remoteBankMapping = [String: RemoteBank]()
     
+    var remote_appVersionNumberIos: String = ""
+    var remote_forceAppVersionUpgradeIos : Bool = false
+    var remote_isUnderMaintenance : Bool = false
+
+
     
     /// Employment flow related data
     var employmentType: EmploymentType = .fulltime
@@ -164,16 +178,17 @@ class AppData {
     var onDemandType: OnDemandType = .other
     
     /// employer list fetched from company name lookup
-    var employerList = [GetEmployerPlaceResponse]()
+    var employerList = [GetAddressResponse]()
     
     // employee overview details fetched from /v1/Lending/overview
     var employeeOverview : GetLendingOverviewResponse?
     
     // employee timesheet details fetched from /v1/Lending/salarytransactions/recent
-       var employeePaycycle : [SalaryTransactionResponse]?
+    var employeePaycycle : [SalaryTransactionResponse] = [SalaryTransactionResponse]()
    
     /// employer list fetched from company address lookup
-    var employerAddressList = [GetEmployerPlaceResponse]()
+    var employerAddressList = [GetAddressResponse]()
+
     
     /// residential address list fetched from home address lookup
     var residentialAddressList = [GetAddressResponse]()
@@ -257,4 +272,155 @@ class AppData {
         default: break
         }
     }
+    
+    
+    func resetAllData(){
+        
+         /// spending overview status
+          spendingOverviewReady = false
+         
+         /// connection Job Status
+          connectionJobStatusReady = false
+
+         /// amount selected from loan setting
+          amountSelected = "0"
+         
+         /// loan fee and accepted  agreement boolean, we use this when we want to finalise lending
+          loanFee = 0.0
+         
+         /// this toggle is used to track if agreement has been accepted
+          acceptedAgreement = false
+         
+         /// forgot password email
+          forgotPasswordEmail = ""
+    
+         /// lending description from backend
+          declineDescription = ""
+         
+         /// Instance of CProgress which we globally reference and update. This is useful for our onboarding.
+          progress = CProgress()
+
+         /// Variable to keep track of linked account fetched from MoneySoft SDK.
+          //storedAccounts = []
+         
+         /// Variable to keep track of transactions fetched from MoneySoft SDK.
+          //financialTransactions = []
+                  
+         /// **financialInstitutions** is the list we fetched from "/v1/Finances/institutions".
+          financialInstitutions = []
+         
+          resGetFinancialInstitutionResponse = nil
+         
+         /// Keep track of the selected institution
+          selectedFinancialInstitution = nil
+         
+          bankJobId = nil
+         
+         /// financial login form from MoneySoft SDK
+          //financialSignInForm = InstitutionCredentialsFormModel(financialServiceId: -1, financialInstitutionId: -1, providerInstitutionId: "")
+         
+         /// use for keeping track of the provider institution id to map which bank user selected
+          existingProviderInstitutionId = ""
+         
+         /// use for keeping track of the financial institution id to map which bank user selected
+          existingFinancialInstitutionId  = -1
+
+         /// bank logo mapping from remote config
+          remoteBankMapping = [String: RemoteBank]()
+         
+         /// Employment flow related data
+          employmentType = .fulltime
+         
+         /// if employment type is **On Demand**, we use this variable to keep track of the selected value
+          onDemandType = .other
+         
+         /// employer list fetched from company name lookup
+          employerList = [GetAddressResponse]()
+         
+         // employee overview details fetched from /v1/Lending/overview
+          employeeOverview  = nil
+         
+         // employee timesheet details fetched from /v1/Lending/salarytransactions/recent
+          employeePaycycle = [SalaryTransactionResponse]()
+        
+         /// employer list fetched from company address lookup
+          employerAddressList = [GetAddressResponse]()
+         
+         /// residential address list fetched from home address lookup
+          residentialAddressList = [GetAddressResponse]()
+         
+         /// selected employer index from **employerList**
+          selectedEmployer = 0
+         
+         /// selected employer address index from **employerAddressList**
+          selectedEmployerAddress = 0
+         
+         /// seleced home address index from **residentialAddressList**
+          selectedResidentialAddress = 0
+         
+         /// selected employer address from **employerAddressList**
+          selectedEmployerAddressString = ""
+         
+         /// Selected category, we track this in SpendingViewController's interactions
+          selectedCategory = nil
+
+         /// When we are in LendingViewController, if we launch other onboarding screens, like Employment details, we use this variable to indicate that we are showing it for lending flow instead of onboarding flow
+          completingDetailsForLending = false
+         
+         /// If we are doing migration of MoneySoft accounts on new device, we set this boolean as true
+          migratingToNewDevice = false
+         
+         /// Boolean to indicate app is performing onboarding flow
+          isOnboarding = false
+         
+         /// When a person fills in employment type as **On Demand** and is **Other**, then we set this flag to true, so our flow knows that we need to further ask for company name by showing company name screen
+          completingOnDemandOther = false
+    }
+    
+    /*
+      If your system assigns unique identifiers to users, it can be to have to also remember their OneSignal Player Id's as well. To make things easier, OneSignal now allows you to set an external_user_id for your users. Simply call this method, pass in your custom user Id (as a string), and from now on when you send a push notification, you can use include_external_user_ids instead of include_player_ids.
+    */
+    func oneSignal_setExternalUserId(externalUserId : String){
+        
+        //let externalUserId = "123456789" // You will supply the external user id to the OneSignal SDK
+
+        // Setting External User Id with Callback Available in SDK Version 2.13.1+
+        OneSignal.setExternalUserId(externalUserId, withCompletion: { results in
+          // The results will contain push and email success statuses
+           LoggingUtil.shared.cPrint("External user id update complete with results: ", results!.description)
+          // Push can be expected in almost every situation with a success status, but
+          // as a pre-caution its good to verify it exists
+          if let pushResults = results!["push"] {
+             LoggingUtil.shared.cPrint("Set external user id push status: ", pushResults)
+          }
+          if let emailResults = results!["email"] {
+               LoggingUtil.shared.cPrint("Set external user id email status: ", emailResults)
+          }
+        })
+
+        //Available in SDK Version 2.13.0-
+        //OneSignal.setExternalUserId(myCustomUniqueUserId)
+    }
+    
+    func oneSignal_removeExternalUserId(){
+        
+        // Removing External User Id with Callback Available in SDK Version 2.13.1+
+        OneSignal.removeExternalUserId({ results in
+            // The results will contain push and email success statuses
+             LoggingUtil.shared.cPrint("External user id update complete with results: ", results!.description)
+            // Push can be expected in almost every situation with a success status, but
+            // as a pre-caution its good to verify it exists
+            if let pushResults = results!["push"] {
+                 LoggingUtil.shared.cPrint("Remove external user id push status: ", pushResults)
+            }
+            // Verify the email is set or check that the results have an email success status
+            if let emailResults = results!["email"] {
+                 LoggingUtil.shared.cPrint("Remove external user id email status: ", emailResults)
+            }
+        })
+
+        //Available in SDK Version 2.13.0-
+        //OneSignal.removeExternalUserId()
+    }
+    
 }

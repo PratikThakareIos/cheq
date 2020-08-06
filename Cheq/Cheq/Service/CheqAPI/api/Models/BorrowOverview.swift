@@ -13,10 +13,12 @@ public struct BorrowOverview: Codable {
 
     public var availableCashoutAmount: Double?
     public var activities: [LoanActivity]?
+    public var allActivities: [LoanActivity]?
 
-    public init(availableCashoutAmount: Double?, activities: [LoanActivity]?) {
+    public init(availableCashoutAmount: Double?, activities: [LoanActivity]?, allActivities: [LoanActivity]?) {
         self.availableCashoutAmount = availableCashoutAmount
         self.activities = activities
+        self.allActivities = allActivities
     }
 
 

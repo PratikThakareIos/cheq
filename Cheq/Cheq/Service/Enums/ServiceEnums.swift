@@ -34,6 +34,10 @@ enum ValidationError: Error {
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
     case autoCompleteIsMandatory
+    case autoCompleteHomeAddressIsMandatory
+    case invalidCompanyName
+    case invalidBBSandAccountNO
+    case dobIsMandatory
 }
 
 enum CheqAPIManagerError: Error, Equatable {
@@ -43,6 +47,8 @@ enum CheqAPIManagerError: Error, Equatable {
     case invalidInput
     case onboardingRequiredFromGetUserDetails
     case errorFromGetUserDetails
+    case errorFromGetUserAction
+    case errorInvalidBSB
 }
 
 enum CheqAPIManagerError_Budget: Error {
@@ -252,6 +258,10 @@ extension CheqAPIManagerError: LocalizedError {
             return NSLocalizedString("Onboarding process required", comment: "")
         case .errorFromGetUserDetails:
             return NSLocalizedString("Error from get user details", comment: "")
+        case .errorFromGetUserAction:
+            return NSLocalizedString("Error from get User Action", comment: "")
+        case .errorInvalidBSB:
+            return NSLocalizedString("Invalid bsb and account number", comment: "")
         }
     }
 }
@@ -267,10 +277,16 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Invalid name format", comment: "")
         case .invalidMobileFormat:
             return NSLocalizedString("Invalid mobile format", comment: "")
+        
         case .invalidEmailFormat:
-            return NSLocalizedString("Invalid email format", comment: "")
+            return NSLocalizedString("Invalid email format, please try again", comment: "")
+        
         case .invalidPasswordFormat:
-            return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            //return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            
+            
+            
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
         case .onlyAlphabetCharactersIsAllowed:
@@ -278,7 +294,18 @@ extension ValidationError: LocalizedError {
         case .onlyNumericCharactersIsAllowed:
             return NSLocalizedString("Only numeric characteres is allowed", comment: "")
         case .autoCompleteIsMandatory:
-            return NSLocalizedString("Input by autocomplete is mandatory", comment: "")
+            return NSLocalizedString("Please enter your Company Address", comment: "")
+        case .autoCompleteHomeAddressIsMandatory:
+            return NSLocalizedString("Please enter your residential address", comment: "")
+        
+        case .dobIsMandatory:
+            return NSLocalizedString("Please enter your date of birth", comment: "")
+            
+        case .invalidCompanyName:
+            return NSLocalizedString("Please enter the Company Name", comment: "")
+        case .invalidBBSandAccountNO:
+            return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
+            
         }
     }
 }
@@ -289,7 +316,7 @@ extension AuthManagerError: LocalizedError {
         case .invalidRegistrationFields:
         return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
-        return NSLocalizedString("Invalid login", comment: "")
+        return NSLocalizedString("The email or password you entered is incorrect", comment: "")
         case .invalidFinancialInstitutionSelected:
         return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:

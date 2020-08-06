@@ -132,7 +132,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
-                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error!)
+                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error as Error!)
                     )
                     return
                 }
@@ -336,7 +336,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
-                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error!)
+                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error as Error!)
                     )
                     return
                 }
@@ -394,6 +394,17 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
 
                 guard dataResponse.result.isSuccess else {
                     completion(nil, ErrorResponse.error(dataResponse.response?.statusCode ?? 500, dataResponse.data, dataResponse.result.error!))
+                    
+//                    if let errorMessageData = dataResponse.data {
+//                        if let errorMessage = String(data: errorMessageData, encoding: String.Encoding.utf8) {
+//                                completion(nil, ErrorResponse.error(dataResponse.response?.statusCode ?? 500, dataResponse.data, ErrorResponse.KnownError(errorMessage)))
+//                        }
+//                    }
+//                    else {
+//                         completion(nil, ErrorResponse.error(dataResponse.response?.statusCode ?? 500, dataResponse.data,dataResponse.result.error!))
+//                    }
+                    
+                
                     return
                 }
 

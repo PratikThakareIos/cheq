@@ -2,15 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIAppFonts</key>
-    <array>
-        <string></string>
-        <string>SFProText-Medium.ttf</string>
-        <string>SFUIText-Medium.ttf</string>
-        <string>SFProText-Semibold.ttf</string>
-        <string>SFProText-Regular.ttf</string>
-        <string>SFProText-Bold.ttf</string>
-    </array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFUIText-Heavy.ttf</string>
+		<string>SFUIText-Semibold.ttf</string>
+		<string>SFUIText-Regular.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>SFUIText-Bold.ttf</string>
+		<string>SFProText-Medium.ttf</string>
+		<string>SFUIText-Medium.ttf</string>
+		<string>SFProText-Semibold.ttf</string>
+		<string>SFProText-Regular.ttf</string>
+		<string>SFProText-Bold.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -179,12 +184,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Required for document and facial capture</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Cheq uses your location data to know when and how long you worked. This is how we determine your eligibility for a cash out. Don&apos;t worry, we never track you or know your actual location, our AI bot 🤖 is smarter than that.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Required for video capture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -192,7 +191,6 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
-		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

@@ -12,22 +12,14 @@ import Foundation
 public struct FinancialAccountSlim: Codable {
 
     public var financialInstitutionName: String?
-    public var financialAccountId: Int?
     public var name: String?
-    public var nickname: String?
     public var number: String?
-    public var accountType: String?
-    public var assetType: String?
     public var isSalaryAccount: Bool?
 
-    public init(financialInstitutionName: String?, financialAccountId: Int?, name: String?, nickname: String?, number: String?, accountType: String?, assetType: String?, isSalaryAccount: Bool?) {
+    public init(financialInstitutionName: String?, name: String?, number: String?, isSalaryAccount: Bool?) {
         self.financialInstitutionName = financialInstitutionName
-        self.financialAccountId = financialAccountId
         self.name = name
-        self.nickname = nickname
         self.number = number
-        self.accountType = accountType
-        self.assetType = assetType
         self.isSalaryAccount = isSalaryAccount
     }
 

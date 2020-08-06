@@ -9,7 +9,7 @@
 import XCTest
 import PromiseKit
 import Firebase
-import MobileSDK
+//import MobileSDK
 import DateToolsSwift
 @testable import Cheq 
 
@@ -20,6 +20,7 @@ class MoneySoftManagerIntegrationTests: XCTestCase {
     let firebaseAuth = FirebaseAuthManager.shared
     
     func testMoneySoftSDK() {
+        
         let dataUtil = TestUtil.shared 
         let testBank = "Demobank"
         var storedAccounts: [FinancialAccountModel] = []

@@ -18,7 +18,7 @@ class FinanceViewModel: BaseViewModel {
     init(_ title: String) {
         self.title = title
     }
-
+    
     override func load(_ complete: @escaping () -> Void) {
         DispatchUtil.delay(3.0) {
             self.carouselCoordViewModel.load {

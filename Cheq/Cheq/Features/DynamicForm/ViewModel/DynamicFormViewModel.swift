@@ -8,7 +8,7 @@
 
 import UIKit
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 
 enum DynamicFormTextFieldType {
     case text
@@ -33,5 +33,5 @@ struct DynamicFormInput {
 class DynamicFormViewModel: BaseViewModel {
     
     var coordinator: DynamicFormViewModelCoordinator = LinkAccountsCoordinator()
-    var formModel: InstitutionCredentialsFormModel?
+    //var formModel: InstitutionCredentialsFormModel?
 }

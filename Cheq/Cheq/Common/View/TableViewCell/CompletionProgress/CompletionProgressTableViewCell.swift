@@ -37,7 +37,6 @@ class CompletionProgressTableViewCell: CTableViewCell {
         // Configure the view for the selected state
     }
 
-
     /// call **setupConfig** to apply UI update after we assigned viewModel 
     override func setupConfig() {
         let vm = self.viewModel as! CompletionProgressTableViewCellViewModel
@@ -50,5 +49,4 @@ class CompletionProgressTableViewCell: CTableViewCell {
         self.completionProgressBar.setupConfig()
     }
 
-    
 }

@@ -11,14 +11,15 @@ import UIKit
 class CompanyAddressCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .companyAddress
+    var sectionTitle: String = Section.employmentDetails.rawValue
     
-    var question: String = "Company address?"
+    var question: String = "Company address"
     
     func placeHolder(_ index: Int)->String {
-        return "123 Example Street"
+        return "11 York Street, Sydney NSW 2000"
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
-        return nil
+        return nil //validation handled in Question VC
     }
 }

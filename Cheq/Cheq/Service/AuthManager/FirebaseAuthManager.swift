@@ -18,14 +18,15 @@ class FirebaseAuthManager: AuthManagerProtocol {
 
     static let shared = FirebaseAuthManager()
     private init() {
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
+       // if FirebaseApp.app() == nil {
+          //  FirebaseApp.configure()
+       // }
     }
 }
 
 //MARK: active user management
 extension FirebaseAuthManager {
+    
     func getCurrentUser()-> Promise<AuthUser> {
         return Promise<AuthUser>() { resolver in
             if let authUser = AuthConfig.shared.activeUser, let token = authUser.authToken(), token.isEmpty == false {
@@ -99,6 +100,7 @@ extension FirebaseAuthManager {
     }
 
     func login(_ credentials:[LoginCredentialType: String])-> Promise<AuthUser> {
+        
         return Promise<AuthUser>() { resolver in
             let email = credentials[.email] ?? ""
             let password = credentials[.password] ?? ""
@@ -114,7 +116,10 @@ extension FirebaseAuthManager {
             self.setUser(authUser)
         }.then { authUser in
             IntercomManager.shared.loginIntercom()
-        }.then { authUser in
+        }.then { authUser ->Promise<Bool> in
+            let req = DataHelperUtil.shared.postPushNotificationRequest()
+            return CheqAPIManager.shared.postNotificationToken(req)
+        }.then { success in
             CheqAPIManager.shared.getUserDetails()
         }
     }
@@ -138,7 +143,6 @@ extension FirebaseAuthManager {
         .then { authUser in
             return self.retrieveAuthToken(authUser)
         }.then { authUser in
-            
             return self.postNotificationToken(authUser)
         }
     }
@@ -199,14 +203,23 @@ extension FirebaseAuthManager {
                 LoggingUtil.shared.cPrint("fcm \(fcm)")
                
                 let req = DataHelperUtil.shared.postPushNotificationRequest()
+//                CheqAPIManager.shared.postNotificationToken(req)
+//                .then { success->Promise<Bool> in
+//                    return MoneySoftManager.shared.postNotificationToken()
+//                }.done { success in
+//                    resolver.fulfill(authUser)
+//                }.catch { err in
+//                    resolver.reject(err)
+//                }
+                
                 CheqAPIManager.shared.postNotificationToken(req)
-                .then { success->Promise<Bool> in
-                    return MoneySoftManager.shared.postNotificationToken()
-                }.done { success in
+                .done { success in
                     resolver.fulfill(authUser)
                 }.catch { err in
                     resolver.reject(err)
                 }
+                
+                
             }.catch {err in
                 resolver.reject(err)
             }
@@ -284,6 +297,7 @@ extension FirebaseAuthManager {
 extension FirebaseAuthManager {
 
     func setupForRemoteNotifications(_ application: UIApplication, delegate: Any) {
+        
         // setup for UserNotifications
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

@@ -67,6 +67,7 @@ class TransactionModal: UIView {
      SetupUI should be called again once the **viewModel** is populated with the desired values. So **TransactionModal** renders the updated values
      */
     func setupUI() {
+        
         LoggingUtil.shared.cPrint("TransactionModal setupUI")
         
         /// make **categoryIcon** round with **ViewUtil**
@@ -95,7 +96,7 @@ class TransactionModal: UIView {
         categoryTitleLabel.text = self.viewModel.data.categoryTitle ?? ""
         financialInstitutionLabel.text = self.viewModel.data.financialAccountName
         let remoteBankMapping = AppData.shared.remoteBankMapping
-        let bankName = AppData.shared.selectedFinancialInstitution?.name ?? ""
+        let bankName = AppData.shared.selectedFinancialInstitution?.shortName ?? ""
         
         /// grabbing remoteBank using **remoteBankMapping** which is variable of **AppData.shared.remoteBankMapping**. So we can load the corresponding bank logo, because this is not coming back from our data
         if let remoteBank = remoteBankMapping[bankName], let url = URL.init(string: remoteBank.logoUrl) {

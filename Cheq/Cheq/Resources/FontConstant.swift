@@ -14,6 +14,6 @@ struct FontConstant {
     static let SFProTextRegular  = "SFProText-Regular"
     static let SFProTextBold     = "SFProText-Bold"
     static let SFUITextMedium    = "SFUIText-Medium"
+    static let SFUITextBold   = "SFUIText-Bold"
 }
-
 

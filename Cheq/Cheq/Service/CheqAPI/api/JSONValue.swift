@@ -7,8 +7,8 @@
 
 import Foundation
 
-
 public enum JSONValue: Codable, Equatable {
+    
     case string(String)
     case int(Int)
     case double(Double)
@@ -57,11 +57,13 @@ extension JSONValue: ExpressibleByStringLiteral {
         self = .string(value)
     }
 }
+
 extension JSONValue: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: Int) {
         self = .int(value)
     }
 }
+
 extension JSONValue: ExpressibleByFloatLiteral {
     public init(floatLiteral value: Double) {
         self = .double(value)
@@ -72,11 +74,13 @@ extension JSONValue: ExpressibleByBooleanLiteral {
         self = .bool(value)
     }
 }
+
 extension JSONValue: ExpressibleByDictionaryLiteral {
     public init(dictionaryLiteral elements: (String, JSONValue)...) {
         self = .object([String: JSONValue](uniqueKeysWithValues: elements))
     }
 }
+
 extension JSONValue: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: JSONValue...) {
         self = .array(elements)

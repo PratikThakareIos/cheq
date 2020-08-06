@@ -57,16 +57,18 @@ extension CheqAPIManager {
         }
     }
 
-    func spendingTransactions()->Promise<GetSpendingSpecificCategoryResponse> {
-        return Promise<GetSpendingSpecificCategoryResponse>() { resolver in
+    func spendingTransactions()->Promise<[DailyTransactionsResponse]> {
+        return Promise<[DailyTransactionsResponse]>() { resolver in
             #if DEMO
             let spendingTransactions: GetSpendingSpecificCategoryResponse = TestUtil.shared.testSpendingCategoryById()
             resolver.fulfill(spendingTransactions)
             return
             #else
+            
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 SpendingAPI.getSpendingAllTransactionsWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (spendingTransactionsResponse, err) in
+                    
                     if let error = err {
                         resolver.reject(error); return
                     }
@@ -102,7 +104,6 @@ extension CheqAPIManager {
                         resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview)
                         return
                     }
-
                     resolver.fulfill(response)
                 })
             }.catch { err in
@@ -120,10 +121,12 @@ extension CheqAPIManager {
             resolver.fulfill(getSpendingOverviewResponse)
             return
             #else
+            
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 SpendingAPI.getSpendingOverviewWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({
                     (spendingOverviewResponse, err) in
+                    
                     if let error = err {
                         resolver.reject(error); return
                     }
@@ -131,7 +134,6 @@ extension CheqAPIManager {
                     guard let response = spendingOverviewResponse?.body else {
                         resolver.reject(CheqAPIManagerError_Spending.unableToRetrieveOverview); return
                     }
-
                     resolver.fulfill(response)
                 })
             }.catch { err in

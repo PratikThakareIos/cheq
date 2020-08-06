@@ -21,6 +21,9 @@ enum CProgressColorMode {
     
     //// the green progress bar color with gradient on Spending screen
     case gradientMonetary
+    
+    //// the green progress bar color with gradient on Spending screen
+    case gradientMoneySpent
 }
 
 /**
@@ -53,27 +56,45 @@ class CProgressView: UIProgressView {
     func setupConfig() {
         self.backgroundColor = .clear
         self.trackTintColor = AppConfig.shared.activeTheme.alternativeColor4
+        
         switch mode {
         case .information:
             self.progressTintColor = AppConfig.shared.activeTheme.alternativeColor3
         case .monetary:
             self.progressTintColor = AppConfig.shared.activeTheme.monetaryColor
         case .gradientMonetary:
+            //rgba(255,255,255,0.15)
+            let tintColor = UIColor.init(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha:  0.15)
+            self.trackTintColor = tintColor
             let gradientImage = UIImage.gradientImage(with: self.frame,
-                                                      colors: [AppConfig.shared.activeTheme.alternativeColor3.cgColor, AppConfig.shared.activeTheme.monetaryColor.cgColor],
+                                                      colors: [UIColor(hex: "00A2DD").cgColor, UIColor(hex: "10E483").cgColor],
+                                                      locations: nil)
+            self.progressImage = gradientImage
+            
+        case .gradientMoneySpent:
+            let tintColor = UIColor.init(red: 105.0/255.0, green: 224.0/255.0, blue: 251/255.0, alpha:  0.15)
+            self.trackTintColor = tintColor
+            let gradientImage = UIImage.gradientImage(with: self.frame,
+                                                      colors: [UIColor(hex: "00A2DD").cgColor, UIColor(hex: "10E483").cgColor],
                                                       locations: nil)
             self.progressImage = gradientImage
         }
+        
        
-        AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
-        layer.cornerRadius = 5.0
+        layer.masksToBounds = true
+        layer.cornerRadius = 3.0
+        //AppConfig.shared.activeTheme.cardStyling(self, addBorder: false)
+        //layer.cornerRadius = 5.0
     }
     
     
-    /// adding intrinsic content size, autolayout constraints can override the dimension settings
-    override open var intrinsicContentSize: CGSize {
-        get {
-            return CGSize(width: AppConfig.shared.screenWidth() * 0.2 , height: AppConfig.shared.activeTheme.defaultProgressBarHeight)
-        }
-    }
+//    /// adding intrinsic content size, autolayout constraints can override the dimension settings
+//    override open var intrinsicContentSize: CGSize {
+//        get {
+//            //return CGSize(width: AppConfig.shared.screenWidth() * 0.2 , height: AppConfig.shared.activeTheme.defaultProgressBarHeight)
+//
+//            return CGSize(width: AppConfig.shared.screenWidth() * 0.2 , height: 8)
+//        }
+//    }
+    
 }

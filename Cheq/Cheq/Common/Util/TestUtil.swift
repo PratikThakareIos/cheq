@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import MobileSDK
+
 import PromiseKit
 import DateToolsSwift
+
+//import MobileSDK
+
 
 /**
  TestUtil is a singleton class used across the app for generating **test data** for testing and development phases. Please note that data from **TestUtil** shouldn't be used for production. **TestUtil** encapsulates many test data generating methods thats useful during development phase.
@@ -86,7 +89,7 @@ class TestUtil {
     func putUserDetailsReq()-> PutUserDetailRequest {
         
         let testUtil = TestUtil.shared
-        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile(),ageRange: .from35To54,state:.nsw)
+        let req = PutUserDetailRequest(firstName: testUtil.testFirstname(), lastName: testUtil.testLastname(), mobile: testUtil.testMobile())
         return req
     }
     
@@ -220,8 +223,11 @@ class TestUtil {
         _ = [Date(), 1.days.earlier, 2.days.earlier, 2.days.earlier, 3.days.earlier]
         var loanActivities = [LoanActivity]()
         for _ in 0..<10 {
-            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, loanAgreement: "", directDebitAgreement: "", notes: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()))
-                
+            
+         let loanActivity = LoanActivity.init(amount: randomAmount(), fee: 5.0, exactFee: 2.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, hasMissedRepayment: false, isOverdue: false, loanAgreement: "", directDebitAgreement: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), notes: "", settlementTimingInfo: "")
+            
+//            let loanActivity = LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), cheqPayReference: "", type: randomLoanActivityType(), status: .credited, loanAgreement: "", directDebitAgreement: "", notes: "", repaymentDate: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()))
+//
                 
               //  LoanActivity(amount: randomAmount(), fee: 5.0, date: FormatterUtil.shared.defaultDateFormatter().string(from: randomDate()), type: randomLoanActivityType())
             loanActivities.append(loanActivity)
@@ -244,14 +250,15 @@ class TestUtil {
     }
     
     /**
-     Generate a mock **GetLoanPreviewResponse**
+     Generate a mock **GetLendingPreviewResponse**
      */
-    func testLoanPreview()->GetLoanPreviewResponse {
-        let amount = Double(AppData.shared.amountSelected)
+    func testLoanPreview()->GetLendingPreviewResponse {
+        let amount = Double(AppData.shared.amountSelected) ?? 0.0
         let fee = Double(AppData.shared.loanFee)
         let formatter = FormatterUtil.shared.defaultDateFormatter()
+                
+        let loanPreview = GetLendingPreviewResponse(amount: amount, fee: fee, repaymentAmount: 200.0, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn:  "1234567890",requestCashoutFeedback: false, installments: [InstallmentDetail]())
         
-        let loanPreview = GetLoanPreviewResponse(amount: amount, fee: fee, repaymentAmount: 200.0, cashoutDate: formatter.string(from: Date()), repaymentDate: formatter.string(from: 7.days.later), abstractLoanAgreement: testLoanAgreement(), loanAgreement: testLoanAgreement(), directDebitAgreement: testLoanAgreement(), companyName: "Cheq Pty Ltd", acnAbn:  "1234567890")
         return loanPreview
     }
     
@@ -332,7 +339,16 @@ class TestUtil {
             let code = self.slimTransactionCategoryCode(self.randomCategoryCode())
             let dateString = FormatterUtil.shared.simpleDateFormatter().string(from: TestUtil.shared.randomDate())
             let randomBank = TestUtil.shared.randomRemoteBank()
-            let slimTransactionResponse = SlimTransactionResponse(_description: TestUtil.shared.randomString(100), amount: TestUtil.shared.randomAmount(), date: dateString, categoryTitle: code.rawValue, categoryCode: code, merchant: TestUtil.shared.randomString(30), merchantLogoUrl: "", financialAccountName: randomBank.name, financialInstitutionLogoUrl: randomBank.logoUrl)
+            let slimTransactionResponse = SlimTransactionResponse(_description: TestUtil.shared.randomString(100),
+                                                                  amount: TestUtil.shared.randomAmount(),
+                                                                  date: dateString,
+                                                                  categoryTitle: code.rawValue,
+                                                                  categoryCode: code,
+                                                                  merchant: TestUtil.shared.randomString(30),
+                                                                  merchantLogoUrl: "",
+                                                                  financialAccountName: randomBank.name,
+                                                                  financialInstitutionLogoUrl: randomBank.logoUrl,
+                                                                  financialInstitutionId: "")
             transactions.append(slimTransactionResponse)
         }
         return transactions
@@ -383,8 +399,8 @@ class TestUtil {
         let endDate = FormatterUtil.shared.simpleDateFormatter().string(from: 10.days.later)
         let overviewCard = SpendingOverviewCard(allAccountCashBalance: 1000.0, numberOfDaysTillPayday: 10, payCycleStartDate: startDate, payCycleEndDate: endDate, infoIcon: "")
         let upcomingBillResponses = self.upcomingBillResponses()
-        
-        let spendingOverview = GetSpendingOverviewResponse(overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
+
+        let spendingOverview = GetSpendingOverviewResponse(lastSuccessfulUpdatedAtUtc: "",currentDateTimeUtc : "",overviewCard: overviewCard, upcomingBills: upcomingBillResponses, topCategoriesAmount: self.topCategoriesAmount(5), recentTransactions: self.randomTransactions(5))
         return spendingOverview
     }
     
@@ -409,10 +425,13 @@ class TestUtil {
     
     /// Helper method for building a mock **GetLendingOverviewResponse**
     func testLendingOverview()->GetLendingOverviewResponse {
-        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100, isFirstTime: true, payCycleStartDate: nil, nextPayDate: nil, repaymentSettleHours: nil, cashoutLimitInformation: "", cashoutLimitLearnMoreLink: "")
-       // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         
-        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities())
+        
+        let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100, isFirstTime: true, payCycleStartDate: nil, nextPayDate: nil, repaymentSettleHours: nil, cashoutLimitInformation: "", cashoutLimitLearnMoreLink: "")
+       
+        // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
+        let loanActivities = [LoanActivity]()
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities)
         
         let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, workingLocation: .fromMultipleLocations, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success)
         
@@ -423,8 +442,7 @@ class TestUtil {
     
         let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5.0, repaymentDate: repaymentDate, hasOverdueLoans: true)
         
-    
-        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil, userAction: .none)
+        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
         return lendingOverview
     }
     

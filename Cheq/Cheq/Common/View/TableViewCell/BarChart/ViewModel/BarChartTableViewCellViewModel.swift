@@ -31,7 +31,7 @@ class BarChartTableViewCellViewModel: TableViewCellViewModelProtocol {
         self.referenceAmount = findLargest()
         guard self.referenceAmount > 0.0 else { return [BarViewModel]() }
         var barList = [BarViewModel]()
-        for monthAmountStat in data {
+        for monthAmountStat in data.reversed() {
             let amount = abs(monthAmountStat.amount ?? 0.0)
             let bar = BarViewModel()
             bar.barBackground = AppConfig.shared.activeTheme.backgroundColor

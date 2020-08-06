@@ -29,7 +29,11 @@ class CTextField: UITextField {
     func setupConfig() {
         UITextField.appearance().keyboardAppearance = .light
         self.font = AppConfig.shared.activeTheme.mediumFont
-        AppConfig.shared.activeTheme.cardStyling(self, addBorder: true)
+        //AppConfig.shared.activeTheme.cardStyling(self, addBorder: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01, execute: {
+            self.layer.cornerRadius = self.frame.height/2
+        })
 
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.size.height))
         self.leftView = paddingView
@@ -72,4 +76,13 @@ extension CTextField {
                 selectedTextRange = existingSelectedTextRange
             }
         }
+    
+    func setShadow() {
+        //rgba(146,146,210,0.05)
+        self.layer.masksToBounds = false;
+        self.layer.shadowRadius  = 3.0;
+        self.layer.shadowColor   = UIColor.init(r: 146, g: 146, b: 210).cgColor;
+        self.layer.shadowOffset  = CGSize(width: 2.0, height: 4.0);
+        self.layer.shadowOpacity = 0.05;
+    }
 }

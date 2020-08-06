@@ -12,7 +12,7 @@ import PromiseKit
 enum Section: String {
     case aboutMe = "About me"
     case employmentDetails = "Employment details"
-    case bankDetails = "Bank details"
+    case bankDetails = "Connect your bank"//"Debit account" //“Bank Details“ should be “Debit account“
     case verifyMyIdentity = "Verify identity"
 }
 

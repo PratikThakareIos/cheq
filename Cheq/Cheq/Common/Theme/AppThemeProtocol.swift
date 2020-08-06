@@ -289,12 +289,6 @@ extension AppThemeProtocol {
 
     var nonActiveAlpha: CGFloat { get { return 0.5 } }
 
-//    // MARK: regular fonts
-//    var smallFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0) } }
-//    var defaultFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0) } }
-//    var mediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0) } }
-//    var headerFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0) } }
-//    var extraLargeFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0) } }
     
     // MARK: regular fonts
     var smallFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0)} }
@@ -303,39 +297,23 @@ extension AppThemeProtocol {
     var headerFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0)} }
     var extraLargeFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextRegular, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0)} }
     
-    
  
-//    // MARK: medium fonts
-//    var smallMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
-//    var defaultMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
-//    var mediumMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .medium) } }
-//    var headerMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
-//    var extraLargeMediumFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .medium) } }
-  
     // MARK: medium fonts
     var smallMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .medium) } }
-    var defaultMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0, weight: .medium) } }
+    var defaultMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 14.0) ?? UIFont.systemFont(ofSize: 14.0, weight: .medium) } }
     var mediumMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .medium) } }
     var headerMediumFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextMedium, size: 20.0) ?? UIFont.systemFont(ofSize: 20.0, weight: .medium) } }
     var extraLargeMediumFont: UIFont { return UIFont.init(name: FontConstant.SFProTextMedium, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .medium) }
     
- 
-    
 
-//    // MARK: bold fonts
-//    var smallBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
-//    var defaultBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
-//    var mediumBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 15.0, weight: .bold) } }
-//    var headerBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 23.0, weight: .bold) } }
-//    var extraLargeBoldFont: UIFont { get { return UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
     
     // MARK: bold fonts
     var smallBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 10.0) ?? UIFont.systemFont(ofSize: 10.0, weight: .bold) } }
     var defaultBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 12.0) ?? UIFont.systemFont(ofSize: 12.0, weight: .bold) } }
+    var mediumBoldFont14: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 14.0) ?? UIFont.systemFont(ofSize: 14.0, weight: .bold) } }
     var mediumBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 16.0) ?? UIFont.systemFont(ofSize: 16.0, weight: .bold) } }
     var headerBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 23.0) ?? UIFont.systemFont(ofSize: 23.0, weight: .bold) } }
     var extraLargeBoldFont: UIFont { get { return UIFont.init(name: FontConstant.SFProTextBold, size: 36.0) ?? UIFont.systemFont(ofSize: 36.0, weight: .bold) } }
-    
     
 
     var longAnimationDuration: TimeInterval { return 1.0 }

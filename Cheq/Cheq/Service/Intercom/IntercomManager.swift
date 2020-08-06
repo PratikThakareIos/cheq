@@ -28,6 +28,18 @@ class IntercomManager {
         Intercom.presentMessenger()
     }
     
+    func present(str_cErrorStep : String = "") {
+           let userAttributes = ICMUserAttributes()
+           let qvm = QuestionViewModel()
+           qvm.loadSaved()
+           
+           userAttributes.customAttributes = IntercomPersonalData(cFirstName: qvm.fieldValue(.firstname), cLastName: qvm.fieldValue(.lastname), cEmail: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cBankName: qvm.fieldValue(.bankName), cAddress: qvm.fieldValue(.employerAddress), cMobile: qvm.fieldValue(.contactDetails), cAppVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",cErrorStep: str_cErrorStep, cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
+            Intercom.updateUser(userAttributes)
+           
+       //MARK: Present the UI after passing the parameters to the Intercome API
+           Intercom.presentMessenger()
+       }
+    
     func logoutIntercom()->Promise<Void> {
         return Promise<Void>() { resolver in
             Intercom.logout()

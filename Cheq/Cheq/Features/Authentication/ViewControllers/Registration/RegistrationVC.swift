@@ -15,6 +15,9 @@ import FBSDKCoreKit
 import PromiseKit
 import FRHyperLabel
 
+//self.registerButton.showLoadingOnButton(self)
+//self.registerButton.hideLoadingOnButton(self)
+
 class RegistrationVC: UIViewController {
     
     @IBOutlet weak var emailTextField: CNTextField!
@@ -29,6 +32,7 @@ class RegistrationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppData.shared.resetAllData()
         self.setupDelegate()
         hideNavBar()
     }
@@ -38,7 +42,6 @@ class RegistrationVC: UIViewController {
         activeTimestamp()
         hideBackTitle()
         self.setupUI()
-        self.setupHyperlables()
         
         // reset this variable when we are back on sign up / login screen
         AppData.shared.migratingToNewDevice = false
@@ -46,12 +49,11 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setupUI()
+        self.addNotificationsForRemoteConfig()
+        RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-    
+       
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -74,6 +76,8 @@ extension RegistrationVC {
         self.emailTextField.setShadow()
         self.passwordTextField.setShadow()
         self.viewModel.screenName = .registration
+        
+        self.setupHyperlables()
     }
     
     func continueWithLoggedInFB(_ token: String) {
@@ -120,6 +124,7 @@ extension RegistrationVC: UITextFieldDelegate {
 extension RegistrationVC {
     
     @IBAction func loginWithFacebook(_ sender: Any) {
+        
         self.view.endEditing(true)
         if AccessToken.isCurrentAccessTokenActive {
             let token = AccessToken.current?.tokenString ?? ""
@@ -142,30 +147,60 @@ extension RegistrationVC {
     
     @IBAction func togglePasswordField(_ sender: Any) {
         passwordTextField.togglePasswordVisibility()
+        
+        //temp
+        //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
     }
     
     @IBAction func register(_ sender: Any) {
-        
+    
         self.view.endEditing(true)
         if let error = self.validateInputs() {
-            showError(error) { }
+            // showError(error) { } // OLD
+            if error == ValidationError.invalidEmailFormat{
+                validationAlertPopup(error: error, isPasswordField: false)
+            } else {
+                validationAlertPopup(error: error, isPasswordField: true)
+            }
             return
         }
+
+        LoggingUtil.shared.cPrint("\n>> SwaggerClientAPI.basePath = \(SwaggerClientAPI.basePath)")
         
-        AppConfig.shared.showSpinner()
+        //self.registerButton.showLoadingOnButton(self)
+        //self.registerButton.hideLoadingOnButton(self)
+
+        //AppConfig.shared.showSpinner()
+        self.registerButton.showLoadingOnButton(self)
+        
         viewModel.register(emailTextField.text ?? "", password: passwordTextField.text ?? "", confirmPassword: passwordTextField.text ?? "")
             .then { authUser in
                 AuthConfig.shared.activeManager.setUser(authUser)
-        }.done { authUser in
+        }.done { success in
+            QuestionViewModel().clearAllSavedData()
+
+            let email = self.emailTextField.text ?? ""
+            let password = self.passwordTextField.text ?? ""
+
+            UserDefaults.standard.set(email, forKey: UserDefaultKeys.emailID)
+            UserDefaults.standard.set(password, forKey:UserDefaultKeys.password)
+            
+            AppData.shared.oneSignal_setExternalUserId(externalUserId: email)
+            
+            UserDefaults.standard.synchronize()
+
             self.beginOnboarding()
+
         }.catch { [weak self] err in
-            AppConfig.shared.hideSpinner {
+            
+            //AppConfig.shared.hideSpinner {
                 guard let self = self else { return }
-                self.showError(err, completion: nil)
-            }
+                self.registerButton.hideLoadingOnButton(self)
+                //self.showError(err, completion: nil)
+                self.validationAlertPopup(error: err, isPasswordField: false)
+            //}
         }
     }
-    
 }
 
 // MARK: Navigation Methods
@@ -173,12 +208,12 @@ extension RegistrationVC {
     
     func beginOnboarding() {
         AppData.shared.isOnboarding = true
+        self.registerButton.hideLoadingOnButton(self)
         AppConfig.shared.hideSpinner {
             guard let activeUser = AuthConfig.shared.activeUser else {
                 self.showError(AuthManagerError.unableToRetrieveCurrentUser, completion: nil)
                 return
             }
-            
             if activeUser.type == .socialLoginEmail, activeUser.isEmailVerified == false {
                 self.toEmailVerification()
             } else {
@@ -198,6 +233,7 @@ extension RegistrationVC {
         let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(emailVc, from: self)
     }
+    
 }
 
 // MARK: Hyperlable Setup
@@ -219,7 +255,6 @@ extension RegistrationVC {
         }
         
         self.lblTerms.setLinksForSubstrings(["Terms of Use", "Privacy Policy"], withLinkHandler: handler)
-        
     }
     
     func setupHyperlable_lblLogin(){
@@ -233,13 +268,11 @@ extension RegistrationVC {
             guard let strSubstring = substring else {
                 return
             }
-            print("substring =\(strSubstring)")
+             LoggingUtil.shared.cPrint("substring =\(strSubstring)")
             self.didSelectLinkWithName(strSubstring: strSubstring)
-        }
-        
+        }        
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
     }
-    
     
     func setupHyperlables(){
         self.setupHyperlable_lblTerms()
@@ -247,10 +280,11 @@ extension RegistrationVC {
     }
     
     func didSelectLinkWithName(strSubstring : String = ""){
+        
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
         if viewModel.isForgotPassword(strSubstring) {
-            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+            AppNav.shared.presentViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self, embedInNav: true)
         } else if viewModel.isLogin(strSubstring) {
             //Manish
             AppNav.shared.pushToViewControllerWithAnimation(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
@@ -276,5 +310,106 @@ extension RegistrationVC {
                 AppNav.shared.pushToInAppWeb(url, viewController: self)
             }
         }
+    }
+    
+    func gotoConnectingToBankViewController(){
+
+         if let connectingToBank = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.connecting.rawValue, embedInNav: false) as? ConnectingToBankViewController {
+             connectingToBank.modalPresentationStyle = .fullScreen
+             connectingToBank.delegate = self
+             connectingToBank.jobId = "13"
+             self.present(connectingToBank, animated: true, completion: nil)
+         }
+     }
+}
+
+extension RegistrationVC : ConnectingToBankViewControllerProtocol {
+
+    func dismissViewController(connectionJobResponse : GetConnectionJobResponse?){
+        self.view.endEditing(true)
+        self.showPopUpverifyingCredentialsFailed(connectionJobResponse: connectionJobResponse)
+    }
+
+    func showPopUpverifyingCredentialsFailed(connectionJobResponse : GetConnectionJobResponse?){
+
+    }
+
+    func manageCanSelectBankCase(canSelectBank : Bool){
+        if canSelectBank {
+            showNavBar()
+            showBackButton()
+            AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
+        }else{
+            self.hideNavBar()
+            self.hideBackButton()
+        }
+    }
+}
+
+
+//MARK: -  Remote config status Action
+extension RegistrationVC {
+    
+    func addNotificationsForRemoteConfig() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_MaintenanceVC(_:)), name: NSNotification.Name(UINotificationEvent.showMaintenanceVC.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goto_UpdateAppVC(_:)), name: NSNotification.Name(UINotificationEvent.showUpdateAppVC.rawValue), object: nil)
+    }
+    
+     @objc func goto_MaintenanceVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+          AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.maintenanceVC.rawValue, viewController: self, embedInNav: false, animated: false)
+     }
+      
+     @objc func goto_UpdateAppVC(_ notification: NSNotification){
+          self.view.endEditing(true)
+          AppNav.shared.presentViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.updateAppVC.rawValue, viewController: self, embedInNav: false, animated: false)
+    }
+}
+
+
+// MARK:-
+extension RegistrationVC : VerificationPopupVCDelegate {
+    
+    func validationAlertPopup(error:Error,isPasswordField:Bool) {
+                
+        if isPasswordField {
+            openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+        }
+        
+        let errMessage = "The email address is already in use by another account."
+        
+        if errMessage == error.localizedDescription {
+            openPopupWith(heading: "Sorry, the email address is already in use", message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+        }else{
+            openPopupWith(heading: error.localizedDescription, message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
+        }    
+    }
+    
+    func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+        
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    func tappedOnSendButton() {
+        
+    }
+    
+    func tappedOnCloseButton() {
+        
+    }
+    
+    func tappedOnLearnMoreButton() {
+        
     }
 }

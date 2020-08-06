@@ -66,6 +66,22 @@ class FormatterUtil {
     }
     
     /**
+     Helper method for formatting a given Double amount into currency format and add comma
+     - parameter amount: amount to format in Double type
+     - parameter symbol: the prefix to add before the formatted amount. In this case, it is usually **$**
+     - parameter roundDownToNearestDollar: usually we want to the nearest second decimal digit, but in some cases, there is a legal requirement to round down to nearest dollar.
+     */
+
+    func currencyFormatWithComma(_ amount: Double, symbol: String, roundDownToNearestDollar: Bool)-> String {
+        var amt = amount
+        if roundDownToNearestDollar {
+          amt = floor(amount)
+        }
+        var strAmount = amt.round().strWithCommas
+        return symbol + strAmount
+    }
+    
+    /**
      Helper method to extract the month value from a given **Date**
      */
     func monthFromDate(_ date: Date)->String {

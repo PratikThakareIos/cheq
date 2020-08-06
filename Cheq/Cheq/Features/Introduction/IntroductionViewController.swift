@@ -9,7 +9,7 @@
 import UIKit
 import Onfido
 import PromiseKit
-import MobileSDK
+//import MobileSDK
 
 class IntroductionViewController: UIViewController {
 
@@ -33,8 +33,7 @@ class IntroductionViewController: UIViewController {
         registerObservables()
         if AppData.shared.completingDetailsForLending {
             showCloseButton()
-        }
-        
+        }        
 //        autoSetupForAuthTokenIfNotLoggedIn()
     }
     
@@ -44,7 +43,7 @@ class IntroductionViewController: UIViewController {
     }
     
     func registerObservables() {
-        setupKeyboardHandling()
+        //setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
     }
     
@@ -58,7 +57,7 @@ class IntroductionViewController: UIViewController {
         self.secondaryButton.createShadowLayer()
         self.refreshButton.createShadowLayer()
         
-        print(self.viewModel.coordinator.type)
+         LoggingUtil.shared.cPrint(self.viewModel.coordinator.type)
         let declineReasons = IntroductionViewModel.declineReasons()
         if declineReasons.contains(self.viewModel.coordinator.type) {
             self.refreshButton.isHidden = false
@@ -83,7 +82,7 @@ class IntroductionViewController: UIViewController {
            
            case .email, .enableLocation, .notification, .verifyIdentity, .employee, .employmentTypeDeclined, .creditAssessment, .jointAccount, .hasWriteOff, .noPayCycle, .monthlyPayCycle, .kycFailed, .identityConflict:
                 self.secondaryButton.isHidden = false
-                  self.securityView.isHidden = true
+                self.securityView.isHidden = true
             
             case .setupBank:
                 self.titleLabel.text = "Connect your Bank"
@@ -102,6 +101,7 @@ class IntroductionViewController: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
+        
         switch viewModel.coordinator.type {
         case .setupBank:
             AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
@@ -110,7 +110,8 @@ class IntroductionViewController: UIViewController {
         case .employee:
             AppNav.shared.pushToMultipleChoice(.employmentType, viewController: self)
         case .enableLocation:
-            enableLocation {
+            //enableLocation {
+                
                 if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
                       NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                      AppNav.shared.dismiss(self)
@@ -118,7 +119,7 @@ class IntroductionViewController: UIViewController {
                     AppNav.shared.pushToIntroduction(.notification, viewController: self)
                 }
                 
-            }
+           // }
         case .notification:
             enableNotification {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
@@ -140,33 +141,38 @@ class IntroductionViewController: UIViewController {
             NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
         case .identityConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
+           //manish
+            
             // resolve kyc conflict
-            AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.resolveNameConflict().done { authUser in
-                AppConfig.shared.hideSpinner {
-                    AppNav.shared.dismissModal(self)
-                }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
-                }
-            }
+//            AppConfig.shared.showSpinner()
+//            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+//                AppConfig.shared.hideSpinner {
+//                    AppNav.shared.dismissModal(self)
+//                }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err, completion: nil)
+//                }
+//            }
+            
         case .hasReachedCapacity:
             //TODO
             break
         case .hasNameConflict:
             LoggingUtil.shared.cPrint("Confirm and change")
             AppConfig.shared.showSpinner()
-            CheqAPIManager.shared.resolveNameConflict().done { authUser in
-                AppConfig.shared.hideSpinner {
-                    AppNav.shared.dismissModal(self)
-                }
-            }.catch { err in
-                AppConfig.shared.hideSpinner {
-                    self.showError(err, completion: nil)
-                }
-            }
-       
+      //Manish
+            
+//            CheqAPIManager.shared.resolveNameConflict().done { authUser in
+//                AppConfig.shared.hideSpinner {
+//                    AppNav.shared.dismissModal(self)
+//                }
+//            }.catch { err in
+//                AppConfig.shared.hideSpinner {
+//                    self.showError(err, completion: nil)
+//                }
+//            }
+            
         case .hasOverdueLoans:
             break
         case .salaryInDifferentBank:
@@ -182,13 +188,15 @@ class IntroductionViewController: UIViewController {
 
     @IBAction func secondaryButton(_ sender: Any) {
         switch viewModel.coordinator.type {
+        
         case .setupBank:
             navigateToBankSetupLearnMore()
         case .email:
             AppNav.shared.pushToQuestionForm(.legalName, viewController: self)
         case .employee:
             AppData.shared.updateProgressAfterCompleting(ScreenName.companyAddress)
-            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+           //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+             AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         case .enableLocation:
             if (CompleteDetailsTableViewCellViewModel.turnOnlocation){
                 NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
@@ -196,9 +204,9 @@ class IntroductionViewController: UIViewController {
             }else{
                 AppNav.shared.pushToIntroduction(.notification, viewController: self)
             }
-           
         case .notification:
-            AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+            //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+             AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
         case .verifyIdentity:
             // TODO : confirm this behaviour when implementing Lending
             AppNav.shared.dismiss(self)
@@ -214,7 +222,7 @@ class IntroductionViewController: UIViewController {
         case .selectYourSalary:
             break
         case .payCycleStopped:
-                       break
+            break
         }
     }
 }
@@ -234,7 +242,7 @@ extension IntroductionViewController {
     
     // enable location then dismiss
     func enableLocation(_ completion: @escaping ()-> Void) {
-        let _ = VDotManager.shared
+        //let _ = VDotManager.shared
         completion()
     }
     

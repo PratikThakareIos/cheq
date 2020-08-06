@@ -13,6 +13,8 @@ enum CollectionViewType {
     case carousel, grid
 }
 
+
+
 // this is an implementation of AppThemeProtocol
 // we can create more for different themes. e.g. DarkModeTheme, CBATheme, etc
 
@@ -32,7 +34,7 @@ struct PrimaryTheme: AppThemeProtocol {
 extension PrimaryTheme {
     // orange
     var gradientSet1: [UIColor] {
-    get {
+        get {
             return [UIColor(red:1, green:0.63, blue:0.36, alpha:1), UIColor(red:0.99, green:0.47, blue:0.1, alpha:1)]
         }
     }
@@ -67,9 +69,9 @@ extension PrimaryTheme {
         }
     }
 
-    // purple
+    // purple //491556  
     var primaryColor: UIColor {
-        get { return UIColor(hex: "491556") }
+        get { return UIColor(hex: "4A0067") }
     }
 
     // purple

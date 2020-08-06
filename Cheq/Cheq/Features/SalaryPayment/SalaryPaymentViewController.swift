@@ -8,32 +8,80 @@
 
 import UIKit
 
-class SalaryPaymentViewController: UIViewController {
-   
-    @IBOutlet weak var grayView: UIView!
-    
-    @IBOutlet weak var BottonConstrainOnPopup: NSLayoutConstraint!
-    @IBOutlet weak var popUpView: UIView!
-    @IBOutlet weak var tableView: UITableView!
+public enum PopUpType: String {
+    case minTransactionSelection = "MinTransactionSelection"
+    case salaryTransactionNotAvailable = "SalaryTransactionNotAvailable"
+}
 
-    private let TABLE_CELL_TAGS = (checkbox:10, title:20,value:30)
+class SalaryPaymentViewController: UIViewController {
+    
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+   
+    @IBOutlet weak var viewMessage: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnNextAction: CNButton!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    
+    @IBOutlet weak var lblSelectYourSalary: UILabel!
+    
+    private let TABLE_CELL_TAGS = (checkbox:10, title:20, value:30)
     private var sateOfNewTansactionArray = [Bool]()
     static var selectedTansactionList = [Int] ()
     static var selectedSalaryOption = [false,false]
     private var tansactionDetailsArray = [SalaryTransactionResponse]()
+    var isFromLendingScreen : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showBackButton()
-        popUpView.layer.cornerRadius = 24
+        setupDelegate()
+        setupUI()
     }
+    
+    func setupDelegate() {
+         self.tableView.delegate = self
+         self.tableView.dataSource = self
+     }
+    
+    func setupUI() {
+        self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        btnNextAction.createShadowLayer()
+        
+        let qVm = QuestionViewModel()
+        qVm.loadSaved()
+        let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
+        self.lblSubTitle.text = "Help our bot detect your salary from \(companyName)"
+        
+        let message = "Select your salary transactions for us to verify. We do not support Centrelink benefits, ATM deposits, work leave, or bank transfers"
+        let attributedString = NSMutableAttributedString(string: message)
+        self.lblSelectYourSalary.font = AppConfig.shared.activeTheme.defaultMediumFont //14
+        self.lblSelectYourSalary.attributedText = attributedString
+        self.lblSelectYourSalary.setLineSpacing(lineSpacing: 6.0)
+        
+    
+        showNavBar()
+        if isFromLendingScreen {
+            showCloseButton()
+        }else{
+            showBackButton()
+        }
+
+        viewMessage.backgroundColor = .white
+        viewMessage.layer.cornerRadius = 24
+        
+        self.tableView.estimatedRowHeight = AppConfig.shared.activeTheme.defaultButtonHeight
+        self.tableView.backgroundColor = .white
+        tableView.layer.cornerRadius = 24
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         SalaryPaymentViewController.selectedTansactionList.removeAll()
         getData()
     }
+    
     private func getData() {
         
-        if AppData.shared.employeePaycycle == nil || AppData.shared.employeePaycycle!.count == 0{
+        if AppData.shared.employeePaycycle.count == 0 {
             AppConfig.shared.showSpinner()
             CheqAPIManager.shared.getSalaryPayCycleTimeSheets()
                 .done{ paycyles in
@@ -41,82 +89,32 @@ class SalaryPaymentViewController: UIViewController {
                         self.tansactionDetailsArray = paycyles as [SalaryTransactionResponse]
                         self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
                         self.tableView.reloadData()
+                        self.setTableViewHeight()
                     }
                 }.catch { err in
-                    AppConfig.shared.hideSpinner {
-                        self.showError(err) {
-                          print("error")
-                        }
+                     LoggingUtil.shared.cPrint(err)
+                     AppConfig.shared.hideSpinner {
+//                        self.showError(err) {
+//                           LoggingUtil.shared.cPrint("error")
+//                        }
                     }
                 }
         }else {
-            self.tansactionDetailsArray = AppData.shared.employeePaycycle!
+            self.tansactionDetailsArray = AppData.shared.employeePaycycle
             self.sateOfNewTansactionArray = Array(repeating: false, count: self.tansactionDetailsArray.count)
             self.tableView.reloadData()
-            
+            self.setTableViewHeight()
         }
     }
     
     @IBAction func cantSeeMySalaryClicked(_ sender: Any) {
-        grayView.isHidden = false
-        popUpView.isHidden = false
-       // showAnimate()
-    }
-    
-    @IBAction func salaryInAnotherAcct(_ sender: Any) {
-        grayView.isHidden = true
-        popUpView.isHidden = true
-       
-        SalaryPaymentViewController.selectedSalaryOption[0] = false
-        SalaryPaymentViewController.selectedSalaryOption[1] = true
-    }
-    
-    @IBAction func notShowimgSalary(_ sender: Any) {
-         grayView.isHidden = true
-         popUpView.isHidden = true
-        
-        SalaryPaymentViewController.selectedSalaryOption[0] = true
-        SalaryPaymentViewController.selectedSalaryOption[1] = false
-    }
-    
-    @IBAction func closeBtnPupup(_ sender: Any) {
-         grayView.isHidden = true
-         popUpView.isHidden = true
-             
-        SalaryPaymentViewController.selectedSalaryOption[0] = false
-        SalaryPaymentViewController.selectedSalaryOption[1] = false
-       // removeAnimate()
-    }
-    
-    
-    func showAnimate()
-    {
-        self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.popUpView.alpha = 0.0
-        UIView.animate(withDuration: 0.25, animations: {
-            self.popUpView.alpha = 1.0
-            self.popUpView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
+        self.openPopupWith(strFirst: "It's not showing my salary", strSecond: "My salary is in another bank", type: PopUpType.salaryTransactionNotAvailable )
     }
 
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.popUpView.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.popUpView.alpha = 0.0
-        }, completion: {(finished : Bool) in
-            if(finished)
-            {
-                self.willMove(toParent: nil)
-                self.view.removeFromSuperview()
-                self.removeFromParent()
-            }
-        })
-    }
-    
 }
 
 extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tansactionDetailsArray.count
     }
@@ -127,57 +125,12 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
         cellConfiguration(cell: cell, data:tansactionDetailsArray[indexPath.row] , indexpath: indexPath)
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-       
-        var footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0.0, height:0.0))
-
-        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100.0))
-    
-        let nextButton = UIButton(frame: CGRect(x: 0, y: 40, width: tableView.frame.width - 24, height: 56.0))
-        // here is what you should add:
-        nextButton.center = footerView.center
-
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.backgroundColor = ColorUtil.hexStringToUIColor(hex: "#4A0067")
-        nextButton.layer.cornerRadius = 28.0
-        nextButton.addTarget(self, action: #selector(nextButtonClick(sender:)), for: .touchUpInside)
-        footerView.addSubview(nextButton)
-        
-        return footerView
-    }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 150
-    }
-    @objc func nextButtonClick(sender: UIButton!) {
-        
-        if self.tansactionDetailsArray.count > 0 {
-            
-            if SalaryPaymentViewController.selectedTansactionList.count >= 2 {
-              guard let nav = self.navigationController else { return }
-              let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
-              let vc: PayCycleViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.payCycleViewController.rawValue) as! PayCycleViewController
-              nav.pushViewController(vc, animated: true)
-          }else{
-//            let transactionModal: CustomSubViewPopup = UIView.fromNib()
-//            transactionModal.viewModel.data = CustomPopupModel(description: "To be able to get paid on-demand, we need to know your income and how often you get paid. Try again once your situation  changes", imageName: "", modalHeight: 300)
-//                   transactionModal.setupUI()
-//                   let popupView = CPopupView(transactionModal)
-//
-//                   popupView.show()
-                
-            showMessage("Please select atleast 2 salary payments", completion: nil)
-          }
-        }
-    }
     
     private func cellConfiguration(cell:UITableViewCell,data:SalaryTransactionResponse,indexpath: IndexPath) {
         
         ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.title, text: "\(String(describing: data._description!) )")
-        ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.value, text: "\(String(describing: data.amount!) )")
-       let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
+        ViewUtil.shared.setTableCellLabelText(cell: cell, labelTag: TABLE_CELL_TAGS.value, text: "$\(String(describing: data.amount!) )")
+        let addButton = cell.viewWithTag(TABLE_CELL_TAGS.checkbox) as! UIButton
 
         /*accessibilityIdentifier is used to identify a particular element which takes an input parameter of a string
 
@@ -186,28 +139,135 @@ extension SalaryPaymentViewController: UITableViewDelegate,UITableViewDataSource
 
         let name =  self.sateOfNewTansactionArray.count > 0 && self.sateOfNewTansactionArray[indexpath.row] ? "checked" : "unchecked-1"
         addButton.setImage(UIImage(named: name), for: .normal)
-        
         addButton.addTarget(self, action: #selector(self.checkBoxTapped), for:.touchUpInside)
     }
     
-    @objc func checkBoxTapped(sender: UIButton)
-       {
-        if let rowIndexString =  sender.accessibilityIdentifier, let rowIndex = Int(rowIndexString) {
-                   self.sateOfNewTansactionArray[rowIndex] = !self.sateOfNewTansactionArray[rowIndex]//toggle the state when tapped multiple times
-               }
-               sender.isSelected = !sender.isSelected //image toggle
+    @objc func checkBoxTapped(sender: UIButton){
+        
+            if let rowIndexString =  sender.accessibilityIdentifier, let rowIndex = Int(rowIndexString) {
+                       self.sateOfNewTansactionArray[rowIndex] = !self.sateOfNewTansactionArray[rowIndex]//toggle the state when tapped multiple times
+            }
+            sender.isSelected = !sender.isSelected //image toggle
+            SalaryPaymentViewController.selectedTansactionList.removeAll()
 
-        SalaryPaymentViewController.selectedTansactionList.removeAll()
-
-               for (index, element) in self.sateOfNewTansactionArray.enumerated() {
+            for (index, element) in self.sateOfNewTansactionArray.enumerated() {
                    if element{
-                    SalaryPaymentViewController.selectedTansactionList.append(tansactionDetailsArray[index].transactionId ?? 0)
-                    print("selectedSongList :",SalaryPaymentViewController.selectedTansactionList)
+                      SalaryPaymentViewController.selectedTansactionList.append(tansactionDetailsArray[index].transactionId ?? 0)
+                       LoggingUtil.shared.cPrint("selectedSongList :",SalaryPaymentViewController.selectedTansactionList)
                    }
-               }
-               tableView.reloadData()
+            }
+            tableView.reloadData()
+     }
+}
+
+// MARK: UIBUtton Actions
+extension SalaryPaymentViewController {
+   
+    @IBAction func btnNextAction(_ sender: Any) {
+        if self.tansactionDetailsArray.count > 0 {
+            if SalaryPaymentViewController.selectedTansactionList.count >= 2 {
+              guard let nav = self.navigationController else { return }
+              let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+              let vc: PayCycleViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.payCycleViewController.rawValue) as! PayCycleViewController
+              nav.pushViewController(vc, animated: true)
+          }else{
+                self.openPopupWith(strFirst: "Please select at least 2 salary payments", strSecond: nil , type : .minTransactionSelection)
+          }
         }
-          
+    }
+}
+
+
+extension SalaryPaymentViewController : PayCyclePopUpVCDelegate {
+
+    func openPopupWith(strFirst:String?, strSecond:String?, type : PopUpType){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateViewController(withIdentifier: PopupStoryboardId.payCyclePopUpVC.rawValue) as? PayCyclePopUpVC{
+            popupVC.delegate = self
+            popupVC.strFirst = strFirst
+            popupVC.strSecond = strSecond
+            popupVC.popUpType = type
+            self.present(popupVC, animated: false, completion: nil)
+        }
+    }
+    
+    func tappedOnBtnFirst(popUpType: PopUpType) {
+         LoggingUtil.shared.cPrint("tappedOnBtnFirst")
+        if (popUpType == .salaryTransactionNotAvailable){
+            //"It's not showing my salary"
+            SalaryPaymentViewController.selectedSalaryOption[0] = true
+            SalaryPaymentViewController.selectedSalaryOption[1] = false
+            
+            //ToDo : redirect to lending screen
+            let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs:[], payFrequency: nil, noSalary: true, isInAnotherBank: false)
+            self.updateOnServer(putBankAccountRequest: putBankAccountRequest)
+    
+        }else{
+            
+        }
+    }
+    
+    func tappedOnBtnSecond(popUpType: PopUpType) {
+         LoggingUtil.shared.cPrint("tappedOnBtnSecond")
+        if (popUpType == .salaryTransactionNotAvailable){
+            //"My salary is in another bank"
+            SalaryPaymentViewController.selectedSalaryOption[0] = false
+            SalaryPaymentViewController.selectedSalaryOption[1] = true
+            
+            //ToDo : redirect to lending screen
+            let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs: [], payFrequency: nil, noSalary: false, isInAnotherBank: true)
+            self.updateOnServer(putBankAccountRequest: putBankAccountRequest)
+            
+        }else{
+            
+        }
+    }
+    
+    func tappedOnCloseButton(popUpType: PopUpType) {
+         LoggingUtil.shared.cPrint("tappedOnCloseButton")
+        if (popUpType == .salaryTransactionNotAvailable){
+            SalaryPaymentViewController.selectedSalaryOption[0] = false
+            SalaryPaymentViewController.selectedSalaryOption[1] = false
+        }else{
+            
+        }
+    }
+    
+    func updateOnServer(putBankAccountRequest: PostSalaryTransactionsRequest) {
+        
+//       let putBankAccountRequest = PostSalaryTransactionsRequest(salaryTransactionIDs:  SalaryPaymentViewController.selectedTansactionList, payFrequency: selectedRow, noSalary: SalaryPaymentViewController.selectedSalaryOption[0], isInAnotherBank: SalaryPaymentViewController.selectedSalaryOption[1])
+        
+         LoggingUtil.shared.cPrint("putBankAccountRequest = \(putBankAccountRequest)")
+        
+        AppConfig.shared.showSpinner()
+        CheqAPIManager.shared.postSalaryTransactions(req : putBankAccountRequest)
+       .done{ success in
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(success)
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                   AppNav.shared.dismissModal(self)
+                }
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(err) {
+                       LoggingUtil.shared.cPrint("error")
+                    }
+                }
+            }
+    }
+    
+    
+    func setTableViewHeight() {
+        DispatchQueue.main.async {
+              var height = CGFloat((self.tansactionDetailsArray.count) * 84)//Here 30 is my cell height
+              if height < 160 {
+                 height = 160
+              }
+              self.tableViewHeight.constant = height
+              self.tableView.reloadData()
+              self.view.layoutIfNeeded()
+        }
     }
 
-
+}

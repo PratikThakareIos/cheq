@@ -16,8 +16,12 @@ extension CheqAPIManager {
             AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
                 let token = authUser.authToken() ?? ""
                 UsersAPI.requestUserSignupVerificationCodeWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                 
+ 
                     if let error = err {
+                        let strMessge = error.messageFromData()
                         LoggingUtil.shared.cPrint(error)
+                        LoggingUtil.shared.cPrint(strMessge)
                         resolver.reject(AuthManagerError.unableToRequestEmailVerificationCode); return
                     }
                     resolver.fulfill(())

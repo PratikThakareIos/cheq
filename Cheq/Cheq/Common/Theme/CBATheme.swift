@@ -15,7 +15,6 @@ struct CBATheme: AppThemeProtocol {
     var themeTitle: String {
         get { return "CommonWealth Bank" }
     }
-
     var barStyle: UIBarStyle { get { return .default } }
     var textColor: UIColor { get { return UIColor(hex: "000000") } }
     var linksColor: UIColor { get { return UIColor(hex: "40AEFF") } }
@@ -58,6 +57,7 @@ struct CBATheme: AppThemeProtocol {
 }
 
 extension CBATheme {
+    
     var smallFont: UIFont {
         get { return UIFont.systemFont(ofSize: 10.0)}
     }
@@ -73,4 +73,5 @@ extension CBATheme {
     var headerFont: UIFont {
         get { return UIFont.systemFont(ofSize: 20.0)}
     }
+    
 }

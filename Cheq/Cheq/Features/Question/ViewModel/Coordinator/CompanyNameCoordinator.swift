@@ -11,14 +11,18 @@ import UIKit
 class CompanyNameCoordinator: QuestionCoordinatorProtocol {
 
     var type: QuestionType = .companyName
-    
-    var question: String = "Company name?"
+    var sectionTitle: String = Section.employmentDetails.rawValue
+    var question: String = "Company name"
     
     func placeHolder(_ index: Int)->String {
         return "Company name"
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
-        return nil
+         guard let CompanyName = inputs[placeHolder(0)] as? String else { return ValidationError.invalidCompanyName }
+         guard CompanyName.count >= 2 else {
+             return ValidationError.invalidCompanyName
+         }
+         return nil
     }
 }

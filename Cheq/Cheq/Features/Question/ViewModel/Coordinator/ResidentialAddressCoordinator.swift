@@ -11,14 +11,39 @@ import UIKit
 class ResidentialAddressCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .residentialAddress
-    
-    var question: String = "What is your residential address?"
-    
+    var sectionTitle: String = Section.verifyMyIdentity.rawValue
+    var numOfTextFields: Int = 2
+    var question: String = "What's your home address?"
+   
     func placeHolder(_ index: Int)->String {
-        return "123 Example Street"
+        switch index {
+           case 0:
+               return "Unit / Apartment (optional)"
+           case 1:
+               return "Street address"
+           default:
+               return ""
+           }
     }
     
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
+        // unit number
         return nil
     }
+
 }
+
+//class ResidentialAddressCoordinator: QuestionCoordinatorProtocol {
+//
+//    var type: QuestionType = .residentialAddress
+//
+//    var question: String = "What's your residential address?"
+//
+//    func placeHolder(_ index: Int)->String {
+//        return "11 York Street, Sydney NSW 2000"
+//    }
+//
+//    func validateInput(_ inputs: [String: Any])-> ValidationError? {
+//        return nil
+//    }
+//}

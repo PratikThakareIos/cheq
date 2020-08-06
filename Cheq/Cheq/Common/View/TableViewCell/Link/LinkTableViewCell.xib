@@ -1,35 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFProText-Bold.ttf">
+            <string>SFProText-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LinkTableViewCell" customModule="Cheq" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="LinkTableViewCell" customModule="Cheq" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="47" id="KGk-i7-Jjw" customClass="LinkTableViewCell" customModule="Cheq" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="47"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="329" height="47"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ezq-9G-7Bd">
-                        <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="47"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpv-4T-3ma" customClass="CLabel" customModule="Cheq" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="106" height="43.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpv-4T-3ma">
+                                <rect key="frame" x="0.0" y="0.0" width="141" height="47"/>
+                                <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-Sg-h5K" userLabel="spacer">
-                                <rect key="frame" x="116" y="0.0" width="170" height="43.5"/>
+                                <rect key="frame" x="151" y="0.0" width="136" height="47"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-Ia-Ew4">
+                                <rect key="frame" x="297" y="0.0" width="32" height="47"/>
+                                <subviews>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="caN-ee-jp1">
+                                        <rect key="frame" x="11.5" y="15" width="9.5" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="9.5" id="41e-YT-4Ql"/>
+                                            <constraint firstAttribute="height" constant="17" id="cbI-w3-0oP"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="caN-ee-jp1" firstAttribute="centerY" secondItem="JgI-Ia-Ew4" secondAttribute="centerY" id="Akm-cN-fRy"/>
+                                    <constraint firstItem="caN-ee-jp1" firstAttribute="centerX" secondItem="JgI-Ia-Ew4" secondAttribute="centerX" id="DRh-Pd-OW2"/>
+                                    <constraint firstAttribute="width" constant="32" id="igN-y9-t0S"/>
+                                </constraints>
                             </view>
                         </subviews>
                     </stackView>
@@ -44,8 +66,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="header" destination="Zpv-4T-3ma" id="OeG-f5-cGu"/>
+                <outlet property="imgVwArrow" destination="caN-ee-jp1" id="sNw-HH-kXv"/>
             </connections>
-            <point key="canvasLocation" x="48" y="62"/>
+            <point key="canvasLocation" x="54.347826086956523" y="62.611607142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrow" width="10" height="18"/>
+    </resources>
 </document>
