@@ -1963,6 +1963,8 @@
 		2A44A3162452F67500346FCA /* PostWorksheetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostWorksheetRequest.swift; sourceTree = "<group>"; };
 		2A526B10247FEA0200776325 /* GenericInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericInfoVC.swift; sourceTree = "<group>"; };
 		2A5420FB243DF96F00B52B7C /* Double_Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extention.swift; sourceTree = "<group>"; };
+		2A5628C924E3B3A30015356E /* dev_certificates_pswd_12345.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_certificates_pswd_12345.p12; sourceTree = "<group>"; };
+		2A5628CA24E3B8DB0015356E /* prod_certificates_12345.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_certificates_12345.p12; sourceTree = "<group>"; };
 		2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AuthKey_FKLPYP9PYG.p8; sourceTree = "<group>"; };
 		2A595651246DB18100736BAC /* CategorisationInProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisationInProgressVC.swift; sourceTree = "<group>"; };
 		2A5AAD35247BCFBD00D55B14 /* Cheq_DEV.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cheq_DEV.mobileprovision; sourceTree = "<group>"; };
@@ -2583,6 +2585,8 @@
 		2A5888AD2478085600419149 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
+				2A5628CA24E3B8DB0015356E /* prod_certificates_12345.p12 */,
+				2A5628C924E3B3A30015356E /* dev_certificates_pswd_12345.p12 */,
 				2A5AAD35247BCFBD00D55B14 /* Cheq_DEV.mobileprovision */,
 				2A5AAD36247BCFBD00D55B14 /* Cheq_UAT.mobileprovision */,
 				2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */,
@@ -2743,8 +2747,6 @@
 			children = (
 				2A61FF8724CA965700C678A8 /* loader_dots.json */,
 				2AA1DB2224BB8933001A0975 /* cheq_Imp_info.rtf */,
-				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
-				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A5888AD2478085600419149 /* Certificates */,
 				2A72CF8C2420ADB80053C0DD /* Fonts */,
 			);
@@ -2925,6 +2927,8 @@
 		4F091098231F7E8400AA7F7D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2A5C74D3244861FD0031B172 /* Double_Extention.swift */,
+				2A72CF8B2420ADB80053C0DD /* FontConstant.swift */,
 				2A63FAEF24AE5D3E00C44271 /* String+Version.swift */,
 				4F345BAE239012E3005DCFDB /* UIApplication_Extension.swift */,
 				4F091099231F7E9A00AA7F7D /* Data_Extension.swift */,

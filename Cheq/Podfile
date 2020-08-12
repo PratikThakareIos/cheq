@@ -65,7 +65,6 @@ def shared_pods
   #pod 'lottie-ios'
   pod 'MHLoadingButton'
   
-  
   # Firebase pods
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
@@ -75,18 +74,13 @@ def shared_pods
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
   pod 'Firebase/RemoteConfig'
-  
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
-  
-  
-
-  #Use can use RadioButton and CheckboxButton same as UIButton.
-  #pod 'MBRadioCheckboxButton'
   
 end
 
 target 'CheqDev' do
+ 
   #project 'Cheq.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
