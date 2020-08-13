@@ -15,7 +15,9 @@ end
 
 
 def shared_pods
+  
   # Pods for Cheq
+  pod 'Onfido'
   pod 'SwiftKeychainWrapper'
   pod 'Charts', '~> 3.3'
   pod 'NavigationDropdownMenu'
@@ -32,39 +34,15 @@ def shared_pods
   pod 'PullToRefreshKit'
   pod 'SDWebImage', '~> 5.0'
   pod 'SwiftEntryKit', '1.1.0'
-  
-  # intercom
-  pod 'Intercom', '~> 5.4.1'
-  
-  # Pods for MobileSDKDemo
-	pod 'Mantle'
-	pod 'PromisesObjC'
-	pod 'FMDB'
-	pod 'REValidation'
-	
-  # pod 'MIHCrypto'
-	pod 'Obfuscator'
-	pod 'SQLCipher'
-	pod 'sqlite3','~> 3.27.2'
-	pod 'CocoaLumberjack', '<= 3.4.2'
-	pod 'OpenSSL-Universal'
-  
-  # Onfido pod
-  pod 'Onfido'
-  
-  # Mixpanel pod
-  pod 'Mixpanel-swift'
-  
-  #A subclass of UILabel to allow you adding one or more hyperlinks to the texts
   pod 'FRHyperLabel'
-  
-  #Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
   pod 'IQKeyboardManagerSwift'
   pod 'UITextView+Placeholder'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
-  #pod 'lottie-ios'
   pod 'MHLoadingButton'
-  
+  pod 'Intercom'
+  #pod 'Intercom', '~> 5.4.1'
+
+
   # Firebase pods
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
@@ -77,6 +55,23 @@ def shared_pods
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   
+  # Mixpanel pod
+  pod 'Mixpanel-swift'
+  
+  # Pods for MobileSDKDemo
+  pod 'PromisesObjC'
+  pod 'FMDB'
+  pod 'Mantle'
+  pod 'REValidation'
+  
+  # pod 'MIHCrypto'
+  pod 'Obfuscator'
+  pod 'SQLCipher'
+  pod 'sqlite3','~> 3.27.2'
+  pod 'CocoaLumberjack', '<= 3.4.2'
+  #pod 'OpenSSL-Universal'
+
+ 
 end
 
 target 'CheqDev' do

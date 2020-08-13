@@ -4218,6 +4218,9 @@
 			isa = PBXGroup;
 			children = (
 				2A6A85C524B2D00400BD4B92 /* SplashVC */,
+				4F2E4B86233AECD1001F1BA2 /* Authentication */,
+				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
+				4FAE3649232F4C780035E57E /* Question */,
 				2A07573D24AD8DEC00F82D4E /* CommonViewControllers */,
 				2A65AAB9247D3C2E004D6239 /* BasicFlowScreens */,
 				2A72CF812420A9E70053C0DD /* Popups */,
@@ -4235,13 +4238,10 @@
 				4F180967235D39700018507D /* ForgotPassword */,
 				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
 				4F0D71762346F6BD00AA819C /* Passcode */,
-				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4F0D716A2346B99D00AA819C /* Account */,
 				4F0D715F2346B49600AA819C /* Lending */,
-				4F2E4B86233AECD1001F1BA2 /* Authentication */,
 				964F7BE223332E1D00338227 /* DynamicForm */,
 				4F0B0667233057F800986E35 /* MultipleChoice */,
-				4FAE3649232F4C780035E57E /* Question */,
 				4FD7C1EE2329E16300AC7A67 /* Introduction */,
 				4FD7C131232874FF00AC7A67 /* InAppWebViewController */,
 				9681EC702323D2ED00E9F6D1 /* SplashScreen */,
@@ -7838,7 +7838,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
 				MARKETING_VERSION = 2.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
@@ -7894,7 +7893,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
 				MARKETING_VERSION = 2.1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;

@@ -138,7 +138,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
   - Hex (6.1.0)
-  - Intercom (5.4.1)
+  - Intercom (7.1.2)
   - IQKeyboardManagerSwift (6.5.5)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
@@ -156,9 +156,6 @@ PODS:
   - Obfuscator (2.0.0)
   - OneSignal (2.14.3)
   - Onfido (18.3.0)
-  - OpenSSL-Universal (1.0.2.18):
-    - OpenSSL-Universal/Static (= 1.0.2.18)
-  - OpenSSL-Universal/Static (1.0.2.18)
   - PopOverMenu (2.5.4)
   - PopupDialog (1.0.0):
     - DynamicBlurView (~> 3.0.1)
@@ -214,7 +211,7 @@ DEPENDENCIES:
   - FMDB
   - FRHyperLabel
   - Hex
-  - Intercom (~> 5.4.1)
+  - Intercom
   - IQKeyboardManagerSwift
   - Mantle
   - MHLoadingButton
@@ -223,7 +220,6 @@ DEPENDENCIES:
   - Obfuscator
   - OneSignal (< 3.0, >= 2.11.2)
   - Onfido
-  - OpenSSL-Universal
   - PopOverMenu
   - PopupDialog (~> 1.0.0)
   - PromiseKit
@@ -251,11 +247,9 @@ SPEC REPOS:
     - DynamicBlurView
     - FMDB
     - Hex
-    - Intercom
     - Mantle
     - NavigationDropdownMenu
     - Obfuscator
-    - OpenSSL-Universal
     - PopOverMenu
     - PopupDialog
     - PromiseKit
@@ -294,6 +288,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Intercom
     - IQKeyboardManagerSwift
     - MHLoadingButton
     - Mixpanel-swift
@@ -331,7 +326,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
-  Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
+  Intercom: ce4923a73543fe70c805635846b6dadf03b0b847
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MHLoadingButton: 810a3123f739e32fcd4beec45b8d1a3bad06e38e
@@ -341,7 +336,6 @@ SPEC CHECKSUMS:
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
   OneSignal: 7dfe466265c05f02b95a274b9c997a0619ad2117
   Onfido: 572cb9c1ab40277318528584363cac22cc1ada21
-  OpenSSL-Universal: d10ab08e0b258023e5184f77660b1b9f4ec93926
   PopOverMenu: 0a5cbb60b38fa86f5fd8a703e51fa1b51d181215
   PopupDialog: 28f29a1ffe9e1fab32fb258b53d56ca31670e8a2
   PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
@@ -362,6 +356,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 60d4d2b840afa2182c8bb7ca1c1a7dcf10c34546
+PODFILE CHECKSUM: 4511932546833883d58b72ce0bda020d4f24cf75
 
 COCOAPODS: 1.9.3

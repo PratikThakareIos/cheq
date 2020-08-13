@@ -10,7 +10,10 @@ import UIKit
 import Intercom
 import PromiseKit
 
+
+
 class IntercomManager {
+    
     static let shared = IntercomManager()
     private init() {
         Intercom.setApiKey(AppData.shared.intercomAPIKey, forAppId: AppData.shared.intercomAppId)
@@ -21,7 +24,15 @@ class IntercomManager {
         let qvm = QuestionViewModel()
         qvm.loadSaved()
         
-        userAttributes.customAttributes = IntercomPersonalData(cFirstName: qvm.fieldValue(.firstname), cLastName: qvm.fieldValue(.lastname), cEmail: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cBankName: qvm.fieldValue(.bankName), cAddress: qvm.fieldValue(.employerAddress), cMobile: qvm.fieldValue(.contactDetails), cAppVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",cErrorStep: "Connecting to bank",cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
+        userAttributes.customAttributes = IntercomPersonalData(cFirstName: checkForNull(qvm.fieldValue(.firstname)),
+                                                               cLastName: checkForNull(qvm.fieldValue(.lastname)),
+                                                               cEmail: checkForNull(CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)),
+                                                               cBankName: checkForNull(qvm.fieldValue(.bankName)),
+                                                               cAddress: checkForNull(qvm.fieldValue(.employerAddress)),
+                                                               cMobile: checkForNull(qvm.fieldValue(.contactDetails)),
+                                                               cAppVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",
+                                                               cErrorStep: "Connecting to bank",
+                                                               cid: AuthConfig.shared.activeUser?.userId ?? "").dictionary
          Intercom.updateUser(userAttributes)
         
     //MARK: Present the UI after passing the parameters to the Intercome API
@@ -29,14 +40,23 @@ class IntercomManager {
     }
     
     func present(str_cErrorStep : String = "") {
+           
            let userAttributes = ICMUserAttributes()
            let qvm = QuestionViewModel()
            qvm.loadSaved()
-           
-           userAttributes.customAttributes = IntercomPersonalData(cFirstName: qvm.fieldValue(.firstname), cLastName: qvm.fieldValue(.lastname), cEmail: CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue), cBankName: qvm.fieldValue(.bankName), cAddress: qvm.fieldValue(.employerAddress), cMobile: qvm.fieldValue(.contactDetails), cAppVersion: Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1",cErrorStep: str_cErrorStep, cid:AuthConfig.shared.activeUser?.userId ?? "").dictionary
+
+           userAttributes.customAttributes = IntercomPersonalData(cFirstName: checkForNull(qvm.fieldValue(.firstname)),
+                                                                  cLastName: checkForNull(qvm.fieldValue(.lastname)),
+                                                                  cEmail: checkForNull(CKeychain.shared.getValueByKey(CKey.loggedInEmail.rawValue)),
+                                                                  cBankName: checkForNull(qvm.fieldValue(.bankName)),
+                                                                  cAddress: checkForNull(qvm.fieldValue(.employerAddress)),
+                                                                  cMobile: checkForNull(qvm.fieldValue(.contactDetails)),
+                                                                  cAppVersion: checkForNull(Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "v1"),
+                                                                  cErrorStep: checkForNull(str_cErrorStep),
+                                                                  cid:checkForNull(AuthConfig.shared.activeUser?.userId ?? "")).dictionary
             Intercom.updateUser(userAttributes)
            
-       //MARK: Present the UI after passing the parameters to the Intercome API
+           //MARK: Present the UI after passing the parameters to the Intercome API
            Intercom.presentMessenger()
        }
     
@@ -58,6 +78,13 @@ class IntercomManager {
                 resolver.reject(err)
             }
         }
+    }
+    
+    func checkForNull(_ str:String?) -> String{
+        if let strVal = str {
+            return strVal
+        }
+        return ""
     }
 }
 
