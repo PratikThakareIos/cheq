@@ -49,6 +49,10 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup.rawValue,FirebaseEventKey.on_signup.rawValue, FirebaseEventContentType.screen.rawValue)
+        //AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+        
         self.setupUI()
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
@@ -127,6 +131,8 @@ extension RegistrationVC {
     
     @IBAction func loginWithFacebook(_ sender: Any) {
         
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventContentType.button.rawValue)
+        
         self.view.endEditing(true)
         if AccessToken.isCurrentAccessTokenActive {
             let token = AccessToken.current?.tokenString ?? ""
@@ -155,6 +161,8 @@ extension RegistrationVC {
     }
     
     @IBAction func register(_ sender: Any) {
+        
+          AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventContentType.button.rawValue)
     
         self.view.endEditing(true)
         if let error = self.validateInputs() {
@@ -232,6 +240,7 @@ extension RegistrationVC {
     }
     
     func toEmailVerification() {
+         
         let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(emailVc, from: self)
     }
@@ -290,6 +299,9 @@ extension RegistrationVC {
         } else if viewModel.isLogin(strSubstring) {
             //Manish
             AppNav.shared.pushToViewControllerWithAnimation(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
+          
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventContentType.button.rawValue)
+            
         } else if viewModel.isSignup(strSubstring) {
             AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)
         }else{
@@ -303,8 +315,12 @@ extension RegistrationVC {
         var strUrl = ""
         if (strSubstring == "Terms of Use"){
             strUrl = links.toc.rawValue
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue,FirebaseEventKey.on_signup_TC.rawValue, FirebaseEventKey.on_signup_TC.rawValue, FirebaseEventContentType.button.rawValue)
+                  
         }else if (strSubstring == "Privacy Policy"){
             strUrl = links.privacy.rawValue
+              AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventContentType.button.rawValue)
+            
         }
         
         if let url = URL.init(string: strUrl){

@@ -11,6 +11,7 @@ import SVProgressHUD
 import UserNotifications
 import PromiseKit
 import DateToolsSwift
+import Firebase
 
 /// Singleton instance of AppConfig
 let sharedAppConfig = AppConfig.shared
@@ -231,3 +232,18 @@ extension AppConfig {
     }
 }
 
+
+
+
+
+// MARK: Add event to Firebase ///NNN
+
+
+extension AppConfig {
+
+    func addEventToFirebase(_ sourceScreen: String , _ itemId: String ,_ itemName: String , _ contentType: String) {
+    
+    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [ AnalyticsParameterSource: sourceScreen, AnalyticsParameterItemID: itemId, AnalyticsParameterItemName: itemName, AnalyticsParameterContentType: contentType,])
+   
+    }
+}

@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 public struct UserBudget: Codable {
 
     public var _id: Int?
@@ -33,5 +35,7 @@ public struct UserBudget: Codable {
         case actualSpending
         case hide
     }
+
+
 }
 

@@ -46,6 +46,8 @@ class DocumentVerificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableview.reloadData()
+        
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventContentType.screen.rawValue)
     }
 }
 

@@ -138,7 +138,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
   - Hex (6.1.0)
-  - Intercom (7.1.2)
+  - Intercom (5.4.1)
   - IQKeyboardManagerSwift (6.5.5)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
@@ -239,35 +239,12 @@ DEPENDENCIES:
   - Validator (~> 3.2)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - Charts
     - CocoaLumberjack
     - DateToolsSwift
     - DynamicBlurView
-    - FMDB
-    - Hex
-    - Mantle
-    - NavigationDropdownMenu
-    - Obfuscator
-    - PopOverMenu
-    - PopupDialog
-    - PromiseKit
-    - PromisesObjC
-    - PullToRefreshKit
-    - QuickLayout
-    - REValidation
-    - SDWebImage
-    - SearchTextField
-    - SnapshotTest
-    - SQLCipher
-    - sqlite3
-    - SVProgressHUD
-    - SwiftEntryKit
-    - SwiftKeychainWrapper
-    - UDatePicker
-    - Validator
-  trunk:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -283,20 +260,42 @@ SPEC REPOS:
     - FirebaseMessaging
     - FirebaseRemoteConfig
     - FirebaseUI
+    - FMDB
     - FRHyperLabel
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Hex
     - Intercom
     - IQKeyboardManagerSwift
+    - Mantle
     - MHLoadingButton
     - Mixpanel-swift
     - nanopb
+    - NavigationDropdownMenu
+    - Obfuscator
     - OneSignal
     - Onfido
+    - PopOverMenu
+    - PopupDialog
+    - PromiseKit
+    - PromisesObjC
     - Protobuf
+    - PullToRefreshKit
+    - QuickLayout
+    - REValidation
+    - SDWebImage
+    - SearchTextField
+    - SnapshotTest
+    - SQLCipher
+    - sqlite3
+    - SVProgressHUD
+    - SwiftEntryKit
+    - SwiftKeychainWrapper
+    - UDatePicker
     - "UITextView+Placeholder"
+    - Validator
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -326,7 +325,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
-  Intercom: ce4923a73543fe70c805635846b6dadf03b0b847
+  Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MHLoadingButton: 810a3123f739e32fcd4beec45b8d1a3bad06e38e
@@ -356,6 +355,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: 4511932546833883d58b72ce0bda020d4f24cf75
+PODFILE CHECKSUM: e6e02fa1ba3bbd55a3352425d2b09d36207df66c
 
 COCOAPODS: 1.9.3

@@ -41,17 +41,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
         // Use Firebase library to configure APIs
-        FirebaseApp.configure()
+         FirebaseApp.configure()
         
-        //Remove this method to stop OneSignal Debugging
-        OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
+         //Remove this method to stop OneSignal Debugging
+         OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
 
-        //START OneSignal initialization code
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false]
+         //START OneSignal initialization code
+         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false, kOSSettingsKeyInAppLaunchURL: false]
         
          
          // Replace 'YOUR_ONESIGNAL_APP_ID' with your OneSignal App ID.
-        OneSignal.initWithLaunchOptions(launchOptions,
+         OneSignal.initWithLaunchOptions(launchOptions,
                                          appId: AppDelegate.ONESIGNAL_APP_ID, //"361c802d-82c5-42eb-8765-068dd2c36149", //"YOUR_ONESIGNAL_APP_ID",
            handleNotificationAction: nil,
            settings: onesignalInitSettings)

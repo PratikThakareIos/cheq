@@ -121,6 +121,8 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     }
     
     @objc func agreemntAccepted(_ notification: NSNotification) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventContentType.button.rawValue)
+        
         self.grayView.isHidden = true
         self.agreementAcceptanceLabel.isHidden = true
     }

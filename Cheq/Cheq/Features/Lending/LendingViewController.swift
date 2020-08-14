@@ -177,6 +177,8 @@ extension LendingViewController {
         switch type {
         
         case .workDetails:
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_click.rawValue, FirebaseEventKey.lend_workdetails_click.rawValue, FirebaseEventContentType.button.rawValue)
+            
             AppData.shared.completingDetailsForLending = true
             AppNav.shared.presentToMultipleChoice(.employmentType, viewController: self)
         
@@ -184,7 +186,7 @@ extension LendingViewController {
             AppData.shared.completingDetailsForLending = true
             // banking details flow
             AppNav.shared.presentToQuestionForm(.bankAccount, viewController: self)
-        
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_click.rawValue, FirebaseEventKey.lend_bank_click.rawValue, FirebaseEventContentType.button.rawValue)
         case .verifyYourDetails:
             // verification flow
             AppData.shared.completingDetailsForLending = true
@@ -279,6 +281,7 @@ extension LendingViewController {
                     self.renderLending(overview)
                     
                     if (self.isShowCashoutSuccessPopup){
+                        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_success_app.rawValue , FirebaseEventKey.lend_cashout_success_app.rawValue, FirebaseEventContentType.screen.rawValue)
                          self.popup_CashOutSuccess()
                          self.isShowCashoutSuccessPopup  = false
                     }
@@ -323,6 +326,8 @@ extension LendingViewController {
     }
   
     @objc func button(_ notification: NSNotification) {
+        
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_dash_cashout.rawValue, FirebaseEventKey.lend_dash_cashout.rawValue, FirebaseEventContentType.button.rawValue)
         
         guard let buttonCell = notification.userInfo?[NotificationUserInfoKey.button.rawValue] as? CButtonTableViewCell else { return }
         

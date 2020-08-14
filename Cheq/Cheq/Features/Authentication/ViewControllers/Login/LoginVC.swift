@@ -204,6 +204,7 @@ extension LoginVC : UITextFieldDelegate {
 extension LoginVC {
     
     @IBAction  func loginWithFacebook(_ sender: Any) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Login.rawValue, FirebaseEventKey.login_fb.rawValue, FirebaseEventKey.login_fb.rawValue, FirebaseEventContentType.button.rawValue)
         self.view.endEditing(true)
         if AccessToken.isCurrentAccessTokenActive {
             let token = AccessToken.current?.tokenString ?? ""
@@ -226,6 +227,7 @@ extension LoginVC {
     
  
     @IBAction func login(_ sender: Any) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Login.rawValue, FirebaseEventKey.login_email.rawValue, FirebaseEventKey.login_email.rawValue, FirebaseEventContentType.button.rawValue)
         self.view.endEditing(true)
         
         emailTextField.text = emailTextField.text?.trim()
@@ -417,10 +419,11 @@ extension LoginVC {
         self.view.endEditing(true)
         LoggingUtil.shared.cPrint(strSubstring)
         if viewModel.isForgotPassword(strSubstring) {
-      
          AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.forgot.rawValue, viewController: self)
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Login.rawValue, FirebaseEventKey.login_forgot_password_click.rawValue,  FirebaseEventKey.login_forgot_password_click.rawValue, FirebaseEventContentType.button.rawValue)
             
         } else if viewModel.isSignup(strSubstring) {
+             AppConfig.shared.addEventToFirebase(PassModuleScreen.Login.rawValue,  FirebaseEventKey.login_signup_click.rawValue, FirebaseEventKey.login_signup_click.rawValue, FirebaseEventContentType.button.rawValue)
             
             if let nav = self.navigationController {
                 //manish

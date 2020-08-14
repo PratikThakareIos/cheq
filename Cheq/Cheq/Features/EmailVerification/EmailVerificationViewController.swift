@@ -31,6 +31,7 @@ class EmailVerificationViewController: UIViewController {
 
     //@IBOutlet weak var scrollView: UIScrollView!
     
+    
     var invalideCodeTryCount = 0
     var isShowCodeSentPopUp = false
     
@@ -55,6 +56,14 @@ class EmailVerificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          setupUI()
+       
+        if self.viewModel.type == .email {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify.rawValue, FirebaseEventKey.on_signup_everify.rawValue, FirebaseEventContentType.screen.rawValue)
+        }else{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_home.rawValue, FirebaseEventKey.pass_home.rawValue, FirebaseEventContentType.screen.rawValue)
+          //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+        }
+           
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -175,6 +184,8 @@ class EmailVerificationViewController: UIViewController {
                         for vc in controllers {
                            if vc is LoginVC {
                              self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                             AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.passcode_reset_click.rawValue,FirebaseEventKey.passcode_reset_click.rawValue, FirebaseEventContentType.button.rawValue)
+                            
                            }
                         }
                     }
@@ -198,6 +209,13 @@ class EmailVerificationViewController: UIViewController {
             self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
             return
         }else {
+            if invalideCodeTryCount == 1{
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_passcode1.rawValue, FirebaseEventKey.on_signup_passcode1.rawValue, FirebaseEventContentType.button.rawValue)
+            }else{
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventContentType.button.rawValue)
+            }
+            
+            
             self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             return
         }
@@ -240,6 +258,7 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
+        
         self.view.endEditing(true)
                 
         codeTextField.text = codeTextField.text?.trim()
@@ -247,8 +266,12 @@ class EmailVerificationViewController: UIViewController {
 
         if self.viewModel.type == .email {
             self.verifyCode()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventContentType.button.rawValue)
+            
+            
         } else {
             self.verifyCodeAndResetPassword()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_click.rawValue, FirebaseEventKey.pass_reset_click.rawValue , FirebaseEventContentType.button.rawValue)
         }
     }
  
@@ -259,6 +282,13 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func btnResendCodeTapped() {
+      if self.viewModel.type == .email {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify_resend.rawValue, FirebaseEventKey.on_signup_everify_resend.rawValue, FirebaseEventContentType.button.rawValue)
+        }else{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventContentType.button.rawValue)
+        }
+         
+        
         self.view.endEditing(true)
         self.isShowCodeSentPopUp = true
         

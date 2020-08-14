@@ -27,6 +27,8 @@ class ForgotPasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         email.becomeFirstResponder()
+        
+       
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,10 +47,13 @@ class ForgotPasswordViewController: UIViewController {
         //self.email.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
         
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
-       
+        //self.titleLabel.font = AppConfig.shared.activeTheme.headerBoldFont
     }
     
     @IBAction func sendEmail(_ sender: Any) {
+        
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_email_click.rawValue, FirebaseEventKey.pass_email_click.rawValue , FirebaseEventContentType.button.rawValue)
+        
         self.view.endEditing(true)
         self.viewModel.resetEmail = email.text ?? ""
         if let error = self.viewModel.validateInput() {

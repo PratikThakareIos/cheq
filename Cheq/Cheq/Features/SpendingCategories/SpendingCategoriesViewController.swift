@@ -24,7 +24,10 @@ class SpendingCategoriesViewController: CTableViewController {
         self.setupUI()
         setupDelegate()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+      //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpentDashboard.rawValue, FirebaseEventKey.spend_spent_dash.rawValue,  FirebaseEventKey.spend_spent_dash.rawValue, FirebaseEventContentType.screen.rawValue)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
@@ -98,7 +101,9 @@ extension SpendingCategoriesViewController: RecentActivityPopUpVCDelegate{
     
     
     @objc func showTransactionPopup(_ notification: NSNotification) {
-            LoggingUtil.shared.cPrint("showTransaction")
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingCategoryTransactionClick.rawValue,  FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventContentType.button.rawValue)
+    
+        LoggingUtil.shared.cPrint("showTransaction")
             guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
             guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
         

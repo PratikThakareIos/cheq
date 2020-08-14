@@ -76,16 +76,19 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
             switch tabBarIndex {
                  case 0:
                          //Spending
-                         NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
+                    NotificationUtil.shared.notify(UINotificationEvent.spendingOverviuew.rawValue, key: "", value: "")
+                    AppConfig.shared.addEventToFirebase(PassModuleScreen.Menu.rawValue, FirebaseEventKey.menu_spend.rawValue, FirebaseEventKey.menu_spend.rawValue, FirebaseEventContentType.button.rawValue)
                 
                  case 1:
                         //Lending
-                        NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
-                       
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                    AppConfig.shared.addEventToFirebase(PassModuleScreen.Menu.rawValue, FirebaseEventKey.menu_lend.rawValue,  FirebaseEventKey.menu_lend.rawValue, FirebaseEventContentType.button.rawValue)
+
                  case 2:
                         //Account
-                        NotificationUtil.shared.notify(UINotificationEvent.accountInfo.rawValue, key: "", value: "")
-                
+                    NotificationUtil.shared.notify(UINotificationEvent.accountInfo.rawValue, key: "", value: "")
+                    AppConfig.shared.addEventToFirebase(PassModuleScreen.Menu.rawValue, FirebaseEventKey.menu_profile.rawValue, FirebaseEventKey.menu_profile.rawValue, FirebaseEventContentType.button.rawValue)
+                    
                  default:
                          break
             }
