@@ -42,6 +42,8 @@ class AccountViewController: CTableViewController {
         super.viewWillAppear(animated)
         hideNavBar()
         hideBackTitle()
+        
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue, FirebaseEventKey.profile_home.rawValue ,FirebaseEventKey.profile_home.rawValue, FirebaseEventContentType.screen.rawValue)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -81,9 +83,9 @@ extension AccountViewController {
     
     /// if we get notification to open **link**, it is not always just for real web links, there are instances where we use a **link** UI to trigger opening of App setting, trigger logout and any other actions if needed.
     @objc func openWebLink(_ notification: NSNotification) {
-        LoggingUtil.shared.cPrint("open link")
-        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
         
+        guard let link = notification.userInfo?[NotificationUserInfoKey.link.rawValue] as? String else { return }
+        LoggingUtil.shared.cPrint("open link,\(link)")
         // check if it's log out, we treat it differently
         if link == links.logout.rawValue {
             self.openLogOutPopup()
@@ -100,7 +102,17 @@ extension AccountViewController {
         //            return
         //        }
         
+        
+        
+        
         guard let url = URL(string: link) else { return }
+        
+        if link == "https://cheq.com.au/terms"{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue, FirebaseEventKey.profile_help_tc.rawValue, FirebaseEventKey.profile_help_tc.rawValue, FirebaseEventContentType.button.rawValue)
+        }else{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue, FirebaseEventKey.profile_help_privacy.rawValue, FirebaseEventKey.profile_help_privacy.rawValue, FirebaseEventContentType.button.rawValue)
+        }
+        
         AppNav.shared.pushToInAppWeb(url, viewController: self)
     }
     

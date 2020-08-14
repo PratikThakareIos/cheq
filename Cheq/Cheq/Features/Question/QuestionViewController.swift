@@ -55,6 +55,7 @@ class QuestionViewController: UIViewController {
         self.updateKeyboardViews()
         
         if viewModel.coordinator.type == .legalName {
+            
             let firstname = viewModel.fieldValue(.firstname)
             let lastname = viewModel.fieldValue(.lastname)
             if (firstname.count == 0){
@@ -69,12 +70,14 @@ class QuestionViewController: UIViewController {
         }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName{
             showNavBar()
             showBackButton()
-            
+
         }else if viewModel.coordinator.type == .bankAccount {
             showCloseButton()
             self.textField3.keyboardType = .numberPad
             self.textField4.keyboardType = .numberPad
         }
+        
+        
     }
     
     
@@ -201,28 +204,41 @@ class QuestionViewController: UIViewController {
         switch self.viewModel.coordinator.type {
         case  .residentialAddress:
             self.setupResidentialAddressLookup()
+            
         case .companyName:
             self.setupEmployerNameLookup()
+            
         case .companyAddress:
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank_connect.rawValue, FirebaseEventKey.on_signup_bank_connect.rawValue, FirebaseEventContentType.screen.rawValue)
+          //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+
             self.setupEmployerAddressLookup()
+            
         case .bankAccount:
             self.changeButtonTitle()
             //self.showImageContainer()
             self.questionDescription.text = "Please ensure that this account matches the account you entered in the Cheq app"
             self.questionDescription.isHidden = false
             self.ImageViewContainer.isHidden = true
+            
+
         case .verifyName:
             self.hideImageContainer()
+            
         case .legalName:
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_name.rawValue,  FirebaseEventKey.on_signup_name.rawValue, FirebaseEventContentType.screen.rawValue)
+
             self.legalNameAutoFill()
+            
         default: break
         }
         
         self.lblContactInfo.isHidden = true
         if viewModel.coordinator.type == .contactDetails {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_mobile.rawValue, FirebaseEventKey.on_signup_mobile.rawValue, FirebaseEventContentType.screen.rawValue)
+
             self.lblContactInfo.isHidden = false
             self.textField1.keyboardType = .phonePad
-
         }
         
 //        //manish to hide nav bar
@@ -360,6 +376,9 @@ class QuestionViewController: UIViewController {
         switch self.viewModel.coordinator.type {
         case .legalName:
             
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_name_click.rawValue, FirebaseEventKey.on_signup_name_click.rawValue,FirebaseEventContentType.button.rawValue)
+
+            
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             
@@ -390,6 +409,9 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             
         case .contactDetails:
+            
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_mobile_click.rawValue, FirebaseEventKey.on_signup_mobile_click.rawValue, FirebaseEventContentType.button.rawValue)
+
             
             self.view.endEditing(true)
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
@@ -533,9 +555,13 @@ class QuestionViewController: UIViewController {
             
         // This is the starting point of 3rd step in lending flow
         case .bankAccount:
+
             
             if (switchWithLabel.switchValue()){
                 self.showJointAccountNotSupportedPopUp()
+                
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_toggle.rawValue, FirebaseEventKey.lend_bank_toggle.rawValue, FirebaseEventContentType.button.rawValue)
+                
                 return
             }
             LoggingUtil.shared.cPrint("bank account next")

@@ -20,9 +20,11 @@ class SplashVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+     
         self.startSpinning()
         self.addNotifications()
         self.checkRemoteConfigStatus()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

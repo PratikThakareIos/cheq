@@ -109,11 +109,14 @@ class MultipleChoiceViewController: UIViewController {
         if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .workingLocation {
             self.showNavBar()
             showCloseButton()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventContentType.button.rawValue)
         }
         
         if self.viewModel.coordinator.coordinatorType == .employmentType,  AppData.shared.completingDetailsForLending {
             showNavBar()
             showCloseButton()
+                
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_click.rawValue, FirebaseEventKey.lend_workdetails_click.rawValue, FirebaseEventContentType.button.rawValue)
         }
         
         if self.viewModel.coordinator.coordinatorType == .onDemand,  AppData.shared.completingDetailsForLending {
@@ -294,6 +297,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             //            }
             
         case .financialInstitutions:
+            
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank_select.rawValue, FirebaseEventKey.on_signup_bank_select.rawValue, FirebaseEventContentType.button.rawValue)
+            
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
             // to render the form
             let selectedChoice = self.choices[indexPath.row]
@@ -404,18 +410,21 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }
             
         case .employmentType:
+           
             
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
             if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
+                 AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_worktype_click.rawValue, FirebaseEventKey.lend_workdetails_worktype_click.rawValue, FirebaseEventContentType.button.rawValue)
             } else {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+                 AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventContentType.button.rawValue)
             }
             
         case .workingLocation:
-            
+             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workaddress_click.rawValue, FirebaseEventKey.lend_workdetails_workaddress_click.rawValue, FirebaseEventContentType.button.rawValue)
              LoggingUtil.shared.cPrint("Location clicked")
             if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
@@ -427,6 +436,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }
             
         case .onDemand:
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_click.rawValue, FirebaseEventKey.lend_bank_click.rawValue , FirebaseEventContentType.button.rawValue)
             
             let vm = self.viewModel
             vm.save(QuestionField.employerName.rawValue, value: choice.title)
@@ -540,6 +550,7 @@ extension MultipleChoiceViewController {
         cell.backgroundColor = .clear
         
         if self.viewModel.coordinator.coordinatorType == .employmentType {
+            
             AppConfig.shared.activeTheme.cardStyling(cell.containerView, addBorder: false)
             cell.containerView.backgroundColor = .white
         }else{

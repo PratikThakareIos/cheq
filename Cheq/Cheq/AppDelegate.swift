@@ -278,7 +278,6 @@ extension AppDelegate {
 //        }.finally {
 //            completion()
 //        }
-        
     }
 }
 
@@ -352,7 +351,6 @@ extension AppDelegate {
         AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
               AuthConfig.shared.activeManager.retrieveAuthToken(authUser)
         }
-        
         self.visualEffectView.removeFromSuperview()
     }
     

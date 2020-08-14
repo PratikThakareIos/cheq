@@ -27,8 +27,10 @@ class EmailVerificationViewController: UIViewController {
     @IBOutlet weak var newPasswordField: CNTextField!
     @IBOutlet weak var confirmButton: CNButton!
     @IBOutlet weak var iconImage: UIImageView!
+    var isNavigateToLogin: Bool = false
 
     //@IBOutlet weak var scrollView: UIScrollView!
+    
     
     var invalideCodeTryCount = 0
     var isShowCodeSentPopUp = false
@@ -54,6 +56,14 @@ class EmailVerificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          setupUI()
+       
+        if self.viewModel.type == .email {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify.rawValue, FirebaseEventKey.on_signup_everify.rawValue, FirebaseEventContentType.screen.rawValue)
+        }else{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_home.rawValue, FirebaseEventKey.pass_home.rawValue, FirebaseEventContentType.screen.rawValue)
+          //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+        }
+           
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,13 +149,19 @@ class EmailVerificationViewController: UIViewController {
         self.viewModel.newPassword = self.newPasswordField.text ?? ""
         
         if let err = self.viewModel.validate() {
-            if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat || err == VerificationValidationError.allInputEmpty ){
-                    showInvalidPasswordError(err) {
-                        //self.codeTextField.text = ""
-                        self.newPasswordField.text = ""
+            if self.viewModel.type == .passwordReset  && (err == VerificationValidationError.invalidPasswordFormat || err == VerificationValidationError.allInputEmpty || err == VerificationValidationError.emptyPasswordField || err == VerificationValidationError.invalidLength){
+                
+                if err == VerificationValidationError.invalidPasswordFormat {
+                    showPasswordAlert(error: err)
+                }else{
+                    newInvalidPasswordShowPopUpMsg(err){
+                         self.newPasswordField.text = ""
                     }
+                }
+                    
             }else{
-                showError(err) {
+                //showError(err) {
+                  newInvalidPasswordShowPopUpMsg(err){
                     //self.codeTextField.text = ""
                     self.newPasswordField.text = ""
                 }
@@ -157,25 +173,31 @@ class EmailVerificationViewController: UIViewController {
         //AppConfig.shared.showSpinner()
         self.confirmButton.showLoadingOnButton(self)
         
-        
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
             self.confirmButton.hideLoadingOnButton(self)
             AppConfig.shared.hideSpinner {
-                  self.showMessage("Password reset successfully. Please login with your new credentials") {
+                 // self.showMessage("Password reset successfully. Please login with your new credentials") {
+                self.isNavigateToLogin = true
+                self.newShowPopUpMsg("Password reset successfully. Please login with your new credentials"){
                      // AppNav.shared.dismissModal(self)
                     if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
                         for vc in controllers {
                            if vc is LoginVC {
                              self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                             AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.passcode_reset_click.rawValue,FirebaseEventKey.passcode_reset_click.rawValue, FirebaseEventContentType.button.rawValue)
+                            
                            }
                         }
                     }
                   }
               }
         }.catch { err in
+            self.confirmButton.hideLoadingOnButton(self)
             AppConfig.shared.hideSpinner {
                 LoggingUtil.shared.cPrint(err)
-                self.showError(err, completion: nil)
+                //self.showError(err, completion: nil)
+                self.newInvalidPasswordShowPopUpMsg(err, completion: nil)
+                
             }
         }
 
@@ -187,6 +209,13 @@ class EmailVerificationViewController: UIViewController {
             self.openPopupWith(heading: "Resend verification", message: "You have entered the wrong verification code too many times. For your security, we will need to send you a new code", buttonTitle: "Send new verification code", showSendButton: true, emoji: UIImage(named: "image-somethingWrong"))
             return
         }else {
+            if invalideCodeTryCount == 1{
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_passcode1.rawValue, FirebaseEventKey.on_signup_passcode1.rawValue, FirebaseEventContentType.button.rawValue)
+            }else{
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventContentType.button.rawValue)
+            }
+            
+            
             self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             return
         }
@@ -229,11 +258,20 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func verify() {
+        
         self.view.endEditing(true)
+                
+        codeTextField.text = codeTextField.text?.trim()
+        newPasswordField.text = newPasswordField.text?.trim()
+
         if self.viewModel.type == .email {
             self.verifyCode()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventContentType.button.rawValue)
+            
+            
         } else {
             self.verifyCodeAndResetPassword()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_click.rawValue, FirebaseEventKey.pass_reset_click.rawValue , FirebaseEventContentType.button.rawValue)
         }
     }
  
@@ -244,8 +282,19 @@ class EmailVerificationViewController: UIViewController {
     }
     
     @IBAction func btnResendCodeTapped() {
+      if self.viewModel.type == .email {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify_resend.rawValue, FirebaseEventKey.on_signup_everify_resend.rawValue, FirebaseEventContentType.button.rawValue)
+        }else{
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventContentType.button.rawValue)
+        }
+         
+        
         self.view.endEditing(true)
         self.isShowCodeSentPopUp = true
+        
+        codeTextField.text = ""
+        newPasswordField.text = ""
+        
         if self.viewModel.type == .passwordReset {
             self.resendCodeForSetupNewPassword()
         }else{
@@ -293,7 +342,28 @@ extension EmailVerificationViewController: UITextFieldDelegate {
 //MARK: - Verification popup
 extension EmailVerificationViewController: VerificationPopupVCDelegate{
     
+    func showPasswordAlert(error : Error){
+        openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+    }
+        
+    func newShowPopUpMsg(_ msg: String, completion: (()->Void)?) {
+        openPopupWith(heading: msg, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"successEmo"))
+    }
     
+    func newInvalidPasswordShowPopUpMsg(_ err: Error, completion: (()->Void)?) {
+  
+            var message = ""
+            if let errMessage = err.messageFromData(), errMessage.isEmpty == false  {
+                message = errMessage
+                if message ==  "Invalid code" {
+                    message = "The 6 digit code you entered is not valid, please try again"
+                }
+            } else {
+                message = err.localizedDescription
+            }
+            openPopupWith(heading: message, message: "", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"transferFailed"))
+    }
+  
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -316,7 +386,23 @@ extension EmailVerificationViewController: VerificationPopupVCDelegate{
     }
     
     func tappedOnCloseButton(){
-        self.codeTextField.text = ""
+       // self.codeTextField.text = ""
+        
+        if self.viewModel.type == .passwordReset {
+        }else{
+            self.codeTextField.text = ""
+        }
+        
+        if self.isNavigateToLogin {
+            self.isNavigateToLogin = false
+            if let controllers = self.navigationController?.viewControllers, controllers.count > 0 {
+                for vc in controllers {
+                   if vc is LoginVC {
+                     self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
+                   }
+                }
+            }
+        }
     }
     
     func tappedOnLearnMoreButton() {
@@ -432,5 +518,6 @@ extension EmailVerificationViewController {
 //        return self.scrollView
 //    }
 //}
+
 
 
