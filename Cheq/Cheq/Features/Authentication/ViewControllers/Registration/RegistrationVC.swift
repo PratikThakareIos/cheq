@@ -49,6 +49,10 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup.rawValue,FirebaseEventKey.on_signup.rawValue, FirebaseEventContentType.screen.rawValue)
+        //AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+        
         self.setupUI()
         self.addNotificationsForRemoteConfig()
         RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
@@ -64,11 +68,13 @@ class RegistrationVC: UIViewController {
 extension RegistrationVC {
     
     func setupDelegate() {
+        
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
     }
     
     func setupUI() {
+        
         self.registerButton.createShadowLayer()
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.emailTextField.setupLeftIcon(image : UIImage(named: "letter") ?? UIImage())
@@ -76,11 +82,11 @@ extension RegistrationVC {
         self.emailTextField.setShadow()
         self.passwordTextField.setShadow()
         self.viewModel.screenName = .registration
-        
         self.setupHyperlables()
     }
     
     func continueWithLoggedInFB(_ token: String) {
+        
         AppConfig.shared.showSpinner()
         viewModel.fetchProfileWithFBAccessToken().then { ()->Promise<AuthUser> in
             self.viewModel.registerWithFBAccessToken(token)
@@ -125,6 +131,8 @@ extension RegistrationVC {
     
     @IBAction func loginWithFacebook(_ sender: Any) {
         
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventContentType.button.rawValue)
+        
         self.view.endEditing(true)
         if AccessToken.isCurrentAccessTokenActive {
             let token = AccessToken.current?.tokenString ?? ""
@@ -153,6 +161,8 @@ extension RegistrationVC {
     }
     
     @IBAction func register(_ sender: Any) {
+        
+          AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventContentType.button.rawValue)
     
         self.view.endEditing(true)
         if let error = self.validateInputs() {
@@ -230,6 +240,7 @@ extension RegistrationVC {
     }
     
     func toEmailVerification() {
+         
         let emailVc = AppNav.shared.initViewController(StoryboardName.common.rawValue, storyboardId: CommonStoryboardId.emailVerify.rawValue, embedInNav: false)
         AppNav.shared.pushToViewController(emailVc, from: self)
     }
@@ -270,7 +281,7 @@ extension RegistrationVC {
             }
              LoggingUtil.shared.cPrint("substring =\(strSubstring)")
             self.didSelectLinkWithName(strSubstring: strSubstring)
-        }        
+        }
         self.lblLogin.setLinksForSubstrings(["Log in"], withLinkHandler: handler)
     }
     
@@ -288,6 +299,9 @@ extension RegistrationVC {
         } else if viewModel.isLogin(strSubstring) {
             //Manish
             AppNav.shared.pushToViewControllerWithAnimation(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
+          
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventContentType.button.rawValue)
+            
         } else if viewModel.isSignup(strSubstring) {
             AppNav.shared.pushToViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, viewController: self)
         }else{
@@ -301,8 +315,12 @@ extension RegistrationVC {
         var strUrl = ""
         if (strSubstring == "Terms of Use"){
             strUrl = links.toc.rawValue
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue,FirebaseEventKey.on_signup_TC.rawValue, FirebaseEventKey.on_signup_TC.rawValue, FirebaseEventContentType.button.rawValue)
+                  
         }else if (strSubstring == "Privacy Policy"){
             strUrl = links.privacy.rawValue
+              AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventContentType.button.rawValue)
+            
         }
         
         if let url = URL.init(string: strUrl){
@@ -376,6 +394,7 @@ extension RegistrationVC : VerificationPopupVCDelegate {
                 
         if isPasswordField {
             openPopupWith(heading:"Please Create a Secure password with the criteria below", message: error.localizedDescription, buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"NewLock"))
+          
         }
         
         let errMessage = "The email address is already in use by another account."
@@ -384,7 +403,7 @@ extension RegistrationVC : VerificationPopupVCDelegate {
             openPopupWith(heading: "Sorry, the email address is already in use", message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
         }else{
             openPopupWith(heading: error.localizedDescription, message:"", buttonTitle: "", showSendButton: false, emoji: UIImage.init(named:"image-moreInfo"))
-        }    
+        }
     }
     
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
@@ -413,3 +432,4 @@ extension RegistrationVC : VerificationPopupVCDelegate {
         
     }
 }
+

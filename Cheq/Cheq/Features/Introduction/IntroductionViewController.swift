@@ -125,6 +125,10 @@ class IntroductionViewController: UIViewController {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
             }
         case .verifyIdentity:
+        
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workverify_screen_close.rawValue, FirebaseEventKey.lend_workverify_screen_close.rawValue, FirebaseEventContentType.button.rawValue)
+            
+            
             let qVm = QuestionViewModel()
             qVm.loadSaved()
             let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()

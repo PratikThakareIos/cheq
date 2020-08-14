@@ -65,10 +65,11 @@ class NewPasswordSetupViewModel: VerificationViewModel {
 extension NewPasswordSetupViewModel {
     
     func validate()->VerificationValidationError? {
-        
-         if (self.code.isEmpty && self.newPassword.isEmpty) { return VerificationValidationError.allInputEmpty }
-        if self.code.isEmpty { return VerificationValidationError.emptyInput }
+         
+        if (self.code.isEmpty && self.newPassword.isEmpty) { return VerificationValidationError.allInputEmpty }
+        if (self.code.isEmpty && !self.newPassword.isEmpty) { return VerificationValidationError.emptyInput }
         if self.code.count != self.codeLength { return VerificationValidationError.invalidLength }
+        if self.newPassword.isEmpty { return VerificationValidationError.emptyPasswordField }
         if !StringUtil.shared.isNumericOnly(self.code) { return VerificationValidationError.nonNumeric }
 
         if StringUtil.shared.isValidPassword(self.newPassword) == false {
@@ -78,3 +79,4 @@ extension NewPasswordSetupViewModel {
         return nil
     }
 }
+

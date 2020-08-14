@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */; };
-		1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */; };
+		289700C6695021AC6FBA4570 /* Pods_CheqDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A9A4BCF9D0A3BBAC2803B6 /* Pods_CheqDemo.framework */; };
 		2A07573F24AD8E2700F82D4E /* MaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A07573E24AD8E2700F82D4E /* MaintenanceVC.swift */; };
 		2A07574024AD8E2700F82D4E /* MaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A07573E24AD8E2700F82D4E /* MaintenanceVC.swift */; };
 		2A07574124AD8E2700F82D4E /* MaintenanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A07573E24AD8E2700F82D4E /* MaintenanceVC.swift */; };
@@ -867,7 +866,6 @@
 		2AADE6EB248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
 		2AADE6EC248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
 		2AADE6ED248CA86F0044D5CD /* PayCyclePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */; };
-		356ACDA56251B2956AF88456 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		4F01F621237E6A5B00268423 /* LineSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F23240F2378007D00BF3F21 /* LineSeparatorTableViewCell.swift */; };
 		4F01F622237E6A5B00268423 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0068922FE69AA00173743 /* AppConfig.swift */; };
 		4F01F623237E6A5B00268423 /* CompletionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9FFB12352BF5E0041001F /* CompletionProgressTableViewCell.swift */; };
@@ -1600,7 +1598,10 @@
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
-		52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */; };
+		6762E7BD2D5E118D2EFC2F67 /* Pods_CheqUAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3693F3A36A1787B6F4504F /* Pods_CheqUAT.framework */; };
+		7652DA45767C01EF67FF02F0 /* Pods_CheqDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A37D107CF6F38E54FA4CBB /* Pods_CheqDev.framework */; };
+		7E4DB6B89317C1BA9A4F2DE2 /* Pods_CheqProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8336736114C81837533C2163 /* Pods_CheqProd.framework */; };
+		7ED0A50936DF7EEEB5507BFC /* Pods_CheqTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E949063C5741445EDE135 /* Pods_CheqTests.framework */; };
 		9600A70C235348F20082C2A3 /* CButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */; };
 		9600A70E235348F20082C2A3 /* CButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */; };
 		9600A711235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */; };
@@ -1699,6 +1700,7 @@
 		96FADD34230E897400AE6CBB /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADD33230E897400AE6CBB /* AuthUser.swift */; };
 		96FADE93230EC8AD00AE6CBB /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */; };
 		96FADE9A230ED19300AE6CBB /* CKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FADE99230ED19300AE6CBB /* CKeychain.swift */; };
+		9904CE6FD6C600AA88BDDB71 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4CD19ADE354623DC857C0D /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		9F3ACB8023EFD10500466953 /* VerifyDocsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ACB7F23EFD10500466953 /* VerifyDocsViewController.swift */; };
 		9F3ACB8323EFE4C700466953 /* DocPlaceHolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3ACB8123EFE4C700466953 /* DocPlaceHolderCell.swift */; };
 		9F3ACB8423EFE4C700466953 /* DocPlaceHolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3ACB8223EFE4C700466953 /* DocPlaceHolderCell.xib */; };
@@ -1759,8 +1761,6 @@
 		BD9739412404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739422404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
 		BD9739432404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */; };
-		EB82B7BEAE0CD40845311954 /* Pods_CheqDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0380E0B4BAE53341988819 /* Pods_CheqDev.framework */; };
-		EC2932E145822A3B4E3B20B7 /* Pods_CheqUAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A798937400978A89B7D0C0 /* Pods_CheqUAT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1865,7 +1865,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.debug.xcconfig"; sourceTree = "<group>"; };
+		040E949063C5741445EDE135 /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F0F0ABF166A54930668D70C /* Pods-CheqUAT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.debug.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.debug.xcconfig"; sourceTree = "<group>"; };
+		27A9A4BCF9D0A3BBAC2803B6 /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A07573E24AD8E2700F82D4E /* MaintenanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceVC.swift; sourceTree = "<group>"; };
 		2A07574324AD919200F82D4E /* UpdateAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppVC.swift; sourceTree = "<group>"; };
 		2A0E845624A65C0A00721494 /* RecentActivityPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentActivityPopUpVC.swift; sourceTree = "<group>"; };
@@ -1874,6 +1876,8 @@
 		2A110BC524AA566800CA1EFD /* NoMoreActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoMoreActivityCell.xib; sourceTree = "<group>"; };
 		2A110BD624AA72A800CA1EFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A25F6EF24598DFB00617CA3 /* BasiqConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasiqConnectionResponse.swift; sourceTree = "<group>"; };
+		2A31597F24E6397100AF70DB /* prod_certificates_12345.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = prod_certificates_12345.p12; sourceTree = "<group>"; };
+		2A31598024E6397400AF70DB /* dev_certificates_pswd_12345.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dev_certificates_pswd_12345.p12; sourceTree = "<group>"; };
 		2A367E2B2465643D008EC38A /* UserActionRequiredVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionRequiredVC.swift; sourceTree = "<group>"; };
 		2A44A1C62452E6ED00346FCA /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		2A44A1C72452E6ED00346FCA /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
@@ -2014,9 +2018,7 @@
 		2AAB5D3E2473E4D4000CC702 /* CheqUAT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CheqUAT-Info.plist"; path = "/Users/amit.rawal/Documents/Cheq_app/Cheq/CheqUAT-Info.plist"; sourceTree = "<absolute>"; };
 		2AAB5D4024744B0D000CC702 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AADE6E9248CA86F0044D5CD /* PayCyclePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCyclePopUpVC.swift; sourceTree = "<group>"; };
-		3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDeviceProd.release.xcconfig"; path = "Target Support Files/Pods-CheqDeviceProd/Pods-CheqDeviceProd.release.xcconfig"; sourceTree = "<group>"; };
-		3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.release.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.release.xcconfig"; sourceTree = "<group>"; };
-		41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B75866074451CDC740833A3 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		4F01F779237E6A5B00268423 /* CheqDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheqDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F01F77B23823EB600268423 /* CheqAPIManager_Budgeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Budgeting.swift; sourceTree = "<group>"; };
 		4F01F88E238260D500268423 /* HasReachedCapacityCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasReachedCapacityCoordinator.swift; sourceTree = "<group>"; };
@@ -2047,7 +2049,6 @@
 		4F0B066C2330588E00986E35 /* MultipleChoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceViewModel.swift; sourceTree = "<group>"; };
 		4F0B0670233066D100986E35 /* CMultipleChoiceWithCaptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMultipleChoiceWithCaptionCell.swift; sourceTree = "<group>"; };
 		4F0B0673233066EE00986E35 /* CMultipleChoiceWithImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMultipleChoiceWithImageCell.swift; sourceTree = "<group>"; };
-		4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F0D63042342F4B300AA819C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		4F0D63AF23431EFD00AA819C /* TestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		4F0D713E2345761500AA819C /* CPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPageControl.swift; sourceTree = "<group>"; };
@@ -2196,7 +2197,6 @@
 		4FD7C202232A190600AC7A67 /* OnfidoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnfidoManager.swift; sourceTree = "<group>"; };
 		4FD7C206232A1C3300AC7A67 /* OnfidoManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnfidoManagerIntegrationTests.swift; sourceTree = "<group>"; };
 		4FD8399D236265E20069EB30 /* RemoteConfigManagerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManagerIntegrationTests.swift; sourceTree = "<group>"; };
-		4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Cheq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDDC330237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSpecificCategoryViewController.swift; sourceTree = "<group>"; };
 		4FDDC335237A5B5000C3846E /* SpendingSpecificCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingSpecificCategoryViewModel.swift; sourceTree = "<group>"; };
 		4FDDC34A237BA17100C3846E /* SpendingTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingTransactionsViewController.swift; sourceTree = "<group>"; };
@@ -2210,12 +2210,11 @@
 		4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager.swift; sourceTree = "<group>"; };
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
 		4FEF9839234D51DC00E37421 /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
-		5A1551DCA3AAC9FC2A8383D8 /* Pods-CheqDevice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDevice.debug.xcconfig"; path = "Target Support Files/Pods-CheqDevice/Pods-CheqDevice.debug.xcconfig"; sourceTree = "<group>"; };
-		5F0380E0B4BAE53341988819 /* Pods_CheqDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
-		72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDeviceProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		860A2968A1267FBA36D03738 /* Pods-CheqUAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.release.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.release.xcconfig"; sourceTree = "<group>"; };
+		5AB2D70544CAE058034DECD1 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5D18361985B06F31EB877AA1 /* Pods-CheqDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.release.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.release.xcconfig"; sourceTree = "<group>"; };
+		62727F015B7CF8CA26092A46 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
+		73ED3FB44D45432A648A5E89 /* Pods-CheqProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.release.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.release.xcconfig"; sourceTree = "<group>"; };
+		8336736114C81837533C2163 /* Pods_CheqProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9600A70B235348F20082C2A3 /* CButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9600A710235349CB0082C2A3 /* CButtonTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -2291,6 +2290,7 @@
 		96B0069722FE72A700173743 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
 		96B0069922FE7CF700173743 /* CChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CChartModel.swift; sourceTree = "<group>"; };
 		96B8217C234354B800AA940F /* Date_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Extension.swift; sourceTree = "<group>"; };
+		96F7AE97F5DBE34CB38B1B6B /* Pods-CheqUAT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.release.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.release.xcconfig"; sourceTree = "<group>"; };
 		96F9FF9E2352B0120041001F /* CTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFA32352B0C70041001F /* IntercomChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntercomChatTableViewCell.swift; sourceTree = "<group>"; };
 		96F9FFA42352B0C70041001F /* IntercomChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntercomChatTableViewCell.xib; sourceTree = "<group>"; };
@@ -2316,7 +2316,7 @@
 		96FADD33230E897400AE6CBB /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		96FADE92230EC8AD00AE6CBB /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		96FADE99230ED19300AE6CBB /* CKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKeychain.swift; sourceTree = "<group>"; };
-		979EB1EA776745E8B5808D7E /* Pods-CheqDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.debug.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.debug.xcconfig"; sourceTree = "<group>"; };
+		990BE39480EED65AC8F04DBB /* Pods-CheqProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.debug.xcconfig"; sourceTree = "<group>"; };
 		9F3ACB7F23EFD10500466953 /* VerifyDocsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDocsViewController.swift; sourceTree = "<group>"; };
 		9F3ACB8123EFE4C700466953 /* DocPlaceHolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocPlaceHolderCell.swift; sourceTree = "<group>"; };
 		9F3ACB8223EFE4C700466953 /* DocPlaceHolderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocPlaceHolderCell.xib; sourceTree = "<group>"; };
@@ -2329,12 +2329,8 @@
 		9F3ACB9223EFF2EA00466953 /* DocAccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocAccessViewModel.swift; sourceTree = "<group>"; };
 		9FB5921523EC0E5000B7DB0F /* VerifyNameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNameCoordinator.swift; sourceTree = "<group>"; };
 		9FB5921923EC250D00B7DB0F /* HomeAddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddressCoordinator.swift; sourceTree = "<group>"; };
-		A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDevice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
-		AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
-		B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqUAT.debug.xcconfig"; path = "Target Support Files/Pods-CheqUAT/Pods-CheqUAT.debug.xcconfig"; sourceTree = "<group>"; };
-		B9A798937400978A89B7D0C0 /* Pods_CheqUAT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqUAT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		AEB5ACD67022A201C33B0676 /* Pods-CheqDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.release.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BB3693F3A36A1787B6F4504F /* Pods_CheqUAT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqUAT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0D58D823E815C4009193CD /* PayCycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCycleViewController.swift; sourceTree = "<group>"; };
 		BD0D58DD23E93043009193CD /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		BD0D58EE23E99D03009193CD /* CustomSubViewPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubViewPopup.swift; sourceTree = "<group>"; };
@@ -2351,15 +2347,11 @@
 		BD3C96282428F7A200927055 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		BD3C962C2428F7B100927055 /* CustomProgressBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProgressBar.xib; sourceTree = "<group>"; };
 		BD97393F2404F09700C34A33 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
-		CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.debug.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.debug.xcconfig"; sourceTree = "<group>"; };
-		CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.debug.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.debug.xcconfig"; sourceTree = "<group>"; };
-		DC181122A9C743594BB006A7 /* Pods-CheqDevice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDevice.release.xcconfig"; path = "Target Support Files/Pods-CheqDevice/Pods-CheqDevice.release.xcconfig"; sourceTree = "<group>"; };
-		E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.release.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.release.xcconfig"; sourceTree = "<group>"; };
-		E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cheq.release.xcconfig"; path = "Target Support Files/Pods-Cheq/Pods-Cheq.release.xcconfig"; sourceTree = "<group>"; };
-		F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqProd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
+		C5A37D107CF6F38E54FA4CBB /* Pods_CheqDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheqDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F1E00C572790D4F4D0D56D /* Pods-CheqDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.debug.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.debug.xcconfig"; sourceTree = "<group>"; };
+		EC7FA6417E62A64E567AB53F /* Pods-CheqTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.debug.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8EC87AD76F04954E0F26501 /* Pods-CheqTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqTests.release.xcconfig"; path = "Target Support Files/Pods-CheqTests/Pods-CheqTests.release.xcconfig"; sourceTree = "<group>"; };
+		FB4CD19ADE354623DC857C0D /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2367,7 +2359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				356ACDA56251B2956AF88456 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
+				9904CE6FD6C600AA88BDDB71 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2376,7 +2368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAB5CFD2473E4D3000CC702 /* UserNotifications.framework in Frameworks */,
-				EC2932E145822A3B4E3B20B7 /* Pods_CheqUAT.framework in Frameworks */,
+				6762E7BD2D5E118D2EFC2F67 /* Pods_CheqUAT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2385,7 +2377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F01F74B237E6A5B00268423 /* UserNotifications.framework in Frameworks */,
-				1788973456CFAE73947D6217 /* Pods_CheqDemo.framework in Frameworks */,
+				289700C6695021AC6FBA4570 /* Pods_CheqDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2394,7 +2386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FBDDB1A236BC68700EDB1E9 /* UserNotifications.framework in Frameworks */,
-				52E2C8ABD0DC00C93B31DAAD /* Pods_CheqProd.framework in Frameworks */,
+				7E4DB6B89317C1BA9A4F2DE2 /* Pods_CheqProd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2403,7 +2395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F091097231F6E7300AA7F7D /* UserNotifications.framework in Frameworks */,
-				EB82B7BEAE0CD40845311954 /* Pods_CheqDev.framework in Frameworks */,
+				7652DA45767C01EF67FF02F0 /* Pods_CheqDev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2411,7 +2403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0399A3D976D6AF679D29B6FF /* Pods_CheqTests.framework in Frameworks */,
+				7ED0A50936DF7EEEB5507BFC /* Pods_CheqTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2583,6 +2575,8 @@
 		2A5888AD2478085600419149 /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
+				2A31598024E6397400AF70DB /* dev_certificates_pswd_12345.p12 */,
+				2A31597F24E6397100AF70DB /* prod_certificates_12345.p12 */,
 				2A5AAD35247BCFBD00D55B14 /* Cheq_DEV.mobileprovision */,
 				2A5AAD36247BCFBD00D55B14 /* Cheq_UAT.mobileprovision */,
 				2A5888AE2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 */,
@@ -2783,24 +2777,18 @@
 		2CD776E6BCD57CA70EFE0360 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */,
-				FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */,
-				CAE817A11AC6B431313DF8DE /* Pods-Cheq.debug.xcconfig */,
-				E45B84C386D19BE1853B0A30 /* Pods-Cheq.release.xcconfig */,
-				D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */,
-				E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */,
-				5A1551DCA3AAC9FC2A8383D8 /* Pods-CheqDevice.debug.xcconfig */,
-				DC181122A9C743594BB006A7 /* Pods-CheqDevice.release.xcconfig */,
-				15209C9B29AD6D251C9FD7C5 /* Pods-CheqDeviceProd.debug.xcconfig */,
-				3747E5C1A4B9EADBD199E6A2 /* Pods-CheqDeviceProd.release.xcconfig */,
-				CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */,
-				A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */,
-				979EB1EA776745E8B5808D7E /* Pods-CheqDev.debug.xcconfig */,
-				3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */,
-				B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */,
-				860A2968A1267FBA36D03738 /* Pods-CheqUAT.release.xcconfig */,
-				BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
+				5AB2D70544CAE058034DECD1 /* Pods-CheqDemo.debug.xcconfig */,
+				AEB5ACD67022A201C33B0676 /* Pods-CheqDemo.release.xcconfig */,
+				D7F1E00C572790D4F4D0D56D /* Pods-CheqDev.debug.xcconfig */,
+				5D18361985B06F31EB877AA1 /* Pods-CheqDev.release.xcconfig */,
+				990BE39480EED65AC8F04DBB /* Pods-CheqProd.debug.xcconfig */,
+				73ED3FB44D45432A648A5E89 /* Pods-CheqProd.release.xcconfig */,
+				EC7FA6417E62A64E567AB53F /* Pods-CheqTests.debug.xcconfig */,
+				F8EC87AD76F04954E0F26501 /* Pods-CheqTests.release.xcconfig */,
+				0F0F0ABF166A54930668D70C /* Pods-CheqUAT.debug.xcconfig */,
+				96F7AE97F5DBE34CB38B1B6B /* Pods-CheqUAT.release.xcconfig */,
+				3B75866074451CDC740833A3 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				62727F015B7CF8CA26092A46 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -3127,8 +3115,6 @@
 		4F180AA4235D81E10018507D /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				4F0D6182233DA89E00AA819C /* Pods_Cheq.framework */,
-				4FD839AA2362AFFC0069EB30 /* Pods_Cheq.framework */,
 				4F44955A238DFBA4000E9DAA /* MobileSDK.framework */,
 			);
 			name = "Recovered References";
@@ -3896,14 +3882,12 @@
 			children = (
 				4F091096231F6E7300AA7F7D /* UserNotifications.framework */,
 				4F091077231F28D900AA7F7D /* NotificationCenter.framework */,
-				D0209DB5A78933BFE421CCF9 /* Pods_CheqTests.framework */,
-				F6E0C49CFB623859864927CD /* Pods_CheqProd.framework */,
-				A1F74595E6DD8AD25E5568C1 /* Pods_CheqDevice.framework */,
-				72C8C64D31119E24157E658C /* Pods_CheqDeviceProd.framework */,
-				41373EA8CC86CE38BE80C07B /* Pods_CheqDemo.framework */,
-				5F0380E0B4BAE53341988819 /* Pods_CheqDev.framework */,
-				B9A798937400978A89B7D0C0 /* Pods_CheqUAT.framework */,
-				7B7BBDAB871EC607180024F8 /* Pods_OneSignalNotificationServiceExtension.framework */,
+				27A9A4BCF9D0A3BBAC2803B6 /* Pods_CheqDemo.framework */,
+				C5A37D107CF6F38E54FA4CBB /* Pods_CheqDev.framework */,
+				8336736114C81837533C2163 /* Pods_CheqProd.framework */,
+				040E949063C5741445EDE135 /* Pods_CheqTests.framework */,
+				BB3693F3A36A1787B6F4504F /* Pods_CheqUAT.framework */,
+				FB4CD19ADE354623DC857C0D /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4718,7 +4702,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AA1DB2F24BB8AD6001A0975 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
 			buildPhases = (
-				0F2095C3F25806A94361D7C7 /* [CP] Check Pods Manifest.lock */,
+				7ADF2A00C437DBBE5FA24EA6 /* [CP] Check Pods Manifest.lock */,
 				2AA1DB2324BB8AD6001A0975 /* Sources */,
 				2AA1DB2424BB8AD6001A0975 /* Frameworks */,
 				2AA1DB2524BB8AD6001A0975 /* Resources */,
@@ -4736,17 +4720,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AAB5D3A2473E4D3000CC702 /* Build configuration list for PBXNativeTarget "CheqUAT" */;
 			buildPhases = (
-				2AAB5B8B2473E4D3000CC702 /* [CP] Check Pods Manifest.lock */,
+				9D6861C73B5BA7B8948ABCE8 /* [CP] Check Pods Manifest.lock */,
 				2AAB5B8C2473E4D3000CC702 /* Sources */,
 				2AAB5CFC2473E4D3000CC702 /* Frameworks */,
 				2AAB5D012473E4D3000CC702 /* Embed Frameworks */,
 				2AAB5D032473E4D3000CC702 /* Resources */,
 				2AAB5D342473E4D3000CC702 /* Embed App Extensions */,
-				2AAB5D352473E4D3000CC702 /* [CP] Copy Pods Resources */,
-				2AAB5D372473E4D3000CC702 /* [CP] Embed Pods Frameworks */,
 				2AAB5D382473E4D3000CC702 /* Run Script */,
 				2AAB5D392473E4D3000CC702 /* Migrate Moneysoft Framework bundle */,
 				2A61FF8D24CAB5CE00C678A8 /* ShellScript */,
+				4D6624FEB0700E292CBF73F5 /* [CP] Embed Pods Frameworks */,
+				E7D7BBFB981EDB3A9D2A2EFB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4761,16 +4745,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F01F776237E6A5B00268423 /* Build configuration list for PBXNativeTarget "CheqDemo" */;
 			buildPhases = (
-				4F01F61F237E6A5B00268423 /* [CP] Check Pods Manifest.lock */,
+				8E795D239288C9648AE119DB /* [CP] Check Pods Manifest.lock */,
 				4F01F620237E6A5B00268423 /* Sources */,
 				4F01F749237E6A5B00268423 /* Frameworks */,
 				4F01F74D237E6A5B00268423 /* Resources */,
 				4F01F771237E6A5B00268423 /* Embed App Extensions */,
-				4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */,
-				4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */,
 				4F449563238DFBB5000E9DAA /* Embed Frameworks */,
 				4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */,
 				2A61FF9024CAB5FB00C678A8 /* ShellScript */,
+				E9D8D09A10B9A07907E6C2B8 /* [CP] Embed Pods Frameworks */,
+				0CEF95E3FF8DD345558A607B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4785,16 +4769,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4FBDDB3C236BC68700EDB1E9 /* Build configuration list for PBXNativeTarget "CheqProd" */;
 			buildPhases = (
-				61F8850D3CC06407D99F8B29 /* [CP] Check Pods Manifest.lock */,
+				9C565F4A1C4155826D82002D /* [CP] Check Pods Manifest.lock */,
 				4FBDDA13236BC68700EDB1E9 /* Sources */,
 				4FBDDB18236BC68700EDB1E9 /* Frameworks */,
 				4FBDDB1C236BC68700EDB1E9 /* Resources */,
 				4FBDDB37236BC68700EDB1E9 /* Embed App Extensions */,
-				9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */,
-				4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */,
 				4F449560238DFBAE000E9DAA /* Embed Frameworks */,
 				4FBDDB3A236BC68700EDB1E9 /* Migrate Moneysoft Framework bundle */,
 				2A61FF8E24CAB5DB00C678A8 /* ShellScript */,
+				FA95F2A2B146801B35FEEBD6 /* [CP] Embed Pods Frameworks */,
+				E49FD8283D6E96FBDD10039C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4809,17 +4793,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9676522F22FAFD04001E43E0 /* Build configuration list for PBXNativeTarget "CheqDev" */;
 			buildPhases = (
-				5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */,
+				942B1EBB0C55ACD7BF8FBCC0 /* [CP] Check Pods Manifest.lock */,
 				9676520C22FAFD01001E43E0 /* Sources */,
 				9676520D22FAFD01001E43E0 /* Frameworks */,
 				BD206E7E2422F5940016FCA9 /* Embed Frameworks */,
 				9676520E22FAFD01001E43E0 /* Resources */,
 				4F091086231F28D900AA7F7D /* Embed App Extensions */,
-				EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */,
-				C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */,
 				BD3FDF4E24120516007D3A8B /* Run Script */,
 				4F573AF1231CCBBF004616F5 /* Migrate Moneysoft Framework bundle */,
 				2A61FF8C24CAB5B900C678A8 /* ShellScript */,
+				2505EBD6DFBF9C30A935DC41 /* [CP] Embed Pods Frameworks */,
+				C0C746B6D5880B0D9282C9B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -4835,11 +4819,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9676523222FAFD04001E43E0 /* Build configuration list for PBXNativeTarget "CheqTests" */;
 			buildPhases = (
-				1A3654E5B429F0E727BB426B /* [CP] Check Pods Manifest.lock */,
+				1698C281FA140C042CC774EF /* [CP] Check Pods Manifest.lock */,
 				9676522222FAFD04001E43E0 /* Sources */,
 				9676522322FAFD04001E43E0 /* Frameworks */,
 				9676522422FAFD04001E43E0 /* Resources */,
-				6A03056D4674FBA176565B9A /* [CP] Embed Pods Frameworks */,
+				1142ED9892E1ACB074E174FD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -5274,29 +5258,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F2095C3F25806A94361D7C7 /* [CP] Check Pods Manifest.lock */ = {
+		0CEF95E3FF8DD345558A607B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1A3654E5B429F0E727BB426B /* [CP] Check Pods Manifest.lock */ = {
+		1142ED9892E1ACB074E174FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1698C281FA140C042CC774EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5316,6 +5312,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2505EBD6DFBF9C30A935DC41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2A61FF8C24CAB5B900C678A8 /* ShellScript */ = {
@@ -5390,62 +5403,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		2AAB5B8B2473E4D3000CC702 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CheqUAT-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2AAB5D352473E4D3000CC702 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2AAB5D372473E4D3000CC702 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2AAB5D382473E4D3000CC702 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5484,77 +5441,21 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
-		4930FFE2DF16A4479C4577BB /* [CP] Copy Pods Resources */ = {
+		4D6624FEB0700E292CBF73F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F01F61F237E6A5B00268423 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CheqDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F01F772237E6A5B00268423 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4F01F773237E6A5B00268423 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4F01F774237E6A5B00268423 /* Migrate Moneysoft Framework bundle */ = {
@@ -5611,7 +5512,51 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nprintf \"Preparing to move required files...\\n\"\nappFrameworksPath=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmoneysoftFrameworkPath=\"${appFrameworksPath}/MobileSDK.framework\"\n\nprintf \"App Framework Path: ${appFrameworksPath}\\n\"\nprintf \"Moneysoft Framework Path: ${moneysoftFrameworkPath}\\n\"\n\nif [[ -d $moneysoftFrameworkPath ]]; then\n    printf \"Moneysoft API framework found!\\n\"\n    bundlePath=\"${moneysoftFrameworkPath}/PersonalDataVault.bundle\"\n\n    if [[ -d $bundlePath ]]; then\n        printf \"Moving ${bundlePath} to ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}...\\n\"\n        rm -r \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n        mv $bundlePath \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}/PersonalDataVault.bundle\"\n    fi\nfi\n";
 		};
-		5FB26101A22F76300A16DDF4 /* [CP] Check Pods Manifest.lock */ = {
+		7ADF2A00C437DBBE5FA24EA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E795D239288C9648AE119DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheqDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		942B1EBB0C55ACD7BF8FBCC0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5633,7 +5578,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		61F8850D3CC06407D99F8B29 /* [CP] Check Pods Manifest.lock */ = {
+		9C565F4A1C4155826D82002D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5655,38 +5600,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6A03056D4674FBA176565B9A /* [CP] Embed Pods Frameworks */ = {
+		9D6861C73B5BA7B8948ABCE8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheqUAT-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqTests/Pods-CheqTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9ABE18F0257D7ECF86C8AC10 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD3FDF4E24120516007D3A8B /* Run Script */ = {
@@ -5707,24 +5640,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\nfind \"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\" -name '*.framework' -type d | while read -r FRAMEWORK; do\n    FRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\n    FRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\n    for arch in $(lipo -archs $FRAMEWORK_EXECUTABLE_PATH); do\n        if ! printf '%s\\n' ${ARCHS[@]} | egrep -q \"^$arch$\"; then\n            lipo -remove $arch \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH\" \n        fi\n    done\ndone\n";
 		};
-		C9E6E5E856C46E029E191D89 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB33244FE3A6C522A37EBC2C /* [CP] Copy Pods Resources */ = {
+		C0C746B6D5880B0D9282C9B9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5739,6 +5655,74 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDev/Pods-CheqDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E49FD8283D6E96FBDD10039C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7D7BBFB981EDB3A9D2A2EFB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqUAT/Pods-CheqUAT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9D8D09A10B9A07907E6C2B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqDemo/Pods-CheqDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA95F2A2B146801B35FEEBD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CheqProd/Pods-CheqProd-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -7339,7 +7323,7 @@
 /* Begin XCBuildConfiguration section */
 		2AA1DB3024BB8AD6001A0975 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB4CBA6A82812696EC50BC37 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			baseConfigurationReference = 3B75866074451CDC740833A3 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -7364,7 +7348,7 @@
 		};
 		2AA1DB3124BB8AD6001A0975 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC528E393C8A6A4682AEEA82 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			baseConfigurationReference = 62727F015B7CF8CA26092A46 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -7388,7 +7372,7 @@
 		};
 		2AAB5D3B2473E4D3000CC702 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B90CD9040560BA886D373ED7 /* Pods-CheqUAT.debug.xcconfig */;
+			baseConfigurationReference = 0F0F0ABF166A54930668D70C /* Pods-CheqUAT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -7444,7 +7428,7 @@
 		};
 		2AAB5D3C2473E4D3000CC702 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 860A2968A1267FBA36D03738 /* Pods-CheqUAT.release.xcconfig */;
+			baseConfigurationReference = 96F7AE97F5DBE34CB38B1B6B /* Pods-CheqUAT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
@@ -7498,12 +7482,13 @@
 		};
 		4F01F777237E6A5B00268423 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDB4F70888EEECFDD38D9686 /* Pods-CheqDemo.debug.xcconfig */;
+			baseConfigurationReference = 5AB2D70544CAE058034DECD1 /* Pods-CheqDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7547,7 +7532,7 @@
 		};
 		4F01F778237E6A5B00268423 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A423B708585707816926335B /* Pods-CheqDemo.release.xcconfig */;
+			baseConfigurationReference = AEB5ACD67022A201C33B0676 /* Pods-CheqDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -7595,13 +7580,14 @@
 		};
 		4FBDDB3D236BC68700EDB1E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9C4B58501CC23FC41E4EF0B /* Pods-CheqProd.debug.xcconfig */;
+			baseConfigurationReference = 990BE39480EED65AC8F04DBB /* Pods-CheqProd.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7622,7 +7608,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = Cheq;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -7634,13 +7620,13 @@
 		};
 		4FBDDB3E236BC68700EDB1E9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E426C3DF5F8C8025501D71A1 /* Pods-CheqProd.release.xcconfig */;
+			baseConfigurationReference = 73ED3FB44D45432A648A5E89 /* Pods-CheqProd.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7661,7 +7647,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = Cheq;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
@@ -7791,7 +7777,7 @@
 		};
 		9676523022FAFD04001E43E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 979EB1EA776745E8B5808D7E /* Pods-CheqDev.debug.xcconfig */;
+			baseConfigurationReference = D7F1E00C572790D4F4D0D56D /* Pods-CheqDev.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -7800,7 +7786,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -7848,7 +7834,7 @@
 		};
 		9676523122FAFD04001E43E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F20362C0F619EF42E0BB6E1 /* Pods-CheqDev.release.xcconfig */;
+			baseConfigurationReference = 5D18361985B06F31EB877AA1 /* Pods-CheqDev.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -7857,7 +7843,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7903,7 +7889,7 @@
 		};
 		9676523322FAFD04001E43E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BA3B13F916D21E9069B500F /* Pods-CheqTests.debug.xcconfig */;
+			baseConfigurationReference = EC7FA6417E62A64E567AB53F /* Pods-CheqTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -7933,7 +7919,7 @@
 		};
 		9676523422FAFD04001E43E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBAC444F8824956CD9F52F3B /* Pods-CheqTests.release.xcconfig */;
+			baseConfigurationReference = F8EC87AD76F04954E0F26501 /* Pods-CheqTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";

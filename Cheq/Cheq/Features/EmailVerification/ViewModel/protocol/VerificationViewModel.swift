@@ -22,6 +22,9 @@ enum VerificationValidationError: Error {
     case incorrect
     case lockedOut
     case invalidPasswordFormat
+    
+    case emptyPasswordField
+   
 }
 
 extension VerificationValidationError: LocalizedError {
@@ -29,11 +32,14 @@ extension VerificationValidationError: LocalizedError {
                 
         switch self {
         case .allInputEmpty:
-            return NSLocalizedString("Please enter the verification code and your new password", comment: "")
+          //  return NSLocalizedString("Please enter the verification code and your new password", comment: "")
+             return NSLocalizedString("Please enter the verification code sent to your email and your new password", comment: "")
         case .emptyInput:
-            return NSLocalizedString("Please enter the verification code that was sent to you", comment: "")
+          //  return NSLocalizedString("Please enter the verification code that was sent to you", comment: "")
+            return NSLocalizedString("Please enter the verification code sent to your email and your new password", comment: "")
+            
         case .invalidLength:
-            return NSLocalizedString("invalid length", comment: "")
+            return NSLocalizedString("Invalid length", comment: "")
         case .nonNumeric:
             return NSLocalizedString("only numeric value is allowed", comment: "")
         case .incorrect:
@@ -41,15 +47,22 @@ extension VerificationValidationError: LocalizedError {
         case .lockedOut:
             return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
         case .invalidPasswordFormat:
-            return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            //return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
             //return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
+            
+            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")///NNN
+            
+            
+        case .emptyPasswordField:
+            return NSLocalizedString("Please enter your new password", comment: "")
+            
         }
     }
 }
 
 protocol VerificationViewModel {
     
-    var type: VerificatonType { get } 
+    var type: VerificatonType { get }
     var code: String { get set }
     var newPassword: String { get set }
     var codeLength: Int { get }
@@ -73,6 +86,7 @@ extension VerificationViewModel {
         if self.code.isEmpty { return VerificationValidationError.emptyInput }
         if self.code.count != self.codeLength { return VerificationValidationError.invalidLength }
         if !StringUtil.shared.isNumericOnly(self.code) { return VerificationValidationError.nonNumeric }
+       
         return nil
     }
     
@@ -102,3 +116,4 @@ extension VerificationViewModel {
         }
     }
 }
+

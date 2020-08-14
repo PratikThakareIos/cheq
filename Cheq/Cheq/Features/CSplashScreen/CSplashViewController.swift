@@ -69,13 +69,16 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         self.view.bringSubviewToFront(pageControl)
         self.view.bringSubviewToFront(startButton)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Splash.rawValue, FirebaseEventKey.splash_budget.rawValue, FirebaseEventKey.splash_budget.rawValue, FirebaseEventContentType.screen.rawValue)
+        //AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         guard let viewControllerIndex = self.viewControllers.index(of: viewController as! CSplashPageViewController) else {
             return nil
         }
-        
         let previousIndex = viewControllerIndex - 1
         guard previousIndex >= 0 else { return nil }
         
@@ -89,6 +92,14 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
             return nil
         }
         
+        if viewControllerIndex == 1{
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Splash.rawValue, FirebaseEventKey.splash_spend.rawValue, FirebaseEventKey.splash_spend.rawValue, FirebaseEventContentType.screen.rawValue)
+                 //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+               }else{
+                   AppConfig.shared.addEventToFirebase(PassModuleScreen.Splash.rawValue, FirebaseEventKey.splash_lend.rawValue,  FirebaseEventKey.splash_lend.rawValue, FirebaseEventContentType.screen.rawValue)
+                  //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+               }
+        
         let nextIndex = viewControllerIndex + 1
         guard nextIndex <= self.viewControllers.count - 1  else { return nil }
         return self.viewControllers[nextIndex]
@@ -98,6 +109,7 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
         if !completed { return }
         let currentPageVc = pageViewController.viewControllers?.first as! CSplashPageViewController
         let tag = currentPageVc.view.tag
+
         if tag == 2 {
             UIView.animate(withDuration: AppConfig.shared.activeTheme.quickAnimationDuration, animations: {
                 self.pageControl.alpha = 0.0
@@ -131,6 +143,8 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     }
     
     @IBAction func getStarted(_ sender: Any) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Splash.rawValue,  FirebaseEventKey.splash_lend_click.rawValue, FirebaseEventKey.splash_lend_click.rawValue, FirebaseEventContentType.button.rawValue)
+        
         AppConfig.shared.markFirstInstall()
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC

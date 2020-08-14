@@ -82,7 +82,7 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     /// Handling the minus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func minusPressed(_ sender: Any) {
-        
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lending.rawValue, FirebaseEventKey.lend_dash_minus.rawValue, FirebaseEventKey.lend_dash_minus.rawValue, FirebaseEventContentType.button.rawValue)
         LoggingUtil.shared.cPrint("minusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         amountSelectViewModel.minus()
@@ -91,7 +91,7 @@ class AmountSelectTableViewCell: CTableViewCell {
 
     /// Handling the plus button being pressed. Always calling **updateControlButtons** at the end. This method determines whether the button needs to be disabled from further presses.
     @IBAction func plusPressed(_ sender: Any) {
-        
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lending.rawValue, FirebaseEventKey.lend_dash_plus.rawValue,  FirebaseEventKey.lend_dash_plus.rawValue, FirebaseEventContentType.button.rawValue)
         LoggingUtil.shared.cPrint("plusPressed")
         let amountSelectViewModel = viewModel as! AmountSelectTableViewCellViewModel
         amountSelectViewModel.plus()
@@ -99,6 +99,8 @@ class AmountSelectTableViewCell: CTableViewCell {
     }
 
     @IBAction func intercom() {
+        
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lending.rawValue,  FirebaseEventKey.lend_dash_help.rawValue, FirebaseEventKey.lend_dash_help.rawValue, FirebaseEventContentType.button.rawValue)
         LoggingUtil.shared.cPrint("present intercom")
         NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")
     }

@@ -39,7 +39,9 @@ class SetupBankVC: UIViewController {
         super.viewDidDisappear(animated)
         removeObservables()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank.rawValue, FirebaseEventKey.on_signup_bank.rawValue, FirebaseEventContentType.screen.rawValue)
+    }
     func registerObservables() {
         //setupKeyboardHandling()
         NotificationCenter.default.addObserver(self, selector: #selector(self.intercom(_:)), name: NSNotification.Name(UINotificationEvent.intercom.rawValue), object: nil)
@@ -63,6 +65,7 @@ class SetupBankVC: UIViewController {
     }
     
     @IBAction func confirm(_ sender: Any) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank_click.rawValue, FirebaseEventKey.on_signup_bank_click.rawValue, FirebaseEventContentType.button.rawValue)
         AppNav.shared.pushToMultipleChoice(.financialInstitutions, viewController: self)
     }
 

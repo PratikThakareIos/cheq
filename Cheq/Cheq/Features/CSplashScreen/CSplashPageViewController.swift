@@ -21,6 +21,7 @@ class CSplashPageViewController: UIViewController {
         setupUI()
     }
     
+ 
     func setupUI() {
         self.title = ""
         splashImage.image = UIImage.init(named: self.viewModel.splashImage.rawValue)

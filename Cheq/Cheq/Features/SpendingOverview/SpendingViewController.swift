@@ -31,6 +31,8 @@ class SpendingViewController: CTableViewController {
          super.viewWillAppear(animated)
          self.addNotificationsForRemoteConfig()
          RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Spend.rawValue, FirebaseEventKey.spend_dash.rawValue, FirebaseEventKey.spend_dash.rawValue, FirebaseEventContentType.screen.rawValue)
+      //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -95,6 +97,10 @@ extension SpendingViewController {
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
+        
+          AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpentCategoryClick.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventContentType.button.rawValue)
+        
+        
         LoggingUtil.shared.cPrint("spendingOverview called")
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in
@@ -116,8 +122,13 @@ extension SpendingViewController {
     @objc func viewAll(_ notification: NSNotification) {
         guard let headerTableViewCell = notification.userInfo?[NotificationUserInfoKey.viewAll.rawValue] as? HeaderTableViewCell else { return }
         if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
+            ///user clicks on view all money spent//NNN
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpent.rawValue, FirebaseEventKey.spend_spent_view.rawValue, FirebaseEventKey.spend_spent_view.rawValue, FirebaseEventContentType.button.rawValue)
+            
             AppNav.shared.pushToSpendingVC(.categories, viewController: self)
         } else if headerTableViewCell.tag == HeaderTableViewCellTag.recentTransactions.rawValue {
+             ///user clicks on view all recent activity//NNN
+             AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingActivity.rawValue, FirebaseEventKey.spend_activity_view.rawValue, FirebaseEventKey.spend_activity_view.rawValue, FirebaseEventContentType.button.rawValue)
             // show transaction list screen
             AppNav.shared.pushToSpendingVC(.transactions, viewController: self)
         }

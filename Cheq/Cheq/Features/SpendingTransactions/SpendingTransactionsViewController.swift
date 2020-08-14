@@ -24,7 +24,10 @@ class SpendingTransactionsViewController: CTableViewController {
         self.setupUI()
         setupDelegate()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+          // AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpentCategoryDashboard.rawValue, FirebaseEventKey.spend_spent_category_dash.rawValue, FirebaseEventKey.spend_spent_category_dash.rawValue, FirebaseEventContentType.screen.rawValue)
+       }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
@@ -68,6 +71,8 @@ class SpendingTransactionsViewController: CTableViewController {
     }
     
     @objc func loadTransactions(_ notification: NSNotification) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingCategoryTransactionClick.rawValue, FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventContentType.button.rawValue)
+        
         LoggingUtil.shared.cPrint("loadTransactions")
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.spendingTransactions().done { specificCategory in
@@ -85,6 +90,8 @@ class SpendingTransactionsViewController: CTableViewController {
     }
     
     @objc func showTransactionPopup(_ notification: NSNotification) {
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingActivity.rawValue, FirebaseEventKey.spend_activity_click.rawValue, FirebaseEventKey.spend_activity_click.rawValue, FirebaseEventContentType.button.rawValue)
+        
             LoggingUtil.shared.cPrint("showTransaction")
             guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
             guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
