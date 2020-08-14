@@ -2684,7 +2684,7 @@
 			path = SetupBankVC;
 			sourceTree = "<group>";
 		};
-		2A65AAB9247D3C2E004D6239 /* BasicFlowScreens */ = {
+		2A65AAB9247D3C2E004D6239 /* BasiqFlowScreens */ = {
 			isa = PBXGroup;
 			children = (
 				2A526B0F247FE5BB00776325 /* GenericInfoVC */,
@@ -2694,7 +2694,7 @@
 				2A5C88C32469A88800C1C771 /* BankNotSupportedVC */,
 				2A367E2A2465640B008EC38A /* UserActionRequired */,
 			);
-			path = BasicFlowScreens;
+			path = BasiqFlowScreens;
 			sourceTree = "<group>";
 		};
 		2A6A85C524B2D00400BD4B92 /* SplashVC */ = {
@@ -4177,13 +4177,13 @@
 				9676523722FB0136001E43E0 /* Features */,
 				9676524322FB061B001E43E0 /* Common */,
 				9676521322FAFD01001E43E0 /* AppDelegate.swift */,
+				9676525F22FB0946001E43E0 /* TabViewController.swift */,
 				9676521C22FAFD03001E43E0 /* Assets.xcassets */,
 				4F2323F82374E5AF00BF3F21 /* Emoji.xcassets */,
 				9676522122FAFD03001E43E0 /* Cheq.plist */,
 				4F180A9F235D655E0018507D /* CheqDevice-Info.plist */,
 				2AAB5D3E2473E4D4000CC702 /* CheqUAT-Info.plist */,
 				4F091091231F6C0200AA7F7D /* Cheq.entitlements */,
-				9676525F22FB0946001E43E0 /* TabViewController.swift */,
 				9676521E22FAFD03001E43E0 /* LaunchScreen.storyboard */,
 				9676521922FAFD01001E43E0 /* MainBackup.storyboard */,
 				4FB479E6231DF894005FA0C1 /* Onboarding.storyboard */,
@@ -4218,33 +4218,33 @@
 			isa = PBXGroup;
 			children = (
 				2A6A85C524B2D00400BD4B92 /* SplashVC */,
+				9681EC702323D2ED00E9F6D1 /* SplashScreen */,
+				4F01F8D12384EED300268423 /* CSplashScreen */,
 				4F2E4B86233AECD1001F1BA2 /* Authentication */,
+				4F180967235D39700018507D /* ForgotPassword */,
 				4FD7C1F12329E16300AC7A67 /* EmailVerification */,
 				4FAE3649232F4C780035E57E /* Question */,
-				2A07573D24AD8DEC00F82D4E /* CommonViewControllers */,
-				2A65AAB9247D3C2E004D6239 /* BasicFlowScreens */,
-				2A72CF812420A9E70053C0DD /* Popups */,
-				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
-				9FB5921D23EC52A000B7DB0F /* VerifyIdenty */,
-				BD0D58D723E81577009193CD /* Paycycle */,
-				BD3760CB23E479070016FF86 /* SalaryPayment */,
+				4F0B0667233057F800986E35 /* MultipleChoice */,
+				964F7BE223332E1D00338227 /* DynamicForm */,
+				2A65AAB9247D3C2E004D6239 /* BasiqFlowScreens */,
 				4F345B9C238F55C2005DCFDB /* ConnectingToBank */,
-				4F01F8D12384EED300268423 /* CSplashScreen */,
+				2A07573D24AD8DEC00F82D4E /* CommonViewControllers */,
 				4FDDC349237BA11B00C3846E /* SpendingTransactions */,
 				4F2325BC237A5AAB00BF3F21 /* SpendingSpecificCategory */,
 				966434CC2341A96900934FB0 /* SpendingOverview */,
 				4F23241F2378B08000BF3F21 /* SpendingCategories */,
-				4F0D63032342F49800AA819C /* Logger */,
-				4F180967235D39700018507D /* ForgotPassword */,
-				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
-				4F0D71762346F6BD00AA819C /* Passcode */,
-				4F0D716A2346B99D00AA819C /* Account */,
 				4F0D715F2346B49600AA819C /* Lending */,
-				964F7BE223332E1D00338227 /* DynamicForm */,
-				4F0B0667233057F800986E35 /* MultipleChoice */,
-				4FD7C1EE2329E16300AC7A67 /* Introduction */,
+				BD0E0DE223F2A1F90088BBAE /* DocumentVerification */,
+				BD3760CB23E479070016FF86 /* SalaryPayment */,
+				BD0D58D723E81577009193CD /* Paycycle */,
+				4F80FCE3235B3069009C8F83 /* PreviewLoan */,
+				9FB5921D23EC52A000B7DB0F /* VerifyIdenty */,
+				4F0D716A2346B99D00AA819C /* Account */,
 				4FD7C131232874FF00AC7A67 /* InAppWebViewController */,
-				9681EC702323D2ED00E9F6D1 /* SplashScreen */,
+				2A72CF812420A9E70053C0DD /* Popups */,
+				4F0D63032342F49800AA819C /* Logger */,
+				4F0D71762346F6BD00AA819C /* Passcode */,
+				4FD7C1EE2329E16300AC7A67 /* Introduction */,
 				9676523A22FB0171001E43E0 /* Analytics */,
 				9676523922FB0166001E43E0 /* Finance */,
 				9676523822FB015D001E43E0 /* Profile */,
