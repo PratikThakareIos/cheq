@@ -16,9 +16,6 @@ import FBSDKLoginKit
 import PromiseKit
 import IQKeyboardManagerSwift
 import OneSignal
-//import MobileSDK
-//import Fabric
-//import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
@@ -68,9 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
  
         AppData.shared.resetAllData()
-        
-        //RemoteConfigManager.shared.getApplicationStatusFromRemoteConfig()
-        
+
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 108
         
@@ -80,33 +75,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         // keep a reference for re-use
         AppData.shared.application = application
-        
-//        //Moneysoft  Configure method goes here
-//        let config = MoneysoftApiConfiguration.init(apiUrl: API_BASE_URL,
-//                                                                    apiReferrer: API_REFERRER,
-//                                                                    view: UIView(),
-//                                                                    isDebug: true,
-//                                                                    isBeta: true, serviceProvider: .EWISE);
-//        MoneysoftApi.configure(config);
-        
-
+            
         let _ = VDotManager.shared //manish
-//        
-//        // to setup VDot again
-//        if (launchOptions?[UIApplication.LaunchOptionsKey.location]) != nil {
-//            let timestamp = Date().timeStamp()
-//            LoggingUtil.shared.cWriteToFile(LoggingUtil.shared.fcmMsgFile, newText: "launch by location signal - \(timestamp)")
-//            let _ = VDotManager.shared
-//        }
         
         let fileContent = LoggingUtil.shared.printLocationFile(LoggingUtil.shared.fcmMsgFile)
         LoggingUtil.shared.cPrint(fileContent)
         
         // setup UI for nav
         AppConfig.shared.setupNavBarUI()
-        
-
-        
+                
         // Firebase Message delegate
         //To receive registration tokens, implement the messaging delegate protocol and set FIRMessaging's delegate property after calling [FIRApp configure].
         Messaging.messaging().delegate = self
@@ -119,25 +96,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
-
-//        //Manish
-//        AuthConfig.shared.activeManager.setupForRemoteNotifications(application, delegate: self)
-        
         
         self.setupInitialViewController()
-              
-//        #if DEMO
-//            self.setupSpendingViewController()
-//        #else
-//           self.setupInitialViewController()
-//        #endif
-        
-//        self.setupIntroDevController()
-//        self.setupInitDevController()
-//        self.setupLogController()
-//        self.setupQuestionController()
-//        self.setupSplashController()
-        
+       
         return true
     }
 }
