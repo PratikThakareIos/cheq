@@ -150,7 +150,7 @@ enum FinancialPeriod: CaseIterable {
 
 
 
-/// CONTENT_TYPE ///NNN
+/// CONTENT_TYPE
 
 enum FirebaseEventContentType: String {
     case button = "Button"
@@ -158,7 +158,7 @@ enum FirebaseEventContentType: String {
 }
 
 
-/// PassModuleScreen  ///NNN
+/// PassModuleScreen  
 
 enum PassModuleScreen: String {
 
@@ -186,7 +186,7 @@ enum PassModuleScreen: String {
 }
 
 
-/// Firebase Event Key ///NNN
+/// Firebase Event Key
 
 enum FirebaseEventKey: String {
 

@@ -122,12 +122,12 @@ extension SpendingViewController {
     @objc func viewAll(_ notification: NSNotification) {
         guard let headerTableViewCell = notification.userInfo?[NotificationUserInfoKey.viewAll.rawValue] as? HeaderTableViewCell else { return }
         if headerTableViewCell.tag == HeaderTableViewCellTag.moneySpent.rawValue {
-            ///user clicks on view all money spent//NNN
+            ///user clicks on view all money spent
             AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpent.rawValue, FirebaseEventKey.spend_spent_view.rawValue, FirebaseEventKey.spend_spent_view.rawValue, FirebaseEventContentType.button.rawValue)
             
             AppNav.shared.pushToSpendingVC(.categories, viewController: self)
         } else if headerTableViewCell.tag == HeaderTableViewCellTag.recentTransactions.rawValue {
-             ///user clicks on view all recent activity//NNN
+             ///user clicks on view all recent activity
              AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingActivity.rawValue, FirebaseEventKey.spend_activity_view.rawValue, FirebaseEventKey.spend_activity_view.rawValue, FirebaseEventContentType.button.rawValue)
             // show transaction list screen
             AppNav.shared.pushToSpendingVC(.transactions, viewController: self)

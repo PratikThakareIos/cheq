@@ -16,7 +16,6 @@ protocol QuestionCoordinatorProtocol {
     var numOfCheckBox: Int { get }
     var numOfImageContainer: Int { get }
     func placeHolder(_ index: Int)->String
-    
     func validateInput(_ inputs: [String: Any])-> ValidationError?
 }
 
