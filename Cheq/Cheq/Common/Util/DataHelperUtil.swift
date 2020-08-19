@@ -101,15 +101,42 @@ class DataHelperUtil {
         
         let putReqEmploymentType = MultipleChoiceViewModel.cheqAPIEmploymentType(employmentType)
         let noFixedAddress = employmentType == .onDemand ? true : false
-        let req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
-                                         employmentType: putReqEmploymentType,
-                                         workingLocation: .fromFixedLocation,
-                                         latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 ,
-                                         longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0,
-                                         address:  qVm.fieldValue(QuestionField.employerAddress),
-                                         state: qVm.fieldValue(.employerPostcode),
-                                         country: qVm.fieldValue(.employerState),
-                                         postCode: qVm.fieldValue(.employerCountry))
+        
+        var req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
+                   employmentType: putReqEmploymentType,
+                   workingLocation: .fromFixedLocation,
+                   latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 ,
+                   longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0,
+                   address:  qVm.fieldValue(QuestionField.employerAddress),
+                   state: qVm.fieldValue(.employerPostcode),
+                   country: qVm.fieldValue(.employerState),
+                   postCode: qVm.fieldValue(.employerCountry))
+        
+        if QuestionField.employerName.rawValue == EmploymentType.centrelink.rawValue {
+          
+            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
+                              employmentType: putReqEmploymentType,
+                              workingLocation: .fromFixedLocation,
+                              latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 ,
+                              longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0,
+                              address:  qVm.fieldValue(QuestionField.employerAddress),
+                              state: qVm.fieldValue(.employerPostcode),
+                              country: qVm.fieldValue(.employerState),
+                              postCode: qVm.fieldValue(.employerCountry))
+            
+        }else{
+           
+            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
+                                         employmentType: .casual,
+                              workingLocation: .fromFixedLocation,
+                              latitude:0.0 ,
+                              longitude: 0.0,
+                              address:  "",
+                              state: "",
+                              country: "",
+                              postCode: "")
+        }
+        
         return req
     }
    

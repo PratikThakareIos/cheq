@@ -391,7 +391,7 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         
         guard let choice =  self.selectedChoice else{
             return
-        }        
+        }
         
          LoggingUtil.shared.cPrint("Next");
         switch self.viewModel.coordinator.coordinatorType {
@@ -410,14 +410,55 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             }
             
         case .employmentType:
-           
             
             let employmentType = EmploymentType(fromRawValue: choice.title)
             viewModel.savedAnswer[QuestionField.employerType.rawValue] = employmentType.rawValue
             AppData.shared.updateProgressAfterCompleting(.employmentType)
-            if employmentType == .onDemand {
+            
+        if employmentType == .onDemand {
                 AppNav.shared.pushToMultipleChoice(.onDemand, viewController: self)
                  AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_worktype_click.rawValue, FirebaseEventKey.lend_workdetails_worktype_click.rawValue, FirebaseEventContentType.button.rawValue)
+       
+        }else if  employmentType == .centrelink{
+ 
+            let vm = self.viewModel
+           vm.save(QuestionField.employerName.rawValue, value: choice.title)
+           vm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+         
+           let qVm = QuestionViewModel()
+           //manish
+           qVm.save(QuestionField.employerName.rawValue, value: choice.title)
+           qVm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+           //manish
+           qVm.loadSaved()
+           
+           let req = DataHelperUtil.shared.putUserEmployerRequest()
+            LoggingUtil.shared.cPrint("putUserEmployerRequest = \(req)")
+           
+           AppData.shared.completingOnDemandOther = (choice.title == OnDemandType.other.rawValue) ? true : false
+  
+           if AppData.shared.completingDetailsForLending, AppData.shared.completingOnDemandOther {
+               AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
+               return
+           }else{
+               /* Mark: If uber selected (demanding company other than other) */
+               CheqAPIManager.shared.putUserEmployer(req).done { authUser in
+                   AppData.shared.updateProgressAfterCompleting(.onDemand)
+                   if AppData.shared.completingDetailsForLending, self.isModal {
+                       self.incomeVerification()
+                   } else {
+                       //AppData.shared.updateProgressAfterCompleting(.onDemand)
+                       //AppNav.shared.pushToIntroduction(.setupBank, viewController: self)
+                       //AppNav.shared.pushToSetupBank(.setupBank, viewController: self)
+                       
+                   }
+               }.catch { err in
+                   self.showError(err) {
+                       AppNav.shared.dismissModal(self)
+                   }
+               }
+           }
+            
             } else {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
                  AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventContentType.button.rawValue)
@@ -907,3 +948,4 @@ extension MultipleChoiceViewController {
     }
 
 }
+

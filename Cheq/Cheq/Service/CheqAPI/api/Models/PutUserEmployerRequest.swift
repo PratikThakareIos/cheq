@@ -18,6 +18,7 @@ public struct PutUserEmployerRequest: Codable {
         case selfEmployed = "SelfEmployed"
         case contractor = "Contractor"
         case onDemand = "OnDemand"
+        case centrelink = "Centrelink"
     }
     public enum WorkingLocation: String, Codable { 
         case fromFixedLocation = "FromFixedLocation"

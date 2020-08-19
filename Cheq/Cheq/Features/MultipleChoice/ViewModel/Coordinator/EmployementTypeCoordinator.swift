@@ -16,6 +16,7 @@ enum EmploymentType: String {
     case casual = "Casual Employee"
     case selfEmployed = "Self employed"
     case partTime = "Part time"
+    case centrelink = "Centrelink"
     
     init(fromRawValue: String) {
         self = EmploymentType(rawValue: fromRawValue) ?? .fulltime
@@ -35,7 +36,11 @@ struct EmployementTypeCoordinator: MultipleChoiceViewModelCoordinator {
             let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "You work Irregular hours and don't have a set number of working hours. ", image: nil,  ordering: 0, ref : nil)
             let selfEmployed = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.selfEmployed.rawValue, caption: "Self employed", image: nil,  ordering: 0, ref : nil)
             let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "You work less than 38 hours  per week", image: nil,  ordering: 0, ref : nil)
-            let result = [fullTime, partTime, onDemand, contractual, casual]
+            
+            let centrelink = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.centrelink.rawValue, caption: "Centrelink or other government benefits", image: nil,  ordering: 0, ref : nil)
+            
+            let result = [fullTime, partTime, onDemand, contractual, casual, centrelink]
+            
             resolver.fulfill(result)
         }
     }

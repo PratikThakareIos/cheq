@@ -119,6 +119,8 @@ extension MultipleChoiceViewModel {
             return PutUserEmployerRequest.EmploymentType.selfEmployed
         case .partTime:
             return PutUserEmployerRequest.EmploymentType.parttime
+        case .centrelink:
+            return PutUserEmployerRequest.EmploymentType.centrelink
         }
     }
 }
