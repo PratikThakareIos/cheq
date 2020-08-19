@@ -82,7 +82,7 @@ class StringUtil {
     */
     
     
-   
+    ///NNN
 //    func isValidPassword(_ string: String)-> Bool {
 //         // let passwordRegex = "^.*(?=.{6,})(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\\d)|(?=.*[@!#$%&?\"]).*$"
 //           let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,40}"

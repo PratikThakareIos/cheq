@@ -101,12 +101,9 @@ extension FirebaseAuthManager {
 
     func login(_ credentials:[LoginCredentialType: String])-> Promise<AuthUser> {
         
-     
-        
         return Promise<AuthUser>() { resolver in
             let email = credentials[.email] ?? ""
             let password = credentials[.password] ?? ""
-            
             Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
                 guard let user = result?.user else { resolver.reject(error ?? AuthManagerError.unknown); return }
                 let authUser = FirebaseAuthManager.buildAuthUser(.socialLoginEmail, user: user)

@@ -16,6 +16,10 @@ class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideNavBar()
+
+        if  let IDFA = AppConfig.shared.identifierForAdvertising(){
+        AppConfig.shared.logIDFA_Facebook_AttributionEvent(fb_app_attribution:  IDFA_FacebookAttributionKey.IDFA.rawValue, IDFA: IDFA)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

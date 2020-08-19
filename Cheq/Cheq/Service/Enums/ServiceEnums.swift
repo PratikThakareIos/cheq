@@ -38,7 +38,8 @@ enum ValidationError: Error {
     case invalidCompanyName
     case invalidBBSandAccountNO
     case dobIsMandatory
-    case associatedEmailPassword
+    //NNN
+     case associatedEmailPassword
    
     
 }
@@ -288,7 +289,7 @@ extension ValidationError: LocalizedError {
         case .invalidPasswordFormat:
             //return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
           //  return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")
+            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")///NNN
             
             
         case .unableToMapSelectedBank:
@@ -310,7 +311,7 @@ extension ValidationError: LocalizedError {
         case .invalidBBSandAccountNO:
             return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
             
-          
+            ///NNN
         case .associatedEmailPassword:
             return NSLocalizedString("Please enter the email address and password associated with your account", comment: "")
       

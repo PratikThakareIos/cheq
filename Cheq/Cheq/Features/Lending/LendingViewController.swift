@@ -281,9 +281,13 @@ extension LendingViewController {
                     self.renderLending(overview)
                     
                     if (self.isShowCashoutSuccessPopup){
-                        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_success_app.rawValue , FirebaseEventKey.lend_cashout_success_app.rawValue, FirebaseEventContentType.screen.rawValue)
                          self.popup_CashOutSuccess()
                          self.isShowCashoutSuccessPopup  = false
+                        
+                        //Firebase Event
+                        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_success_app.rawValue , FirebaseEventKey.lend_cashout_success_app.rawValue, FirebaseEventContentType.screen.rawValue)
+                        //Facebook Event
+                        AppConfig.shared.logCHEQ_FB_EVENTEvent(SOURCE: PassModuleScreen.Lend.rawValue, ITEM_ID: FacebookEventKey.lend_cashout_success_app.rawValue, ITEM_NAME: FacebookEventKey.lend_cashout_success_app.rawValue, CONTENT_TYPE: FirebaseEventContentType.screen.rawValue)
                     }
 
                 }
