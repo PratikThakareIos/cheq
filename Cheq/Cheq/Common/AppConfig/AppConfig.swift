@@ -12,6 +12,9 @@ import UserNotifications
 import PromiseKit
 import DateToolsSwift
 import Firebase
+import FBSDKCoreKit
+import AdSupport
+
 
 /// Singleton instance of AppConfig
 let sharedAppConfig = AppConfig.shared
@@ -236,7 +239,7 @@ extension AppConfig {
 
 
 
-// MARK: Add event to Firebase ///NNN
+// MARK: Add event to Firebase
 
 
 extension AppConfig {
@@ -245,5 +248,63 @@ extension AppConfig {
     
     Analytics.logEvent(AnalyticsEventSelectContent, parameters: [ AnalyticsParameterSource: sourceScreen, AnalyticsParameterItemID: itemId, AnalyticsParameterItemName: itemName, AnalyticsParameterContentType: contentType,])
    
+    }
+}
+
+//MARK:- AddEventLogToFacebook
+
+extension AppConfig {
+
+    /**
+     * For more details, please take a look at:
+     * developers.facebook.com/docs/swift/appevents
+     */
+    func logCHEQ_FB_EVENTEvent(
+        SOURCE: String,
+        ITEM_ID: String,
+        ITEM_NAME: String,
+        CONTENT_TYPE: String
+    ) {
+        let parameters = [
+            AppEvents.ParameterName(FacebookEventConstants.SOURCE.rawValue).rawValue: SOURCE,
+            AppEvents.ParameterName(FacebookEventConstants.ITEM_ID.rawValue).rawValue: ITEM_ID,
+            AppEvents.ParameterName(FacebookEventConstants.ITEM_NAME.rawValue).rawValue: ITEM_NAME,
+            AppEvents.ParameterName(FacebookEventConstants.CONTENT_TYPE.rawValue).rawValue: CONTENT_TYPE
+        ]
+
+        AppEvents.logEvent(.init(FacebookEventConstants.CHEQ_FB_EVENT.rawValue), parameters: parameters)
+    }
+    
+    /**
+     * For more details, please take a look at:
+     * developers.facebook.com/docs/swift/appevents
+     */
+    func logIDFA_Facebook_AttributionEvent(
+        fb_app_attribution: String,
+        IDFA: String
+    ) {
+        let parameters = [
+            AppEvents.ParameterName(IDFA_FacebookAttributionKey.fb_app_attribution.rawValue).rawValue: fb_app_attribution,
+            AppEvents.ParameterName(IDFA_FacebookAttributionKey.IDFA.rawValue).rawValue: IDFA
+        ]
+
+        AppEvents.logEvent(.init(IDFA_FacebookAttributionKey.IDFA_Facebook_Attribution.rawValue), parameters: parameters)
+    }
+    
+    
+    
+}
+
+
+//IDFA
+extension AppConfig {
+    func identifierForAdvertising() -> String? {
+        // Check whether advertising tracking is enabled
+        guard ASIdentifierManager.shared().isAdvertisingTrackingEnabled else {
+        return nil
+        }
+
+        // Get and return IDFA
+        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
     }
 }

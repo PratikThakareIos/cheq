@@ -186,7 +186,7 @@ enum PassModuleScreen: String {
 }
 
 
-/// Firebase Event Key ///NNN
+/// Firebase Event Key
 
 enum FirebaseEventKey: String {
 
@@ -307,4 +307,31 @@ enum FirebaseEventKey: String {
     case menu_lend = "menu_lend"
     case menu_profile = "menu_profile"
   
+}
+
+
+enum FacebookEventConstants: String {
+    
+    case SOURCE = "SOURCE"
+    case ITEM_ID = "ITEM_ID"
+    case ITEM_NAME = "ITEM_NAME"
+    case CONTENT_TYPE = "CONTENT_TYPE"
+    case CHEQ_FB_EVENT = "CHEQ_FB_EVENT"
+
+}
+
+
+enum FacebookEventKey: String {
+    
+    case lend_cashout_agree = "lend_cashout_agree"
+    case lend_cashout_success_app = "lend_cashout_success_app"
+    
+}
+
+
+enum IDFA_FacebookAttributionKey: String {
+    
+    case fb_app_attribution = "fb_app_attribution"
+    case IDFA = "IDFA"
+    case IDFA_Facebook_Attribution = "IDFA_Facebook_Attribution"
 }

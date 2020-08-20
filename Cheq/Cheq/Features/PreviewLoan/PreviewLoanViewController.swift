@@ -8,6 +8,7 @@
 
 import UIKit
 import PullToRefreshKit
+import FBSDKCoreKit
 
 
 protocol PreviewLoanViewControllerProtocol {
@@ -112,6 +113,11 @@ class PreviewLoanViewController: CTableViewController {
         if (AppData.shared.acceptedAgreement == false){
             AppData.shared.acceptedAgreement = true
             LoggingUtil.shared.cPrint("confirm loan")
+            
+            //Firebase Event
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventContentType.button.rawValue)
+            //Facebook Event
+            AppConfig.shared.logCHEQ_FB_EVENTEvent(SOURCE: PassModuleScreen.Lend.rawValue, ITEM_ID: FacebookEventKey.lend_cashout_agree.rawValue, ITEM_NAME: FacebookEventKey.lend_cashout_agree.rawValue, CONTENT_TYPE: FirebaseEventContentType.button.rawValue)
             
             // return to LendingViewController and load
             AppConfig.shared.showSpinner()

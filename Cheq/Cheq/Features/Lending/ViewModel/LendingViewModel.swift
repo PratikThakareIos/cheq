@@ -67,17 +67,18 @@ class LendingViewModel: BaseTableVCViewModel {
     }
     
     func declineExist(_ lendingOverview: GetLendingOverviewResponse)-> Bool {
-       // guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
-               
-//        let kycSuceeded = self.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
-//        let kycFailed = self.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
-//
-//        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
-//        let kycCompleted = kycSuceeded || kycFailed
-//
-//        if (eligibleRequirements.hasBankAccountDetail ?? false && eligibleRequirements.hasEmploymentDetail ?? false && kycCompleted) {
-//            return false
-//        }
+        guard let eligibleRequirements = lendingOverview.eligibleRequirement else { return false }
+       
+        
+        let kycSuceeded = self.isKycStatusFailed(eligibleRequirements.kycStatus ?? .notStarted)
+        let kycFailed = self.isKycStatusSuccess(eligibleRequirements.kycStatus ?? .notStarted)
+        
+        // if kyc is not completed, if means it's pending for action or waiting as it's in processing
+        let kycCompleted = kycSuceeded || kycFailed
+        
+        if (eligibleRequirements.hasBankAccountDetail ?? false && eligibleRequirements.hasEmploymentDetail ?? false && kycCompleted) {
+            return false
+        }
         //guard eligibleRequirements.hasBankAccountDetail == true, eligibleRequirements.hasEmploymentDetail == true, kycCompleted == true else { return false }
         
         guard let declineDetails = lendingOverview.decline, let reason = declineDetails.declineReason else { return false }

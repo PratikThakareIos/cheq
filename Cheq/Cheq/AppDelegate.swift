@@ -16,6 +16,8 @@ import FBSDKLoginKit
 import PromiseKit
 import IQKeyboardManagerSwift
 import OneSignal
+import FBSDKCoreKit
+
 //import MobileSDK
 //import Fabric
 //import Crashlytics
@@ -137,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 //        self.setupLogController()
 //        self.setupQuestionController()
 //        self.setupSplashController()
-        
+      
         return true
     }
 }
@@ -358,6 +360,8 @@ extension AppDelegate {
         LoggingUtil.shared.cPrint("applicationDidBecomeActive")
         NotificationUtil.shared.notify(NotificationEvent.appBecomeActive.rawValue, key: "", value: "")
         self.visualEffectView.removeFromSuperview()
+        
+        AppEvents.activateApp()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
