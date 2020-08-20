@@ -49,10 +49,9 @@ class SalaryPaymentViewController: UIViewController {
         let qVm = QuestionViewModel()
         qVm.loadSaved()
         let companyName = qVm.fieldValue(QuestionField.employerName) // "Acme Corp"
-       // self.lblSubTitle.text = "Help our bot detect your salary from \(companyName)"
+       
         self.lblSubTitle.text = "Help our bot detect your income from \(companyName)"
-        
-       // let message = "Select your salary transactions for us to verify. We do not support Centrelink benefits, ATM deposits, work leave, or bank transfers"
+
         let message = "Select your salary transactions for us to verify. We do not support ATM deposits, work leave, or bank transfers"
         
         let attributedString = NSMutableAttributedString(string: message)

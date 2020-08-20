@@ -81,10 +81,7 @@ class TestUtil {
     
     /// Generate employer details **Put** request
     func putEmployerDetailsReq()-> PutUserEmployerRequest {
-        ///Request used earlier
-        /*
-        let employerReq = PutUserEmployerRequest(employerName: TestUtil.shared.testEmployerName(), employmentType: .fulltime, workingLocation: .fromFixedLocation, latitude:  -33.8653556, longitude:  151.205377, address: TestUtil.shared.testEmployeAddress(), state:"", country: TestUtil.shared.testCountry(), postCode: TestUtil.shared.testPostcode())
-        */
+   
         ///current request
         
         let employerReq = PutUserEmployerRequest(employerName: TestUtil.shared.testEmployerName(), employmentType: .fulltime, address: TestUtil.shared.testEmployeAddress())

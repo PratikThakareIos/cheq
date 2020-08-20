@@ -169,10 +169,7 @@ class CheqAPIManager {
             AuthConfig.shared.activeManager.getCurrentUser()
                 .done { authUser in
                     let token = authUser.authToken() ?? ""
-                    ///Request used earlier
-                    /*
-                    let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, workingLocation: .fromMultipleLocations, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, address:  req.address ?? "", state: req.state ?? "", country: req.country ?? "", postCode: req.postCode ?? "")
-                    */
+                   
                     ///current request
                     let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, address: req.address ?? ""
                     
