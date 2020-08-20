@@ -101,7 +101,9 @@ class DataHelperUtil {
         
         let putReqEmploymentType = MultipleChoiceViewModel.cheqAPIEmploymentType(employmentType)
         let noFixedAddress = employmentType == .onDemand ? true : false
-        
+       
+        /// request with all the details used earlier but not sending only 3 parameters : Company Name, Employment Type and address
+        /*
         var req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
                    employmentType: putReqEmploymentType,
                    workingLocation: .fromFixedLocation,
@@ -112,35 +114,19 @@ class DataHelperUtil {
                    country: qVm.fieldValue(.employerState),
                    postCode: qVm.fieldValue(.employerCountry))
         
+        */
+        var req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: "")
+     
         if QuestionField.employerName.rawValue == EmploymentType.centrelink.rawValue {
-          
-            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
-                              employmentType: putReqEmploymentType,
-                              workingLocation: .fromFixedLocation,
-                              latitude:Double(qVm.fieldValue(.employerLatitude)) ?? 0.0 ,
-                              longitude:  Double(qVm.fieldValue(.employerLongitude)) ?? 0.0,
-                              address:  qVm.fieldValue(QuestionField.employerAddress),
-                              state: qVm.fieldValue(.employerPostcode),
-                              country: qVm.fieldValue(.employerState),
-                              postCode: qVm.fieldValue(.employerCountry))
+            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: "")
             
         }else{
-           
-            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName),
-                                         employmentType: .casual,
-                              workingLocation: .fromFixedLocation,
-                              latitude:0.0 ,
-                              longitude: 0.0,
-                              address:  "",
-                              state: "",
-                              country: "",
-                              postCode: "")
+            
+            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: qVm.fieldValue(QuestionField.employerAddress))
         }
-        
+      
         return req
     }
-   
-   
     
     /**
      Helper method to build a post request payload containing the push notification tokens used by backend's purpose.
