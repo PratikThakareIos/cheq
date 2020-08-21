@@ -21,20 +21,10 @@ class VDotManagerTests: XCTestCase {
     }
     
     func testIsAtWorkPositive() {
-        let current = CLLocation(latitude: -33.8653556
-            , longitude: 151.205377)
-        //vDotManager.markedLocation = current
-        //let result = vDotManager.isAtWork(current)
         XCTAssertTrue(result)
     }
     
     func testIsAtWorkNegative() {
-        let work = CLLocation(latitude: -33.8653556
-            , longitude: 151.205377)
-        let current2 = CLLocation(latitude: -33.8753556
-            , longitude: 151.215377)
-        //vDotManager.markedLocation = work
-        //let result = vDotManager.isAtWork(current2)
         XCTAssertFalse(result)
     }
 }

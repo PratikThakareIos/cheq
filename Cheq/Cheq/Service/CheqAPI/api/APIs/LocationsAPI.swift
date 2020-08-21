@@ -8,8 +8,6 @@
 import Foundation
 import Alamofire
 
-
-
 open class LocationsAPI {
     /**
 
@@ -22,34 +20,6 @@ open class LocationsAPI {
         }
     }
 
-
-    /**
-     - GET /v1/Locations/autocomplete/address
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "country" : "country",
-  "address" : "address",
-  "latitude" : 0.8008281904610115,
-  "suburb" : "suburb",
-  "postCode" : "postCode",
-  "state" : "state",
-  "longitude" : 6.027456183070403
-}, {
-  "country" : "country",
-  "address" : "address",
-  "latitude" : 0.8008281904610115,
-  "suburb" : "suburb",
-  "postCode" : "postCode",
-  "state" : "state",
-  "longitude" : 6.027456183070403
-} ]}]
-     
-     - parameter query: (query)  (optional)
-
-     - returns: RequestBuilder<[GetAddressResponse]> 
-     */
     open class func getAutocompleteAddressWithRequestBuilder(query: String? = nil) -> RequestBuilder<[GetAddressResponse]> {
         let path = "/v1/Locations/autocomplete/address"
         let URLString = SwaggerClientAPI.basePath + path
@@ -76,36 +46,6 @@ open class LocationsAPI {
         }
     }
 
-
-    /**
-     - GET /v1/Locations/autocomplete/work
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example=[ {
-  "country" : "country",
-  "address" : "address",
-  "latitude" : 0.8008281904610115,
-  "name" : "name",
-  "suburb" : "suburb",
-  "postCode" : "postCode",
-  "state" : "state",
-  "longitude" : 6.027456183070403
-}, {
-  "country" : "country",
-  "address" : "address",
-  "latitude" : 0.8008281904610115,
-  "name" : "name",
-  "suburb" : "suburb",
-  "postCode" : "postCode",
-  "state" : "state",
-  "longitude" : 6.027456183070403
-} ]}]
-     
-     - parameter query: (query)  (optional)
-
-     - returns: RequestBuilder<[GetEmployerPlaceResponse]> 
-     */
     open class func getAutocompleteWorkAddressWithRequestBuilder(query: String? = nil) -> RequestBuilder<[GetEmployerPlaceResponse]> {
         let path = "/v1/Locations/autocomplete/work"
         let URLString = SwaggerClientAPI.basePath + path

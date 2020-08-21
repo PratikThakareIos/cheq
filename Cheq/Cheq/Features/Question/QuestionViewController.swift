@@ -286,11 +286,6 @@ class QuestionViewController: UIViewController {
     }
     
     func populatePopup_BankDetailsAlreadyInUse(){
-//        let transactionModal: CustomSubViewPopup = UIView.fromNib()
-//        transactionModal.viewModel.data = CustomPopupModel(description: "We've detected these bank details have been used by another user. Please ensure these details belong to you", imageName: "accountEmoji", modalHeight: 400, headerTitle: "Bank Details Already in use")
-//        transactionModal.setupUI()
-//        let popupView = CPopupView(transactionModal)
-//        popupView.show()
         
         self.openPopupWith(heading: "Bank details already in use",
                            message: "We have detected these bank details have been used by another user. Please ensure these details belong to you",
@@ -495,16 +490,7 @@ class QuestionViewController: UIViewController {
                 }
                 
             } else {
-                
-                //Employement type other than on demand
-                //                if (isIncomeDetected()){
-                //                   self.delegate?.refreshLendingScreen()
-                //                   AppNav.shared.dismissModal(self)
-                //                    return
-                //                }
-                //Select the working locatrion
-                
-                // AppNav.shared.presentToMultipleChoice(.workingLocation, viewController: self)
+               
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
         case .companyAddress:
@@ -523,7 +509,6 @@ class QuestionViewController: UIViewController {
             let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
             saveEmployerAddress(employerAddress)
             let req = DataHelperUtil.shared.putUserEmployerRequest()
-             LoggingUtil.shared.cPrint(req.workingLocation)
             
             //Company addresss from a fix location
             CheqAPIManager.shared.putUserEmployer(req).done { authUser in
@@ -696,11 +681,6 @@ extension QuestionViewController {
     func saveEmployerAddress(_ address: GetAddressResponse) {
         self.viewModel.save(QuestionField.employerAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.employerPostcode.rawValue, value: address.postCode ?? "")
-        let latitude = address.latitude ?? 0.0
-        let longitude = address.longitude ?? 0.0
-        self.viewModel.save(QuestionField.employerLatitude.rawValue, value: String(latitude))
-        self.viewModel.save(QuestionField.employerLongitude.rawValue, value: String(longitude))
-        //VDotManager.shared.markedLocation = CLLocation(latitude: latitude, longitude: longitude)
     }
     
     func inputsFromTextFields(textFields: [UITextField])-> [String: Any] {
@@ -1061,39 +1041,6 @@ extension QuestionViewController{
         
     }
     
-//    func setupEmployerAddressLookup() {
-//
-//        self.hideNormalTextFields()
-//        self.hideCheckbox()
-//        self.hideImageContainer()
-//
-//        searchTextField.placeholder = self.viewModel.placeHolder(0)
-//        searchTextField.isUserInteractionEnabled = true
-//
-//        searchTextField.itemSelectionHandler = { item, itemPosition in
-//            AppData.shared.selectedEmployerAddress = itemPosition
-//            let employerAddress: GetEmployerPlaceResponse = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
-//            VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0
-//                , longitude: employerAddress.longitude ?? 0.0)
-//            self.searchTextField.text = item[itemPosition].title
-//            //self.searchTextField.resignFirstResponder()
-//        }
-//
-//        searchTextField.userStoppedTypingHandler = {
-//            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
-//                CheqAPIManager.shared.employerAddressLookup(query).done { addressList in
-//                    // keep the address list
-//                    AppData.shared.employerAddressList = addressList
-//                    self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
-//                }.catch {err in
-//                    LoggingUtil.shared.cPrint(err)
-//                }
-//            }
-//        }
-//
-//    }
-    
-    
     func setupEmployerAddressLookup() {
         
         self.hideNormalTextFields()
@@ -1108,7 +1055,6 @@ extension QuestionViewController{
             
             if (AppData.shared.employerAddressList.count > AppData.shared.selectedEmployerAddress) {
                 let employerAddress = AppData.shared.employerAddressList[AppData.shared.selectedEmployerAddress]
-                //VDotManager.shared.markedLocation = CLLocation(latitude: employerAddress.latitude ?? 0.0,longitude: employerAddress.longitude ?? 0.0)
             }
             self.searchTextField.text = item[itemPosition].title
         }

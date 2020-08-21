@@ -150,7 +150,6 @@ extension LendingViewController {
           }
     }
     
-    
     /// handle creditAssessment notification event
     @objc func creditAssessment(_ notification: NSNotification) {
        LoggingUtil.shared.cPrint("creditAssessment clicked")

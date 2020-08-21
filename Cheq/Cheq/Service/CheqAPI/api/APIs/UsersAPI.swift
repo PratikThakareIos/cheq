@@ -59,34 +59,7 @@ open class UsersAPI {
         }
     }
 
-
-    /**
-     - GET /v1/Users
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example={
-  "userDetail" : {
-    "firstName" : "firstName",
-    "lastName" : "lastName",
-    "residentialAddress" : "residentialAddress",
-    "mobile" : "mobile",
-    "dateOfBirth" : "dateOfBirth",
-    "unitApartmentNumber" : "unitApartmentNumber"
-  },
-  "employer" : {
-    "address" : "address",
-    "employmentType" : "Fulltime",
-    "workingLocation" : "FromFixedLocation",
-    "latitude" : 0.8008281904610115,
-    "employerName" : "employerName",
-    "noFixedAddress" : true,
-    "longitude" : 6.027456183070403
-  }
-}}]
-
-     - returns: RequestBuilder<GetUserResponse> 
-     */
+    
     open class func getUserWithRequestBuilder() -> RequestBuilder<GetUserResponse> {
         let path = "/v1/Users"
         let URLString = SwaggerClientAPI.basePath + path
@@ -299,35 +272,6 @@ open class UsersAPI {
     }
 
 
-    /**
-     - PUT /v1/Users/detail
-     - API Key:
-       - type: apiKey Authorization 
-       - name: Bearer
-     - examples: [{contentType=application/json, example={
-  "userDetail" : {
-    "firstName" : "firstName",
-    "lastName" : "lastName",
-    "residentialAddress" : "residentialAddress",
-    "mobile" : "mobile",
-    "dateOfBirth" : "dateOfBirth",
-    "unitApartmentNumber" : "unitApartmentNumber"
-  },
-  "employer" : {
-    "address" : "address",
-    "employmentType" : "Fulltime",
-    "workingLocation" : "FromFixedLocation",
-    "latitude" : 0.8008281904610115,
-    "employerName" : "employerName",
-    "noFixedAddress" : true,
-    "longitude" : 6.027456183070403
-  }
-}}]
-     
-     - parameter request: (body)  (optional)
-
-     - returns: RequestBuilder<GetUserResponse> 
-     */
     open class func putUserDetailWithRequestBuilder(request: PutUserDetailRequest? = nil) -> RequestBuilder<GetUserResponse> {
         let path = "/v1/Users/detail"
         let URLString = SwaggerClientAPI.basePath + path

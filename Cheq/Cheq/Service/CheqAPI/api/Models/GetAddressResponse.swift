@@ -13,17 +13,14 @@ public struct GetAddressResponse: Codable {
 
     public var address: String?
     public var suburb: String?
-    public var latitude: Double?
-    public var longitude: Double?
+
     public var postCode: String?
     public var state: String?
     public var country: String?
 
-    public init(address: String?, suburb: String?, latitude: Double?, longitude: Double?, postCode: String?, state: String?, country: String?) {
+    public init(address: String?, suburb: String?, postCode: String?, state: String?, country: String?) {
         self.address = address
         self.suburb = suburb
-        self.latitude = latitude
-        self.longitude = longitude
         self.postCode = postCode
         self.state = state
         self.country = country

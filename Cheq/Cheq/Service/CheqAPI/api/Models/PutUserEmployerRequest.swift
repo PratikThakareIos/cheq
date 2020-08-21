@@ -20,33 +20,13 @@ public struct PutUserEmployerRequest: Codable {
         case onDemand = "OnDemand"
         case centrelink = "Centrelink"
     }
-    public enum WorkingLocation: String, Codable { 
-        case fromFixedLocation = "FromFixedLocation"
-        case fromMultipleLocations = "FromMultipleLocations"
-        case fromHomeOrRemote = "FromHomeOrRemote"
-    }
+
     public var employerName: String?
     public var employmentType: EmploymentType?
-    public var workingLocation: WorkingLocation?
-    public var latitude: Double?
-    public var longitude: Double?
     public var address: String?
     public var state: String?
     public var country: String?
     public var postCode: String?
-/*
-    public init(employerName: String?, employmentType: EmploymentType?, workingLocation: WorkingLocation?, latitude: Double?, longitude: Double?, address: String?, state: String?, country: String?, postCode: String?) {
-        self.employerName = employerName
-        self.employmentType = employmentType
-        self.workingLocation = workingLocation
-        self.latitude = latitude
-        self.longitude = longitude
-        self.address = address
-        self.state = state
-        self.country = country
-        self.postCode = postCode
-    }
-*/
   
     public init(employerName: String?, employmentType: EmploymentType?, address: String?) {
            self.employerName = employerName

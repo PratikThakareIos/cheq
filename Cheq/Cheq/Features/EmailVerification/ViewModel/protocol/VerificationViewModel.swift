@@ -47,11 +47,7 @@ extension VerificationValidationError: LocalizedError {
         case .lockedOut:
             return NSLocalizedString("Exceeded maximum number of failed attempts, please login again", comment: "")
         case .invalidPasswordFormat:
-            //return NSLocalizedString("Please ensure that the password is at least 6 characters long, and has at least 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-            //return NSLocalizedString("At least 6 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character", comment: "")
-            
-            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")///NNN
-            
+            return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")
             
         case .emptyPasswordField:
             return NSLocalizedString("Please enter your new password", comment: "")

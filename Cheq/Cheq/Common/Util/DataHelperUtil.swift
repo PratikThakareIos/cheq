@@ -115,8 +115,6 @@ class DataHelperUtil {
         return req
     }
    
-   
-    
     /**
      Helper method to build a post request payload containing the push notification tokens used by backend's purpose.
      - Returns: **Post** request payload containing the device's registered firebase notification token and apple's push notification token.

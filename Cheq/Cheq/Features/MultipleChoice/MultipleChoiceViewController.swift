@@ -106,7 +106,8 @@ class MultipleChoiceViewController: UIViewController {
         activeTimestamp()
         getTransactionData()
         
-        if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .workingLocation {
+        if AppData.shared.completingDetailsForLending {
+        
             self.showNavBar()
             showCloseButton()
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventContentType.button.rawValue)
@@ -251,18 +252,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             //                // AppNav.shared.pushToIntroduction(.enableLocation, viewController: self)
             //                AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
             //            }
-            
-        case .workingLocation:
-            
-             LoggingUtil.shared.cPrint("Location clicked")
-            if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
-                AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
-            }else{
-                if isIncomeDetected() == false {
-                     LoggingUtil.shared.cPrint("Upload time sheet anything other than fix location")
-                     incomeVerification()
-                }
-            }
             
         case .onDemand: break
             
@@ -464,17 +453,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                  AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventContentType.button.rawValue)
             }
             
-        case .workingLocation:
-             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workaddress_click.rawValue, FirebaseEventKey.lend_workdetails_workaddress_click.rawValue, FirebaseEventContentType.button.rawValue)
-             LoggingUtil.shared.cPrint("Location clicked")
-            if (selectedChoice?.title == WorkLocationType.fixLocation.rawValue){
-                AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
-            }else{
-                if isIncomeDetected() == false {
-                     LoggingUtil.shared.cPrint("Upload time sheet anything other than fix location")
-                    incomeVerification()
-                }
-            }
             
         case .onDemand:
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_click.rawValue, FirebaseEventKey.lend_bank_click.rawValue , FirebaseEventContentType.button.rawValue)

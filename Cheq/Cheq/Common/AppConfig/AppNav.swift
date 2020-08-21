@@ -407,17 +407,10 @@ extension AppNav {
             vc.showNextButton = false
         }
         
-        if multipleChoiceType == .workingLocation {
-            vc.showNextButton = true
-             LoggingUtil.shared.cPrint(vc.showNextButton)
-            guard let nav = viewController.navigationController else { return }
-            vc.modalPresentationStyle = .fullScreen
-            nav.pushViewController(vc, animated: true)
-        }else{
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            viewController.present(nav, animated: true, completion: nil)
-        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+
     }
     
     func presentPreviewLoanViewController(viewController: UIViewController) {
