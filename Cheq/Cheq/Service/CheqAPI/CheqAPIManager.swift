@@ -155,7 +155,7 @@ class CheqAPIManager {
                     LocationsAPI.getAutocompleteAddressWithRequestBuilder(query: query).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
                         if let error = err { resolver.reject(error); return }
                         guard let resp: [GetAddressResponse] = response?.body else { resolver.reject(CheqAPIManagerError.unableToParseResponse); return }
-                        // will be using longitude, latitude when fetching employer list afterward
+                       
                         resolver.fulfill(resp)
                     }
             }.catch { err in
@@ -169,8 +169,11 @@ class CheqAPIManager {
             AuthConfig.shared.activeManager.getCurrentUser()
                 .done { authUser in
                     let token = authUser.authToken() ?? ""
-                    let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, workingLocation: .fromMultipleLocations, latitude: req.latitude ?? 0.0, longitude: req.longitude ?? 0.0, address:  req.address ?? "", state: req.state ?? "", country: req.country ?? "", postCode: req.postCode ?? "")
+                   
+                    ///current request
+                    let employerDetailsReq = PutUserEmployerRequest(employerName: req.employerName, employmentType: req.employmentType ?? PutUserEmployerRequest.EmploymentType.fulltime, address: req.address ?? ""
                     
+                    )
                     UsersAPI.putUserEmployerWithRequestBuilder(request: employerDetailsReq).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute{ (response, err) in
                         
                         

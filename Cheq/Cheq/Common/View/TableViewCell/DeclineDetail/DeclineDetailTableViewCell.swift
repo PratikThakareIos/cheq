@@ -166,7 +166,6 @@ extension DeclineDetailTableViewCell {
             LoggingUtil.shared.cPrint("selectYourSalary")
             NotificationUtil.shared.notify(UINotificationEvent.selectYourSalary.rawValue, key: "", value: "")
             break
-            
                     
         //chatWithUs, ""
         case .salaryInDifferentBank :

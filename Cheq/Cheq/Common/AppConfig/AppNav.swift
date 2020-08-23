@@ -98,7 +98,6 @@ class AppNav {
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
         
-        
         if multipleChoiceType == .onDemand {
             vc.showNextButton = true
         }
@@ -401,23 +400,17 @@ extension AppNav {
         vc.viewModel = multipleChoiceViewModel
         vc.viewModel.screenName = ScreenName(fromRawValue: multipleChoiceViewModel.coordinator.coordinatorType.rawValue)
         
+        
         if multipleChoiceType == .employmentType {
             vc.showNextButton = true
         }else {
             vc.showNextButton = false
         }
         
-        if multipleChoiceType == .workingLocation {
-            vc.showNextButton = true
-             LoggingUtil.shared.cPrint(vc.showNextButton)
-            guard let nav = viewController.navigationController else { return }
-            vc.modalPresentationStyle = .fullScreen
-            nav.pushViewController(vc, animated: true)
-        }else{
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            viewController.present(nav, animated: true, completion: nil)
-        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+
     }
     
     func presentPreviewLoanViewController(viewController: UIViewController) {

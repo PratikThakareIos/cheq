@@ -16,6 +16,7 @@ enum EmploymentType: String {
     case casual = "Casual Employee"
     case selfEmployed = "Self employed"
     case partTime = "Part time"
+    case centrelink = "Centrelink"
     
     init(fromRawValue: String) {
         self = EmploymentType(rawValue: fromRawValue) ?? .fulltime
@@ -35,43 +36,13 @@ struct EmployementTypeCoordinator: MultipleChoiceViewModelCoordinator {
             let casual = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.casual.rawValue, caption: "You work Irregular hours and don't have a set number of working hours. ", image: nil,  ordering: 0, ref : nil)
             let selfEmployed = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.selfEmployed.rawValue, caption: "Self employed", image: nil,  ordering: 0, ref : nil)
             let partTime = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.partTime.rawValue, caption: "You work less than 38 hours  per week", image: nil,  ordering: 0, ref : nil)
-            let result = [fullTime, partTime, onDemand, contractual, casual]
-            resolver.fulfill(result)
-        }
-    }
-    
-
-}
-
-
-
-
-enum WorkLocationType: String {
-    case fixLocation = "From a fixed location"
-    case multipleLocations = "From multiple locations"
-    case remoteLocation = "From home/remote"
-    
-    
-    init(fromRawValue: String) {
-        self = WorkLocationType(rawValue: fromRawValue) ?? .fixLocation
-    }
-}
-
-struct WorkLocationTypeCoordinator: MultipleChoiceViewModelCoordinator {
-    var sectionTitle = Section.employmentDetails.rawValue
-    var questionTitle = "Where do you work most of the time?"
-    var coordinatorType: MultipleChoiceQuestionType = .workingLocation
-    
-    func choices() -> Promise<[ChoiceModel]> {
-        return Promise<[ChoiceModel]>() { resolver in
-            let fixedLocation = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.fixLocation.rawValue, caption: "You work from one location every \nday e.g. office.", image: nil, ordering: 0, ref : nil)
-            let multipleLocations = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.multipleLocations.rawValue, caption: "You move around every day for work \nfrom site to site e.g. salesperson.", image: nil,  ordering: 0, ref : nil)
-            let remoteLocation = ChoiceModel(type: .choiceWithCaption, title: WorkLocationType.multipleLocations.rawValue, caption: "You work from your own home.", image: nil,  ordering: 0, ref : nil)
             
-            let result = [fixedLocation, multipleLocations, remoteLocation]
+            let centrelink = ChoiceModel(type: .choiceWithCaption, title: EmploymentType.centrelink.rawValue, caption: "Centrelink or other government benefits", image: nil,  ordering: 0, ref : nil)
+            
+            let result = [fullTime, partTime, onDemand, contractual, casual, centrelink]
+            
             resolver.fulfill(result)
         }
     }
-    
 
 }

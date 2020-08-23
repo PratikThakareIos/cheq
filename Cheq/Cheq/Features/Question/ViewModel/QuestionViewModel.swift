@@ -54,8 +54,6 @@ enum QuestionField: String {
     case employerPostcode = "employerPostcode"
     case employerState = "employerState"
     case employerCountry = "employerCountry"
-    case employerLatitude = "employerLatitude"
-    case employerLongitude = "employerLongitude"
 
     // bank details
     case bankName = "bankName"

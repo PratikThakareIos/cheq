@@ -17,7 +17,6 @@ enum MultipleChoiceQuestionType: String {
     case ageRange = "Age Range"
     case state = "State"
     case kycSelectDoc = "Select a document"
-    case workingLocation = "Working Location"
 }
 
 enum ChoiceType {
@@ -97,8 +96,6 @@ extension MultipleChoiceViewModel {
             return StateCoordinator()
         case .kycSelectDoc:
             return SelectDocumentCoordinator()
-        case .workingLocation:
-            return WorkLocationTypeCoordinator()
         }
         
     }
@@ -119,6 +116,8 @@ extension MultipleChoiceViewModel {
             return PutUserEmployerRequest.EmploymentType.selfEmployed
         case .partTime:
             return PutUserEmployerRequest.EmploymentType.parttime
+        case .centrelink:
+            return PutUserEmployerRequest.EmploymentType.centrelink
         }
     }
 }

@@ -19,29 +19,18 @@ public struct GetUserEmployerResponse: Codable {
         case contractor = "Contractor"
         case onDemand = "OnDemand"
     }
-    public enum WorkingLocation: String, Codable { 
-        case fromFixedLocation = "FromFixedLocation"
-        case fromMultipleLocations = "FromMultipleLocations"
-        case fromHomeOrRemote = "FromHomeOrRemote"
-    }
+
     public var employerName: String?
     public var employmentType: EmploymentType?
-    public var workingLocation: WorkingLocation?
     public var address: String?
     public var noFixedAddress: Bool?
-    public var latitude: Double?
-    public var longitude: Double?
 
-    public init(employerName: String?, employmentType: EmploymentType?, workingLocation: WorkingLocation?, address: String?, noFixedAddress: Bool?, latitude: Double?, longitude: Double?) {
-        self.employerName = employerName
-        self.employmentType = employmentType
-        self.workingLocation = workingLocation
-        self.address = address
-        self.noFixedAddress = noFixedAddress
-        self.latitude = latitude
-        self.longitude = longitude
-    }
-
+    public init(employerName: String?, employmentType: EmploymentType?, address: String?, noFixedAddress: Bool?) {
+         self.employerName = employerName
+         self.employmentType = employmentType
+         self.address = address
+         self.noFixedAddress = noFixedAddress
+     }
 
 }
 
