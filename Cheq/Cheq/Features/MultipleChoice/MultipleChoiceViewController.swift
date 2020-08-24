@@ -412,12 +412,12 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
  
             let vm = self.viewModel
            vm.save(QuestionField.employerName.rawValue, value: choice.title)
-           vm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+           vm.save(QuestionField.employerType.rawValue, value: EmploymentType.casual.rawValue)
          
            let qVm = QuestionViewModel()
            //manish
            qVm.save(QuestionField.employerName.rawValue, value: choice.title)
-           qVm.save(QuestionField.employerType.rawValue, value: EmploymentType.onDemand.rawValue)
+           qVm.save(QuestionField.employerType.rawValue, value: EmploymentType.casual.rawValue)
            //manish
            qVm.loadSaved()
            

@@ -42,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
          
         // Use Firebase library to configure APIs
          FirebaseApp.configure()
+      
+         Analytics.setAnalyticsCollectionEnabled(true)
         
          //Remove this method to stop OneSignal Debugging
          OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)

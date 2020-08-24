@@ -242,8 +242,7 @@ extension AppConfig {
 extension AppConfig {
 
     func addEventToFirebase(_ sourceScreen: String , _ itemId: String ,_ itemName: String , _ contentType: String) {
-    
-    Analytics.logEvent(AnalyticsEventSelectContent, parameters: [ AnalyticsParameterSource: sourceScreen, AnalyticsParameterItemID: itemId, AnalyticsParameterItemName: itemName, AnalyticsParameterContentType: contentType,])
-   
+      
+        Firebase.Analytics.logEvent(AnalyticsEventSelectContent, parameters: [ AnalyticsParameterSource: sourceScreen, AnalyticsParameterItemID: itemId, AnalyticsParameterItemName: itemName, AnalyticsParameterContentType: contentType,])
     }
 }

@@ -39,6 +39,8 @@
 	<false/>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -172,6 +174,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Required for document and facial capture</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Cheq requires user’s location for better user experience.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Cheq requires user’s location for better user experience.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Cheq requires user’s location for better user experience.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Required for video capture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
