@@ -41,12 +41,12 @@ class DocumentVerificationViewController: UIViewController {
         self.lblDetail.attributedText = attributedString
         self.lblDetail.setLineSpacing(lineSpacing: 8.0)
         self.lblDetail.textAlignment = .left
+         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventContentType.screen.rawValue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableview.reloadData()
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventContentType.screen.rawValue)
     }
 }
@@ -70,12 +70,16 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID.rawValue, FirebaseEventKey.lend_KYC_ID.rawValue, FirebaseEventContentType.button.rawValue)
+        
         var kycSelectDoc : KycDocType?
         if indexPath.row == 0 {
             kycSelectDoc = .Passport //KycDocType(fromRawValue: "Passport")
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventContentType.button.rawValue)
+            
         }else{
             kycSelectDoc = .DriversLicense //KycDocType(fromRawValue:"Driver license")
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventContentType.button.rawValue)
         }
         
         AppConfig.shared.showSpinner()
@@ -97,6 +101,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
     }
     
     func inittiateOnFido(kycSelectDoc:KycDocType?)  {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_start_click.rawValue, FirebaseEventKey.lend_KYC_ID_start_click.rawValue, FirebaseEventContentType.button.rawValue)
         
         OnfidoManager.shared.fetchSdkToken().done { response in
             AppConfig.shared.hideSpinner {
@@ -123,6 +128,7 @@ extension DocumentVerificationViewController {
          - parameter viewController: source viewController of the navigation action
          */
         func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
+             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_addy_click.rawValue, FirebaseEventKey.lend_KYC_addy_click.rawValue, FirebaseEventContentType.button.rawValue)
             
             /// fetching the sdkToken from AppData helper method using **loadOnfidoSDKToken**
             let sdkToken = AppData.shared.loadOnfidoSDKToken()
@@ -176,7 +182,7 @@ extension DocumentVerificationViewController {
                                 
                                 NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
                                 AppNav.shared.dismissModal(viewController){}
-                                
+                                AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_addy_verify.rawValue, FirebaseEventKey.lend_KYC_addy_verify.rawValue, FirebaseEventContentType.button.rawValue)
                                 //viewController.dismiss(animated: true, completion:nil)
                             }
                         }.catch{ err in
@@ -394,6 +400,7 @@ extension DocumentVerificationViewController: VerificationPopupVCDelegate {
             
              case OnfidoFlowError.upload(_):
                 LoggingUtil.shared.cPrint("OnfidoFlowError.upload")
+                
                 //go to start of onfido process
                 if (self.presentingViewController?.isKind(of: OnfidoFlow.self) ?? false){
                  self.presentingViewController?.dismiss(animated: true, completion: nil)

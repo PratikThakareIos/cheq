@@ -97,10 +97,7 @@ extension SpendingViewController {
     }
     
     @objc func spendingOverview(_ notification: NSNotification) {
-        
           AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpentCategoryClick.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventContentType.button.rawValue)
-        
-        
         LoggingUtil.shared.cPrint("spendingOverview called")
         AppConfig.shared.showSpinner()
         AuthConfig.shared.activeManager.getCurrentUser().then { authUser in

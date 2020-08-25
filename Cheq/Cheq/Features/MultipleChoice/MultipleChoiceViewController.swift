@@ -286,7 +286,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             //            }
             
         case .financialInstitutions:
-            
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank_select.rawValue, FirebaseEventKey.on_signup_bank_select.rawValue, FirebaseEventContentType.button.rawValue)
             
             // storing the selected bank and bank list before pushing to the dynamicFormViewController
@@ -447,13 +446,10 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                    }
                }
            }
-            
             } else {
                 AppNav.shared.pushToQuestionForm(.companyName, viewController: self)
                  AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventKey.lend_workdetails_workname_click.rawValue, FirebaseEventContentType.button.rawValue)
             }
-            
-            
         case .onDemand:
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_click.rawValue, FirebaseEventKey.lend_bank_click.rawValue , FirebaseEventContentType.button.rawValue)
             

@@ -193,7 +193,6 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
             vm.isSwipeConfirmaed = true
             //Firebase Event:lend_cashout_agree 
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventContentType.button.rawValue)
-                    
             NotificationUtil.shared.notify(UINotificationEvent.swipeConfirmation.rawValue, key: "", value: "")
         }
         

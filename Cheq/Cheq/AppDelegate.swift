@@ -481,7 +481,6 @@ extension AppDelegate {
         window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
     
-    
     @objc func handleSwitchToBankListFromHome(notification: NSNotification) {
         LoggingUtil.shared.cPrint("Switch : go to bank")
     

@@ -42,7 +42,6 @@ class AccountViewController: CTableViewController {
         super.viewWillAppear(animated)
         hideNavBar()
         hideBackTitle()
-        
          AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue, FirebaseEventKey.profile_home.rawValue ,FirebaseEventKey.profile_home.rawValue, FirebaseEventContentType.screen.rawValue)
     }
     
@@ -102,9 +101,6 @@ extension AccountViewController {
         //            return
         //        }
         
-        
-        
-        
         guard let url = URL(string: link) else { return }
         
         if link == "https://cheq.com.au/terms"{
@@ -112,7 +108,6 @@ extension AccountViewController {
         }else{
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue, FirebaseEventKey.profile_help_privacy.rawValue, FirebaseEventKey.profile_help_privacy.rawValue, FirebaseEventContentType.button.rawValue)
         }
-        
         AppNav.shared.pushToInAppWeb(url, viewController: self)
     }
     

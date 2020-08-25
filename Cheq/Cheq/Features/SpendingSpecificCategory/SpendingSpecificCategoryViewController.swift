@@ -92,7 +92,6 @@ class SpendingSpecificCategoryViewController: CTableViewController {
     
     @objc func loadCategoryTransactions(_ notification: NSNotification) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpent.rawValue, FirebaseEventKey.spend_spent_category.rawValue, FirebaseEventKey.spend_spent_category.rawValue, FirebaseEventContentType.button.rawValue)
-        
         LoggingUtil.shared.cPrint("loadCategoryTransactions")
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.spendingCategoryById(AppData.shared.selectedCategory?.categoryId ?? 0).done { specificCategory in
@@ -114,7 +113,6 @@ extension SpendingSpecificCategoryViewController: RecentActivityPopUpVCDelegate{
     
     
     @objc func showTransactionPopup(_ notification: NSNotification) {
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingMoneySpentCategoryClick.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventKey.spend_spent_dash_category.rawValue, FirebaseEventContentType.button.rawValue)
         
             LoggingUtil.shared.cPrint("showTransaction")

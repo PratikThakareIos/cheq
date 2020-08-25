@@ -99,7 +99,6 @@ class AmountSelectTableViewCell: CTableViewCell {
     }
 
     @IBAction func intercom() {
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lending.rawValue,  FirebaseEventKey.lend_dash_help.rawValue, FirebaseEventKey.lend_dash_help.rawValue, FirebaseEventContentType.button.rawValue)
         LoggingUtil.shared.cPrint("present intercom")
         NotificationUtil.shared.notify(UINotificationEvent.intercom.rawValue, key: "", value: "")

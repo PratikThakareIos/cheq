@@ -224,7 +224,6 @@ extension LoginVC {
             }
         }
     }
-    
  
     @IBAction func login(_ sender: Any) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Login.rawValue, FirebaseEventKey.login_email.rawValue, FirebaseEventKey.login_email.rawValue, FirebaseEventContentType.button.rawValue)

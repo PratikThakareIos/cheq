@@ -49,6 +49,13 @@ class SpendingCategoriesViewController: CTableViewController {
         self.tableView.addPullToRefreshAction {
             NotificationUtil.shared.notify(UINotificationEvent.spendingCategories.rawValue, key: "", value: "")
         }
+        
+        if let titleBill = self.title{
+            if titleBill.lowercased()  == "Bills".lowercased() {
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingPredictedBills.rawValue, FirebaseEventKey.spend_bills_view.rawValue, FirebaseEventKey.spend_bills_view.rawValue, FirebaseEventContentType.button.rawValue)
+            }
+        }
+        
     }
     
     func registerObservables() {
@@ -102,7 +109,6 @@ extension SpendingCategoriesViewController: RecentActivityPopUpVCDelegate{
     
     @objc func showTransactionPopup(_ notification: NSNotification) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.SpendingCategoryTransactionClick.rawValue,  FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventKey.spend_spent_category_dash_click.rawValue, FirebaseEventContentType.button.rawValue)
-    
         LoggingUtil.shared.cPrint("showTransaction")
             guard let transaction = notification.userInfo?[NotificationUserInfoKey.transaction.rawValue] as? TransactionTableViewCell else { return }
             guard let transactionViewModel = transaction.viewModel as? TransactionTableViewCellViewModel else { return }
