@@ -121,12 +121,10 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
     }
     
     @objc func agreemntAccepted(_ notification: NSNotification) {
-        AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventContentType.button.rawValue)
-        
-        self.grayView.isHidden = true
-        self.agreementAcceptanceLabel.isHidden = true
+       self.grayView.isHidden = true
+       self.agreementAcceptanceLabel.isHidden = true
     }
-    
+
     /**
      This is a callback from **UIPanGestureRecognizer**
      We always update the draggable with new positions based on **gestureRecognizer.translation**.
@@ -134,7 +132,7 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
      Otherwise, we will have accumulated translation tracked in **gestureRecognizer**
     */
     @objc func drag(_ gestureRecognizer : UIPanGestureRecognizer) {
-       
+        
         guard gestureRecognizer.view != nil else { return }
         guard let draggableView = gestureRecognizer.view else { return }
         guard let draggableViewContainer = draggableView.superview else { return }
@@ -193,6 +191,8 @@ class SwipeToConfirmTableViewCell: CTableViewCell {
             draggableView.center = CGPoint(x: draggableViewContainer.frame.width - draggableView.frame.width/2 - 10, y: draggableView.center.y)
             let vm = self.viewModel as! SwipeToConfirmTableViewCellViewModel
             vm.isSwipeConfirmaed = true
+            //Firebase Event:lend_cashout_agree 
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventKey.lend_cashout_agree.rawValue, FirebaseEventContentType.button.rawValue)
             NotificationUtil.shared.notify(UINotificationEvent.swipeConfirmation.rawValue, key: "", value: "")
         }
         

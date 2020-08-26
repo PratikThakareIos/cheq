@@ -144,7 +144,6 @@ class CSplashViewController: UIViewController, UIPageViewControllerDelegate, UIP
     
     @IBAction func getStarted(_ sender: Any) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Splash.rawValue,  FirebaseEventKey.splash_lend_click.rawValue, FirebaseEventKey.splash_lend_click.rawValue, FirebaseEventContentType.button.rawValue)
-        
         AppConfig.shared.markFirstInstall()
         let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
         let regViewController = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.registration.rawValue) as! RegistrationVC

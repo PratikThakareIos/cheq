@@ -105,10 +105,8 @@ class DataHelperUtil {
         var req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: "")
      
         if QuestionField.employerName.rawValue == EmploymentType.centrelink.rawValue {
-            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: "")
-            
+            req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: .casual, address: "")
         }else{
-            
             req = PutUserEmployerRequest(employerName: qVm.fieldValue(QuestionField.employerName), employmentType: putReqEmploymentType, address: qVm.fieldValue(QuestionField.employerAddress))
         }
       

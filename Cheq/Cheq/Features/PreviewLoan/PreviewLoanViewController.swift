@@ -54,7 +54,6 @@ class PreviewLoanViewController: CTableViewController {
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
          AppData.shared.acceptedAgreement = false
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout.rawValue, FirebaseEventKey.lend_cashout.rawValue, FirebaseEventContentType.screen.rawValue)
     }
     
@@ -147,8 +146,6 @@ extension PreviewLoanViewController {
     
     @objc func previewLoan(_ notification: NSNotification) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_cashout_TC.rawValue, FirebaseEventKey.lend_cashout_TC.rawValue, FirebaseEventContentType.button.rawValue)
-        
-        
         AppConfig.shared.showSpinner()
         CheqAPIManager.shared.loanPreview().done{ loanPreview in
             AppData.shared.loanFee = loanPreview.fee ?? 0.0

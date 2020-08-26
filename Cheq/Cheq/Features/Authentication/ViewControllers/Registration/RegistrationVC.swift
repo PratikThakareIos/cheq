@@ -49,7 +49,6 @@ class RegistrationVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
          AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup.rawValue,FirebaseEventKey.on_signup.rawValue, FirebaseEventContentType.screen.rawValue)
         //AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
         
@@ -130,7 +129,6 @@ extension RegistrationVC: UITextFieldDelegate {
 extension RegistrationVC {
     
     @IBAction func loginWithFacebook(_ sender: Any) {
-        
          AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventKey.on_signup_fb_click.rawValue, FirebaseEventContentType.button.rawValue)
         
         self.view.endEditing(true)
@@ -161,7 +159,6 @@ extension RegistrationVC {
     }
     
     @IBAction func register(_ sender: Any) {
-        
           AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventKey.on_signup_click.rawValue, FirebaseEventContentType.button.rawValue)
     
         self.view.endEditing(true)
@@ -299,7 +296,6 @@ extension RegistrationVC {
         } else if viewModel.isLogin(strSubstring) {
             //Manish
             AppNav.shared.pushToViewControllerWithAnimation(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.login.rawValue, viewController:  self)
-          
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventKey.on_signup_login_click.rawValue, FirebaseEventContentType.button.rawValue)
             
         } else if viewModel.isSignup(strSubstring) {
@@ -320,7 +316,6 @@ extension RegistrationVC {
         }else if (strSubstring == "Privacy Policy"){
             strUrl = links.privacy.rawValue
               AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventKey.on_signup_PP.rawValue, FirebaseEventContentType.button.rawValue)
-            
         }
         
         if let url = URL.init(string: strUrl){

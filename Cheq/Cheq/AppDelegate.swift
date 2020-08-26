@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
          
         // Use Firebase library to configure APIs
          FirebaseApp.configure()
+      
+         Analytics.setAnalyticsCollectionEnabled(true)
         
          //Remove this method to stop OneSignal Debugging
          OneSignal.setLogLevel(.LL_VERBOSE, visualLevel: .LL_NONE)
@@ -482,7 +484,6 @@ extension AppDelegate {
         // nav is embeded inside the viewcontrollers of tabbar
         window?.rootViewController = AppNav.shared.initViewController(storyname, storyboardId: storyId, embedInNav: false)
     }
-    
     
     @objc func handleSwitchToBankListFromHome(notification: NSNotification) {
         LoggingUtil.shared.cPrint("Switch : go to bank")

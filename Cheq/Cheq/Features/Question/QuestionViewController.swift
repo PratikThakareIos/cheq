@@ -207,11 +207,11 @@ class QuestionViewController: UIViewController {
             
         case .companyName:
             self.setupEmployerNameLookup()
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_addy.rawValue, FirebaseEventKey.lend_KYC_addy.rawValue, FirebaseEventContentType.screen.rawValue)
             
         case .companyAddress:
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_bank_connect.rawValue, FirebaseEventKey.on_signup_bank_connect.rawValue, FirebaseEventContentType.screen.rawValue)
           //  AppConfig.shared.addEventToFirebase("", "", "", FirebaseEventContentType.screen.rawValue)
-
             self.setupEmployerAddressLookup()
             
         case .bankAccount:
@@ -221,10 +221,10 @@ class QuestionViewController: UIViewController {
             self.questionDescription.isHidden = false
             self.ImageViewContainer.isHidden = true
             
-
         case .verifyName:
             self.hideImageContainer()
-            
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_name.rawValue, FirebaseEventKey.lend_KYC_name.rawValue, FirebaseEventContentType.screen.rawValue)
+
         case .legalName:
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_name.rawValue,  FirebaseEventKey.on_signup_name.rawValue, FirebaseEventContentType.screen.rawValue)
 
@@ -236,7 +236,6 @@ class QuestionViewController: UIViewController {
         self.lblContactInfo.isHidden = true
         if viewModel.coordinator.type == .contactDetails {
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_mobile.rawValue, FirebaseEventKey.on_signup_mobile.rawValue, FirebaseEventContentType.screen.rawValue)
-
             self.lblContactInfo.isHidden = false
             self.textField1.keyboardType = .phonePad
         }
@@ -372,8 +371,6 @@ class QuestionViewController: UIViewController {
         case .legalName:
             
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_name_click.rawValue, FirebaseEventKey.on_signup_name_click.rawValue,FirebaseEventContentType.button.rawValue)
-
-            
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             
@@ -404,10 +401,7 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             
         case .contactDetails:
-            
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_mobile_click.rawValue, FirebaseEventKey.on_signup_mobile_click.rawValue, FirebaseEventContentType.button.rawValue)
-
-            
             self.view.endEditing(true)
             self.viewModel.save(QuestionField.contactDetails.rawValue, value: textField1.text ?? "")
             AppData.shared.updateProgressAfterCompleting(.contactDetails)
@@ -447,7 +441,8 @@ class QuestionViewController: UIViewController {
             }
 
         case .companyName:
-           
+            
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_name_click.rawValue, FirebaseEventKey.lend_KYC_name_click.rawValue, FirebaseEventContentType.button.rawValue)
             if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
                 let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
                 self.viewModel.save(QuestionField.employerAddress.rawValue, value: employer.address ?? "")
@@ -494,7 +489,7 @@ class QuestionViewController: UIViewController {
                 AppNav.shared.pushToQuestionForm(.companyAddress, viewController: self)
             }
         case .companyAddress:
-            
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_addy_click.rawValue, FirebaseEventKey.lend_KYC_addy_click.rawValue, FirebaseEventContentType.button.rawValue)
             if let err = self.validateCompanyAddressLookup() {
                 showError(err, completion: nil)
                 return
@@ -544,7 +539,6 @@ class QuestionViewController: UIViewController {
             
             if (switchWithLabel.switchValue()){
                 self.showJointAccountNotSupportedPopUp()
-                
                 AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_bank_toggle.rawValue, FirebaseEventKey.lend_bank_toggle.rawValue, FirebaseEventContentType.button.rawValue)
                 
                 return
@@ -589,10 +583,10 @@ class QuestionViewController: UIViewController {
         
             
         case .verifyName:
+            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_name_click.rawValue, FirebaseEventKey.lend_KYC_name_click.rawValue, FirebaseEventContentType.button.rawValue)
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
-            
             
         case .residentialAddress:
                         

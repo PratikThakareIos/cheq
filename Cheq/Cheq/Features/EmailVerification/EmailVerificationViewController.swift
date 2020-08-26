@@ -185,7 +185,6 @@ class EmailVerificationViewController: UIViewController {
                            if vc is LoginVC {
                              self.navigationController?.popToViewController(vc as! LoginVC, animated: true)
                              AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.passcode_reset_click.rawValue,FirebaseEventKey.passcode_reset_click.rawValue, FirebaseEventContentType.button.rawValue)
-                            
                            }
                         }
                     }
@@ -214,8 +213,6 @@ class EmailVerificationViewController: UIViewController {
             }else{
                 AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventKey.on_signup_passcode2.rawValue, FirebaseEventContentType.button.rawValue)
             }
-            
-            
             self.openPopupWith(heading: "Invalid passcode, please try again", message: "", buttonTitle: "", showSendButton: false, emoji: UIImage(named: "image-moreInfo"))
             return
         }
@@ -267,8 +264,6 @@ class EmailVerificationViewController: UIViewController {
         if self.viewModel.type == .email {
             self.verifyCode()
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Onboarding.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventKey.on_signup_everify_click.rawValue, FirebaseEventContentType.button.rawValue)
-            
-            
         } else {
             self.verifyCodeAndResetPassword()
             AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_click.rawValue, FirebaseEventKey.pass_reset_click.rawValue , FirebaseEventContentType.button.rawValue)
@@ -287,7 +282,6 @@ class EmailVerificationViewController: UIViewController {
         }else{
             AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventKey.pass_reset_resend_click.rawValue, FirebaseEventContentType.button.rawValue)
         }
-         
         
         self.view.endEditing(true)
         self.isShowCodeSentPopUp = true

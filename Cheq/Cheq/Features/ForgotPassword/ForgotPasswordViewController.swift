@@ -51,7 +51,6 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func sendEmail(_ sender: Any) {
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.PasswordRecovery.rawValue, FirebaseEventKey.pass_email_click.rawValue, FirebaseEventKey.pass_email_click.rawValue , FirebaseEventContentType.button.rawValue)
         
         self.view.endEditing(true)

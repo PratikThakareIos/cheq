@@ -99,9 +99,7 @@ extension UIViewController {
     
     /// handle presenting intercom view controller notification event
     @objc func intercom(_ notification: NSNotification) {
-        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Profile.rawValue,FirebaseEventKey.profile_help_click.rawValue, FirebaseEventKey.profile_help_click.rawValue, FirebaseEventContentType.button.rawValue)
-        
         IntercomManager.shared.loginIntercom().done { authUser in
             IntercomManager.shared.present()
             }.catch { err in
