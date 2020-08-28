@@ -39,8 +39,8 @@ def shared_pods
   pod 'UITextView+Placeholder'
   pod 'OneSignal', '>= 2.11.2', '< 3.0'
   pod 'MHLoadingButton'
-  pod 'Intercom'
-  #pod 'Intercom', '~> 5.4.1'
+  #pod 'Intercom'
+  pod 'Intercom', '~> 5.5.1'
 
 
   # Firebase pods

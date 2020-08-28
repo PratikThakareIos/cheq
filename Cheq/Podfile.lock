@@ -138,7 +138,7 @@ PODS:
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.4.0)
   - Hex (6.1.0)
-  - Intercom (5.4.1)
+  - Intercom (5.5.2)
   - IQKeyboardManagerSwift (6.5.5)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
@@ -211,7 +211,7 @@ DEPENDENCIES:
   - FMDB
   - FRHyperLabel
   - Hex
-  - Intercom
+  - Intercom (~> 5.5.1)
   - IQKeyboardManagerSwift
   - Mantle
   - MHLoadingButton
@@ -325,7 +325,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   Hex: 2f67dd0cbb178cb24992e7529b025b8d16ff0bdc
-  Intercom: d189cf8cc8591e7e63dbb10ee4401a70a7fdc9d6
+  Intercom: 1151a15e5e7931d8e401671a4357239d44325159
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MHLoadingButton: 810a3123f739e32fcd4beec45b8d1a3bad06e38e
@@ -355,6 +355,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   Validator: 80a6f567220c962dfd2d9928ae98a8c1d164f6f4
 
-PODFILE CHECKSUM: e6e02fa1ba3bbd55a3352425d2b09d36207df66c
+PODFILE CHECKSUM: 8024ee3065186be742fb98314f627fa04b880fed
 
 COCOAPODS: 1.9.3
