@@ -23,7 +23,10 @@ class HistoryItemTableViewCell: CTableViewCell {
     
     /// refer to **xib** for layout
     @IBOutlet weak var itemCaption: UILabel!
-    
+
+    /// refer to **xib** for layout
+    @IBOutlet weak var infoLabel: UILabel!
+
     /// refer to **xib** for layout
     @IBOutlet weak var amountLabel: UILabel!
     
@@ -47,21 +50,16 @@ class HistoryItemTableViewCell: CTableViewCell {
     /// call **setupConfig** whenever we updated viewModel 
     override func setupConfig() {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
-        //self.backgroundColor = AppConfig.shared.activeTheme.altTextColor
-        //itemTitle.font = AppConfig.shared.activeTheme.mediumFont
         
         itemTitle.text = historyItemVm.itemTitle
         itemTitleStatus.text = historyItemVm.itemTitleStatus
+
+        infoLabel.text = historyItemVm.info
+        infoLabel.isHidden = historyItemVm.info == nil
         
-        
-        
-        
-        //itemCaption.font = AppConfig.shared.activeTheme.defaultFont
         itemCaption.text = historyItemVm.getFormattedDate()//historyItemVm.itemCaption
-        //amountLabel.font = AppConfig.shared.activeTheme.mediumFont
         amountLabel.text = historyItemVm.amount
         amountLabel.textColor = (historyItemVm.cashDirection == .debit) ? AppConfig.shared.activeTheme.textColor :  UIColor(hex: "00B662")
-        
         
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
