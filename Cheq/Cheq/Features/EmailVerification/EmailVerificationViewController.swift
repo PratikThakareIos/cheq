@@ -175,6 +175,10 @@ class EmailVerificationViewController: UIViewController {
         
         CheqAPIManager.shared.resetPassword(self.viewModel.code, newPassword: self.viewModel.newPassword).done { _ in
             self.confirmButton.hideLoadingOnButton(self)
+            
+            UserDefaults.standard.set(self.newPasswordField.text ?? "", forKey:UserDefaultKeys.password)
+            UserDefaults.standard.synchronize()
+            
             AppConfig.shared.hideSpinner {
                  // self.showMessage("Password reset successfully. Please login with your new credentials") {
                 self.isNavigateToLogin = true
