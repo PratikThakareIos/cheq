@@ -20,7 +20,10 @@ class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     
     /// enum to represent the direction of cash
     var cashDirection: CashDirection = .debit
-    
+
+    /// info shown extra transaction info, for example settlementTimingInfo for pending repayment
+    var info: String?
+
     /// amount is in String because we use it for label value
     var amount: String = "$200"
     

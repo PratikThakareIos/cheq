@@ -317,16 +317,20 @@ extension LendingViewModel {
             let amountString = strAmount
             //FormatterUtil.shared.currencyFormat(amount, symbol: CurrencySymbol.dollar.rawValue, roundDownToNearestDollar: false)
             
-            
-            if(type == .cashout){
+            if type == .cashout {
                  activityItem.itemTitle = "Cash out"
                  activityItem.amount = String("\(amountString)")
                  activityItem.itemCaption = loanActivity.date ?? ""
-            }else{
+            } else {
                  activityItem.itemTitle = type.rawValue
                  activityItem.amount = String("-\(amountString)")
                  activityItem.itemCaption = loanActivity.repaymentDate ?? ""
+                
+                if loanActivity.status == .pending {
+                    activityItem.info = loanActivity.settlementTimingInfo
+                }
             }
+            
             
             activityItem.itemTitleStatus = self.getItemTitleStatus(loanActivity: loanActivity)
            
