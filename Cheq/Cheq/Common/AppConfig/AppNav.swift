@@ -453,7 +453,7 @@ extension AppNav {
         
         //let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let drivingLicenceConfiguration = DrivingLicenceConfiguration.init(country: CountryCode.AU.rawValue)
-        let docType: DocumentType = (type == .Passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
+        let docType: DocumentType = (type == .passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
         
         let config = try! OnfidoConfig.builder()
                   .withAppearance(appearance)

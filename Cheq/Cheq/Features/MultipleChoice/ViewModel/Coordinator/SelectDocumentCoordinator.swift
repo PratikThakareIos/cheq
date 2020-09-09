@@ -10,11 +10,11 @@ import UIKit
 import PromiseKit
 
 enum KycDocType: String {
-    case Passport = "Passport"
-    case DriversLicense = "Driver license"
+    case passport = "Passport"
+    case driversLicense = "Driver license"
     
     init(fromRawValue: String) {
-        self = KycDocType(rawValue: fromRawValue) ?? .Passport
+        self = KycDocType(rawValue: fromRawValue) ?? .passport
     }
 }
 
@@ -28,7 +28,7 @@ class SelectDocumentCoordinator: MultipleChoiceViewModelCoordinator {
     
     func choices()-> Promise<[ChoiceModel]> {
         return Promise<[ChoiceModel]>() { resolver in
-            let choices = [selectDocToChoiceModel(.Passport), selectDocToChoiceModel(.DriversLicense)]
+            let choices = [selectDocToChoiceModel(.passport), selectDocToChoiceModel(.driversLicense)]
             resolver.fulfill(choices)
         }
     }
