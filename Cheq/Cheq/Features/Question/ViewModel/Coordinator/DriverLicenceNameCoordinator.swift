@@ -1,26 +1,37 @@
 //
-//  LegalNameCoordinator.swift
+//  DriverLicenceNameCoordinator.swift
 //  Cheq
 //
-//  Created by Xuwei Liang on 3/10/19.
-//  Copyright © 2019 Cheq. All rights reserved.
+//  Created by Alexey on 09.09.2020.
+//  Copyright © 2020 Cheq. All rights reserved.
 //
 
 import UIKit
 
-class LegalNameCoordinator: QuestionCoordinatorProtocol {
+class DriverLicenceNameCoordinator: QuestionCoordinatorProtocol {
     
-    var type: QuestionType = .legalName
-    //var sectionTitle: String = Section.verifyMyIdentity.rawValue
+    var type: QuestionType = .driverLicenceName
+    
     var question: String = "Enter your legal name as it appears on your ID"
-    var numOfTextFields: Int = 2
+    var sectionTitle: String = ""
+    
+    var numOfTextFields: Int = 3
     
     func placeHolder(_ index: Int)->String {
-        let result = (index == 0) ? "First name" : "Surname"
-        return result
+        switch index {
+        case 0:
+            return "Your name"
+        case 1:
+            return "Middle name"
+        case 2:
+            return "Surname (as shown on ID)"
+            
+        default:
+            return ""
+        }
     }
     
-    func validateInput(_ inputs: [String: Any])-> ValidationError? {
+    func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
         guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
         

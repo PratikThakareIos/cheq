@@ -1,17 +1,17 @@
 //
-//  LegalNameCoordinator.swift
+//  MedicareNameCoordinator.swift
 //  Cheq
 //
-//  Created by Xuwei Liang on 3/10/19.
-//  Copyright © 2019 Cheq. All rights reserved.
+//  Created by Alexey on 09.09.2020.
+//  Copyright © 2020 Cheq. All rights reserved.
 //
 
 import UIKit
 
-class LegalNameCoordinator: QuestionCoordinatorProtocol {
+class MedicareNameCoordinator: QuestionCoordinatorProtocol {
     
-    var type: QuestionType = .legalName
-    //var sectionTitle: String = Section.verifyMyIdentity.rawValue
+    var type: QuestionType = .medicareName
+
     var question: String = "Enter your legal name as it appears on your ID"
     var numOfTextFields: Int = 2
     
@@ -20,7 +20,7 @@ class LegalNameCoordinator: QuestionCoordinatorProtocol {
         return result
     }
     
-    func validateInput(_ inputs: [String: Any])-> ValidationError? {
+    func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
         guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
         

@@ -2346,7 +2346,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-N3-R4H">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1127"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-ET-j3O">
                                                         <rect key="frame" x="30" y="30" width="69" height="22"/>
@@ -2382,10 +2382,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E7n-zF-0Sz">
-                                                        <rect key="frame" x="30" y="158" width="315" height="425.5"/>
+                                                        <rect key="frame" x="30" y="158" width="315" height="717"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="344"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="635.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="53"/>
@@ -2432,17 +2432,59 @@
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iP7-Z3-KdN" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="364" width="315" height="53"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="iP7-Z3-KdN" secondAttribute="height" multiplier="167:28" id="jVC-8h-87t"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-E9-4vB" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="437" width="315" height="52.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="bnY-E9-4vB" secondAttribute="height" multiplier="167:28" id="x2R-UQ-5e4"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQg-m5-3dv" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="509.5" width="315" height="53"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="WQg-m5-3dv" secondAttribute="height" multiplier="167:28" id="sHJ-CQ-aKb"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMZ-VZ-Zet" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="582.5" width="315" height="53"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="aMZ-VZ-Zet" secondAttribute="height" multiplier="167:28" id="EjH-SS-ETf"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="WQg-m5-3dv" firstAttribute="width" secondItem="WQg-m5-3dv" secondAttribute="height" multiplier="167:28" id="3Q2-fb-OYk"/>
+                                                                    <constraint firstItem="aMZ-VZ-Zet" firstAttribute="width" secondItem="aMZ-VZ-Zet" secondAttribute="height" multiplier="167:28" id="KkJ-0S-nIl"/>
+                                                                    <constraint firstItem="iP7-Z3-KdN" firstAttribute="width" secondItem="iP7-Z3-KdN" secondAttribute="height" multiplier="167:28" id="ben-Kq-eYu"/>
+                                                                    <constraint firstItem="bnY-E9-4vB" firstAttribute="width" secondItem="bnY-E9-4vB" secondAttribute="height" multiplier="167:28" id="woe-QH-dwA"/>
+                                                                </constraints>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-cu-Vba" customClass="CSwitchWithLabel" customModule="Cheq" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="360" width="315" height="35"/>
+                                                                <rect key="frame" x="0.0" y="651.5" width="315" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="Cmi-ga-8sz"/>
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5a7-Lx-ZUO">
-                                                                <rect key="frame" x="0.0" y="403" width="315" height="80"/>
+                                                                <rect key="frame" x="0.0" y="694.5" width="315" height="80"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="0mx-MJ-kGI">
                                                                         <rect key="frame" x="99" y="0.0" width="70" height="80"/>
@@ -2459,7 +2501,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use this for verification and security text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-re-TMk">
-                                                                <rect key="frame" x="0.0" y="411" width="315" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="702.5" width="315" height="14.5"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2467,7 +2509,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-nZ-m9u">
-                                                        <rect key="frame" x="30" y="599.5" width="315" height="226.5"/>
+                                                        <rect key="frame" x="30" y="891" width="315" height="226"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-ZD-NI3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="176"/>
@@ -2477,7 +2519,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-K7-3se" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="176" width="315" height="50.5"/>
+                                                                <rect key="frame" x="0.0" y="176" width="315" height="50"/>
                                                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Oaf-K7-3se" secondAttribute="height" multiplier="175:28" id="Xtf-bE-VzF"/>
@@ -2555,6 +2597,10 @@
                         <outlet property="textField2" destination="ayf-Jc-11z" id="oNw-DV-7fS"/>
                         <outlet property="textField3" destination="ADS-tW-c1O" id="v95-vB-VL8"/>
                         <outlet property="textField4" destination="iaj-at-sl0" id="Dkg-KL-0xA"/>
+                        <outlet property="textField5" destination="iP7-Z3-KdN" id="ZQ9-rP-N72"/>
+                        <outlet property="textField6" destination="bnY-E9-4vB" id="7Ir-HV-YBL"/>
+                        <outlet property="textField7" destination="WQg-m5-3dv" id="C6G-jX-wpx"/>
+                        <outlet property="textField8" destination="aMZ-VZ-Zet" id="MnS-r5-s4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peu-Wg-GRO" userLabel="First Responder" sceneMemberID="firstResponder"/>

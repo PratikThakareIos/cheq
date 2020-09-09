@@ -20,6 +20,20 @@ enum QuestionType: String {
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
+    
+    case driverLicenceState
+    case driverLicence
+    case driverLicenceName
+
+    case passport
+    case passportName
+
+    case medicare
+    case medicareName
+    
+    case frankieKycAddress
+    case frankieKycAddressConfirm
+
 }
 
 enum QuestionField: String {
@@ -201,6 +215,24 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
+        case .driverLicenceState:
+            coordinator = DriverLicenceStateCoordinator()
+        case .driverLicence:
+            coordinator = DriverLicenceCoordinator()
+        case .driverLicenceName:
+            coordinator = DriverLicenceNameCoordinator()
+        case .passport:
+            coordinator = PassportCoordinator()
+        case .passportName:
+            coordinator = PassportNameCoordinator()
+        case .medicare:
+            coordinator = MedicareCoordinator()
+        case .medicareName:
+            coordinator = MedicareNameCoordinator()
+        case .frankieKycAddress:
+            coordinator = FrankieKycAddressCoordinator()
+        case .frankieKycAddressConfirm:
+            coordinator = FrankieKycAddressConfirmCoordinator()
         }
         return coordinator
     }
