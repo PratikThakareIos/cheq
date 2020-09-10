@@ -39,6 +39,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var textField7: CNTextField!
     @IBOutlet weak var textField8: CNTextField!
 
+    @IBOutlet weak var hintImageView: UIImageView!
+   
     @IBOutlet weak var nextButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var checkboxContainerView: UIView!
     var switchWithLabel = CSwitchWithLabel()
@@ -63,30 +65,27 @@ class QuestionViewController: UIViewController {
         //setupKeyboardHandling()
         self.updateKeyboardViews()
         
-        if viewModel.coordinator.type == .legalName {
-            
+        switch viewModel.coordinator.type {
+        case .legalName:
             let firstname = viewModel.fieldValue(.firstname)
-            let lastname = viewModel.fieldValue(.lastname)
-            if (firstname.count == 0){
+            if firstname.isEmpty {
                 hideBackButton() //is from registration then hide back button
-            }else{
-                //is from lending screen - verify details               
+            } else {
                 showCloseButton()
-                //textField1.text = firstname
-                //textField2.text = lastname
             }
-            
-        }else if viewModel.coordinator.type == .companyName || viewModel.coordinator.type == .companyAddress || viewModel.coordinator.type == .residentialAddress || viewModel.coordinator.type == .verifyName{
-            showNavBar()
-            showBackButton()
-            
-        }else if viewModel.coordinator.type == .bankAccount {
+        
+        case .bankAccount:
             showCloseButton()
             self.textField3.keyboardType = .numberPad
             self.textField4.keyboardType = .numberPad
+        
+        case .companyName, .companyAddress, .residentialAddress, .verifyName:
+            showNavBar()
+            showBackButton()
+
+        default:
+            break
         }
-        
-        
     }
     
     
@@ -213,6 +212,8 @@ class QuestionViewController: UIViewController {
         self.populatePlaceHolderNormalTextField()
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
+        self.hintImageView.image = self.viewModel.hintImage
+        self.hintImageView.isHidden = self.hintImageView.image == nil
         
         // special case for address look up
         switch self.viewModel.coordinator.type {
@@ -287,7 +288,8 @@ class QuestionViewController: UIViewController {
             let stateVm = MultipleChoiceViewModel()
             stateVm.coordinator = StateCoordinator()
             stateVm.load()
-            self.textField1.text = stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue]
+            let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
+            self.textField1.text = savedState.name
             
         case .frankieKycAddressConfirm:
             let stateVm = QuestionViewModel()
@@ -653,14 +655,15 @@ class QuestionViewController: UIViewController {
                 return
             }
             break
-            
-        case .driverLicenseState:
-            AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
-            
+                        
         case .driverLicense:
+            self.viewModel.save(QuestionField.driverLicenceNumber.rawValue, value: textField1.text ?? "")
             AppNav.shared.pushToQuestionForm(.driverLicenseName, viewController: self)
 
         case .driverLicenseName:
+            self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
+            self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .passport:

@@ -12,6 +12,7 @@ protocol QuestionCoordinatorProtocol {
     var type: QuestionType { get }
     var sectionTitle: String { get }
     var question: String { get }
+    var hintImage: UIImage? { get }
     var numOfTextFields: Int { get }
     var numOfCheckBox: Int { get }
     var numOfImageContainer: Int { get }
@@ -49,7 +50,12 @@ extension QuestionCoordinatorProtocol {
         }
     }
     
+    var hintImage: UIImage? {
+        nil
+    }
+    
     func isEditable(at index: Int) -> Bool {
         true
     }
+    
 }

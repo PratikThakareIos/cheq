@@ -104,7 +104,9 @@ class MultipleChoiceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
-        getTransactionData()
+        if AppData.shared.selectedKycDocType == nil {
+            getTransactionData()
+        }
         
         if AppData.shared.completingDetailsForLending {
         
@@ -311,7 +313,9 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
         case .state:
             if AppData.shared.selectedKycDocType == .driversLicense {
                 let vm = self.viewModel
-                vm.save(QuestionField.driverLicenceState.rawValue, value: choice.title)
+                if let ref = choice.ref as? CountryState {
+                    vm.save(QuestionField.driverLicenceState.rawValue, value: ref.rawValue)
+                }
                 AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
                 return
             }

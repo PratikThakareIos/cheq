@@ -21,7 +21,6 @@ enum QuestionType: String {
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
     
-    case driverLicenseState
     case driverLicense
     case driverLicenseName
 
@@ -41,6 +40,7 @@ enum QuestionField: String {
     // about me
     case firstname = "firstname"
     case lastname = "lastname"
+    case surname = "surname"
     case fullLegalName = "fullLegalName"
     case dateOfBirth = "dateOfBirth"
     case contactDetails = "mobile"
@@ -77,6 +77,7 @@ enum QuestionField: String {
     case bankIsJoint = "isJointAccount"
     
     case driverLicenceState
+    case driverLicenceNumber
 
     case kycResidentialUnitNumber
     case kycResidentialStreetNumber
@@ -106,6 +107,10 @@ class QuestionViewModel: BaseViewModel {
     
     func question()-> String {
        return coordinator.question
+    }
+    
+    var hintImage: UIImage? {
+        coordinator.hintImage
     }
     
     func numOfTextFields()->Int {
@@ -221,8 +226,6 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
-        case .driverLicenseState:
-            coordinator = DriverLicenceStateCoordinator()
         case .driverLicense:
             coordinator = DriverLicenceCoordinator()
         case .driverLicenseName:

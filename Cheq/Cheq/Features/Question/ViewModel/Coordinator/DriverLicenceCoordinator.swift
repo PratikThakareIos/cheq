@@ -28,6 +28,15 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
         }
     }
     
+    var hintImage: UIImage? {
+        let stateVm = MultipleChoiceViewModel()
+        stateVm.coordinator = StateCoordinator()
+        stateVm.load()
+        let savedState = stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue]
+        let stateEnum = CountryState(raw: savedState)
+        return UIImage(named: "ic_licence_\(stateEnum.rawValue)")
+    }
+    
     func isEditable(at index: Int) -> Bool {
         switch index {
         case 0:

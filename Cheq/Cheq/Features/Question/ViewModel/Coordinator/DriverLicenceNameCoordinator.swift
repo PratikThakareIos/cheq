@@ -31,6 +31,15 @@ class DriverLicenceNameCoordinator: QuestionCoordinatorProtocol {
         }
     }
     
+    var hintImage: UIImage? {
+        let stateVm = MultipleChoiceViewModel()
+        stateVm.coordinator = StateCoordinator()
+        stateVm.load()
+        let savedState = stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue]
+        let stateEnum = CountryState(raw: savedState)
+        return UIImage(named: "ic_licence_\(stateEnum.rawValue)")
+    }
+
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
         guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }

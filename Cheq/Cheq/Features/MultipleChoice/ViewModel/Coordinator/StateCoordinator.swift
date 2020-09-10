@@ -20,14 +20,14 @@ class StateCoordinator: MultipleChoiceViewModelCoordinator {
     
     func choices()-> Promise<[ChoiceModel]> {
         return Promise<[ChoiceModel]>() { resolver in
-            let choices = cState.allCases.map { self.stateToChoiceModel($0) }
+            let choices = CountryState.allCases.map { self.stateToChoiceModel($0) }
             resolver.fulfill(choices)
         }
     }
 }
 
 extension StateCoordinator {
-    func stateToChoiceModel(_ state: cState?)-> ChoiceModel {
-        return ChoiceModel(type: .choiceWithCaption, title: state?.rawValue ?? "", caption: "", image: nil, ordering: 0, ref : nil)
+    func stateToChoiceModel(_ state: CountryState?)-> ChoiceModel {
+        return ChoiceModel(type: .choiceWithCaption, title: state?.name ?? "", caption: "", image: nil, ordering: 0, ref: state)
     }
 }
