@@ -1597,6 +1597,30 @@
 		4FEDA465232B756B0042E4E2 /* CheqAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEDA464232B756B0042E4E2 /* CheqAPIManager.swift */; };
 		4FEF9837234C6F0600E37421 /* CheqAPIManager_Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */; };
 		4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEF9839234D51DC00E37421 /* FormatterUtil.swift */; };
+		5C35BABA250A270100EB798D /* HeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAB9250A270100EB798D /* HeaderLabelView.swift */; };
+		5C35BABB250A270100EB798D /* HeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAB9250A270100EB798D /* HeaderLabelView.swift */; };
+		5C35BABC250A270100EB798D /* HeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAB9250A270100EB798D /* HeaderLabelView.swift */; };
+		5C35BABD250A270100EB798D /* HeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAB9250A270100EB798D /* HeaderLabelView.swift */; };
+		5C35BABE250A271800EB798D /* IdentityVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */; };
+		5C35BABF250A271900EB798D /* IdentityVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */; };
+		5C35BAC0250A271A00EB798D /* IdentityVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */; };
+		5C35BAC2250A273700EB798D /* HeaderLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BAC1250A273700EB798D /* HeaderLabelView.xib */; };
+		5C35BAC3250A273700EB798D /* HeaderLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BAC1250A273700EB798D /* HeaderLabelView.xib */; };
+		5C35BAC4250A273700EB798D /* HeaderLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BAC1250A273700EB798D /* HeaderLabelView.xib */; };
+		5C35BAC5250A273700EB798D /* HeaderLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BAC1250A273700EB798D /* HeaderLabelView.xib */; };
+		5C35BAC8250A304E00EB798D /* UserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAC7250A304E00EB798D /* UserIDView.swift */; };
+		5C35BAC9250A304E00EB798D /* UserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAC7250A304E00EB798D /* UserIDView.swift */; };
+		5C35BACA250A304E00EB798D /* UserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAC7250A304E00EB798D /* UserIDView.swift */; };
+		5C35BACB250A304E00EB798D /* UserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAC7250A304E00EB798D /* UserIDView.swift */; };
+		5C35BACD250A306600EB798D /* UserIDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BACC250A306600EB798D /* UserIDView.xib */; };
+		5C35BACE250A306600EB798D /* UserIDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BACC250A306600EB798D /* UserIDView.xib */; };
+		5C35BACF250A306600EB798D /* UserIDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BACC250A306600EB798D /* UserIDView.xib */; };
+		5C35BAD0250A306600EB798D /* UserIDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C35BACC250A306600EB798D /* UserIDView.xib */; };
+		5C35BAD3250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */; };
+		5C35BAD4250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */; };
+		5C35BAD5250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */; };
+		5C35BAD6250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */; };
+		5C7AC9EE2508F3BA00F30862 /* IdentityVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */; };
 		6762E7BD2D5E118D2EFC2F67 /* Pods_CheqUAT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3693F3A36A1787B6F4504F /* Pods_CheqUAT.framework */; };
 		7652DA45767C01EF67FF02F0 /* Pods_CheqDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5A37D107CF6F38E54FA4CBB /* Pods_CheqDev.framework */; };
 		7E4DB6B89317C1BA9A4F2DE2 /* Pods_CheqProd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8336736114C81837533C2163 /* Pods_CheqProd.framework */; };
@@ -2257,6 +2281,12 @@
 		4FEF9836234C6F0600E37421 /* CheqAPIManager_Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheqAPIManager_Verification.swift; sourceTree = "<group>"; };
 		4FEF9839234D51DC00E37421 /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
 		5AB2D70544CAE058034DECD1 /* Pods-CheqDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDemo.debug.xcconfig"; path = "Target Support Files/Pods-CheqDemo/Pods-CheqDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5C35BAB9250A270100EB798D /* HeaderLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabelView.swift; sourceTree = "<group>"; };
+		5C35BAC1250A273700EB798D /* HeaderLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderLabelView.xib; sourceTree = "<group>"; };
+		5C35BAC7250A304E00EB798D /* UserIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDView.swift; sourceTree = "<group>"; };
+		5C35BACC250A306600EB798D /* UserIDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIDView.xib; sourceTree = "<group>"; };
+		5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVerificationDetailsVC.swift; sourceTree = "<group>"; };
+		5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerificationVC.swift; sourceTree = "<group>"; };
 		5D18361985B06F31EB877AA1 /* Pods-CheqDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqDev.release.xcconfig"; path = "Target Support Files/Pods-CheqDev/Pods-CheqDev.release.xcconfig"; sourceTree = "<group>"; };
 		62727F015B7CF8CA26092A46 /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		73ED3FB44D45432A648A5E89 /* Pods-CheqProd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheqProd.release.xcconfig"; path = "Target Support Files/Pods-CheqProd/Pods-CheqProd.release.xcconfig"; sourceTree = "<group>"; };
@@ -2734,6 +2764,8 @@
 		2A65AAB9247D3C2E004D6239 /* BasicFlowScreens */ = {
 			isa = PBXGroup;
 			children = (
+				5C35BAD1250A350D00EB798D /* UserVerificationDetailsVC */,
+				5C7AC9EC2508F36600F30862 /* IdentityVerificationVC */,
 				2A526B0F247FE5BB00776325 /* GenericInfoVC */,
 				2A5BA4A8247E9FB900FA816D /* RequestForBankVC */,
 				2A65AAB3247D3BA6004D6239 /* SetupBankVC */,
@@ -3936,6 +3968,40 @@
 			path = CheqAPIManager;
 			sourceTree = "<group>";
 		};
+		5C35BAB8250A269300EB798D /* HeaderLabel */ = {
+			isa = PBXGroup;
+			children = (
+				5C35BAB9250A270100EB798D /* HeaderLabelView.swift */,
+				5C35BAC1250A273700EB798D /* HeaderLabelView.xib */,
+			);
+			path = HeaderLabel;
+			sourceTree = "<group>";
+		};
+		5C35BAC6250A302B00EB798D /* UserIdView */ = {
+			isa = PBXGroup;
+			children = (
+				5C35BAC7250A304E00EB798D /* UserIDView.swift */,
+				5C35BACC250A306600EB798D /* UserIDView.xib */,
+			);
+			path = UserIdView;
+			sourceTree = "<group>";
+		};
+		5C35BAD1250A350D00EB798D /* UserVerificationDetailsVC */ = {
+			isa = PBXGroup;
+			children = (
+				5C35BAD2250A354200EB798D /* UserVerificationDetailsVC.swift */,
+			);
+			path = UserVerificationDetailsVC;
+			sourceTree = "<group>";
+		};
+		5C7AC9EC2508F36600F30862 /* IdentityVerificationVC */ = {
+			isa = PBXGroup;
+			children = (
+				5C7AC9ED2508F3BA00F30862 /* IdentityVerificationVC.swift */,
+			);
+			path = IdentityVerificationVC;
+			sourceTree = "<group>";
+		};
 		60F74BD8DC9F25DD4CC2B10B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -4435,6 +4501,8 @@
 		96A65E8022FDA1A300F1F7AB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5C35BAC6250A302B00EB798D /* UserIdView */,
+				5C35BAB8250A269300EB798D /* HeaderLabel */,
 				2A5BA4A9247EB5EE00FA816D /* UITextView */,
 				BD0D58ED23E99C3C009193CD /* CustomPopUp */,
 				4FDDC363237CD1AB00C3846E /* TransactionModal */,
@@ -5101,6 +5169,7 @@
 				2AAB5D122473E4D3000CC702 /* Onboarding.storyboard in Resources */,
 				2AAB5D132473E4D3000CC702 /* BarChartTableViewCell.xib in Resources */,
 				2AAB5D152473E4D3000CC702 /* CompleteDetailsTableViewCell.xib in Resources */,
+				5C35BAC3250A273700EB798D /* HeaderLabelView.xib in Resources */,
 				2AAB5D162473E4D3000CC702 /* SFProText-Medium.ttf in Resources */,
 				2AAB5D172473E4D3000CC702 /* BarView.xib in Resources */,
 				8A36D3DB250BAB7B00039C1F /* CSegmentedControl.xib in Resources */,
@@ -5114,6 +5183,7 @@
 				2AAB5D1E2473E4D3000CC702 /* AgreementItemTableViewCell.xib in Resources */,
 				2AAB5D1F2473E4D3000CC702 /* BottomTableViewCell.xib in Resources */,
 				2AAB5D202473E4D3000CC702 /* DocsListCell.xib in Resources */,
+				5C35BACE250A306600EB798D /* UserIDView.xib in Resources */,
 				2AAB5D212473E4D3000CC702 /* Cheq.plist in Resources */,
 				2AAB5D222473E4D3000CC702 /* Main.storyboard in Resources */,
 				2A5888B02478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
@@ -5148,6 +5218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C35BAC5250A273700EB798D /* HeaderLabelView.xib in Resources */,
 				4F01F74E237E6A5B00268423 /* LaunchScreen.storyboard in Resources */,
 				4F01F74F237E6A5B00268423 /* InfoNoteTableViewCell.xib in Resources */,
 				4F01F750237E6A5B00268423 /* MessageBubbleTableViewCell.xib in Resources */,
@@ -5161,6 +5232,7 @@
 				4F01F754237E6A5B00268423 /* AmountSelectTableViewCell.xib in Resources */,
 				2A61FF9324CAC50A00C678A8 /* GoogleService-Info.plist in Resources */,
 				2A65AABE247D76D5004D6239 /* SFUIText-Bold.ttf in Resources */,
+				5C35BAD0250A306600EB798D /* UserIDView.xib in Resources */,
 				2A72CF9A2420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
 				4F01F755237E6A5B00268423 /* TransactionGroupTableViewCell.xib in Resources */,
 				4F01F756237E6A5B00268423 /* Onboarding.storyboard in Resources */,
@@ -5210,6 +5282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C35BAC4250A273700EB798D /* HeaderLabelView.xib in Resources */,
 				4FBDDB1D236BC68700EDB1E9 /* LaunchScreen.storyboard in Resources */,
 				4F2324082375093C00BF3F21 /* InfoNoteTableViewCell.xib in Resources */,
 				4FBDDB1E236BC68700EDB1E9 /* MessageBubbleTableViewCell.xib in Resources */,
@@ -5223,6 +5296,7 @@
 				4FBDDB23236BC68700EDB1E9 /* AmountSelectTableViewCell.xib in Resources */,
 				2A65AABD247D76D5004D6239 /* SFUIText-Bold.ttf in Resources */,
 				2A72CF992420ADB80053C0DD /* SFUIText-Medium.ttf in Resources */,
+				5C35BACF250A306600EB798D /* UserIDView.xib in Resources */,
 				4FD228FD2373D7DF00045662 /* TransactionGroupTableViewCell.xib in Resources */,
 				4FBDDB24236BC68700EDB1E9 /* Onboarding.storyboard in Resources */,
 				4F2325942379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
@@ -5292,6 +5366,7 @@
 				4FB479E7231DF894005FA0C1 /* Onboarding.storyboard in Resources */,
 				4F2325912379068A00BF3F21 /* BarChartTableViewCell.xib in Resources */,
 				96F9FFC42352C4DE0041001F /* CompleteDetailsTableViewCell.xib in Resources */,
+				5C35BAC2250A273700EB798D /* HeaderLabelView.xib in Resources */,
 				2A72CF952420ADB80053C0DD /* SFProText-Medium.ttf in Resources */,
 				4F23259E2379323000BF3F21 /* BarView.xib in Resources */,
 				8A36D3DA250BAB7B00039C1F /* CSegmentedControl.xib in Resources */,
@@ -5305,6 +5380,7 @@
 				4FD2290F23743CF300045662 /* TransactionTableViewCell.xib in Resources */,
 				4FB1CB21235439B800E7B224 /* AgreementItemTableViewCell.xib in Resources */,
 				96F9FFD12352DAE00041001F /* BottomTableViewCell.xib in Resources */,
+				5C35BACD250A306600EB798D /* UserIDView.xib in Resources */,
 				9F3ACB8823EFEAB900466953 /* DocsListCell.xib in Resources */,
 				4F0D6FDC23446B3B00AA819C /* Cheq.plist in Resources */,
 				2A5888AF2478087F00419149 /* AuthKey_FKLPYP9PYG.p8 in Resources */,
@@ -5952,6 +6028,7 @@
 				2AAB5BF82473E4D3000CC702 /* TransactionGroupTableViewCell.swift in Sources */,
 				2A5BA4B2247EC4DE00FA816D /* RequestForBankViewModel.swift in Sources */,
 				2AAB5BF92473E4D3000CC702 /* LoginVC.swift in Sources */,
+				5C35BABB250A270100EB798D /* HeaderLabelView.swift in Sources */,
 				2AAB5BFA2473E4D3000CC702 /* CNSearchTextField.swift in Sources */,
 				2A6A85C824B2D03500BD4B92 /* SplashVC.swift in Sources */,
 				2AAB5BFB2473E4D3000CC702 /* StringUtil.swift in Sources */,
@@ -6012,6 +6089,7 @@
 				2AAB5C2F2473E4D3000CC702 /* TransferCardTableViewCell.swift in Sources */,
 				2AAB5C302473E4D3000CC702 /* TermsAndConditionsViewController.swift in Sources */,
 				2AAB5C312473E4D3000CC702 /* CTableViewCell.swift in Sources */,
+				5C35BAC9250A304E00EB798D /* UserIDView.swift in Sources */,
 				2AAB5C322473E4D3000CC702 /* LoginViewController.swift in Sources */,
 				2AAB5C332473E4D3000CC702 /* AgeRangeCoordinator.swift in Sources */,
 				2AAB5C342473E4D3000CC702 /* NotificationEnums.swift in Sources */,
@@ -6118,6 +6196,7 @@
 				2AAB5C972473E4D3000CC702 /* TransactionModal.swift in Sources */,
 				2AAB5C982473E4D3000CC702 /* PostConnectionJobRequest.swift in Sources */,
 				8A6BD48D25090B3800354CCB /* PassportNameCoordinator.swift in Sources */,
+				5C35BABE250A271800EB798D /* IdentityVerificationVC.swift in Sources */,
 				2AAB5C992473E4D3000CC702 /* LinkAccountsCoordinator.swift in Sources */,
 				2AAB5C9A2473E4D3000CC702 /* IntercomManager.swift in Sources */,
 				2AAB5C9B2473E4D3000CC702 /* GetEmployerPlaceResponse.swift in Sources */,
@@ -6201,6 +6280,7 @@
 				2AAB5CE72473E4D3000CC702 /* NewPasswordSetupViewModel.swift in Sources */,
 				2AAB5CE82473E4D3000CC702 /* RemoteConfigManager.swift in Sources */,
 				2AAB5CE92473E4D3000CC702 /* AnalyticsService.swift in Sources */,
+				5C35BAD4250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */,
 				2AAB5CEB2473E4D3000CC702 /* GetFinancialInstitutionResponse.swift in Sources */,
 				2AAB5CEC2473E4D3000CC702 /* CTableViewController.swift in Sources */,
 				2AAB5CED2473E4D3000CC702 /* CarouselCoordinatorViewModel.swift in Sources */,
@@ -6298,6 +6378,7 @@
 				2A44A2C52452E6ED00346FCA /* CategoryAmountStatResponse.swift in Sources */,
 				4F01F64A237E6A5B00268423 /* CBarViewFormatter.swift in Sources */,
 				4F01F64B237E6A5B00268423 /* CNavStackView.swift in Sources */,
+				5C35BAD6250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */,
 				2A110BC924AA566800CA1EFD /* NoMoreActivityCell.swift in Sources */,
 				2A72CF6B2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				2A44A2742452E6ED00346FCA /* GetBudgetSpendingsResponse.swift in Sources */,
@@ -6423,6 +6504,7 @@
 				4F01F6A8237E6A5B00268423 /* MultipleChoiceViewModel.swift in Sources */,
 				4F345BA5238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */,
 				4F01F6A9237E6A5B00268423 /* BottomTableViewCell.swift in Sources */,
+				5C35BACB250A304E00EB798D /* UserIDView.swift in Sources */,
 				2A5BA4B4247EC4DE00FA816D /* RequestForBankViewModel.swift in Sources */,
 				2A25F6F224598DFB00617CA3 /* BasiqConnectionResponse.swift in Sources */,
 				2A44A2BF2452E6ED00346FCA /* MonthAmountStatResponse.swift in Sources */,
@@ -6472,6 +6554,7 @@
 				4F01F6C5237E6A5B00268423 /* MultipleChoiceViewController.swift in Sources */,
 				8A6BD49425090B4A00354CCB /* MedicareCoordinator.swift in Sources */,
 				2A64BDCA2482812800998311 /* DeclineDetailTableViewCell.swift in Sources */,
+				5C35BABD250A270100EB798D /* HeaderLabelView.swift in Sources */,
 				4F345BA1238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */,
 				4F01F6C7237E6A5B00268423 /* TransactionGroupTableViewCellViewModel.swift in Sources */,
 				4F01F6C8237E6A5B00268423 /* SpendingCardTableViewCell.swift in Sources */,
@@ -6563,6 +6646,7 @@
 				4F01F71C237E6A5B00268423 /* CPopupDialog.swift in Sources */,
 				4F01F71D237E6A5B00268423 /* OnDemandCoordinator.swift in Sources */,
 				4F01F71E237E6A5B00268423 /* CProgressViewStackView.swift in Sources */,
+				5C35BAC0250A271A00EB798D /* IdentityVerificationVC.swift in Sources */,
 				4F01F720237E6A5B00268423 /* BottomTableViewCellViewModel.swift in Sources */,
 				4F01F721237E6A5B00268423 /* UICollectionView_Extension.swift in Sources */,
 				4F01F722237E6A5B00268423 /* EmailIntroCoordinator.swift in Sources */,
@@ -6686,6 +6770,7 @@
 				2A44A2C42452E6ED00346FCA /* CategoryAmountStatResponse.swift in Sources */,
 				4FBDDA39236BC68700EDB1E9 /* CBarViewFormatter.swift in Sources */,
 				4FDDC35C237BAF4E00C3846E /* CNavStackView.swift in Sources */,
+				5C35BAD5250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */,
 				2A110BC824AA566800CA1EFD /* NoMoreActivityCell.swift in Sources */,
 				2A72CF6A2420A9460053C0DD /* RegistrationVC.swift in Sources */,
 				2A44A2732452E6ED00346FCA /* GetBudgetSpendingsResponse.swift in Sources */,
@@ -6811,6 +6896,7 @@
 				4FBDDA8C236BC68700EDB1E9 /* MultipleChoiceViewModel.swift in Sources */,
 				4F345BA4238F560E005DCFDB /* ConnectingToBankViewModel.swift in Sources */,
 				4FBDDA8D236BC68700EDB1E9 /* BottomTableViewCell.swift in Sources */,
+				5C35BACA250A304E00EB798D /* UserIDView.swift in Sources */,
 				2A5BA4B3247EC4DE00FA816D /* RequestForBankViewModel.swift in Sources */,
 				2A25F6F124598DFB00617CA3 /* BasiqConnectionResponse.swift in Sources */,
 				2A44A2BE2452E6ED00346FCA /* MonthAmountStatResponse.swift in Sources */,
@@ -6860,6 +6946,7 @@
 				4FBDDAA5236BC68700EDB1E9 /* MultipleChoiceViewController.swift in Sources */,
 				8A6BD49325090B4A00354CCB /* MedicareCoordinator.swift in Sources */,
 				2A64BDC92482812800998311 /* DeclineDetailTableViewCell.swift in Sources */,
+				5C35BABC250A270100EB798D /* HeaderLabelView.swift in Sources */,
 				4F345BA0238F55F3005DCFDB /* ConnectingToBankViewController.swift in Sources */,
 				4FBDDAA7236BC68700EDB1E9 /* IntercomChatTableViewCellViewModel.swift in Sources */,
 				4FD229022373D7FA00045662 /* TransactionGroupTableViewCellViewModel.swift in Sources */,
@@ -6951,6 +7038,7 @@
 				4FBDDAEE236BC68700EDB1E9 /* CPopupDialog.swift in Sources */,
 				4FBDDAEF236BC68700EDB1E9 /* OnDemandCoordinator.swift in Sources */,
 				4FBDDAF0236BC68700EDB1E9 /* CProgressViewStackView.swift in Sources */,
+				5C35BABF250A271900EB798D /* IdentityVerificationVC.swift in Sources */,
 				4FBDDAF1236BC68700EDB1E9 /* BottomTableViewCellViewModel.swift in Sources */,
 				4FBDDAF4236BC68700EDB1E9 /* UICollectionView_Extension.swift in Sources */,
 				4FBDDAF5236BC68700EDB1E9 /* EmailIntroCoordinator.swift in Sources */,
@@ -7187,6 +7275,7 @@
 				BD9739402404F09700C34A33 /* TermsAndConditionsViewController.swift in Sources */,
 				96F9FF9F2352B0120041001F /* CTableViewCell.swift in Sources */,
 				4F2E4B92233AECD1001F1BA2 /* LoginViewController.swift in Sources */,
+				5C35BAC8250A304E00EB798D /* UserIDView.swift in Sources */,
 				4F2E4B9B233AFC67001F1BA2 /* AgeRangeCoordinator.swift in Sources */,
 				4F0910A023208A2800AA7F7D /* NotificationEnums.swift in Sources */,
 				4F0D717C2346F6FA00AA819C /* PasscodeViewModel.swift in Sources */,
@@ -7259,10 +7348,12 @@
 				966434DC2341C66E00934FB0 /* CheqAPIManager_Spending.swift in Sources */,
 				96F9FFC72352C4FD0041001F /* CompleteDetailsTableViewCellViewModel.swift in Sources */,
 				4F2E4AB223346EB5001F1BA2 /* Array_Extension.swift in Sources */,
+				5C7AC9EE2508F3BA00F30862 /* IdentityVerificationVC.swift in Sources */,
 				4FD7C1372328754000AC7A67 /* WebViewModel.swift in Sources */,
 				4F0D71792346F6E300AA819C /* PasscodeViewController.swift in Sources */,
 				4F80FCDB2359807C009C8F83 /* MonthlyPayCycleIntroCoordinator.swift in Sources */,
 				2A44A22A2452E6ED00346FCA /* LendingAPI.swift in Sources */,
+				5C35BABA250A270100EB798D /* HeaderLabelView.swift in Sources */,
 				9600A71623534EDE0082C2A3 /* HeaderTableViewCell.swift in Sources */,
 				4F01F8DD2385100900268423 /* CSplashPageViewController.swift in Sources */,
 				4F0D71652346B53800AA819C /* LendingViewModel.swift in Sources */,
@@ -7375,6 +7466,7 @@
 				4F180972235D53310018507D /* NewPasswordSetupViewModel.swift in Sources */,
 				4F180BD4235E7E690018507D /* RemoteConfigManager.swift in Sources */,
 				BD3760C523DE7D350016FF86 /* AnalyticsService.swift in Sources */,
+				5C35BAD3250A354200EB798D /* UserVerificationDetailsVC.swift in Sources */,
 				2A44A2662452E6ED00346FCA /* GetFinancialInstitutionResponse.swift in Sources */,
 				4F80FCF1235B3435009C8F83 /* CTableViewController.swift in Sources */,
 				966A19E222FEA7E700A6E444 /* CarouselCoordinatorViewModel.swift in Sources */,

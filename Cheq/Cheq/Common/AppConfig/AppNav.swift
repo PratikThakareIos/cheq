@@ -423,6 +423,24 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    func presentIdentityVerificationView(viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: IdentityVerificationVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.identityVerificationVC.rawValue) as! IdentityVerificationVC
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentUserVerificationDetailsView(viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: UserVerificationDetailsVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.userVerificationDetailsVC.rawValue) as! UserVerificationDetailsVC
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: KYC
