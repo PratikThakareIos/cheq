@@ -79,6 +79,8 @@ enum QuestionField: String {
     case driverLicenceState
     case driverLicenceNumber
 
+    case passportNumber
+    
     case kycResidentialUnitNumber
     case kycResidentialStreetNumber
 

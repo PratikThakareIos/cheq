@@ -667,14 +667,14 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .passport:
-            self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
-            self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
-            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            self.viewModel.save(QuestionField.passportNumber.rawValue, value: textField1.text ?? "")
+            AppNav.shared.pushToQuestionForm(.passportName, viewController: self)
 
         case .passportName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
-            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
+            AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .medicare:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
