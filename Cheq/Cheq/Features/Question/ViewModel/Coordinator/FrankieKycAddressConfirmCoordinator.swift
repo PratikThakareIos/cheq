@@ -39,6 +39,15 @@ class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
         }
     }
     
+    func isEditable(at index: Int) -> Bool {
+        switch index {
+        case 7: // Country is hardcoded to AU and not editable
+            return false
+        default:
+            return true
+        }
+    }
+
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
         // unit number
         return nil

@@ -21,9 +21,9 @@ enum QuestionType: String {
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
     
-    case driverLicenceState
-    case driverLicence
-    case driverLicenceName
+    case driverLicenseState
+    case driverLicense
+    case driverLicenseName
 
     case passport
     case passportName
@@ -75,6 +75,19 @@ enum QuestionField: String {
     case bankBSB = "bankBSB"
     case bankAccNo = "bankAccNo"
     case bankIsJoint = "isJointAccount"
+    
+    case driverLicenceState
+
+    case kycResidentialUnitNumber
+    case kycResidentialStreetNumber
+
+    case kycResidentialPostcode
+    case kycResidentialSuburb
+    case kycResidentialState
+    case kycResidentialStreetName
+    case kycResidentialStreetType
+    case kycResidentialCountry
+
 }
 
 class QuestionViewModel: BaseViewModel {
@@ -110,7 +123,11 @@ class QuestionViewModel: BaseViewModel {
     func placeHolder(_ index: Int)->String {
         return coordinator.placeHolder(index)
     }
-    
+
+    func isEditable(at index: Int) -> Bool {
+        return coordinator.isEditable(at: index)
+    }
+
     func save(_ key: String, value: String) {
         if self.savedAnswer.count == 0 { loadSaved() }
         savedAnswer[key] = value
@@ -179,18 +196,7 @@ extension QuestionViewModel {
             return .couple
         }
     }
-
-    func residentialState() {
-        let state = self.fieldValue(.residentialState)
-        let localEnum = cState(fromRawValue: state)
-        return StateCoordinator.convertCStateToState(localEnum)
-    }
     
-//    func putUserResidentialState()-> PutUserDetailRequest.State {
-//        let state = self.fieldValue(.residentialState)
-//        let localEnum = cState(fromRawValue: state)
-//        return StateCoordinator.convertCStateToPutUserState(localEnum)
-//    }
 }
 
 extension QuestionViewModel {
@@ -215,11 +221,11 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
-        case .driverLicenceState:
+        case .driverLicenseState:
             coordinator = DriverLicenceStateCoordinator()
-        case .driverLicence:
+        case .driverLicense:
             coordinator = DriverLicenceCoordinator()
-        case .driverLicenceName:
+        case .driverLicenseName:
             coordinator = DriverLicenceNameCoordinator()
         case .passport:
             coordinator = PassportCoordinator()

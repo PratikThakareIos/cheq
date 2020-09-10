@@ -16,7 +16,8 @@ protocol QuestionCoordinatorProtocol {
     var numOfCheckBox: Int { get }
     var numOfImageContainer: Int { get }
     func placeHolder(_ index: Int)->String
-    
+    func isEditable(at index: Int) -> Bool
+
     func validateInput(_ inputs: [String: Any])-> ValidationError?
 }
 
@@ -48,4 +49,7 @@ extension QuestionCoordinatorProtocol {
         }
     }
     
+    func isEditable(at index: Int) -> Bool {
+        true
+    }
 }

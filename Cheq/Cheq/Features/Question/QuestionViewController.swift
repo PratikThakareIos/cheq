@@ -195,10 +195,14 @@ class QuestionViewController: UIViewController {
         //self.sectionTitle.font = AppConfig.shared.activeTheme.defaultFont
         
         let coordinatorType = self.viewModel.coordinator.type
-        if  AppData.shared.completingDetailsForLending && (coordinatorType == .legalName ||  coordinatorType == .residentialAddress ||  coordinatorType == .dateOfBirth ) {
+        if AppData.shared.completingDetailsForLending && (coordinatorType == .legalName ||  coordinatorType == .residentialAddress ||  coordinatorType == .dateOfBirth ) {
             self.sectionTitle.text = Section.verifyMyIdentity.rawValue
         }else{
             self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
+        }
+        
+        if AppData.shared.selectedKycDocType != nil {
+            self.sectionTitle.text = ""
         }
         
         self.questionDescription.isHidden = true
@@ -277,23 +281,25 @@ class QuestionViewController: UIViewController {
     }
     
     func prePopulateEntry() {
-        //        viewModel.loadSaved()
-        //        switch viewModel.coordinator.type {
-        //        case .companyAddress:
-        //            self.searchTextField.text = ""
-        //            if AppData.shared.employerList.count > 0, AppData.shared.selectedEmployer >= 0, AppData.shared.selectedEmployer < AppData.shared.employerList.count {
-        //                let employer = AppData.shared.employerList[AppData.shared.selectedEmployer]
-        //                let employerName = employer.name ?? ""
-        //                let employerAddress = employer.address ?? ""
-        //                if employerAddress == viewModel.fieldValue(QuestionField.employerAddress), employerName ==  viewModel.fieldValue(QuestionField.employerName) {
-        //                    self.searchTextField.text = viewModel.fieldValue(QuestionField.employerAddress)
-        //                    AppData.shared.employerAddressList = AppData.shared.employerList
-        //                    AppData.shared.selectedEmployerAddress = AppData.shared.selectedEmployer
-        //                }
-        //            }
-        //            self.searchTextField.keyboardType = .default
-        //        default: break
-        //        }
+        viewModel.loadSaved()
+        switch viewModel.coordinator.type {
+        case .driverLicense:
+            let stateVm = MultipleChoiceViewModel()
+            stateVm.coordinator = StateCoordinator()
+            stateVm.load()
+            self.textField1.text = stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue]
+            
+        case .frankieKycAddressConfirm:
+            let stateVm = QuestionViewModel()
+            stateVm.coordinator = FrankieKycAddressCoordinator()
+            stateVm.loadSaved()
+            self.textField3.text = stateVm.savedAnswer[QuestionField.kycResidentialStreetName.rawValue]
+            self.textField6.text = stateVm.savedAnswer[QuestionField.kycResidentialState.rawValue]
+            self.textField7.text = stateVm.savedAnswer[QuestionField.kycResidentialPostcode.rawValue]
+            self.textField8.text = stateVm.savedAnswer[QuestionField.kycResidentialCountry.rawValue]
+
+        default: break
+        }
     }
     
     func populatePopup_BankDetailsAlreadyInUse(){
@@ -399,6 +405,11 @@ class QuestionViewController: UIViewController {
         case .dateOfBirth:
             
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
+            
+            if AppData.shared.selectedKycDocType != nil {
+                AppNav.shared.pushToQuestionForm(.frankieKycAddress, viewController: self)
+                return
+            }
             
             guard AppData.shared.completingDetailsForLending == false else {
                 let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
@@ -643,13 +654,13 @@ class QuestionViewController: UIViewController {
             }
             break
             
-        case .driverLicenceState:
-            AppNav.shared.pushToQuestionForm(.driverLicence, viewController: self)
+        case .driverLicenseState:
+            AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
             
-        case .driverLicence:
-            AppNav.shared.pushToQuestionForm(.driverLicenceName, viewController: self)
+        case .driverLicense:
+            AppNav.shared.pushToQuestionForm(.driverLicenseName, viewController: self)
 
-        case .driverLicenceName:
+        case .driverLicenseName:
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .passport:
@@ -673,6 +684,14 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
 
         case .frankieKycAddress:
+            if let err = self.validateKYCAddressLookup() {
+                showError(err, completion: nil)
+                return
+            }
+            if AppData.shared.kycAddressList.count > 0 {
+                let address = AppData.shared.kycAddressList[AppData.shared.selectedKYCAddress]
+                self.saveKYCAddress(address)
+            }
             AppNav.shared.pushToQuestionForm(.frankieKycAddressConfirm, viewController: self)
 
         case .frankieKycAddressConfirm:
@@ -722,7 +741,14 @@ extension QuestionViewController {
         self.viewModel.save(QuestionField.residentialState.rawValue, value: address.state ?? "")
         self.viewModel.save(QuestionField.residentialCountry.rawValue, value: address.country ?? "")
     }
-    
+
+    func saveKYCAddress(_ address: GetAddressResponse) {
+        self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: address.address ?? "")
+        self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: address.postCode ?? "")
+        self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: address.state ?? "")
+        self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: "Australia")
+    }
+
     func saveEmployerAddress(_ address: GetAddressResponse) {
         self.viewModel.save(QuestionField.employerAddress.rawValue, value: address.address ?? "")
         self.viewModel.save(QuestionField.employerPostcode.rawValue, value: address.postCode ?? "")
@@ -740,14 +766,6 @@ extension QuestionViewController {
     
     
     func validateResidentialAddressLookup()->ValidationError? {
-        
-        //        let qvm = QuestionViewModel()
-        //        qvm.loadSaved()
-        //        let address = qvm.fieldValue(.residentialAddress)
-        //        if address != "" {
-        //             return nil
-        //        }
-        
         guard AppData.shared.residentialAddressList.count > 0 else {
             self.searchTextField.text = ""
             return ValidationError.autoCompleteHomeAddressIsMandatory
@@ -763,7 +781,22 @@ extension QuestionViewController {
         }
     }
     
-    
+    func validateKYCAddressLookup() -> ValidationError? {
+        guard AppData.shared.kycAddressList.count > 0 else {
+            self.searchTextField.text = ""
+            return ValidationError.autoCompleteHomeAddressIsMandatory
+        }
+        
+        let autoCompleteMatch = AppData.shared.kycAddressList.filter { $0.address == searchTextField.text }
+        
+        if autoCompleteMatch.count == 1 {
+            return nil
+        } else {
+            self.searchTextField.text = ""
+            return ValidationError.autoCompleteHomeAddressIsMandatory
+        }
+    }
+
     
     func validateCompanyAddressLookup()->ValidationError? {
         guard AppData.shared.employerAddressList.count > 0 || AppData.shared.employerList.count > 0 else {
@@ -834,6 +867,8 @@ extension QuestionViewController {
             .enumerated()
             .forEach { idx, textField in
                 textField.placeholder = self.viewModel.placeHolder(idx)
+                textField.isUserInteractionEnabled = self.viewModel.isEditable(at: idx)
+                textField.backgroundColor = self.viewModel.isEditable(at: idx) ? .white : UIColor(hex: "ededed")
         }
         
         if self.viewModel.coordinator.numOfTextFields == 2 {
@@ -1123,13 +1158,13 @@ extension QuestionViewController{
         searchTextField.minCharactersNumberToStartFiltering = 2
         
         searchTextField.itemSelectionHandler  = { item, itemPosition  in
-            AppData.shared.selectedResidentialAddress = itemPosition
+            AppData.shared.selectedKYCAddress = itemPosition
             self.searchTextField.text = item[itemPosition].title
         }
         searchTextField.userStoppedTypingHandler = {
             if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
                 CheqAPIManager.shared.residentialAddressLookup(query).done { addressList in
-                    AppData.shared.residentialAddressList = addressList
+                    AppData.shared.kycAddressList = addressList
                     self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
                 }.catch {err in
                     LoggingUtil.shared.cPrint(err)

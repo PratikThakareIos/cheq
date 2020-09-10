@@ -9,7 +9,7 @@
 import UIKit
 
 class DriverLicenceStateCoordinator: QuestionCoordinatorProtocol {
-    var type: QuestionType = .driverLicenceState
+    var type: QuestionType = .driverLicenseState
 
     var question: String = "What state was your driver's licence issued?"
     var sectionTitle: String = ""

@@ -10,7 +10,7 @@ import UIKit
 
 class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
     
-    var type: QuestionType = .driverLicence
+    var type: QuestionType = .driverLicense
     
     var question: String = "Your driver's licence details"
     var sectionTitle: String = ""
@@ -28,18 +28,20 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
         }
     }
     
-    func validateInput(_ inputs: [String: Any]) -> ValidationError? {
-        
-        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        
-        guard (firstName != "" &&  lastName != "") else {
-            return ValidationError.allFieldsMustBeFilled
+    func isEditable(at index: Int) -> Bool {
+        switch index {
+        case 0:
+            return false
+        default:
+            return true
         }
-        
-        guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
-        
-        guard firstName.count >= 2, lastName.count >= 2 else {
-            return ValidationError.invalidNameFormat
+    }
+    
+    func validateInput(_ inputs: [String: Any]) -> ValidationError? {
+        guard let licenceNumber = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+                
+        guard licenceNumber.count >= 2 else {
+            return ValidationError.invalidInputFormat
         }
         
         return nil

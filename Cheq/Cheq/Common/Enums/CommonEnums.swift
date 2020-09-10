@@ -81,7 +81,7 @@ enum cAgeRange: String {
     }
 }
 
-enum cState: String {
+enum cState: String, CaseIterable {
     case cNSW = "New South Wales (NSW)"
     case cACT = "Australian Capital Territory (ACT)"
     case cQLD = "Queensland (NSW)"

@@ -53,8 +53,6 @@ class DataHelperUtil {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = TestUtil.shared.dobFormatStyle()
         let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
-        let cStateString = qVm.fieldValue(.residentialState)
-        let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
         
         /// Notice that **fieldValue** is used to access the saved answers instead of directly accessing the answer map inside **QuestionViewModel**
         let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname),

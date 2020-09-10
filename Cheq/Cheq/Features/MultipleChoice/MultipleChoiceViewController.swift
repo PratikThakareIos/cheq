@@ -309,6 +309,12 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
             AppNav.shared.pushToQuestionForm(.contactDetails, viewController: self)
             
         case .state:
+            if AppData.shared.selectedKycDocType == .driversLicense {
+                let vm = self.viewModel
+                vm.save(QuestionField.driverLicenceState.rawValue, value: choice.title)
+                AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
+                return
+            }
             
             let vm = self.viewModel
             vm.save(QuestionField.residentialState.rawValue, value: choice.title)

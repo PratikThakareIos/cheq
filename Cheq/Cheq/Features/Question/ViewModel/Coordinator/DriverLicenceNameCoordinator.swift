@@ -10,7 +10,7 @@ import UIKit
 
 class DriverLicenceNameCoordinator: QuestionCoordinatorProtocol {
     
-    var type: QuestionType = .driverLicenceName
+    var type: QuestionType = .driverLicenseName
     
     var question: String = "Enter your legal name as it appears on your ID"
     var sectionTitle: String = ""
