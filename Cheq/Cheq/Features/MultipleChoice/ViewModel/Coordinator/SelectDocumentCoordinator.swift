@@ -9,10 +9,11 @@
 import UIKit
 import PromiseKit
 
-enum KycDocType: String {
+enum KycDocType: String, CaseIterable {
     case passport = "Passport"
     case driversLicense = "Driver license"
-    
+    case medicareCard = "Medicare Card"
+
     init(fromRawValue: String) {
         self = KycDocType(rawValue: fromRawValue) ?? .passport
     }

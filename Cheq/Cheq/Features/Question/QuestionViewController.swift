@@ -30,6 +30,8 @@ class QuestionViewController: UIViewController {
     private var textFields: [CNTextField] {
         [textField1, textField2, textField3, textField4, textField5, textField6, textField7, textField8]
     }
+    @IBOutlet weak var segmentedControl: CSegmentedControl!
+
     @IBOutlet weak var textField1: CNTextField!
     @IBOutlet weak var textField2: CNTextField!
     @IBOutlet weak var textField3: CNTextField!
@@ -214,6 +216,13 @@ class QuestionViewController: UIViewController {
         self.questionTitle.text = self.viewModel.question()
         self.hintImageView.image = self.viewModel.hintImage
         self.hintImageView.isHidden = self.hintImageView.image == nil
+        
+        if let controlConfig = self.viewModel.coordinator.segmentedControlConfig() {
+            self.segmentedControl.configure(with: controlConfig)
+            self.segmentedControl.addTarget(self, action: #selector(onSegmentedControlChanged(_:)), for: .valueChanged)
+        } else {
+            self.segmentedControl.isHidden = true
+        }
         
         // special case for address look up
         switch self.viewModel.coordinator.type {
@@ -677,14 +686,16 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .medicare:
-            self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
-            self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
-            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            self.viewModel.save(QuestionField.medicareNumber.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.medicarePosition.rawValue, value: textField2.text ?? "")
+            self.viewModel.save(QuestionField.medicareValidTo.rawValue, value: textField3.text ?? "")
+            AppNav.shared.pushToQuestionForm(.medicareName, viewController: self)
 
         case .medicareName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
-            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
+            AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .frankieKycAddress:
             if let err = self.validateKYCAddressLookup() {
@@ -731,6 +742,18 @@ class QuestionViewController: UIViewController {
             AppData.shared.completingDetailsForLending = false
             NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
             AppNav.shared.dismissModal(self){}
+        }
+    }
+    
+    @objc func onSegmentedControlChanged(_ sender: CSegmentedControl) {
+        switch self.viewModel.coordinator.type {
+        case .medicare:
+            self.viewModel.coordinator.onSegmentedControlChange(to: sender.selectedItem)
+            self.hintImageView.image = self.viewModel.hintImage
+            self.hintImageView.isHidden = self.hintImageView.image == nil
+
+        default:
+            break
         }
     }
 }
@@ -999,8 +1022,11 @@ extension QuestionViewController: UITextFieldDelegate {
             LoggingUtil.shared.cPrint("search residential addresss")
             
         case .dateOfBirth:
-            LoggingUtil.shared.cPrint("show date picker")
-            showDatePicker(textField1, initialDate: 18.years.earlier, picker: datePicker)
+            showDatePicker(textField1, initialDate: 18.years.earlier, maxDate: 18.years.earlier, minDate: nil, picker: datePicker)
+            textField.resignFirstResponder()
+            
+        case .medicare where textField == textField3:
+            showDatePicker(textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: datePicker)
             textField.resignFirstResponder()
             
         default: break

@@ -81,6 +81,10 @@ enum QuestionField: String {
 
     case passportNumber
     
+    case medicareNumber
+    case medicarePosition
+    case medicareValidTo
+    
     case kycResidentialUnitNumber
     case kycResidentialStreetNumber
 

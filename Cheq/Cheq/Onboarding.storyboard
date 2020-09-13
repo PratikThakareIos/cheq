@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FgW-cR-se2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FgW-cR-se2">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -2346,7 +2346,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-N3-R4H">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1364.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1438.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEA-ET-j3O">
                                                         <rect key="frame" x="30" y="30" width="69" height="22"/>
@@ -2382,13 +2382,17 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E7n-zF-0Sz">
-                                                        <rect key="frame" x="30" y="158" width="315" height="954.5"/>
+                                                        <rect key="frame" x="30" y="158" width="315" height="1028.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-8Y-CDP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="873"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="947"/>
                                                                 <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFf-6v-QCk" customClass="CSegmentedControl" customModule="Cheq" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="54"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </view>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1H-Ek-01Y" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="74" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="Z1H-Ek-01Y" secondAttribute="height" multiplier="167:28" id="mGG-rk-Rxo"/>
@@ -2397,7 +2401,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-5y-tQx" customClass="CSearchTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="73" width="315" height="52.5"/>
+                                                                        <rect key="frame" x="0.0" y="147" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="2Wy-5y-tQx" secondAttribute="height" multiplier="167:28" id="PjI-bJ-xxB"/>
@@ -2406,7 +2410,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-Jc-11z" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="145.5" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="219.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="ayf-Jc-11z" secondAttribute="height" multiplier="167:28" id="xni-Dw-cqg"/>
@@ -2415,7 +2419,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADS-tW-c1O" userLabel="Text Field3" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="218.5" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="292.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="ADS-tW-c1O" secondAttribute="height" multiplier="167:28" id="G0d-99-W1i"/>
@@ -2424,7 +2428,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-at-sl0" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="291.5" width="315" height="52.5"/>
+                                                                        <rect key="frame" x="0.0" y="365.5" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="iaj-at-sl0" secondAttribute="height" multiplier="167:28" id="Ruh-6j-Dbu"/>
@@ -2433,7 +2437,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iP7-Z3-KdN" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="364" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="438" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="iP7-Z3-KdN" secondAttribute="height" multiplier="167:28" id="jVC-8h-87t"/>
@@ -2442,7 +2446,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnY-E9-4vB" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="437" width="315" height="52.5"/>
+                                                                        <rect key="frame" x="0.0" y="511" width="315" height="52.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="bnY-E9-4vB" secondAttribute="height" multiplier="167:28" id="x2R-UQ-5e4"/>
@@ -2451,7 +2455,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQg-m5-3dv" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="509.5" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="583.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="WQg-m5-3dv" secondAttribute="height" multiplier="167:28" id="sHJ-CQ-aKb"/>
@@ -2460,7 +2464,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Extra TextFeild" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aMZ-VZ-Zet" customClass="CNTextField" customModule="Cheq" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="582.5" width="315" height="53"/>
+                                                                        <rect key="frame" x="0.0" y="656.5" width="315" height="53"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="aMZ-VZ-Zet" secondAttribute="height" multiplier="167:28" id="EjH-SS-ETf"/>
@@ -2469,7 +2473,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZa-kZ-E1A">
-                                                                        <rect key="frame" x="0.0" y="655.5" width="315" height="217.5"/>
+                                                                        <rect key="frame" x="0.0" y="729.5" width="315" height="217.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="dZa-kZ-E1A" secondAttribute="height" multiplier="756:522" id="Ka9-kK-iis"/>
                                                                         </constraints>
@@ -2483,14 +2487,14 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaK-cu-Vba" customClass="CSwitchWithLabel" customModule="Cheq" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="889" width="315" height="35"/>
+                                                                <rect key="frame" x="0.0" y="963" width="315" height="35"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="Cmi-ga-8sz"/>
                                                                 </constraints>
                                                             </view>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5a7-Lx-ZUO">
-                                                                <rect key="frame" x="0.0" y="932" width="315" height="80"/>
+                                                                <rect key="frame" x="0.0" y="1006" width="315" height="80"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" translatesAutoresizingMaskIntoConstraints="NO" id="0mx-MJ-kGI">
                                                                         <rect key="frame" x="99" y="0.0" width="70" height="80"/>
@@ -2507,7 +2511,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We use this for verification and security text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-re-TMk">
-                                                                <rect key="frame" x="0.0" y="940" width="315" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="1014" width="315" height="14.5"/>
                                                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="12"/>
                                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -2515,7 +2519,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-nZ-m9u">
-                                                        <rect key="frame" x="30" y="1128.5" width="315" height="226"/>
+                                                        <rect key="frame" x="30" y="1202.5" width="315" height="226"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="nJc-ZD-NI3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="176"/>
@@ -2599,6 +2603,7 @@
                         <outlet property="scrollView" destination="pgj-0M-ePb" id="J3V-qR-Nux"/>
                         <outlet property="searchTextField" destination="2Wy-5y-tQx" id="yE7-T2-cEz"/>
                         <outlet property="sectionTitle" destination="MEA-ET-j3O" id="fuz-T3-rwf"/>
+                        <outlet property="segmentedControl" destination="ZFf-6v-QCk" id="Yec-rO-kNj"/>
                         <outlet property="stackView" destination="E7n-zF-0Sz" id="gEt-7D-ANY"/>
                         <outlet property="textField1" destination="Z1H-Ek-01Y" id="CPA-3K-ZN5"/>
                         <outlet property="textField2" destination="ayf-Jc-11z" id="oNw-DV-7fS"/>
@@ -2612,7 +2617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Peu-Wg-GRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1445" y="-1081"/>
+            <point key="canvasLocation" x="1444" y="-1081.7091454272863"/>
         </scene>
         <!--Setup BankVC-->
         <scene sceneID="fIl-Ul-BmT">

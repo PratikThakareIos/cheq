@@ -16,10 +16,12 @@ protocol QuestionCoordinatorProtocol {
     var numOfTextFields: Int { get }
     var numOfCheckBox: Int { get }
     var numOfImageContainer: Int { get }
+
     func placeHolder(_ index: Int)->String
     func isEditable(at index: Int) -> Bool
-
     func validateInput(_ inputs: [String: Any])-> ValidationError?
+    func onSegmentedControlChange(to selection: CSegmentedControlItem?)
+    func segmentedControlConfig() -> (String, [CSegmentedControlItem])?
 }
 
 extension QuestionCoordinatorProtocol {
@@ -58,4 +60,11 @@ extension QuestionCoordinatorProtocol {
         true
     }
     
+    func segmentedControlConfig() -> (String, [CSegmentedControlItem])? {
+        nil
+    }
+
+    func onSegmentedControlChange(to selection: CSegmentedControlItem?) {
+        
+    }
 }
