@@ -67,16 +67,16 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
     
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
-        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let cardNumber = inputs[placeHolder(0)] as? String, let positionOnCard = inputs[placeHolder(1)] as? String, let validTo = inputs[placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
         
-        guard (firstName != "" &&  lastName != "") else {
+        guard !cardNumber.isEmpty, !positionOnCard.isEmpty, !validTo.isEmpty else {
             return ValidationError.allFieldsMustBeFilled
         }
         
-        guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
+        guard StringUtil.shared.isNumericOnly(cardNumber), StringUtil.shared.isNumericOnly(positionOnCard) else { return ValidationError.onlyNumericCharactersIsAllowed }
         
-        guard firstName.count >= 2, lastName.count >= 2 else {
-            return ValidationError.invalidNameFormat
+        guard cardNumber.count >= 2, positionOnCard.count > 0 else {
+            return ValidationError.invalidInputFormat
         }
         
         return nil

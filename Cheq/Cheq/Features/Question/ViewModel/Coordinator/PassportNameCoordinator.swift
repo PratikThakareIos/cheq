@@ -31,14 +31,14 @@ class PassportNameCoordinator: QuestionCoordinatorProtocol {
     }
 
     var hintImage: UIImage? {
-        UIImage(named: "ic_passport")
+        UIImage(named: "ic_passport_example")
     }
 
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
-        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
         
-        guard (firstName != "" &&  lastName != "") else {
+        guard (firstName != "" && lastName != "") else {
             return ValidationError.allFieldsMustBeFilled
         }
         
@@ -47,7 +47,7 @@ class PassportNameCoordinator: QuestionCoordinatorProtocol {
         guard firstName.count >= 2, lastName.count >= 2 else {
             return ValidationError.invalidNameFormat
         }
-        
+
         return nil
     }
 }

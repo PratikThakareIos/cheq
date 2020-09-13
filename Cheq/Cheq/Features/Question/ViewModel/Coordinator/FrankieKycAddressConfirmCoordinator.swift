@@ -47,9 +47,18 @@ class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
             return true
         }
     }
-
+    
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
-        // unit number
+        guard let streetNumber = inputs[placeHolder(1)] as? String,
+            let streetName = inputs[placeHolder(2)] as? String,
+            let streetType = inputs[placeHolder(3)] as? String,
+            let townSuburb = inputs[placeHolder(4)] as? String
+            else { return ValidationError.allFieldsMustBeFilled }
+        
+        guard !streetNumber.isEmpty, !streetName.isEmpty, !streetType.isEmpty, !townSuburb.isEmpty else {
+            return ValidationError.allFieldsMustBeFilled
+        }
+        
         return nil
     }
 }

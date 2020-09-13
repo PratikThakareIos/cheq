@@ -701,9 +701,15 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.frankieKycAddressConfirm, viewController: self)
 
         case .frankieKycAddressConfirm:
-            self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
-            self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
-            AppNav.shared.pushToQuestionForm(.residentialAddress, viewController: self)
+            self.viewModel.save(QuestionField.kycResidentialUnitNumber.rawValue, value: textField1.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialStreetNumber.rawValue, value: textField2.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: textField3.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialStreetType.rawValue, value: textField4.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField5.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: textField6.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField7.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField8.text ?? "")
+            AppNav.shared.pushUserVerificationDetailsView(viewController: self)
         }
         
         

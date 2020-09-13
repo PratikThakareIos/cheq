@@ -21,7 +21,7 @@ class PassportCoordinator: QuestionCoordinatorProtocol {
     }
     
     var hintImage: UIImage? {
-        UIImage(named: "ic_passport")
+        UIImage(named: "ic_passport_example")
     }
     
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {

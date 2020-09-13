@@ -9,20 +9,21 @@
 import UIKit
 
 class UserVerificationDetailsVC: UIViewController {
-
+    
+    var viewModel: UserVerificationDetailsViewModel!
+    
     @IBOutlet weak var startButton: CNButton!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var dobView: HeaderLabelView!
     @IBOutlet weak var addressView: HeaderLabelView!
     @IBOutlet weak var nameView: HeaderLabelView!
     @IBOutlet weak var userIDView: UserIDView!
     @IBOutlet weak var checkmarkButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = UserVerificationDetailsViewModel.fromAppData()
+        
         self.setUpUI()
-        // Do any additional setup after loading the view.
     }
     
     func setUpUI(){
@@ -35,18 +36,27 @@ class UserVerificationDetailsVC: UIViewController {
         self.startButton.isEnabled = false
         
         self.nameView.headerLabel.text = "Name"
-        self.nameView.valueLabel.text = "Sachin Amrale"
+        self.nameView.valueLabel.text = viewModel.name
         
         self.dobView.headerLabel.text = "DOB"
-        self.dobView.valueLabel.text = "03-08-1990"
+        self.dobView.valueLabel.text = viewModel.dob
         
         self.addressView.headerLabel.text = "Current address"
-        self.addressView.valueLabel.text = "11 York Street, Sydney, NSW 2000, Australia"
+        self.addressView.valueLabel.text = viewModel.address
         
-        self.userIDView.idImageView.image = UIImage(named: "icon-passport")
-        self.userIDView.headerLabel.text = "Passport"
-        self.userIDView.idInfoView1.headerLabel.text = "Number"
-        self.userIDView.idInfoView1.valueLabel.text = "1234"
+        self.userIDView.idImageView.image = viewModel.docInfo.type.icon
+        self.userIDView.headerLabel.text = viewModel.docInfo.type.rawValue
+        
+        if viewModel.docInfo.hasState {
+            self.userIDView.idInfoView1.headerLabel.text = "State"
+            self.userIDView.idInfoView1.valueLabel.text = viewModel.docInfo.state
+            
+            self.userIDView.idInfoView2.headerLabel.text = "Number"
+            self.userIDView.idInfoView2.valueLabel.text = viewModel.docInfo.number
+        } else {
+            self.userIDView.idInfoView1.headerLabel.text = "Number"
+            self.userIDView.idInfoView1.valueLabel.text = viewModel.docInfo.number
+        }
     }
     
     @objc func checkMarkClicked(sender: UIButton){
@@ -58,5 +68,19 @@ class UserVerificationDetailsVC: UIViewController {
             self.startButton.isEnabled = false
         }
     }
-
+    
+    @IBAction func onStartPressed(_ sender: Any) {
+        AppConfig.shared.showSpinner()
+        viewModel.onStartVerification()
+            .done { result in
+                // finish verification process
+                AppConfig.shared.hideSpinner {
+                }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                self.showError(CheqAPIManagerError.unableToPerformKYCNow) {
+                }
+            }
+        }
+    }
 }

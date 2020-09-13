@@ -14,6 +14,17 @@ enum KycDocType: String, CaseIterable {
     case driversLicense = "Driver's license"
     case medicareCard = "Medicare Card"
 
+    var icon: UIImage? {
+        switch self {
+        case .passport:
+            return UIImage(named: "ic_passport")
+        case .driversLicense:
+            return UIImage(named: "ic_drivers_license")
+        case .medicareCard:
+            return UIImage(named: "ic_medicare")
+        }
+    }
+    
     init(fromRawValue: String) {
         self = KycDocType(rawValue: fromRawValue) ?? .passport
     }

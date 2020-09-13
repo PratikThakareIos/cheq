@@ -441,6 +441,12 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    func pushUserVerificationDetailsView(viewController: UIViewController) {
+        pushToViewController(StoryboardName.common.rawValue,
+                             storyboardId: CommonStoryboardId.userVerificationDetailsVC.rawValue,
+                             viewController: viewController)
+    }
+
 }
 
 // MARK: KYC
