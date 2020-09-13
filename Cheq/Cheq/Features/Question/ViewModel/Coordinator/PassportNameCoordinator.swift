@@ -11,6 +11,7 @@ import UIKit
 class PassportNameCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .passportName
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
 
     var question: String = "Enter your legal name as it appears on your ID"
     var numOfTextFields: Int = 3

@@ -31,6 +31,7 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
             MedicareCardColorItem(title: "Blue", color: .blue)]
     
     var type: QuestionType = .medicare
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
 
     var question: String = "Your Medicare card details"
     var numOfTextFields: Int = 3

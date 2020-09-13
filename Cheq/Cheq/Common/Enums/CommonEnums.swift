@@ -64,6 +64,11 @@ enum CountryCode: String {
     case AU = "AU"
 }
 
+enum KycServiceProvider {
+    case onfido
+    case frankie
+}
+
 enum CashDirection {
     case debit
     case credit

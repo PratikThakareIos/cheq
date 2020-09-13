@@ -23,11 +23,11 @@ class IdentityVerificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpUI()
-        // Do any additional setup after loading the view.
     }
     
     func setUpUI(){
         self.view.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
+        self.showCloseButton()
         self.startButton.createShadowLayer()
         
         self.legalIdLabel.attributedText = self.attributedText(withString: "Legal ID with a photo\n\nThis could be a Driver’s license or Passport that is not expired", boldString: "Legal ID with a photo")
@@ -36,7 +36,6 @@ class IdentityVerificationVC: UIViewController {
         
         self.timeLabel.attributedText = self.attributedText(withString: "5 mins of your time\n\nIt’s important you enter your details as accurately as possible.", boldString: "5 mins of your time")
         
-        self.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         self.startButton.addTarget(self, action: #selector(startVerificationButtonClicked), for: .touchUpInside)
     }
     
@@ -57,7 +56,11 @@ class IdentityVerificationVC: UIViewController {
     }
     
     @objc func startVerificationButtonClicked(){
-        
+        let storyboard = UIStoryboard(name: StoryboardName.onboarding.rawValue, bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier: OnboardingStoryboardId.verifyDocs.rawValue) as! DocumentVerificationViewController
+        vc.kycService = .frankie
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
 
 }

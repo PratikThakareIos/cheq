@@ -19,11 +19,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="haf-ui-OMD">
-                    <rect key="frame" x="0.0" y="45" width="323" height="50"/>
+                    <rect key="frame" x="0.0" y="30" width="323" height="65"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr3-qO-AZF">
-                    <rect key="frame" x="0.0" y="1" width="323" height="44"/>
+                    <rect key="frame" x="0.0" y="1" width="323" height="29"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                 <constraint firstAttribute="trailing" secondItem="qr3-qO-AZF" secondAttribute="trailing" id="7Lk-jU-Ju2"/>
                 <constraint firstItem="qr3-qO-AZF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="AHJ-OA-6Bc"/>
                 <constraint firstItem="qr3-qO-AZF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DG7-8X-dbx"/>
-                <constraint firstItem="haf-ui-OMD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="ILJ-nL-tr4"/>
+                <constraint firstItem="haf-ui-OMD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="ILJ-nL-tr4"/>
                 <constraint firstAttribute="trailing" secondItem="haf-ui-OMD" secondAttribute="trailing" id="b0i-x9-Fpr"/>
                 <constraint firstItem="haf-ui-OMD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="b5h-D2-Qd1"/>
                 <constraint firstItem="haf-ui-OMD" firstAttribute="top" secondItem="qr3-qO-AZF" secondAttribute="bottom" id="h5I-W1-PMA"/>

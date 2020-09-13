@@ -11,7 +11,7 @@ import PromiseKit
 
 enum KycDocType: String, CaseIterable {
     case passport = "Passport"
-    case driversLicense = "Driver license"
+    case driversLicense = "Driver's license"
     case medicareCard = "Medicare Card"
 
     init(fromRawValue: String) {

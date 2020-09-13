@@ -11,9 +11,9 @@ import UIKit
 class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .driverLicense
-    
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
+
     var question: String = "Your driver's licence details"
-    var sectionTitle: String = ""
     var numOfTextFields: Int = 2
     
     func placeHolder(_ index: Int) -> String {

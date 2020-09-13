@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -839,14 +839,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="weY-bL-f8T" secondAttribute="bottom" constant="20" id="q2n-0e-8VR"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z85-S0-lfg">
-                                                <rect key="frame" x="16" y="0.0" width="35" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="35" id="3q2-nq-1Mi"/>
-                                                    <constraint firstAttribute="height" constant="35" id="zYa-DS-ukb"/>
-                                                </constraints>
-                                                <state key="normal" image="navBack"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before you start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJU-Ub-ibn">
                                                 <rect key="frame" x="11" y="72" width="298" height="29"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="24"/>
@@ -927,9 +919,7 @@
                                             <constraint firstItem="Nl8-Mf-Hkh" firstAttribute="leading" secondItem="jPc-3t-hy3" secondAttribute="leading" constant="40" id="HbE-yy-mA3"/>
                                             <constraint firstItem="Nl8-Mf-Hkh" firstAttribute="top" secondItem="iQK-M9-0kq" secondAttribute="bottom" constant="50" id="JSJ-lt-EIl"/>
                                             <constraint firstItem="xJU-Ub-ibn" firstAttribute="leading" secondItem="jPc-3t-hy3" secondAttribute="leading" constant="11" id="PNq-LZ-mXu"/>
-                                            <constraint firstItem="z85-S0-lfg" firstAttribute="top" secondItem="jPc-3t-hy3" secondAttribute="top" id="POx-wx-tN0"/>
                                             <constraint firstItem="Wkh-rn-U3R" firstAttribute="leading" secondItem="3ez-6I-lvL" secondAttribute="trailing" constant="20" id="Pwa-vC-Y77"/>
-                                            <constraint firstItem="z85-S0-lfg" firstAttribute="leading" secondItem="jPc-3t-hy3" secondAttribute="leading" constant="16" id="TfK-CV-qp2"/>
                                             <constraint firstItem="XLJ-XS-l7U" firstAttribute="top" secondItem="jPc-3t-hy3" secondAttribute="top" constant="15" id="U3Z-r0-aqg"/>
                                             <constraint firstItem="cie-vq-RwC" firstAttribute="leading" secondItem="Nl8-Mf-Hkh" secondAttribute="trailing" constant="20" id="aw4-Ad-iyd"/>
                                             <constraint firstAttribute="trailing" secondItem="XLJ-XS-l7U" secondAttribute="trailing" id="c9p-9f-Kf9"/>
@@ -968,7 +958,6 @@
                     </view>
                     <connections>
                         <outlet property="ageLabel" destination="Wkh-rn-U3R" id="2PE-h7-org"/>
-                        <outlet property="backButton" destination="z85-S0-lfg" id="dn0-S9-7KZ"/>
                         <outlet property="headerLabel" destination="xJU-Ub-ibn" id="vd8-Dr-7hc"/>
                         <outlet property="infoLabel" destination="iQK-M9-0kq" id="rE1-Dc-lfQ"/>
                         <outlet property="legalIdLabel" destination="cie-vq-RwC" id="Wl5-D4-vOP"/>

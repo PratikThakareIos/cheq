@@ -12,6 +12,7 @@ class PassportCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .passport
 
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
     var question: String = "Your Australian passport details"
     var numOfTextFields: Int = 1
     

@@ -13,8 +13,8 @@ class DriverLicenceNameCoordinator: QuestionCoordinatorProtocol {
     var type: QuestionType = .driverLicenseName
     
     var question: String = "Enter your legal name as it appears on your ID"
-    var sectionTitle: String = ""
-    
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
+
     var numOfTextFields: Int = 3
     
     func placeHolder(_ index: Int)->String {

@@ -13,8 +13,19 @@ import AVFoundation
 class DocumentVerificationViewController: UIViewController {
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var lblDetail: UILabel!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
+    var kycService = KycServiceProvider.onfido
+    var items: [KycDocType] {
+        switch kycService {
+        case .onfido:
+            return [.passport, .driversLicense]
+        case .frankie:
+            return [.driversLicense, .passport, .medicareCard]
+        }
+    }
     let cellSpacingHeight: CGFloat = 25
     var errOnfido : Error?
     
@@ -31,6 +42,7 @@ class DocumentVerificationViewController: UIViewController {
         self.tableview.backgroundColor = AppConfig.shared.activeTheme.backgroundColor
         self.tableview.tableFooterView = UIView()
         
+        self.titleLabel.text = kycService == .onfido ? "Select a document for verification" : "Choose your ID"
         
         let strMessage = "Cheq only accepts the documents above. All other ID’s will be rejected"
         let attributedString = NSMutableAttributedString(string: strMessage)
@@ -38,6 +50,9 @@ class DocumentVerificationViewController: UIViewController {
         self.lblDetail.attributedText = attributedString
         self.lblDetail.setLineSpacing(lineSpacing: 8.0)
         self.lblDetail.textAlignment = .left
+        
+        self.tableViewHeightConstraint.constant = items.count == 2 ? 170 : 220
+        
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventContentType.screen.rawValue)
     }
     
@@ -51,7 +66,7 @@ class DocumentVerificationViewController: UIViewController {
 extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,35 +76,42 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         cell.backgroundColor = .clear //AppConfig.shared.activeTheme.backgroundColor
         cell.content.backgroundColor = .white
         AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: true)
-        cell.DocumnerVerifyLabel.text = indexPath.row == 0 ? "Passport" : "Driver's licence"
+        let model = items[indexPath.row]
+        cell.DocumnerVerifyLabel.text = model.rawValue
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID.rawValue, FirebaseEventKey.lend_KYC_ID.rawValue, FirebaseEventContentType.button.rawValue)
         
-        let kycSelectDoc: KycDocType
-        if indexPath.row == 0 {
-            kycSelectDoc = .passport //KycDocType(fromRawValue: "Passport")
-            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventContentType.button.rawValue)
-            
-        } else {
-            kycSelectDoc = .driversLicense //KycDocType(fromRawValue:"Driver license")
-            AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventContentType.button.rawValue)
-        }
+        let selectedDoc = items[indexPath.row]
         
-        AppConfig.shared.showSpinner()
-        let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
-        CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
-            let sdkToken = response.sdkToken ?? ""
-            AppData.shared.saveOnfidoSDKToken(sdkToken)
-            self.initiateOnFido(kycSelectDoc: kycSelectDoc)
+        if kycService == .onfido {
+            if selectedDoc == .passport {
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventKey.lend_KYC_ID_passport.rawValue, FirebaseEventContentType.button.rawValue)
+            }
+            if selectedDoc == .driversLicense {
+                AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventKey.lend_KYC_ID_license.rawValue, FirebaseEventContentType.button.rawValue)
+            }
             
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
-                self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
+            AppConfig.shared.showSpinner()
+            let req = DataHelperUtil.shared.retrieveUserDetailsKycReq()
+            CheqAPIManager.shared.retrieveUserDetailsKyc(req).done { response in
+                let sdkToken = response.sdkToken ?? ""
+                AppData.shared.saveOnfidoSDKToken(sdkToken)
+                self.initiateOnFido(kycSelectDoc: selectedDoc)
+                
+            }.catch { err in
+                AppConfig.shared.hideSpinner {
+                    self.showError(CheqAPIManagerError.unableToPerformKYCNow, completion: nil)
+                }
             }
         }
+        
+        if kycService == .frankie {
+            initiateFrankie(selectedDocType: selectedDoc)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,6 +134,18 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
                 self.showError(err, completion: nil)
                 return
             }
+        }
+    }
+    
+    private func initiateFrankie(selectedDocType: KycDocType) {
+        AppData.shared.selectedKycDocType = selectedDocType
+        switch selectedDocType {
+        case .driversLicense:
+            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+        case .passport:
+            AppNav.shared.pushToQuestionForm(.passport, viewController: self)
+        case .medicareCard:
+            AppNav.shared.pushToQuestionForm(.medicare, viewController: self)
         }
     }
 }

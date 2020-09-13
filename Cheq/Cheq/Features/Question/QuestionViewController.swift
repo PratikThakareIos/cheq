@@ -66,28 +66,6 @@ class QuestionViewController: UIViewController {
         activeTimestamp()
         //setupKeyboardHandling()
         self.updateKeyboardViews()
-        
-        switch viewModel.coordinator.type {
-        case .legalName:
-            let firstname = viewModel.fieldValue(.firstname)
-            if firstname.isEmpty {
-                hideBackButton() //is from registration then hide back button
-            } else {
-                showCloseButton()
-            }
-        
-        case .bankAccount:
-            showCloseButton()
-            self.textField3.keyboardType = .numberPad
-            self.textField4.keyboardType = .numberPad
-        
-        case .companyName, .companyAddress, .residentialAddress, .verifyName:
-            showNavBar()
-            showBackButton()
-
-        default:
-            break
-        }
     }
     
     
@@ -109,11 +87,12 @@ class QuestionViewController: UIViewController {
         self.setupLookupIfNeeded()
         prePopulateEntry()
         if viewModel.coordinator.type == .maritalStatus {
-            setupPicker()
+            setupMaritalStatusPicker()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()
@@ -157,7 +136,7 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func setupPicker() {
+    func setupMaritalStatusPicker() {
         
         let maritalStatusPicker = CPickerView(.maritalStatus)
         maritalStatusPicker.delegate = self.pickerViewCoordinator
@@ -201,11 +180,7 @@ class QuestionViewController: UIViewController {
         }else{
             self.sectionTitle.text = self.viewModel.coordinator.sectionTitle
         }
-        
-        if AppData.shared.selectedKycDocType != nil {
-            self.sectionTitle.text = ""
-        }
-        
+                
         self.questionDescription.isHidden = true
         self.nextButton.createShadowLayer()
         self.hideBackTitle()
@@ -267,11 +242,28 @@ class QuestionViewController: UIViewController {
             self.textField1.keyboardType = .phonePad
         }
         
-        //        //manish to hide nav bar
-        //        if AppData.shared.isOnboarding {
-        //            //AppConfig.shared.progressNavBar(progress: AppData.shared.progress, viewController: self)
-        //        }
+        switch viewModel.coordinator.type {
+        case .legalName:
+            let firstname = viewModel.fieldValue(.firstname)
+            if firstname.isEmpty {
+                hideBackButton() //is from registration then hide back button
+            } else {
+                showCloseButton()
+            }
         
+        case .bankAccount:
+            showCloseButton()
+            self.textField3.keyboardType = .numberPad
+            self.textField4.keyboardType = .numberPad
+        
+        case .companyName, .companyAddress, .residentialAddress, .verifyName, .passport, .medicare:
+            showNavBar()
+            showBackButton()
+
+        default:
+            break
+        }
+
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
@@ -1023,11 +1015,14 @@ extension QuestionViewController: UITextFieldDelegate {
             
         case .dateOfBirth:
             showDatePicker(textField1, initialDate: 18.years.earlier, maxDate: 18.years.earlier, minDate: nil, picker: datePicker)
-            textField.resignFirstResponder()
-            
+            self.view.endEditing(true)
+
         case .medicare where textField == textField3:
-            showDatePicker(textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: datePicker)
-            textField.resignFirstResponder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                textField.resignFirstResponder()
+                self.view.endEditing(true)
+                self.showDatePicker(self.textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: self.datePicker)
+            }
             
         default: break
         }

@@ -11,7 +11,7 @@ import UIKit
 class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .frankieKycAddressConfirm
-    var sectionTitle: String = ""
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
     var numOfTextFields: Int = 8
     var question: String = "Is this the correct address?"
     

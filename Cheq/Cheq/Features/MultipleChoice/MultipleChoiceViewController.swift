@@ -74,6 +74,11 @@ class MultipleChoiceViewController: UIViewController {
             AppConfig.shared.removeProgressNavBar(self)
         }
         
+        if self.viewModel.coordinator.coordinatorType == .state,  AppData.shared.completingDetailsForLending {
+            self.showNavBar()
+            self.showBackButton()
+        }
+
         if self.viewModel.coordinator.coordinatorType == .financialInstitutions {
             self.setTitleAndSubTitle(isShow: false)
         }else{
@@ -104,12 +109,11 @@ class MultipleChoiceViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activeTimestamp()
-        if AppData.shared.selectedKycDocType == nil {
+        if viewModel.coordinator.coordinatorType != .state {
             getTransactionData()
         }
         
-        if AppData.shared.completingDetailsForLending {
-        
+        if AppData.shared.completingDetailsForLending && viewModel.coordinator.coordinatorType != .state {
             self.showNavBar()
             showCloseButton()
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventKey.lend_workdetails_workaddress.rawValue, FirebaseEventContentType.button.rawValue)
@@ -126,7 +130,7 @@ class MultipleChoiceViewController: UIViewController {
             self.showNavBar()
             self.showBackButton()
         }
-                        
+        
         if selectedChoice == nil {
             self.updateChoices()
         }else{
@@ -343,9 +347,6 @@ extension MultipleChoiceViewController: UITableViewDelegate, UITableViewDataSour
                 }
             }
             
-        case .kycSelectDoc:
-            LoggingUtil.shared.cPrint("trigger onfido kyc")
-            return
         }
     }
     

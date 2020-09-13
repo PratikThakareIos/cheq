@@ -11,6 +11,7 @@ import UIKit
 class MedicareNameCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .medicareName
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
 
     var question: String = "Enter your legal name as it appears on your ID"
     var numOfTextFields: Int = 2

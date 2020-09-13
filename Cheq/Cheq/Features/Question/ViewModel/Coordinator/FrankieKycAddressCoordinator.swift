@@ -11,7 +11,7 @@ import UIKit
 class FrankieKycAddressCoordinator: QuestionCoordinatorProtocol {
     
     var type: QuestionType = .frankieKycAddress
-    var sectionTitle: String = ""
+    var sectionTitle: String { Section.verifyMyIdentity.rawValue }
     var numOfTextFields: Int = 1
     var question: String = "What's your current residential address?"
     
