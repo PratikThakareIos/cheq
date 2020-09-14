@@ -360,6 +360,7 @@ open class UsersAPI {
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    
 
     /**
 
@@ -471,5 +472,93 @@ open class UsersAPI {
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    
+    //MARK: Frankie API calls
+    open class func postUserNameDetailsFrankieKyc(request: PostUserNameDetailsForFrankie? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postUserNameDetailsFrankieKycRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    open class func postUserNameDetailsFrankieKycRequestBuilder(request: PostUserNameDetailsForFrankie? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/kyc/frankie/detail"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+    
+    open class func postUserAddressDetailsFrankieKyc(request: PostUserResidentialAddressForFrankie? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postUserAddressDetailsFrankieKycRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    open class func postUserAddressDetailsFrankieKycRequestBuilder(request: PostUserResidentialAddressForFrankie? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/kyc/frankie/address"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+    
+    open class func postUserDocumentDetailsFrankieKyc(request: PostUserDocumentDetailsForFrankieKYC? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postUserDocumentDetailsFrankieKycRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    open class func postUserDocumentDetailsFrankieKycRequestBuilder(request: PostUserDocumentDetailsForFrankieKYC? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/kyc/frankie/iddocument"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    open class func postUserDetailsFrankieKyc(request: PostUserDetailsForFrankieKYC? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postUserDetailsFrankieKycRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    open class func postUserDetailsFrankieKycRequestBuilder(request: PostUserDetailsForFrankieKYC? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Users/kyc/frankie/check"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
 }

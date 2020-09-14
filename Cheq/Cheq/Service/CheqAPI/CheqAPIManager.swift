@@ -544,4 +544,73 @@ class CheqAPIManager {
                        }
                 }
         }
+    
+    
+    func postUserNameDetailsFrankieKYC(request:PostUserNameDetailsForFrankie) ->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postUserNameDetailsFrankieKycRequestBuilder(request: request).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        resolver.reject(error); return
+                    }
+                        resolver.fulfill(true)
+                    }
+                }.catch { err in
+                    resolver.reject(err)
+            }
+        }
+    }
+    
+    func postUserAddressDetailsFrankieKYC(request:PostUserResidentialAddressForFrankie) ->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postUserAddressDetailsFrankieKycRequestBuilder(request: request).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        resolver.reject(error); return
+                    }
+                        resolver.fulfill(true)
+                    }
+                }.catch { err in
+                    resolver.reject(err)
+            }
+        }
+    }
+    
+    func postUserDocumentDetailsFrankieKYC(request:PostUserDocumentDetailsForFrankieKYC) ->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postUserDocumentDetailsFrankieKycRequestBuilder(request: request).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        resolver.reject(error); return
+                    }
+                        resolver.fulfill(true)
+                    }
+                }.catch { err in
+                    resolver.reject(err)
+            }
+        }
+    }
+    
+    func postUserDetailsFrankieKYC(request:PostUserDetailsForFrankieKYC) ->Promise<Bool> {
+        return Promise<Bool>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                UsersAPI.postUserDetailsFrankieKycRequestBuilder(request: request).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute { (response, err) in
+                    
+                    if let error = err {
+                        resolver.reject(error); return
+                    }
+                        resolver.fulfill(true)
+                    }
+                }.catch { err in
+                    resolver.reject(err)
+            }
+        }
+    }
 }
