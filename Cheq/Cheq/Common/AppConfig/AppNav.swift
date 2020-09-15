@@ -454,7 +454,7 @@ extension AppNav {
     
     /**
      Helper method to initiate KYC flow using the onfido SDK
-     - parameter type: **KycDocType** can be driver's license or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
+     - parameter type: **KycDocType** can be driver's licence or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
      - parameter viewController: source viewController of the navigation action
      */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {

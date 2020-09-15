@@ -95,7 +95,7 @@ enum CountryState: String, CaseIterable {
     case SA
     case VIC
     case WA
-        
+    
     var name: String {
         switch self {
         case .NSW:
@@ -116,6 +116,62 @@ enum CountryState: String, CaseIterable {
             return "Western Australia (WA)"
         }
     }
+    
+    var isDigitOnly: Bool {
+        switch self {
+        case .NSW:
+            return false
+        case .TAS:
+            return false
+        case .SA:
+            return false
+        default:
+            return true
+        }
+    }
+    
+    var minCharsCount: Int {
+        switch self {
+        case .NSW:
+            return 6
+        case .ACT:
+            return 1
+        case .QLD:
+            return 8
+        case .TAS:
+            return 6
+        case .NT:
+            return 1
+        case .SA:
+            return 6
+        case .VIC:
+            return 1
+        case .WA:
+            return 7
+        }
+    }
+    
+    var maxCharsCount: Int {
+        switch self {
+        case .NSW:
+            return 8
+        case .ACT:
+            return 10
+        case .QLD:
+            return 9
+        case .TAS:
+            return 8
+        case .NT:
+            return 10
+        case .SA:
+            return 6
+        case .VIC:
+            return 10
+        case .WA:
+            return 7
+        }
+    }
+    
     
     init(raw: String?) {
         self = CountryState(rawValue: raw ?? "") ?? .NSW

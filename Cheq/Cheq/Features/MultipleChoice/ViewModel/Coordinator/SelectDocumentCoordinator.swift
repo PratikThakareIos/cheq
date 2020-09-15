@@ -11,7 +11,7 @@ import PromiseKit
 
 enum KycDocType: String, CaseIterable {
     case passport = "Passport"
-    case driversLicense = "Driver's license"
+    case driversLicense = "Driver's licence"
     case medicareCard = "Medicare Card"
 
     var icon: UIImage? {

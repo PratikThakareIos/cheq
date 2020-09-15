@@ -28,13 +28,17 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
         }
     }
     
-    var hintImage: UIImage? {
+    private var selectedState: CountryState {
         let stateVm = MultipleChoiceViewModel()
         stateVm.coordinator = StateCoordinator()
         stateVm.load()
         let savedState = stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue]
         let stateEnum = CountryState(raw: savedState)
-        return UIImage(named: "ic_licence_\(stateEnum.rawValue)")
+        return stateEnum
+    }
+    
+    var hintImage: UIImage? {
+        return UIImage(named: "ic_licence_\(selectedState.rawValue)")
     }
     
     func isEditable(at index: Int) -> Bool {
@@ -51,8 +55,12 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
                 
         guard StringUtil.shared.isNumericOnly(licenceNumber) else { return ValidationError.onlyNumericCharactersIsAllowed }
 
-        guard licenceNumber.count >= 2 else {
-            return ValidationError.invalidInputFormat
+        guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
+            return ValidationError.invalidDriversLicenseFormat
+        }
+        
+        if selectedState.isDigitOnly && !StringUtil.shared.isNumericOnly(licenceNumber) {
+            return ValidationError.invalidDriversLicenseFormat
         }
         
         return nil

@@ -58,6 +58,10 @@ class FrankieKycAddressCoordinator: QuestionCoordinatorProtocol {
             return ValidationError.allFieldsMustBeFilled
         }
         
+        guard postcode.count == 4, StringUtil.shared.isNumericOnly(postcode) else {
+            return ValidationError.invalidPostcodeFormat
+        }
+        
         return nil
     }
 }

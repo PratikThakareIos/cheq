@@ -75,10 +75,14 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
         
         guard StringUtil.shared.isNumericOnly(cardNumber), StringUtil.shared.isNumericOnly(positionOnCard) else { return ValidationError.onlyNumericCharactersIsAllowed }
         
-        guard cardNumber.count >= 2, positionOnCard.count > 0 else {
-            return ValidationError.invalidInputFormat
+        guard cardNumber.count != 10 else {
+            return ValidationError.invalidMedicareNumberFormat
         }
-        
+
+        guard positionOnCard.count != 1 else {
+            return ValidationError.invalidMedicarePositionFormat
+        }
+
         return nil
     }
 }

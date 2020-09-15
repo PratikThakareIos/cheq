@@ -14,18 +14,27 @@ class MedicareNameCoordinator: QuestionCoordinatorProtocol {
     var sectionTitle: String { Section.verifyMyIdentity.rawValue }
 
     var question: String = "Enter your legal name as it appears on your ID"
-    var numOfTextFields: Int = 2
+    var numOfTextFields: Int = 3
     
     func placeHolder(_ index: Int)->String {
-        let result = (index == 0) ? "First name" : "Surname"
-        return result
+        switch index {
+        case 0:
+            return "Your name"
+        case 1:
+            return "Middle name"
+        case 2:
+            return "Surname (as shown on ID)"
+            
+        default:
+            return ""
+        }
     }
-    
+
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
-        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
+        guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
         
-        guard (firstName != "" &&  lastName != "") else {
+        guard (firstName != "" && lastName != "") else {
             return ValidationError.allFieldsMustBeFilled
         }
         

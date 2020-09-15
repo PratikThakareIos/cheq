@@ -51,7 +51,7 @@ class DocumentVerificationViewController: UIViewController {
         self.lblDetail.setLineSpacing(lineSpacing: 8.0)
         self.lblDetail.textAlignment = .left
         
-        self.tableViewHeightConstraint.constant = items.count == 2 ? 170 : 220
+        self.tableViewHeightConstraint.constant = items.count == 2 ? 170 : 225
         
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventKey.lend_KYC_ID_start.rawValue, FirebaseEventContentType.screen.rawValue)
     }
@@ -78,6 +78,10 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         AppConfig.shared.activeTheme.cardStyling(cell.content, addBorder: true)
         let model = items[indexPath.row]
         cell.DocumnerVerifyLabel.text = model.rawValue
+        if model == .passport && kycService == .frankie {
+            cell.DocumnerVerifyLabel.text = "Australian Passport"
+        }
+        cell.documentVerifyImageView.image = model.icon
         return cell
     }
     
@@ -154,7 +158,7 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
 extension DocumentVerificationViewController {
     /**
      Helper method to initiate KYC flow using the onfido SDK
-     - parameter type: **KycDocType** can be driver's license or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
+     - parameter type: **KycDocType** can be driver's licence or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
      - parameter viewController: source viewController of the navigation action
      */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
