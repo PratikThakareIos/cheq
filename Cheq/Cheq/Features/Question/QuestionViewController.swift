@@ -704,11 +704,10 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.kycResidentialUnitNumber.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetNumber.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: textField3.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialStreetType.rawValue, value: textField4.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField5.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: textField6.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField7.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField8.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField4.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: textField5.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField6.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField7.text ?? "")
             AppNav.shared.pushUserVerificationDetailsView(viewController: self)
         }
         

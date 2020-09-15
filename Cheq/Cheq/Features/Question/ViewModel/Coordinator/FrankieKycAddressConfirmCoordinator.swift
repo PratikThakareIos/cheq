@@ -24,14 +24,12 @@ class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
         case 2:
             return "Street Name *"
         case 3:
-            return "Street Type *"
-        case 4:
             return "Town/Suburb *"
-        case 5:
+        case 4:
             return "State"
-        case 6:
+        case 5:
             return "Postcode"
-        case 7:
+        case 6:
             return "Country"
             
         default:
@@ -41,7 +39,7 @@ class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
     
     func isEditable(at index: Int) -> Bool {
         switch index {
-        case 7: // Country is hardcoded to AU and not editable
+        case 6: // Country is hardcoded to AU and not editable
             return false
         default:
             return true
@@ -51,11 +49,10 @@ class FrankieKycAddressConfirmCoordinator: QuestionCoordinatorProtocol {
     func validateInput(_ inputs: [String: Any])-> ValidationError? {
         guard let streetNumber = inputs[placeHolder(1)] as? String,
             let streetName = inputs[placeHolder(2)] as? String,
-            let streetType = inputs[placeHolder(3)] as? String,
-            let townSuburb = inputs[placeHolder(4)] as? String
+            let townSuburb = inputs[placeHolder(3)] as? String
             else { return ValidationError.allFieldsMustBeFilled }
         
-        guard !streetNumber.isEmpty, !streetName.isEmpty, !streetType.isEmpty, !townSuburb.isEmpty else {
+        guard !streetNumber.isEmpty, !streetName.isEmpty, !townSuburb.isEmpty else {
             return ValidationError.allFieldsMustBeFilled
         }
         

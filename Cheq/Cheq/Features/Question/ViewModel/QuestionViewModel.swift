@@ -92,7 +92,6 @@ enum QuestionField: String {
     case kycResidentialSuburb
     case kycResidentialState
     case kycResidentialStreetName
-    case kycResidentialStreetType
     case kycResidentialCountry
 
 }
