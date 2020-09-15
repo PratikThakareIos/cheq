@@ -191,9 +191,6 @@ class AppData {
     /// residential address list fetched from home address lookup
     var residentialAddressList = [GetAddressResponse]()
 
-    /// kyc address list fetched from home address lookup
-    var kycAddressList = [GetAddressResponse]()
-
     /// selected employer index from **employerList**
     var selectedEmployer: Int = 0
     
@@ -203,9 +200,6 @@ class AppData {
     
     /// seleced home address index from **residentialAddressList**
     var selectedResidentialAddress: Int = 0
-
-    /// seleced address index from **kycAddressList**
-    var selectedKYCAddress: Int = 0
 
     /// selected employer address from **employerAddressList**
     var selectedEmployerAddressString: String = ""

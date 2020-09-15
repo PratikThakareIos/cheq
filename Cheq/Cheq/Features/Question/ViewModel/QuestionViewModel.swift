@@ -31,8 +31,6 @@ enum QuestionType: String {
     case medicareName
     
     case frankieKycAddress
-    case frankieKycAddressConfirm
-
 }
 
 enum QuestionField: String {
@@ -245,8 +243,6 @@ extension QuestionViewModel {
             coordinator = MedicareNameCoordinator()
         case .frankieKycAddress:
             coordinator = FrankieKycAddressCoordinator()
-        case .frankieKycAddressConfirm:
-            coordinator = FrankieKycAddressConfirmCoordinator()
         }
         return coordinator
     }

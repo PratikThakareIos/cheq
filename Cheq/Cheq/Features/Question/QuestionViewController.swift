@@ -131,8 +131,6 @@ class QuestionViewController: UIViewController {
             setupEmployerNameLookup()
         } else if viewModel.coordinator.type == .companyAddress {
             setupEmployerAddressLookup()
-        } else if viewModel.coordinator.type == .frankieKycAddress {
-            self.setupFrankieKYCAddressLookup()
         }
     }
     
@@ -203,10 +201,7 @@ class QuestionViewController: UIViewController {
         switch self.viewModel.coordinator.type {
         case .residentialAddress:
             self.setupResidentialAddressLookup()
-            
-        case .frankieKycAddress:
-            self.setupFrankieKYCAddressLookup()
-            
+                        
         case .companyName:
             self.setupEmployerNameLookup()
             AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC_addy.rawValue, FirebaseEventKey.lend_KYC_addy.rawValue, FirebaseEventContentType.screen.rawValue)
@@ -291,15 +286,6 @@ class QuestionViewController: UIViewController {
             stateVm.load()
             let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
             self.textField1.text = savedState.name
-            
-        case .frankieKycAddressConfirm:
-            let stateVm = QuestionViewModel()
-            stateVm.coordinator = FrankieKycAddressCoordinator()
-            stateVm.loadSaved()
-            self.textField3.text = stateVm.savedAnswer[QuestionField.kycResidentialStreetName.rawValue]
-            self.textField6.text = stateVm.savedAnswer[QuestionField.kycResidentialState.rawValue]
-            self.textField7.text = stateVm.savedAnswer[QuestionField.kycResidentialPostcode.rawValue]
-            self.textField8.text = stateVm.savedAnswer[QuestionField.kycResidentialCountry.rawValue]
 
         default: break
         }
@@ -690,17 +676,6 @@ class QuestionViewController: UIViewController {
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .frankieKycAddress:
-            if let err = self.validateKYCAddressLookup() {
-                showError(err, completion: nil)
-                return
-            }
-            if AppData.shared.kycAddressList.count > 0 {
-                let address = AppData.shared.kycAddressList[AppData.shared.selectedKYCAddress]
-                self.saveKYCAddress(address)
-            }
-            AppNav.shared.pushToQuestionForm(.frankieKycAddressConfirm, viewController: self)
-
-        case .frankieKycAddressConfirm:
             self.viewModel.save(QuestionField.kycResidentialUnitNumber.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetNumber.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: textField3.text ?? "")
@@ -710,8 +685,6 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField7.text ?? "")
             AppNav.shared.pushUserVerificationDetailsView(viewController: self)
         }
-        
-        
     }
     
     func showTransactions() {
@@ -803,23 +776,6 @@ extension QuestionViewController {
             return ValidationError.autoCompleteHomeAddressIsMandatory
         }
     }
-    
-    func validateKYCAddressLookup() -> ValidationError? {
-        guard AppData.shared.kycAddressList.count > 0 else {
-            self.searchTextField.text = ""
-            return ValidationError.autoCompleteHomeAddressIsMandatory
-        }
-        
-        let autoCompleteMatch = AppData.shared.kycAddressList.filter { $0.address == searchTextField.text }
-        
-        if autoCompleteMatch.count == 1 {
-            return nil
-        } else {
-            self.searchTextField.text = ""
-            return ValidationError.autoCompleteHomeAddressIsMandatory
-        }
-    }
-
     
     func validateCompanyAddressLookup()->ValidationError? {
         guard AppData.shared.employerAddressList.count > 0 || AppData.shared.employerList.count > 0 else {
@@ -1174,34 +1130,6 @@ extension QuestionViewController{
             }
         }
     }
-    
-    func setupFrankieKYCAddressLookup() {
-        
-        self.hideNormalTextFields()
-        self.hideCheckbox()
-        self.hideImageContainer()
-        
-        self.searchTextField.isHidden = false
-        searchTextField.placeholder = self.viewModel.placeHolder(0)
-        searchTextField.isUserInteractionEnabled = true
-        searchTextField.minCharactersNumberToStartFiltering = 2
-        
-        searchTextField.itemSelectionHandler  = { item, itemPosition  in
-            AppData.shared.selectedKYCAddress = itemPosition
-            self.searchTextField.text = item[itemPosition].title
-        }
-        searchTextField.userStoppedTypingHandler = {
-            if let query = self.searchTextField.text, query.count > self.searchTextField.minCharactersNumberToStartFiltering {
-                CheqAPIManager.shared.residentialAddressLookup(query).done { addressList in
-                    AppData.shared.kycAddressList = addressList
-                    self.searchTextField.filterStrings(addressList.map{ $0.address ?? "" })
-                }.catch {err in
-                    LoggingUtil.shared.cPrint(err)
-                }
-            }
-        }
-    }
-
 }
 
 extension QuestionViewController {
