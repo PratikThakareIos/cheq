@@ -30,7 +30,7 @@ class IdentityVerificationVC: UIViewController {
         self.showCloseButton()
         self.startButton.createShadowLayer()
         
-        self.legalIdLabel.attributedText = self.attributedText(withString: "Legal ID with a photo\n\nThis could be a Driver’s license or Passport that is not expired", boldString: "Legal ID with a photo")
+        self.legalIdLabel.attributedText = self.attributedText(withString: "Government Issued ID\n\nThis could be a Driver’s licence, Passport or Medicare that is not expired", boldString: "Government Issued ID")
         
         self.ageLabel.attributedText = self.attributedText(withString: "Must be over 18 years of age\n\nYou must be an Australian citizen, permanent resident or have an Australian visa", boldString: "Must be over 18 years of age")
         
