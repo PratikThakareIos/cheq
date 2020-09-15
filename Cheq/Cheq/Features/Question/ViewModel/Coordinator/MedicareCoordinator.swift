@@ -13,8 +13,24 @@ struct MedicareCardColorItem: CSegmentedControlItem {
         case green
         case yellow
         case blue
+        
+        var dateFormat: DateFormat {
+            switch self {
+            case .green:
+                return .monthYear
+            case .yellow:
+                return .dayMonthYear
+            case .blue:
+                return .dayMonthYear
+            }
+        }
     }
-
+    
+    enum DateFormat: String {
+        case monthYear
+        case dayMonthYear
+    }
+    
     let title: String
     let color: CardColor
     
@@ -24,15 +40,15 @@ struct MedicareCardColorItem: CSegmentedControlItem {
 }
 
 class MedicareCoordinator: QuestionCoordinatorProtocol {
-
+    
     static let cardColors = [
-            MedicareCardColorItem(title: "Green", color: .green),
-            MedicareCardColorItem(title: "Yellow", color: .yellow),
-            MedicareCardColorItem(title: "Blue", color: .blue)]
+        MedicareCardColorItem(title: "Green", color: .green),
+        MedicareCardColorItem(title: "Yellow", color: .yellow),
+        MedicareCardColorItem(title: "Blue", color: .blue)]
     
     var type: QuestionType = .medicare
     var sectionTitle: String { Section.verifyMyIdentity.rawValue }
-
+    
     var question: String = "Your Medicare card details"
     var numOfTextFields: Int = 3
     
@@ -43,9 +59,8 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
     }
     
     func onSegmentedControlChange(to selection: CSegmentedControlItem?) {
-        if let c = selection as? MedicareCardColorItem {
-            selectedCardColor = c
-        }
+        guard let c = selection as? MedicareCardColorItem else { return }
+        selectedCardColor = c
     }
     
     func placeHolder(_ index: Int)->String {
@@ -78,11 +93,11 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
         guard cardNumber.count != 10 else {
             return ValidationError.invalidMedicareNumberFormat
         }
-
+        
         guard positionOnCard.count != 1 else {
             return ValidationError.invalidMedicarePositionFormat
         }
-
+        
         return nil
     }
 }

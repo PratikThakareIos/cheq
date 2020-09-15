@@ -150,6 +150,21 @@ class QuestionViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateTextField2(_:)), name: NSNotification.Name(QuestionField.dependents.rawValue), object: nil)
     }
     
+    func setupMedicalCardValidPicker(cardColor: MedicareCardColorItem.CardColor, textField: UITextField) {
+        switch cardColor.dateFormat {
+        case .dayMonthYear:
+            textField.inputView = nil
+        case .monthYear:
+            let pickerView = MonthYearPickerView()
+            pickerView.onDateSelected = { month, year in
+                textField.text = String(format: "%02d/%d", month, year)
+            }
+            textField.inputView = pickerView
+        }
+        textField.text = ""
+        self.view.endEditing(true)
+    }
+    
     func setupDelegate() {
         textFields.forEach {
             $0.delegate = self
@@ -227,6 +242,11 @@ class QuestionViewController: UIViewController {
             
             self.legalNameAutoFill()
             
+        case .medicare:
+            if (self.textField3.text ?? "").isEmpty {
+                self.setupMedicalCardValidPicker(cardColor: .green, textField: self.textField3)
+            }
+
         default: break
         }
         
@@ -721,6 +741,11 @@ class QuestionViewController: UIViewController {
             self.viewModel.coordinator.onSegmentedControlChange(to: sender.selectedItem)
             self.hintImageView.image = self.viewModel.hintImage
             self.hintImageView.isHidden = self.hintImageView.image == nil
+            self.textField3.text = ""
+            
+            if let c = sender.selectedItem as? MedicareCardColorItem {
+                setupMedicalCardValidPicker(cardColor: c.color, textField: self.textField3)
+            }
 
         default:
             break
@@ -978,7 +1003,7 @@ extension QuestionViewController: UITextFieldDelegate {
             showDatePicker(textField1, initialDate: 18.years.earlier, maxDate: 18.years.earlier, minDate: nil, picker: datePicker)
             self.view.endEditing(true)
 
-        case .medicare where textField == textField3:
+        case .medicare where textField == textField3 && textField.inputView == nil:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 textField.resignFirstResponder()
                 self.view.endEditing(true)

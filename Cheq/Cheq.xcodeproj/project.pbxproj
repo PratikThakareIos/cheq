@@ -1665,6 +1665,10 @@
 		8A6BD49D25090B9000354CCB /* FrankieKycAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BD49B25090B9000354CCB /* FrankieKycAddressCoordinator.swift */; };
 		8A6BD49E25090B9000354CCB /* FrankieKycAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BD49B25090B9000354CCB /* FrankieKycAddressCoordinator.swift */; };
 		8A6BD49F25090B9000354CCB /* FrankieKycAddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6BD49B25090B9000354CCB /* FrankieKycAddressCoordinator.swift */; };
+		8A6C2C4325114FDE0086E972 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */; };
+		8A6C2C4425114FE00086E972 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */; };
+		8A6C2C4525114FE00086E972 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */; };
+		8A6C2C4625114FE10086E972 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */; };
 		8A9C0715250B37E400841D1B /* CSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C0714250B37E300841D1B /* CSegmentedControl.swift */; };
 		8A9C0716250B37E400841D1B /* CSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C0714250B37E300841D1B /* CSegmentedControl.swift */; };
 		8A9C0717250B37E400841D1B /* CSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C0714250B37E300841D1B /* CSegmentedControl.swift */; };
@@ -2301,6 +2305,7 @@
 		8A6BD49025090B4A00354CCB /* MedicareCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicareCoordinator.swift; sourceTree = "<group>"; };
 		8A6BD49525090B5200354CCB /* MedicareNameCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicareNameCoordinator.swift; sourceTree = "<group>"; };
 		8A6BD49B25090B9000354CCB /* FrankieKycAddressCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrankieKycAddressCoordinator.swift; sourceTree = "<group>"; };
+		8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		8A9C0714250B37E300841D1B /* CSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSegmentedControl.swift; sourceTree = "<group>"; };
 		8AED8CD7250E812100E721A0 /* UserVerificationDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVerificationDetailsViewModel.swift; sourceTree = "<group>"; };
 		9600A70A235348F20082C2A3 /* CButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -4032,6 +4037,14 @@
 			name = Frankie;
 			sourceTree = "<group>";
 		};
+		8A6C2C4725114FEA0086E972 /* MonthYearPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				8A6C2C4225114FDE0086E972 /* MonthYearPickerView.swift */,
+			);
+			path = MonthYearPickerView;
+			sourceTree = "<group>";
+		};
 		8A9C0719250B37EA00841D1B /* SegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -4511,6 +4524,7 @@
 				4F2323DC2374DC8E00BF3F21 /* CollectionViewCell */,
 				964FA98F2352879100B07AD7 /* TableViewCell */,
 				4F0D713D2345761500AA819C /* PageControl */,
+				8A6C2C4725114FEA0086E972 /* MonthYearPickerView */,
 				4F2E4BA0233B2168001F1BA2 /* PickerView */,
 				8A9C0719250B37EA00841D1B /* SegmentedControl */,
 				4F2E4AC4233836EA001F1BA2 /* ProgressView */,
@@ -5988,6 +6002,7 @@
 				2AAB5BD52473E4D3000CC702 /* FormatterUtil.swift in Sources */,
 				2AAB5BD62473E4D3000CC702 /* CollectionViewProtocol.swift in Sources */,
 				2AAB5BD72473E4D3000CC702 /* AvatarTableViewCellViewModel.swift in Sources */,
+				8A6C2C4425114FE00086E972 /* MonthYearPickerView.swift in Sources */,
 				2A0E845824A65C0A00721494 /* RecentActivityPopUpVC.swift in Sources */,
 				2AAB5BD82473E4D3000CC702 /* SpendingSpecificCategoryViewController.swift in Sources */,
 				2AAB5BD92473E4D3000CC702 /* PostLogRequest.swift in Sources */,
@@ -6638,6 +6653,7 @@
 				BD0D58FC23EA7225009193CD /* CustomSubViewPopup.swift in Sources */,
 				4F01F716237E6A5B00268423 /* CButtonTableViewCellViewModel.swift in Sources */,
 				8A6BD49925090B5200354CCB /* MedicareNameCoordinator.swift in Sources */,
+				8A6C2C4625114FE10086E972 /* MonthYearPickerView.swift in Sources */,
 				2A44A2E62452E6EE00346FCA /* GetEmployerPlaceResponse.swift in Sources */,
 				4F01F717237E6A5B00268423 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				4F01F718237E6A5B00268423 /* GridCollectionViewCell.swift in Sources */,
@@ -7030,6 +7046,7 @@
 				4FBDDAE9236BC68700EDB1E9 /* CFacebookButton.swift in Sources */,
 				2A44A2E52452E6ED00346FCA /* GetEmployerPlaceResponse.swift in Sources */,
 				8A6BD49825090B5200354CCB /* MedicareNameCoordinator.swift in Sources */,
+				8A6C2C4525114FE00086E972 /* MonthYearPickerView.swift in Sources */,
 				4FBDDAEA236BC68700EDB1E9 /* CButtonTableViewCellViewModel.swift in Sources */,
 				4FBDDAEB236BC68700EDB1E9 /* NoPayCycleIntroCoordinator.swift in Sources */,
 				4FBDDAEC236BC68700EDB1E9 /* GridCollectionViewCell.swift in Sources */,
@@ -7174,6 +7191,7 @@
 				4FEF983A234D51DC00E37421 /* FormatterUtil.swift in Sources */,
 				963D62EE22FB1DE0006344C9 /* CollectionViewProtocol.swift in Sources */,
 				4F01F89E23849AA300268423 /* AvatarTableViewCellViewModel.swift in Sources */,
+				8A6C2C4325114FDE0086E972 /* MonthYearPickerView.swift in Sources */,
 				2A0E845724A65C0A00721494 /* RecentActivityPopUpVC.swift in Sources */,
 				4FDDC331237A5B3900C3846E /* SpendingSpecificCategoryViewController.swift in Sources */,
 				2A44A2752452E6ED00346FCA /* PostLogRequest.swift in Sources */,
