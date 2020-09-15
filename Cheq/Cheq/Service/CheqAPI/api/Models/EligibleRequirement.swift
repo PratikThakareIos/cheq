@@ -32,8 +32,9 @@ public struct EligibleRequirement: Codable {
     public var hasBankAccountDetail: Bool?
     public var kycStatus: KycStatus?
     public var proofOfAddressStatus: ProofOfAddressStatus?
+    public var useFrankieKyc: Bool?
 
-    public init(hasEmploymentDetail: Bool?, hasPayCycle: Bool?, isReviewingPayCycle: Bool?, hasProofOfProductivity: Bool?, userAction: UserAction?, hasBankAccountDetail: Bool?, kycStatus: KycStatus?, proofOfAddressStatus: ProofOfAddressStatus?) {
+    public init(hasEmploymentDetail: Bool?, hasPayCycle: Bool?, isReviewingPayCycle: Bool?, hasProofOfProductivity: Bool?, userAction: UserAction?, hasBankAccountDetail: Bool?, kycStatus: KycStatus?, proofOfAddressStatus: ProofOfAddressStatus?, useFrankieKyc: Bool?) {
         self.hasEmploymentDetail = hasEmploymentDetail
         self.hasPayCycle = hasPayCycle
         self.isReviewingPayCycle = isReviewingPayCycle
@@ -42,6 +43,7 @@ public struct EligibleRequirement: Codable {
         self.hasBankAccountDetail = hasBankAccountDetail
         self.kycStatus = kycStatus
         self.proofOfAddressStatus = proofOfAddressStatus
+        self.useFrankieKyc = useFrankieKyc
     }
 
 }

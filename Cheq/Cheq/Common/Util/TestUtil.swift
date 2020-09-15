@@ -437,7 +437,7 @@ class TestUtil {
         let loanActivities = [LoanActivity]()
         let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities)
         
-        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success)
+        let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success, useFrankieKyc: false)
         
         
         // ignore decline for now

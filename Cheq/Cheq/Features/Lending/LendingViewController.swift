@@ -189,7 +189,11 @@ extension LendingViewController {
         case .verifyYourDetails:
             // verification flow
             AppData.shared.completingDetailsForLending = true
-            AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+            if lendingOverviewResponse?.eligibleRequirement?.useFrankieKyc == true {
+                AppNav.shared.presentIdentityVerificationView(viewController: self)
+            } else {
+                AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+            }
         
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
