@@ -194,7 +194,7 @@ extension LendingViewController {
             } else {
                 AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
             }
-        
+            
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
              LoggingUtil.shared.cPrint("verify work details")

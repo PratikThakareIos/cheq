@@ -70,17 +70,39 @@ class UserVerificationDetailsVC: UIViewController {
     }
     
     @IBAction func onStartPressed(_ sender: Any) {
+        
+        let request = DataHelperUtil.shared.retrieveUserDetailsKYCReq()
         AppConfig.shared.showSpinner()
-        viewModel.onStartVerification()
-            .done { result in
-                // finish verification process
-                AppConfig.shared.hideSpinner {
-                }
-        }.catch { err in
-            AppConfig.shared.hideSpinner {
+        
+        CheqAPIManager.shared.postUserDetailsFrankieKYC(request: request).done { (success) in
+            AppConfig.shared.hideSpinner {}
+            if success{
+                NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                AppNav.shared.dismissModal(self)
+            }else{
                 self.showError(CheqAPIManagerError.unableToPerformKYCNow) {
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                    AppNav.shared.dismissModal(self)
                 }
             }
+        }.catch { err in
+            AppConfig.shared.hideSpinner {
+                LoggingUtil.shared.cPrint(err.code())
+                LoggingUtil.shared.cPrint(err.localizedDescription)
+                self.showError(err) { }
+            }
         }
+        
+//        viewModel.onStartVerification()
+//            .done { result in
+//                // finish verification process
+//                AppConfig.shared.hideSpinner {
+//                }
+//        }.catch { err in
+//            AppConfig.shared.hideSpinner {
+//                self.showError(CheqAPIManagerError.unableToPerformKYCNow) {
+//                }
+//            }
+//        }
     }
 }

@@ -561,4 +561,22 @@ open class UsersAPI {
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    
+    open class func getUserFrankieKyc(completion: @escaping ((_ data: UserResponseForFrankieKYC?,_ error: Error?) -> Void)) {
+            getUserFrankieKycWithRequestBuilder().execute { (response, error) -> Void in
+                completion(response?.body, error)
+            }
+        }
+
+    open class func getUserFrankieKycWithRequestBuilder() -> RequestBuilder<UserResponseForFrankieKYC> {
+        let path = "/v1/Users/kyc/frankie"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<UserResponseForFrankieKYC>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
 }

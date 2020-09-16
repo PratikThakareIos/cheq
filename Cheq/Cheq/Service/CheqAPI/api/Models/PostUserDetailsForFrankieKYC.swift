@@ -8,6 +8,21 @@
 
 import Foundation
 
+
+public struct UserResponseForFrankieKYC: Codable{
+    public var idDocument: PostUserDocumentDetailsForFrankieKYC?
+    public var status: String?
+    public var detail: PostUserNameDetailsForFrankie?
+    public var address: PostUserResidentialAddressForFrankie?
+    
+    public init(idDocument: PostUserDocumentDetailsForFrankieKYC,status: String,detail: PostUserNameDetailsForFrankie,address: PostUserResidentialAddressForFrankie){
+        self.idDocument = idDocument
+        self.status = status
+        self.detail = detail
+        self.address = address
+    }
+}
+
 public struct PostUserDetailsForFrankieKYC: Codable {
 
     public var isConsent: Bool?
@@ -59,7 +74,7 @@ public struct PostUserDocumentDetailsForFrankieKYC: Codable{
     public var passport: Passport?
     public var medicare: MedicareCard?
 
-    public init(driverLicence: DriverLicence, passport: Passport, medicare: MedicareCard){
+    public init(driverLicence: DriverLicence?, passport: Passport?, medicare: MedicareCard?){
         self.driverLicence = driverLicence
         self.passport = passport
         self.medicare = medicare
@@ -92,13 +107,15 @@ public struct MedicareCard: Codable {
     public var positionOnCard: String?
     public var validToMonth: Int?
     public var validToYear: Int?
+    public var validToDay: Int?
     
-    public init(idNumber: String?, color: String?, positionOnCard: String?, validToMonth: Int?, validToYear: Int?) {
+    public init(idNumber: String?, color: String?, positionOnCard: String?, validToMonth: Int?, validToYear: Int?, validToDay: Int?) {
         self.idNumber = idNumber
         self.color = color
         self.positionOnCard = positionOnCard
         self.validToMonth = validToMonth
         self.validToYear = validToYear
+        self.validToDay = validToDay
     }
 }
 

@@ -311,6 +311,7 @@ extension UIViewController {
     }
 }
 
+
 // Logout method
 extension UIViewController {
     @objc func logout() {

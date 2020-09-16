@@ -122,6 +122,53 @@ class DataHelperUtil {
         return req
     }
     
+    
+    //MARK: RetrieveUserDetailsFrankieKycReq
+    
+    func retrieveUserDetailsKYCReq()-> PostUserDetailsForFrankieKYC{
+        let request = PostUserDetailsForFrankieKYC(isConsent: true)
+        return request
+    }
+    
+    func retrieveUserNameDetailsKYCReq()-> PostUserNameDetailsForFrankie{
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        let request = PostUserNameDetailsForFrankie(firstName: viewModel.fieldValue(.firstname), middleName: viewModel.fieldValue(.lastname), lastName: viewModel.fieldValue(.surname), showMiddleName: "Yes", dateOfBirth: viewModel.fieldValue(.dateOfBirth))
+        return request
+    }
+    
+    func retrieveUserAddressDetailsKYCReq()-> PostUserResidentialAddressForFrankie{
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        let request = PostUserResidentialAddressForFrankie(unitNumber: viewModel.fieldValue(.kycResidentialUnitNumber), streetNumber: viewModel.fieldValue(.kycResidentialStreetNumber), streetName: viewModel.fieldValue(.kycResidentialStreetName), streetType: viewModel.fieldValue(.kycResidentialStreetType), suburb: viewModel.fieldValue(.kycResidentialSuburb), state: viewModel.fieldValue(.kycResidentialState), postCode: viewModel.fieldValue(.kycResidentialPostcode))
+        return request
+    }
+    
+    func retrieveUserDocumentDetailsKycReq()-> PostUserDocumentDetailsForFrankieKYC {
+       
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        var request : PostUserDocumentDetailsForFrankieKYC!
+        switch AppData.shared.selectedKycDocType {
+        case .driversLicense:
+            let driverLicenseData = DriverLicence(idNumber: viewModel.fieldValue(.driverLicenceNumber), state: viewModel.fieldValue(.driverLicenceState))
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: driverLicenseData, passport: nil, medicare: nil)
+        case .medicareCard:
+            let medicareData = MedicareCard(idNumber: viewModel.fieldValue(.medicareNumber), color: viewModel.fieldValue(.color), positionOnCard: viewModel.fieldValue(.medicarePosition), validToMonth: Int(viewModel.fieldValue(.medicareValidToMonth)), validToYear: Int(viewModel.fieldValue(.medicareValidToYear)), validToDay: Int(viewModel.fieldValue(.medicareValidToDay)))
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: nil, passport: nil, medicare: medicareData)
+        case .passport:
+            let passportData  = Passport(idNumber: viewModel.fieldValue(.passportNumber), country: "Australia")
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: nil, passport: passportData, medicare: nil)
+        default:
+            print("test")
+        }
+        
+        return request
+    }
+    
     /**
      Helper method to build post a request payload containing the transactions retrieved from MoneySoft SDK.
      - parameter transactions: list of **FinancialTransactionModel** from MoneySoft SDK

@@ -54,7 +54,10 @@ class QuestionViewController: UIViewController {
     var viewModel = QuestionViewModel()
     var pickerViewCoordinator = QuestionPickerViewCoordinator()
     var activeTextField = UITextField()
+    var choices:[ChoiceModel] = []
+    var selectedStateName : String = ""
     
+    var statePickerView = UIPickerView()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -206,6 +209,7 @@ class QuestionViewController: UIViewController {
         self.hintImageView.isHidden = self.hintImageView.image == nil
         
         if let controlConfig = self.viewModel.coordinator.segmentedControlConfig() {
+            self.viewModel.save(QuestionField.color.rawValue, value:"Green")
             self.segmentedControl.configure(with: controlConfig)
             self.segmentedControl.addTarget(self, action: #selector(onSegmentedControlChanged(_:)), for: .valueChanged)
         } else {
@@ -282,6 +286,12 @@ class QuestionViewController: UIViewController {
         if AppData.shared.completingDetailsForLending {
             AppConfig.shared.removeProgressNavBar(self)
         }
+        
+        statePickerView.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 250, width: UIScreen.main.bounds.width, height: 250)
+        statePickerView.dataSource = self
+        statePickerView.delegate = self
+        statePickerView.isHidden = true
+        self.view.addSubview(statePickerView)
     }
     
     func updateKeyboardViews() {
@@ -306,6 +316,18 @@ class QuestionViewController: UIViewController {
             stateVm.load()
             let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
             self.textField1.text = savedState.name
+
+        case .frankieKycAddress:
+            let stateVm = QuestionViewModel()
+            stateVm.coordinator = FrankieKycAddressCoordinator()
+            stateVm.loadSaved()
+            StateCoordinator().choices().done { (models) in
+                self.choices = models
+            }
+//            self.textField3.text = stateVm.savedAnswer[QuestionField.kycResidentialStreetName.rawValue]
+//            self.textField6.text = stateVm.savedAnswer[QuestionField.kycResidentialState.rawValue]
+//            self.textField7.text = stateVm.savedAnswer[QuestionField.kycResidentialPostcode.rawValue]
+            self.textField8.text = "Australia"//stateVm.savedAnswer[QuestionField.kycResidentialCountry.rawValue]
 
         default: break
         }
@@ -416,7 +438,22 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.dateOfBirth.rawValue, value: textField1.text ?? "")
             
             if AppData.shared.selectedKycDocType != nil {
-                AppNav.shared.pushToQuestionForm(.frankieKycAddress, viewController: self)
+                let request = DataHelperUtil.shared.retrieveUserNameDetailsKYCReq()
+                self.nextButton.showLoadingOnButton(self)
+                
+                CheqAPIManager.shared.postUserNameDetailsFrankieKYC(request: request).done { (success) in
+                    self.nextButton.hideLoadingOnButton(self)
+                    if success{
+                        AppNav.shared.pushToQuestionForm(.frankieKycAddress, viewController: self)
+                    }
+                }.catch { err in
+                    self.nextButton.hideLoadingOnButton(self)
+                    AppConfig.shared.hideSpinner {
+                        LoggingUtil.shared.cPrint(err.code())
+                        LoggingUtil.shared.cPrint(err.localizedDescription)
+                        self.showError(err) { }
+                    }
+                }
                 return
             }
             
@@ -664,8 +701,23 @@ class QuestionViewController: UIViewController {
             break
                         
         case .driverLicense:
-            self.viewModel.save(QuestionField.driverLicenceNumber.rawValue, value: textField1.text ?? "")
-            AppNav.shared.pushToQuestionForm(.driverLicenseName, viewController: self)
+            self.viewModel.save(QuestionField.driverLicenceNumber.rawValue, value: textField2.text ?? "")
+            let request = DataHelperUtil.shared.retrieveUserDocumentDetailsKycReq()
+            self.nextButton.showLoadingOnButton(self)
+            
+            CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
+                self.nextButton.hideLoadingOnButton(self)
+                if success{
+                    AppNav.shared.pushToQuestionForm(.driverLicenseName, viewController: self)
+                }
+            }.catch { err in
+                self.nextButton.hideLoadingOnButton(self)
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(err.code())
+                    LoggingUtil.shared.cPrint(err.localizedDescription)
+                    self.showError(err) { }
+                }
+            }
 
         case .driverLicenseName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -675,7 +727,22 @@ class QuestionViewController: UIViewController {
 
         case .passport:
             self.viewModel.save(QuestionField.passportNumber.rawValue, value: textField1.text ?? "")
-            AppNav.shared.pushToQuestionForm(.passportName, viewController: self)
+            
+            let request = DataHelperUtil.shared.retrieveUserDocumentDetailsKycReq()
+            self.nextButton.showLoadingOnButton(self)
+            CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
+                self.nextButton.hideLoadingOnButton(self)
+                if success{
+                    AppNav.shared.pushToQuestionForm(.passportName, viewController: self)
+                }
+            }.catch { err in
+                self.nextButton.hideLoadingOnButton(self)
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(err.code())
+                    LoggingUtil.shared.cPrint(err.localizedDescription)
+                    self.showError(err) { }
+                }
+            }
 
         case .passportName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -687,7 +754,23 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.medicareNumber.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.medicarePosition.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.medicareValidTo.rawValue, value: textField3.text ?? "")
-            AppNav.shared.pushToQuestionForm(.medicareName, viewController: self)
+            self.getDayMonthYearFromDate(date: textField3.text ?? "")
+            
+            let request = DataHelperUtil.shared.retrieveUserDocumentDetailsKycReq()
+            self.nextButton.showLoadingOnButton(self)
+            CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
+                self.nextButton.hideLoadingOnButton(self)
+                if success{
+                    AppNav.shared.pushToQuestionForm(.medicareName, viewController: self)
+                }
+            }.catch { err in
+                self.nextButton.hideLoadingOnButton(self)
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(err.code())
+                    LoggingUtil.shared.cPrint(err.localizedDescription)
+                    self.showError(err) { }
+                }
+            }
 
         case .medicareName:
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
@@ -699,12 +782,40 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.kycResidentialUnitNumber.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetNumber.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: textField3.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField4.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: textField5.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField6.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField7.text ?? "")
-            AppNav.shared.pushUserVerificationDetailsView(viewController: self)
+
+            self.viewModel.save(QuestionField.kycResidentialStreetType.rawValue, value: textField4.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField5.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: self.selectedStateName)
+            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField7.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField8.text ?? "")
+            
+            let request = DataHelperUtil.shared.retrieveUserAddressDetailsKYCReq()
+            self.nextButton.showLoadingOnButton(self)
+            
+            CheqAPIManager.shared.postUserAddressDetailsFrankieKYC(request: request).done { (success) in
+                self.nextButton.hideLoadingOnButton(self)
+                if success{
+                    AppNav.shared.pushUserVerificationDetailsView(viewController: self)
+                }
+            }.catch { err in
+                self.nextButton.hideLoadingOnButton(self)
+                AppConfig.shared.hideSpinner {
+                    LoggingUtil.shared.cPrint(err.code())
+                    LoggingUtil.shared.cPrint(err.localizedDescription)
+                    self.showError(err) { }
+                }
+            }
         }
+    }
+    
+    func getDayMonthYearFromDate(date: String){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let date = formatter.date(from: date) else { return }
+        let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+        self.viewModel.save(QuestionField.medicareValidToDay.rawValue, value: "\(calanderDate.day ?? 0)")
+        self.viewModel.save(QuestionField.medicareValidToMonth.rawValue, value: "\(calanderDate.month ?? 0)")
+        self.viewModel.save(QuestionField.medicareValidToYear.rawValue, value: "\(calanderDate.year ?? 0)")
     }
     
     func showTransactions() {
@@ -738,6 +849,7 @@ class QuestionViewController: UIViewController {
     @objc func onSegmentedControlChanged(_ sender: CSegmentedControl) {
         switch self.viewModel.coordinator.type {
         case .medicare:
+            self.viewModel.save(QuestionField.color.rawValue, value: sender.selectedItem?.title ?? "")
             self.viewModel.coordinator.onSegmentedControlChange(to: sender.selectedItem)
             self.hintImageView.image = self.viewModel.hintImage
             self.hintImageView.isHidden = self.hintImageView.image == nil
@@ -1009,7 +1121,9 @@ extension QuestionViewController: UITextFieldDelegate {
                 self.view.endEditing(true)
                 self.showDatePicker(self.textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: self.datePicker)
             }
-            
+        case .frankieKycAddress where textField == textField6:
+            textField.inputView = statePickerView
+            statePickerView.isHidden = false
         default: break
         }
     }
@@ -1031,7 +1145,9 @@ extension QuestionViewController: UITextFieldDelegate {
         let qVm = QuestionViewModel()
         qVm.loadSaved()
         let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
-        
+        if textField == textField6{
+            statePickerView.isHidden = true
+        }
         //manish
         //        if self.viewModel.coordinator.type == .companyAddress, employmentType == .fulltime {
         //            return false
@@ -1161,6 +1277,29 @@ extension QuestionViewController {
     func isIncomeDetected() -> Bool {
         LoggingUtil.shared.cPrint(AppData.shared.employeeOverview?.eligibleRequirement?.hasPayCycle)
         return false
+    }
+}
+
+//MARK: Pickerview delegates and datasource
+
+extension QuestionViewController: UIPickerViewDelegate,UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.choices.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        self.choices[row].title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        textField6.text = self.choices[row].title
+        if let ref = self.choices[row].ref as? CountryState {
+            self.selectedStateName = ref.rawValue
+        }
     }
 }
 

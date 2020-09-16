@@ -82,10 +82,14 @@ enum QuestionField: String {
     case medicareNumber
     case medicarePosition
     case medicareValidTo
+    case medicareValidToDay
+    case medicareValidToMonth
+    case medicareValidToYear
+    case color
     
     case kycResidentialUnitNumber
     case kycResidentialStreetNumber
-
+    case kycResidentialStreetType
     case kycResidentialPostcode
     case kycResidentialSuburb
     case kycResidentialState
