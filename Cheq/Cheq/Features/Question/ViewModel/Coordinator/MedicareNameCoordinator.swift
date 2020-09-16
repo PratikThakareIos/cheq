@@ -33,14 +33,8 @@ class MedicareNameCoordinator: QuestionCoordinatorProtocol {
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         
         guard let firstName = inputs[placeHolder(0)] as? String, let lastName = inputs[placeHolder(2)] as? String else { return ValidationError.allFieldsMustBeFilled }
-        
-        guard (firstName != "" && lastName != "") else {
-            return ValidationError.allFieldsMustBeFilled
-        }
-        
-        guard StringUtil.shared.isAlphaOnly(firstName), StringUtil.shared.isAlphaOnly(lastName) else { return ValidationError.onlyAlphabetCharactersIsAllowed }
-        
-        guard firstName.count >= 2, lastName.count >= 2 else {
+                        
+        guard firstName.count > 0, lastName.count > 0 else {
             return ValidationError.invalidNameFormat
         }
         
