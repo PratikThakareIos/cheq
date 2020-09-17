@@ -87,8 +87,8 @@ class DocumentVerificationViewController: UIViewController {
     
     func saveFrankieKYCData(){
         if let dob = self.frankieKYCDetailsResponse?.detail?.dateOfBirth,dob != ""{
-            let date = dob.UTCToLocal()
-            userDefault.setValue(date, forKey: QuestionField.dateOfBirth.rawValue)
+//            let date = dob.UTCToLocal()
+            userDefault.setValue(dob, forKey: QuestionField.dateOfBirth.rawValue)
         }
         if let firstName = self.frankieKYCDetailsResponse?.detail?.firstName, firstName != ""{
             userDefault.setValue(firstName, forKey: QuestionField.firstname.rawValue)

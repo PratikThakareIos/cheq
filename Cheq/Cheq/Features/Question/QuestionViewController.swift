@@ -395,6 +395,7 @@ class QuestionViewController: UIViewController {
             }
             if let state = userDefault.value(forKey: QuestionField.kycResidentialState.rawValue) as? String{
                 self.textField5.text = state
+                self.selectedStateName = state
             }
             if let postcode = userDefault.value(forKey: QuestionField.kycResidentialPostcode.rawValue) as? String{
                 self.textField6.text = postcode

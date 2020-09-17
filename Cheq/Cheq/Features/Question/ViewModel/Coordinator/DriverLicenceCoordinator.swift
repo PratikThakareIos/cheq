@@ -57,7 +57,9 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
             return ValidationError.invalidDriversLicenseFormat
         }
         
-        if selectedState.isDigitOnly && !StringUtil.shared.isNumericOnly(licenceNumber) {
+        guard StringUtil.shared.isNumericOnly(licenceNumber) else { return ValidationError.onlyNumericCharactersIsAllowed }
+
+        guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
             return ValidationError.invalidDriversLicenseFormat
         }
         
