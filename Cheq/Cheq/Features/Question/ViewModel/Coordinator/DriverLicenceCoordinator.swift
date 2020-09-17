@@ -53,8 +53,6 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         guard let licenceNumber = inputs[placeHolder(1)] as? String else { return ValidationError.allFieldsMustBeFilled }
                 
-        guard StringUtil.shared.isNumericOnly(licenceNumber) else { return ValidationError.onlyNumericCharactersIsAllowed }
-
         guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
             return ValidationError.invalidDriversLicenseFormat
         }
