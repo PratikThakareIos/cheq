@@ -13,6 +13,12 @@ protocol CSegmentedControlItem {
     var ref: Any? { get }
 }
 
+struct CSegmentedControlViewModel {
+    let title: String
+    let items: [CSegmentedControlItem]
+    let selectedIndex: Int?
+}
+
 class CSegmentedControl: XibControlView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
@@ -20,7 +26,19 @@ class CSegmentedControl: XibControlView {
     // MARK: - Public properties
     @IBInspectable var isOptionalSelection: Bool = true
     
-    var selectedItemIndex: Int?
+    var selectedItemIndex: Int? {
+        didSet {
+            if let selectedItemIndex = selectedItemIndex {
+                buttons.forEach { button in
+                    button.isSelected = button.tag == selectedItemIndex
+                }
+            } else {
+                buttons.forEach { button in
+                    button.isSelected = false
+                }
+            }
+        }
+    }
     var selectedItem: CSegmentedControlItem? {
         get {
             items[selectedItemIndex ?? 0]
@@ -32,9 +50,10 @@ class CSegmentedControl: XibControlView {
     private var buttons: [UIButton] = []
     
     // MARK: - Public functions
-    func configure(with config: (String, [CSegmentedControlItem])) {
-        self.titleLabel.text = config.0
-        self.items = config.1
+    func configure(with viewModel: CSegmentedControlViewModel) {
+        self.titleLabel.text = viewModel.title
+        self.items = viewModel.items
+        
         stackView.arrangedSubviews.forEach {
             $0.removeFromSuperview()
         }
@@ -45,6 +64,7 @@ class CSegmentedControl: XibControlView {
                 button.tag = idx
                 stackView.addArrangedSubview(button)
         }
+        self.selectedItemIndex = viewModel.selectedIndex
     }
     
     // MARK: - Buttons logic
@@ -62,12 +82,8 @@ class CSegmentedControl: XibControlView {
         }
         
         if self.isOptionalSelection && sender.isSelected {
-            sender.isSelected = false
             selectedItemIndex = nil
         } else {
-            buttons.forEach { button in
-                button.isSelected = sender == button
-            }
             selectedItemIndex = sender.tag
         }
     }

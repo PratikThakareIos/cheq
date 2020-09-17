@@ -21,7 +21,7 @@ protocol QuestionCoordinatorProtocol {
     func isEditable(at index: Int) -> Bool
     func validateInput(_ inputs: [String: Any])-> ValidationError?
     func onSegmentedControlChange(to selection: CSegmentedControlItem?)
-    func segmentedControlConfig() -> (String, [CSegmentedControlItem])?
+    func segmentedControlConfig() -> CSegmentedControlViewModel?
 }
 
 extension QuestionCoordinatorProtocol {
@@ -60,7 +60,7 @@ extension QuestionCoordinatorProtocol {
         true
     }
     
-    func segmentedControlConfig() -> (String, [CSegmentedControlItem])? {
+    func segmentedControlConfig() -> CSegmentedControlViewModel? {
         nil
     }
 

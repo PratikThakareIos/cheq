@@ -52,15 +52,18 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
     var question: String = "Your Medicare card details"
     var numOfTextFields: Int = 3
     
-    var selectedCardColor: MedicareCardColorItem? = MedicareCoordinator.cardColors.first
+    var selectedCardColorIndex: Int = 1 // use this param to pre-load selected card color
+    var selectedCardColor: MedicareCardColorItem { MedicareCoordinator.cardColors[selectedCardColorIndex] }
     
-    func segmentedControlConfig() -> (String, [CSegmentedControlItem])? {
-        ("Medicare Card Colour", MedicareCoordinator.cardColors)
+    func segmentedControlConfig() -> CSegmentedControlViewModel? {
+        CSegmentedControlViewModel(title: "Medicare Card Colour",
+                                   items: MedicareCoordinator.cardColors,
+                                   selectedIndex: selectedCardColorIndex)
     }
     
     func onSegmentedControlChange(to selection: CSegmentedControlItem?) {
         guard let c = selection as? MedicareCardColorItem else { return }
-        selectedCardColor = c
+        selectedCardColorIndex = MedicareCoordinator.cardColors.firstIndex(where: { $0.color == c.color }) ?? 0
     }
     
     func placeHolder(_ index: Int)->String {
@@ -77,7 +80,7 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
     }
     
     var hintImage: UIImage? {
-        UIImage(named: "ic_medicare_\(selectedCardColor?.color.rawValue ?? "")")
+        UIImage(named: "ic_medicare_\(selectedCardColor.color.rawValue)")
     }
     
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
