@@ -56,8 +56,10 @@ class QuestionViewController: UIViewController {
     var activeTextField = UITextField()
     var choices:[ChoiceModel] = []
     var selectedStateName : String = ""
+    var validityForMedicareCard : String = ""
     
     var statePickerView = UIPickerView()
+    let userDefault = UserDefaults.standard
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,6 +71,7 @@ class QuestionViewController: UIViewController {
         activeTimestamp()
         //setupKeyboardHandling()
         self.updateKeyboardViews()
+        
     }
     
     
@@ -88,7 +91,6 @@ class QuestionViewController: UIViewController {
         setupDelegate()
         setupUI()
         self.setupLookupIfNeeded()
-        prePopulateEntry()
         if viewModel.coordinator.type == .maritalStatus {
             setupMaritalStatusPicker()
         }
@@ -203,6 +205,7 @@ class QuestionViewController: UIViewController {
         self.showNormalTextFields()
         self.showCheckbox()
         self.populatePlaceHolderNormalTextField()
+        self.prePopulateEntry()
         self.questionTitle.font = AppConfig.shared.activeTheme.headerBoldFont
         self.questionTitle.text = self.viewModel.question()
         self.hintImageView.image = self.viewModel.hintImage
@@ -308,26 +311,96 @@ class QuestionViewController: UIViewController {
     }
     
     func prePopulateEntry() {
+        let stateVm = QuestionViewModel()
+        stateVm.coordinator = FrankieKycAddressCoordinator()
+        stateVm.loadSaved()
+        StateCoordinator().choices().done { (models) in
+            self.choices = models
+        }
+        self.textField1.resignFirstResponder()
         viewModel.loadSaved()
+        self.view.endEditing(true)
         switch viewModel.coordinator.type {
         case .driverLicense:
-            let stateVm = MultipleChoiceViewModel()
-            stateVm.coordinator = StateCoordinator()
-            stateVm.load()
-            let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
-            self.textField1.text = savedState.name
-
-        case .frankieKycAddress:
-            let stateVm = QuestionViewModel()
-            stateVm.coordinator = FrankieKycAddressCoordinator()
-            stateVm.loadSaved()
-            StateCoordinator().choices().done { (models) in
-                self.choices = models
+            
+            if let state = userDefault.value(forKey: QuestionField.driverLicenceState.rawValue) as? String,let number = userDefault.value(forKey: QuestionField.driverLicenceNumber.rawValue) as? String{
+                let savedState = CountryState(raw: state)
+                self.textField1.text = savedState.name
+                self.textField2.text = number
+                self.textField1.inputView = statePickerView
+                self.textField1.isUserInteractionEnabled = true
+                self.textField1.backgroundColor = .white
+            }else{
+                let stateVm = MultipleChoiceViewModel()
+                stateVm.coordinator = StateCoordinator()
+                stateVm.load()
+                let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
+                self.textField1.text = savedState.name
             }
-//            self.textField3.text = stateVm.savedAnswer[QuestionField.kycResidentialStreetName.rawValue]
-//            self.textField6.text = stateVm.savedAnswer[QuestionField.kycResidentialState.rawValue]
-//            self.textField7.text = stateVm.savedAnswer[QuestionField.kycResidentialPostcode.rawValue]
-            self.textField8.text = "Australia"//stateVm.savedAnswer[QuestionField.kycResidentialCountry.rawValue]
+            
+        case .passport:
+            if let number = userDefault.value(forKey: QuestionField.passportNumber.rawValue) as? String{
+                self.textField1.text = number
+            }
+            
+        case .medicare:
+            if let number = userDefault.value(forKey: QuestionField.medicareNumber.rawValue) as? String,let position = userDefault.value(forKey: QuestionField.medicarePosition.rawValue) as? String,let year = userDefault.value(forKey: QuestionField.medicareValidToYear.rawValue) as? Int,let color = userDefault.value(forKey: QuestionField.color.rawValue) as? String{
+                self.textField1.text = number
+                self.textField2.text = position
+                self.viewModel.save(QuestionField.color.rawValue, value:color)
+                switch color {
+                case "Green":
+                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)"
+                    self.textField3.text = validityForMedicareCard
+                    self.segmentedControl.selectedItemIndex = 0
+                    self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
+                case "Yellow":
+                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)"
+                    self.textField3.text = validityForMedicareCard
+                    self.segmentedControl.selectedItemIndex = 1
+                    self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
+                case "Blue":
+                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)"
+                    self.textField3.text = validityForMedicareCard
+                    self.segmentedControl.selectedItemIndex = 2
+                    self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
+                default: break
+                }
+                
+            }
+        case .driverLicenseName,.passportName,.medicareName:
+            if  let name = userDefault.value(forKey: QuestionField.firstname.rawValue) as? String,let lastName = userDefault.value(forKey: QuestionField.lastname.rawValue) as? String,let surname = userDefault.value(forKey: QuestionField.surname.rawValue) as? String{
+                self.textField1.text = name
+                self.textField2.text = lastName
+                self.textField3.text = surname
+            }
+            
+        case .dateOfBirth:
+            if let dob = userDefault.value(forKey: QuestionField.dateOfBirth.rawValue) as? String{
+                self.textField1.text = dob
+            }
+        case .frankieKycAddress:
+        
+            if let unitNumber = userDefault.value(forKey: QuestionField.kycResidentialUnitNumber.rawValue) as? String{
+                self.textField1.text = unitNumber
+            }
+            if let streetNumber = userDefault.value(forKey: QuestionField.kycResidentialStreetNumber.rawValue) as? String{
+                self.textField2.text = streetNumber
+            }
+            if let streetName = userDefault.value(forKey: QuestionField.kycResidentialStreetName.rawValue) as? String{
+                self.textField3.text = streetName
+            }
+            if let suburb = userDefault.value(forKey: QuestionField.kycResidentialSuburb.rawValue) as? String{
+                self.textField4.text = suburb
+            }
+            if let state = userDefault.value(forKey: QuestionField.kycResidentialState.rawValue) as? String{
+                self.textField5.text = state
+            }
+            if let postcode = userDefault.value(forKey: QuestionField.kycResidentialPostcode.rawValue) as? String{
+                self.textField6.text = postcode
+            }
+            
+            self.textField7.text = "Australia"//stateVm.savedAnswer[QuestionField.kycResidentialCountry.rawValue]
 
         default: break
         }
@@ -783,11 +856,11 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.kycResidentialStreetNumber.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialStreetName.rawValue, value: textField3.text ?? "")
 
-            self.viewModel.save(QuestionField.kycResidentialStreetType.rawValue, value: textField4.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField5.text ?? "")
+//            self.viewModel.save(QuestionField.kycResidentialStreetType.rawValue, value: textField4.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialSuburb.rawValue, value: textField4.text ?? "")
             self.viewModel.save(QuestionField.kycResidentialState.rawValue, value: self.selectedStateName)
-            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField7.text ?? "")
-            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField8.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialPostcode.rawValue, value: textField6.text ?? "")
+            self.viewModel.save(QuestionField.kycResidentialCountry.rawValue, value: textField7.text ?? "")
             
             let request = DataHelperUtil.shared.retrieveUserAddressDetailsKYCReq()
             self.nextButton.showLoadingOnButton(self)
@@ -849,16 +922,28 @@ class QuestionViewController: UIViewController {
     @objc func onSegmentedControlChanged(_ sender: CSegmentedControl) {
         switch self.viewModel.coordinator.type {
         case .medicare:
+            
             self.viewModel.save(QuestionField.color.rawValue, value: sender.selectedItem?.title ?? "")
             self.viewModel.coordinator.onSegmentedControlChange(to: sender.selectedItem)
             self.hintImageView.image = self.viewModel.hintImage
             self.hintImageView.isHidden = self.hintImageView.image == nil
-            self.textField3.text = ""
-            
+//            self.textField3.text = ""
             if let c = sender.selectedItem as? MedicareCardColorItem {
                 setupMedicalCardValidPicker(cardColor: c.color, textField: self.textField3)
             }
-
+            
+            if let color = userDefault.value(forKey: QuestionField.color.rawValue) as? String{
+                if color == sender.selectedItem?.title ?? ""{
+                    self.textField1.text = userDefault.value(forKey: QuestionField.medicareNumber.rawValue) as? String
+                    self.textField2.text = userDefault.value(forKey: QuestionField.medicarePosition.rawValue) as? String
+                    self.textField3.text = validityForMedicareCard
+                }else{
+                    self.textField1.text = ""
+                    self.textField2.text = ""
+                    self.textField3.text  = ""
+                }
+            }
+            
         default:
             break
         }
@@ -1121,7 +1206,7 @@ extension QuestionViewController: UITextFieldDelegate {
                 self.view.endEditing(true)
                 self.showDatePicker(self.textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: self.datePicker)
             }
-        case .frankieKycAddress where textField == textField6:
+        case .frankieKycAddress where textField == textField5, .driverLicense where textField == textField1:
             textField.inputView = statePickerView
             statePickerView.isHidden = false
         default: break
@@ -1145,7 +1230,7 @@ extension QuestionViewController: UITextFieldDelegate {
         let qVm = QuestionViewModel()
         qVm.loadSaved()
         let employmentType = EmploymentType(fromRawValue: qVm.fieldValue(QuestionField.employerType))
-        if textField == textField6{
+        if textField == textField5 || textField == textField1{
             statePickerView.isHidden = true
         }
         //manish
@@ -1296,9 +1381,22 @@ extension QuestionViewController: UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField6.text = self.choices[row].title
         if let ref = self.choices[row].ref as? CountryState {
             self.selectedStateName = ref.rawValue
+        }
+        if viewModel.coordinator.type == .driverLicense{
+            self.textField1.text = self.choices[row].title
+            viewModel.save(QuestionField.driverLicenceState.rawValue, value: self.selectedStateName)
+            if let state = userDefault.value(forKey: QuestionField.driverLicenceState.rawValue) as? String{
+                let savedState = CountryState(raw: state)
+                if self.textField1.text == savedState.name{
+                    self.textField2.text = (userDefault.value(forKey: QuestionField.driverLicenceNumber.rawValue) as? String) ?? ""
+                }else{
+                    self.textField2.text = ""
+                }
+            }
+        }else{
+            textField5.text = self.choices[row].title
         }
     }
 }

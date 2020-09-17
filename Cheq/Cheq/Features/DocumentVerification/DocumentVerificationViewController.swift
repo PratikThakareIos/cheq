@@ -17,6 +17,7 @@ class DocumentVerificationViewController: UIViewController {
     @IBOutlet weak var lblDetail: UILabel!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
+    var frankieKYCDetailsResponse: UserResponseForFrankieKYC?
     var kycService = KycServiceProvider.onfido
     var items: [KycDocType] {
         switch kycService {
@@ -28,6 +29,7 @@ class DocumentVerificationViewController: UIViewController {
     }
     let cellSpacingHeight: CGFloat = 25
     var errOnfido : Error?
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,98 @@ class DocumentVerificationViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tableview.reloadData()
         AppConfig.shared.addEventToFirebase(PassModuleScreen.Lend.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventKey.lend_KYC.rawValue, FirebaseEventContentType.screen.rawValue)
+        
+        if kycService == .frankie{
+            self.getUserFrankieKYCDetails()
+        }
+    }
+    
+    func getUserFrankieKYCDetails(){
+        AppConfig.shared.showSpinner()
+        
+        CheqAPIManager.shared.getUserDetailsForFrankieKYC().done { (response) in
+            AppConfig.shared.hideSpinner {
+            }
+            self.frankieKYCDetailsResponse = response
+            self.saveFrankieKYCData()
+            LoggingUtil.shared.cPrint("\n\n>>FrankieResponse = \(response)")
+        }.catch { [weak self] err in
+            guard let self = self else { return }
+            AppConfig.shared.hideSpinner {
+                self.showError(err, completion: nil)
+            }
+        }
+    }
+    
+    func saveFrankieKYCData(){
+        if let dob = self.frankieKYCDetailsResponse?.detail?.dateOfBirth,dob != ""{
+            let date = dob.UTCToLocal()
+            userDefault.setValue(date, forKey: QuestionField.dateOfBirth.rawValue)
+        }
+        if let firstName = self.frankieKYCDetailsResponse?.detail?.firstName, firstName != ""{
+            userDefault.setValue(firstName, forKey: QuestionField.firstname.rawValue)
+        }
+        if let middleName = self.frankieKYCDetailsResponse?.detail?.middleName, middleName != ""{
+            userDefault.setValue(middleName, forKey: QuestionField.lastname.rawValue)
+        }
+        if let lastName = self.frankieKYCDetailsResponse?.detail?.lastName, lastName != ""{
+            userDefault.setValue(lastName, forKey: QuestionField.surname.rawValue)
+        }
+        if let unitNumber = self.frankieKYCDetailsResponse?.address?.unitNumber, unitNumber != ""{
+            userDefault.setValue(unitNumber, forKey: QuestionField.kycResidentialUnitNumber.rawValue)
+        }
+        if let streetNumber = self.frankieKYCDetailsResponse?.address?.streetNumber, streetNumber != ""{
+            userDefault.setValue(streetNumber, forKey: QuestionField.kycResidentialStreetNumber.rawValue)
+        }
+        if let streetName = self.frankieKYCDetailsResponse?.address?.streetName, streetName != ""{
+            userDefault.setValue(streetName, forKey: QuestionField.kycResidentialStreetName.rawValue)
+        }
+        if let suburb = self.frankieKYCDetailsResponse?.address?.suburb, suburb != ""{
+            userDefault.setValue(suburb, forKey: QuestionField.kycResidentialSuburb.rawValue)
+        }
+        if let state = self.frankieKYCDetailsResponse?.address?.state, state != ""{
+            userDefault.setValue(state, forKey: QuestionField.kycResidentialState.rawValue)
+        }
+        if let postcode = self.frankieKYCDetailsResponse?.address?.postCode, postcode != ""{
+            userDefault.setValue(postcode, forKey: QuestionField.kycResidentialPostcode.rawValue)
+        }
+        
+        if let driverLicenseData = self.frankieKYCDetailsResponse?.idDocument?.driverLicence{
+            if let state = driverLicenseData.state,state != ""{
+                userDefault.setValue(state, forKey: QuestionField.driverLicenceState.rawValue)
+            }
+            if let number = driverLicenseData.idNumber,number != ""{
+                userDefault.setValue(number, forKey: QuestionField.driverLicenceNumber.rawValue)
+            }
+        }
+        
+        if let passportData = self.frankieKYCDetailsResponse?.idDocument?.passport{
+            if let number = passportData.idNumber,number != ""{
+                userDefault.setValue(number, forKey: QuestionField.passportNumber.rawValue)
+            }
+        }
+        
+        if let medicareData = self.frankieKYCDetailsResponse?.idDocument?.medicare{
+            if let number = medicareData.idNumber,number != ""{
+                userDefault.setValue(number, forKey: QuestionField.medicareNumber.rawValue)
+            }
+            if let position = medicareData.positionOnCard,position != ""{
+                userDefault.setValue(position, forKey: QuestionField.medicarePosition.rawValue)
+            }
+            if let day = medicareData.validToDay,day != 0{
+                userDefault.setValue(day, forKey: QuestionField.medicareValidToDay.rawValue)
+            }
+            if let month = medicareData.validToMonth,month != 0{
+                userDefault.setValue(month, forKey: QuestionField.medicareValidToMonth.rawValue)
+            }
+            if let year = medicareData.validToYear,year != 0{
+                userDefault.setValue(year, forKey: QuestionField.medicareValidToYear.rawValue)
+            }
+            if let color = medicareData.color,color != ""{
+                userDefault.setValue(color, forKey: QuestionField.color.rawValue)
+            }
+            userDefault.synchronize()
+        }
     }
 }
 
@@ -145,7 +239,11 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         AppData.shared.selectedKycDocType = selectedDocType
         switch selectedDocType {
         case .driversLicense:
-            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+            if let _ = self.frankieKYCDetailsResponse?.idDocument?.driverLicence{
+                AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
+            }else{
+                AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+            }
         case .passport:
             AppNav.shared.pushToQuestionForm(.passport, viewController: self)
         case .medicareCard:
@@ -488,4 +586,15 @@ extension DocumentVerificationViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension String{
+    func UTCToLocal() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+
+        let dt = dateFormatter.date(from: self)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: dt ?? Date())
+    }
 }

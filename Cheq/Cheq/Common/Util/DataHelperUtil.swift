@@ -134,7 +134,7 @@ class DataHelperUtil {
         let viewModel = QuestionViewModel()
         /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
         viewModel.loadSaved()
-        let request = PostUserNameDetailsForFrankie(firstName: viewModel.fieldValue(.firstname), middleName: viewModel.fieldValue(.lastname), lastName: viewModel.fieldValue(.surname), showMiddleName: "Yes", dateOfBirth: viewModel.fieldValue(.dateOfBirth))
+        let request = PostUserNameDetailsForFrankie(firstName: viewModel.fieldValue(.firstname), middleName: viewModel.fieldValue(.lastname), lastName: viewModel.fieldValue(.surname), showMiddleName: "yes", dateOfBirth: viewModel.fieldValue(.dateOfBirth))
         return request
     }
     

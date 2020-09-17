@@ -23,7 +23,6 @@ class IdentityVerificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpUI()
-        self.getUserFrankieKYCDetails()
     }
     
     func setUpUI(){
@@ -49,19 +48,6 @@ class IdentityVerificationVC: UIViewController {
         let range = (string as NSString).range(of: boldString)
         attributedString.addAttributes(boldFontAttribute, range: range)
         return attributedString
-    }
-    
-    func getUserFrankieKYCDetails(){
-        AppConfig.shared.showSpinner()
-        
-        CheqAPIManager.shared.getUserDetailsForFrankieKYC().done { (response) in
-            LoggingUtil.shared.cPrint("\n\n>>FrankieResponse = \(response)")
-        }.catch { [weak self] err in
-            guard let self = self else { return }
-            AppConfig.shared.hideSpinner {
-                self.showError(err, completion: nil)
-            }
-        }
     }
     
     //MARK: User Actions

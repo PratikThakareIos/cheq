@@ -32,6 +32,11 @@ public struct PostUserDetailsForFrankieKYC: Codable {
     }
 }
 
+public enum ShowMiddleName: String, Codable {
+    case yes = "Yes"
+    case no = "No"
+    case onlyInitial = "OnlyInitial"
+}
 
 public struct PostUserNameDetailsForFrankie: Codable {
     public var firstName: String?

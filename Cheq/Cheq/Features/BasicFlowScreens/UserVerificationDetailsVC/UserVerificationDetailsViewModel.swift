@@ -41,7 +41,7 @@ extension UserVerificationDetailsViewModel {
         let qvm = QuestionViewModel()
         let name = [qvm.fieldValue(.firstname), qvm.fieldValue(.lastname)].joined(separator: " ")
         let dob = qvm.fieldValue(.dateOfBirth)
-        let address = qvm.fieldValue(.kycResidentialStreetName)
+        let address = "\(qvm.fieldValue(.kycResidentialUnitNumber)) \(qvm.fieldValue(.kycResidentialStreetNumber)) \(qvm.fieldValue(.kycResidentialStreetName)) \(qvm.fieldValue(.kycResidentialSuburb)) \(qvm.fieldValue(.kycResidentialState)) Australia"
         
         let docInfo: DocInfo
         switch type {
