@@ -57,7 +57,11 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
             return ValidationError.invalidDriversLicenseFormat
         }
         
-        guard StringUtil.shared.isNumericOnly(licenceNumber) else { return ValidationError.onlyNumericCharactersIsAllowed }
+        if selectedState == .NSW || selectedState == .SA || selectedState == .TAS{
+        }else{
+            guard StringUtil.shared.isNumericOnly(licenceNumber) else { return ValidationError.onlyNumericCharactersIsAllowed }
+        }
+        
 
         guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
             return ValidationError.invalidDriversLicenseFormat
