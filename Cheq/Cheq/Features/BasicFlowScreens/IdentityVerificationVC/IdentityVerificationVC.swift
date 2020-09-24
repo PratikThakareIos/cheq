@@ -30,11 +30,11 @@ class IdentityVerificationVC: UIViewController {
         self.showCloseButton()
         self.startButton.createShadowLayer()
         
-        self.legalIdLabel.attributedText = self.attributedText(withString: "Government Issued ID\n\nThis could be a Driver’s licence, Passport or Medicare that is not expired", boldString: "Government Issued ID")
+        self.legalIdLabel.attributedText = self.attributedText(withString: "Government Issued ID\n\nThis could be a Driver’s licence, Passport or Medicare card", boldString: "Government Issued ID")
         
-        self.ageLabel.attributedText = self.attributedText(withString: "Must be over 18 years of age\n\nYou must be an Australian citizen, permanent resident or have an Australian visa", boldString: "Must be over 18 years of age")
+        self.ageLabel.attributedText = self.attributedText(withString: "Must be 18 years or older\n\nYou must be an Australian citizen, permanent resident or have an Australian visa", boldString: "Must be 18 years or older")
         
-        self.timeLabel.attributedText = self.attributedText(withString: "5 mins of your time\n\nIt’s important you enter your details as accurately as possible.", boldString: "5 mins of your time")
+        self.timeLabel.attributedText = self.attributedText(withString: "5 mins of your time\n\nIt’s important that you enter your details as accurately as possible", boldString: "5 mins of your time")
         
         self.startButton.addTarget(self, action: #selector(startVerificationButtonClicked), for: .touchUpInside)
     }

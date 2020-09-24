@@ -27,8 +27,12 @@ class PassportCoordinator: QuestionCoordinatorProtocol {
     func validateInput(_ inputs: [String: Any]) -> ValidationError? {
         guard let passportNumber = inputs[placeHolder(0)] as? String else { return ValidationError.allFieldsMustBeFilled }
         
-        guard passportNumber.count >= 2 else {
-            return ValidationError.invalidInputFormat
+        if passportNumber.isEmpty{
+            return ValidationError.emptyPassportError
+        }
+        
+        if passportNumber.count < 2{
+            return ValidationError.invalidPassportError
         }
         
         return nil

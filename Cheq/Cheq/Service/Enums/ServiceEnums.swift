@@ -44,7 +44,11 @@ enum ValidationError: Error {
     case dobIsMandatory
     //NNN
     case associatedEmailPassword
-    
+    //Sachin
+    case emptyPassportError
+    case invalidPassportError
+    case emptyFirstNameError
+    case emptyLastNameError
     
 }
 
@@ -293,7 +297,7 @@ extension ValidationError: LocalizedError {
         case .invalidPostcodeFormat:
             return NSLocalizedString("Postcode should be 4 digits", comment: "")
         case .invalidDriversLicenseFormat:
-            return NSLocalizedString("Invalid driver's licence format", comment: "")
+            return NSLocalizedString("Please enter your licence number as it appears on the ID", comment: "")
         case .invalidMedicareNumberFormat:
             return NSLocalizedString("Card number should be 10 digits", comment: "")
         case .invalidMedicarePositionFormat:
@@ -318,10 +322,14 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
         case .associatedEmailPassword:
             return NSLocalizedString("Please enter the email address and password associated with your account", comment: "")
-            
-            
-            
-            
+        case .emptyPassportError:
+            return NSLocalizedString("Please enter your passport number", comment: "")
+        case .invalidPassportError:
+            return NSLocalizedString("Please enter your passport number as it appears on your passport", comment: "")
+        case .emptyFirstNameError:
+            return NSLocalizedString("Please enter your Given Name as it appears on your ID", comment: "")
+        case .emptyLastNameError:
+            return NSLocalizedString("Please enter your Surname as it appears on your ID", comment: "")
         }
     }
 }

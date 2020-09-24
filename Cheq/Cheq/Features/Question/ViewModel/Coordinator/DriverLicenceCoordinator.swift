@@ -63,9 +63,9 @@ class DriverLicenceCoordinator: QuestionCoordinatorProtocol {
         }
         
 
-        guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
-            return ValidationError.invalidDriversLicenseFormat
-        }
+//        guard licenceNumber.count >= selectedState.minCharsCount && licenceNumber.count <= selectedState.maxCharsCount else {
+//            return ValidationError.invalidDriversLicenseFormat
+//        }
         
         return nil
     }

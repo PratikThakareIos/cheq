@@ -103,7 +103,7 @@ enum CountryState: String, CaseIterable {
         case .ACT:
             return "Australian Capital Territory (ACT)"
         case .QLD:
-            return "Queensland (NSW)"
+            return "Queensland (QLD)"
         case .TAS:
             return "Tasmania (TAS)"
         case .NT:
@@ -135,9 +135,9 @@ enum CountryState: String, CaseIterable {
         case .NSW:
             return 6
         case .ACT:
-            return 1
+            return 2
         case .QLD:
-            return 8
+            return 9
         case .TAS:
             return 6
         case .NT:
@@ -145,7 +145,7 @@ enum CountryState: String, CaseIterable {
         case .SA:
             return 6
         case .VIC:
-            return 1
+            return 2
         case .WA:
             return 7
         }

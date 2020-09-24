@@ -125,12 +125,27 @@ class DocumentVerificationViewController: UIViewController {
             if let number = driverLicenseData.idNumber,number != ""{
                 userDefault.setValue(number, forKey: QuestionField.driverLicenceNumber.rawValue)
             }
+            userDefault.setValue(nil, forKey: QuestionField.passportNumber.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareNumber.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicarePosition.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToDay.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToYear.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.color.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToMonth.rawValue)
         }
         
         if let passportData = self.frankieKYCDetailsResponse?.idDocument?.passport{
             if let number = passportData.idNumber,number != ""{
                 userDefault.setValue(number, forKey: QuestionField.passportNumber.rawValue)
             }
+            userDefault.setValue(nil, forKey: QuestionField.driverLicenceState.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.driverLicenceNumber.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareNumber.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicarePosition.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToDay.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToYear.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.color.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.medicareValidToMonth.rawValue)
         }
         
         if let medicareData = self.frankieKYCDetailsResponse?.idDocument?.medicare{
@@ -152,6 +167,10 @@ class DocumentVerificationViewController: UIViewController {
             if let color = medicareData.color,color != ""{
                 userDefault.setValue(color, forKey: QuestionField.color.rawValue)
             }
+            
+            userDefault.setValue(nil, forKey: QuestionField.driverLicenceState.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.driverLicenceNumber.rawValue)
+            userDefault.setValue(nil, forKey: QuestionField.passportNumber.rawValue)
             userDefault.synchronize()
         }
     }
@@ -239,16 +258,41 @@ extension DocumentVerificationViewController: UITableViewDelegate,UITableViewDat
         AppData.shared.selectedKycDocType = selectedDocType
         switch selectedDocType {
         case .driversLicense:
-            if let _ = self.frankieKYCDetailsResponse?.idDocument?.driverLicence{
-                AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
-            }else{
-                AppNav.shared.pushToMultipleChoice(.state, viewController: self)
-            }
+//            if let _ = self.frankieKYCDetailsResponse?.idDocument?.driverLicence{
+//                AppNav.shared.pushToQuestionForm(.driverLicense, viewController: self)
+//            }else{
+//            if let number = userDefault.value(forKey: QuestionField.driverLicenceNumber.rawValue) as? String,number != ""{
+//            }else{
+//                self.resetUserDetails()
+//            }
+            AppNav.shared.pushToMultipleChoice(.state, viewController: self)
+//            }
         case .passport:
+//            if let number = userDefault.value(forKey: QuestionField.passportNumber.rawValue) as? String,number != ""{
+//            }else{
+//                self.resetUserDetails()
+//            }
             AppNav.shared.pushToQuestionForm(.passport, viewController: self)
         case .medicareCard:
+//            if let number = userDefault.value(forKey: QuestionField.medicareNumber.rawValue) as? String,number != ""{
+//            }else{
+//                self.resetUserDetails()
+//            }
             AppNav.shared.pushToQuestionForm(.medicare, viewController: self)
         }
+    }
+    
+    func resetUserDetails(){
+        userDefault.setValue(nil, forKey: QuestionField.dateOfBirth.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.firstname.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.lastname.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.surname.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialUnitNumber.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialStreetNumber.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialStreetName.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialSuburb.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialState.rawValue)
+        userDefault.setValue(nil, forKey: QuestionField.kycResidentialPostcode.rawValue)
     }
 }
 
@@ -589,12 +633,12 @@ extension DocumentVerificationViewController {
 }
 
 extension String{
-    func UTCToLocal() -> String {
+    func DisplayDateFormat(inputFormat: String,outputFormat: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = inputFormat
 
         let dt = dateFormatter.date(from: self)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = outputFormat
         return dateFormatter.string(from: dt ?? Date())
     }
 }

@@ -12,6 +12,7 @@ class UserVerificationDetailsVC: UIViewController {
     
     var viewModel: UserVerificationDetailsViewModel!
     
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var startButton: CNButton!
     @IBOutlet weak var dobView: HeaderLabelView!
     @IBOutlet weak var addressView: HeaderLabelView!
@@ -22,7 +23,7 @@ class UserVerificationDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = UserVerificationDetailsViewModel.fromAppData()
-        
+        textView.textContainer.lineBreakMode = .byCharWrapping
         self.setUpUI()
     }
     
@@ -34,6 +35,7 @@ class UserVerificationDetailsVC: UIViewController {
         self.checkmarkButton.setImage(UIImage(named: "unchecked-1"), for: .normal)
         self.checkmarkButton.addTarget(self, action: #selector(checkMarkClicked(sender:)), for: .touchUpInside)
         self.startButton.isEnabled = false
+        self.startButton.alpha = 0.3
         
         self.nameView.headerLabel.text = "Name"
         self.nameView.valueLabel.text = viewModel.name
@@ -63,9 +65,11 @@ class UserVerificationDetailsVC: UIViewController {
         if sender.image(for: .normal) == UIImage(named: "unchecked-1"){
             self.checkmarkButton.setImage(UIImage(named: "checked"), for: .normal)
             self.startButton.isEnabled = true
+            self.startButton.alpha = 1.0
         }else{
             self.checkmarkButton.setImage(UIImage(named: "unchecked-1"), for: .normal)
             self.startButton.isEnabled = false
+            self.startButton.alpha = 0.3
         }
     }
     

@@ -52,7 +52,7 @@ class MedicareCoordinator: QuestionCoordinatorProtocol {
     var question: String = "Your Medicare card details"
     var numOfTextFields: Int = 3
     
-    var selectedCardColorIndex: Int = 1 // use this param to pre-load selected card color
+    var selectedCardColorIndex: Int = 0 // use this param to pre-load selected card color
     var selectedCardColor: MedicareCardColorItem { MedicareCoordinator.cardColors[selectedCardColorIndex] }
     
     func segmentedControlConfig() -> CSegmentedControlViewModel? {

@@ -153,7 +153,7 @@ class TestUtil {
     
     /// retrieve DOB format style for formatting Date to fill in question form
     func dobFormatStyle()->String {
-        return "yyyy-MM-dd"
+        return "dd-MM-yyyy"
     }
     
     /// Helper method to retrieve data to fill in question form

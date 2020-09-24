@@ -304,6 +304,7 @@ extension UIViewController {
                 }
             })
         }
+        
         datePicker?.picker.date = initialDate
         datePicker?.picker.datePicker.maximumDate = maxDate
         datePicker?.picker.datePicker.minimumDate = minDate

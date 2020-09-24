@@ -58,8 +58,12 @@ class QuestionViewController: UIViewController {
     var selectedStateName : String = ""
     var validityForMedicareCard : String = ""
     
+    let pickerView = MonthYearPickerView()
+    var selectedMedicareCardColor: MedicareCardColorItem.CardColor?
     var statePickerView = UIPickerView()
     let userDefault = UserDefaults.standard
+    var savedState : CountryState?
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -160,7 +164,7 @@ class QuestionViewController: UIViewController {
         case .dayMonthYear:
             textField.inputView = nil
         case .monthYear:
-            let pickerView = MonthYearPickerView()
+            pickerView.commonSetup()
             pickerView.onDateSelected = { month, year in
                 textField.text = String(format: "%02d/%d", month, year)
             }
@@ -251,6 +255,7 @@ class QuestionViewController: UIViewController {
             
         case .medicare:
             if (self.textField3.text ?? "").isEmpty {
+                self.selectedMedicareCardColor = .green
                 self.setupMedicalCardValidPicker(cardColor: .green, textField: self.textField3)
             }
 
@@ -323,20 +328,40 @@ class QuestionViewController: UIViewController {
         switch viewModel.coordinator.type {
         case .driverLicense:
             
-            if let state = userDefault.value(forKey: QuestionField.driverLicenceState.rawValue) as? String,let number = userDefault.value(forKey: QuestionField.driverLicenceNumber.rawValue) as? String{
-                let savedState = CountryState(raw: state)
-                self.textField1.text = savedState.name
-                self.textField2.text = number
-                self.textField1.inputView = statePickerView
-                self.textField1.isUserInteractionEnabled = true
-                self.textField1.backgroundColor = .white
-            }else{
+//            if let state = userDefault.value(forKey: QuestionField.driverLicenceState.rawValue) as? String,let number = userDefault.value(forKey: QuestionField.driverLicenceNumber.rawValue) as? String{
+//                let savedState = CountryState(raw: state)
+//                self.textField1.text = savedState.name
+//                self.textField2.text = number
+//                self.textField1.inputView = statePickerView
+//                self.textField1.isUserInteractionEnabled = true
+//                self.textField1.backgroundColor = .white
+//            }else{
                 let stateVm = MultipleChoiceViewModel()
                 stateVm.coordinator = StateCoordinator()
                 stateVm.load()
                 let savedState = CountryState(raw: stateVm.savedAnswer[QuestionField.driverLicenceState.rawValue])
+                self.savedState = savedState
                 self.textField1.text = savedState.name
-            }
+            
+                switch savedState{
+                case .ACT:
+                    self.textField2.keyboardType = .numberPad
+                case .NSW:
+                    self.textField2.keyboardType = .default
+                case .QLD:
+                    self.textField2.keyboardType = .numberPad
+                case .TAS:
+                    self.textField2.keyboardType = .default
+                case .NT:
+                    self.textField2.keyboardType = .numberPad
+                case .SA:
+                    self.textField2.keyboardType = .default
+                case .VIC:
+                    self.textField2.keyboardType = .numberPad
+                case .WA:
+                    self.textField2.keyboardType = .numberPad
+                }
+//            }
             
         case .passport:
             if let number = userDefault.value(forKey: QuestionField.passportNumber.rawValue) as? String{
@@ -350,17 +375,17 @@ class QuestionViewController: UIViewController {
                 self.viewModel.save(QuestionField.color.rawValue, value:color)
                 switch color {
                 case "Green":
-                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)"
+                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 0
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
                 case "Yellow":
-                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)"
+                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 1
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
                 case "Blue":
-                    validityForMedicareCard = "\(year)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)"
+                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 2
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
@@ -369,15 +394,16 @@ class QuestionViewController: UIViewController {
                 
             }
         case .driverLicenseName,.passportName,.medicareName:
-            if  let name = userDefault.value(forKey: QuestionField.firstname.rawValue) as? String,let lastName = userDefault.value(forKey: QuestionField.lastname.rawValue) as? String,let surname = userDefault.value(forKey: QuestionField.surname.rawValue) as? String{
+            if  let name = userDefault.value(forKey: QuestionField.firstname.rawValue) as? String,let surname = userDefault.value(forKey: QuestionField.surname.rawValue) as? String{
                 self.textField1.text = name
-                self.textField2.text = lastName
+                self.textField2.text = (userDefault.value(forKey: QuestionField.lastname.rawValue) as? String) ?? ""
                 self.textField3.text = surname
             }
             
         case .dateOfBirth:
             if let dob = userDefault.value(forKey: QuestionField.dateOfBirth.rawValue) as? String{
-                self.textField1.text = dob
+                let date = dob.DisplayDateFormat(inputFormat: "yyyy-MM-dd", outputFormat: "dd-MM-yyyy")
+                self.textField1.text = date
             }
         case .frankieKycAddress:
         
@@ -518,6 +544,12 @@ class QuestionViewController: UIViewController {
                 CheqAPIManager.shared.postUserNameDetailsFrankieKYC(request: request).done { (success) in
                     self.nextButton.hideLoadingOnButton(self)
                     if success{
+                        let date = (self.textField1.text ?? "").DisplayDateFormat(inputFormat: "dd-MM-yyyy", outputFormat: "yyyy-MM-dd")
+                        self.userDefault.setValue(date, forKey: QuestionField.dateOfBirth.rawValue)
+                        self.userDefault.setValue(self.viewModel.fieldValue(.firstname), forKey: QuestionField.firstname.rawValue)
+                        self.userDefault.setValue(self.viewModel.fieldValue(.lastname), forKey: QuestionField.lastname.rawValue)
+                        self.userDefault.setValue(self.viewModel.fieldValue(.surname), forKey: QuestionField.surname.rawValue)
+                                                        
                         AppNav.shared.pushToQuestionForm(.frankieKycAddress, viewController: self)
                     }
                 }.catch { err in
@@ -782,6 +814,7 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
                 self.nextButton.hideLoadingOnButton(self)
                 if success{
+                    self.userDefault.setValue(self.textField2.text ?? "", forKey: QuestionField.driverLicenceNumber.rawValue)
                     AppNav.shared.pushToQuestionForm(.driverLicenseName, viewController: self)
                 }
             }.catch { err in
@@ -807,6 +840,7 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
                 self.nextButton.hideLoadingOnButton(self)
                 if success{
+                    self.userDefault.setValue(self.textField1.text ?? "", forKey: QuestionField.passportNumber.rawValue)
                     AppNav.shared.pushToQuestionForm(.passportName, viewController: self)
                 }
             }.catch { err in
@@ -835,6 +869,13 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.postUserDocumentDetailsFrankieKYC(request: request).done { (success) in
                 self.nextButton.hideLoadingOnButton(self)
                 if success{
+                    self.userDefault.setValue(self.textField1.text ?? "", forKey: QuestionField.medicareNumber.rawValue)
+                    self.userDefault.setValue(self.textField2.text ?? "", forKey: QuestionField.medicarePosition.rawValue)
+                    self.userDefault.setValue(self.viewModel.fieldValue(.medicareValidToDay), forKey: QuestionField.medicareValidToDay.rawValue)
+                    self.userDefault.setValue(self.viewModel.fieldValue(.medicareValidToMonth), forKey: QuestionField.medicareValidToMonth.rawValue)
+                    self.userDefault.setValue(self.viewModel.fieldValue(.medicareValidToYear), forKey: QuestionField.medicareValidToYear.rawValue)
+                    self.userDefault.setValue(self.viewModel.fieldValue(.color), forKey: QuestionField.color.rawValue)
+                
                     AppNav.shared.pushToQuestionForm(.medicareName, viewController: self)
                 }
             }.catch { err in
@@ -869,6 +910,13 @@ class QuestionViewController: UIViewController {
             CheqAPIManager.shared.postUserAddressDetailsFrankieKYC(request: request).done { (success) in
                 self.nextButton.hideLoadingOnButton(self)
                 if success{
+                    
+                    self.userDefault.setValue(self.textField1.text ?? "", forKey: QuestionField.kycResidentialUnitNumber.rawValue)
+                    self.userDefault.setValue(self.textField2.text ?? "", forKey: QuestionField.kycResidentialStreetNumber.rawValue)
+                    self.userDefault.setValue(self.textField3.text ?? "", forKey: QuestionField.kycResidentialStreetName.rawValue)
+                    self.userDefault.setValue(self.textField4.text ?? "", forKey: QuestionField.kycResidentialSuburb.rawValue)
+                    self.userDefault.setValue(self.selectedStateName, forKey: QuestionField.kycResidentialState.rawValue)
+                    self.userDefault.setValue(self.textField6.text ?? "", forKey: QuestionField.kycResidentialPostcode.rawValue)
                     AppNav.shared.pushUserVerificationDetailsView(viewController: self)
                 }
             }.catch { err in
@@ -884,12 +932,24 @@ class QuestionViewController: UIViewController {
     
     func getDayMonthYearFromDate(date: String){
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        guard let date = formatter.date(from: date) else { return }
-        let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
-        self.viewModel.save(QuestionField.medicareValidToDay.rawValue, value: "\(calanderDate.day ?? 0)")
-        self.viewModel.save(QuestionField.medicareValidToMonth.rawValue, value: "\(calanderDate.month ?? 0)")
-        self.viewModel.save(QuestionField.medicareValidToYear.rawValue, value: "\(calanderDate.year ?? 0)")
+        switch self.selectedMedicareCardColor?.dateFormat {
+        case .monthYear:
+            formatter.dateFormat = "MM-yyyy"
+            guard let date = formatter.date(from: date) else { return }
+            let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+            self.viewModel.save(QuestionField.medicareValidToDay.rawValue, value: "\(0)")
+            self.viewModel.save(QuestionField.medicareValidToMonth.rawValue, value: "\(calanderDate.month ?? 0)")
+            self.viewModel.save(QuestionField.medicareValidToYear.rawValue, value: "\(calanderDate.year ?? 0)")
+        case .dayMonthYear:
+            formatter.dateFormat = "dd-MM-yyyy"
+            guard let date = formatter.date(from: date) else { return }
+            let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+            self.viewModel.save(QuestionField.medicareValidToDay.rawValue, value: "\(calanderDate.day ?? 0)")
+            self.viewModel.save(QuestionField.medicareValidToMonth.rawValue, value: "\(calanderDate.month ?? 0)")
+            self.viewModel.save(QuestionField.medicareValidToYear.rawValue, value: "\(calanderDate.year ?? 0)")
+        default:
+            formatter.dateFormat = "dd-MM-yyyy"
+        }
     }
     
     func showTransactions() {
@@ -930,6 +990,7 @@ class QuestionViewController: UIViewController {
             self.hintImageView.isHidden = self.hintImageView.image == nil
 //            self.textField3.text = ""
             if let c = sender.selectedItem as? MedicareCardColorItem {
+                self.selectedMedicareCardColor = c.color
                 setupMedicalCardValidPicker(cardColor: c.color, textField: self.textField3)
             }
             
@@ -942,6 +1003,7 @@ class QuestionViewController: UIViewController {
                     self.textField1.text = ""
                     self.textField2.text = ""
                     self.textField3.text  = ""
+                    validityForMedicareCard = ""
                 }
             }
             
@@ -1198,35 +1260,106 @@ extension QuestionViewController: UITextFieldDelegate {
             LoggingUtil.shared.cPrint("search residential addresss")
             
         case .dateOfBirth:
-            showDatePicker(textField1, initialDate: 18.years.earlier, maxDate: 18.years.earlier, minDate: nil, picker: datePicker)
+            let dobDate = Calendar.current.date(byAdding: .day, value: -1, to: 18.years.earlier)!
+            showDatePicker(textField1, initialDate: dobDate, maxDate: dobDate, minDate: nil, picker: datePicker)
             self.view.endEditing(true)
 
-        case .medicare where textField == textField3 && textField.inputView == nil:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                textField.resignFirstResponder()
-                self.view.endEditing(true)
-                self.showDatePicker(self.textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: self.datePicker)
+        case .medicare:
+            if textField == textField3 && textField.inputView == nil{
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    textField.resignFirstResponder()
+                    self.view.endEditing(true)
+                    self.showDatePicker(self.textField3, initialDate: 1.days.later, maxDate: nil, minDate: Date(), picker: self.datePicker)
+                }
+            }else{
+                textField.keyboardType = .numberPad
             }
-        case .frankieKycAddress where textField == textField5, .driverLicense where textField == textField1:
-            textField.inputView = statePickerView
-            statePickerView.isHidden = false
+        case .frankieKycAddress:
+            if textField == textField5{
+                textField.tintColor = .clear
+                textField.inputView = self.statePickerView
+                self.statePickerView.isHidden = false
+                self.statePickerView.selectRow(0, inComponent: 0, animated: false)
+                self.pickerView(self.statePickerView, didSelectRow: 0, inComponent: 0)
+            }else if textField == textField6{
+                textField.keyboardType = .numberPad
+            }
         default: break
         }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if viewModel.coordinator.type == .contactDetails{
-            let maxLength = 10
-            let currentString: NSString = textField.text! as NSString
-            let newString: NSString =
-                currentString.replacingCharacters(in: range, with: string) as NSString
-            return newString.length <= maxLength
+            return self.getMaxLenghtOfTextfield(maxLength: 10, textField: textField, range: range, string: string)
+        }else if viewModel.coordinator.type == .driverLicense{
+            if let state = self.savedState{
+                switch state{
+                case .NSW:
+                    return self.getMaxLenghtOfTextfield(maxLength: 8, textField: textField, range: range, string: string)
+                case .ACT:
+                    return self.getMaxLenghtOfTextfield(maxLength: 10, textField: textField, range: range, string: string)
+                case .QLD:
+                    return self.getMaxLenghtOfTextfield(maxLength: 9, textField: textField, range: range, string: string)
+                case .TAS:
+                    return self.getMaxLenghtOfTextfield(maxLength: 8, textField: textField, range: range, string: string)
+                case .NT:
+                    return self.getMaxLenghtOfTextfield(maxLength: 10, textField: textField, range: range, string: string)
+                case .SA:
+                    return self.getMaxLenghtOfTextfield(maxLength: 6, textField: textField, range: range, string: string)
+                case .VIC:
+                    return self.getMaxLenghtOfTextfield(maxLength: 10, textField: textField, range: range, string: string)
+                case .WA:
+                    return self.getMaxLenghtOfTextfield(maxLength: 7, textField: textField, range: range, string: string)
+                }
+            }else{
+                return true
+            }
+        }else if viewModel.coordinator.type == .medicare{
+            if textField == self.textField1{
+                return self.getMaxLenghtOfTextfield(maxLength: 10, textField: textField, range: range, string: string)
+            }else if textField == self.textField2{
+                return self.getMaxLenghtOfTextfield(maxLength: 1, textField: textField, range: range, string: string)
+            }else{
+                return true
+            }
+        }else if viewModel.coordinator.type == .frankieKycAddress{
+            if textField == self.textField5{
+                return false
+            }else if textField == self.textField6{
+                return self.getMaxLenghtOfTextfield(maxLength: 4, textField: textField, range: range, string: string)
+            }else if textField == self.textField3 || textField == self.textField4{
+                return true
+            }else{
+                return removeSpecialCharactersFromTextfield(textField: textField, range: range, string: string)
+            }
+        }else if viewModel.coordinator.type == .passport{
+            return removeSpecialCharactersFromTextfield(textField: textField, range: range, string: string)
         }else{
             return true
         }
     }
     
+    func removeSpecialCharactersFromTextfield(textField: UITextField,range: NSRange,string: String) -> Bool{
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+        return (string == filtered)
+    }
+    
+    func getMaxLenghtOfTextfield(maxLength: Int,textField: UITextField,range: NSRange,string: String) -> Bool{
+        let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+        let filtered = string.components(separatedBy: cs).joined(separator: "")
+        if string == filtered{
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else{
+            return false
+        }
+    }
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    
         textField.resignFirstResponder()
         let qVm = QuestionViewModel()
         qVm.loadSaved()
@@ -1238,6 +1371,19 @@ extension QuestionViewController: UITextFieldDelegate {
         //        if self.viewModel.coordinator.type == .companyAddress, employmentType == .fulltime {
         //            return false
         //        }
+        
+        //Sachin to set default value for green card validTo
+        if viewModel.coordinator.type == .medicare && textField == textField3 && (textField3.text?.isEmpty ?? false){
+            switch self.selectedMedicareCardColor?.dateFormat{
+            case .monthYear:
+            self.pickerView.pickerView(self.pickerView, didSelectRow: 0, inComponent: 0)
+            case .dayMonthYear:
+                break
+            case .none:
+                break
+            }
+        }
+        
         return true
     }
 }
