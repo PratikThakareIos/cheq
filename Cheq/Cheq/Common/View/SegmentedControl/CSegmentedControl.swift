@@ -77,14 +77,14 @@ class CSegmentedControl: XibControlView {
     }
     
     @objc func onButtonPressed(_ sender: UIButton) {
-        defer {
-            sendActions(for: .valueChanged)
-        }
-        
         if self.isOptionalSelection && sender.isSelected {
             selectedItemIndex = nil
         } else {
+            if selectedItemIndex == sender.tag { // ignore selecting same item
+                return
+            }
             selectedItemIndex = sender.tag
         }
+        sendActions(for: .valueChanged)
     }
 }
