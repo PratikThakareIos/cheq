@@ -1327,10 +1327,8 @@ extension QuestionViewController: UITextFieldDelegate {
                 return false
             }else if textField == self.textField6{
                 return self.getMaxLenghtOfTextfield(maxLength: 4, textField: textField, range: range, string: string)
-            }else if textField == self.textField3 || textField == self.textField4{
-                return true
             }else{
-                return removeSpecialCharactersFromTextfield(textField: textField, range: range, string: string)
+                return true
             }
         }else if viewModel.coordinator.type == .passport{
             return removeSpecialCharactersFromTextfield(textField: textField, range: range, string: string)
