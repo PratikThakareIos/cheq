@@ -20,6 +20,17 @@ enum QuestionType: String {
     case companyAddress = "companyAddress"
     case bankAccount = "bankAccount"
     case verifyName = "verifyName"
+    
+    case driverLicense
+    case driverLicenseName
+
+    case passport
+    case passportName
+
+    case medicare
+    case medicareName
+    
+    case frankieKycAddress
 }
 
 enum QuestionField: String {
@@ -27,6 +38,7 @@ enum QuestionField: String {
     // about me
     case firstname = "firstname"
     case lastname = "lastname"
+    case surname = "surname"
     case fullLegalName = "fullLegalName"
     case dateOfBirth = "dateOfBirth"
     case contactDetails = "mobile"
@@ -61,6 +73,29 @@ enum QuestionField: String {
     case bankBSB = "bankBSB"
     case bankAccNo = "bankAccNo"
     case bankIsJoint = "isJointAccount"
+    
+    case driverLicenceState
+    case driverLicenceNumber
+
+    case passportNumber
+    
+    case medicareNumber
+    case medicarePosition
+    case medicareValidTo
+    case medicareValidToDay
+    case medicareValidToMonth
+    case medicareValidToYear
+    case color
+    
+    case kycResidentialUnitNumber
+    case kycResidentialStreetNumber
+    case kycResidentialStreetType
+    case kycResidentialPostcode
+    case kycResidentialSuburb
+    case kycResidentialState
+    case kycResidentialStreetName
+    case kycResidentialCountry
+
 }
 
 class QuestionViewModel: BaseViewModel {
@@ -81,6 +116,10 @@ class QuestionViewModel: BaseViewModel {
        return coordinator.question
     }
     
+    var hintImage: UIImage? {
+        coordinator.hintImage
+    }
+    
     func numOfTextFields()->Int {
         return coordinator.numOfTextFields
     }
@@ -96,7 +135,11 @@ class QuestionViewModel: BaseViewModel {
     func placeHolder(_ index: Int)->String {
         return coordinator.placeHolder(index)
     }
-    
+
+    func isEditable(at index: Int) -> Bool {
+        return coordinator.isEditable(at: index)
+    }
+
     func save(_ key: String, value: String) {
         if self.savedAnswer.count == 0 { loadSaved() }
         savedAnswer[key] = value
@@ -165,18 +208,7 @@ extension QuestionViewModel {
             return .couple
         }
     }
-
-    func residentialState() {
-        let state = self.fieldValue(.residentialState)
-        let localEnum = cState(fromRawValue: state)
-        return StateCoordinator.convertCStateToState(localEnum)
-    }
     
-//    func putUserResidentialState()-> PutUserDetailRequest.State {
-//        let state = self.fieldValue(.residentialState)
-//        let localEnum = cState(fromRawValue: state)
-//        return StateCoordinator.convertCStateToPutUserState(localEnum)
-//    }
 }
 
 extension QuestionViewModel {
@@ -201,6 +233,20 @@ extension QuestionViewModel {
             coordinator = BankAccountCoordinator()
         case .verifyName:
             coordinator = VerifyNameCoordinator()
+        case .driverLicense:
+            coordinator = DriverLicenceCoordinator()
+        case .driverLicenseName:
+            coordinator = DriverLicenceNameCoordinator()
+        case .passport:
+            coordinator = PassportCoordinator()
+        case .passportName:
+            coordinator = PassportNameCoordinator()
+        case .medicare:
+            coordinator = MedicareCoordinator()
+        case .medicareName:
+            coordinator = MedicareNameCoordinator()
+        case .frankieKycAddress:
+            coordinator = FrankieKycAddressCoordinator()
         }
         return coordinator
     }

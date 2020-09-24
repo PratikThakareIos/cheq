@@ -32,18 +32,3 @@ class ResidentialAddressCoordinator: QuestionCoordinatorProtocol {
     }
 
 }
-
-//class ResidentialAddressCoordinator: QuestionCoordinatorProtocol {
-//
-//    var type: QuestionType = .residentialAddress
-//
-//    var question: String = "What's your residential address?"
-//
-//    func placeHolder(_ index: Int)->String {
-//        return "11 York Street, Sydney NSW 2000"
-//    }
-//
-//    func validateInput(_ inputs: [String: Any])-> ValidationError? {
-//        return nil
-//    }
-//}

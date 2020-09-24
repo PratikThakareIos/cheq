@@ -189,8 +189,12 @@ extension LendingViewController {
         case .verifyYourDetails:
             // verification flow
             AppData.shared.completingDetailsForLending = true
-            AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
-        
+            if lendingOverviewResponse?.eligibleRequirement?.useFrankieKyc == true {
+                AppNav.shared.presentIdentityVerificationView(viewController: self)
+            } else {
+                AppNav.shared.presentToQuestionForm(.legalName, viewController: self)
+            }
+            
         case .workVerify:
             AppData.shared.completingDetailsForLending = true
              LoggingUtil.shared.cPrint("verify work details")
@@ -355,13 +359,13 @@ extension LendingViewController {
     }
     
     func presentPreviewLoanViewController() {
-        
-        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
-        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
-        vc.delegate = self
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
+        AppNav.shared.presentIdentityVerificationView(viewController: self)
+//        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+//        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
+//        vc.delegate = self
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {

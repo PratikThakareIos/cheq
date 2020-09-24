@@ -91,8 +91,7 @@ enum CommonStoryboardId: String {
     case GenericInfoVC = "GenericInfoVC"
     case maintenanceVC = "MaintenanceVC"
     case updateAppVC = "UpdateAppVC"
-    
-    
-    
+    case identityVerificationVC = "IdentityVerificationVC"
+    case userVerificationDetailsVC = "UserVerificationDetailsVC"
     
 }

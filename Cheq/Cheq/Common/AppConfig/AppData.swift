@@ -188,10 +188,9 @@ class AppData {
     /// employer list fetched from company address lookup
     var employerAddressList = [GetAddressResponse]()
 
-    
     /// residential address list fetched from home address lookup
     var residentialAddressList = [GetAddressResponse]()
-    
+
     /// selected employer index from **employerList**
     var selectedEmployer: Int = 0
     
@@ -201,7 +200,7 @@ class AppData {
     
     /// seleced home address index from **residentialAddressList**
     var selectedResidentialAddress: Int = 0
-    
+
     /// selected employer address from **employerAddressList**
     var selectedEmployerAddressString: String = ""
     
@@ -210,7 +209,10 @@ class AppData {
 
     /// When we are in LendingViewController, if we launch other onboarding screens, like Employment details, we use this variable to indicate that we are showing it for lending flow instead of onboarding flow
     var completingDetailsForLending = false
-    
+
+    /// Selected KYC verification document type, used to adjust verification questions and result
+    var selectedKycDocType: KycDocType?
+
     /// If we are doing migration of MoneySoft accounts on new device, we set this boolean as true
     var migratingToNewDevice = false 
     

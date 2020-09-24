@@ -504,11 +504,20 @@ extension AppDelegate {
 
     @objc func handleLogout(notification: NSNotification) {
         LoggingUtil.shared.cPrint("handle logout")
+        self.resetDefaults()
         AppData.shared.resetAllData()
         AppData.shared.oneSignal_removeExternalUserId()
         AppConfig.shared.markUserLoggedOut()
         AppData.shared.completingDetailsForLending = false
         window?.rootViewController = AppNav.shared.initViewController(StoryboardName.onboarding.rawValue, storyboardId: OnboardingStoryboardId.registration.rawValue, embedInNav: true)
+    }
+    
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
     }
     
     func handleNotLoggedIn() {

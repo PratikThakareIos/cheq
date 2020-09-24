@@ -423,6 +423,30 @@ extension AppNav {
         viewController.present(nav, animated: true, completion: nil)
     }
     
+    func presentIdentityVerificationView(viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: IdentityVerificationVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.identityVerificationVC.rawValue) as! IdentityVerificationVC
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func presentUserVerificationDetailsView(viewController: UIViewController){
+        
+        let storyboard = UIStoryboard(name: StoryboardName.common.rawValue, bundle: Bundle.main)
+        let vc: UserVerificationDetailsVC = storyboard.instantiateViewController(withIdentifier: CommonStoryboardId.userVerificationDetailsVC.rawValue) as! UserVerificationDetailsVC
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        viewController.present(nav, animated: true, completion: nil)
+    }
+    
+    func pushUserVerificationDetailsView(viewController: UIViewController) {
+        pushToViewController(StoryboardName.common.rawValue,
+                             storyboardId: CommonStoryboardId.userVerificationDetailsVC.rawValue,
+                             viewController: viewController)
+    }
+
 }
 
 // MARK: KYC
@@ -430,7 +454,7 @@ extension AppNav {
     
     /**
      Helper method to initiate KYC flow using the onfido SDK
-     - parameter type: **KycDocType** can be driver's license or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
+     - parameter type: **KycDocType** can be driver's licence or passport. **navigateToKYCFlow** takes in the user's decision on which document type is used for KYC flow.
      - parameter viewController: source viewController of the navigation action
      */
     func navigateToKYCFlow(_ type: KycDocType, viewController: UIViewController) {
@@ -453,7 +477,7 @@ extension AppNav {
         
         //let docType: DocumentType = (type == .Passport) ? DocumentType.passport : DocumentType.drivingLicence
         let drivingLicenceConfiguration = DrivingLicenceConfiguration.init(country: CountryCode.AU.rawValue)
-        let docType: DocumentType = (type == .Passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
+        let docType: DocumentType = (type == .passport) ? DocumentType.passport(config: nil) : DocumentType.drivingLicence(config: drivingLicenceConfiguration)
         
         let config = try! OnfidoConfig.builder()
                   .withAppearance(appearance)

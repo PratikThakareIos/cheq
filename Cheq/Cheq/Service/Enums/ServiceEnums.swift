@@ -30,6 +30,10 @@ enum ValidationError: Error {
     case invalidNameFormat
     case invalidEmailFormat
     case invalidPasswordFormat
+    case invalidDriversLicenseFormat
+    case invalidPostcodeFormat
+    case invalidMedicareNumberFormat
+    case invalidMedicarePositionFormat
     case onlyAlphabetCharactersIsAllowed
     case onlyNumericCharactersIsAllowed
     case unableToMapSelectedBank
@@ -39,8 +43,12 @@ enum ValidationError: Error {
     case invalidBBSandAccountNO
     case dobIsMandatory
     //NNN
-     case associatedEmailPassword
-   
+    case associatedEmailPassword
+    //Sachin
+    case emptyPassportError
+    case invalidPassportError
+    case emptyFirstNameError
+    case emptyLastNameError
     
 }
 
@@ -241,7 +249,7 @@ extension CheqAPIManagerError_Lending: LocalizedError {
         case .unableToGetTimeSheets:
             return NSLocalizedString("Unable to load time-sheets, please try again later", comment: "")
         case .unableToPostSalaryTransaction:
-             return NSLocalizedString("Unable to post Salary Transactions, please try again later", comment: "")
+            return NSLocalizedString("Unable to post Salary Transactions, please try again later", comment: "")
         case .unableToResolveBankAccount:
             return NSLocalizedString("Unable to unable to Resolve Bank Account, please try again later", comment: "")
         }
@@ -282,26 +290,29 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Invalid name format", comment: "")
         case .invalidMobileFormat:
             return NSLocalizedString("Invalid mobile format", comment: "")
-        
         case .invalidEmailFormat:
             return NSLocalizedString("Invalid email format, please try again", comment: "")
-        
         case .invalidPasswordFormat:
-         
             return NSLocalizedString("At least 6 characters long with 1 upper case character and 1 number", comment: "")
-            
-            
+        case .invalidPostcodeFormat:
+            return NSLocalizedString("Postcode should be 4 digits", comment: "")
+        case .invalidDriversLicenseFormat:
+            return NSLocalizedString("Please enter your licence number as it appears on the ID", comment: "")
+        case .invalidMedicareNumberFormat:
+            return NSLocalizedString("Card number should be 10 digits", comment: "")
+        case .invalidMedicarePositionFormat:
+            return NSLocalizedString("Position on card should be 1 digit", comment: "")
         case .unableToMapSelectedBank:
             return NSLocalizedString("Internal error with mapping selection", comment: "")
         case .onlyAlphabetCharactersIsAllowed:
-            return NSLocalizedString("Only alphabet characters is allowed", comment: "")
+            return NSLocalizedString("Only alphabet characters are allowed", comment: "")
         case .onlyNumericCharactersIsAllowed:
-            return NSLocalizedString("Only numeric characteres is allowed", comment: "")
+            return NSLocalizedString("Only numeric characters are allowed", comment: "")
         case .autoCompleteIsMandatory:
             return NSLocalizedString("Please enter your Company Address", comment: "")
         case .autoCompleteHomeAddressIsMandatory:
             return NSLocalizedString("Please enter your residential address", comment: "")
-        
+            
         case .dobIsMandatory:
             return NSLocalizedString("Please enter your date of birth", comment: "")
             
@@ -311,10 +322,14 @@ extension ValidationError: LocalizedError {
             return NSLocalizedString("Please enter a valid BSB and Account number", comment: "")
         case .associatedEmailPassword:
             return NSLocalizedString("Please enter the email address and password associated with your account", comment: "")
-      
-                 
-            
-            
+        case .emptyPassportError:
+            return NSLocalizedString("Please enter your passport number", comment: "")
+        case .invalidPassportError:
+            return NSLocalizedString("Please enter your passport number as it appears on your passport", comment: "")
+        case .emptyFirstNameError:
+            return NSLocalizedString("Please enter your Given Name as it appears on your ID", comment: "")
+        case .emptyLastNameError:
+            return NSLocalizedString("Please enter your Surname as it appears on your ID", comment: "")
         }
     }
 }
@@ -323,51 +338,51 @@ extension AuthManagerError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidRegistrationFields:
-        return NSLocalizedString("Invalid registration fields", comment: "")
+            return NSLocalizedString("Invalid registration fields", comment: "")
         case .invalidLoginFields:
-        //return NSLocalizedString("The email or password you entered is incorrect", comment: "")
+            //return NSLocalizedString("The email or password you entered is incorrect", comment: "")
             
-        return NSLocalizedString("The email address / password combination you entered does not exist", comment: "")
-       
+            return NSLocalizedString("The email address / password combination you entered does not exist", comment: "")
+            
         case .invalidFinancialInstitutionSelected:
-        return NSLocalizedString("Invalid Financial Institution", comment: "")
+            return NSLocalizedString("Invalid Financial Institution", comment: "")
         case .unableToRegisterExistingEmail:
-        return NSLocalizedString("Unable to register an existing email", comment: "")
+            return NSLocalizedString("Unable to register an existing email", comment: "")
         case .unableToRegisterWithMissingFBToken:
-        return NSLocalizedString("Unable to register with missing facebook token", comment: "")
+            return NSLocalizedString("Unable to register with missing facebook token", comment: "")
         case .unableToRetrieveAuthToken:
-        return NSLocalizedString("Unable to retrieve auth token", comment: "")
+            return NSLocalizedString("Unable to retrieve auth token", comment: "")
         case .unableToRetrieveFBToken:
-        return NSLocalizedString("Unable to retrieve facebook token", comment: "")
+            return NSLocalizedString("Unable to retrieve facebook token", comment: "")
         case .unableToRetrieveFBProfile:
-        return NSLocalizedString("Unable to retrieve facebook profile", comment: "")
+            return NSLocalizedString("Unable to retrieve facebook profile", comment: "")
         case .unableToRetrieveCredential:
-        return NSLocalizedString("Unable to retrieve credentials", comment: "")
+            return NSLocalizedString("Unable to retrieve credentials", comment: "")
         case .unableToSignIn:
-        return NSLocalizedString("Error during to sign in", comment: "")
+            return NSLocalizedString("Error during to sign in", comment: "")
         case .unableInvalidEmail:
-        return NSLocalizedString("Invalid email", comment: "")
+            return NSLocalizedString("Invalid email", comment: "")
         case .unableToStoreAuthToken:
-        return NSLocalizedString("Unable to store auth token", comment: "")
+            return NSLocalizedString("Unable to store auth token", comment: "")
         case .unableToCleanAuthToken:
-        return NSLocalizedString("Unable to clean up auth token", comment: "")
+            return NSLocalizedString("Unable to clean up auth token", comment: "")
         case .unableToRetrieveCurrentUser:
-        return NSLocalizedString("Unable to retrieve current logged in user", comment: "")
+            return NSLocalizedString("Unable to retrieve current logged in user", comment: "")
         case .unableToDeleteCurrentUserAccount:
-        return NSLocalizedString("Unable to delete current logged in user", comment: "")
+            return NSLocalizedString("Unable to delete current logged in user", comment: "")
         case .unableToUpdatePassword:
-        return NSLocalizedString("Unable to update password", comment: "")
+            return NSLocalizedString("Unable to update password", comment: "")
         case .unableToSendPasswordResetLink:
-        return NSLocalizedString("Unable to send password reset link", comment: "")
+            return NSLocalizedString("Unable to send password reset link", comment: "")
         case .unknown:
-        return NSLocalizedString("An error has occurred", comment: "")
+            return NSLocalizedString("An error has occurred", comment: "")
         case .unableToRequestEmailVerificationCode:
-        return NSLocalizedString("An error has occurred, please ensure email is valid", comment: "")
+            return NSLocalizedString("An error has occurred, please ensure email is valid", comment: "")
         case .unableToVerifyEmailVerificationCode:
-        return NSLocalizedString("Unable to validate verification code", comment: "")
+            return NSLocalizedString("Unable to validate verification code", comment: "")
         case .unableToRequestPasswordResetEmail:
-        return NSLocalizedString("Unable to send password reset email", comment: "")
-     
+            return NSLocalizedString("Unable to send password reset email", comment: "")
+            
             
             
         }
@@ -406,6 +421,6 @@ enum EmployerType: String {
     case employmentType = "employmentType"
     case workAddress = "workAddress"
     case noFixedAddress = "noFixedAddress"
-
+    
 }
 

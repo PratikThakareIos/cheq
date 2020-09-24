@@ -53,8 +53,6 @@ class DataHelperUtil {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = TestUtil.shared.dobFormatStyle()
         let dob = dateFormatter.date(from: qVm.fieldValue(.dateOfBirth)) ?? Date()
-        let cStateString = qVm.fieldValue(.residentialState)
-        let state = StateCoordinator.convertCStateToState(cState(fromRawValue: cStateString))
         
         /// Notice that **fieldValue** is used to access the saved answers instead of directly accessing the answer map inside **QuestionViewModel**
         let req = PutUserOnfidoKycRequest(firstName: qVm.fieldValue(.firstname),
@@ -122,6 +120,54 @@ class DataHelperUtil {
         let apnsToken = CKeychain.shared.getValueByKey(CKey.apnsToken.rawValue)
         let req = PostPushNotificationRequest(deviceId: UIDevice.current.identifierForVendor?.uuidString, firebasePushNotificationToken: fcmToken, applePushNotificationToken: apnsToken, deviceType: .ios)
         return req
+    }
+    
+    
+    //MARK: RetrieveUserDetailsFrankieKycReq
+    
+    func retrieveUserDetailsKYCReq()-> PostUserDetailsForFrankieKYC{
+        let request = PostUserDetailsForFrankieKYC(isConsent: true)
+        return request
+    }
+    
+    func retrieveUserNameDetailsKYCReq()-> PostUserNameDetailsForFrankie{
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        let dob = viewModel.fieldValue(.dateOfBirth).DisplayDateFormat(inputFormat: "dd-MM-yyyy", outputFormat: "yyyy-MM-dd")
+        let request = PostUserNameDetailsForFrankie(firstName: viewModel.fieldValue(.firstname), middleName: viewModel.fieldValue(.lastname), lastName: viewModel.fieldValue(.surname), showMiddleName: "yes", dateOfBirth: dob)
+        return request
+    }
+    
+    func retrieveUserAddressDetailsKYCReq()-> PostUserResidentialAddressForFrankie{
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        let request = PostUserResidentialAddressForFrankie(unitNumber: viewModel.fieldValue(.kycResidentialUnitNumber), streetNumber: viewModel.fieldValue(.kycResidentialStreetNumber), streetName: viewModel.fieldValue(.kycResidentialStreetName), streetType: viewModel.fieldValue(.kycResidentialStreetType), suburb: viewModel.fieldValue(.kycResidentialSuburb), state: viewModel.fieldValue(.kycResidentialState), postCode: viewModel.fieldValue(.kycResidentialPostcode))
+        return request
+    }
+    
+    func retrieveUserDocumentDetailsKycReq()-> PostUserDocumentDetailsForFrankieKYC {
+       
+        let viewModel = QuestionViewModel()
+        /// question answer values are loaded up using **QuestionViewModel** method - **loadSaved**
+        viewModel.loadSaved()
+        var request : PostUserDocumentDetailsForFrankieKYC!
+        switch AppData.shared.selectedKycDocType {
+        case .driversLicense:
+            let driverLicenseData = DriverLicence(idNumber: viewModel.fieldValue(.driverLicenceNumber), state: viewModel.fieldValue(.driverLicenceState))
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: driverLicenseData, passport: nil, medicare: nil)
+        case .medicareCard:
+            let medicareData = MedicareCard(idNumber: viewModel.fieldValue(.medicareNumber), color: viewModel.fieldValue(.color), positionOnCard: viewModel.fieldValue(.medicarePosition), validToMonth: Int(viewModel.fieldValue(.medicareValidToMonth)), validToYear: Int(viewModel.fieldValue(.medicareValidToYear)), validToDay: Int(viewModel.fieldValue(.medicareValidToDay)))
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: nil, passport: nil, medicare: medicareData)
+        case .passport:
+            let passportData  = Passport(idNumber: viewModel.fieldValue(.passportNumber), country: "Australia")
+            request = PostUserDocumentDetailsForFrankieKYC(driverLicence: nil, passport: passportData, medicare: nil)
+        default:
+            print("test")
+        }
+        
+        return request
     }
     
     /**

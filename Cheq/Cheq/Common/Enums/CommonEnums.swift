@@ -64,6 +64,11 @@ enum CountryCode: String {
     case AU = "AU"
 }
 
+enum KycServiceProvider {
+    case onfido
+    case frankie
+}
+
 enum CashDirection {
     case debit
     case credit
@@ -81,23 +86,100 @@ enum cAgeRange: String {
     }
 }
 
-enum cState: String {
-    case cNSW = "New South Wales (NSW)"
-    case cACT = "Australian Capital Territory (ACT)"
-    case cQLD = "Queensland (NSW)"
-    case cTAS = "Tasmania (TAS)"
-    case cNT = "Northern Territory (NT)"
-    case cSA = "South Australia (SA)"
-    case cVIC = "Victoria (VIC)"
-    case cWA = "Western Australia (WA)"
+enum CountryState: String, CaseIterable {
+    case NSW
+    case ACT
+    case QLD
+    case TAS
+    case NT
+    case SA
+    case VIC
+    case WA
     
-    init(fromRawValue: String) {
-        self = cState(rawValue: fromRawValue) ?? .cNSW
+    var name: String {
+        switch self {
+        case .NSW:
+            return "New South Wales (NSW)"
+        case .ACT:
+            return "Australian Capital Territory (ACT)"
+        case .QLD:
+            return "Queensland (QLD)"
+        case .TAS:
+            return "Tasmania (TAS)"
+        case .NT:
+            return "Northern Territory (NT)"
+        case .SA:
+            return "South Australia (SA)"
+        case .VIC:
+            return "Victoria (VIC)"
+        case .WA:
+            return "Western Australia (WA)"
+        }
+    }
+    
+    var isDigitOnly: Bool {
+        switch self {
+        case .NSW:
+            return false
+        case .TAS:
+            return false
+        case .SA:
+            return false
+        default:
+            return true
+        }
+    }
+    
+    var minCharsCount: Int {
+        switch self {
+        case .NSW:
+            return 6
+        case .ACT:
+            return 2
+        case .QLD:
+            return 9
+        case .TAS:
+            return 6
+        case .NT:
+            return 1
+        case .SA:
+            return 6
+        case .VIC:
+            return 2
+        case .WA:
+            return 7
+        }
+    }
+    
+    var maxCharsCount: Int {
+        switch self {
+        case .NSW:
+            return 8
+        case .ACT:
+            return 10
+        case .QLD:
+            return 9
+        case .TAS:
+            return 8
+        case .NT:
+            return 10
+        case .SA:
+            return 6
+        case .VIC:
+            return 10
+        case .WA:
+            return 7
+        }
+    }
+    
+    
+    init(raw: String?) {
+        self = CountryState(rawValue: raw ?? "") ?? .NSW
     }
 }
 
 enum Month: String, CaseIterable {
-
+    
     case Jan
     case Feb
     case Mar
@@ -110,7 +192,7 @@ enum Month: String, CaseIterable {
     case Oct
     case Nov
     case Dec
-
+    
     var string: String {
         switch self {
         case .Jan: return "Jan"
@@ -127,16 +209,16 @@ enum Month: String, CaseIterable {
         case .Dec: return "Dec"
         }
     }
-
+    
     static let allStringValues = [Jan.string, Feb.string, Mar.string, Apr.string, May.string, Jun.string, Jul.string, Aug.string, Sep.string, Oct.string, Nov.string, Dec.string]
 }
 
 enum FinancialPeriod: CaseIterable {
-
+    
     case month
     case quarterly
     case annually
-
+    
     var string: String {
         switch self {
         case .month: return "Monthly"
@@ -144,7 +226,7 @@ enum FinancialPeriod: CaseIterable {
         case .annually: return "Annually"
         }
     }
-
+    
     static let allStringValues = [month.string, quarterly.string, annually.string]
 }
 
@@ -161,7 +243,7 @@ enum FirebaseEventContentType: String {
 /// PassModuleScreen  ///NNN
 
 enum PassModuleScreen: String {
-
+    
     case Splash = "Splash"
     case Onboarding = "Onboarding"
     case Login = "Login"
@@ -189,7 +271,7 @@ enum PassModuleScreen: String {
 /// Firebase Event Key
 
 enum FirebaseEventKey: String {
-
+    
     case splash_budget = "splash_budget"
     case splash_spend = "splash_spend"
     case splash_lend = "splash_lend"
@@ -237,7 +319,7 @@ enum FirebaseEventKey: String {
     case spend_spent_dash_category = "spend_spent_dash_category"
     case spend_spent_category_dash = "spend_spent_category_dash"
     case spend_spent_category_dash_click = "spend_spent_category_dash_click"
-  
+    
     case budget_splash = "budget_splash"
     case budget_splash_click = "budget_splash_click"
     case budget_setup1 = "budget_setup1"
@@ -306,7 +388,7 @@ enum FirebaseEventKey: String {
     case menu_budget = "menu_budget"
     case menu_lend = "menu_lend"
     case menu_profile = "menu_profile"
-  
+    
 }
 
 
@@ -317,7 +399,7 @@ enum FacebookEventConstants: String {
     case ITEM_NAME = "ITEM_NAME"
     case CONTENT_TYPE = "CONTENT_TYPE"
     case CHEQ_FB_EVENT = "CHEQ_FB_EVENT"
-
+    
 }
 
 

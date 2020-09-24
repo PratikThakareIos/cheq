@@ -294,7 +294,7 @@ extension UIViewController {
 
 // MARK: Date Picker
 extension UIViewController {
-    func showDatePicker(_ textField: UITextField, initialDate: Date, picker: UDatePicker?) {
+    func showDatePicker(_ textField: UITextField, initialDate: Date, maxDate: Date?, minDate: Date?, picker: UDatePicker?) {
         var datePicker = picker
         if datePicker == nil {
             datePicker = UDatePicker(frame: view.frame, willDisappear: { date in
@@ -304,11 +304,14 @@ extension UIViewController {
                 }
             })
         }
+        
         datePicker?.picker.date = initialDate
-        datePicker?.picker.datePicker.maximumDate = initialDate
+        datePicker?.picker.datePicker.maximumDate = maxDate
+        datePicker?.picker.datePicker.minimumDate = minDate
         datePicker?.present(self)
     }
 }
+
 
 // Logout method
 extension UIViewController {
