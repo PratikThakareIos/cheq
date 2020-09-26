@@ -23,7 +23,6 @@ class UserVerificationDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = UserVerificationDetailsViewModel.fromAppData()
-        textView.textContainer.lineBreakMode = .byCharWrapping
         self.setUpUI()
     }
     
@@ -59,6 +58,13 @@ class UserVerificationDetailsVC: UIViewController {
             self.userIDView.idInfoView1.headerLabel.text = "Number"
             self.userIDView.idInfoView1.valueLabel.text = viewModel.docInfo.number
         }
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSAttributedString.Key.paragraphStyle : style,
+                          NSAttributedString.Key.font : UIFont(name: "SFUIText-Regular", size: 14)!]
+        let text = "I consent to the collection, use and disclosure of my personal information in accordance with Cheq Pty Ltd's Privacy Policy, and consent to my personal information being disclosed to a credit reporting agency (for identity verification purposes only and not credit-related) or my information being checked with the document issuer or official record holder via third party systems in connection with a request to verify my identity in accordance with the AML/CTF Act."
+        self.textView.attributedText = NSAttributedString(string: text, attributes: attributes)
     }
     
     @objc func checkMarkClicked(sender: UIButton){

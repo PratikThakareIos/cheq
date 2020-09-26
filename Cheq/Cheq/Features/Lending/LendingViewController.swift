@@ -35,10 +35,12 @@ class LendingViewController: CTableViewController {
         setupUI()
         setupDelegate()
     }
+    
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.layoutSubviews()
+        tableView.setContentOffset(CGPoint.zero, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -359,13 +361,13 @@ extension LendingViewController {
     }
     
     func presentPreviewLoanViewController() {
-        AppNav.shared.presentIdentityVerificationView(viewController: self)
-//        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
-//        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
-//        vc.delegate = self
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: true, completion: nil)
+//        AppNav.shared.presentIdentityVerificationView(viewController: self)
+        let storyboard = UIStoryboard(name: StoryboardName.main.rawValue, bundle: Bundle.main)
+        let vc: PreviewLoanViewController = storyboard.instantiateViewController(withIdentifier: MainStoryboardId.preview.rawValue) as! PreviewLoanViewController
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {
