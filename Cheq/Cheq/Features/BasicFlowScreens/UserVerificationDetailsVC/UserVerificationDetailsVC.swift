@@ -49,6 +49,9 @@ class UserVerificationDetailsVC: UIViewController {
         self.userIDView.idImageView.image = viewModel.docInfo.type.icon
         self.userIDView.headerLabel.text = viewModel.docInfo.type.rawValue
         
+        self.showNavBar()
+        self.showBackButton()
+
         if viewModel.docInfo.hasState {
             self.userIDView.idInfoView1.headerLabel.text = "State"
             self.userIDView.idInfoView1.valueLabel.text = viewModel.docInfo.state
