@@ -366,6 +366,7 @@ extension LendingViewController {
         vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {
