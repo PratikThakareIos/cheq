@@ -657,7 +657,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-0U-bKi" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="910.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="905.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify identity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcX-xg-bCj">
                                                 <rect key="frame" x="24" y="20" width="272" height="17"/>
@@ -708,7 +708,7 @@
                                                 <state key="normal" image="unchecked-1"/>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9A-Mg-VzL">
-                                                <rect key="frame" x="76" y="519.5" width="224" height="283.5"/>
+                                                <rect key="frame" x="61" y="514.5" width="239" height="283.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">I consent to the collection, use and disclosure of my personal information in accordance with Cheq Pty Ltd's Privacy Policy, and consent to my personal information being disclosed to a credit reporting agency (for identity verification purposes only and not credit-related) or my information being checked with the document issuer or official record holder via third party systems in connection with a request to verify my identity in accordance with the AML/CTF Act.</string>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -716,7 +716,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-C9-ER0" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="833.5" width="280" height="47"/>
+                                                <rect key="frame" x="20" y="828.5" width="280" height="47"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.0" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="2NR-C9-ER0" secondAttribute="height" multiplier="167:28" id="76A-fm-r7e"/>
@@ -740,7 +740,7 @@
                                             <constraint firstItem="qfv-Sa-SiR" firstAttribute="leading" secondItem="mcX-xg-bCj" secondAttribute="leading" id="EaQ-Dn-ISE"/>
                                             <constraint firstItem="XFa-ye-d9x" firstAttribute="top" secondItem="Z4p-bP-yCh" secondAttribute="bottom" constant="15" id="Fbd-Sw-3hf"/>
                                             <constraint firstItem="sPQ-ew-jYh" firstAttribute="leading" secondItem="O7O-0U-bKi" secondAttribute="leading" id="Nrz-x0-5Xk"/>
-                                            <constraint firstItem="c9A-Mg-VzL" firstAttribute="top" secondItem="2dD-bK-2xV" secondAttribute="top" id="Qse-SU-5KI"/>
+                                            <constraint firstItem="c9A-Mg-VzL" firstAttribute="top" secondItem="2dD-bK-2xV" secondAttribute="top" constant="-5" id="Qse-SU-5KI"/>
                                             <constraint firstAttribute="trailing" secondItem="qfv-Sa-SiR" secondAttribute="trailing" constant="10" id="Rre-N1-hap"/>
                                             <constraint firstItem="sPQ-ew-jYh" firstAttribute="top" secondItem="qfv-Sa-SiR" secondAttribute="bottom" constant="25" id="TTS-19-5D6"/>
                                             <constraint firstAttribute="trailing" secondItem="c9A-Mg-VzL" secondAttribute="trailing" constant="20" id="UDq-gg-Kuk"/>
@@ -749,7 +749,7 @@
                                             <constraint firstItem="Z4p-bP-yCh" firstAttribute="top" secondItem="efa-Pz-Nh3" secondAttribute="bottom" constant="15" id="Y2Q-vY-Pd7"/>
                                             <constraint firstItem="2NR-C9-ER0" firstAttribute="leading" secondItem="O7O-0U-bKi" secondAttribute="leading" constant="20" id="YT5-BP-WwA"/>
                                             <constraint firstItem="mcX-xg-bCj" firstAttribute="leading" secondItem="O7O-0U-bKi" secondAttribute="leading" constant="24" id="YZE-ID-2vW"/>
-                                            <constraint firstItem="c9A-Mg-VzL" firstAttribute="leading" secondItem="2dD-bK-2xV" secondAttribute="trailing" constant="20" id="ZSa-MT-LaJ"/>
+                                            <constraint firstItem="c9A-Mg-VzL" firstAttribute="leading" secondItem="2dD-bK-2xV" secondAttribute="trailing" constant="5" id="ZSa-MT-LaJ"/>
                                             <constraint firstAttribute="trailing" secondItem="mcX-xg-bCj" secondAttribute="trailing" constant="24" id="ag9-mD-aWp"/>
                                             <constraint firstAttribute="trailing" secondItem="XFa-ye-d9x" secondAttribute="trailing" constant="20" id="cTO-8C-ObI"/>
                                             <constraint firstAttribute="bottom" secondItem="2NR-C9-ER0" secondAttribute="bottom" constant="30" id="con-qm-3Kv"/>

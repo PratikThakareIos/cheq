@@ -169,6 +169,7 @@ class QuestionViewController: UIViewController {
                 textField.text = String(format: "%02d/%d", month, year)
             }
             textField.inputView = pickerView
+            textField.tintColor = .clear
         }
         textField.text = ""
         self.view.endEditing(true)
@@ -550,9 +551,6 @@ class QuestionViewController: UIViewController {
                     if success{
                         let date = (self.textField1.text ?? "").DisplayDateFormat(inputFormat: "dd-MM-yyyy", outputFormat: "yyyy-MM-dd")
                         self.userDefault.setValue(date, forKey: QuestionField.dateOfBirth.rawValue)
-                        self.userDefault.setValue(self.viewModel.fieldValue(.firstname), forKey: QuestionField.firstname.rawValue)
-                        self.userDefault.setValue(self.viewModel.fieldValue(.lastname), forKey: QuestionField.lastname.rawValue)
-                        self.userDefault.setValue(self.viewModel.fieldValue(.surname), forKey: QuestionField.surname.rawValue)
                                                         
                         AppNav.shared.pushToQuestionForm(.frankieKycAddress, viewController: self)
                     }
@@ -834,6 +832,11 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
+            
+            self.userDefault.setValue(textField1.text ?? "", forKey: QuestionField.firstname.rawValue)
+            self.userDefault.setValue(textField2.text ?? "", forKey: QuestionField.lastname.rawValue)
+            self.userDefault.setValue(textField3.text ?? "", forKey: QuestionField.surname.rawValue)
+            
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .passport:
@@ -860,6 +863,11 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
+            
+            self.userDefault.setValue(textField1.text ?? "", forKey: QuestionField.firstname.rawValue)
+            self.userDefault.setValue(textField2.text ?? "", forKey: QuestionField.lastname.rawValue)
+            self.userDefault.setValue(textField3.text ?? "", forKey: QuestionField.surname.rawValue)
+            
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .medicare:
@@ -895,6 +903,11 @@ class QuestionViewController: UIViewController {
             self.viewModel.save(QuestionField.firstname.rawValue, value: textField1.text ?? "")
             self.viewModel.save(QuestionField.lastname.rawValue, value: textField2.text ?? "")
             self.viewModel.save(QuestionField.surname.rawValue, value: textField3.text ?? "")
+            
+            self.userDefault.setValue(textField1.text ?? "", forKey: QuestionField.firstname.rawValue)
+            self.userDefault.setValue(textField2.text ?? "", forKey: QuestionField.lastname.rawValue)
+            self.userDefault.setValue(textField3.text ?? "", forKey: QuestionField.surname.rawValue)
+            
             AppNav.shared.pushToQuestionForm(.dateOfBirth, viewController: self)
 
         case .frankieKycAddress:
@@ -1375,7 +1388,7 @@ extension QuestionViewController: UITextFieldDelegate {
         //        }
         
         //Sachin to set default value for green card validTo
-        if viewModel.coordinator.type == .medicare && textField == textField3 && (textField3.text?.isEmpty ?? false){
+        if viewModel.coordinator.type == .medicare && textField == textField3{
             switch self.selectedMedicareCardColor?.dateFormat{
             case .monthYear:
             self.pickerView.pickerView(self.pickerView, didSelectRow: 0, inComponent: 0)
@@ -1589,4 +1602,9 @@ extension QuestionViewController: VerificationPopupVCDelegate{
     
 }
 
+extension UITextField {
+    open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
+    }
+}
 

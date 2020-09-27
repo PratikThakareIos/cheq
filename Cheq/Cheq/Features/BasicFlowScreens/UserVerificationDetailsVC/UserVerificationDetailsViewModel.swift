@@ -39,10 +39,15 @@ extension UserVerificationDetailsViewModel {
     static func fromAppData() -> UserVerificationDetailsViewModel {
         let type = AppData.shared.selectedKycDocType ?? .passport
         let qvm = QuestionViewModel()
-        let name = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname)) \(qvm.fieldValue(.surname))"
+        var name = ""
+        if qvm.fieldValue(.lastname) != ""{
+            name = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.lastname)) \(qvm.fieldValue(.surname))"
+        }else{
+            name = "\(qvm.fieldValue(.firstname)) \(qvm.fieldValue(.surname))"
+        }
         let dob = qvm.fieldValue(.dateOfBirth)
         
-        let address = "\(qvm.fieldValue(.kycResidentialUnitNumber)) \(qvm.fieldValue(.kycResidentialStreetNumber)), \(qvm.fieldValue(.kycResidentialStreetName)), \(qvm.fieldValue(.kycResidentialSuburb)), \(qvm.fieldValue(.kycResidentialState)), Australia"
+        let address = "\(qvm.fieldValue(.kycResidentialUnitNumber)) \(qvm.fieldValue(.kycResidentialStreetNumber)) \(qvm.fieldValue(.kycResidentialStreetName)), \(qvm.fieldValue(.kycResidentialSuburb)), \(qvm.fieldValue(.kycResidentialState)), Australia"
         
         let docInfo: DocInfo
         switch type {

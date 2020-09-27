@@ -50,5 +50,27 @@ extension NSMutableAttributedString {
             self.addAttribute(.font, value: font, range: range2 )
         }
     }
+    
+    func applyHighlightThree(text1: String,text2: String,text3: String, color: UIColor, font: UIFont) {
+        let mainString = self.string as NSString
+        
+        let range = mainString.range(of: text1)
+        if range.location != NSNotFound {
+            self.addAttribute(.foregroundColor, value: color , range: range)
+            self.addAttribute(.font, value: font, range: range )
+        }
+        
+        let range2 = mainString.range(of: text2)
+        if range2.location != NSNotFound {
+            self.addAttribute(.foregroundColor, value: color , range: range2)
+            self.addAttribute(.font, value: font, range: range2 )
+        }
+        
+        let range3 = mainString.range(of: text3)
+        if range3.location != NSNotFound {
+            self.addAttribute(.foregroundColor, value: color , range: range3)
+            self.addAttribute(.font, value: font, range: range3 )
+        }
+    }
 
 }

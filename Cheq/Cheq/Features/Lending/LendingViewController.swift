@@ -35,10 +35,12 @@ class LendingViewController: CTableViewController {
         setupUI()
         setupDelegate()
     }
+    
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.layoutSubviews()
+        tableView.setContentOffset(CGPoint.zero, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -364,7 +366,6 @@ extension LendingViewController {
         vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {

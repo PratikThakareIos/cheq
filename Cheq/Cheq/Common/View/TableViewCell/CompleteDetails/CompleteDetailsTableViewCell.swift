@@ -105,7 +105,11 @@ class CompleteDetailsTableViewCell: CTableViewCell {
             self.detailsText.textColor =  AppConfig.shared.activeTheme.mediumGrayColor
             
             let attributedString = NSMutableAttributedString(string:  self.detailsText.text ?? "")
-            attributedString.applyHighlightTwo(text1: "Driver licences", text2: "Passports", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont14)
+            
+//            attributedString.applyHighlightTwo(text1: "Driver licences", text2: "Passports", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont14)
+            
+            attributedString.applyHighlightThree(text1: "Driver's licences", text2: "Passports", text3: "Medicare cards", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont14)
+            
             self.detailsText.attributedText = attributedString
             self.detailsText.setLineSpacing(lineSpacing: 8.0)
                      
@@ -119,6 +123,9 @@ class CompleteDetailsTableViewCell: CTableViewCell {
             self.btnFirst.isHidden = false
             //let margin = 210.0
             //self.linkButtonTopMargin.constant = CGFloat(margin)
+            
+            //To resize cell after getting failed status - Sachin
+//            self.layoutIfNeeded()
  
          }else{
             
