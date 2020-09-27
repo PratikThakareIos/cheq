@@ -284,7 +284,11 @@ class QuestionViewController: UIViewController {
             self.textField3.keyboardType = .numberPad
             self.textField4.keyboardType = .numberPad
         
-        case .companyName, .companyAddress, .residentialAddress, .verifyName, .passport, .medicare:
+        case .companyName, .companyAddress, .residentialAddress,
+             .verifyName, .passport, .medicare, .passportName,
+             .medicareName, .driverLicenseName, .driverLicense,
+             .dateOfBirth, .frankieKycAddress:
+
             showNavBar()
             showBackButton()
 
