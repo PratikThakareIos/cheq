@@ -216,7 +216,6 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             return caption
         
         case .verifyYourDetails:
-            let details = (self.completionState == CompleteDetailsState.inprogress) ? "This usually takes less than 2 minutes, but can take up to 48 hours." : "Complete your details for identity verification."
             switch self.completionState {
             case .inprogress:
                 return "This usually takes less than 2 minutes, but can take up to 48 hours."
@@ -226,7 +225,6 @@ class CompleteDetailsTableViewCellViewModel: TableViewCellViewModelProtocol {
             default:
                 return "Complete your details for identity verification."
             }
-            return details
         
         }
     }

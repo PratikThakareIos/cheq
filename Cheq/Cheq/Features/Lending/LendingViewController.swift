@@ -283,6 +283,7 @@ extension LendingViewController {
         }.done{ overview in
                 AppConfig.shared.hideSpinner {
                     // LoggingUtil.shared.cPrint("\n\nLending view controller = \(overview)")
+                    self.tableView.setContentOffset(.zero, animated: false)
                     self.renderLending(overview)
                     
                     if (self.isShowCashoutSuccessPopup){
@@ -366,6 +367,7 @@ extension LendingViewController {
         vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
     
     func showTransactionSelectionScreen() {

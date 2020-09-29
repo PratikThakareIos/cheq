@@ -7636,7 +7636,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Sachin Amrale (2V559K343N)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -7670,7 +7670,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.uat;
 				PRODUCT_NAME = "Cheq-UAT";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_NewUAT;
@@ -7692,7 +7692,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Sachin Amrale (2V559K343N)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7725,7 +7725,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.uat;
 				PRODUCT_NAME = "Cheq-UAT";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_NewUAT;
@@ -7842,7 +7842,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -7864,7 +7864,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = Cheq;
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_Prod_Dev;
@@ -7883,7 +7883,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -7904,7 +7904,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq;
 				PRODUCT_NAME = Cheq;
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_Prod_Dev;
@@ -8044,7 +8044,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Sachin Amrale (2V559K343N)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
@@ -8078,7 +8078,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_Development;
@@ -8101,7 +8101,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cheq/Cheq.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Sachin Amrale (2V559K343N)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 8QRN52F553;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
@@ -8134,7 +8134,7 @@
 					"$(PROJECT_DIR)",
 					"\"${PODS_ROOT}/OpenSSL-Universal/lib-ios\"",
 				);
-				MARKETING_VERSION = 2.1.8;
+				MARKETING_VERSION = 2.1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.cheq.dev;
 				PRODUCT_NAME = "Cheq-DEV";
 				PROVISIONING_PROFILE_SPECIFIER = Cheq_Development;

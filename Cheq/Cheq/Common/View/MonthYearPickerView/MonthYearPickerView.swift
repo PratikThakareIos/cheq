@@ -12,7 +12,8 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
     
     var months: [String]!
     var years: [Int]!
-    
+        
+    private var minMonth: Int?
     var month = Calendar.current.component(.month, from: Date()) {
         didSet {
             selectRow(month-1, inComponent: 0, animated: false)
@@ -29,19 +30,23 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonSetup()
+        self.commonSetup(minDate: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.commonSetup()
+        self.commonSetup(minDate: nil)
     }
     
-    func commonSetup() {
+    func commonSetup(minDate: Date?) {
         // population years
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        if let minDate = minDate {
+            minMonth = calendar.component(.month, from: minDate)
+        }
         var years: [Int] = []
         if years.count == 0 {
-            var year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
+            var year = calendar.component(.year, from: NSDate() as Date)
             for _ in 1...15 {
                 years.append(year)
                 year += 1
@@ -61,7 +66,7 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         self.delegate = self
         self.dataSource = self
         
-        let currentMonth = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.month, from: NSDate() as Date)
+        let currentMonth = calendar.component(.month, from: NSDate() as Date)
         self.selectRow(currentMonth - 1, inComponent: 0, animated: false)
         self.selectRow(0, inComponent: 1, animated: false)
     }
@@ -97,8 +102,15 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let month = self.selectedRow(inComponent: 0)+1
         let year = years[self.selectedRow(inComponent: 1)]
+        let currentYear = Calendar(identifier: .gregorian).component(.year, from: Date())
         if let block = onDateSelected {
-            block(month, year)
+            if let minMonth = minMonth, year == currentYear {
+                if month >= minMonth {
+                    block(month, year)
+                }
+            } else {
+                block(month, year)
+            }
         }
         
         self.month = month

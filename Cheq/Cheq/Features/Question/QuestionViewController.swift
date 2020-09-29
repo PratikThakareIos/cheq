@@ -164,9 +164,9 @@ class QuestionViewController: UIViewController {
         case .dayMonthYear:
             textField.inputView = nil
         case .monthYear:
-            pickerView.commonSetup()
+            pickerView.commonSetup(minDate: Date())
             pickerView.onDateSelected = { month, year in
-                textField.text = String(format: "%02d/%d", month, year)
+                textField.text = String(format: "%02d-%d", month, year)
             }
             textField.inputView = pickerView
             textField.tintColor = .clear
@@ -304,7 +304,6 @@ class QuestionViewController: UIViewController {
         statePickerView.dataSource = self
         statePickerView.delegate = self
         statePickerView.isHidden = true
-        self.view.addSubview(statePickerView)
     }
     
     func updateKeyboardViews() {
@@ -378,19 +377,28 @@ class QuestionViewController: UIViewController {
                 self.textField1.text = number
                 self.textField2.text = position
                 self.viewModel.save(QuestionField.color.rawValue, value:color)
+                let c = Calendar(identifier: .gregorian)
+                let date = c.date(from: DateComponents(year: year, month: userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0, day: userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0))
+                let formatter = DateFormatter()
+                
                 switch color {
                 case "Green":
-                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
+                    formatter.dateFormat = "MM-yyyy"
+                    pickerView.month = userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0
+                    pickerView.year = userDefault.value(forKey: QuestionField.medicareValidToYear.rawValue) as? Int ?? 0
+                    validityForMedicareCard = formatter.string(from: date!)
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 0
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
                 case "Yellow":
-                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
+                    formatter.dateFormat = "dd-MM-yyyy"
+                    validityForMedicareCard = formatter.string(from: date!)
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 1
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
                 case "Blue":
-                    validityForMedicareCard = "\(userDefault.value(forKey: QuestionField.medicareValidToDay.rawValue) as? Int ?? 0)-\(userDefault.value(forKey: QuestionField.medicareValidToMonth.rawValue) as? Int ?? 0)-\(year)"
+                    formatter.dateFormat = "dd-MM-yyyy"
+                    validityForMedicareCard = formatter.string(from: date!)
                     self.textField3.text = validityForMedicareCard
                     self.segmentedControl.selectedItemIndex = 2
                     self.segmentedControl.sendActions(for: UIControl.Event.valueChanged)
@@ -1337,7 +1345,7 @@ extension QuestionViewController: UITextFieldDelegate {
             }else if textField == self.textField2{
                 return self.getMaxLenghtOfTextfield(maxLength: 1, textField: textField, range: range, string: string)
             }else{
-                return true
+                return false // ignore changing valid date via textfield for medicard
             }
         }else if viewModel.coordinator.type == .frankieKycAddress{
             if textField == self.textField5{
