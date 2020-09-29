@@ -304,7 +304,6 @@ class QuestionViewController: UIViewController {
         statePickerView.dataSource = self
         statePickerView.delegate = self
         statePickerView.isHidden = true
-        self.view.addSubview(statePickerView)
     }
     
     func updateKeyboardViews() {
