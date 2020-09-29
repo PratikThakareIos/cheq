@@ -283,6 +283,7 @@ extension LendingViewController {
         }.done{ overview in
                 AppConfig.shared.hideSpinner {
                     // LoggingUtil.shared.cPrint("\n\nLending view controller = \(overview)")
+                    self.tableView.setContentOffset(.zero, animated: false)
                     self.renderLending(overview)
                     
                     if (self.isShowCashoutSuccessPopup){
