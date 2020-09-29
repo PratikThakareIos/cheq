@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -140,6 +140,7 @@
                                     <constraint firstAttribute="bottom" secondItem="KlD-uW-Tkn" secondAttribute="bottom" id="7fP-Il-B0g"/>
                                     <constraint firstAttribute="trailing" secondItem="KlD-uW-Tkn" secondAttribute="trailing" constant="1" id="JCs-xJ-syj"/>
                                     <constraint firstItem="KlD-uW-Tkn" firstAttribute="leading" secondItem="faK-WK-DHs" secondAttribute="leading" constant="1" id="Khp-tD-IOC"/>
+                                    <constraint firstAttribute="height" constant="362" id="U9k-6j-GRt"/>
                                     <constraint firstItem="KlD-uW-Tkn" firstAttribute="top" secondItem="faK-WK-DHs" secondAttribute="top" constant="2" id="kKb-t4-3H3"/>
                                 </constraints>
                             </view>
@@ -157,6 +158,7 @@
             <connections>
                 <outlet property="btnFirst" destination="ERB-QJ-IQg" id="TGV-KP-20O"/>
                 <outlet property="detailsSection" destination="faK-WK-DHs" id="uGA-AA-68I"/>
+                <outlet property="detailsSectionHeightConstraint" destination="U9k-6j-GRt" id="dRp-ZJ-6SP"/>
                 <outlet property="detailsText" destination="9kI-OW-wFb" id="O5U-y7-4Hf"/>
                 <outlet property="expandButton" destination="MjU-wz-51R" id="voN-fC-Nd2"/>
                 <outlet property="header" destination="jje-jh-Sha" id="QV6-mw-1jz"/>
