@@ -35,6 +35,7 @@ class WebViewController: UIViewController {
         self.hideBackTitle()
         self.vwClose.isHidden = true
         self.webView.backgroundColor = .clear
+        self.webView.uiDelegate = self
         
         self.title = ""
         if viewModel.url ==  links.privacy.rawValue {
@@ -100,4 +101,15 @@ extension WebViewController: WKNavigationDelegate {
          LoggingUtil.shared.cPrint("webView didFail navigation")
         AppConfig.shared.hideSpinner()
     }
+}
+
+extension WebViewController: WKUIDelegate {
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        if navigationAction.targetFrame == nil {
+            //webView.load(navigationAction.request)
+            UIApplication.shared.open(navigationAction.request.url!, options: [:])
+        }
+        return nil
+    }
+
 }
