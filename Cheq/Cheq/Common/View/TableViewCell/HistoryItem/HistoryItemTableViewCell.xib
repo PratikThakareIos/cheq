@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,9 @@
         </array>
         <array key="SFProText-Regular.ttf">
             <string>SFProText-Regular</string>
+        </array>
+        <array key="SFUIText-Semibold.ttf">
+            <string>SFUIText-Semibold</string>
         </array>
     </customFonts>
     <objects>
@@ -29,10 +32,10 @@
                         <rect key="frame" x="16" y="8" width="288" height="110"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="p0A-OK-hI2">
-                                <rect key="frame" x="0.0" y="0.0" width="288" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="40.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMF-F2-RPc">
-                                        <rect key="frame" x="0.0" y="0.0" width="32" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="40.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="W7I-KW-J3G">
                                                 <rect key="frame" x="4" y="0.0" width="24" height="24"/>
@@ -100,8 +103,43 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDO-B7-2SN">
+                                <rect key="frame" x="0.0" y="60.5" width="288" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kba-nG-ffu">
+                                        <rect key="frame" x="40" y="0.0" width="105" height="40"/>
+                                        <color key="backgroundColor" red="0.48627450980392156" green="0.65490196078431373" blue="0.73725490196078436" alpha="0.10280039612676056" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="BJy-Im-Ibu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
+                                        <state key="normal" title="Repay early">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1D-Ta-5aO">
+                                        <rect key="frame" x="155" y="0.0" width="123" height="40"/>
+                                        <color key="backgroundColor" red="0.48627450980392156" green="0.65490196078431373" blue="0.73725490196078436" alpha="0.10007702464788733" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="14"/>
+                                        <state key="normal" title="Snooze and delay">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Z1D-Ta-5aO" secondAttribute="trailing" constant="10" id="Asd-CZ-VrX"/>
+                                    <constraint firstItem="Z1D-Ta-5aO" firstAttribute="top" secondItem="iDO-B7-2SN" secondAttribute="top" id="Idg-Zv-Czr"/>
+                                    <constraint firstItem="kba-nG-ffu" firstAttribute="top" secondItem="iDO-B7-2SN" secondAttribute="top" id="gWq-E0-NRs"/>
+                                    <constraint firstAttribute="height" constant="40" id="ioP-Cu-0gN"/>
+                                    <constraint firstItem="kba-nG-ffu" firstAttribute="leading" secondItem="iDO-B7-2SN" secondAttribute="leading" constant="40" id="ooc-i9-Zsx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z1D-Ta-5aO" secondAttribute="bottom" id="tWp-a6-RdN"/>
+                                    <constraint firstItem="Z1D-Ta-5aO" firstAttribute="leading" secondItem="kba-nG-ffu" secondAttribute="trailing" constant="10" id="wvx-93-jWS"/>
+                                    <constraint firstAttribute="bottom" secondItem="kba-nG-ffu" secondAttribute="bottom" id="ygd-s8-M8i"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info message text here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI7-TE-nZh">
-                                <rect key="frame" x="0.0" y="93" width="288" height="17"/>
+                                <rect key="frame" x="0.0" y="105.5" width="288" height="4.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,6 +148,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Uha-y1-ekg"/>
+                            <constraint firstItem="HI7-TE-nZh" firstAttribute="top" secondItem="iDO-B7-2SN" secondAttribute="bottom" constant="5" id="XtO-VL-ubp"/>
+                            <constraint firstItem="iDO-B7-2SN" firstAttribute="top" secondItem="p0A-OK-hI2" secondAttribute="bottom" constant="20" id="dSL-bS-s3B"/>
+                            <constraint firstAttribute="trailing" secondItem="iDO-B7-2SN" secondAttribute="trailing" id="eMl-qt-OrZ"/>
+                            <constraint firstItem="iDO-B7-2SN" firstAttribute="leading" secondItem="HI7-TE-nZh" secondAttribute="leading" id="mnH-bP-Sq3"/>
+                            <constraint firstItem="iDO-B7-2SN" firstAttribute="leading" secondItem="8Yp-Qs-lOW" secondAttribute="leading" constant="10" id="sgX-tq-tuI"/>
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwG-Rz-MfB">
@@ -142,6 +185,8 @@
                 <outlet property="itemCaption" destination="YFD-Ln-a0U" id="0Sq-aG-5GM"/>
                 <outlet property="itemTitle" destination="EMH-Lj-Wvf" id="XMs-Ir-mrc"/>
                 <outlet property="itemTitleStatus" destination="vKV-vZ-IFO" id="SuU-Ok-vKL"/>
+                <outlet property="replayEarlyButton" destination="kba-nG-ffu" id="jhu-Od-f0c"/>
+                <outlet property="snoozeButton" destination="Z1D-Ta-5aO" id="ErJ-EQ-82e"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="145.3125"/>
         </tableViewCell>

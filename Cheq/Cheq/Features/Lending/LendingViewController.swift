@@ -236,9 +236,11 @@ extension LendingViewController {
     }
     
     @objc func loanActivityClicked(_ notification: NSNotification) {
-        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
-            self.openCashOutActivityPopUpWith(loanActivity: obj)
-        }
+        
+        self.popup_EarlyRepayment()
+//        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
+//            self.openCashOutActivityPopUpWith(loanActivity: obj)
+//        }
     }
 
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
@@ -450,6 +452,24 @@ extension LendingViewController: VerificationPopupVCDelegate{
                            emoji: UIImage(named: "success"))
      }
     
+    
+    func popup_EarlyRepayment(){
+        self.openPopupWith(heading: "Early repayment",
+        message: "Sorry, but it’s too late to change the repayment date. Please try at least 1 day before the scheduled repayment.",
+        buttonTitle: "",
+        showSendButton: false,
+        emoji: UIImage(named: "emojiSad"))
+    }
+    
+    func popup_EarlyRepaymentSuccess(){
+        
+        let message  = "$200 will be direct debited from your Choice-1154 account. Make sure you have the necessary funds available.\n\nYou should be able to cash out again on Wed, 18 Sep once all repayments have been settled.\n"
+        let attributedString = NSMutableAttributedString(string: message)
+        attributedString.applyHighlightThree(text1: "$200", text2: "Choice-1154", text3: "Wed, 18 Sep", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont)
+        
+        self.openPopupWithAttributedText(heading: "Early repayment", message: nil, attr_message: attributedString, buttonTitle: "Repay early", showSendButton: true, emoji: UIImage(named: "emoji01"))
+    }
+    
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
@@ -460,10 +480,32 @@ extension LendingViewController: VerificationPopupVCDelegate{
             popupVC.buttonTitle = buttonTitle ?? ""
             popupVC.showSendButton = showSendButton ?? false
             popupVC.emojiImage = emoji ?? UIImage()
+            popupVC.isChangeLineHight = true
             self.tabBarController?.present(popupVC, animated: false, completion: nil)
         }
     }
     
+    func openPopupWithAttributedText(heading:String?, message:String?, attr_message:NSMutableAttributedString, buttonTitle:String?, showSendButton:Bool?, emoji:UIImage?){
+    
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.attributedMessage = attr_message
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            
+            popupVC.isChangeLineHight = true
+            popupVC.isShowViewSecurityImage = false
+            
+            self.present(popupVC, animated: false, completion: nil)
+        }
+        
+    }
+        
     func tappedOnSendButton(){
  
     }

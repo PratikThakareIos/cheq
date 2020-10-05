@@ -33,7 +33,11 @@ class HistoryItemTableViewCell: CTableViewCell {
     /// refer to **xib** for layout
     @IBOutlet weak var feeLabel: UILabel!
     
+    
+    @IBOutlet weak var replayEarlyButton: UIButton!
 
+    @IBOutlet weak var snoozeButton: UIButton!
+    
     /// called when init from **xib**
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,6 +68,15 @@ class HistoryItemTableViewCell: CTableViewCell {
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
         iconImage.image = UIImage(named: historyItemVm.imageIcon())
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.replayEarlyButton.layer.cornerRadius = 10
+        self.replayEarlyButton.clipsToBounds = true
+        self.snoozeButton.layer.cornerRadius = 10
+        self.snoozeButton.clipsToBounds = true
     }
     
     @IBAction func btnClickedOnCell(_ sender: Any) {
