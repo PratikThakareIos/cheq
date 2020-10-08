@@ -304,6 +304,56 @@ open class LendingAPI {
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    
+    //post repayment request
+    
+    open class func postRepaymentPay(request: PostRepaymentPayRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postRepaymentPayWithRequestBuilder(request: request).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    open class func postRepaymentPayWithRequestBuilder(request: PostRepaymentPayRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/v1/Lending/repayments/pay"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+    
+    
+    // PUT repayment defer
+    
+    open class func putRepaymentDefer(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        putRepaymentDeferWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    open class func putRepaymentDeferWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v1/Lending/repayments/defer"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
 
     /**
 

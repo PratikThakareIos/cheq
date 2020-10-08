@@ -37,6 +37,10 @@ class HistoryItemTableViewCellViewModel: TableViewCellViewModelProtocol {
     /// fee value for fee label on table view cell
     var fee: String = "fee $10"
     
+    /// for early pay and snooze - sachin
+    var CanDefer = false
+    var CanRepayEarly = false
+    
 //    /// image name of **HistoryItemTableViewCell** depending on **cashDirection**
 //    func imageIcon()->String {
 //        return self.cashDirection == .debit ? "debit" : "credit"

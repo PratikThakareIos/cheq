@@ -435,7 +435,10 @@ class TestUtil {
        
         // let loanSetting = LoanSetting(maximumAmount: 200, minimalAmount: 100, incrementalAmount: 100)
         let loanActivities = [LoanActivity]()
-        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities)
+        
+//        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities)
+        
+        let borrowOverview = BorrowOverview(availableCashoutAmount: 200, activities: TestUtil.shared.testLoanActivities(), allActivities: loanActivities, repaymentAction: RepaymentAction(nextCashoutDateAfterRepay: "2020-5-10", nextRepaymentDateAfterDefer: "2020-5-10", hasMissedRepayment: true, canRepayEarly: true, canDefer: true))
         
         let eligibleRequirement = EligibleRequirement(hasEmploymentDetail: true, hasPayCycle: true, isReviewingPayCycle: true, hasProofOfProductivity: true, userAction: .none, hasBankAccountDetail: true, kycStatus: EligibleRequirement.KycStatus.success, proofOfAddressStatus: .success, useFrankieKyc: false)
         
@@ -447,7 +450,10 @@ class TestUtil {
     
         let recentBorrowingSummary = RecentBorrowingSummary(totalCashRequested: 200.0, totalRepaymentAmount: 200.0, totalFees: 10.0, feesPercent: 5.0, repaymentDate: repaymentDate, hasOverdueLoans: true)
         
-        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
+//        let lendingOverview = GetLendingOverviewResponse(loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
+        
+        let lendingOverview = GetLendingOverviewResponse(bankAccount: BankAccount(maskedNumber: "12345"), loanSetting: loanSetting, borrowOverview: borrowOverview, recentBorrowings: recentBorrowingSummary, eligibleRequirement: eligibleRequirement, decline: nil)
+        
         return lendingOverview
     }
     

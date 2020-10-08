@@ -309,6 +309,52 @@ extension CheqAPIManager {
             }
     }
     
+    func repaymentDefer()->Promise<Void>{
+        return Promise<Void>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                LendingAPI.putRepaymentDeferWithRequestBuilder().addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                        NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+                        return
+                    }
+                    
+                    resolver.fulfill(())
+                })
+            }.catch { err in
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+            }
+        }
+    }
+    
+    
+    func repaymentPay(amount: Double)->Promise<Void> {
+        return Promise<Void>() { resolver in
+            AuthConfig.shared.activeManager.getCurrentUser().done { authUser in
+                let token = authUser.authToken() ?? ""
+                let req = DataHelperUtil.shared.postRepaymentPayRequest(amount: amount)
+                LendingAPI.postRepaymentPayWithRequestBuilder(request: req).addHeader(name: HttpHeaderKeyword.authorization.rawValue, value: "\(HttpHeaderKeyword.bearer.rawValue) \(token)").execute({ (response, err) in
+                    if let error = err {
+                        LoggingUtil.shared.cPrint(error)
+                        resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                        NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+                        return
+                    }
+                    
+                    resolver.fulfill(())
+                })
+            }.catch { err in
+                LoggingUtil.shared.cPrint(err)
+                resolver.reject(CheqAPIManagerError_Lending.unableToProcessBorrow)
+                NotificationUtil.shared.notify(UINotificationEvent.swipeReset.rawValue, key: "", value: "")
+            }
+        }
+    }
+    
 }
 
 

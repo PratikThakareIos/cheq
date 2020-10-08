@@ -37,6 +37,10 @@ class HistoryItemTableViewCell: CTableViewCell {
     @IBOutlet weak var replayEarlyButton: UIButton!
 
     @IBOutlet weak var snoozeButton: UIButton!
+    @IBOutlet weak var buttonWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backgroundButton: UIButton!
+    
+    @IBOutlet weak var buttonViewHeightConstraint: NSLayoutConstraint!
     
     /// called when init from **xib**
     override func awakeFromNib() {
@@ -68,6 +72,12 @@ class HistoryItemTableViewCell: CTableViewCell {
         feeLabel.font = AppConfig.shared.activeTheme.defaultFont
         feeLabel.text = historyItemVm.fee
         iconImage.image = UIImage(named: historyItemVm.imageIcon())
+        
+        self.replayEarlyButton.isHidden = !historyItemVm.CanRepayEarly
+        self.snoozeButton.isHidden = !historyItemVm.CanDefer
+        self.buttonWidthConstraint.constant = historyItemVm.CanRepayEarly ? 105 : 0
+        
+        self.buttonViewHeightConstraint.constant = (historyItemVm.CanRepayEarly || historyItemVm.CanDefer) ? 40 : 0
     }
     
     
@@ -79,10 +89,19 @@ class HistoryItemTableViewCell: CTableViewCell {
         self.snoozeButton.clipsToBounds = true
     }
     
+    @IBAction func repayEarlyClciked(_ sender: UIButton) {
+        let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
+        NotificationUtil.shared.notify(UINotificationEvent.clickedOnEarlyPay.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
+    }
+    
+    
+    @IBAction func snooozeClicked(_ sender: UIButton) {
+        let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
+        NotificationUtil.shared.notify(UINotificationEvent.clickedOnSnooze.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
+    }
+    
     @IBAction func btnClickedOnCell(_ sender: Any) {
         let historyItemVm = self.viewModel as! HistoryItemTableViewCellViewModel
-        LoggingUtil.shared.cPrint("btnClickedOnCell")
-        //LoggingUtil.shared.cPrint(historyItemVm.loanActivity as Any)
         NotificationUtil.shared.notify(UINotificationEvent.clickedOnActivity.rawValue, key: NotificationUserInfoKey.loanActivity.rawValue , object: historyItemVm.loanActivity)
     }
     

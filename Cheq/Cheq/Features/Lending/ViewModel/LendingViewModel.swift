@@ -307,9 +307,9 @@ extension LendingViewModel {
             let activityItem = HistoryItemTableViewCellViewModel()
             activityItem.loanActivity = loanActivity
             let amount = loanActivity.amount ?? 0.0
-
             
             let type: LoanActivity.ModelType = loanActivity.type ?? .cashout
+            let status: LoanActivity.Status = loanActivity.status ?? .unprocessed
             
             let amt = floor(amount)
             let strAmount = String(format: "$%.1f", amt)
@@ -321,6 +321,14 @@ extension LendingViewModel {
                  activityItem.itemTitle = "Cash out"
                  activityItem.amount = String("\(amountString)")
                  activityItem.itemCaption = loanActivity.date ?? ""
+            }else if type == .repayment {
+                if status == .unprocessed{
+                    activityItem.CanDefer =  false
+                    activityItem.CanRepayEarly = false
+                }else{
+                    activityItem.CanDefer =  true
+                    activityItem.CanRepayEarly = true
+                }
             } else {
                  activityItem.itemTitle = type.rawValue
                  activityItem.amount = String("-\(amountString)")

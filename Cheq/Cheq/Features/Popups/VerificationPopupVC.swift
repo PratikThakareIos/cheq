@@ -28,6 +28,14 @@ class VerificationPopupVC: UIViewController {
     @IBOutlet weak var btnLearnMore: UIButton!
     @IBOutlet weak var popViewBottom: NSLayoutConstraint!
     
+    @IBOutlet weak var snoozeDateView: UIView!
+    
+    @IBOutlet weak var securityImageStackView: UIStackView!
+    
+    @IBOutlet weak var snoozeOldDate: UILabel!
+    
+    @IBOutlet weak var snoozeNewDate: UILabel!
+    
     var delegate:VerificationPopupVCDelegate?
     
     var emojiImage = UIImage()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i00-7e-GcH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i00-7e-GcH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,6 +19,9 @@
         </array>
         <array key="SFProText-Semibold.ttf">
             <string>SFProText-Semibold</string>
+        </array>
+        <array key="SFUIText-Semibold.ttf">
+            <string>SFUIText-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -60,6 +63,39 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFh-zg-9Uh">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="58"/>
                                                         <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-nL-b1Q">
+                                                                <rect key="frame" x="0.0" y="0.0" width="334" height="58"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-z4-iw5">
+                                                                        <rect key="frame" x="138.5" y="29" width="0.0" height="0.0"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="18"/>
+                                                                        <color key="textColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next-arrow-purple" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-wQ-aOs">
+                                                                        <rect key="frame" x="158.5" y="23" width="17" height="12"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="12" id="1Ar-x5-Tgl"/>
+                                                                            <constraint firstAttribute="width" constant="17" id="MJv-va-gQQ"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLb-Mt-ifa">
+                                                                        <rect key="frame" x="195.5" y="29" width="0.0" height="0.0"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIText-Semibold" family="SF UI Text" pointSize="18"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="nmC-wQ-aOs" firstAttribute="leading" secondItem="Swd-z4-iw5" secondAttribute="trailing" constant="20" id="L6y-50-1NT"/>
+                                                                    <constraint firstItem="nmC-wQ-aOs" firstAttribute="centerX" secondItem="EDf-nL-b1Q" secondAttribute="centerX" id="RQ0-2z-ykn"/>
+                                                                    <constraint firstItem="Swd-z4-iw5" firstAttribute="centerY" secondItem="nmC-wQ-aOs" secondAttribute="centerY" id="V33-kF-PnA"/>
+                                                                    <constraint firstItem="YLb-Mt-ifa" firstAttribute="leading" secondItem="nmC-wQ-aOs" secondAttribute="trailing" constant="20" id="eJI-Un-zXS"/>
+                                                                    <constraint firstItem="nmC-wQ-aOs" firstAttribute="centerY" secondItem="EDf-nL-b1Q" secondAttribute="centerY" id="h1e-zU-yQf"/>
+                                                                    <constraint firstItem="YLb-Mt-ifa" firstAttribute="centerY" secondItem="nmC-wQ-aOs" secondAttribute="centerY" id="zxC-ju-Vcy"/>
+                                                                </constraints>
+                                                            </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G8t-Xi-jSv">
                                                                 <rect key="frame" x="105" y="13" width="124" height="32"/>
                                                                 <subviews>
@@ -77,8 +113,12 @@
                                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="G8t-Xi-jSv" secondAttribute="bottom" constant="2" id="5bc-Ek-ak4"/>
                                                             <constraint firstItem="G8t-Xi-jSv" firstAttribute="centerX" secondItem="BFh-zg-9Uh" secondAttribute="centerX" id="7x6-N4-GU3"/>
                                                             <constraint firstItem="G8t-Xi-jSv" firstAttribute="centerY" secondItem="BFh-zg-9Uh" secondAttribute="centerY" id="BAX-hH-c0o"/>
+                                                            <constraint firstAttribute="trailing" secondItem="EDf-nL-b1Q" secondAttribute="trailing" id="Lpn-Bp-ZpC"/>
                                                             <constraint firstAttribute="width" secondItem="BFh-zg-9Uh" secondAttribute="height" multiplier="167:29" id="kwJ-wA-fcu"/>
                                                             <constraint firstItem="G8t-Xi-jSv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BFh-zg-9Uh" secondAttribute="top" constant="2" id="qL7-lq-UvT"/>
+                                                            <constraint firstItem="EDf-nL-b1Q" firstAttribute="leading" secondItem="BFh-zg-9Uh" secondAttribute="leading" id="tLZ-Qn-KJt"/>
+                                                            <constraint firstAttribute="bottom" secondItem="EDf-nL-b1Q" secondAttribute="bottom" id="xSo-2P-weE"/>
+                                                            <constraint firstItem="EDf-nL-b1Q" firstAttribute="top" secondItem="BFh-zg-9Uh" secondAttribute="top" id="yho-RZ-MsW"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95F-7l-lxm" customClass="CNButton" customModule="Cheq" customModuleProvider="target">
@@ -170,7 +210,11 @@
                         <outlet property="lblHeading" destination="y8J-ea-oB5" id="bI7-Mj-SHW"/>
                         <outlet property="lblMessage" destination="VWm-oe-Gex" id="DuY-ND-eQj"/>
                         <outlet property="popViewBottom" destination="arG-pb-h3X" id="rX7-he-jCO"/>
+                        <outlet property="securityImageStackView" destination="G8t-Xi-jSv" id="LW5-tf-wMb"/>
                         <outlet property="sendButton" destination="95F-7l-lxm" id="yn1-6y-dwT"/>
+                        <outlet property="snoozeDateView" destination="EDf-nL-b1Q" id="2tL-N0-ZgI"/>
+                        <outlet property="snoozeNewDate" destination="YLb-Mt-ifa" id="5nP-Rk-bFD"/>
+                        <outlet property="snoozeOldDate" destination="Swd-z4-iw5" id="s5M-qP-GCq"/>
                         <outlet property="viewSecurityImage" destination="BFh-zg-9Uh" id="3eo-Po-3d8"/>
                         <outlet property="vwContainer" destination="fOe-DD-cAT" id="4gH-DK-zEW"/>
                     </connections>
@@ -620,6 +664,7 @@
     </scenes>
     <resources>
         <image name="icon-withdrawal" width="24" height="24"/>
+        <image name="next-arrow-purple" width="16" height="16"/>
         <image name="shield" width="28" height="32"/>
         <image name="ssl" width="86" height="32"/>
     </resources>

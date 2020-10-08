@@ -70,6 +70,8 @@ enum UINotificationEvent: String {
     
     case showMaintenanceVC = "showMaintenanceVC"
     case showUpdateAppVC = "showUpdateAppVC"
+    case clickedOnEarlyPay = "clickedOnEarlyPay"
+    case clickedOnSnooze = "clickedOnSnooze"
 
 }
 

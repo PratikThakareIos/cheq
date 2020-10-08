@@ -16,7 +16,8 @@ class LendingViewController: CTableViewController {
     var isShowCashoutSuccessPopup = false
     var cashOutAmount : Int = 0
     var selectedloanActivity: LoanActivity?
-    
+    var isRepayPopup = false
+    var repayAmount : Double = 0
 
     override func registerCells() {
         
@@ -44,6 +45,7 @@ class LendingViewController: CTableViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.isRepayPopup = false
         activeTimestamp()
         registerObservables()
         NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
@@ -92,6 +94,10 @@ class LendingViewController: CTableViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.loanActivityClicked(_:)), name: NSNotification.Name(UINotificationEvent.clickedOnActivity.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.earlyPayClicked(_:)), name: NSNotification.Name(UINotificationEvent.clickedOnEarlyPay.rawValue), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.snoozeClicked(_:)), name: NSNotification.Name(UINotificationEvent.clickedOnSnooze.rawValue), object: nil)
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(openAgreement(_:)), name: NSNotification.Name(UINotificationEvent.openLink.rawValue), object: nil)
@@ -235,12 +241,55 @@ extension LendingViewController {
        }        
     }
     
+    @objc func earlyPayClicked(_ notification: NSNotification) {
+        guard let loanActivity = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity else {return}
+        if loanActivity.type == .cashout{
+            
+            let accountNumber = self.lendingOverviewResponse?.bankAccount?.maskedNumber ?? ""
+            let date = self.lendingOverviewResponse?.borrowOverview?.repaymentAction?.nextCashoutDateAfterRepay ?? ""
+            let amount = self.lendingOverviewResponse?.borrowOverview?.allActivities?.first?.amount ?? 0
+            self.repayAmount = amount
+            self.popup_EarlyRepaymentSuccess(amount: "$\(amount)", account: accountNumber, date: date)
+            
+            
+//            if let date = loanActivity.repaymentDate{
+//                let paymentDate = date.convertStringToDate()
+//                let days = paymentDate?.days(from: Date()) ?? 0
+//                if days > 1 && self.CheckTime(){
+////                    self.popup_EarlyRepaymentSuccess(amount: loanActivity., account: <#T##String#>, date: <#T##String#>)
+//                }else{
+//                    self.popup_EarlyRepayment()
+//                }
+//            }
+        }
+    }
+    
+    @objc func snoozeClicked(_ notification: NSNotification) {
+        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
+            self.openSnoozePopUpWith(heading: "Snooze repayment date", message: "This action will also move the other repayments to the next schedule. You can only snooze once.", buttonTitle: "Move date", showSendButton: true
+                , emoji: UIImage(named: "snoozeEmoji"), oldDate: "Mon 15, Sep", newDate: "Mon 22, Sep")
+        }
+    }
+    
     @objc func loanActivityClicked(_ notification: NSNotification) {
-        
-        self.popup_EarlyRepayment()
-//        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
-//            self.openCashOutActivityPopUpWith(loanActivity: obj)
-//        }
+        if let obj = notification.userInfo?[NotificationUserInfoKey.loanActivity.rawValue] as? LoanActivity{
+            self.openCashOutActivityPopUpWith(loanActivity: obj)
+        }
+    }
+    
+    func CheckTime()->Bool{
+        let calendar = Calendar.current
+        let endTimeComponent   = DateComponents(calendar: calendar, hour: 18, minute: 30)
+
+        let now = Date()
+        let startOfToday = calendar.startOfDay(for: now)
+        let endTime = calendar.date(byAdding: endTimeComponent, to: startOfToday)!
+
+        if now <= endTime {
+            return true
+        } else {
+            return false
+        }
     }
 
     func renderLending(_ lendingOverview: GetLendingOverviewResponse) {
@@ -461,13 +510,30 @@ extension LendingViewController: VerificationPopupVCDelegate{
         emoji: UIImage(named: "emojiSad"))
     }
     
-    func popup_EarlyRepaymentSuccess(){
-        
-        let message  = "$200 will be direct debited from your Choice-1154 account. Make sure you have the necessary funds available.\n\nYou should be able to cash out again on Wed, 18 Sep once all repayments have been settled.\n"
+    func popup_EarlyRepaymentSuccess(amount: String, account: String, date: String){
+        self.isRepayPopup = true
+        let message  = "\(amount) will be direct debited from your \(account) account. Make sure you have the necessary funds available.\n\nYou should be able to cash out again on \(date) once all repayments have been settled.\n"
         let attributedString = NSMutableAttributedString(string: message)
-        attributedString.applyHighlightThree(text1: "$200", text2: "Choice-1154", text3: "Wed, 18 Sep", color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont)
+        attributedString.applyHighlightThree(text1: amount, text2: account, text3: date, color: .black, font: AppConfig.shared.activeTheme.mediumBoldFont)
         
         self.openPopupWithAttributedText(heading: "Early repayment", message: nil, attr_message: attributedString, buttonTitle: "Repay early", showSendButton: true, emoji: UIImage(named: "emoji01"))
+    }
+    
+    func openSnoozePopUpWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?,oldDate:String?,newDate:String?){
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: StoryboardName.Popup.rawValue, bundle: Bundle.main)
+        if let popupVC = storyboard.instantiateInitialViewController() as? VerificationPopupVC{
+            popupVC.delegate = self
+            popupVC.heading = heading ?? ""
+            popupVC.message = message ?? ""
+            popupVC.buttonTitle = buttonTitle ?? ""
+            popupVC.showSendButton = showSendButton ?? false
+            popupVC.emojiImage = emoji ?? UIImage()
+            popupVC.isChangeLineHight = true
+            popupVC.snoozeOldDate.text = oldDate
+            popupVC.snoozeNewDate.text = newDate
+            self.tabBarController?.present(popupVC, animated: false, completion: nil)
+        }
     }
     
     func openPopupWith(heading:String?,message:String?,buttonTitle:String?,showSendButton:Bool?,emoji:UIImage?){
@@ -507,7 +573,18 @@ extension LendingViewController: VerificationPopupVCDelegate{
     }
         
     func tappedOnSendButton(){
- 
+        if self.isRepayPopup{
+            AppConfig.shared.showSpinner()
+            CheqAPIManager.shared.repaymentPay(amount: self.repayAmount).done { (arg0) in
+                AppConfig.shared.hideSpinner {
+                    self.tableView.reloadData()
+                    NotificationUtil.shared.notify(UINotificationEvent.lendingOverview.rawValue, key: "", value: "")
+                }
+            }.catch { err in
+                LoggingUtil.shared.cPrint(err)
+                AppConfig.shared.hideSpinner {}
+            }
+        }
     }
     
     func tappedOnCloseButton(){

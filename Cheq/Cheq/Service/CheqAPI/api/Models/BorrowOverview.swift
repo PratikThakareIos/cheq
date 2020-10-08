@@ -14,13 +14,30 @@ public struct BorrowOverview: Codable {
     public var availableCashoutAmount: Double?
     public var activities: [LoanActivity]?
     public var allActivities: [LoanActivity]?
+    public var repaymentAction: RepaymentAction?
 
-    public init(availableCashoutAmount: Double?, activities: [LoanActivity]?, allActivities: [LoanActivity]?) {
+    public init(availableCashoutAmount: Double?, activities: [LoanActivity]?, allActivities: [LoanActivity]?, repaymentAction: RepaymentAction?) {
         self.availableCashoutAmount = availableCashoutAmount
         self.activities = activities
         self.allActivities = allActivities
+        self.repaymentAction = repaymentAction
     }
+}
 
+public struct RepaymentAction: Codable {
 
+    public var canRepayEarly: Bool?
+    public var canDefer: Bool?
+    public var nextCashoutDateAfterRepay: String?
+    public var nextRepaymentDateAfterDefer: String?
+    public var hasMissedRepayment: Bool?
+
+    public init(nextCashoutDateAfterRepay: String?, nextRepaymentDateAfterDefer: String?, hasMissedRepayment: Bool?, canRepayEarly: Bool?, canDefer: Bool?) {
+        self.nextCashoutDateAfterRepay = nextCashoutDateAfterRepay
+        self.nextRepaymentDateAfterDefer = nextRepaymentDateAfterDefer
+        self.hasMissedRepayment = hasMissedRepayment
+        self.canRepayEarly = canRepayEarly
+        self.canDefer = canDefer
+    }
 }
 
